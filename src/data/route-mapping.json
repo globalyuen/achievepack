@@ -3,7 +3,7 @@
     "/",
     "/100-compostable-3-side-sealed-pouch-for-drink-liquid-alcohol-etc",
     "/3d-showcase",
-    "/app",
+    "/studio",
     "/auth/callback",
     "/barriers/material-properties",
     "/barriers/overview",
@@ -478,7 +478,7 @@
   "achieve": [
     "/",
     "/3d-showcase",
-    "/app",
+    "/studio",
     "/auth/callback",
     "/biope/bio-pe-epr-regulations",
     "/biope/bio-pe-vs-compostable",
@@ -906,7 +906,7 @@
   "synced": [
     "/",
     "/3d-showcase",
-    "/app",
+    "/studio",
     "/auth/callback",
     "/biope/bio-pe-epr-regulations",
     "/biope/bio-pe-vs-compostable",

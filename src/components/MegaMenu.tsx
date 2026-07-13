@@ -647,7 +647,7 @@ export function RightNavMenu() {
         {/* 3D STUDIO */}
         <div onMouseEnter={() => handleMouseEnter('3d-studio')} onMouseLeave={handleMouseLeave}>
           <Link 
-            to="/app" 
+            to="/studio" 
             className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors whitespace-nowrap ${
               activeMenu === '3d-studio' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'
             }`}
@@ -689,7 +689,7 @@ export function RightNavMenu() {
                     </ul>
                     <div className="pt-1.5">
                       <Link
-                        to="/app"
+                        to="/studio"
                         onClick={() => setActiveMenu(null)}
                         className="flex items-center justify-center gap-1.5 w-full py-2 px-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg text-[11px] font-semibold shadow-lg shadow-primary-600/20 transition-all"
                       >
@@ -711,7 +711,7 @@ export function RightNavMenu() {
                           className="flex-none w-28 snap-start flex flex-col items-center p-2 bg-neutral-50/50 hover:bg-neutral-50 rounded-xl border border-neutral-100 hover:border-primary-200 transition-all group"
                         >
                           <img 
-                            src={`/thumbnails/${pouch.id}.png`} 
+                            src={`/thumbnails/${pouch.id}.png?v=2`} 
                             className="w-24 h-24 rounded-lg object-contain border border-neutral-200 bg-white group-hover:scale-105 transition-all shadow-sm" 
                             alt={pouch.name} 
                           />
@@ -945,7 +945,7 @@ export function RightNavMenu() {
                     
                     {/* 3D Studio */}
                     <Link
-                      to="/app"
+                      to="/studio"
                       className="flex items-center gap-3 p-2 hover:bg-neutral-50 rounded-xl border border-transparent hover:border-neutral-100 transition-all group"
                     >
                       <div className="w-12 h-12 rounded-lg bg-emerald-50 border border-emerald-100 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">

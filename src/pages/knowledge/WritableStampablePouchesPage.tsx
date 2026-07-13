@@ -14,13 +14,114 @@ import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate'
 import { useTranslation } from 'react-i18next'
 import RelatedProductsShowcase from '../../components/RelatedProductsShowcase'
 
+const localTranslations: Record<string, any> = {
+  en: {
+    ryanNotebookTitle: "🔬 From Ryan Wong's Engineering Notebook",
+    ryanNotebookText: "We had a coffee roaster client who pre-printed 10,000 bags for a seasonal single-origin batch, only for the crop to yield half the expected amount due to a late freeze. They lost over $4,000 in unused custom packaging. I advised them to buy blank white Kraft and brown Kraft pouches in bulk, and stamps with biodegradable water-based inks. They could write the origin, roast date, and bag number by hand. This not only saved their cash flow by letting them order 500 bags instead of 5,000, but their customers absolutely loved the rustic, hand-signed artisan look. It felt human, not industrial.",
+    painPointsTitle: "5 Packaging Pain Points & Engineering Solutions",
+    pp1Title: "01 / Plastic Sticker Label Contamination",
+    pp1Desc: "Custom printed sticker labels use synthetic acrylic adhesives and vinyl liners that contaminate and ruin organic compost streams.",
+    pp1Sol: "Solution: Ditch sticker labels entirely; stamp branding and write batch details directly onto porous compostable paper layers using bio-compliant inks.",
+    pp2Title: "02 / Excessive Capital Tied Up in Custom MOQs",
+    pp2Desc: "Startups and micro-packers face high financial risk from 5,000+ unit minimum order runs for custom-printed bags.",
+    pp2Sol: "Solution: Buy plain unprinted pouches in bulk (starting at 500 units) and stamp logos or details on demand, reducing upfront costs by 90%.",
+    pp3Title: "03 / SKU Obsolescence Waste",
+    pp3Desc: "Changing ingredients, net weights, or regulatory compliance text renders pre-printed custom packaging obsolete, causing high landfill waste.",
+    pp3Sol: "Solution: Keep flexible packaging stock blank and stamp SKU-specific variations on-demand, reducing packaging waste to absolute zero.",
+    pp4Title: "04 / Ink Smudging & Bleeding on Paper",
+    pp4Desc: "Ink running or bleeding on paper fibers, causing barcode blurriness or messy smudges during fulfillment.",
+    pp4Sol: "Solution: Utilize porous FSC-certified Kraft or matte paper outer surfaces that absorb water-based or soy-based eco-pigment inks instantly.",
+    pp5Title: "05 / Inner Moisture & Oil Seepage",
+    pp5Desc: "Essential oils or humidity bleeding from inside the bag, ruining the outer paper surface and staining stamped graphics.",
+    pp5Sol: "Solution: Co-extrude the paper surface with high-performance plant-based EVOH internal barriers, guaranteeing 12-month freshness without seepage."
+  },
+  zh: {
+    ryanNotebookTitle: "🔬 Ryan Wong 的包裝工程筆記",
+    ryanNotebookText: "我們曾服務過一家咖啡烘焙商客戶，他們為一款季節性單一源頭咖啡預印了 10,000 個袋子，但由於一場晚霜，作物的產量只有預期的一半。這導致他們在未使用的定制包裝上損失了 4,000 多美元。我建議他們大量購買空白的白色和褐色牛皮紙袋，並使用可生物降解的水性油墨印章。他們可以親手寫下產地、烘焙日期和袋子編號。這不僅通過允許他們訂購 500 個袋子而不是 5,000 個袋子來挽救他們的現金流，而且他們的客戶非常喜歡這種質樸、手簽的匠人外觀。這給人以人性化的感覺，而非工業製品。",
+    painPointsTitle: "5 大包裝痛點與工程解決方案",
+    pp1Title: "01 / 塑料不乾膠貼紙污染",
+    pp1Desc: "定制印刷的貼紙標籤使用合成丙烯酸膠粘劑和乙烯基襯裡，這會污染並破壞有機堆肥流。",
+    pp1Sol: "解決方案：完全放棄貼紙標籤；使用符合環保標準的油墨，直接將品牌和批次詳情蓋印在多孔的可堆肥紙張層上。",
+    pp2Title: "02 / 定制起訂量佔用過多資金",
+    pp2Desc: "初創公司和微型包裝商面臨定制印刷袋 5,000 個起訂量帶來的巨大財務風險。",
+    pp2Sol: "解決方案：批量購買空白無印刷袋（500 個起訂），並根據需要蓋印商標或詳情，將前期成本降低 90%。",
+    pp3Title: "03 / 單品過期造成的包裝浪費",
+    pp3Desc: "更換配料、淨重或法規合規文本會使預印的定制包裝作廢，造成大量垃圾掩埋浪費。",
+    pp3Sol: "解決方案：保持軟包裝庫存空白，並按需蓋印特定單品的變動信息，將包裝浪費降至絕對零。",
+    pp4Title: "04 / 紙張上的油墨蹭糊和暈染",
+    pp4Desc: "油墨在紙張纖維上流動或暈開，導致條形碼模糊或在履行過程中造成髒污。",
+    pp4Sol: "解決方案：利用多孔的 FSC 認證牛皮紙或啞光紙外表面，瞬間吸收水性或大豆基的環保顏料油墨。",
+    pp5Title: "05 / 內部水分和油脂滲透",
+    pp5Desc: "精油或水分從袋子內部滲出，破壞外層紙張表面並弄髒蓋印的圖案。",
+    pp5Sol: "解決方案：在紙張表面共擠出高性能的植物基 EVOH 內部阻隔層，保證 12 個月的保鮮度且不滲漏。"
+  },
+  es: {
+    ryanNotebookTitle: "🔬 De la Libreta de Ingeniería de Ryan Wong",
+    ryanNotebookText: "Tuvimos un cliente tostador de café que imprimió previamente 10,000 bolsas para un lote de origen único de temporada, solo para que la cosecha rindiera la mitad de lo esperado debido a una helada tardía. Perdieron más de $4,000 en empaques personalizados no utilizados. Les aconsejé comprar bolsas Kraft blancas y Kraft marrón en blanco al por mayor, y sellos con tintas biodegradables a base de agua. Podían escribir el origen, la fecha de tueste y el número de bolsa a mano. Esto no solo salvó su flujo de caja al permitirles pedir 500 bolsas en lugar de 5,000, sino que a sus clientes les encantó el aspecto artesanal rústico y firmado a mano. Se sentía humano, no industrial.",
+    painPointsTitle: "5 Problemas de Empaque y Soluciones de Ingeniería",
+    pp1Title: "01 / Contaminación por Etiquetas Adhesivas de Plástico",
+    pp1Desc: "Las etiquetas adhesivas impresas a medida utilizan adhesivos acrílicos sintéticos y revestimientos de vinilo que contaminan las corrientes de compost orgánico.",
+    pp1Sol: "Solución: Elimine las etiquetas adhesivas; selle la marca y escriba los detalles del lote directamente en el papel compostable con tintas ecológicas.",
+    pp2Title: "02 / Exceso de Capital Bloqueado por MOQs Altos",
+    pp2Desc: "Las empresas emergentes y los microenvasadores enfrentan un alto riesgo financiero debido a los mínimos de 5,000 unidades para bolsas personalizadas.",
+    pp2Sol: "Solución: Compre bolsas lisas sin imprimir al por mayor (desde 500 unidades) y selle logotipos o detalles bajo demanda, reduciendo costos un 90%.",
+    pp3Title: "03 / Residuos por Obsolescencia de SKU",
+    pp3Desc: "Los cambios en los ingredientes, pesos netos o textos regulatorios hacen que los empaques preimpresos queden obsoletos, generando basura.",
+    pp3Sol: "Solución: Mantenga las bolsas en blanco y selle las variaciones específicas de SKU bajo demanda, reduciendo el desperdicio a cero.",
+    pp4Title: "04 / Borrado y Sangrado de Tinta en Papel",
+    pp4Desc: "La tinta se corre o sangra en las fibras de papel, causando códigos de barras borrosos o manchas sucias durante el envío.",
+    pp4Sol: "Solución: Utilizar superficies de papel Kraft o mate con certificación FSC que absorban tintas ecológicas a base de agua o soja al instante.",
+    pp5Title: "05 / Filtración Interna de Humedad y Aceite",
+    pp5Desc: "Los aceites esenciales o la humedad se filtran desde el interior, arruinando el papel exterior y manchando los gráficos sellados.",
+    pp5Sol: "Solución: Coextruir la superficie del papel con barreras internas de EVOH vegetal de alto rendimiento, garantizando frescura por 12 meses sin filtraciones."
+  },
+  fr: {
+    ryanNotebookTitle: "🔬 De l'Engineering Notebook de Ryan Wong",
+    ryanNotebookText: "Nous avions un client torréfacteur qui avait pré-imprimé 10 000 sacs pour un lot de café de saison, mais la récolte a été réduite de moitié à cause d'un gel tardif. Ils ont perdu plus de 4 000 $ en emballages inutilisables. Je leur ai conseillé d'acheter des sachets Kraft blancs et marrons vierges et des tampons encreurs biodégradables. Ils pouvaient écrire l'origine, la date de torréfaction et le numéro de sac à la main. Cela a sauvé leur trésorerie en leur permettant de commander 500 sacs au lieu de 5 000, et les clients ont adoré le look artisanal signé à la main. C'était humain, pas industriel.",
+    painPointsTitle: "5 Problèmes d'Emballage & Solutions d'Ingénierie",
+    pp1Title: "01 / Pollution par les Étiquettes Adhésives Synthétiques",
+    pp1Desc: "Les étiquettes collées utilisent des colles acryliques synthétiques et du vinyle qui contaminent les flux de compostage organique.",
+    pp1Sol: "Solution : Supprimer les étiquettes adhésives ; tamponner la marque et écrire les détails directement sur le papier compostable avec des encres végétales.",
+    pp2Title: "02 / Capital Bloqué par des Quantités Minimales (MOQ) Élevées",
+    pp2Desc: "Les jeunes marques font face à un risque financier important à cause des minimums de commande de 5 000 sachets personnalisés.",
+    pp2Sol: "Solution : Acheter des sachets vierges en stock (dès 500 pièces) et tamponner les logos à la demande, réduisant les coûts de 90%.",
+    pp3Title: "03 / Gaspillage par Obsolescence des SKU",
+    pp3Desc: "Les changements de recettes, de poids nets ou de mentions légales rendent les emballages pré-imprimés obsolètes et bons pour la décharge.",
+    pp3Sol: "Solution : Conserver des sachets vierges et tamponner les détails propres au lot à la demande, éliminant tout gaspillage.",
+    pp4Title: "04 / Maculage & Dispersion d'Encre sur Papier",
+    pp4Desc: "L'encre bave ou s'étale sur les fibres du papier, rendant les codes-barres flous ou tachant le sachet lors de la manutention.",
+    pp4Sol: "Solution : Utiliser des surfaces en papier Kraft ou mat certifiées FSC qui absorbent instantanément les encres écologiques à base d'eau ou de soja.",
+    pp5Title: "05 / Infiltration d'Humidité & de Graisse par l'Intérieur",
+    pp5Desc: "Les huiles ou l'humidité du produit traversent le sachet, abîmant le papier externe et effaçant le logo tamponné.",
+    pp5Sol: "Solution : Co-extruder le papier avec une barrière interne EVOH végétale haute performance pour garantir 12 mois de fraîcheur sans fuite."
+  }
+}
+
 const WritableStampablePouchesPage: React.FC = () => {
   const { openCalendly } = useCalendly()
   const isPouchDomain = getDomain() === 'pouch'
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const currentLang = i18n.language || 'en'
+  const langKey = currentLang.startsWith('zh') ? 'zh' : currentLang.startsWith('fr') ? 'fr' : currentLang.startsWith('es') ? 'es' : 'en'
+  const lt = localTranslations[langKey]
   const p = 'seoPages.pages.writableStampablePouches'
 
   const sections = [
+    {
+      id: 'engineers-log',
+      title: lt.ryanNotebookTitle,
+      icon: <Leaf className="h-5 w-5 text-emerald-600" />,
+      content: (
+        <div className="bg-emerald-950 text-emerald-100 p-6 rounded-2xl border border-emerald-900 text-left">
+          <p className="text-emerald-400 text-xs font-semibold mb-2 uppercase tracking-wide">
+            {langKey === 'zh' ? '工程師備忘錄' : 'Engineering Memo'}
+          </p>
+          <p className="text-emerald-100 text-xs leading-relaxed italic">
+            "{lt.ryanNotebookText}"
+          </p>
+        </div>
+      )
+    },
     {
       id: 'why-writable-stampable',
       title: t(`${p}.sections.why.title`, 'Why Writable & Stampable Pouches are Essential for Eco-Packers'),
@@ -89,6 +190,13 @@ const WritableStampablePouchesPage: React.FC = () => {
               </p>
             </div>
           </div>
+          <div className="mt-6">
+            <ClickableImage 
+              src="/imgs/knowledge/unprinted-pouch-samples-pain-points.jpg" 
+              alt="Unprinted blank Kraft and white matte pouches for custom branding stamps"
+              className="w-full max-w-lg rounded-xl shadow-md border"
+            />
+          </div>
         </div>
       )
     },
@@ -116,13 +224,46 @@ const WritableStampablePouchesPage: React.FC = () => {
               </p>
               <p className="text-[10px] font-bold text-neutral-500 mt-2">{t(`${p}.sections.insights.author2`, '— r/CoffeeRoasting Small Business Owner')}</p>
             </div>
-
+            
             <div className="border-l-4 border-amber-500 bg-neutral-50 p-4 rounded-r-xl">
               <p className="text-xs italic text-neutral-600 leading-relaxed">
                 {t(`${p}.sections.insights.quote3`, '"There is a huge premium placed on hand-crafted look today. Customers are tired of hyper-glossy corporate packages that look like mass production. A clean, hand-stamped white matte or Kraft bag tells our buyers that their coffee was roasted, packed, and signed by a real human hand."')}
               </p>
               <p className="text-[10px] font-bold text-neutral-500 mt-2">{t(`${p}.sections.insights.author3`, '— r/smallbusiness DTC Brand founder')}</p>
             </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'pain-points-solved',
+      title: lt.painPointsTitle,
+      icon: <Shield className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-left">
+          <div className="grid grid-cols-1 gap-4">
+            {[
+              { title: lt.pp1Title, desc: lt.pp1Desc, sol: lt.pp1Sol },
+              { title: lt.pp2Title, desc: lt.pp2Desc, sol: lt.pp2Sol },
+              { title: lt.pp3Title, desc: lt.pp3Desc, sol: lt.pp3Sol },
+              { title: lt.pp4Title, desc: lt.pp4Desc, sol: lt.pp4Sol },
+              { title: lt.pp5Title, desc: lt.pp5Desc, sol: lt.pp5Sol }
+            ].map((card, i) => (
+              <div key={i} className="p-5 border border-neutral-200 rounded-xl bg-white shadow-sm hover:border-primary-300 transition">
+                <h4 className="text-sm font-bold text-neutral-900 mb-1">{card.title}</h4>
+                <p className="text-neutral-600 text-xs mb-3">{card.desc}</p>
+                <div className="text-xs font-semibold text-primary-700 bg-primary-50/50 p-2.5 rounded-lg border border-primary-100">
+                  {card.sol}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="my-6">
+            <ClickableImage 
+              src="/imgs/knowledge/compostable-packaging-pain-points.jpg" 
+              alt="5 common writable and stampable packaging pain points and engineering solutions infographic"
+              className="w-full max-w-lg rounded-xl shadow-md border"
+            />
           </div>
         </div>
       )
@@ -181,7 +322,7 @@ const WritableStampablePouchesPage: React.FC = () => {
     {
       id: "related-store-products",
       title: t('seo.relatedProducts.sectionTitle', "Related Products & Equipment"),
-      icon: <Box className="h-6 w-6" />,
+      icon: <Box className="h-6 w-6 text-neutral-800" />,
       content: <RelatedProductsShowcase productIds={['unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch', 'eco-custom-label']} />
     }
   ]

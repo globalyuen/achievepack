@@ -28,6 +28,8 @@ export default defineConfig({
   build: {
     // Target modern browsers for smaller bundles
     target: 'es2020',
+    // Disable emptying outDir to prevent ENOTEMPTY on macOS
+    emptyOutDir: false,
     // Enable CSS code splitting
     cssCodeSplit: true,
     // Increase chunk size warning limit

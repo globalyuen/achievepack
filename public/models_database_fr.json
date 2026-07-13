@@ -107,7 +107,7 @@
     "dimensions": "产品尺寸：H:186mm   D:27mm",
     "description": "Taille du plan d'emballage : L : 40 mm H : 160 mm Couramment utilisé dans le stockage de dentifrice et de médicaments Marque/produit de référence : Dentifrice noir Capacité recommandée : 120 g",
     "slug": "plastic-tube-1101",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1105",
@@ -184,7 +184,7 @@
     "dimensions": "产品尺寸：H:133mm  D:38mm",
     "description": "Taille de la carte d'emballage : L : 74 mm H : 103 mm Couramment utilisé dans le stockage des nettoyants pour le visage et des crèmes pour les mains Marque/produit de référence : Nettoyant pour le visage Xueran Capacité recommandée : 30 g",
     "slug": "plastic-tube-1191",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1192",
@@ -193,7 +193,7 @@
     "dieline_image": "/dielines/1192.png",
     "glb_file": "/models/1192.glb",
     "dimensions": "产品尺寸：H:80mm  W:10mm L:125mm",
-    "description": "Taille du plan d'emballage : L : 125 mm H : 170 mm Couramment utilisé dans le stockage des essuie-tout et des lingettes humides Marque/produit de référence : Papier mouchoir Coffee Time Capacité recommandée : 10g",
+    "description": "Taille du plan d'emballage : L : 125 mm H : 170 mm Couramment utilisé dans le stockage des essuie-tout et des lingettes humides Marque/produit de référence : Papier mouchoir Café Time Capacité recommandée : 10g",
     "slug": "plastic-cleaning-pouch-1192",
     "category": "Pouch"
   },
@@ -206,7 +206,7 @@
     "dimensions": "产品尺寸：H:129mm  D:53mm",
     "description": "Taille de la carte d'emballage : L : 104 mm H : 75 mm Couramment utilisé dans le stockage de BB crème et de nettoyant pour le visage Marque/produit de référence : Oriental Goddess BB Cream Légère et Flawless Capacité recommandée : 50 ml",
     "slug": "plastic-tube-1193",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1199",
@@ -228,7 +228,7 @@
     "dimensions": "产品尺寸：H:138mm  D:30mm",
     "description": "Taille de la carte d'emballage : L : 30 mm H : 106 mm Couramment utilisé dans les crèmes pour les yeux, le stockage de la BB crème Marque/produit de référence : Zhuoyan Platinum Eye Cream Capacité recommandée : 15 ml",
     "slug": "plastic-tube-1200",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1201",
@@ -250,7 +250,7 @@
     "dimensions": "产品尺寸：H:147mm D:19mm",
     "description": "Taille de la carte d'emballage : L : 60 mm H : 105 mm Couramment utilisé dans le stockage de gel d'acide hyaluronique, de crème pour les yeux et de gel anti-acné. Marque/produit de référence : Dr. Alva Dr. Freda gel d'acide hyaluronique. Contenance recommandée : 20g",
     "slug": "plastic-cosmetic-cosmetic-tube-1203",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1204",
@@ -261,7 +261,7 @@
     "dimensions": "产品尺寸：H:134mm  D:46mm",
     "description": "Taille de la carte d'emballage : L : 45 mm H : 80 mm Couramment utilisé dans le stockage des BB crèmes et des crèmes pour les yeux Marque/produit de référence : Misshang Red BB Cream Capacité recommandée : 50 ml",
     "slug": "plastic-tube-1204",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1206",
@@ -272,7 +272,7 @@
     "dimensions": "产品尺寸：H:164mm  D:84mm",
     "description": "Taille de la carte d'emballage : L : 86 mm H : 106 mm Couramment utilisé dans le stockage des crèmes de beauté pour le cou Marque/produit de référence : Lan Kefang Beauty Neck Cream Capacité recommandée : 120 g",
     "slug": "plastic-cosmetic-cosmetic-tube-1206",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1207",
@@ -283,7 +283,7 @@
     "dimensions": "产品尺寸：H:147mm  D:32mm",
     "description": "Taille de la carte d'emballage : L : 100 mm H : 125 mm Couramment utilisé dans le stockage du dentifrice et de la crème dépilatoire Marque/produit de référence : dentifrice Yunnan Baiyao Capacité recommandée : 180 ml",
     "slug": "plastic-tube-1207",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1208",
@@ -305,7 +305,7 @@
     "dimensions": "产品尺寸：H:140mm  D:45mm",
     "description": "Taille de la carte d'emballage : L : 44 mm H : 113 mm Couramment utilisé dans le stockage du dentifrice Marque/produit de référence : ukiwi New Zealand Elf Macaron Girl Dentifrice Capacité recommandée : 100 g",
     "slug": "plastic-tube-1209",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1210",
@@ -327,7 +327,7 @@
     "dimensions": "产品尺寸：H:125mm  D:18mm",
     "description": "Taille de la carte d'emballage : L : 57 mm H : 95 mm Couramment utilisé dans le stockage de crèmes pour les yeux et de cosmétiques Marque/produit de référence : Jinquan Xinsheng Eye Multi-effect Roller Massage Essence Capacité recommandée : 20 ml",
     "slug": "plastic-cosmetic-cosmetic-tube-1212",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1214",
@@ -338,7 +338,7 @@
     "dimensions": "产品尺寸：H:70mm  D:13.5mm",
     "description": "Taille de la carte d'emballage : L : 32 mm H : 53 mm Couramment utilisé dans le stockage de gels pour les yeux et de médicaments Marque/produit de référence : Ziyang Vitamin A Palmitate Eye Gel Capacité recommandée : 5 g",
     "slug": "plastic-pharma-tube-1214",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1270",
@@ -474,7 +474,7 @@
   },
   {
     "id": "1290",
-    "name": "Snack-food, boissons, biscuits, sac en plastique, emballage, modèle 2",
+    "name": "Collation-food, boissons, biscuits, sac en plastique, emballage, modèle 2",
     "keywords": "601820,软包装,中封风琴袋,包装,塑料袋,食品袋,零食袋,饼干袋,休闲食品,食品,狗粮,猫粮,饼干,面包,蛋黄派,坚果,蛋糕,手撕面包,吐司,蛋黄酥,肉松饼",
     "dieline_image": "/dielines/1290.png",
     "glb_file": "/models/1290.glb",
@@ -877,7 +877,7 @@
     "dimensions": "产品尺寸：H:113mm  D:55mm",
     "description": "Taille de la carte d'emballage : L : 62 mm H : 82 mm Couramment utilisé dans le stockage des nettoyants pour le visage Marque/produit de référence : nettoyant pour le visage Capacité recommandée : 40 ml",
     "slug": "plastic-tube-1525",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1528",
@@ -888,7 +888,7 @@
     "dimensions": "产品尺寸：D:62mm  H:147mm  ",
     "description": "Taille du plan d'emballage : L : 62 mm H : 120 mm Couramment utilisé dans le stockage des crèmes pour les mains et des BB crèmes Marque/produit de référence : crème pour les mains Capacité recommandée : 100 ml",
     "slug": "plastic-cosmetic-cosmetic-tube-1528",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1529",
@@ -899,7 +899,7 @@
     "dimensions": "产品尺寸：H:160mm  D:62mm",
     "description": "Taille de la carte d'emballage : L : 60 mm H : 130 mm Couramment utilisé dans le stockage des nettoyants pour le visage Marque/produit de référence : nettoyant pour le visage Capacité recommandée : 120 ml",
     "slug": "plastic-tube-1529",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1531",
@@ -910,7 +910,7 @@
     "dimensions": "产品尺寸：H:205mm  D:76mm",
     "description": "Taille de la carte d'emballage : L : 75 mm H : 173 mm Couramment utilisé dans le stockage des nettoyants pour le visage et des crèmes pour les mains Marque/produit de référence : Nettoyant pour le visage Capacité recommandée : 180 ml",
     "slug": "plastic-tube-1531",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1545",
@@ -1031,7 +1031,7 @@
     "dimensions": "产品尺寸：H:128mm  D:30mm",
     "description": "Taille du plan d'emballage : L : 94 mm H : 76 mm Couramment utilisé dans le stockage de pommades, pommades, gels pour les yeux et médicaments Marque/produit de référence : pommades Capacité recommandée :",
     "slug": "plastic-pharma-tube-1716",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1717",
@@ -1042,7 +1042,7 @@
     "dimensions": "产品尺寸：H:96mm  D:30mm",
     "description": "Taille de la carte d'emballage : L : 30 mm H : 77 mm Couramment utilisé dans le stockage des crèmes pour le cou et les yeux Marque/produit de référence : crème pour les yeux Capacité recommandée : 15 g",
     "slug": "plastic-cosmetic-cosmetic-tube-1717",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1718",
@@ -1053,7 +1053,7 @@
     "dimensions": "产品尺寸：H:80mm  D:14mm",
     "description": "Taille du plan d'emballage : L : 44 mm H : 58 mm Couramment utilisé dans le stockage des BB crèmes et des crèmes pour les yeux Marque/produit de référence : BB crème Capacité recommandée :",
     "slug": "plastic-cosmetic-cosmetic-tube-1718",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1719",
@@ -1064,7 +1064,7 @@
     "dimensions": "产品尺寸：H:170mm  D:60mm",
     "description": "Taille de la carte d'emballage : L : 61 mm H : 123 mm Couramment utilisé dans le stockage de nettoyants pour le visage, de produits de soins de la peau, d'articles de toilette et de produits de beauté. Marque/produit de référence : nettoyants pour le visage. Capacité recommandée :",
     "slug": "facial-cleanser-plastic-tube-1719",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1730",
@@ -1075,7 +1075,7 @@
     "dimensions": "产品尺寸：H:115mm  D:40mm",
     "description": "Taille de la carte d'emballage : L : 40 mm H : 85 mm Couramment utilisé dans le stockage de BB crème, de produits de soins de la peau, de crème pour les yeux, de maquillage de beauté et de pommades. Marque/produit de référence : BB crème Contenance recommandée :",
     "slug": "plastic-cosmetic-cosmetic-tube-1730",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1731",
@@ -1086,7 +1086,7 @@
     "dimensions": "产品尺寸：H:122mm  D:40mm",
     "description": "Taille du plan d'emballage : L : 40 mm H : 80 mm Couramment utilisé dans le stockage de crème pour les mains et de crème pour les yeux Marque/produit de référence : crème pour les mains Capacité recommandée : 40 ml",
     "slug": "plastic-cosmetic-cosmetic-tube-1731",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1735",
@@ -1097,7 +1097,7 @@
     "dimensions": "产品尺寸：L:75mm  W:25mm  H:160mm",
     "description": "Taille de la carte d'emballage : L : 75 mm H : 120 mm Couramment utilisé dans le stockage de nettoyants pour le visage, d'articles de toilette et de produits de soins de la peau. Marque/produit de référence : nettoyants pour le visage. Capacité recommandée :",
     "slug": "facial-cleanser-plastic-tube-1735",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1745",
@@ -1167,7 +1167,7 @@
   },
   {
     "id": "1760",
-    "name": "Snack food, aliments cuits, charcuterie et aliments braisés, modèle d'emballage en plastique",
+    "name": "Collation food, aliments cuits, charcuterie et aliments braisés, modèle d'emballage en plastique",
     "keywords": "602470,包装,软包装,卤味,熟食,休闲零食,泡面",
     "dieline_image": "/dielines/1760.png",
     "glb_file": "/models/1760.glb",
@@ -1185,7 +1185,7 @@
     "dimensions": "产品尺寸：H:182mm  D:63mm",
     "description": "Taille de la carte d'emballage : L : 62 mm H : 145 mm Couramment utilisé dans le stockage des nettoyants pour le visage et des masques faciaux Marque/produit de référence : Sulwhasoo et Yun Sleeping Mask Capacité recommandée : 120 ml",
     "slug": "plastic-tube-1820",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1875",
@@ -1218,7 +1218,7 @@
     "dimensions": "产品尺寸：H:170mm  D:55mm",
     "description": "Taille du plan d'emballage : L : 54 mm H : 139 mm Couramment utilisé dans le stockage du dentifrice Marque/produit de référence : dentifrice Amore Madian Capacité recommandée : 120 ml",
     "slug": "plastic-tube-1879",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1929",
@@ -1273,7 +1273,7 @@
     "dimensions": "产品尺寸：H:102mm  D:41mm W:26mm",
     "description": "Taille de la carte d'emballage : L : 42 mm H : 74 mm Couramment utilisé dans le dentifrice pour animaux de compagnie, le stockage du dentifrice Marque/produit de référence : KOJIMA dentifrice à bactéries lactiques pour chats Capacité recommandée : 40 g",
     "slug": "plastic-tube-1945",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1950",
@@ -1306,7 +1306,7 @@
     "dimensions": "产品尺寸：H:85mm  D:25mm",
     "description": "Taille de la carte d'emballage : L : 50 mm H : 62 mm Couramment utilisé dans le stockage du rouge à lèvres, du maquillage de beauté, des gouttes pour les yeux et des onguents Marque/produit de référence : rouge à lèvres Capacité recommandée : 8 g",
     "slug": "plastic-cosmetic-cosmetic-tube-1986",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1987",
@@ -1328,7 +1328,7 @@
     "dimensions": "产品尺寸：H:160mm  D:45mm",
     "description": "Taille de la carte d'emballage : L : 45 mm H : 133 mm Couramment utilisé dans le stockage de crèmes pour les mains, de cosmétiques, de produits de beauté et de dentifrice Marque/produit de référence : crème pour les mains Capacité recommandée : 75 ml",
     "slug": "plastic-cosmetic-cosmetic-tube-1988",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1995",
@@ -1427,7 +1427,7 @@
     "dimensions": "产品尺寸：H:178mm  D:62mm W:37mm",
     "description": "Taille de la carte d'emballage : L : 62 mm H : 150 mm Couramment utilisé dans le stockage des nettoyants pour le visage et des crèmes pour les mains Marque/produit de référence : Nettoyant aux acides aminés Estée Lauder Capacité recommandée : 125 ml",
     "slug": "plastic-tube-2346",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "2382",
@@ -1559,7 +1559,7 @@
     "dimensions": "产品尺寸：H:170mm  D:42mm",
     "description": "Taille du plan d'emballage : L : 42 mm H : 144 mm Couramment utilisé dans le stockage de la colle pour les yeux Marque/produit de référence : tuyau en plastique Capacité recommandée : 100 ml",
     "slug": "plastic-tube-2897",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "2906",
@@ -1603,7 +1603,7 @@
     "dimensions": "产品尺寸：H:140mm  D:46mm",
     "description": "Taille du plan d'emballage : L : 46 mm H : 122 mm Couramment utilisé dans le stockage de dentifrice et de crème pour les mains Marque/produit de référence : pommade Capacité recommandée : 70 ml",
     "slug": "plastic-tube-2923",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "2928",
@@ -1702,7 +1702,7 @@
     "dimensions": "产品尺寸：L:65mm  W:40mm  H:160mm",
     "description": "Taille du plan d'emballage : L : 60 mm H : 100 mm Couramment utilisé dans le stockage de crèmes pour les mains et de crèmes hydratantes pour enfants Marque/produit de référence : LISSON Baby Care Moisturizer Capacité recommandée : 65 ml",
     "slug": "plastic-cosmetic-cosmetic-tube-2994",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "2995",
@@ -1713,7 +1713,7 @@
     "dimensions": "产品尺寸：L:60mm  W:40mm  H:163mm",
     "description": "Taille de la carte d'emballage : L : 60 mm H : 131 mm Couramment utilisé dans le stockage de crème et de lotion pour les mains. Marque/produit de référence : lotion. Capacité recommandée :",
     "slug": "plastic-tube-2995",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "2996",
@@ -1724,7 +1724,7 @@
     "dimensions": "产品尺寸：L:27mm  W:16mm  H:136mm",
     "description": "Taille du plan d'emballage : L : 27 mm H : 100 mm Couramment utilisé dans le stockage de crème pour les mains et de crème pour les yeux Marque/produit de référence : crème pour les yeux Capacité recommandée : 20 ml",
     "slug": "plastic-cosmetic-cosmetic-tube-2996",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "2998",
@@ -1735,7 +1735,7 @@
     "dimensions": "产品尺寸：L:30mm  W:18mm  H:111mm",
     "description": "Taille du plan d'emballage : L : 30 mm H : 48 mm Couramment utilisé dans le stockage de la bb crème et de la crème pour les yeux Marque/produit de référence : bb crème Capacité recommandée :",
     "slug": "plastic-cosmetic-cosmetic-tube-2998",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "3006",
@@ -2065,7 +2065,7 @@
     "dimensions": "产品尺寸：D:40mm  H:90mm",
     "description": "Taille du plan d'emballage : L : 45 mm H : 66 mm Couramment utilisé dans le stockage de crèmes protectrices et de crèmes pour les yeux Marque/produit de référence : supergoop ! Crème protectrice pré-maquillage physique légère Ice Cream Contenance recommandée : 45 ml",
     "slug": "plastic-cosmetic-cosmetic-tube-3381",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "3382",
@@ -2076,7 +2076,7 @@
     "dimensions": "产品尺寸：D:30mm  H:124mm",
     "description": "Taille de la carte d'emballage : L : 30 mm H : 102 mm Couramment utilisé dans le stockage de crème protectrice, de crème pour les yeux et de crème d'isolation. Marque/produit de référence : Crème isolante Chantecaille. Contenance recommandée : 50g",
     "slug": "plastic-cosmetic-cosmetic-tube-3382",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "3386",
@@ -2824,7 +2824,7 @@
     "dimensions": "产品尺寸：H:116mm  D:38mm",
     "description": "Taille de la carte d'emballage : L : 94 mm H : 88 mm Couramment utilisé dans le stockage du dentifrice, de la crème pour les mains et des cosmétiques. Référence marque/produit : Dentifrice au sel marin SALTPRO Salt Contenance recommandée : 90g",
     "slug": "plastic-tube-4299",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "4300",
@@ -3451,7 +3451,7 @@
     "dimensions": "产品尺寸：H:150mm  D:54.5mm",
     "description": "Taille du plan d'emballage : L : 109 mm H : 121 mm Couramment utilisé dans le stockage de dentifrice, de cosmétiques et de produits de beauté Marque/produit de référence : Capacité recommandée :",
     "slug": "cleaning-tube-5114",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "5119",
@@ -3704,7 +3704,7 @@
     "dimensions": "产品尺寸：H:165mmD:28mm",
     "description": "Taille de la carte d'emballage : L : 52 mm H : 140 mm Couramment utilisé dans le stockage de crème pour les mains et de nettoyants pour le visage Marque/produit de référence : Crème pour les mains à la camomille et à la marguerite allemande Capacité recommandée : 75 ml",
     "slug": "plastic-cosmetic-cosmetic-tube-571",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "575",
@@ -3715,7 +3715,7 @@
     "dimensions": "产品尺寸：H:110mmD:40mm",
     "description": "Taille de la carte d'emballage : L : 85 mm H : 122 mm Couramment utilisé dans le stockage de crèmes pour les mains et de masques pour les mains Marque/produit de référence : crème pour les mains Capacité recommandée : 20 g ~ 35 g",
     "slug": "plastic-cosmetic-cosmetic-tube-575",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "5770",
@@ -3880,7 +3880,7 @@
     "dimensions": "产品尺寸：H:164mm  D:84mm",
     "description": "Taille de la carte d'emballage : L : 86 mm H : 106 mm Couramment utilisé dans le stockage des crèmes de beauté pour le cou Marque/produit de référence : Lan Kefang Beauty Neck Cream Capacité recommandée : 120 g",
     "slug": "plastic-cosmetic-cosmetic-tube-5919",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "593",
@@ -4100,7 +4100,7 @@
     "dimensions": "产品尺寸：H:170mm  D:40mm",
     "description": "Taille de la carte d'emballage : L : 63 mm H : 143 mm Couramment utilisé dans les nettoyants pour le visage, les revitalisants, les shampoings, les crèmes pour les mains, le stockage des lotions pour le corps Marque/produit de référence : Nettoyant pour le visage Shiseido Capacité recommandée : 130 ml",
     "slug": "plastic-tube-647",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "653",
@@ -4199,7 +4199,7 @@
     "dimensions": "产品尺寸：L:45mm  W:28mm  H:185mm",
     "description": "Taille de la carte d'emballage : L : 140 mm H : 150 mm Couramment utilisé dans le stockage des nettoyants pour le visage Marque/produit de référence : nettoyant pour le visage Capacité recommandée : 80 g",
     "slug": "plastic-tube-681",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "687",
@@ -4606,7 +4606,7 @@
     "dimensions": "产品尺寸：H:83mm  D:20mm",
     "description": "Taille de la carte d'emballage : L : 68 mm H ; 140 mm Couramment utilisé dans la crème à raser, le nettoyant pour le visage, l'après-shampooing, le stockage du gel douche Marque/produit de référence : crème à raser Capacité recommandée : 15 ml",
     "slug": "plastic-tube-952",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "954",
@@ -4705,7 +4705,7 @@
     "dimensions": "产品尺寸：H:157mm  D:28mm",
     "description": "Taille de la carte d'emballage : L : 48 mm H ; 112 mm Couramment utilisé dans la crème à raser, le nettoyant pour le visage, l'après-shampooing, le gel douche, le stockage de la crème solaire Marque/produit de référence : crème solaire AHC Capacité recommandée : 15 ml",
     "slug": "plastic-cosmetic-cosmetic-tube-976",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "988",
@@ -4716,7 +4716,7 @@
     "dimensions": "产品尺寸：H:233mm D:59mm",
     "description": "Taille de la carte d'emballage : L : 186 mm H : 195 mm Couramment utilisé dans le stockage de shampoing, revitalisant, nettoyant pour le visage, lotion pour le corps, gommage et gel douche. Marque/produit de référence : Pantene Hair Essence Capacité recommandée : 400ml",
     "slug": "plastic-tube-988",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "991",
@@ -4741,168 +4741,2797 @@
     "category": "Pouch"
   },
   {
+    "id": "BX-297",
+    "name": "Gobelet en Papier JetableEmballageModèle",
+    "keywords": "500020,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,水杯,纸杯,日用品,饮品包装,矿泉水,水,白开水,可乐,雪碧,汽水,果汁,橙汁,牛奶,咖啡,茶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/d74472ed-64e1-46ed-a58b-401a88f7573e.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/a2d86ba2-9b34-4754-9306-2eb49549fe36.glb",
+    "dimensions": "60（3盎司）",
+    "description": "60ml（3盎司）的杯子",
+    "slug": "box-packaging-297",
+    "category": "Box"
+  },
+  {
     "id": "BX-1505",
-    "name": "休闲食品食品饮料酸奶塑料盒包装模型11",
-    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,休闲食品食品饮料酸奶塑料盒包装模型11",
-    "dieline_image": "/dielines/BX-1505.png",
-    "glb_file": "/models/BX-1505.glb",
+    "name": "CollationAlimentationAlimentationBoissonYaourtPlastic BoxEmballageModèle11",
+    "keywords": "602140,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,包装,酸奶,雪糕,奶昔,布丁,休闲食品,零食",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/9ab12606-907a-42f3-971f-3f8bf293b1a6.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/caf54a19-cb34-410d-a5f9-31cc221cdae3.glb",
     "dimensions": "产品尺寸：D:75mm  H:53mm ",
-    "description": "Packaging map size: 产品尺寸：D:75mm  H:53mm . Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-1505",
+    "description": "Emballage贴图尺寸：L:194mm  H:40mm\n常见于Yaourt、布丁的收纳\n参考品牌/产品：Yaourt\n建议容量：80g",
+    "slug": "box-packaging-1505",
+    "category": "Box"
+  },
+  {
+    "id": "BX-556",
+    "name": "CaféAlimentationBoissonGobelet en PapierEmballageModèle",
+    "keywords": "500790,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,包装,瓶体/罐体,纸杯,咖啡杯,奶茶杯,食品包装,咖啡,燕麦,奶粉,奶茶,茶,牛奶,果茶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/30c9c206-7f19-418b-ad33-0dffb9b358c0.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/4643e6b8-e8c7-440e-890b-8d3ff68f7639.glb",
+    "dimensions": "产品尺寸：H:135mm  D:59mm",
+    "description": "Emballage贴图尺寸：L:158mm  H:123mm\n常见于Café，Thé au Lait，Boisson的收纳\n参考品牌/产品：Café\n建议容量：480ml",
+    "slug": "box-packaging-556",
+    "category": "Box"
+  },
+  {
+    "id": "BX-497",
+    "name": "Gobelet en Papier JetableEmballageModèle2",
+    "keywords": "500021,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,水杯,纸杯,一次性纸杯,饮品包装,日用品 ,矿泉水,水,白开水,可乐,雪碧,汽水,果汁,橙汁,牛奶,咖啡,茶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/e74af8c2-04f8-4cdc-956a-ee36ce8dfd31.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/f01c7666-8583-4dd8-9cc7-82b59c60f73e.glb",
+    "dimensions": "一次性纸杯",
+    "description": "Emballage贴图尺寸：L:82mm  W:59mm H:82mm\n常见于的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-497",
     "category": "Box"
   },
   {
     "id": "BX-405",
-    "name": "蛋类食品饮料塑料盒包装模型",
-    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,蛋类食品饮料塑料盒包装模型",
-    "dieline_image": "/dielines/BX-405.png",
-    "glb_file": "/models/BX-405.glb",
+    "name": "Emballage d'ŒufsAlimentationBoissonPlastic BoxEmballageModèle",
+    "keywords": "500140,包装,瓶体/罐体,鸡蛋托,塑料盒,食品包装,保护包装,鸡蛋,鸭蛋,蛋盒,家禽蛋",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/1d9b66bb-424b-4004-b30b-b4836f6ec34f.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/2e15ab99-d598-42a1-a945-1a86599e5aea.glb",
     "dimensions": "产品尺寸：L:272mm  W:90mm \n H:70mm",
-    "description": "Packaging map size: 产品尺寸：L:272mm  W:90mm \n H:70mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-405",
+    "description": "Emballage贴图尺寸：L:205mm  H:50mm\n常见于鸡蛋，鸭蛋，Emballage d'Œufs的收纳\n参考品牌/产品：鸡蛋托\n建议容量：12枚",
+    "slug": "box-packaging-405",
     "category": "Box"
   },
   {
     "id": "BX-404",
-    "name": "蛋类食品饮料塑料盒包装模型2",
-    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,蛋类食品饮料塑料盒包装模型2",
-    "dieline_image": "/dielines/BX-404.png",
-    "glb_file": "/models/BX-404.glb",
+    "name": "Emballage d'ŒufsAlimentationBoissonPlastic BoxEmballageModèle2",
+    "keywords": "500150,包装,瓶体/罐体,鸡蛋托,塑料盒,保护包装,鸡蛋,鸭蛋,蛋盒,家禽蛋",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/b6094d98-1147-4ed4-9979-104ecca8aef4.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/18488fed-2062-40cb-8d1f-fffd450e844d.glb",
     "dimensions": "产品尺寸：L:272mm  W:100mm \n H:60mm",
-    "description": "Packaging map size: 产品尺寸：L:272mm  W:100mm \n H:60mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-404",
+    "description": "Emballage贴图尺寸：L:230mm  H:60mm\n常见于鸡蛋，鸭蛋，Emballage d'Œufs的收纳\n参考品牌/产品：鸡蛋托\n建议容量：12枚",
+    "slug": "box-packaging-404",
     "category": "Box"
   },
   {
     "id": "BX-412",
-    "name": "蔬菜食品饮料铝制盒包装模型",
-    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,蔬菜食品饮料铝制盒包装模型",
-    "dieline_image": "/dielines/BX-412.png",
-    "glb_file": "/models/BX-412.glb",
+    "name": "LégumeAlimentationBoissonAluminum BoxEmballageModèle",
+    "keywords": "500160,包装,瓶体/罐体,蔬菜罐头,铝罐,圆形罐,食品包装,真空包装,水果罐头,黄桃罐头,什锦罐头,橘子罐头,青瓜罐头,雪菜罐头,沙拉罐头,玉米罐头",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/18d7928d-4cb9-4544-b48b-3f7d7144a57c.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/15f256b6-6ef9-49f5-9af9-6799d632a532.glb",
     "dimensions": "产品尺寸：H:145mm  D:100mm",
-    "description": "Packaging map size: 产品尺寸：H:145mm  D:100mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-412",
+    "description": "Emballage贴图尺寸：L:308mm  H:135mm\n常见于Légume，水果的收纳\n参考品牌/产品：Légume罐头\n建议容量：600ml~700ml",
+    "slug": "box-packaging-412",
     "category": "Box"
   },
   {
     "id": "BX-441",
-    "name": "家用清洁生活日用塑料盒包装模型",
-    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,家用清洁生活日用塑料盒包装模型",
-    "dieline_image": "/dielines/BX-441.png",
-    "glb_file": "/models/BX-441.glb",
+    "name": "Nettoyage Ménager de Usage QuotidienPlastic BoxEmballageModèle",
+    "keywords": "500290,包装,瓶体/罐体,塑料罐,洗衣凝珠,日用品,清洁剂,洗衣服,香氛珠,洗衣剂",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/a72623b3-0bb3-47fb-9073-5fba7404686a.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/5debb30b-e280-4387-8926-716b0991b5b7.glb",
     "dimensions": "产品尺寸：L:185mmW:120mmH:85mm",
-    "description": "Packaging map size: 产品尺寸：L:185mmW:120mmH:85mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-441",
+    "description": "Emballage贴图尺寸：L:118mmH:76mm\n\n常见于洗衣凝珠的收纳\n\n参考品牌/产品：奥妙洗衣凝珠\n\n建议容量：18颗",
+    "slug": "box-packaging-441",
     "category": "Box"
   },
   {
     "id": "BX-516",
-    "name": "面部护肤生活日用塑料盒包装模型",
-    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,面部护肤生活日用塑料盒包装模型",
-    "dieline_image": "/dielines/BX-516.png",
-    "glb_file": "/models/BX-516.glb",
+    "name": "Soin du Visage de Usage QuotidienPlastic BoxEmballageModèle",
+    "keywords": "500640,包装,瓶体/罐体,护肤品,化妆品,圆柱罐,塑料罐,面霜,磨砂膏,面膜,珍珠粉,蛇油膏,宝宝霜,芦荟胶,发蜡,发膏",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/a474a737-77d2-4bd3-8390-8d522275f7ce.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/517969bb-ee79-48fb-a485-5188d61d3175.glb",
     "dimensions": "产品尺寸：H:80mm  D:120mm",
-    "description": "Packaging map size: 产品尺寸：H:80mm  D:120mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-516",
+    "description": "Emballage贴图尺寸：L:360mm  H:55mm\n常见于面霜的收纳\n参考品牌/产品：面霜\n建议容量：100g~180g",
+    "slug": "box-packaging-516",
+    "category": "Box"
+  },
+  {
+    "id": "BX-532",
+    "name": "PratiqueAlimentationAlimentationBoissonSeau en PapierEmballageModèle",
+    "keywords": "500740,杯/桶/碗/盒/管,桶,包装,瓶体/罐体,泡面桶,纸桶,食品,食品包装,酸辣粉,重庆小面,干脆面,泡面,方便面,红烧牛肉面,粉丝,杯面,桶面",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/79a632b2-a157-460f-bc96-11d92c210112.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/dde5972c-137c-42b9-8193-d5d9c950849b.glb",
+    "dimensions": "产品尺寸：H:120mm  D:110mm",
+    "description": "Emballage贴图尺寸：L:325mm  H:112mm\n常见于泡面，沙拉碗的收纳\n参考品牌/产品：统一汤达人Pratique面\n建议容量：1080g",
+    "slug": "box-packaging-532",
+    "category": "Box"
+  },
+  {
+    "id": "BX-547",
+    "name": "CollationAlimentationAlimentationBoissonTube en PapierEmballageModèle",
+    "keywords": "500760,包装,瓶体/罐体,食品包装,薯片盒,薯片,土豆片,锅巴,妙脆角,虾条,膨化食品,薯条",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/d67153d6-269f-4afe-bdc4-889b6c3b3717.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/02ebcc2a-8096-4666-9959-8d37f31019db.glb",
+    "dimensions": "产品饮料：H:216mmD:60mm",
+    "description": "Emballage贴图尺寸：L:210mmH:210mm\n\n常见于薯片的收纳\n\n参考品牌/产品：好丽友薯愿\n\n建议容量：104g",
+    "slug": "box-packaging-547",
     "category": "Box"
   },
   {
     "id": "BX-561",
-    "name": "休闲食品食品饮料铝制盒包装模型",
-    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,休闲食品食品饮料铝制盒包装模型",
-    "dieline_image": "/dielines/BX-561.png",
-    "glb_file": "/models/BX-561.glb",
+    "name": "CollationAlimentationAlimentationBoissonAluminum BoxEmballageModèle",
+    "keywords": "500820,包装,瓶体/罐体,口香糖,铝制盒,食品包装",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/ec5ac9b2-11a5-441c-8338-d0cf041ce00c.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/306ab7d6-83f9-4b94-8824-d04473a7aae8.glb",
     "dimensions": "产品尺寸：L:30mmW:25mmH:80mm",
-    "description": "Packaging map size: 产品尺寸：L:30mmW:25mmH:80mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-561",
+    "description": "Emballage贴图尺寸：L:37mmH:80mm\n\n常见于Chewing-Gum的收纳\n\n参考品牌/产品：绿箭Chewing-Gum\n\n建议容量：35粒",
+    "slug": "box-packaging-561",
+    "category": "Box"
+  },
+  {
+    "id": "BX-582",
+    "name": "BeautyConteneur en Plastique CosmétiqueEmballageModèle",
+    "keywords": "500890,包装,瓶体/罐体,防晒霜,塑料盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/a68e4805-786b-4e5c-b5bd-6d84ee4aeaff.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/8809624c-bbc9-4ffe-81a1-2ac26efdc591.glb",
+    "dimensions": "产品尺寸：H:100mmD:65mm",
+    "description": "Emballage贴图尺寸：L:61mmH:78mm\n\n常见于防晒霜的收纳\n\n参考品牌/产品：香蒲丽防晒霜\n\n建议容量：60ml",
+    "slug": "box-packaging-582",
     "category": "Box"
   },
   {
     "id": "BX-625",
-    "name": "棉签盒日用品塑料罐包装模型",
-    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,棉签盒日用品塑料罐包装模型",
-    "dieline_image": "/dielines/BX-625.png",
-    "glb_file": "/models/BX-625.glb",
+    "name": "Pot en Plastique pour Cotons-TigesEmballageModèle",
+    "keywords": "500990,包装,瓶体/罐体,日用品,棉签盒,棉签,牙线,订书钉,胶带,海绵,气垫",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/c4ef4bad-c2f5-42ad-b41b-433ffd78b4b7.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/3023ae5d-2d78-4c18-8510-a8c66d61dc3a.glb",
     "dimensions": "产品尺寸：L:73mm  D:80mm",
-    "description": "Packaging map size: 产品尺寸：L:73mm  D:80mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-625",
-    "category": "Box"
+    "description": "Emballage贴图尺寸：L:73mm \n H:47mm\n常见于棉签的收纳\n参考品牌/产品：棉签盒\n建议容量：200支~300支",
+    "slug": "box-packaging-625",
+    "category": "Bottle"
   },
   {
     "id": "BX-712",
-    "name": "透明食品饮料塑料盒包装模型",
-    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,透明食品饮料塑料盒包装模型",
-    "dieline_image": "/dielines/BX-712.png",
-    "glb_file": "/models/BX-712.glb",
+    "name": "TransparentAlimentationBoissonPlastic BoxEmballageModèle",
+    "keywords": "501200,包装,瓶体/罐体,塑料盒,水果盒,一次性塑料盒,食品塑料盒,糕点,水果,橙子,西瓜,西梅,杨梅,蛋糕,面包,酥糖,麻花",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/2103ed3c-f999-4294-a6b8-fd544ba11a26.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/11853277-1fc4-49e0-8dac-b3906002f4c4.glb",
     "dimensions": "产品尺寸：L:136mm  W:117mm  H:65mm",
-    "description": "Packaging map size: 产品尺寸：L:136mm  W:117mm  H:65mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-712",
+    "description": "Emballage贴图尺寸：L:90mm  H:70mm\n常见于的收纳水果，Légume，蛋糕，糕点，零食\n参考品牌/产品：水果\n建议容量：400g~500g",
+    "slug": "box-packaging-712",
     "category": "Box"
   },
   {
     "id": "BX-724",
-    "name": "透明食品塑料盒包装模型2",
-    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,透明食品塑料盒包装模型2",
-    "dieline_image": "/dielines/BX-724.png",
-    "glb_file": "/models/BX-724.glb",
+    "name": "TransparentAlimentationPlastic BoxEmballageModèle2",
+    "keywords": "501230,包装,瓶体/罐体,塑料盒,水果盒,一次性塑料盒,外卖盒,果切盒,水果外卖盒,打包盒,零食盒,水果,蔬菜",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/d0bdae01-c49d-47c0-bc1a-1a58415f4d12.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/024b58d5-6b70-4071-aaee-1fca82fd4069.glb",
     "dimensions": "产品尺寸：L:225mmW;130mmH:80mm",
-    "description": "Packaging map size: 产品尺寸：L:225mmW;130mmH:80mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-724",
+    "description": "Emballage贴图尺寸：L:165mmH:65mm\n\n常见于水果，Légume糕点，蛋黄酥的收纳\n\n参考品牌/产品：水果\n\n建议容量：500g",
+    "slug": "box-packaging-724",
+    "category": "Box"
+  },
+  {
+    "id": "BX-726",
+    "name": "Conteneur Chimique de PeintureEmballageModèle1",
+    "keywords": "501250,杯/桶/碗/盒/管,桶,包装,瓶体/罐体,油漆桶,塑料桶,圆柱桶,铝桶,染料桶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/1d71d731-6080-4fc7-97a1-3f651f073d68.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/cf1e0cdb-f4c9-4852-828f-d4d862286dca.glb",
+    "dimensions": "产品尺寸：H:277mm  D:266mm",
+    "description": "Emballage贴图尺寸：L:832mm  H:185mm\n常见于油漆、化工产品的收纳\n参考品牌/产品：多乐士漆\n建议容量：10L",
+    "slug": "box-packaging-726",
     "category": "Box"
   },
   {
     "id": "BX-731",
-    "name": "口服液医药保健铝盒包装模型",
-    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,口服液医药保健铝盒包装模型",
-    "dieline_image": "/dielines/BX-731.png",
-    "glb_file": "/models/BX-731.glb",
+    "name": "Boîte en Aluminium pour Liquide OralEmballageModèle",
+    "keywords": "501270,包装,瓶体/罐体,铝盒,药品盒,药盒,口服液药盒,方盒,医药,口服液,喉宝,金嗓子,槟榔,润喉糖",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/6f4e7332-3222-4aa2-b36a-60c294737d1f.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/2dfac8e3-1e9f-4ae1-aeba-c14ab972ae1c.glb",
     "dimensions": "产品尺寸：L:85mm  W:60mm  H:50mm",
-    "description": "Packaging map size: 产品尺寸：L:85mm  W:60mm  H:50mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-731",
+    "description": "Emballage贴图尺寸：L:82mm  W:57mm\n常见于口服液、药盒的收纳\n参考品牌/产品：复方葡萄糖酸钙口服溶液\n建议容量：10毫升*25支",
+    "slug": "box-packaging-731",
     "category": "Box"
   },
   {
     "id": "BX-732",
-    "name": "润喉糖医药保健铝盒包装模型",
-    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,润喉糖医药保健铝盒包装模型",
-    "dieline_image": "/dielines/BX-732.png",
-    "glb_file": "/models/BX-732.glb",
+    "name": "Boîte en Aluminium pour Pastilles de GorgeEmballageModèle",
+    "keywords": "501280,包装,瓶体/罐体,润喉糖,药盒,医药,铝盒,糖盒,口服液,方盒,喉宝,金嗓子,槟榔",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/e91e786a-afdd-4d06-b2a1-112583ad55e7.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/94597a7d-74de-43f4-9abb-5b0308d51094.glb",
     "dimensions": "产品尺寸：L:95mm  W:60mm  H:22mm",
-    "description": "Packaging map size: 产品尺寸：L:95mm  W:60mm  H:22mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-732",
+    "description": "Emballage贴图尺寸：L:91mm  W:56mm\n常见于润喉糖、药盒的收纳\n参考品牌/产品：王老吉润喉糖\n建议容量：56g",
+    "slug": "box-packaging-732",
     "category": "Box"
   },
   {
     "id": "BX-736",
-    "name": "透明食品塑料盒包装模型4",
-    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,透明食品塑料盒包装模型4",
-    "dieline_image": "/dielines/BX-736.png",
-    "glb_file": "/models/BX-736.glb",
+    "name": "TransparentAlimentationPlastic BoxEmballageModèle4",
+    "keywords": "501290,包装,瓶体/罐体,塑料盒,水果盒,一次性塑料盒,果切盒,外卖盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/d6509115-7c2b-47c5-9db8-6639eebe14d7.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/c3d702c0-63ce-4bbb-b25b-391d580cf459.glb",
     "dimensions": "产品尺寸：L:105mmW:105mmH:40mm",
-    "description": "Packaging map size: 产品尺寸：L:105mmW:105mmH:40mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-736",
+    "description": "Emballage贴图尺寸：L:53mmH:53mm\n\n常见于的收纳水果，Légume，蛋糕，糕点，零食\n\n参考品牌/产品：水果\n\n建议容量：125g",
+    "slug": "box-packaging-736",
     "category": "Box"
+  },
+  {
+    "id": "BX-765",
+    "name": "PratiqueAlimentationAlimentationBoissonSeau en PapierEmballageModèle2",
+    "keywords": "501340,杯/桶/碗/盒/管,桶,包装,瓶体/罐体,杯面,桶面,纸桶,膨化食品,方便面,重庆小面,干脆面,泡面,红烧牛肉面,粉丝,酸辣粉",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/049471bf-09c1-4515-820d-cbd0a6432418.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/3468bcd6-7e96-4949-82d8-fe0d7675c2cd.glb",
+    "dimensions": "产品尺寸：H：98mm  L：94.5mm  W:94.5mm",
+    "description": "Emballage贴图尺寸：L:375mm  H:98mm\n常见于泡面的收纳\n参考品牌/产品：康师傅、汤达人Pratique面\n建议容量：88g",
+    "slug": "box-packaging-765",
+    "category": "Box"
+  },
+  {
+    "id": "BX-870",
+    "name": "Tube de Colle en PlastiqueEmballageModèle",
+    "keywords": "501560,杯/桶/碗/盒/管,其他,包装,瓶体/罐体,塑料管,胶水,固体胶,文具",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/06ed9333-b7bd-43e8-9d40-be79edd7906c.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/00eea009-f6af-4b1c-bcf6-e32876301313.glb",
+    "dimensions": "产品尺寸：D:18mm  H:77mm",
+    "description": "Emballage贴图尺寸：L:58mm   H:47mm\n常见于胶水、固体胶的收纳\n参考品牌/产品：新城固体胶\n建议容量：9g",
+    "slug": "box-packaging-870",
+    "category": "Bottle"
   },
   {
     "id": "BX-873",
-    "name": "成人用品医药保健铝盒包装模型",
-    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,成人用品医药保健铝盒包装模型",
-    "dieline_image": "/dielines/BX-873.png",
-    "glb_file": "/models/BX-873.glb",
+    "name": "Boîte en Aluminium pour Produits AdultesEmballageModèle",
+    "keywords": "501590,罐子,金属罐,包装,瓶体/罐体,铝盒,成人用品,药品,润喉糖,医疗",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/fda18af0-03c6-4c2b-a552-a62b73d15180.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/790b0524-b1d0-43b5-a61d-392d6c273172.glb",
     "dimensions": "产品尺寸：L:95mm  W:65mm  H:32mm",
-    "description": "Packaging map size: 产品尺寸：L:95mm  W:65mm  H:32mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-873",
+    "description": "Emballage贴图尺寸：L:90mm \n W:60mm\n常见于成人用品、润喉糖的收纳\n参考品牌/产品：成人美事成人用品\n建议容量：3片装",
+    "slug": "box-packaging-873",
     "category": "Box"
   },
   {
+    "id": "BX-874",
+    "name": "PratiqueAlimentationAlimentationBoissonSeau en PapierEmballageModèle3",
+    "keywords": "501600,杯/桶/碗/盒/管,桶,包装,瓶体/罐体,方便面,食品罐,方便食品,自热粥,自热米饭",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/10180c44-132f-4302-81bd-8d7657b13c32.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/674d798b-9761-42be-bcf2-a11ad0ee3144.glb",
+    "dimensions": "产品尺寸：L:115mm  W:115mm  H:122mm",
+    "description": "Emballage贴图尺寸：L:370mm  H:105mm\n常见于Pratique面、自热米饭、自热粥的收纳\n参考品牌/产品：康师傅、汤达人Pratique面\n建议容量：88g",
+    "slug": "box-packaging-874",
+    "category": "Box"
+  },
+  {
+    "id": "BX-875",
+    "name": "PratiqueAlimentationAlimentationBoissonSeau en PapierEmballageModèle4",
+    "keywords": "501610,杯/桶/碗/盒/管,桶,包装,瓶体/罐体,方便面,泡面桶,塑料桶,自热粥,食品快餐,方便食品,重庆小面,干脆面,泡面,红烧牛肉面,粉丝,酸辣粉,杯面,桶面",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/276c31be-f62f-4ceb-9645-92f25dd9a0d0.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/20b3b752-4a3b-4708-a517-3be29d1cedbb.glb",
+    "dimensions": "产品尺寸：H：113mm  L：100mm  W:100mm",
+    "description": "Emballage贴图尺寸：L:305mm \n H:110mm\n常见于泡面、自热粥、PratiqueAlimentation的收纳\n参考品牌/产品：康师傅、汤达人Pratique面\n建议容量：88g",
+    "slug": "box-packaging-875",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1132",
+    "name": "PratiqueAlimentationAlimentationSeau en Papier pour Nouilles InstantanéesEmballageModèle",
+    "keywords": "501611,杯/桶/碗/盒/管,桶,包装,瓶体/罐体,纸桶,泡面桶,方便食品,休闲食品,面桶,重庆小面,零食桶,干脆面,泡面,方便面,红烧牛肉面,粉丝,酸辣粉",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/b4e704bc-ecbc-4a60-ade1-b3783622dee0.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/1eddc2d4-052c-40d0-a6e2-79a7e76ceebe.glb",
+    "dimensions": "产品尺寸：L:136mm  W:109mm  H:92mm",
+    "description": "Emballage贴图尺寸：L:440mm  H:90mm\n常见于泡面、自热粥、PratiqueAlimentation的收纳\n参考品牌/产品：康师傅、汤达人Pratique面\n建议容量：145g",
+    "slug": "box-packaging-1132",
+    "category": "Box"
+  },
+  {
+    "id": "BX-913",
+    "name": "Tube de Colle en PlastiqueEmballageModèle2",
+    "keywords": "501730,杯/桶/碗/盒/管,其他,包装,瓶体/罐体,文具,塑料管,胶水,固体胶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/0f7f4c8c-e9c5-4393-a1f3-d9ebab8a420b.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/d3231334-e26c-4885-b41b-3092f657037f.glb",
+    "dimensions": "产品尺寸：H:95mm   D:25mm  ",
+    "description": "Emballage贴图尺寸：L:80mm  W:55mm\n常见于胶水、固体胶的收纳\n参考品牌/产品：得力固体胶\n建议容量：21g",
+    "slug": "box-packaging-913",
+    "category": "Bottle"
+  },
+  {
     "id": "BX-947",
-    "name": "家用清洁生活日用塑料盒包装模型2",
-    "keywords": "baoxiaohe,box,盒,包装盒,纸盒,家用清洁生活日用塑料盒包装模型2",
-    "dieline_image": "/dielines/BX-947.png",
-    "glb_file": "/models/BX-947.glb",
+    "name": "Nettoyage Ménager de Usage QuotidienPlastic BoxEmballageModèle2",
+    "keywords": "501820,包装,瓶体/罐体,家用清洁,塑料盒,洗衣凝珠,日用品,洗衣用品,消耗品,衣物清洁,洗衣粉,洗衣清洁,洗衣产品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/40e7eb5c-f22c-413c-8b6a-e7d92a42a3c1.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/f7907024-7234-4823-bed7-81748d827083.glb",
     "dimensions": "产品尺寸：L:200mm  W:105mm  H:115mm",
-    "description": "Packaging map size: 产品尺寸：L:200mm  W:105mm  H:115mm. Standard box layout from Baoxiaohe.",
-    "slug": "box-packaging-BX-947",
+    "description": "Emballage贴图尺寸：L:130mm \n W:78mm\n常见于洗衣凝珠、洗衣产品的收纳\n参考品牌/产品：汰渍洗衣凝珠\n建议容量：244g（19颗）",
+    "slug": "box-packaging-947",
+    "category": "Box"
+  },
+  {
+    "id": "BX-977",
+    "name": "Bonbon de CollationAlimentationChewing-GumPlastic BoxEmballageModèle",
+    "keywords": "501960,包装,瓶体/罐体,塑料盒,口香糖,糖果盒,休闲食品,零食盒,巧克力",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/1d3d39f8-14b0-40b5-a38d-d4830661604b.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/44f8e030-181c-46a6-a931-9e4130e037bd.glb",
+    "dimensions": "产品尺寸：L:93mm  W:22mm  H:53mm",
+    "description": "Emballage贴图尺寸：L:85mm \n W:36mm\n常见于Chewing-Gum、Bonbon的收纳\n参考品牌/产品：炫迈无糖Chewing-Gum\n建议容量：28片装（50.4g）",
+    "slug": "box-packaging-977",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1010",
+    "name": "TransparentAlimentationPlastic BoxEmballageModèle5",
+    "keywords": "502090,包装,瓶体/罐体,塑料盒,蛋糕盒,水果盒,一次性塑料盒,打包盒,外卖盒,果切盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/d8598d4f-c60d-42a1-9249-2d00e579ed00.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/b67f21b5-1908-473b-ac39-0281fa083985.glb",
+    "dimensions": "产品尺寸：L:235mm  W:235mm  H:80mm",
+    "description": "Emballage贴图尺寸：L:145mm \n W:145mm\n常见于一次性Plastic Box、蛋糕盒，水果盒的收纳\n参考品牌/产品：蛋糕盒\n建议容量：",
+    "slug": "box-packaging-1010",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1013",
+    "name": "TransparentAlimentationPlastic BoxEmballageModèle6",
+    "keywords": "502120,包装,瓶体/罐体,鹌鹑蛋包装盒,塑料盒,一次性塑料盒,包装盒,鸽子蛋包装盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/b7f35b59-ebea-46aa-89e4-bb93947d3e1e.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/66d32a71-fdbe-4552-acff-2b137187407d.glb",
+    "dimensions": "产品尺寸：L:200mm  W:135mm  H:30mm",
+    "description": "Emballage贴图尺寸：L:160mm \n W:100mm\n常见于一次性Plastic Box、鹌鹑蛋、鸽子蛋的收纳\n参考品牌/产品：鹌鹑蛋Plastic Box\n建议容量：24个装",
+    "slug": "box-packaging-1013",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1031",
+    "name": "TransparentAlimentationPlastic BoxEmballageModèle7",
+    "keywords": "502230,包装,瓶体/罐体,塑料盒,一次性塑料盒,快餐盒,果切盒,快餐面盒,红油面皮,炸酱面,面食类,水果盒,糕点盒,凉皮",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/0fb32b44-224b-43aa-a497-3702b8e0c53b.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/3401ffa6-f57b-45d0-bc01-2064e258895f.glb",
+    "dimensions": "产品尺寸：L:180mm  W:140mm  H:60mm",
+    "description": "Emballage贴图尺寸：L:150mm \n W:115mm\n常见于一次性Plastic Box、面食类、果切的收纳\n参考品牌/产品：红油面皮Plastic Box\n建议容量：106g",
+    "slug": "box-packaging-1031",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1036",
+    "name": "TransparentAlimentationPlastic BoxEmballageModèle8",
+    "keywords": "502260,包装,瓶体/罐体,塑料盒,蛋糕盒,点心盒,一次性塑料盒,包装盒,早餐盒,瑞士卷,零食盒,休闲食品,面包,蛋黄派,蛋糕,手撕面包,吐司,蛋黄酥,肉松面包",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/e98a8977-2a2d-4c38-81e7-12d9f02d615b.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/87fe5ba9-fcbb-40af-a812-a7f575db879a.glb",
+    "dimensions": "产品尺寸：L:120mm  W:75mm  H:60mm",
+    "description": "Emballage贴图尺寸：L:175mm \n W:42mm\n常见于一次性Plastic Box、面食类、蛋糕、糕点的收纳\n参考品牌/产品：虎皮瑞士卷\n建议容量：120g",
+    "slug": "box-packaging-1036",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1046",
+    "name": "CollationAlimentationBouteille en Plastique pour BonbonsEmballageModèle4",
+    "keywords": "502310,包装,瓶体/罐体,塑料盒,口香糖,糖果盒,维生素含片,清新口气,休闲食品,零食盒,糖类食品,巧克力,奶糖",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/ea6467fa-9dc3-46f8-af11-f786c34ead12.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/e2d384ae-84da-4ee8-b788-b73756b480f7.glb",
+    "dimensions": "产品尺寸：L:42mm  W:42mm  H:80mm",
+    "description": "Emballage贴图尺寸：L:145mm  W:62mm\n常见于Chewing-Gum、Bonbon、清口含片的收纳\n参考品牌/产品：绿箭糖立方Chewing-Gum\n建议容量：40g",
+    "slug": "box-packaging-1046",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-1047",
+    "name": "CollationAlimentationBouteille en Plastique pour BonbonsEmballageModèle5",
+    "keywords": "502320,包装,瓶体/罐体,糖果盒,口香糖,糖类食品,休闲食品,塑料盒,巧克力,零食,水果糖",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/9daa14f0-d46a-4359-912a-0c15a44a597d.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/54f4bc6c-da86-48e1-8ed1-5e789b559cc3.glb",
+    "dimensions": "产品尺寸：H:90mm  D:50mm",
+    "description": "Emballage贴图尺寸：L:160mm  H:42mm\n常见于Chewing-Gum、巧克力、Bonbon类的收纳\n参考品牌/产品：好丽友Chewing-Gum\n建议容量：40g",
+    "slug": "box-packaging-1047",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-1092",
+    "name": "CollationAlimentationAlimentationBoissonAluminum BoxEmballageModèle1",
+    "keywords": "502550,包装,瓶体/罐体,口香糖,铝制盒,食品包装",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/508f22e6-d297-4321-a200-9023f7ec7b03.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/65a591c9-9817-429c-ab3c-b14b29144dec.glb",
+    "dimensions": "产品尺寸：L:19mmW:19mmH:79mm",
+    "description": "Emballage贴图尺寸：L:29mmH:77mm\n\n常见于Chewing-Gum的收纳\n\n参考品牌/产品：绿箭薄荷糖\n\n建议容量：23.8g/35粒",
+    "slug": "box-packaging-1092",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1242",
+    "name": "CollationAlimentationAlimentationBoissonSeau en Plastique pour BiscuitsEmballageModèle",
+    "keywords": "503370,杯/桶/碗/盒/管,桶,包装,瓶体/罐体,塑料桶,休闲食品,饼干桶,零食,食品,巧克力桶,零食桶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/578f8c38-1b96-4289-a692-97e61144892f.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/b8f78787-9997-442c-8962-892dbe9051d9.glb",
+    "dimensions": "产品尺寸：L:76mm  W:76mm  H:115mm",
+    "description": "Emballage贴图尺寸：L:300mm  H:88mm\n常见于饼干、巧克力、零食的收纳\n参考品牌/产品：巧力美垃圾桶巧克力\n建议容量：100g",
+    "slug": "box-packaging-1242",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1264",
+    "name": "CollationAlimentationAlimentationBoissonBoîte de Galettes en AluminiumEmballageModèle",
+    "keywords": "503510,包装,瓶体/罐体,铝罐,圆柱罐,饼干盒,曲奇饼干,糕点,蛋糕,零食,休闲食品,饼干,威化,梅花酥,蛋卷,曲奇,士力架,夹心饼干,桂花酥,桃酥",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/8db2657e-95cf-4058-a228-007cad253a4f.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/4ad31b0a-b637-4672-b379-3b3d4e89dab5.glb",
+    "dimensions": "产品尺寸：D:230mm  H:90mm",
+    "description": "Emballage贴图尺寸：L:205mm  H:205mm\n常见于曲奇饼干、蛋糕糕点、饼干的收纳\n参考品牌/产品：曲奇饼干\n建议容量：680g",
+    "slug": "box-packaging-1264",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-1285",
+    "name": "CollationAlimentationBouteille en Plastique pour BonbonsEmballageModèle7",
+    "keywords": "503570,包装,瓶体/罐体,巧克力,星球杯,塑料盒,糖果盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/68c0374e-dde6-49a4-ae03-efa1d297130c.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/1c727cdf-7154-4771-a5be-258b966fe808.glb",
+    "dimensions": "产品尺寸：L:140mm  H:230mm",
+    "description": "Emballage贴图尺寸：L:88mm  H:177mm\n常见于Bonbon、星球杯的收纳\n参考品牌/产品：星球杯\n建议容量：800g",
+    "slug": "box-packaging-1285",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-1402",
+    "name": "Conteneur Chimique de PeintureEmballageModèle2",
+    "keywords": "503990,杯/桶/碗/盒/管,桶,包装,瓶体/罐体,铝罐,油漆罐,软化油罐,机油罐",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/cc7f00d7-76a5-4c59-8748-6c7e74d882e6.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/2b1a890e-42af-445c-a63b-b0184f72a3c8.glb",
+    "dimensions": "产品尺寸：H:180mm W:75mm D:92mm",
+    "description": "Emballage贴图尺寸：L:334mm  H:163mm\n常见于油漆,机油的收纳\n参考品牌/产品：油漆\n建议容量：1L",
+    "slug": "box-packaging-1402",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1456",
+    "name": "Usage Quotidien MénagerAluminum BoxEmballageModèle",
+    "keywords": "504110,包装,瓶体/罐体,铝制罐,发蜡,发泥",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/0291c767-e283-41f7-a6fb-ddf7500aba44.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/a2485257-16c8-495d-85e2-d8a7da8b6604.glb",
+    "dimensions": "产品尺寸：H:50mm    D:80mm",
+    "description": "Emballage贴图尺寸：L:70mm   H:70mm\n常见于发蜡，发泥的收纳\n参考品牌/产品：发蜡\n建议容量：200ml",
+    "slug": "box-packaging-1456",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1492",
+    "name": "Tube en Plastique de Mastic SiliconeEmballageModèle",
+    "keywords": "504170,杯/桶/碗/盒/管,其他,包装,瓶体/罐体,塑料管,玻璃胶,速干胶,密封胶,胶枪,填缝剂,美缝剂",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/1a843111-79ae-4b14-9f20-372d05070ff8.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/259560c7-73de-4517-b58f-bd88c5bd2e22.glb",
+    "dimensions": "产品尺寸：D:50mm  H:340mm ",
+    "description": "Emballage贴图尺寸：L:157mm  H:195mm\n常见于玻璃胶、密封胶、工业产品的收纳\n参考品牌/产品：玻璃胶\n建议容量：",
+    "slug": "box-packaging-1492",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-1984",
+    "name": "Fournitures Quotidiennes de la MaisonPlastic BoxEmballageModèle",
+    "keywords": "505640,包装,瓶体/罐体,塑料盒,牙线盒,牙签盒,棉签盒,日用品,家庭日用",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/802c5e1c-d7c0-42c7-983c-d2e9358b105f.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/3fd81b5b-a298-4dc7-ab52-4f4d4cf0381b.glb",
+    "dimensions": "产品尺寸：D:90mm W:63mm H:32mm",
+    "description": "Emballage贴图尺寸：L:73mm  H:53mm\n常见于牙签、棉签、牙线棒的收纳\n参考品牌/产品：茶花牙线棒\n建议容量：50枚",
+    "slug": "box-packaging-1984",
+    "category": "Box"
+  },
+  {
+    "id": "BX-2040",
+    "name": "BeautyPot de Cire à Cheveux CosmétiquePlastic BoxEmballageModèle",
+    "keywords": "505880,包装,瓶体/罐体,塑料盒,发蜡,化妆品,保湿霜,牙粉,护肤品,面膜",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/eef5be02-9af6-498e-a5d5-b429ebe250d5.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/0169aa97-3cf9-44aa-b0c4-93258bf79f6b.glb",
+    "dimensions": "产品尺寸：D:40mm  H:40mm",
+    "description": "Emballage贴图尺寸：L:75mm  H:75mm\n常见于发胶、化妆品、保湿霜、护肤品的收纳\n参考品牌/产品：发胶\n建议容量：120g",
+    "slug": "box-packaging-2040",
+    "category": "Box"
+  },
+  {
+    "id": "BX-2295",
+    "name": "Tube de Gel MédicalEmballageModèle",
+    "keywords": "506460,杯/桶/碗/盒/管,其他,包装,瓶体/罐体,塑料软管,医药,药品,凝胶,眼药水,胶水",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/a17a167c-8806-47c7-9559-5e6ca0c7c49b.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/a67be5a4-026b-4e13-b365-6493dd3af01a.glb",
+    "dimensions": "产品尺寸：H:149mm  D:19mm",
+    "description": "Emballage贴图尺寸：L:60mm  H:1200mm\n常见于医用凝胶、眼药水、胶水的收纳\n参考品牌/产品：医用凝胶\n建议容量：",
+    "slug": "box-packaging-2295",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-2833",
+    "name": "CollationAlimentationAlimentationBoissonCéréales d'AvoinePlastic BoxEmballageModèle",
+    "keywords": "508090,包装,瓶体/罐体,塑料盒,燕麦片,零食,休闲食品,麦片,凉皮,拉面,拌面,面皮,手擀面,鸡蛋面,刀削面,土豆粉,薯粉,粉丝,方便面,荞麦面,泡面,酸辣粉",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/cb9acf21-1f04-42a8-8c02-ab7a137a17c5.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/8bf01a8a-5c4c-4622-933d-5212f4736e53.glb",
+    "dimensions": "产品尺寸：L:109mm  W:102mm  H:52mm",
+    "description": "Emballage贴图尺寸：L:305mm  H:51mm\n常见于Céréales d'Avoine、麦片、PratiqueAlimentation的收纳\n参考品牌/产品：水蜜桃水果Céréales d'Avoine\n建议容量：50g",
+    "slug": "box-packaging-2833",
+    "category": "Box"
+  },
+  {
+    "id": "BX-2871",
+    "name": "PratiqueAlimentationAlimentationBoissonSeau en PapierEmballageModèle5",
+    "keywords": "508240,杯/桶/碗/盒/管,桶,包装,瓶体/罐体,泡面桶,食品,食品包装,酸辣粉,重庆小面,快餐碗,凉皮,拉面,拌面,面皮,手擀面,鸡蛋面,刀削面,土豆粉,薯粉,粉丝,方便面,荞麦面,泡面",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/95525b7d-69a5-4931-bc3c-263f41112ca4.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/445f38bb-89d8-427b-b577-aa67f9819bac.glb",
+    "dimensions": "产品尺寸：H:110mm  D:150mm",
+    "description": "Emballage贴图尺寸：L:458mm  H:107mm\n常见于泡面，沙拉碗的收纳\n参考品牌/产品：泡面\n建议容量：",
+    "slug": "box-packaging-2871",
+    "category": "Box"
+  },
+  {
+    "id": "BX-2947",
+    "name": "CollationAlimentationAlimentationBoissonSeau en PapierEmballageModèle",
+    "keywords": "508470,杯/桶/碗/盒/管,桶,包装,瓶体/罐体,纸桶,零食,溜溜梅,梅干,糖果,饼干,巧克力,零食桶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/301219c9-8a69-42f2-9f49-b3226793f573.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/d14011c1-c67f-48b2-a311-cdee44cbcc69.glb",
+    "dimensions": "产品尺寸：H:144mm  D:200mm",
+    "description": "Emballage贴图尺寸：L:458mm  H:107mm\n常见于零食、溜溜梅的收纳\n参考品牌/产品：溜溜梅青梅全家桶\n建议容量：480g",
+    "slug": "box-packaging-2947",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3074",
+    "name": "Pot en Plastique pour Cotons-TigesEmballageModèle1",
+    "keywords": "508860,包装,瓶体/罐体,塑料罐,棉签罐,日用品,医疗用品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/a4654fb7-3fa9-47df-8e32-a8dd44c04aed.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/34d3643f-5600-4919-9ebe-0867c44374ea.glb",
+    "dimensions": "产品尺寸：D:65mm  H:120mm",
+    "description": "Emballage贴图尺寸：L:195mm  H:65mm\n常见于棉签的收纳\n参考品牌/产品：棉签盒\n建议容量：",
+    "slug": "box-packaging-3074",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-3082",
+    "name": "Pot en Plastique pour Cotons-TigesEmballageModèle2",
+    "keywords": "508900,包装,瓶体/罐体,塑料罐,棉签罐,日用品,医疗用品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/2157c40b-cb15-44a2-a9ae-2967f7f23e15.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/ff256697-c025-4c30-ac58-18e0041108a0.glb",
+    "dimensions": "产品尺寸：L:63mm  W:40mm  H:82mm",
+    "description": "Emballage贴图尺寸：L:120mm  H:55mm\n常见于棉签的收纳\n参考品牌/产品：棉签盒\n建议容量：",
+    "slug": "box-packaging-3082",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-3083",
+    "name": "Pot en Plastique pour Cotons-TigesEmballageModèle3",
+    "keywords": "508910,包装,瓶体/罐体,塑料罐,棉签罐,日用品,医疗用品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/fd3690b1-98cf-4958-8a20-5e0f004e8e30.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/1808c67f-ed24-4969-99dc-f072ba7e7bb9.glb",
+    "dimensions": "产品尺寸：D:63mm  H:80mm",
+    "description": "Emballage贴图尺寸：L:192mm  H:60mm\n常见于棉签的收纳\n参考品牌/产品：棉签盒\n建议容量：",
+    "slug": "box-packaging-3083",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-3084",
+    "name": "Tube en Plastique de Mastic SiliconeEmballageModèle1",
+    "keywords": "508920,杯/桶/碗/盒/管,其他,包装,瓶体/罐体,塑料管,玻璃胶,速干胶,密封胶,胶枪,填缝剂,美缝剂",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/13fdcdee-b625-47b5-b487-53291a6eabda.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/6f4eee14-9775-473a-9587-f668ab50348a.glb",
+    "dimensions": "产品尺寸：D:50mm  H:247mm ",
+    "description": "Emballage贴图尺寸：L:154mm  H:195mm\n常见于玻璃胶、密封胶、工业产品的收纳\n参考品牌/产品：玻璃胶\n建议容量：",
+    "slug": "box-packaging-3084",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-3136",
+    "name": "CollationAlimentationBouteille en Aluminium pour BonbonsEmballageModèle1",
+    "keywords": "509120,包装,瓶体/罐体,铝制盒,糖果,口香糖,薄荷糖,果汁糖,零食,食品,休闲食品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/3663d3a5-b863-48d7-befd-5e9a3f228d2b.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/13562820-0ec5-4946-86c1-e1cfc973804a.glb",
+    "dimensions": "产品尺寸：L:70mm W:40mm H:25mm ",
+    "description": "Emballage贴图尺寸：L:55mm  H:29mm\n常见于Bonbon、巧克力的收纳\n参考品牌/产品：Bonbon\n建议容量：",
+    "slug": "box-packaging-3136",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-3232",
+    "name": "CollationAlimentationAlimentationBoissonBoîte de Gâteaux de Lune en AluminiumEmballageModèle",
+    "keywords": "509390,包装,瓶体/罐体,铝盒,饼干盒,月饼,零食,蛋糕,糕点,休闲食品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/6831ef16-2088-4dcb-9b73-d631a1236aab.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/db8d0c88-18a7-4f3b-a2c3-8a6b3be170f2.glb",
+    "dimensions": "产品尺寸：L:190mm  W:115mm  H:60mm",
+    "description": "Emballage贴图尺寸：L:150mm  H:436mm\n常见于月饼、蛋糕糕点、饼干的收纳\n参考品牌/产品：月饼\n建议容量：",
+    "slug": "box-packaging-3232",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-3343",
+    "name": "AlimentationBoissonSeau en Plastique pour Thé aux FruitsEmballageModèle",
+    "keywords": "509680,杯/桶/碗/盒/管,桶,包装,瓶体/罐体,水果茶,酸奶,牛奶,水果捞,塑料桶,墙漆,涂料",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/46c972f4-ecfe-4ccd-a07b-967c606fdef4.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/27c8ce85-51c3-42bc-8596-f5e2b3cff3e2.glb",
+    "dimensions": "产品尺寸：D:160mm H:140mm",
+    "description": "Emballage贴图尺寸：L:500mm  H:70mm\n常见于水果茶、水果捞、AlimentationBoisson、CollationAlimentation的收纳\n参考品牌/产品：水果茶\n建议容量：",
+    "slug": "box-packaging-3343",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3391",
+    "name": "Conteneur Chimique de PeintureEmballageModèle3",
+    "keywords": "509940,杯/桶/碗/盒/管,桶,包装,瓶体/罐体,塑料桶,油漆桶,燃料桶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/e458ea2b-60f9-44b9-a65d-948c94886696.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/9540320b-509f-4a09-8f31-6dcdc54f8eef.glb",
+    "dimensions": "产品尺寸：D:300mm  H:520mm",
+    "description": "Emballage贴图尺寸：L:800mm  H:274mm\n常见于油漆,机油的收纳\n参考品牌/产品：油漆\n建议容量：16L",
+    "slug": "box-packaging-3391",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3611",
+    "name": "PratiqueAlimentationPot en Verre pour Bouillie de Nid d'OiseauEmballageModèle2",
+    "keywords": "510210,杯/桶/碗/盒/管,碗,包装,瓶体/罐体,燕窝,燕窝粥,鱼胶,方便食品,食品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/cd77ac45-09a4-4007-8795-e978855f4968.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/aa23b39b-c46e-4bc6-ab13-5005fed23c4f.glb",
+    "dimensions": "产品尺寸：L:60mm  H:50mm",
+    "description": "Emballage贴图尺寸：L:30mm  W:29.9mm  H:32mm\n常见于中外燕窝、鱼胶的收纳\n参考品牌/产品：燕窝\n建议容量：",
+    "slug": "box-packaging-3611",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-3680",
+    "name": "BonbonBoîte CadeauCollationAlimentationBoîte en PapierEmballageModèle",
+    "keywords": "510340,罐子,纸罐,包装,瓶体/罐体,礼盒,小礼品盒,糖果盒,休闲食品,巧克力",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/fa48b69d-57a9-42c8-9bf0-81de3324e442.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/225840a1-e0c5-4e54-9c2f-f4eb0b36d0d0.glb",
+    "dimensions": "产品尺寸：H:110mm  D:95mm",
+    "description": "Emballage贴图尺寸：L:298mm  H:85mm\n常见于Boîte Cadeau、巧克力、Bonbon的收纳 \n参考品牌/产品：Boîte Cadeau\n建议容量：",
+    "slug": "box-packaging-3680",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3719",
+    "name": "Tube en Papier pour Couplets Usage QuotidienEmballageModèle2",
+    "keywords": "510370,包装,瓶体/罐体,礼品盒,对联礼盒,纸桶,装饰筒,笔筒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/e3e77cfa-088c-4fca-9da5-5df85f870276.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/57f31a90-faf1-415f-81c9-4059e9fb76da.glb",
+    "dimensions": "产品尺寸：D:60mm  H:280mm  ",
+    "description": "Emballage贴图尺寸：L:188mm  H:273mm\n常见于对联、铅笔桶、Usage Quotidien的收纳\n参考品牌/产品：对联礼品Seau en Papier\n建议容量：",
+    "slug": "box-packaging-3719",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3722",
+    "name": "Tube de Stockage Cylindrique Usage QuotidienBoîte en PapierEmballageModèle2",
+    "keywords": "510380,包装,瓶体/罐体,纸桶,笔筒,装饰筒,对联纸桶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/8a6ff66f-b820-4cbd-a8fe-37e394e0eae3.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/d51c3020-9328-4a62-b47d-ceccd574682b.glb",
+    "dimensions": "产品尺寸：D:25mm  H:95mm",
+    "description": "Emballage贴图尺寸：L:78mm  H:89mm\n常见于Boîte en Papier、收纳、生活用品的收纳\n参考品牌/产品：生活用品\n建议容量：",
+    "slug": "box-packaging-3722",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3865",
+    "name": "CollationAlimentationBoîte en PapierEmballageModèle",
+    "keywords": "510650,包装,瓶体/罐体,休闲食品,糕点,饼干,干货,糖果,巧克力,零食",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/b46fd9b2-fe44-4e3a-8d02-90cac8dab3a3.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/d8a7eec8-2ffd-4a16-8790-6ad805bd5762.glb",
+    "dimensions": "产品尺寸：D:155mm  H:75mm",
+    "description": "Emballage贴图尺寸：L:mm  H:mm\n常见于CollationAlimentation、饼干、糕点、Bonbon的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-3865",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3917",
+    "name": "Tube en Plastique de Colle de ConstructionEmballageModèle",
+    "keywords": "510690,杯/桶/碗/盒/管,其他,包装,瓶体/罐体,工业产品,塑料管,玻璃胶,粘合剂,高强度粘合剂,美缝剂,防水胶,胶水",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/0193a0f8-1a37-4e4f-8648-f6fe8358991a.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/d7838613-892c-40fa-8839-e92c734433f0.glb",
+    "dimensions": "产品尺寸：D:48mm H:230mm",
+    "description": "Emballage贴图尺寸：L:150mm  H:210mm\n常见于玻璃胶、粘合剂、美缝剂的收纳\n参考品牌/产品：高强度建筑结构粘合剂\n建议容量：300ML",
+    "slug": "box-packaging-3917",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-3918",
+    "name": "Tube en Plastique de Colle de ConstructionEmballageModèle2",
+    "keywords": "510700,杯/桶/碗/盒/管,其他,包装,瓶体/罐体,塑料桶,塑料管,粘合剂,玻璃胶,美缝剂,工业产品,填缝剂",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/4b31f2a4-1909-4c5e-9c98-99eaf0359d82.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/2a8efae6-0a1b-40ec-b543-91ff343c97df.glb",
+    "dimensions": "产品尺寸：D:125mm  H:320mm",
+    "description": "Emballage贴图尺寸：L:400mm  H:283mm\n常见于玻璃胶、粘合剂、美缝剂的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-3918",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-3919",
+    "name": "Tube en Plastique de Colle de ConstructionEmballageModèle3",
+    "keywords": "510710,杯/桶/碗/盒/管,其他,包装,瓶体/罐体,工业产品,塑料管,玻璃胶,高强度粘合剂,美缝剂,防水胶,胶水",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/b28b9fae-f936-4be4-aefc-ea575f16d2c4.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/60e22bb8-515f-4676-8b5f-4ab714835709.glb",
+    "dimensions": "产品尺寸：L:72mm  W:50mm  H:245mm",
+    "description": "Emballage贴图尺寸：L:144mm  H:200mm\n常见于玻璃胶、粘合剂、美缝剂的收纳\n参考品牌/产品：环氧植筋胶\n建议容量：360ML",
+    "slug": "box-packaging-3919",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-3921",
+    "name": "Tube en Plastique de Colle de ConstructionEmballageModèle4",
+    "keywords": "510730,杯/桶/碗/盒/管,其他,包装,瓶体/罐体,工业产品,塑料管,玻璃胶,美缝剂,防水胶,高强度粘合剂,胶水",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/e4354af9-7a96-4207-a034-1d115ed41458.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/bcdd96e6-0e74-4622-80a4-a4af9600194f.glb",
+    "dimensions": "产品尺寸：L:88mm  W:44mm  H:211mm",
+    "description": "Emballage贴图尺寸：L:155mm   W:155mm  H:200mm\n常见于玻璃胶、粘合剂、美缝剂的收纳\n参考品牌/产品：瓷砖美缝剂\n建议容量：400ML",
+    "slug": "box-packaging-3921",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-4078",
+    "name": "PratiqueAlimentationBol en Aluminium pour Bouillie de Nid d'OiseauEmballageModèle5",
+    "keywords": "510830,杯/桶/碗/盒/管,碗,铝制碗",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/7a590878-e401-425d-9a5d-3cf0a09d81fc.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/b09b4430-0fb2-4503-a37f-b7ce77296aca.glb",
+    "dimensions": "产品尺寸：L:190mm  W:141mm  H:40mm",
+    "description": "Emballage贴图尺寸：L:185mm W:136mm\n常见于PratiqueAlimentation的收纳\n参考品牌/产品：铝碗\n建议容量：",
+    "slug": "box-packaging-4078",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4079",
+    "name": "PratiqueAlimentationAlimentationBoissonBol en PapierEmballageModèle1",
+    "keywords": "510840,杯/桶/碗/盒/管,碗",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/7727d160-777e-418a-bbeb-4b01561f20d0.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/6c436ecd-cd22-40f6-b073-d11b336c9e10.glb",
+    "dimensions": "产品尺寸：L:158mm  W:165mm  H:76mm",
+    "description": "Emballage贴图尺寸：L:158mm  W:165mm  H:76mm\n常见于沙拉的收纳\n参考品牌/产品：沙拉碗\n建议容量：",
+    "slug": "box-packaging-4079",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4080",
+    "name": "PratiqueAlimentationAlimentationBoissonPlastic BoxEmballageModèle4",
+    "keywords": "510850,杯/桶/碗/盒/管,塑料盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/9001e933-da54-472b-a886-c28f92a18bf4.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/ef441a7f-2800-440f-8d27-4e0397c48701.glb",
+    "dimensions": "产品尺寸：L:120mm  W:150mm  H:40mm",
+    "description": "Emballage贴图尺寸：L:81mm  H:111mm\n常见于食物，沙拉的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4080",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4093",
+    "name": "PratiqueAlimentationAlimentationBoissonPlastic BoxEmballageModèle5",
+    "keywords": "510870,杯/桶/碗/盒/管,塑料盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/ed7b8da0-105a-4d14-922c-d8cdbb3145d3.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/99bb6b3a-0cce-4e81-a251-d3314eefc15d.glb",
+    "dimensions": "产品尺寸：L:246mm  W:180mm  H:153mm",
+    "description": "Emballage贴图尺寸：L:173mm  H:80mm\n常见于食物，沙拉的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4093",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4094",
+    "name": "PratiqueAlimentationAlimentationBoissonBol en PapierEmballageModèle2",
+    "keywords": "510880,杯/桶/碗/盒/管,碗",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/7c0efaa0-6709-4677-a06d-b0f5a6e5ae0d.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/108ce0e0-598d-4251-b23f-45bbda672dea.glb",
+    "dimensions": "产品尺寸：L:176mm  W:176mm  H:99mm",
+    "description": "Emballage贴图尺寸：L:160mm  W:159.9mm  H:77mm\n常见于Légume，水果，沙拉的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4094",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4097",
+    "name": "PratiqueAlimentationAlimentationBoissonBol en PlastiqueEmballageModèle1",
+    "keywords": "510890,杯/桶/碗/盒/管,碗",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/23fda049-a66a-4f3d-8928-115761ebb11e.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/189bbe9e-3f84-4b6d-869f-d73e0a130963.glb",
+    "dimensions": "产品尺寸：L:99mm  W:99mm  H:53mm",
+    "description": "Emballage贴图尺寸：L:82mm  W:81.9mm  H:45mm\n常见于Légume，水果，沙拉，坚果的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4097",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4100",
+    "name": "PratiqueAlimentationAlimentationBoissonBol en PlastiqueEmballageModèle2",
+    "keywords": "510900,杯/桶/碗/盒/管,碗",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/e895f0e5-7677-4e3f-b6b6-4d9a0df74cd5.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/724d5c61-e66f-4f31-be19-3c45bc3dae59.glb",
+    "dimensions": "产品尺寸：L:180mm  W:120mm  D:50mm",
+    "description": "Emballage贴图尺寸：L:450mm  W:120mm\n常见于Alimentation，Légume沙拉，饼干的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4100",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4102",
+    "name": "PratiqueAlimentationAlimentationBoissonSeau en PapierEmballageModèle6",
+    "keywords": "510910,杯/桶/碗/盒/管,桶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/8d92cdb9-a8cc-47d5-8893-ae1fdb98d310.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/efe9a4e3-419e-453a-a474-45ae0a4b78d7.glb",
+    "dimensions": "产品尺寸： L:215mm  W:215mm  H:170mm ",
+    "description": "Emballage贴图尺寸：L:204mm  W:160mm H:170mm\n常见于零食，炸鸡的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4102",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4109",
+    "name": "CaféAlimentationBoissonGobelet en PapierEmballageModèle5",
+    "keywords": "510920,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/a4e1bfaf-6b2a-4468-aadf-67a6a5f8c423.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/0920b7d9-1d2b-48f1-b793-c25cc9f2ff61.glb",
+    "dimensions": "产品尺寸：D:56mm  H:50mm",
+    "description": "Emballage贴图尺寸：L:163mm  H:48mm\n常见于零食，Gobelet en Papier蛋糕的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4109",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4111",
+    "name": "PratiqueAlimentationAlimentationBoissonPlastic BoxEmballageModèle6",
+    "keywords": "510930,杯/桶/碗/盒/管,塑料盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/dcfcc59c-98a6-45fd-a477-367a13617cb4.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/978cba39-2fa5-47f3-b1a6-9b6e0b28111d.glb",
+    "dimensions": "产品尺寸：L:170mm  W:110mm  H:65mm",
+    "description": "Emballage贴图尺寸：L:170mm W:110mm  H:65mm\n常见于食物，沙拉的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4111",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4112",
+    "name": "PratiqueAlimentationAlimentationBoissonPlastic BoxEmballageModèle7",
+    "keywords": "510940,杯/桶/碗/盒/管,塑料盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/9e757074-5730-47fb-8172-0e2e2fdf3cbb.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/45090835-1cb9-48a3-b7e7-61301bd199bc.glb",
+    "dimensions": "产品尺寸：L:200mm  W:150mm  H:50mm",
+    "description": "Emballage贴图尺寸：L:200mm  W:150mm  H:50mm\n常见于食物，沙拉的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4112",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4314",
+    "name": "Bidon d'Huile en Plastique ChimiqueEmballageModèle",
+    "keywords": "511040,杯/桶/碗/盒/管,桶,油桶,塑料桶,化工产品,汽油桶,食用油桶,酒桶,白酒桶,方型桶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/3e137ffe-5aec-4fb2-9f69-a71149549001.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/29a980cf-77da-4b88-a5a5-c2e6352bd587.glb",
+    "dimensions": "产品尺寸：L:142mm  W:74mm  H:178",
+    "description": "Emballage贴图尺寸：L:432mm  H:80mm\n常见于Plastic桶、油桶、化工产品的收纳\n参考品牌/产品：油桶\n建议容量：1L",
+    "slug": "box-packaging-4314",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4317",
+    "name": "Bidon d'Huile en Plastique ChimiqueEmballageModèle2",
+    "keywords": "511050,杯/桶/碗/盒/管,桶,油桶,酒桶,染料,方型桶,塑料桶,水桶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/6d9dee6a-5645-47d4-a5b7-ce914e0f567c.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/9a1fd596-f809-488d-9617-0abfc91f7109.glb",
+    "dimensions": "产品尺寸：L:132mm  W:69mm  H:178",
+    "description": "Emballage贴图尺寸：L:402mm  H:80mm\n常见于Plastic桶、油桶、化工产品的收纳\n参考品牌/产品：油桶\n建议容量：1L",
+    "slug": "box-packaging-4317",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4386",
+    "name": "CollationAlimentationBoissonGobelet en Papier JetableEmballageModèle",
+    "keywords": "511060,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,一次性纸杯,纸杯,饮料冲调,休闲食品,咖啡,饮料,奶茶,豆浆,液体饮品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/ecda8986-bf10-454e-b93b-7dffe7638bb5.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/57594698-dae5-49fe-8a05-0a50b60f31ad.glb",
+    "dimensions": "产品尺寸：H:120mm  D:95mm",
+    "description": "Emballage贴图尺寸：L:298mm  H:116mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：450ml",
+    "slug": "box-packaging-4386",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4388",
+    "name": "CollationAlimentationBoissonGobelet en Plastique JetableEmballageModèle",
+    "keywords": "511070,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,塑料杯,一次性杯子,饮料杯,咖啡,奶茶,果汁,豆浆,饮品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/b23c3053-55bf-4fe3-b81d-5c499db9c26a.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/afa25405-c58e-463f-8340-660876c428eb.glb",
+    "dimensions": "产品尺寸：H:130mm  D:90mm",
+    "description": "Emballage贴图尺寸：L:283mm  H:121mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：460ml",
+    "slug": "box-packaging-4388",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4389",
+    "name": "CollationAlimentationBoissonTasse en CéramiqueEmballageModèle",
+    "keywords": "511080,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/d101cdce-bdf5-4925-ba80-6e0d3f29a7f9.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/bca615f2-2b03-449a-9119-9412dc158a91.glb",
+    "dimensions": "产品尺寸：L:86mm  W:110mm  H:70mm",
+    "description": "Emballage贴图尺寸：L:250mm  H:70mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：260ml",
+    "slug": "box-packaging-4389",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4390",
+    "name": "CollationAlimentationBoissonTasse en CéramiqueEmballageModèle2",
+    "keywords": "511090,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/1fbf84ad-66bd-4f6b-ad5e-28af86941ef8.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/d310bad1-190e-4d03-b96a-85f99c55dbe6.glb",
+    "dimensions": "产品尺寸：L:151mm  W:120mm  H:94mm",
+    "description": "Emballage贴图尺寸：L:320mm  H:94mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：550ml",
+    "slug": "box-packaging-4390",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4391",
+    "name": "CollationAlimentationBoissonGobelet en Papier JetableEmballageModèle2",
+    "keywords": "511100,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,纸杯,一次性纸杯,咖啡杯,饮料杯,豆浆,休闲饮料,休闲食品,果冻,饼干,牛奶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/324c021f-a367-4621-af64-2b8b073648a8.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/6e9f44c2-c891-4af9-a5eb-129ee5e1088a.glb",
+    "dimensions": "产品尺寸：H:95mm  D:80mm",
+    "description": "Emballage贴图尺寸：L:251mm  H:93mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：300ml/8oz",
+    "slug": "box-packaging-4391",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4392",
+    "name": "CollationAlimentationBoissonGobelet en Plastique pour Boissons InstantanéesEmballageModèle",
+    "keywords": "511110,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,塑料杯,圆柱杯,饮料杯,休闲饮料,休闲食品,咖啡,可乐,牛奶,碳酸饮料,气泡水",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/153baaab-aa10-4e21-bfad-e3173f169f1a.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/386d1908-b29e-4938-83ad-6e320600dac3.glb",
+    "dimensions": "产品尺寸：H:152mm  D:89mm",
+    "description": "Emballage贴图尺寸：L:280mm  H:152mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：450ml",
+    "slug": "box-packaging-4392",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4393",
+    "name": "CollationAlimentationBoissonGobelet en Plastique pour Boissons InstantanéesEmballageModèle2",
+    "keywords": "511120,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,塑料杯,休闲食品,休闲饮料,碳酸饮料,咖啡,可乐,牛奶,气泡水",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/b0c1c50a-4d52-402d-b076-c780ec8668fe.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/0c8bd13f-5fe1-4ade-b572-d119a4c83515.glb",
+    "dimensions": "产品尺寸：H:115mm  D:90mm",
+    "description": "Emballage贴图尺寸：L:283mm  H:115mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：500ml",
+    "slug": "box-packaging-4393",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4395",
+    "name": "CollationAlimentationBoissonGobelet en Plastique pour Boissons InstantanéesEmballageModèle3",
+    "keywords": "511130,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,塑料杯,杯子,饮料杯,休闲食品,休闲饮料,咖啡,牛奶,可乐,气泡水",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/a97f9a43-c8b0-4d00-95d8-945a57b57fe6.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/67955081-17d5-419f-860a-09e310dd5315.glb",
+    "dimensions": "产品尺寸：H:164mm  D:60mm",
+    "description": "Emballage贴图尺寸：L:188mm  H:164mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：310ml",
+    "slug": "box-packaging-4395",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4396",
+    "name": "CollationAlimentationBoissonGobelet en Plastique pour Boissons InstantanéesEmballageModèle4",
+    "keywords": "511140,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/8ebe562c-b24a-4030-9354-7f9e7d5639d6.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/eea3c960-df6e-4798-b483-4686fbc651fc.glb",
+    "dimensions": "产品尺寸：L:112mm  W:80mm  H:102mm",
+    "description": "Emballage贴图尺寸：L:245mm  H:102mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：500ml",
+    "slug": "box-packaging-4396",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4397",
+    "name": "CollationAlimentationBoissonTasse en CéramiqueEmballageModèle3",
+    "keywords": "511150,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,陶瓷杯,水杯,咖啡杯,牛奶杯,饮料杯,休闲饮料,休闲食品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/bfa09de6-5442-44ea-9b25-6e0d276b68b6.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/81a6455f-e6b9-4c21-8713-829668b97ce2.glb",
+    "dimensions": "产品尺寸：H:100mm  D:100mm",
+    "description": "Emballage贴图尺寸：L:314mm  H:100mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：375ml",
+    "slug": "box-packaging-4397",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4398",
+    "name": "CollationAlimentationBoissonVerreEmballageModèle",
+    "keywords": "511160,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/e5c14229-5f0f-420d-9eae-0b438ae59c0f.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/070e68b6-c28c-40ce-ba84-ef8b8adf9b19.glb",
+    "dimensions": "产品尺寸：D:71mm  H:121mm",
+    "description": "Emballage贴图尺寸：L:210mm  H:121mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：350ml",
+    "slug": "box-packaging-4398",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4399",
+    "name": "CollationAlimentationBoissonTasse en CéramiqueEmballageModèle4",
+    "keywords": "511170,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/d46581d4-2b36-4030-bab4-b4b5aca55c27.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/3ed3cbf2-3c5f-4994-90bc-96d7b0c4543f.glb",
+    "dimensions": "产品尺寸：L:72mm  W:92mm  H:52mm",
+    "description": "Emballage贴图尺寸：L:204mm  H:60mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：125ml",
+    "slug": "box-packaging-4399",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4401",
+    "name": "CollationAlimentationBoissonTasse en CéramiqueEmballageModèle5",
+    "keywords": "511180,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/20e4b003-9f53-4caa-b2a6-99191b2bd5d9.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/3c4fc189-8b3c-4561-af72-3c2b3ea6541d.glb",
+    "dimensions": "产品尺寸：L:116mm  W:90mm  H:65mm",
+    "description": "Emballage贴图尺寸：L:230mm  H:65mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：180ml",
+    "slug": "box-packaging-4401",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4400",
+    "name": "CollationAlimentationBoissonGobelet en Acier InoxydableEmballageModèle",
+    "keywords": "511190,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,不锈钢水杯,水杯,休闲食品,休闲饮料,可乐,咖啡,可携带水杯,饮品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/d2b4d835-2bd5-4219-b630-666b0f418d0f.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/b2516611-cba3-4d34-af0b-7e409abdcc0d.glb",
+    "dimensions": "产品尺寸：H:104mm  D:85mm",
+    "description": "Emballage贴图尺寸：L:314mm  H:104mm\n常见于不锈钢水杯、可携带水杯、液体Boisson的收纳\n参考品牌/产品：\n建议容量：350ml",
+    "slug": "box-packaging-4400",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4402",
+    "name": "CollationAlimentationBoissonGobelet en Papier JetableEmballageModèle3",
+    "keywords": "511200,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,纸杯,一次性纸杯,咖啡杯,牛奶杯,豆浆杯,休闲食品,休闲饮料,饮品,气泡水",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/6551bae0-a6fb-4a64-aeab-47bfccd96fe9.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/fb046193-5a0e-40f5-9a86-80361102a5cd.glb",
+    "dimensions": "产品尺寸：H:153mm  D:90mm",
+    "description": "Emballage贴图尺寸：L:245mm  H:132mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：600ml",
+    "slug": "box-packaging-4402",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4403",
+    "name": "CollationAlimentationBoissonTasse en CéramiqueEmballageModèle6",
+    "keywords": "511210,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/35d8461d-bb74-4952-b2bc-941012e37b58.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/796c1942-0af8-4cb4-a992-d3225958b9e9.glb",
+    "dimensions": "产品尺寸：L:115mm  W:80mm  H:103mm",
+    "description": "Emballage贴图尺寸：L:240mm  H:103mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：420ml",
+    "slug": "box-packaging-4403",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4405",
+    "name": "CollationAlimentationBoissonTasse en CéramiqueEmballageModèle7",
+    "keywords": "511220,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/4debd35b-2c3c-497a-8acf-b2483e0aed6a.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/4695f5c8-9694-4b88-86ad-323e054e060c.glb",
+    "dimensions": "产品尺寸：L:130mm  W:92mm  H:112mm",
+    "description": "Emballage贴图尺寸：L:260mm  H:112mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：400ml",
+    "slug": "box-packaging-4405",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4404",
+    "name": "CollationAlimentationBoissonGobelet en Papier JetableEmballageModèle4",
+    "keywords": "511230,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,纸杯,水杯,咖啡杯,牛奶杯,早餐杯,豆浆杯,可乐,饮料,饮品,一次性纸杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/27100c48-e00c-4b16-8daa-d4e4077f0835.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/453f33bd-4076-482c-9910-c853fe731f6d.glb",
+    "dimensions": "产品尺寸：H:136mm  D:90mm",
+    "description": "Emballage贴图尺寸：L:283mm  H:114mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：500ml",
+    "slug": "box-packaging-4404",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4406",
+    "name": "CollationAlimentationBoissonGobelet en MétalEmballageModèle",
+    "keywords": "511240,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/0684696e-c058-4cef-b2e5-a76db66989c0.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/e1091608-bd2b-4fc7-a24d-d5beeb600173.glb",
+    "dimensions": "产品尺寸：D:37mm  H:28mm",
+    "description": "Emballage贴图尺寸：L:29mm  W:28.8mm  H:27mm\n常见于水，Boisson，果冻的收纳\n参考品牌/产品：\n建议容量：50g",
+    "slug": "box-packaging-4406",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4408",
+    "name": "CollationAlimentationBoissonGobelet en Plastique pour Boissons InstantanéesEmballageModèle5",
+    "keywords": "511250,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/df5b3265-1f4c-4778-afa0-42fecf66c85d.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/85353051-ee8d-44b2-8f80-6e6bf5f7f5c4.glb",
+    "dimensions": "产品尺寸：D:80mm  H:59mm",
+    "description": "Emballage贴图尺寸：L:60mm  W:59.9mm  H:51mm\n常见于Boisson，Yaourt，牛奶的收纳\n参考品牌/产品：\n建议容量：180ml",
+    "slug": "box-packaging-4408",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4407",
+    "name": "CollationAlimentationBoissonGobelet en Papier JetableEmballageModèle5",
+    "keywords": "511260,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,纸杯,一次性纸杯,休闲食品,休闲饮料,饮品,咖啡杯,可乐杯,气泡水",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/adf3972f-4bc5-4a95-9796-51adbfba8d65.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/392a9100-0930-4cd4-a181-cd732c1680ed.glb",
+    "dimensions": "产品尺寸：H:185mm  D:90mm",
+    "description": "Emballage贴图尺寸：L:283mm  H:142mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：700ml",
+    "slug": "box-packaging-4407",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4410",
+    "name": "CollationAlimentationBoissonGobelet en Papier JetableEmballageModèle6",
+    "keywords": "511270,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/919a6c79-3c00-405d-9af2-53b261de072f.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/7f50565d-b117-4087-bb52-aa516ddeb686.glb",
+    "dimensions": "产品尺寸：D:80mm  H:95mm",
+    "description": "Emballage贴图尺寸：L:70mm  W:69.9mm  H:84mm\n常见于Boisson，Yaourt，牛奶的收纳\n参考品牌/产品：\n建议容量：250ml",
+    "slug": "box-packaging-4410",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4409",
+    "name": "CollationAlimentationBoissonGobelet en Plastique pour Boissons InstantanéesEmballageModèle6",
+    "keywords": "511280,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,塑料杯,一次性塑料杯,休闲食品,休闲饮料,饮品,可乐,气泡水",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/b9b2e5c4-8469-405f-880f-dd060f4ebfd4.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/d56f8274-e843-4737-a5d7-f47fc8ff9902.glb",
+    "dimensions": "产品尺寸：H:135mm  D:98mm",
+    "description": "Emballage贴图尺寸：L:308mm  H:130mm\n常见于AlimentationBoisson、Gobelet en Plastique、饮品、可乐的收纳\n参考品牌/产品：\n建议容量：20oz",
+    "slug": "box-packaging-4409",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4412",
+    "name": "CollationAlimentationBoissonGobelet en MétalEmballageModèle2",
+    "keywords": "511290,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/b3676d92-4213-48ea-a7ee-25f3f37e1e65.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/e96725db-adf8-4dc9-8f24-f635726480ee.glb",
+    "dimensions": "产品尺寸：D:58mm  H:25mm",
+    "description": "Emballage贴图尺寸：L:58mm  H:58mm\n常见于水，Boisson，果冻的收纳\n参考品牌/产品：\n建议容量：230ml\n",
+    "slug": "box-packaging-4412",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4411",
+    "name": "CollationAlimentationBoissonGobelet en Plastique pour Boissons InstantanéesEmballageModèle7",
+    "keywords": "511300,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,水杯,塑料杯,一次性水杯,休闲食品,可乐,饮品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/291e6173-daf6-4faa-9fdd-7b8eace7a922.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/538e5476-feba-4891-a760-d0709c6c53ce.glb",
+    "dimensions": "产品尺寸：H:160mm  D:100mm",
+    "description": "Emballage贴图尺寸：L:280mm  H:177mm\n常见于Gobelet en Plastique、AlimentationBoisson、可乐、饮品的收纳\n参考品牌/产品：\n建议容量：500ml",
+    "slug": "box-packaging-4411",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4413",
+    "name": "CollationAlimentationBoissonGobelet en Plastique pour Boissons InstantanéesEmballageModèle9",
+    "keywords": "511310,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,塑料杯,水杯,一次性水杯,休闲食品,休闲饮料,饮品,咖啡杯,可乐杯,饮料杯,豆浆杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/f0635de7-3be4-41a4-8157-62e32bbbd9db.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/c54242ba-a550-4381-9c90-05decf3becad.glb",
+    "dimensions": "产品尺寸：H:145mm  D:90mm",
+    "description": "Emballage贴图尺寸：L:283mm  H:145mm\n常见于Gobelet en Plastique、Café杯、可乐杯饮品的收纳\n参考品牌/产品：\n建议容量：520ml",
+    "slug": "box-packaging-4413",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4414",
+    "name": "CollationAlimentationBoissonGobelet en Plastique pour Boissons InstantanéesEmballageModèle8",
+    "keywords": "511320,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/6da3def2-7694-4797-844a-6512ac25539a.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/5aa7c5f3-5cea-471a-ac7b-ad3011cd2bff.glb",
+    "dimensions": "产品尺寸：D:90mm  H:88mm  ",
+    "description": "Emballage贴图尺寸：L:90mm  W:89.9mm  H:90mm\n常见于零食、AlimentationBoisson、饮品的收纳\n参考品牌/产品：\n建议容量：300ml",
+    "slug": "box-packaging-4414",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4415",
+    "name": "CollationAlimentationBoissonGobelet en Plastique pour Boissons InstantanéesEmballageModèle10",
+    "keywords": "511330,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,塑料杯,休闲食品,食品杯,一次性塑料杯,摇摇杯,果冻",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/fb3d6b79-8133-466a-9ce2-794aeac79d9b.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/a58a19c9-3bf1-4769-95eb-ccf9ca675057.glb",
+    "dimensions": "产品尺寸：H:59mm  D:75mm",
+    "description": "Emballage贴图尺寸：L:236mm  H:59mm\n常见于Gobelet en Plastique、Café杯、可乐杯饮品的收纳\n参考品牌/产品：\n建议容量：150ml",
+    "slug": "box-packaging-4415",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4417",
+    "name": "CollationAlimentationBoissonGobelet en Papier JetableEmballageModèle7",
+    "keywords": "511350,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/c9910847-6746-41dc-986a-e9ced41e7dfe.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/03aa76fe-1497-4bdd-b598-64738b2677a8.glb",
+    "dimensions": "产品尺寸：D:90mm  H:112mm",
+    "description": "Emballage贴图尺寸：L:245mm  H:58mm\n常见于Boisson，Café的收纳\n参考品牌/产品：\n建议容量：400ml",
+    "slug": "box-packaging-4417",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4418",
+    "name": "CollationAlimentationBoissonGobelet en Plastique pour Boissons InstantanéesEmballageModèle11",
+    "keywords": "511360,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,塑料杯,一次性塑料杯,水杯,咖啡杯,可乐杯,饮料杯,休闲食品,休闲饮料,果冻,摇摇杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/cf6bd6e6-8516-48a1-b990-7c9a9c35c562.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/8095e886-a1f9-4291-b613-3812edfaf64c.glb",
+    "dimensions": "产品尺寸：H:63mm  D:73mm",
+    "description": "Emballage贴图尺寸：L:229mm  H:63mm\n常见于Gobelet en Plastique、AlimentationBoisson、CollationAlimentation、果冻的收纳\n参考品牌/产品：\n建议容量：75g",
+    "slug": "box-packaging-4418",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4419",
+    "name": "CollationAlimentationBoissonTasse en CéramiqueEmballageModèle8",
+    "keywords": "511370,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/63172263-98a9-47de-8d5f-09f426f65ece.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/9a89d008-74d7-41f1-a789-3486d2b5fa5a.glb",
+    "dimensions": "产品尺寸：D:80mm  H:145mm",
+    "description": "Emballage贴图尺寸：L:210mm  H:145mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：470ml",
+    "slug": "box-packaging-4419",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4420",
+    "name": "CollationAlimentationBoissonGobelet en Papier JetableEmballageModèle8",
+    "keywords": "511380,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,纸杯,一次性纸杯,可乐杯,咖啡杯,豆浆杯,休闲食品,休闲饮品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/9242087a-f01a-4b8d-9f8d-e782f67ff2bd.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/f7f2fed0-6115-4bb4-a05c-81065c7d8787.glb",
+    "dimensions": "产品尺寸：H:90mm  D:80mm",
+    "description": "Emballage贴图尺寸：L:251mm  H:87mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：8oz",
+    "slug": "box-packaging-4420",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4422",
+    "name": "CollationAlimentationBoissonGobelet en Papier JetableEmballageModèle9",
+    "keywords": "511390,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/975ad2f7-166a-4818-a480-3a7617c5fe69.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/b80771b8-74e3-40be-841a-682fa6b22322.glb",
+    "dimensions": "产品尺寸：D:100mm  H:165mm",
+    "description": "Emballage贴图尺寸：L:99mm  W:98.9mm  H:160mm\n常见于Boisson，Yaourt，牛奶的收纳\n参考品牌/产品：\n建议容量：500ml",
+    "slug": "box-packaging-4422",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4421",
+    "name": "CollationAlimentationBoissonGobelet en Plastique pour Boissons InstantanéesEmballageModèle12",
+    "keywords": "511400,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,塑料杯,休闲食品,咖啡杯,可乐杯,豆浆杯,牛奶杯,休闲饮品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/ec0d653c-50be-4326-b0e0-7013851f124d.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/203073f8-9f65-43d2-85a9-fc88519b691a.glb",
+    "dimensions": "产品尺寸：H:115mm  D:95mm",
+    "description": "Emballage贴图尺寸：L:298mm  H:112mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：500ml",
+    "slug": "box-packaging-4421",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4423",
+    "name": "CollationAlimentationBoissonGobelet en Papier JetableEmballageModèle10",
+    "keywords": "511410,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/2812292e-bc1a-4cfa-8c5e-0afb2ba8319a.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/dd8deeec-3c8b-47d6-ab76-7e701883a32e.glb",
+    "dimensions": "产品尺寸：D:90mm  H:145mm",
+    "description": "Emballage贴图尺寸：L:65mm  W:64.9mm  H:110mm\n常见于Boisson，Yaourt，牛奶的收纳\n参考品牌/产品：\n建议容量：500ml",
+    "slug": "box-packaging-4423",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4424",
+    "name": "CollationAlimentationBoissonGobelet en Papier JetableEmballageModèle11",
+    "keywords": "511420,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,纸杯,一次性纸杯,休闲饮品,咖啡杯,牛奶杯,可乐杯,豆浆杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/15bc5d6c-60dd-4e29-89f5-07357d138de7.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/7c66911c-ffcd-4c07-a736-0c19d539137d.glb",
+    "dimensions": "产品尺寸：H:112mm  D:90mm",
+    "description": "Emballage贴图尺寸：L:298mm  H:60mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：400ml/12oz",
+    "slug": "box-packaging-4424",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4425",
+    "name": "CollationAlimentationBoissonGobelet en Papier JetableEmballageModèle12",
+    "keywords": "511430,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/6b9f6256-0dd5-4531-90df-03defa883152.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/c6eb3bc5-45ad-41fd-906c-d7fa9bae663f.glb",
+    "dimensions": "产品尺寸：D:80mm  H:102mm  ",
+    "description": "Emballage贴图尺寸：L:200mm  H:71mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：280ml",
+    "slug": "box-packaging-4425",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4428",
+    "name": "CollationAlimentationBoissonGobelet en Papier JetableEmballageModèle13",
+    "keywords": "511440,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/0bd6a6b9-0839-45be-811e-1c8f08d0610c.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/40a85772-7e05-4140-a6f2-01cca7fa7295.glb",
+    "dimensions": "产品尺寸：D:90mm  H:178mm  ",
+    "description": "Emballage贴图尺寸：L:250mm  H:168mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：700ml",
+    "slug": "box-packaging-4428",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4431",
+    "name": "CollationAlimentationBoissonGobelet en Papier JetableEmballageModèle14",
+    "keywords": "511450,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/8ff18dde-cc43-4fa7-a55f-0a2236ff0500.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/f8357fab-33bf-44d5-9f08-453fe8823d7c.glb",
+    "dimensions": "产品尺寸：D:92mm  H:144mm  ",
+    "description": "Emballage贴图尺寸：L:250mm  H:111mm\n常见于Café、Boisson、Thé au Lait、豆浆、饮品的收纳\n参考品牌/产品：\n建议容量：450ml",
+    "slug": "box-packaging-4431",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4429",
+    "name": "AlimentationBoissonCollationAlimentationPlastic BoxEmballageModèle",
+    "keywords": "511460,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,蛋糕盒,冰激凌盒,休闲食品,糕点盒,一次性塑料盒,包装盒,礼品盒,快餐盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/02d3c3a7-e80e-45ec-8982-6f2d2d9b3059.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/2f8c8145-0464-46c7-b9f7-afcd96bed7de.glb",
+    "dimensions": "产品尺寸：H:85mm  D:175mm",
+    "description": "Emballage贴图尺寸：L:120mm  H:42mm\n常见于AlimentationBoisson、冰激凌盒、蛋糕盒、Plastic Box的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4429",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4430",
+    "name": "AlimentationBoissonCollationAlimentationGobelet en PlastiqueEmballageModèle2",
+    "keywords": "511470,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,塑料杯,休闲食品,零食,果冻,酸奶,糕点,食品包装",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/2afc67fa-17b0-4b96-a008-f71afcef9475.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/de47eb84-2be8-406b-81eb-492b965e86fa.glb",
+    "dimensions": "产品尺寸：H:117mm  D:80mm",
+    "description": "Emballage贴图尺寸：L:245mm  H:70mm\n常见于果冻、Yaourt、CollationAlimentation、零食的收纳\n参考品牌/产品：\n建议容量：250ml",
+    "slug": "box-packaging-4430",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4432",
+    "name": "AlimentationBoissonCollationAlimentationBoîte en PapierEmballageModèle",
+    "keywords": "511480,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,休闲食品,零食,一次性纸盒,冰激凌纸盒,酸奶,奶酪,布丁",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/3a91c55f-4f81-4a68-93d2-f20edc85f3e3.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/1dad887a-5451-44e0-badf-e7f222aa78de.glb",
+    "dimensions": "产品尺寸：H:60mm  L:77mm  W:63mm",
+    "description": "Emballage贴图尺寸：L:280mm  H:60mm\n常见于泡面、冰激凌、Yaourt、布丁的收纳\n参考品牌/产品：\n建议容量：160ml",
+    "slug": "box-packaging-4432",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4433",
+    "name": "AlimentationBoissonCollationAlimentationPlastic BoxEmballageModèle2",
+    "keywords": "511490,杯/桶/碗/盒/管,塑料盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/17439b03-2407-4ee9-9c70-fc5a53dc1f14.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/2599b77c-1fbb-405f-b916-edc455d59c1f.glb",
+    "dimensions": "产品尺寸：D:150mm  H:200mm",
+    "description": "Emballage贴图尺寸：L:430mm  H:107mm\n常见于AlimentationBoisson、冰激凌盒、蛋糕盒、Plastic Box的收纳\n参考品牌/产品：\n建议容量：1L",
+    "slug": "box-packaging-4433",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4435",
+    "name": "AlimentationBoissonCollationAlimentationGobelet en PlastiqueEmballageModèle3",
+    "keywords": "511500,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/b769af9a-fc20-496b-a0f0-71f6b55bf43a.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/d8976452-8bab-43ec-96df-b43a150f766f.glb",
+    "dimensions": "产品尺寸：D:102mm  H:75mm",
+    "description": "Emballage贴图尺寸：L:260mm  H:85mm\n常见于AlimentationBoisson、冰激凌、蛋糕的收纳\n参考品牌/产品：\n建议容量：200ml",
+    "slug": "box-packaging-4435",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4434",
+    "name": "AlimentationBoissonCollationAlimentationBol en PlastiqueEmballageModèle",
+    "keywords": "511510,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,塑料碗,塑料球,休闲食品,一次性塑料盒,果切,蛋糕,零食,巧克力,糖果",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/2c491385-f8a2-4b20-8a31-e8ca568a6319.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/7f694fdd-e677-4203-96f5-480f05b91095.glb",
+    "dimensions": "产品尺寸：H:112mm  D:131mm",
+    "description": "Emballage贴图尺寸：L:411mm  H:30mm\n常见于CollationAlimentation、果切、蛋糕、Bonbon的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4434",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4443",
+    "name": "AlimentationBoissonCollationAlimentationPlastic BoxEmballageModèle3",
+    "keywords": "511520,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/fb8d673a-5723-45ca-bef1-4b190abcdc9b.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/e33ae9be-df95-4f9d-91fb-6e8d9785cc77.glb",
+    "dimensions": "产品尺寸：L:74mm  W:74mm  H:63mm",
+    "description": "Emballage贴图尺寸：L:68  W:68mm  H:75mm\n常见于泡面、冰激凌、Yaourt、布丁的收纳\n参考品牌/产品：\n建议容量：200ml",
+    "slug": "box-packaging-4443",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4446",
+    "name": "AlimentationBoissonCollationAlimentationPlastic BoxEmballageModèle4",
+    "keywords": "511550,杯/桶/碗/盒/管,塑料盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/db52fddf-323a-42d1-8ae5-25c67d3d36e3.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/bc224cdc-e87c-42c2-a2b7-703eb587301c.glb",
+    "dimensions": "产品尺寸：L:198mm  W:124mm  H:80mm",
+    "description": "Emballage贴图尺寸：L:68  W:68mm  H:75mm\n常见于泡面、冰激凌、Yaourt、布丁的收纳\n参考品牌/产品：\n建议容量：1200ml",
+    "slug": "box-packaging-4446",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4483",
+    "name": "Bidon d'Huile en Plastique ChimiqueEmballageModèle5",
+    "keywords": "511590,杯/桶/碗/盒/管,桶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/d5497e02-6dc7-4ce3-9830-0ac876873662.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/872bb5f1-e870-4de7-957f-801da7ced949.glb",
+    "dimensions": "产品尺寸：L:182mm  W:168mm  H:255mm",
+    "description": "Emballage贴图尺寸：L:620mm  H:124mm\n常见于Plastic桶、油桶、化工产品的收纳\n参考品牌/产品：油桶\n建议容量：5L",
+    "slug": "box-packaging-4483",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4484",
+    "name": "Bidon d'Huile en Plastique ChimiqueEmballageModèle6",
+    "keywords": "511600,杯/桶/碗/盒/管,桶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/731d5991-1c4a-427d-8152-b86c3f256575.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/e39e5fbe-e2bf-4c69-9cf8-c66547d9b9e9.glb",
+    "dimensions": "产品尺寸：L:220mm  W:149mm  H:320mm",
+    "description": "Emballage贴图尺寸：L:680mm  H:195mm\n常见于Plastic桶、油桶、化工产品的收纳\n参考品牌/产品：油桶\n建议容量：10L",
+    "slug": "box-packaging-4484",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4485",
+    "name": "Bidon d'Huile en Plastique ChimiqueEmballageModèle7",
+    "keywords": "511610,杯/桶/碗/盒/管,桶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/763f9d92-46b1-4fab-b6ef-71197e679969.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/d07c2c5b-6b43-41a9-a70c-523776fe8d67.glb",
+    "dimensions": "产品尺寸：L:290mm  W:210mm  H:420mm",
+    "description": "Emballage贴图尺寸：L:920mm  H:175mm\n常见于Plastic桶、油桶、化工产品的收纳\n参考品牌/产品：油桶\n建议容量：20L",
+    "slug": "box-packaging-4485",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4486",
+    "name": "Bidon d'Huile en Plastique ChimiqueEmballageModèle8",
+    "keywords": "511620,杯/桶/碗/盒/管,桶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/2ef83096-a051-493a-95e5-80cce5cda331.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/2f3e0048-0ea3-417f-af81-64b1dfce6b4a.glb",
+    "dimensions": "产品尺寸：L:300mm  W:275mm  H:430mm",
+    "description": "Emballage贴图尺寸：L:1050mm  H:258mm\n常见于Plastic桶、油桶、化工产品的收纳\n参考品牌/产品：油桶\n建议容量：25L",
+    "slug": "box-packaging-4486",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4487",
+    "name": "Bidon d'Huile en Plastique ChimiqueEmballageModèle9",
+    "keywords": "511630,杯/桶/碗/盒/管,桶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/0accac72-e839-488d-8437-056a3f139561.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/e3f2b14e-af69-425d-9f77-bda9da1a47d1.glb",
+    "dimensions": "产品尺寸：L:195mm  W:140mm  H:305mm",
+    "description": "Emballage贴图尺寸：L:620mm  H:158mm\n常见于Plastic桶、油桶、化工产品的收纳\n参考品牌/产品：油桶\n建议容量：5L",
+    "slug": "box-packaging-4487",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4793",
+    "name": "AlimentationBoissonCollationAlimentationPlastic BoxEmballageModèle5",
+    "keywords": "511960,杯/桶/碗/盒/管,塑料盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/a125443d-90dd-47e9-8d70-89e6d0284b29.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/650d887f-e80e-4d18-9665-cd518b326c6f.glb",
+    "dimensions": "产品尺寸：L:172mm  W:120mm  H:61mm",
+    "description": "Emballage贴图尺寸：L:152mm  W:104mm  H:48mm\n常见于Boîte en Papier，Plastic Box的收纳\n参考品牌/产品：\n建议容量：500ml",
+    "slug": "box-packaging-4793",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4800",
+    "name": "Bidon d'Huile en Plastique ChimiqueEmballageModèle10",
+    "keywords": "512020,杯/桶/碗/盒/管,桶,塑料桶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/cebb8fb6-efb3-46a2-9b7d-62ef2829a5bf.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/93106f19-5cd7-4bf1-bdb8-c607d25dffa7.glb",
+    "dimensions": "产品尺寸：L:134mm  W:134mm  H:213mm",
+    "description": "Emballage贴图尺寸：L:128mm  W:100mm  H:100mm\n常见于Plastic桶、油桶、化工产品的收纳\n参考品牌/产品：油桶\n建议容量：2L",
+    "slug": "box-packaging-4800",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4804",
+    "name": "Chocolat de BonbonAlimentationBoissonPlasticBoîte en PapierEmballageModèle",
+    "keywords": "512030,杯/桶/碗/盒/管,塑料盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/23a22972-68dc-4c2c-a18e-2171e6123b45.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/fc696526-a54d-45e0-bf20-6b9d93d29949.glb",
+    "dimensions": "产品尺寸：L:200mm  W:200mm  H:30mm",
+    "description": "Emballage贴图尺寸：L:200mm  H:460mm\n常见于Bonbon、巧克力、Alimentation袋的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4804",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4805",
+    "name": "AlimentationBoissonChocolat pour CollationBoîte en PapierEmballageModèle",
+    "keywords": "512040,杯/桶/碗/盒/管,塑料盒,其他,巧克力盒,休闲食品,零食,饼干盒,礼品盒,糖果盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/e9eea671-ac0b-4d48-b75b-d44d6520ec38.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/44077a81-959a-4226-9313-75e47364d3fe.glb",
+    "dimensions": "产品尺寸：L:140mm  W:105mm  H:38mm",
+    "description": "Emballage贴图尺寸：L:140mm  W:105mm  H:30mm\n常见于CollationAlimentation、巧克力、Bonbon、饼干的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4805",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4807",
+    "name": "AlimentationBoissonChocolat pour CollationBoîte en PapierEmballageModèle1",
+    "keywords": "512060,杯/桶/碗/盒/管,碗,塑料盒,其他,休闲食品,巧克力,饼干,糖果,零食",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/d53b54bf-8374-4532-8697-df2275c8e75f.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/cf4f23e3-c5ce-4544-910b-0b8ff97c5d17.glb",
+    "dimensions": "产品尺寸：L:200mm  W:200mm  H:30mm",
+    "description": "Emballage贴图尺寸：L:200mm  W:200mm  H:25mm\n常见于巧克力、Bonbon、饼干、零食的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4807",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4808",
+    "name": "AlimentationBoissonChocolat pour CollationBoîte en PapierEmballageModèle2",
+    "keywords": "512070,杯/桶/碗/盒/管,桶,纸筒盒,巧克力盒子,糖果盒,饼干盒,零食盒,休闲食品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/fb1be619-fdb1-406d-87ac-162957aba4a7.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/88f620a2-c844-4b99-900b-f5e797df6565.glb",
+    "dimensions": "产品尺寸：D:100mm  H:60mm",
+    "description": "Emballage贴图尺寸：D:100mm  L:314mm  H:60mm\n常见于巧克力、Bonbon、饼干、零食、Alimentation的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4808",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4809",
+    "name": "Chocolat de BonbonAlimentationBoissonBoîte en MétalEmballageModèle",
+    "keywords": "512080,杯/桶/碗/盒/管,其他",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/0bafd0a7-a7bf-4862-9d28-f20f81086e24.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/9f347dc0-3122-439e-b988-68b960578359.glb",
+    "dimensions": "产品尺寸：L:45mm  W:45mm  H:65mm ",
+    "description": "Emballage贴图尺寸：L:45mm  H:65mm\n常见于Bonbon、巧克力、Alimentation袋的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4809",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4814",
+    "name": "Chocolat de BonbonAlimentationBoissonBoîte en MétalEmballageModèle1",
+    "keywords": "512100,杯/桶/碗/盒/管,其他",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/4c2ecdc4-11af-4980-b951-c069acdc3142.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/c1300a6b-2962-4f4e-82d4-ca248e749b7d.glb",
+    "dimensions": "产品尺寸：L:65mm  W:65mm  H:110mm ",
+    "description": "Emballage贴图尺寸：L:72mm  H:110mm\n常见于Bonbon、巧克力、Alimentation袋的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4814",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4820",
+    "name": "AlimentationBoissonCollationAlimentationPlastic BoxEmballageModèle7",
+    "keywords": "512110,杯/桶/碗/盒/管,塑料盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/82814eda-9ad3-47e5-aed7-493056dc0df1.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/92c9c45b-05fb-4af6-83cb-10b3d0b48ee3.glb",
+    "dimensions": "产品尺寸：L:103mm  W:103mm  H:116mm",
+    "description": "Emballage贴图尺寸：L:103mm  W:103mm  H:116mm\n常见于Boîte en Papier，Plastic Box的收纳\n参考品牌/产品：\n建议容量：680ml",
+    "slug": "box-packaging-4820",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4832",
+    "name": "AlimentationBoissonBoîte en Métal pour Biscuits et PâtisserieEmballageModèle",
+    "keywords": "512140,杯/桶/碗/盒/管,塑料盒,其他,金属盒,八边盒,休闲零食,糕点,饼干,甜品,蛋糕,巧克力,糖果",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/39f7b2c0-769e-4c52-9218-76855daa51d4.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/3bc5e1dd-55cb-4d6c-bcd2-49191733e2c9.glb",
+    "dimensions": "产品尺寸：L:198mm  W:198mm  H:68mm",
+    "description": "Emballage贴图尺寸：L:198mm  W:198mm  H:68mm\n常见于CollationAlimentation、巧克力、Bonbon、饼干的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4832",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4856",
+    "name": "AlimentationBoissonChope de Bière en Acier InoxydableEmballageModèle",
+    "keywords": "512150,罐子,杯/桶/碗/盒/管,金属罐,纸杯/水杯/塑料杯,不锈钢,水杯,啤酒杯,休闲饮品,酒类容器",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/19b66ffa-1064-446a-b3e6-b691da5ff795.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/c1fec6c0-ba9c-4d0d-b32d-aaf2b89dd8a2.glb",
+    "dimensions": "产品尺寸：D:75mm  H:164mm",
+    "description": "Emballage贴图尺寸：L:236mm  H:165mm\n常见于AlimentationBoisson、Collation饮品、水杯、酒类的收纳\n参考品牌/产品：\n建议容量：400ml",
+    "slug": "box-packaging-4856",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4888",
+    "name": "AlimentationBoissonBol en Plastique pour CollationEmballageModèle",
+    "keywords": "512160,罐子,杯/桶/碗/盒/管,塑料罐,碗,休闲零食,塑料碗,果冻,布丁,酸奶,零食碗",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/3219a8ca-6ea8-404d-b84d-c7ce6dc0d49c.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/6c2d175f-c669-4f60-b10d-5ab718fc4233.glb",
+    "dimensions": "产品尺寸：D:70mm  H:65mm",
+    "description": "Emballage贴图尺寸：L:70mm  W:69.9mm  H:50mm\n常见于Yaourt、布丁、奶酪、零食的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4888",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4889",
+    "name": "AlimentationBoissonPot de Yaourt en PlastiqueEmballageModèle",
+    "keywords": "512170,罐子,杯/桶/碗/盒/管,塑料罐,纸杯/水杯/塑料杯,碗,塑料盒,塑料碗,酸奶杯,布丁,奶酪,休闲零食",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/33834778-ac2d-4c5d-8650-f2d71d4ad0cb.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/10766f50-4040-46a1-a677-128fc49cea1c.glb",
+    "dimensions": "产品尺寸：D:97.5mm  H:75mm",
+    "description": "Emballage贴图尺寸：L:295mm  H:73mm\n常见于AlimentationBoisson、Yaourt、杯酸、奶酪、布丁类的收纳\n参考品牌/产品：\n建议容量：315ml",
+    "slug": "box-packaging-4889",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4962",
+    "name": "AlimentationBoissonSeau en Papier Rond pour Repas InstantanéEmballageModèle",
+    "keywords": "512210,罐子,杯/桶/碗/盒/管,纸罐,桶,碗,纸桶,汤桶,休闲食品,粥类速食,方便食品,加热速食,泡面桶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/eb39a386-cc90-4a9f-8e2a-ffc6af9b5af9.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/db147f97-7eb8-435e-ade0-24c3ee81b7ba.glb",
+    "dimensions": "产品尺寸：H:60mm  D:90mm",
+    "description": "Emballage贴图尺寸：L:90mm  W:16.75mm  H:54mm\n常见于AlimentationBoisson、汤桶、Pratique面、粥类、速食产品的收纳\n参考品牌/产品：汤桶\n建议容量：8oz",
+    "slug": "box-packaging-4962",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4965",
+    "name": "CollationAlimentationBoîte en Métal pour Galettes et BonbonsBoîte CadeauEmballageModèle",
+    "keywords": "512220,罐子,杯/桶/碗/盒/管,金属罐,纸罐,桶,金属礼盒,礼盒,巧克力,情人节礼盒,糖果,饼干,糕点,甜品,休闲零食",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/d6d3bd64-14e3-43f3-8e5f-e38590c59216.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/2cafcfcb-2931-4d30-97a1-70824c3aa2ed.glb",
+    "dimensions": "产品尺寸：L:250mm  W:220mm  H:140mm",
+    "description": "Emballage贴图尺寸：L:240mm  W:35mm  H:105mm\n常见于情人节Boîte Cadeau、巧克力、Bonbon、饼干、零食的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4965",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4969",
+    "name": "CollationAlimentationBoîte en Papier pour Galettes et BonbonsBoîte CadeauEmballageModèle",
+    "keywords": "512230,纸盒,精装盒,展示盒/架,礼盒,巧克力礼盒,糖果盒,饼干,甜点,糕点,休闲零食",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/5ed26f2b-71e8-4c8b-871e-6483b53c4627.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/b7f75d34-7334-427b-99bd-74ccd20336ce.glb",
+    "dimensions": "产品尺寸：L:200mm  W:200mm  H:30mm",
+    "description": "Emballage贴图尺寸：L:200mm  W:200mm  H:200mm\n常见于巧克力、Bonbon、饼干、甜点糕点、零食的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4969",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4978",
+    "name": "AlimentationBoissonSeau en Plastique pour BonbonsEmballageModèle",
+    "keywords": "512260,罐子,杯/桶/碗/盒/管,塑料罐,纸杯/水杯/塑料杯,桶,碗,塑料桶,休闲零食,糖果,巧克力,软糖,零食",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/7c6b9e4f-5f56-47e1-88c6-f274a162ce1c.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/8ea85ff8-47d2-45ba-9a05-4bb4deb41c49.glb",
+    "dimensions": "产品尺寸：L:110mm  W:110mm  H:125mm",
+    "description": "Emballage贴图尺寸：L:95  W:95mm  H:105mm\n常见于Bonbon软糖、巧克力、Collation的收纳\n参考品牌/产品：\n建议容量：500g",
+    "slug": "box-packaging-4978",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4980",
+    "name": "AlimentationBoissonSeau en Plastique pour BonbonsEmballageModèle1",
+    "keywords": "512270,罐子,杯/桶/碗/盒/管,塑料罐,桶,碗,塑料盒,碗体,塑料碗,外卖碗,休闲零食,糖果软糖,巧克力,零食",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/1e1a7068-5ccf-4dc4-92a1-435b36e11111.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/15b1036d-af65-489b-8e7e-cc4bd6ee3d46.glb",
+    "dimensions": "产品尺寸：D:150mm  H:90mm",
+    "description": "Emballage贴图尺寸：L:108mm  H:108mm\n常见于Bonbon软糖、巧克力、Collation的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4980",
+    "category": "Box"
+  },
+  {
+    "id": "BX-5042",
+    "name": "Thermos Portable en Acier InoxydableEmballageModèle",
+    "keywords": "512410,瓶子,杯/桶/碗/盒/管,金属瓶,纸杯/水杯/塑料杯,不锈钢,亚克力,保温水杯,水壶,可携带水壶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/2f929eab-4af7-41e5-8226-d25abf4969c6.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/8d7488d8-e4d8-449b-ba46-431fe3025308.glb",
+    "dimensions": "产品尺寸：H:180mm  D:60mm",
+    "description": "Emballage贴图尺寸：L:209mm  H:120mm\n常见于可携带保温水杯、水壶、保温杯的收纳\n参考品牌/产品：\n建议容量：290ml",
+    "slug": "box-packaging-5042",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-5045",
+    "name": "Thermos Portable en Acier InoxydableEmballageModèle2",
+    "keywords": "512420,瓶子,罐子,杯/桶/碗/盒/管,金属瓶,金属罐,纸杯/水杯/塑料杯,可携带保温杯,水杯,保温杯,不锈钢保温壶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/66eb2275-5332-4e55-b5b6-65fcbfbb7733.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/205bf8fc-0c0e-4a42-937e-48a97e49c3b2.glb",
+    "dimensions": "产品尺寸：H:133mm  D:86mm",
+    "description": "Emballage贴图尺寸：L:249mm  H:87mm\n常见于可携带保温水杯、水壶、保温杯的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-5045",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-5046",
+    "name": "Thermos Portable en Acier InoxydableEmballageModèle3",
+    "keywords": "512430,瓶子,杯/桶/碗/盒/管,金属瓶,纸杯/水杯/塑料杯,保温杯,可携带水杯,水杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/07c8aa21-f1ad-4fe2-9834-518ca94fefc2.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/53de34a3-a5d8-43f2-bd04-2a9c0937a53b.glb",
+    "dimensions": "产品尺寸：H:250mm  D:76mm",
+    "description": "Emballage贴图尺寸：L:240mm  H:132mm\n常见于可携带保温水杯、水壶、保温杯的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-5046",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-5050",
+    "name": "AlimentationBoissonBol en Plastique pour CollationEmballageModèle1",
+    "keywords": "512440,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,桶,碗,休闲零食,塑料碗,零食",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/28c59c43-44e8-4103-838e-06edfb11fb42.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/985b019a-bd4a-4624-9c56-e47c4955f36e.glb",
+    "dimensions": "产品尺寸：L:103mm  W:103mm  H:54mm",
+    "description": "Emballage贴图尺寸：L:81mm  W:81mm  H:81mm\n常见于AlimentationBoisson、Collation、零食、Alimentation的收纳\n参考品牌/产品：芥末章鱼\n建议容量：150g",
+    "slug": "box-packaging-5050",
+    "category": "Box"
+  },
+  {
+    "id": "BX-5077",
+    "name": "Thermos Portable en Acier InoxydableEmballageModèle4",
+    "keywords": "512490,瓶子,杯/桶/碗/盒/管,塑料瓶,金属瓶,纸杯/水杯/塑料杯,其他,水杯,保温杯,可携带水杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/66df3d49-637b-4019-9cf2-c47fd4f75227.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/636aa01e-99e4-4a63-b6ad-6283bff09907.glb",
+    "dimensions": "产品尺寸：H:166mm  D:80mm",
+    "description": "Emballage贴图尺寸：L:250.3mm  H:138mm\n常见于可携带保温水杯、水壶、保温杯的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-5077",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-5082",
+    "name": "AlimentationCollation de Fruits SecsPlastic BoxEmballageModèle",
+    "keywords": "512510,杯/桶/碗/盒/管,碗,塑料盒,其他,休闲零食,干果,零食,食品,水果干",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/ae9cce75-5f83-43e0-bdfd-a54f859f50fc.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/f9063ee5-164e-4713-84d7-99f7e3e809d9.glb",
+    "dimensions": "产品尺寸：L:158.75mm  W:139.7mm  H:31.75mm",
+    "description": "Emballage贴图尺寸：L:152.4mm  W:125.4mm\n常见于生活用品、Collation、干果炒货的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-5082",
+    "category": "Box"
+  },
+  {
+    "id": "BX-5333",
+    "name": "Verre Cylindrique Usage QuotidienEmballageModèle",
+    "keywords": "512920,瓶子,杯/桶/碗/盒/管,玻璃瓶,塑料瓶,纸杯/水杯/塑料杯,其他,玻璃杯,水杯,杯子",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/59c96504-ffc0-489c-9107-c798dd3600c4.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/bef24bb1-2d3c-4611-8f54-96487744c773.glb",
+    "dimensions": "产品尺寸：D:89.5mm  H:122mm",
+    "description": "Emballage贴图尺寸：L:280mm  H:120mm\n常见于Usage Quotidien、玻璃杯、水杯、杯子的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-5333",
+    "category": "Box"
+  },
+  {
+    "id": "BX-5864",
+    "name": "PratiqueAlimentationSeau en Papier pour Repas InstantanéEmballageModèle",
+    "keywords": "512980,罐子,杯/桶/碗/盒/管,纸罐,其他,桶,碗,速食,加热食品,泡面桶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/e4787689-b10c-4b05-929e-aa2e29508109.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/5e5784af-a507-410f-8e23-115b48047c30.glb",
+    "dimensions": "产品尺寸：H:68mm  D:100mm",
+    "description": "Emballage贴图尺寸：L:mm  H:mm\n常见于速食、加热Alimentation、泡面的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-5864",
+    "category": "Box"
+  },
+  {
+    "id": "BX-478",
+    "name": "Plastique pour Fournitures Quotidiennes de ToiletteEmballageModèle",
+    "keywords": "600320,杯/桶/碗/盒/管,软管,包装,洗面奶,化妆品,塑料包装,护手霜,护手乳,保湿霜,润手霜,洁面乳",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/9d33b551-1072-4b5e-968d-8961d4e314ce.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/eafe7db3-dede-4c17-82b9-93390171e9bd.glb",
+    "dimensions": "产品尺寸：L:70mmW:50mmH:145mm",
+    "description": "Emballage贴图尺寸：L:70mmH:125mm\n常见于洗面奶的收纳\n参考品牌/产品：洗面奶\n建议容量：80g~120g\n",
+    "slug": "box-packaging-478",
+    "category": "Box"
+  },
+  {
+    "id": "BX-580",
+    "name": "Sac Scellé 3 Côtés pour Masque CosmétiqueEmballageModèle2",
+    "keywords": "600480,纸盒,抽屉盒,包装,面膜袋,化妆品,护肤品,塑料袋",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/8aec02df-d863-4c89-90e1-5a785c4efd5d.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/515a50f8-d9c0-4e12-9b6f-29bc77886ebc.glb",
+    "dimensions": "产品尺寸：L:155mm  H:155mm",
+    "description": "Emballage贴图尺寸：L:155mm  H:155mm\n常见于面膜、Beauty美妆、化妆品的收纳\n参考品牌/产品：面膜\n建议容量：",
+    "slug": "box-packaging-580",
+    "category": "Box"
+  },
+  {
+    "id": "BX-646",
+    "name": "Plastique pour Articles de Toilette Usage QuotidienEmballageModèle1",
+    "keywords": "600620,杯/桶/碗/盒/管,软管,包装,护发素,日用品,洗发乳,洗护用品,身体乳,磨砂膏,洗面奶,沐浴露",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/908f0c05-f855-4e08-b707-9ad203e6cb98.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/d2808fe8-ab87-4c51-ae51-b07c89561b9f.glb",
+    "dimensions": "产品尺寸：H:205mm  D:45mm",
+    "description": "Emballage贴图尺寸：L:79mm  H:170mm\n常见于洗发水，护发素，洗面奶，身体乳，磨砂膏，沐浴露的收纳\n参考品牌/产品：潘婷护发素\n建议容量：180ml\n",
+    "slug": "box-packaging-646",
+    "category": "Box"
+  },
+  {
+    "id": "BX-647",
+    "name": "Tube en Plastique pour Articles de ToiletteEmballageModèle2",
+    "keywords": "600630,包装,软包装,洗面奶,塑料盒,日用品,护肤品,洗发水,护发素,护手霜",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/7f3ee989-abda-4e2a-9d92-2934e6778306.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/dc4e824e-0fa4-4560-8c12-94e1f9043bcf.glb",
+    "dimensions": "产品尺寸：H:170mm  D:40mm",
+    "description": "Emballage贴图尺寸：L:63mm  H:143mm\n常见于洗面奶，护发素，洗发水护手霜，身体乳的收纳\n参考品牌/产品：资生堂洗面奶\n建议容量：130ml",
+    "slug": "box-packaging-647",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-869",
+    "name": "Tube en Plastique MédicalEmballageModèle",
+    "keywords": "601000,杯/桶/碗/盒/管,其他,包装,501550,塑料管,盐水,医疗,药品,盐水清洗液,中西药品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/599a79f2-3252-4d4e-9bc9-c48e4d589296.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/85c36b20-8c53-48f9-844e-7ace0ccba263.glb",
+    "dimensions": "产品尺寸：D:17mm  H：110mm",
+    "description": "Emballage贴图尺寸：L:25mm \n H:75mm\n常见于盐水清洗液、药水的收纳\n参考品牌/产品：妮蓓莉盐水清洗液\n建议容量：15ml",
+    "slug": "box-packaging-869",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-888",
+    "name": "CollationAlimentationAlimentationBoissonPlastic BoxEmballageModèle",
+    "keywords": "601050,包装,软包装,布丁,椰香芒果布丁,果冻,小蛋糕,塑料盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/6f169e91-b620-4241-9850-7ac8af696ba0.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/77531f9b-7a85-4538-be6c-3a8ee6718d21.glb",
+    "dimensions": "产品尺寸：L:68mm  H:40mm",
+    "description": "Emballage贴图尺寸：L:52mm  H:24mm\n常见于布丁，果冻的收纳\n参考品牌/产品：椰香芒果布丁\n建议容量：",
+    "slug": "box-packaging-888",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1065",
+    "name": "BeautyCosmétique de Usage QuotidienPlastic BoxEmballageModèle",
+    "keywords": "601350,包装,软包装,塑料盒,面膜,化妆品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/138deecc-c003-4acd-adb7-15a4b960671d.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/313097d5-1ac2-40ab-b74f-561a3aeb0c4a.glb",
+    "dimensions": "产品尺寸：L:46mm  W:46mm  H:12mm",
+    "description": "Emballage贴图尺寸：L:46mm  W:46mm\n常见于面膜、化妆品的收纳\n参考品牌/产品：面膜\n建议容量：5g",
+    "slug": "box-packaging-1065",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1119",
+    "name": "Chocolat de BonbonAlimentationBoissonTube en PapierEmballageModèle",
+    "keywords": "601410,杯/桶/碗/盒/管,桶,包装,糖果包装,食品包装,巧克力包装,m豆,零食包装",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/3c9f1929-bb5b-4502-bcf1-2fa19fd3754b.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/66b299a8-4367-45b0-99a3-dae76c56bea7.glb",
+    "dimensions": "产品尺寸：H:130mm  D:120mm",
+    "description": "Emballage贴图尺寸：L:458mm  H:123mm\n常见于泡面，沙拉碗，Bonbon，巧克力的收纳\n参考品牌/产品：m豆\n建议容量：270g",
+    "slug": "box-packaging-1119",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1140",
+    "name": "Chocolat de BonbonAlimentationBoissonTube en PapierEmballageModèle1",
+    "keywords": "601430,杯/桶/碗/盒/管,桶,包装,糖果包装,食品包装,巧克力包装,零食包装",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/0637e21a-b4e3-4f46-be2b-a63e3b307b36.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/72a99e94-098d-4e57-bcd0-8bf2dffb47bb.glb",
+    "dimensions": "产品尺寸：H:85mm  D:150mm",
+    "description": "Emballage贴图尺寸：L:471mm  H:85mm\n常见于Bonbon，巧克力的收纳\n参考品牌/产品：德芙巧克力\n建议容量：252g",
+    "slug": "box-packaging-1140",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1141",
+    "name": "CollationAlimentationTube en PapierEmballageModèle",
+    "keywords": "601440,杯/桶/碗/盒/管,桶,包装,零食包装,糖果包装,果冻",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/43fbe845-24d7-4a82-a968-8fee757f2b78.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/33af4cd1-5472-43e9-b49b-c269d185cf17.glb",
+    "dimensions": "产品尺寸：H:90mm  D:100mm",
+    "description": "Emballage贴图尺寸：L:282mm  H:52mm\n常见于果冻，Bonbon，巧克力的收纳\n参考品牌/产品：喜之郎果冻\n建议容量：117g",
+    "slug": "box-packaging-1141",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1142",
+    "name": "CollationAlimentationAlimentationBoissonPlasticEmballageModèle4",
+    "keywords": "601450,包装,软包装,自热饭,自嗨锅,食品包装,泡面盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/1d1dd40a-4b20-416d-8732-e74660d834e2.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/397e1ca7-8f9c-4c98-9301-e7c137d2a8a4.glb",
+    "dimensions": "产品尺寸：H:85mm  D:180mm L:147mm",
+    "description": "Emballage贴图尺寸：L:173mm  H:117mm\n常见于自热饭、自嗨锅的收纳\n参考品牌/产品：杜大厨自热饭\n建议容量：360g",
+    "slug": "box-packaging-1142",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1143",
+    "name": "CollationAlimentationTube en PapierEmballageModèle1",
+    "keywords": "601460,杯/桶/碗/盒/管,桶,包装,零食包装,糖果包装,果冻",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/8c990e26-81e4-4b6e-81c5-5c93efb28d0b.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/49ab06d5-63db-4050-8d0f-6d8cc56f657c.glb",
+    "dimensions": "产品尺寸：H:112mm  D:100mm L:94mm",
+    "description": "Emballage贴图尺寸：L:284mm  H:108mm\n常见于果冻，布丁的收纳\n参考品牌/产品：藤野一村爆珠果冻布丁\n建议容量：306g",
+    "slug": "box-packaging-1143",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1144",
+    "name": "CollationAlimentationAlimentationBoissonPlasticEmballageModèle5",
+    "keywords": "601470,包装,软包装,自热火锅,自嗨锅,自热饭,泡面盒,食品包装",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/99dffb32-57ec-4788-b25d-63575e3fa39f.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/ff5d2b04-f230-4794-93bc-ff8f8c915694.glb",
+    "dimensions": "产品尺寸：H:111mm  D:220mm L:233mm",
+    "description": "Emballage贴图尺寸：L:200mm  H:200mm\n常见于自热火锅，自热饭的收纳\n参考品牌/产品：开小灶自热火锅\n建议容量：350g",
+    "slug": "box-packaging-1144",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1197",
+    "name": "Tube en Plastique pour Articles de ToiletteEmballageModèle8",
+    "keywords": "601530,杯/桶/碗/盒/管,软管,包装,眼霜,BB霜,洗面奶,化妆品,护肤品,塑料管",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/c3a7181d-292a-49e5-b922-0ed93ace8bfc.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/67135244-f350-4655-8e4b-799ebfc7d306.glb",
+    "dimensions": "产品尺寸：H:149mm  D:29mm",
+    "description": "Emballage贴图尺寸：L:32mm  H:104mm\n常见于眼霜，BB霜的收纳\n参考品牌/产品：蜜能多效修护眼霜\n建议容量：20g",
+    "slug": "box-packaging-1197",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-1202",
+    "name": "Tube en Plastique pour Articles de ToiletteEmballageModèle10",
+    "keywords": "601570,杯/桶/碗/盒/管,软管,包装,眼霜,BB霜,塑料管,化妆品,护肤品,洗面奶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/6e3aac47-63f8-47a2-b1dd-e801fee79516.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/45d30f73-bca6-4883-9b9a-762d114ac95f.glb",
+    "dimensions": "产品尺寸：H:184mm  D:36mm",
+    "description": "Emballage贴图尺寸：L:40mm  H:120mm\n常见于眼霜，BB霜的收纳\n参考品牌/产品：欧莱雅紫熨斗眼霜\n建议容量：42.5ml",
+    "slug": "box-packaging-1202",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-1205",
+    "name": "Tube en Plastique pour Articles de ToiletteEmballageModèle12",
+    "keywords": "601600,杯/桶/碗/盒/管,软管,包装,牙膏,护手霜,塑料软管,洗漱用品,化妆品,洗护用品,护手乳,保湿霜,润手霜,洁面乳,洗面奶,护肤乳",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/aca21bd0-1620-4b5e-8fd2-c97e34581567.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/fc0e3bf4-ad88-4ca7-93ef-73fff959fa04.glb",
+    "dimensions": "产品尺寸：H:116mm  D:38mm",
+    "description": "Emballage贴图尺寸：L:110mm  H:90mm\n常见于牙膏、护手霜、化妆品的收纳\n参考品牌/产品：SALTPRO盐致海盐牙膏\n建议容量：90g",
+    "slug": "box-packaging-1205",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-1208",
+    "name": "CollationAlimentationAlimentationBoissonPlasticEmballageModèle6",
+    "keywords": "601630,包装,软包装,自嗨锅,自热饭,自热火锅,食品包装,泡面盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/122e391d-0b6a-4f05-9736-2f901eed911c.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/840e744d-7d67-4766-a3b3-cf7fd6ca63b7.glb",
+    "dimensions": "产品尺寸：H:115mm  D:185mm L:155mm",
+    "description": "Emballage贴图尺寸：L:138mm  H:138mm\n常见于自热饭、自嗨锅的收纳\n参考品牌/产品：自嗨锅自热米饭\n建议容量：260g",
+    "slug": "box-packaging-1208",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1210",
+    "name": "PratiqueAlimentationAlimentationBoissonPlastic BoxEmballageModèle",
+    "keywords": "601650,包装,软包装,塑料盒,一次性包装,自嗨锅,自热米饭,休闲食品,食品,食品盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/4f5cce3f-28e7-48c5-95bd-520842005de3.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/b14fb643-78de-433f-80c4-5a0f91009d33.glb",
+    "dimensions": "产品尺寸：L:170mm  W:170mm  H:90mm",
+    "description": "Emballage贴图尺寸：L:160mm  W:160mm\n常见于一次性Plastic Box、面食类的收纳\n参考品牌/产品：莫小仙网红自热火锅煲仔饭\n建议容量：245g",
+    "slug": "box-packaging-1210",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1211",
+    "name": "Tube en Plastique pour Articles de ToiletteEmballageModèle15",
+    "keywords": "601660,杯/桶/碗/盒/管,软管,包装,洗面奶,护手霜,BB霜,洗漱用品,洗护用品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/d3e4863b-2d1b-4bab-8f8f-9f2f38e32de7.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/f60e2137-ced7-4128-bc57-cfa41158901e.glb",
+    "dimensions": "产品尺寸：H:180mm  D:77mm",
+    "description": "Emballage贴图尺寸：L:73mm  H:141mm\n常见于洗面奶的收纳\n参考品牌/产品：瓷肌祛痘洗面奶\n建议容量：100g",
+    "slug": "box-packaging-1211",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-1213",
+    "name": "BeautyTube en Plastique CosmétiqueEmballageModèle7",
+    "keywords": "601680,杯/桶/碗/盒/管,软管,包装,颈霜,化妆品,护肤品,塑料管",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/3fdc4ba5-3b8d-41eb-9d6d-d0b863cb6bb9.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/5f3fc89c-1a01-4c81-bc55-770a31094535.glb",
+    "dimensions": "产品尺寸：H:122mm  D:40mm",
+    "description": "Emballage贴图尺寸：L:82mm  H:146mm\n常见于颈霜，眼霜的收纳\n参考品牌/产品：修正颈霜\n建议容量：100g",
+    "slug": "box-packaging-1213",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-1277",
+    "name": "CollationAlimentationAlimentationBoissonPlasticEmballageModèle7",
+    "keywords": "601730,包装,软包装,泡面,食品包装,泡面盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/3d8076bf-4416-4379-aa51-8426e14c8676.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/1ed12bc8-4943-4ee1-b04a-9239cd3bebcb.glb",
+    "dimensions": "产品尺寸：H:80mm  D:141mm L:149mm",
+    "description": "Emballage贴图尺寸：L:141mm  H:149mm\n常见于泡面的收纳\n参考品牌/产品：农心牌牛肉泡菜味拉面\n建议容量：82g",
+    "slug": "box-packaging-1277",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1284",
+    "name": "CollationAlimentationBouteille en Plastique pour BonbonsEmballageModèle6",
+    "keywords": "601790,包装,软包装,巧克力,糖果盒,休闲零食,零食",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/0e02f30f-0258-4994-b03c-a07bf96a8a3f.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/97c6bb66-1fd7-4bff-9068-2d7573887fd5.glb",
+    "dimensions": "产品尺寸：L:67mm  H:98mm ",
+    "description": "Emballage贴图尺寸：L:201mm  H:80mm\n常见于Bonbon、巧克力的收纳\n参考品牌/产品：tirol松尾多彩什锦夹心巧克力\n建议容量：220g",
+    "slug": "box-packaging-1284",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-1307",
+    "name": "CollationAlimentationAlimentationBoissonYaourtPlastic BoxEmballageModèle",
+    "keywords": "601890,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,包装,酸奶,奶昔,布丁,零食,休闲食品,液体饮品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/20b3f6b1-cc82-47c5-aea9-5ac3995cfa89.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/2b2f8f49-e2b0-4725-95af-7492f68d1e7b.glb",
+    "dimensions": "产品尺寸：L:60mm  W:60mm H:55mm ",
+    "description": "Emballage贴图尺寸：L:188mm  H:39mm\n常见于果冻、Yaourt的收纳\n参考品牌/产品：Yaourt\n建议容量：",
+    "slug": "box-packaging-1307",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1472",
+    "name": "CollationAlimentationAlimentationBoissonYaourtPlastic BoxEmballageModèle2",
+    "keywords": "602010,包装,软包装,酸奶,布丁,奶昔,零食,休闲食品,液体饮品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/b00953ea-5810-40d7-87b8-fe8aabfcf83c.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/e3a5054c-4222-4db6-8f89-51aa3f26fca2.glb",
+    "dimensions": "产品尺寸：L:95mm H:110mm ",
+    "description": "Emballage贴图尺寸：L:38mm  H:55mm\n常见于奶昔、Yaourt的收纳\n参考品牌/产品：Yaourt\n建议容量：500ml",
+    "slug": "box-packaging-1472",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1476",
+    "name": "CollationAlimentationAlimentationBoissonYaourtPlastic BoxEmballageModèle3",
+    "keywords": "602040,包装,软包装,酸奶,奶昔,布丁,雪糕,零食,休闲食品,液体饮品,果冻",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/e04078ec-bf3f-4df0-af8d-d0d7f1d9f4f4.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/de2451f1-5384-43cf-9bf6-4ddb57bfa345.glb",
+    "dimensions": "产品尺寸：L:72mm H:76mm ",
+    "description": "Emballage贴图尺寸：L:198mm  H:60mm\n常见于果冻、Yaourt的收纳\n参考品牌/产品：果冻\n建议容量：120ml",
+    "slug": "box-packaging-1476",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1483",
+    "name": "CollationAlimentationAlimentationBoissonYaourtPlastic BoxEmballageModèle4",
+    "keywords": "602050,包装,软包装,奶茶,酸奶,布丁,奶昔,零食,果冻,休闲食品,液体饮品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/aad11798-a213-499e-9079-df029f602a3b.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/1a72e98c-19aa-4df7-91d2-34dcb8f87410.glb",
+    "dimensions": "产品尺寸：L:90mm H:115mm ",
+    "description": "Emballage贴图尺寸：L:254mm  H:96mm\n常见于Thé au Lait、Yaourt的收纳\n参考品牌/产品：Thé au Lait\n建议容量：520ml",
+    "slug": "box-packaging-1483",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1484",
+    "name": "CollationAlimentationAlimentationBoissonYaourtPlastic BoxEmballageModèle5",
+    "keywords": "602060,包装,软包装,酸奶,奶昔,布丁,零食,休闲食品,液体饮品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/86538cea-5ec8-421a-8a9b-827a488ea3be.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/35d55130-7dab-46d1-9ff0-2182231404dc.glb",
+    "dimensions": "产品尺寸：L:109mm  W:70mm H:70mm ",
+    "description": "Emballage贴图尺寸：L:270mm  H:58mm\n常见于果冻、Yaourt的收纳\n参考品牌/产品：Yaourt\n建议容量：100g",
+    "slug": "box-packaging-1484",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1489",
+    "name": "CollationAlimentationAlimentationBoissonYaourtPlastic BoxEmballageModèle6",
+    "keywords": "602070,包装,软包装,黄油,雪糕,酸奶,休闲食品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/f3c53f84-7fad-45ce-ba5d-ea320e8ee2cf.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/005a0ad5-fbbc-42f5-9263-10aefac9c8be.glb",
+    "dimensions": "产品尺寸：L:145mm  W:94mm H:39mm ",
+    "description": "Emballage贴图尺寸：L:134mm  H:84mm\n常见于黄油、雪糕的收纳\n参考品牌/产品：黄油\n建议容量：250ml",
+    "slug": "box-packaging-1489",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1490",
+    "name": "CollationAlimentationAlimentationBoissonYaourtPlastic BoxEmballageModèle7",
+    "keywords": "602080,包装,软包装,酸奶,牛奶,布丁,奶昔,零食,休闲食品,液体饮品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/d8e14510-2094-4347-957f-85987b8ec0c6.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/b9a265a1-ff0b-4646-921b-7ee2ad9462af.glb",
+    "dimensions": "产品尺寸：L:123mm H:125mm ",
+    "description": "Emballage贴图尺寸：L:364mm  H:111mm\n常见于Yaourt、牛奶的收纳\n参考品牌/产品：Yaourt\n建议容量：180ml",
+    "slug": "box-packaging-1490",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1491",
+    "name": "CollationAlimentationAlimentationBoissonYaourtPlastic BoxEmballageModèle8",
+    "keywords": "602090,包装,软包装,酸奶,布丁,奶昔,雪糕,零食,休闲食品,液体饮品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/53d932c9-8f67-4665-8256-c224c800894a.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/3a74270a-0dcf-4493-9c1e-393e52ab42d1.glb",
+    "dimensions": "产品尺寸：L:103mm  W:95mm H:60mm ",
+    "description": "Emballage贴图尺寸：L:280mm  H:40mm\n常见于Yaourt、雪糕的收纳\n参考品牌/产品：Yaourt\n建议容量：",
+    "slug": "box-packaging-1491",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1493",
+    "name": "CollationAlimentationAlimentationBoissonYaourtPlastic BoxEmballageModèle9",
+    "keywords": "602100,包装,软包装,黄油,雪糕,酸奶,休闲食品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/e2b3879c-0963-4c7a-b33c-63c03d9bc8d4.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/04f59be9-5c77-44a3-8bb9-4bf1efef08de.glb",
+    "dimensions": "产品尺寸：L:145mm  W:98mm H:52mm ",
+    "description": "Emballage贴图尺寸：L:111mm  H:80mm\n常见于黄油、Yaourt的收纳\n参考品牌/产品：黄油\n建议容量：",
+    "slug": "box-packaging-1493",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1494",
+    "name": "CollationAlimentationAlimentationBoissonYaourtPlastic BoxEmballageModèle10",
+    "keywords": "602110,包装,软包装,塑料盒,酸奶盒,布丁盒,休闲食品,零食,食品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/3f541829-a91b-457d-bbbc-8b6a3e90e03e.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/84596ba8-0a6e-4237-9677-7195c0eac55e.glb",
+    "dimensions": "产品尺寸：D:120mm  H:73mm ",
+    "description": "Emballage贴图尺寸：L:76mm  H:76mm\n常见于Yaourt、布丁、AlimentationBoisson的收纳\n参考品牌/产品：Yaourt\n建议容量：300ml",
+    "slug": "box-packaging-1494",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1497",
+    "name": "CondimentAlimentationPlastic BoxEmballageModèle",
+    "keywords": "602120,包装,软包装,鲜辣酱,火锅底料,食品包装,塑料盒,黄油",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/8a4738a2-2d91-42b9-a041-99e6295e1f42.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/9bfc43ab-5d9b-4a55-9d8c-2556b58fd043.glb",
+    "dimensions": "产品尺寸：L:74mm  W:72mm H:49mm ",
+    "description": "Emballage贴图尺寸：L:68mm  H:66mm\n常见于鲜辣酱、黄油的收纳\n参考品牌/产品：鲜辣酱\n建议容量：130ml",
+    "slug": "box-packaging-1497",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1504",
+    "name": "PratiqueAlimentationAlimentationBoissonPlastic BoxEmballageModèle2",
+    "keywords": "602130,包装,软包装,塑料盒,速食食品,休闲食品,辣椒酱,洗衣凝珠,快餐,自热米饭,盒饭,自热面食,粥类食品,冷饮",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/18b838eb-0152-4f66-ab2c-61a2c55b00a2.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/2fb94ced-5181-4d4f-8f80-3ebee6764ccd.glb",
+    "dimensions": "产品尺寸：L:154mm  W:94mm  H:69mm",
+    "description": "Emballage贴图尺寸：L:100mm  H:54mm\n常见于速食产品、加热米饭、洗衣凝珠、辣椒酱的收纳\n参考品牌/产品：速食产品\n建议容量：275g",
+    "slug": "box-packaging-1504",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1506",
+    "name": "CollationAlimentationAlimentationBoissonYaourtPlastic BoxEmballageModèle12",
+    "keywords": "602150,包装,软包装,奶昔,酸奶,布丁,奶茶,饮料,休闲食品,零食,乳酸奶,龟苓膏,烧仙草,代餐奶昔",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/05bd6b0a-5d3d-4e4b-ae47-3520dd5430a3.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/f1ed2ea5-21fc-4fdb-8d8c-3d5f109f508b.glb",
+    "dimensions": "产品尺寸：D:72mm  H:117mm ",
+    "description": "Emballage贴图尺寸：L:201mm  H:102mm\n常见于奶昔，Yaourt的收纳\n参考品牌/产品：孔多里多纯醇奶昔\n建议容量：200ml",
+    "slug": "box-packaging-1506",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1516",
+    "name": "CollationAlimentationAlimentationBoissonYaourtPlastic BoxEmballageModèle13",
+    "keywords": "602160,包装,软包装,奶茶,酸奶,布丁,奶昔,饮料,休闲食品,零食",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/9ec91574-3e55-4e62-b4c6-ba5b4a8a7052.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/672981c7-c051-43b9-952b-4feb0cf00e41.glb",
+    "dimensions": "产品尺寸：D:92mm  H:117mm ",
+    "description": "Emballage贴图尺寸：L:198mm  H:65mm\n常见于Thé au Lait，Yaourt的收纳\n参考品牌/产品：Thé au Lait\n建议容量：",
+    "slug": "box-packaging-1516",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1517",
+    "name": "AlimentationBoissonCollationAlimentationBonbon au CaramelEmballageModèle",
+    "keywords": "602170,包装,软包装,塑料盒,奶糖盒,零食盒,食品盒,零食,休闲食品,巧克力,糖类,饼干,速食面,快餐食品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/18692046-9bb2-4553-957c-a5cf2799c5c0.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/c4931655-0227-4006-a764-897536a3f2f8.glb",
+    "dimensions": "产品尺寸：L:190mm  W:130mm  H:82mm",
+    "description": "Emballage贴图尺寸：L:175mm  H:115mm\n常见于Bonbon类、饼干类、零食类的收纳\n参考品牌/产品：上品牛轧糖\n建议容量：256g",
+    "slug": "box-packaging-1517",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1518",
+    "name": "CollationAlimentationAlimentationBoissonYaourtPlastic BoxEmballageModèle14",
+    "keywords": "602180,包装,软包装,布丁,酸奶,奶昔,休闲食品,零食",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/a3d80d84-4dc6-404b-86c4-089d7ec12eaf.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/74731cbb-c15e-48ec-a9f4-87b10dd0f36b.glb",
+    "dimensions": "产品尺寸：D:78mm  H:47mm ",
+    "description": "Emballage贴图尺寸：L:216mm  H:31mm\n常见于布丁，Yaourt的收纳\n参考品牌/产品：百吉福布丁\n建议容量：56g",
+    "slug": "box-packaging-1518",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1545",
+    "name": "Boîte pour Biscuits et GâteauAlimentationBoissonPlastic BoxEmballageModèle",
+    "keywords": "602240,包装,软包装,塑料盒,蛋挞盒,蛋糕,饼干,面包,糕点,蛋黄派,手撕面包,吐司,蛋黄酥,肉松面包,蛋糕盒,点心盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/ef3c3c5e-faa7-4236-ae07-7bab5393511a.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/e43dc533-90d6-4acb-ac8b-98a73690b364.glb",
+    "dimensions": "产品尺寸：L:164mm  W:90mm H:50mm",
+    "description": "Emballage贴图尺寸：L:39mm  H:173mm\n常见于蛋挞、蛋糕的收纳\n参考品牌/产品：蛋挞\n建议容量：",
+    "slug": "box-packaging-1545",
+    "category": "Box"
+  },
+  {
+    "id": "BX-1922",
+    "name": "Tube de Pommade en PlastiqueEmballageModèle",
+    "keywords": "602520,杯/桶/碗/盒/管,软管,包装,塑料软管,跌打软膏,中西药品,生活保健,护手霜,牙膏,化妆品,护肤品,药品,医疗",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/11740805-b5b8-42ab-b3ff-02f3dd8f1c81.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/6e938862-bbc5-4c10-8a7f-44627b9d6a84.glb",
+    "dimensions": "产品尺寸：H:130mm  D:40mm",
+    "description": "Emballage贴图尺寸：L:40mm  H:107mm\n常见于中西药品、护肤品、洗漱用品、Beauty美妆的收纳\n参考品牌/产品：中西药品\n建议容量：35g",
+    "slug": "box-packaging-1922",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-1936",
+    "name": "CollationAlimentationBoîte pour Biscuits et PâtisserieBoîte en PapierEmballageModèle",
+    "keywords": "602560,包装,软包装,休闲食品,零食,食品,饼干,糕点,蛋糕,礼盒,月饼盒,糕点盒,礼品盒,面包,蛋黄派,蛋黄酥,肉松饼,月饼,酥,桃酥",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/0bf66d18-732c-4b14-a2a2-321e0d754a24.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/d9ee8482-8c7b-4287-8678-628de908cb0b.glb",
+    "dimensions": "产品尺寸：D:264mm  H:60mm",
+    "description": "Emballage贴图尺寸：L:250mm  H:250mm\n常见于CollationAlimentation、Boîte pour Biscuits et Pâtisserie、干货、炒货的收纳\n参考品牌/产品：蛋糕糕点\n建议容量：",
+    "slug": "box-packaging-1936",
+    "category": "Box"
+  },
+  {
+    "id": "BX-2052",
+    "name": "CollationAlimentationAlimentationBoissonPlasticEmballageModèle11",
+    "keywords": "602650,包装,软包装,泡面,泡面盒,食品包装,速食,休闲零食",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/5ff94e06-f68e-4ed4-8de7-689ea9245396.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/ace0d5cd-a3fa-4857-b792-160348e76d2c.glb",
+    "dimensions": "产品尺寸：L:203mm  W:143mm  H:50mm ",
+    "description": "Emballage贴图尺寸：L:203mm  H:143mm\n常见于螺蛳粉、泡面的收纳\n参考品牌/产品：泡面\n建议容量：",
+    "slug": "box-packaging-2052",
+    "category": "Box"
+  },
+  {
+    "id": "BX-2208",
+    "name": "BeautyTube en Plastique CosmétiqueEmballageModèle12",
+    "keywords": "602670,杯/桶/碗/盒/管,其他,包装,睫毛膏,口红,化妆品,眼线笔,睫毛增长液,唇釉,眉笔,睫毛定妆液",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/4fc1d367-4aaa-47e1-8512-718a2d7bf478.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/e85089ce-9293-449d-8dcf-149c5c227245.glb",
+    "dimensions": "产品尺寸：H:115mm  D:15.6mm",
+    "description": "Emballage贴图尺寸：L:49mm  H:75mm\n常见于睫毛膏、口红的收纳\n参考品牌/产品：伊芳澜睫毛膏\n建议容量：7ml",
+    "slug": "box-packaging-2208",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-2221",
+    "name": "CollationAlimentationAlimentationBoissonBouteille en PlastiqueEmballageModèle1",
+    "keywords": "602680,包装,软包装,果冻,模型样机,烧仙草冻,包装盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/ea0e9530-8716-42e2-9144-817f962b4c99.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/f34a8040-d0b2-4eeb-849f-65e133578daf.glb",
+    "dimensions": "产品尺寸：D:80mm W:97mm H:25mm",
+    "description": "Emballage贴图尺寸：L:97mm  H:97mm\n常见于果冻、烧仙草冻的收纳\n参考品牌/产品：烧仙草冻\n建议容量：65g",
+    "slug": "box-packaging-2221",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-2296",
+    "name": "CollationAlimentationAlimentationBoissonThé au LaitPlastic BoxEmballageModèle",
+    "keywords": "602710,包装,软包装,奶茶,酸奶,奶昔,布丁,饮料,休闲食品,乳酸奶,龟苓膏,烧仙草",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/9eb7de04-d3d3-4df4-8d0d-6d8d33bb1b7e.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/aa2e8b0d-83fe-4cd8-bfe9-951d858d9e92.glb",
+    "dimensions": "产品尺寸：L:82mm  H:152mm ",
+    "description": "Emballage贴图尺寸：L:232mm  H:113mm\n常见于Thé au Lait，Yaourt的收纳\n参考品牌/产品：香飘飘臻乳茶\n建议容量：340ml",
+    "slug": "box-packaging-2296",
+    "category": "Box"
+  },
+  {
+    "id": "BX-2698",
+    "name": "Fournitures de Stockage QuotidienBoîte en PapierEmballageModèle",
+    "keywords": "602780,包装,软包装,衣服收纳,袜子收纳,生活用品收纳",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/e3cfc32c-1479-4091-9daa-5192aea5dbee.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/fbb89c32-0c0b-4641-a8a4-23dfaadb90d6.glb",
+    "dimensions": "产品尺寸：D:90mm H:200mm",
+    "description": "Emballage贴图尺寸：L:540mm  H:174mm\n常见于衣服、袜子、生活用品的收纳\n参考品牌/产品：衣服\n建议容量：",
+    "slug": "box-packaging-2698",
+    "category": "Box"
+  },
+  {
+    "id": "BX-2756",
+    "name": "Tube de Stockage Cylindrique Usage QuotidienBoîte en PapierEmballageModèle",
+    "keywords": "602800,罐子,纸罐,包装,507750,圆筒纸盒,收纳筒,家庭用品,化妆品,收纳,铅笔筒,化妆筒,气垫,圆珠笔筒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/9def43db-cc5b-46d4-9564-b475f8c91a78.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/fca3d8f6-d3a9-4e65-aeb9-1ecf8400484b.glb",
+    "dimensions": "产品尺寸：D:25mm  H:95mm",
+    "description": "Emballage贴图尺寸：L:78.5mm  H:95mm\n常见于Boîte en Papier、收纳、生活用品的收纳\n参考品牌/产品：生活用品\n建议容量：",
+    "slug": "box-packaging-2756",
+    "category": "Box"
+  },
+  {
+    "id": "BX-2942",
+    "name": "PratiqueAlimentationAlimentationBoissonPlastic BoxEmballageModèle3",
+    "keywords": "602930,包装,软包装,食品包装盒 ,方便食品,泡面,重庆小面,干脆面,方便面,红烧牛肉面,粉丝,酸辣粉,杯面,桶面,盖浇饭,加热饭,加热面,速冻食品,快餐",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/53b70d17-c808-4639-a525-5aeeb9892f8b.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/9bd15682-6e3e-45d7-ac2d-a9e67dc672c9.glb",
+    "dimensions": "产品尺寸：L:154mm  W:94mm  H:69mm",
+    "description": "Emballage贴图尺寸：L:93mm  H:390mm\n常见于速食产品、加热米饭、洗衣凝珠、辣椒酱的收纳\n参考品牌/产品：速食产品\n建议容量：275g",
+    "slug": "box-packaging-2942",
+    "category": "Box"
+  },
+  {
+    "id": "BX-2956",
+    "name": "CollationAlimentationAlimentationBoissonPlasticEmballageModèle12",
+    "keywords": "602960,包装,软包装,外卖盒,塑料盒,食品盒,沙拉盒,打包盒,饭盒,盒饭,减肥餐",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/562bb58e-1e8a-45bb-9faf-fd7863214e9c.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/525fc1e5-6031-4cc8-8e3d-7e0118f9c685.glb",
+    "dimensions": "产品尺寸：L:230mm W:130mm H:52mm ",
+    "description": "Emballage贴图尺寸：L:80mm  H:323mm\n常见于沙拉、外卖的收纳\n参考品牌/产品：外卖盒\n建议容量：850ml",
+    "slug": "box-packaging-2956",
+    "category": "Box"
+  },
+  {
+    "id": "BX-2958",
+    "name": "CollationAlimentationAlimentationBoissonPlasticEmballageModèle13",
+    "keywords": "602970,包装,软包装,塑料盒,蛋糕盒,甜品盒,食品盒,重庆小面,粉丝,酸辣粉,盖浇饭,加热饭,加热面,速冻食品,快餐",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/3a8bd432-183b-436f-bb2f-5219d66febd9.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/b6700545-e093-4349-bbed-3249c15eb215.glb",
+    "dimensions": "产品尺寸：L:80mm W:80mm H:35mm ",
+    "description": "Emballage贴图尺寸：L:68mm  H:235mm\n常见于蛋糕、甜品的收纳\n参考品牌/产品：蛋糕盒\n建议容量：150ml",
+    "slug": "box-packaging-2958",
+    "category": "Box"
+  },
+  {
+    "id": "BX-2987",
+    "name": "CollationAlimentationAlimentationBoissonPlasticEmballageModèle14",
+    "keywords": "602980,包装,软包装,外卖盒,塑料盒,食品盒,沙拉盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/b8a6aa87-a477-4810-8a21-3539772cb14b.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/daf870d6-023e-4a0a-b7e6-156a27bea6a7.glb",
+    "dimensions": "产品尺寸：L:230mm W:130mm H:52mm ",
+    "description": "Emballage贴图尺寸：L:80mm  H:323mm\n常见于沙拉、外卖的收纳\n参考品牌/产品：外卖盒\n建议容量：850ml",
+    "slug": "box-packaging-2987",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3006",
+    "name": "CollationAlimentationAlimentationBoissonYaourtPlastic BoxEmballageModèle16",
+    "keywords": "603040,包装,软包装,塑料盒,酸奶盒,布丁盒,休闲食品,零食,食品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/a2e4e86f-b838-4186-b2be-01f676c84803.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/f4908c7c-196d-4bf5-af19-cec52b9e6bef.glb",
+    "dimensions": "产品尺寸：D:70mm H:71mm ",
+    "description": "Emballage贴图尺寸：L:192mm  H:49mm\n常见于牛奶、Yaourt的收纳\n参考品牌/产品：Yaourt\n建议容量：200ml",
+    "slug": "box-packaging-3006",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3020",
+    "name": "CollationAlimentationAlimentationBoissonYaourtPlastic BoxEmballageModèle17",
+    "keywords": "603060,包装,软包装,塑料盒,酸奶盒,布丁盒,休闲食品,零食,食品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/fe78cc38-acfe-4e8d-ab0e-6df9f0602a8b.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/0e6ad2bb-e2ad-42f3-8682-523f37f33350.glb",
+    "dimensions": "产品尺寸：D:68mm H:71mm ",
+    "description": "Emballage贴图尺寸：L:207mm  H:42mm\n常见于牛奶、Yaourt、布丁的收纳\n参考品牌/产品：布丁\n建议容量：",
+    "slug": "box-packaging-3020",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3069",
+    "name": "Boîte pour Biscuits et GâteauAlimentationBoissonSac en PapierEmballageModèle",
+    "keywords": "603080,包装,软包装,纸袋,食品袋,休闲食品,日用品,甜品,面包,蛋黄派,蛋糕,手撕面包,吐司,蛋黄酥,肉松面包,蛋糕盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/35f5a217-0cba-4eb6-b790-5107f26caa58.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/08fe1f9e-4c3e-4996-afd5-8d4502af9cf8.glb",
+    "dimensions": "产品尺寸：L:240mm  W:120mm  H:303mm",
+    "description": "Emballage贴图尺寸：L:240mm  W:120mm  H:200mm\n常见于甜品，零食，日用品的收纳\n参考品牌/产品：甜品Sac en Papier\n建议容量：",
+    "slug": "box-packaging-3069",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3251",
+    "name": "Boîte pour Biscuits et GâteauAlimentationBoissonSac en PapierEmballageModèle2",
+    "keywords": "603250,包装,软包装,纸袋,食品袋,食品盒,休闲食品,月饼,饼干,蛋糕,糕点,甜品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/d9fe9e0e-fe50-4b20-b647-198d83757e67.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/d1b8821e-e53d-4838-baaf-c9e99e0e9165.glb",
+    "dimensions": "产品尺寸：L:190mm  W:65mm  H:280mm",
+    "description": "Emballage贴图尺寸：L:190mm  H:690mm\n常见于零食，月饼，礼品的收纳\n参考品牌/产品：月饼Boîte en Papier\n建议容量：",
+    "slug": "box-packaging-3251",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3324",
+    "name": "Boîte Verte",
+    "keywords": "603350,包装,样机不展示模型,盒子绿色",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/f288afab-9b21-47a1-b969-0104eb332eb2.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/e3e8307f-1566-476c-a946-81e269a50376.glb",
+    "dimensions": "11",
+    "description": "11",
+    "slug": "box-packaging-3324",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3342",
+    "name": "CollationAlimentationBoîte de Gâteau de DessertPlastic BoxEmballageModèle",
+    "keywords": "603380,包装,软包装,休闲食品,蛋糕甜点,蛋糕,虎皮卷,奶酪,面包,奶油蛋糕,饼干,锅巴,芝麻饼",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/91c73538-3108-450e-b4ac-75709ce668f8.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/c5776e78-b22f-4d5f-9908-2db91fa81fe5.glb",
+    "dimensions": "产品尺寸：L:205mm W:105mm H:60mm ",
+    "description": "Emballage贴图尺寸：L:270mm  H:40mm\n常见于AlimentationBoisson、Boîte de Gâteau de Dessert、面包、甜甜圈的收纳\n参考品牌/产品：鸡排三明治\n建议容量：160g",
+    "slug": "box-packaging-3342",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3413",
+    "name": "AlimentationBoissonBoîte Cadeau pour Vin",
+    "keywords": "603500,精装盒,书型翻盒,包装,酒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/9572a20b-6d42-4a1a-8532-573f65d457a7.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/fff9fb89-83c4-4d7e-aae7-f389ce56a5d4.glb",
+    "dimensions": "产品尺寸：L:143mm  W:143mm  H:374mm",
+    "description": "Emballage贴图尺寸：L:100mm  W:100mm H:100mm\n常见于中外名酒、酒盒、白酒、酒类盒子的收纳\n参考品牌/产品：酒盒\n建议容量：",
+    "slug": "box-packaging-3413",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3428",
+    "name": "Condiment pour CollationAlimentationPot de Sauce Aigre-DoucePlastic BoxEmballageModèle",
+    "keywords": "603510,包装,软包装",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/14725fd8-a3c2-42a2-af95-540936418c43.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/fe1a777b-5847-4ae1-b971-cc4a59b41346.glb",
+    "dimensions": "产品尺寸：L:54mm  W:44mm  H:20mm",
+    "description": "Emballage贴图尺寸：L:54mm  H:44mm\n常见于Condiment、番茄酱、Pot de Sauce Aigre-Douce的收纳\n参考品牌/产品：Pot de Sauce Aigre-Douce\n建议容量：20g",
+    "slug": "box-packaging-3428",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3459",
+    "name": "TransparentAlimentationBoissonPlastic BoxEmballageModèle9",
+    "keywords": "603520,包装,软包装,塑料盒,一次性塑料盒,方便食品,水果外卖盒,糕点盒,外卖盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/2b55b78e-2fa2-447f-b86b-c205b0395d01.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/5357d6c2-6cee-45e1-943e-0028b9312c3a.glb",
+    "dimensions": "产品尺寸：L:175mm  W:135mm  H:70mm",
+    "description": "Emballage贴图尺寸：L:90mm  H:60mm\n常见于的收纳水果，Légume，蛋糕，糕点，零食\n参考品牌/产品：水果\n建议容量：",
+    "slug": "box-packaging-3459",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3460",
+    "name": "TransparentAlimentationBoissonPlastic BoxEmballageModèle10",
+    "keywords": "603530,包装,软包装,塑料盒,一次性塑料盒,水果盒,糕点盒,蛋糕盒,饼干盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/e203015f-0b53-4fb2-9a3e-b41212254d54.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/bd6f3b4c-bd53-4823-bc21-d72691329a57.glb",
+    "dimensions": "产品尺寸：L:225mm  W:185mm  H:55mm",
+    "description": "Emballage贴图尺寸：L:120mm  H:90mm\n常见于的收纳水果，Légume，蛋糕，糕点，零食\n参考品牌/产品：糕点\n建议容量：",
+    "slug": "box-packaging-3460",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3462",
+    "name": "TransparentAlimentationBoissonPlastic BoxEmballageModèle11",
+    "keywords": "603540,包装,软包装,塑料盒,蛋糕盒,糕点盒,水果盒,一次性塑料盒,果切盒,蔬菜盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/79450c10-09ae-40c9-8706-a524adb99f8b.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/98a34e40-ae7c-4b3e-9fb5-fe54f7a22da0.glb",
+    "dimensions": "产品尺寸：L:210mm  W:210mm  H:50mm",
+    "description": "Emballage贴图尺寸：L:80mm  H:120mm\n常见于的收纳水果，Légume，蛋糕，糕点，零食\n参考品牌/产品：水果\n建议容量：",
+    "slug": "box-packaging-3462",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3587",
+    "name": "CollationAlimentationAlimentationBoissonBoîte en PapierEmballageModèle",
+    "keywords": "603600,包装,软包装,枕头盒,苹果派,休闲食品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/43dc9202-cfdb-41b5-93d5-ca6e1b6de60a.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/d3494aa0-3638-4bbc-92fa-dba77862ce04.glb",
+    "dimensions": "产品尺寸：L:90mm W:25mm H:60mm ",
+    "description": "Emballage贴图尺寸：L:115mm  H:130mm\n常见于零食、日用品的收纳\n参考品牌/产品：枕头盒\n建议容量：",
+    "slug": "box-packaging-3587",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3588",
+    "name": "Papier Rond Usage QuotidienBoîte CadeauEmballageModèle",
+    "keywords": "603610,包装,软包装,礼盒,纸质礼盒,蛋糕盒,糕点盒,圆形盒,礼品盒,包装盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/469a668b-8c9a-46d5-9fdd-b24c7bcaa167.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/ccc28621-6331-4c35-b4d3-2e103b78db8d.glb",
+    "dimensions": "产品尺寸：D:250mm  H:115mm",
+    "description": "Emballage贴图尺寸：L:250  W:26mm  H:87mm\n常见于CollationAlimentation、Boîte pour Biscuits et Pâtisserie、干货、炒货的收纳\n参考品牌/产品：蛋糕糕点\n建议容量：",
+    "slug": "box-packaging-3588",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3612",
+    "name": "Boîte Cadeau2",
+    "keywords": "603630,包装,样机不展示模型,礼品盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/d45cf7c8-c1a4-47e5-9b03-3917aa51b172.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/b4fc202c-d791-41ee-8db3-2f1431c5cc9d.glb",
+    "dimensions": "产品尺寸：L:170mm  W:90mm  H:55mm",
+    "description": "Emballage贴图尺寸：L:170mm  W:90mm  H:55mm\n常见于月饼，礼品的收纳\n参考品牌/产品：Boîte Cadeau\n建议容量：",
+    "slug": "box-packaging-3612",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3614",
+    "name": "CollationAlimentationAlimentationBoissonBoîte en PapierEmballageModèle1",
+    "keywords": "603640,包装,软包装,薯条,零食,休闲食品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/915a440e-0f99-43c5-a333-aede658f29e5.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/b9032bc4-5370-4b96-90d3-f35cfc281079.glb",
+    "dimensions": "产品尺寸：L:89mm W:30mm H:97mm ",
+    "description": "Emballage贴图尺寸：L:85mm  H:97mm\n常见于零食、Frites的收纳\n参考品牌/产品：麦当劳Frites盒\n建议容量：",
+    "slug": "box-packaging-3614",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3721",
+    "name": "BeautyTube en Plastique CosmétiqueEmballageModèle18",
+    "keywords": "603680,杯/桶/碗/盒/管,其他,包装,睫毛膏,口红,化妆品,眼线笔,睫毛增长液,唇釉,眉笔,睫毛定妆液",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/afa32437-5d6f-499a-9481-3103f701aa22.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/4effee27-e8e0-412f-8ff4-4c310fe8dc4a.glb",
+    "dimensions": "产品尺寸：H:115mm  D:15.6mm",
+    "description": "Emballage贴图尺寸：L:49mm  W:38mm  H:75mm\n常见于睫毛膏、口红的收纳\n参考品牌/产品：伊芳澜睫毛膏\n建议容量：7ml",
+    "slug": "box-packaging-3721",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-3856",
+    "name": "CollationBoissonAlimentationBoissonCanette de Jus de FruitsBoîte en PapierEmballageModèle",
+    "keywords": "603770,杯/桶/碗/盒/管,塑料盒,包装,锡纸盒,饮料盒,休闲饮料,牛奶,果汁,液体饮品,酸奶,益生元,乳酸菌,橙汁,纯牛奶,冰红茶,李子园,茉莉花茶",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/4f60096e-e9c5-443e-bf88-03b7c9aeecbb.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/02c2fbeb-cfa7-46a2-ad33-5d8d9d9b9eae.glb",
+    "dimensions": "产品尺寸：L:64mm  W:40mm  H:105mm",
+    "description": "Emballage贴图尺寸：L:64mm  W:40mm  H:105mm\n常见于Boisson、牛奶、Jus de Fruits、饮品的收纳\n参考品牌/产品：Jus de Fruits\n建议容量：",
+    "slug": "box-packaging-3856",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3889",
+    "name": "Collation de Usage QuotidienAlimentationFritesBoîte en PapierEmballageModèle",
+    "keywords": "603790,包装,软包装,休闲食品,膨化食品,薯条,零食",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/55515c55-84bd-4369-92c8-0f78bd03159e.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/00164a27-1297-4fa4-b1cf-9a3ff8a8aaa6.glb",
+    "dimensions": "产品尺寸：L:100mm  W: 55mm  H:172mm",
+    "description": "Emballage贴图尺寸：L:100mm  W: 100mm  H:100mm\n常见于Frites，零食的收纳\n参考品牌/产品：Frites盒\n建议容量：",
+    "slug": "box-packaging-3889",
+    "category": "Box"
+  },
+  {
+    "id": "BX-3890",
+    "name": "Collation de Usage QuotidienAlimentationFritesBoîte en PapierEmballageModèle2",
+    "keywords": "603800,包装,软包装,膨化食品,零食,休闲食品,薯条,芝士派",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/0df0ab6b-a62c-4a33-8c46-0fb66c0162b2.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/e05aca57-2815-4db6-a86b-6def0541fcc5.glb",
+    "dimensions": "产品尺寸：L:100mm  W: 50mm  H:119mm",
+    "description": "Emballage贴图尺寸：L:100mm  W: 100mm  H:100mm\n常见于Frites，零食的收纳\n参考品牌/产品：Frites盒\n建议容量：",
+    "slug": "box-packaging-3890",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4044",
+    "name": "AlimentationBoissonTasse de Thé NoirBoîte en PapierEmballageModèle",
+    "keywords": "603960,包装,软包装,冲调饮品,茶包,红茶,绿茶,茶叶,家庭日用",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/f3666597-af4e-4329-ad0c-be01570d2848.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/38612065-de16-4c29-b7b0-eef85758d7c0.glb",
+    "dimensions": "产品尺寸：L:90mm  W:90mm H:90mm",
+    "description": "Emballage贴图尺寸：L:90mm  W:90mm H:90mm\n常见于茶叶、茶包、AlimentationBoisson、冲调饮品的收纳\n参考品牌/产品：红茶\n建议容量：",
+    "slug": "box-packaging-4044",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4095",
+    "name": "CollationAlimentationBoîte de Gâteau de DessertPlastic BoxEmballageModèle2",
+    "keywords": "604010,杯/桶/碗/盒/管,塑料盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/a9900fce-4145-4627-bc7a-311eb6bb0ad1.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/d8281574-6c29-4356-8c3f-a54ad4d5a7a6.glb",
+    "dimensions": "产品尺寸：L:180mm W:120mm H:90mm ",
+    "description": "Emballage贴图尺寸：L:180mm W:120mm H:90mm \n常见于Boîte de Gâteau de Dessert、Légume沙拉的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4095",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4104",
+    "name": "TransparentAlimentationBoissonPlastic BoxEmballageModèle12",
+    "keywords": "604030,杯/桶/碗/盒/管,塑料盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/fc5e63fb-2060-47d7-bf78-981ce454eaff.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/aa8fb4f6-c3db-43ba-9611-704b46ed2a3d.glb",
+    "dimensions": "产品尺寸：L:175mm  W:135mm  H:70mm",
+    "description": "Emballage贴图尺寸：L:152mm  H:117mm\n常见于的收纳水果，Légume，蛋糕，糕点，零食\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4104",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4114",
+    "name": "CollationAlimentationAlimentationBoissonPlasticEmballageModèle16",
+    "keywords": "604060,杯/桶/碗/盒/管,塑料盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/80f03279-7912-4744-afca-851f02fab704.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/605e797a-6e10-4aa6-a549-e3548e91a932.glb",
+    "dimensions": "产品尺寸：L:100mm W:100mm H:50mm",
+    "description": "Emballage贴图尺寸：L:300mm  H:100mm\n常见于巧克力，零食的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4114",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4115",
+    "name": "TransparentAlimentationBoissonPlastic BoxEmballageModèle13",
+    "keywords": "604070,杯/桶/碗/盒/管,塑料盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/cee04380-38a1-4575-a4e1-0963e0bf1c1b.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/991e7e5e-e61b-418f-9dca-fb7532775416.glb",
+    "dimensions": "产品尺寸：L:120mm  W:130mm  H:37mm",
+    "description": "Emballage贴图尺寸：L:97mm  H:106mm\n常见于的收纳水果，Légume，蛋糕，糕点，零食\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4115",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4120",
+    "name": "PratiqueAlimentationAlimentationBoissonBoîte en PapierEmballageModèle",
+    "keywords": "604090,杯/桶/碗/盒/管,塑料盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/e829f662-2fc9-4f8f-8a68-0fd861ca6c7e.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/0f6fc3d1-af67-4706-b1da-199c1598b7ae.glb",
+    "dimensions": "产品尺寸：L:95mm  W:110mm  H:8mm",
+    "description": "Emballage贴图尺寸：L:95mm  W:110mm  H:8mm\n常见于巧克力，零食的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4120",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4125",
+    "name": "Collation de Usage QuotidienAlimentationFritesBoîte en PapierEmballageModèle3",
+    "keywords": "604120,杯/桶/碗/盒/管,塑料盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/8066a691-2521-4bcd-991d-00f87a7b4059.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/ebd75e30-8460-4244-8f60-3de5cb0dc5d1.glb",
+    "dimensions": "产品尺寸：L:83mm  W: 83mm  H:110mm",
+    "description": "Emballage贴图尺寸：L:83mm  W: 60mm  H:110mm\n常见于Frites，零食的收纳\n参考品牌/产品：Frites盒\n建议容量：",
+    "slug": "box-packaging-4125",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4373",
+    "name": "Boîte de Gâteau de Mousse PortableBoîte en Papier1",
+    "keywords": "604190,纸盒,其他",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/d4a3c539-169d-4894-8d98-377da7fcde50.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/60aea97c-c878-4b57-891e-a587df4ae76a.glb",
+    "dimensions": "产品尺寸：L:112mm  W: 98mm H:117mm",
+    "description": "Emballage贴图尺寸：L:112  W:98mm  H:117mm\n常见于CollationAlimentation、Boîte pour Biscuits et Pâtisserie的收纳\n参考品牌/产品：蛋糕糕点\n建议容量：",
+    "slug": "box-packaging-4373",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4436",
+    "name": "AlimentationBoissonTube Souple pour CollationEmballageModèle",
+    "keywords": "604220,杯/桶/碗/盒/管,软管,休闲食品,零食,冰激凌,沙冰,炼乳,果酱,沙拉,番茄酱",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/28f08618-9b58-4fc3-8560-28dd5322fb3a.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/2abad4a0-a835-487c-a319-ca295762dc29.glb",
+    "dimensions": "产品尺寸：H:169mm  D:41mm",
+    "description": "Emballage贴图尺寸：L:129mm  H:166mm\n常见于Collation、冰激凌、沙冰、果酱的收纳\n参考品牌/产品：\n建议容量：90ml/3oz",
+    "slug": "box-packaging-4436",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-4437",
+    "name": "AlimentationBoissonSeau en Papier pour CollationEmballageModèle",
+    "keywords": "604230,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/baeae38d-f56e-4aaa-8d87-478fff7df645.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/5ad3709a-fa37-40cb-91a0-9824a312ee22.glb",
+    "dimensions": "产品尺寸：D:50mm  H:120mm",
+    "description": "Emballage贴图尺寸：L:50mm  W:1mm  H:120mm\n常见于AlimentationBoisson、冰激凌的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4437",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4439",
+    "name": "AlimentationBoissonSeau en Papier pour CollationEmballageModèle2",
+    "keywords": "604240,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/5ff1815b-7282-47ef-a7d5-4cb11ab0cd65.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/346b3c4c-d0d9-41cb-8e3b-136bc28c3b69.glb",
+    "dimensions": "产品尺寸：D:50mm  H:120mm",
+    "description": "Emballage贴图尺寸：L:50mm  W:1mm  H:120mm\n常见于AlimentationBoisson、冰激凌的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4439",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4442",
+    "name": "AlimentationBoissonSeau en Papier pour CollationEmballageModèle3",
+    "keywords": "604250,杯/桶/碗/盒/管,纸杯/水杯/塑料杯",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/a56a7007-7e72-42f1-9cd0-6fabd732c71e.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/2c7afec1-fcc6-4fa0-b1d1-07d25111d7da.glb",
+    "dimensions": "产品尺寸：D:50mm  H:120mm",
+    "description": "Emballage贴图尺寸：L:50mm  W:1mm  H:120mm\n常见于AlimentationBoisson、冰激凌的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4442",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4440",
+    "name": "AlimentationBoissonTube Souple pour CollationEmballageModèle2",
+    "keywords": "604260,杯/桶/碗/盒/管,软管,塑料软管,冰激凌,休闲食品,甜品,糕点",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/0f4044e8-6124-4523-8fa9-04c43130a1e5.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/9d088f58-4947-4e24-a0e0-d7a831d5b552.glb",
+    "dimensions": "产品尺寸：H:165mm  D:60.5mm",
+    "description": "Emballage贴图尺寸：L:190mm  H:160mm\n常见于Collation、冰激凌、沙冰、糕点的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4440",
+    "category": "Bottle"
+  },
+  {
+    "id": "BX-4452",
+    "name": "CollationBoissonAlimentationBoissonJus de FruitsBoîte en PapierEmballageModèle",
+    "keywords": "604310,杯/桶/碗/盒/管,塑料盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/6fdcc2fb-b1c2-4e0d-8210-57115240a2ae.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/f49b7a34-92ec-43b3-b2df-1dd8bbc4d9b0.glb",
+    "dimensions": "产品尺寸：L:66mm  W:64mm H:165mm",
+    "description": "Emballage贴图尺寸：L:66mm  W:64mm H:165mm\n常见于牛奶、AlimentationBoisson、饮品的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4452",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4511",
+    "name": "Boîte d'Expédition Express Usage QuotidienAlimentationBoîte IsothermeEmballageModèle",
+    "keywords": "604410,软包装,三边封袋,三边封拉链袋,自立袋,自立拉链袋,快递包裹,保温箱,外卖箱,快递箱",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/17e67a33-c5e3-4091-ae79-68781cebc1c8.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/67954a81-0887-4f89-9b92-4f98efac9945.glb",
+    "dimensions": "产品尺寸： L:400mm  W:400mm  H:420mm",
+    "description": "Emballage贴图尺寸：L:1600mm   H:420mm\n常见于Usage Quotidien、快递包裹、外卖箱、Boîte Isotherme的收纳\n参考品牌/产品：\n建议容量：2.5kg",
+    "slug": "box-packaging-4511",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4512",
+    "name": "Boîte d'Expédition Express Usage QuotidienAlimentationBoîte IsothermeEmballageModèle2",
+    "keywords": "604420,软包装,三边封袋,三边封拉链袋,自立袋,自立拉链袋,快递包裹,保温箱,外卖袋,外卖箱",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/6a9dc098-ae77-4c0d-88c8-09bd51dab2fe.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/88e5c540-4ccb-441c-b911-41065b3399d7.glb",
+    "dimensions": "产品尺寸： L:400mm  W:400mm  H:420mm",
+    "description": "Emballage贴图尺寸：L:1600mm   H:420mm\n常见于Usage Quotidien、快递包裹、外卖箱、Boîte Isotherme的收纳\n参考品牌/产品：\n建议容量：2.5kg",
+    "slug": "box-packaging-4512",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4519",
+    "name": "Boîte d'Expédition Express Usage QuotidienAlimentationBoîte IsothermeEmballageModèle3",
+    "keywords": "604430,软包装,三边封袋,三边封拉链袋,自立袋,自立拉链袋,快递包裹,快餐袋,保温袋,保温箱",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/80984741-46f7-4a83-96b6-08870a69a263.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/d47c3f1d-c8be-4608-8722-c2bb3d715ce6.glb",
+    "dimensions": "产品尺寸： L:350mm  W:350mm  H:120mm",
+    "description": "Emballage贴图尺寸：L:470mm   W:350mm  H:240mm\n常见于Usage Quotidien、快递包裹、外卖箱、Boîte Isotherme的收纳\n参考品牌/产品：\n建议容量：15L",
+    "slug": "box-packaging-4519",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4813",
+    "name": "CollationAlimentationŒuf-Jouet en ChocolatEmballageModèle",
+    "keywords": "605200,杯/桶/碗/盒/管,桶,碗,塑料盒,塑料蛋,巧克力,糖果,零食,休闲食品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/0a513050-7e49-479e-afe9-8640b1712e02.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/ec41ad43-cf2d-45e2-972b-c2c34180d9b1.glb",
+    "dimensions": "产品尺寸：L:42mm  W:42mm  H:62mm",
+    "description": "Emballage贴图尺寸：L:42mm  H:62mm\n常见于巧克力、Bonbon、CollationAlimentation、零食的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4813",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4815",
+    "name": "CollationAlimentationŒuf-Jouet en ChocolatEmballageModèle1",
+    "keywords": "605210,杯/桶/碗/盒/管,桶,碗,塑料盒,巧克力,糖果,零食,休闲食品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/e557e918-da8d-4086-b066-309832ae3735.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/97f6b35c-105e-45ee-8e39-b7ab621041f9.glb",
+    "dimensions": "产品尺寸：L:42mm  W:42mm  H:62mm",
+    "description": "Emballage贴图尺寸：L:42mm  H:62mm\n常见于巧克力、Bonbon、CollationAlimentation、零食的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4815",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4816",
+    "name": "CollationAlimentationPapier Sulfurisé pour Desserts de GâteauEmballageModèle",
+    "keywords": "605220,杯/桶/碗/盒/管,纸杯/水杯/塑料杯,碗,其他,休闲食品,防油纸,包装纸,蛋糕甜点,甜食",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/b99adf4b-81a8-4c09-b2d0-16a8be0eeb0a.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/25512dbe-9032-47cc-adab-c00939b3dd5f.glb",
+    "dimensions": "产品尺寸：D:75mm  H:20mm",
+    "description": "Emballage贴图尺寸：L:236mm  H:20mm\n常见于CollationAlimentation、防油纸、Boîte de Gâteau de Dessert的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4816",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4833",
+    "name": "CollationAlimentationEmballage en Plastique pour Bonbons de ChocolatEmballageModèle",
+    "keywords": "605240,杯/桶/碗/盒/管,其他",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/5425c324-33c2-48a0-8f83-48833ad7a591.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/af58ad51-41b2-4fde-ad18-159789ae0a6f.glb",
+    "dimensions": "产品尺寸：L:60mm  W:60mm  H:60mm",
+    "description": "Emballage贴图尺寸：L:60mm  H:60mm\n常见于巧克力、Bonbon、CollationAlimentation、零食的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-4833",
+    "category": "Box"
+  },
+  {
+    "id": "BX-5048",
+    "name": "Usage QuotidienBeautyProduits de Beauté CosmétiqueBoîte en PapierEmballageModèle",
+    "keywords": "605360,纸盒,软包装,化妆品,护肤品,面膜,水乳,保湿水",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/444dd0c0-af63-48ea-8b24-f089ca88ccc2.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/99cceba6-5a2f-453c-a2e3-5e7a4189032c.glb",
+    "dimensions": "产品尺寸：L:56mm  W:57mm  H:110mm",
+    "description": "Emballage贴图尺寸：L:56mm  W:57mm  H:110mm\n常见于Usage Quotidien、Beauty美妆、化妆品、护肤品的收纳\n参考品牌/产品：\n建议容量：",
+    "slug": "box-packaging-5048",
+    "category": "Box"
+  },
+  {
+    "id": "BX-5921",
+    "name": "Personal CareCrème Solaire VisageEmballageModèle",
+    "keywords": "606250,杯/桶/碗/盒/管,软管",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/308bf446-d997-48f6-83af-2454c2b50ff8.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/062e16c4-9bd3-4882-9e0d-3e3c4f8f9e65.glb",
+    "dimensions": "产品尺寸L33  H138",
+    "description": "产品贴图尺寸：L78mm  H96mm\n防晒霜Emballage",
+    "slug": "box-packaging-5921",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4062",
+    "name": "Boîte en Papier1",
+    "keywords": "700010,纸盒,平粘盒/机包盒,包装,纸巾盒,家庭清洁,湿纸巾",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/d1cb321c-a5f2-477f-9d6a-ddc373cf7870.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/4ce07515-24bc-48be-b975-2ed1f4bbd82b.glb",
+    "dimensions": "产品尺寸：L:210mm  W:105mm  H:50mm",
+    "description": "Emballage贴图尺寸：L:mm  H:mm\n常见于纸巾、湿纸巾、洗脸巾的收纳\n参考品牌/产品：纸巾\n建议容量：",
+    "slug": "box-packaging-4062",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4069",
+    "name": "Boîte en Papier3",
+    "keywords": "700011,纸盒,平粘盒/机包盒,包装,纸巾盒,调味盒,湿巾盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/aa222f61-9af2-470a-9f60-ecabcba608cc.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/f0cf8a86-3256-44d8-a102-8756e188ecc8.glb",
+    "dimensions": "产品尺寸：L:105mm  W:105mm  H:34mm",
+    "description": "Emballage贴图尺寸：L:mm  H:mm\n常见于纸巾、湿纸巾、洗脸巾的收纳\n参考品牌/产品：纸巾\n建议容量：",
+    "slug": "box-packaging-4069",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4071",
+    "name": "Boîte en Papier5",
+    "keywords": "700012,纸盒,平粘盒/机包盒,包装,纸巾盒,湿巾盒,零食盒,休闲零食,饼干盒",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/66bb2bd3-911c-46e4-880c-13ef2838b8c8.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/04cb56a5-800d-4156-9c6c-0d88db46e64e.glb",
+    "dimensions": "产品尺寸：L:120mm  W:120mm  H:30mm",
+    "description": "Emballage贴图尺寸：L:mm  H:mm\n常见于纸巾、湿纸巾、洗脸巾的收纳\n参考品牌/产品：纸巾\n建议容量：",
+    "slug": "box-packaging-4071",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4070",
+    "name": "Boîte en Papier4",
+    "keywords": "700013,纸盒,平粘盒/机包盒,包装,纸巾盒,湿巾盒,礼品盒,调味盒,零食盒,饼干盒,休闲食品",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/c3e373ef-7697-4511-9c32-0876b147c80e.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/b0db2fa6-2e3d-496c-9943-6c4497f238b8.glb",
+    "dimensions": "产品尺寸：L:120mm  W:120mm  H:50mm",
+    "description": "Emballage贴图尺寸：L:mm  H:mm\n常见于纸巾、湿纸巾、洗脸巾的收纳\n参考品牌/产品：纸巾\n建议容量：",
+    "slug": "box-packaging-4070",
+    "category": "Box"
+  },
+  {
+    "id": "BX-4068",
+    "name": "Boîte en Papier2",
+    "keywords": "700014,纸盒,平粘盒/机包盒,包装,纸巾盒,调味盒,食品盒,纸抽,湿纸巾",
+    "dieline_image": "https://yun.baoxiaohe.com/admin-materials/04dffd06-188b-4972-b281-447b8edff9d3.png",
+    "glb_file": "https://yun.baoxiaohe.com/static/blender/95feb737-24c7-4ec1-b964-15764bc2fe70.glb",
+    "dimensions": "产品尺寸：L:120mm  W:120mm  H:50mm",
+    "description": "Emballage贴图尺寸：L:mm  H:mm\n常见于Condiment、食用盐、生活用品的收纳\n参考品牌/产品：食用盐\n建议容量：\n",
+    "slug": "box-packaging-4068",
     "category": "Box"
   }
 ]

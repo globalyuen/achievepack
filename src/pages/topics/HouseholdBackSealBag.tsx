@@ -87,7 +87,45 @@ const localTranslations = {
     faq4Q: "¿Qué certificaciones están disponibles para estos materiales?",
     faq4A: "Ofrecemos materiales aprobados por la FDA para alimentos, compostables certificados por BPI y monomateriales reciclables."
   },
-  zh: {
+  fr: {
+    title: "Sachet de scellage arrière domestique (Modèle #4724) | Achieve Pack",
+    description: "Découvrez le sachet de scellage arrière domestique (Modèle #4724). Sachet haute barrière avec dimensions personnalisées (L:229mm W:165mm), certifications et aperçu 3D.",
+    heroTitle: "Sachet de scellage arrière domestique (Modèle #4724)",
+    heroSubtitle: "Dimensions personnalisées L:229mm W:165mm | Haute barrière | Certifié BPI & TUV",
+    introSummary: "Le sachet de scellage arrière domestique (Modèle #4724) représente une structure d'emballage haut de gamme et haute résistance, conçue pour les environnements de vente au détail et industriels. Ce sachet est conçu pour des performances optimales sur les lignes de conditionnement automatiques.",
+    aeoSummary: "Le modèle #4724 est un sachet à scellage arrière mesurant L:229mm W:165mm. Configuré avec un film barrière haute performance et des fermetures fiables pour éviter les fuites et maximiser la durée de conservation du produit.",
+    eeatDetails: "Avec plus de 14 ans d'ingénierie d'emballage, nous garantissons que chaque lot de Modèle #4724 est conforme aux réglementations internationales sur la sécurité alimentaire et la durabilité.",
+    section1Title: "Détails structurels & Configuration du matériel",
+    section1Text: "Conçu spécifiquement pour la stabilité de qualité alimentaire, ce sachet à scellage arrière (Modèle #4724) utilise des substrats co-extrudés pour offrir une résistance chimique et une protection contre les perforations. Idéal pour les flux de travail de formage-remplissage-scellage automatiques et le remplissage manuel de lots, il conserve la forme structurelle et l'esthétique de la marque.",
+    section2Title: "Du carnet d'ingénierie de Ryan Wong",
+    section2Log: "Le sachet de scellage arrière Modèle #4724 nécessite des paramètres de couture arrière uniformes. Nous utilisons des revêtements extérieurs à faible friction pour éviter le blocage du film et la traînée sur les collets de formage-remplissage-scellage verticaux (VFFS).",
+    point1Title: "Problème: Glissement de couture",
+    point1Desc: "Glissement de la couture centrale sous tension thermique.",
+    point1Sol: "Calibrage des temps de scellage thermique pour correspondre aux exigences d'épaisseur du film.",
+    point2Title: "Problème: Traînée de machine",
+    point2Desc: "Friction élevée du film arrêtant le flux dans les tubes d'emballage automatiques.",
+    point2Sol: "Additifs de glissement réduisant le coefficient de friction à moins de 0,2 COF.",
+    point3Title: "Problème: Micro-trous de coin",
+    point3Desc: "Petits trous se formant aux intersections des coutures inférieure et arrière.",
+    point3Sol: "Épaisses couches de support en polymère pour sceller les joints croisés multicouches.",
+    point4Title: "Problème: Fissure de chaîne du froid",
+    point4Desc: "Les joints deviennent fragiles et se fissurent dans les congélateurs à température inférieure à zéro.",
+    point4Sol: "Mélanges de copolymères EVA spéciaux maintenant la résistance aux chocs du joint à -20°C.",
+    point5Title: "Problème: Longueurs de sachet inégales",
+    point5Desc: "Longueurs d'emballage variables dues à un suivi incorrect des cellules photoélectriques.",
+    point5Sol: "Repères oculaires à fort contraste imprimés pour une détection précise du capteur.",
+    compTitle: "Mise en page dieline & Spécifications de calibrage",
+    compDesc: "Chaque série de modèles est calibrée à l'aide de dielines prépresse strictes. Nos équipes ajustent les tolérances de pliage et les limites thermiques en fonction de l'épaisseur du substrat.",
+    faq1Q: "Quel est le MOQ pour les séries de tailles personnalisées du Modèle #4724 ?",
+    faq1A: "Pour les tailles ou impressions personnalisées, notre quantité minimale de commande standard commence à partir de 5 000 pièces. Des séries d'impression numérique sont disponibles à partir de 1 000 pièces pour les startups.",
+    faq2Q: "Puis-je demander des échantillons de matériel non imprimés de ce modèle spécifique ?",
+    faq2A: "Oui. Nous proposons des packages d'échantillons de matériel non imprimés gratuits afin que vous puissiez vérifier la taille, la largeur du soufflet et l'épaisseur du matériel sur vos lignes de remplissage avant de commander.",
+    faq3Q: "Cette structure de sachet prend-elle en charge les lignes de remplissage automatisées ?",
+    faq3A: "Oui, cette conception est entièrement optimisée pour les machines d'emballage standard verticales et horizontales de formage-remplissage-scellage (VFFS/HFFS).",
+    faq4Q: "Quelles certifications sont disponibles pour ces matériaux ?",
+    faq4A: "Selon votre sélection, nous proposons des matériaux certifiés FDA de qualité alimentaire, compostables BPI (ASTM D6400) et mono-polymères recyclables."
+  },
+  'zh-tw': {
     title: "Household Back Seal Bag (Model #4724) 3D包裝袋 | Achieve Pack",
     description: "了解 Household Back Seal Bag (Model #4724)。高阻隔 Back Seal Bag，支持定製尺寸 (L:229mm  W:165mm)，提供 BPI/TUV 認證與 3D 交互式預覽。",
     heroTitle: "Household Back Seal Bag (Model #4724) 3D包裝袋",
@@ -126,11 +164,15 @@ const localTranslations = {
     faq4A: "我們提供符合美國 FDA 食品安全標準、歐盟 EN 13432 可降解認證以及 Mono-PE 可回收材料證書。"
   }
 }
+// Alias for simplified zh key
+;(localTranslations as any)['zh'] = localTranslations['zh-tw']
 
 const HouseholdBackSealBag: React.FC = () => {
   const { t, i18n } = useTranslation()
-  const lang = i18n.language || 'en'
-  const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
+  const lang = (i18n.language || 'en').toLowerCase()
+  const localTrans = localTranslations[lang as keyof typeof localTranslations] || 
+                     localTranslations[lang.split('-')[0] as keyof typeof localTranslations] || 
+                     localTranslations.en
 
   const IMAGES = {
     hero: '/imgs/topics/household-back-seal-bag/hero.jpg',

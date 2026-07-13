@@ -470,6 +470,18 @@ export default function Footer() {
               <li><Link to="/topics/coffee-sachet-three-side-seal" className="hover:text-primary-400">{t('seo_topics.coffee_sachet_three_side_seal.title', 'Coffee Sachet Three-Side Seal')}</Link></li>
               <li><Link to="/topics/nuts-flat-bottom-pouch" className="hover:text-primary-400">{t('seo_topics.nuts_flat_bottom_pouch.title', 'Nuts Flat Bottom Pouch')}</Link></li>
               <li><Link to="/topics/grains-back-seal-pouch" className="hover:text-primary-400">{t('seo_topics.grains_back_seal_pouch.title', 'Grains Back Seal Pouch')}</Link></li>
+              <li><Link to="/knowledge/dupont-paper-tote-bags-benefits" className="hover:text-primary-400 text-green-400 font-bold">DuPont Paper Tote Bags Benefits <span className="bg-primary-500/20 text-[9px] px-1 rounded uppercase">New</span></Link></li>
+              <li><Link to="/knowledge/tyvek-vs-canvas-tote-bags" className="hover:text-primary-400 text-green-400 font-bold">Tyvek vs. Canvas Tote Bags</Link></li>
+              <li><Link to="/knowledge/eco-friendly-dupont-paper-bags" className="hover:text-primary-400 text-green-400 font-bold">Eco-Friendly DuPont Paper Bags</Link></li>
+              <li><Link to="/knowledge/molded-pulp-packaging-benefits" className="hover:text-primary-400 text-green-400 font-bold">Molded Pulp Packaging Benefits <span className="bg-primary-500/20 text-[9px] px-1 rounded uppercase">New</span></Link></li>
+              <li><Link to="/knowledge/eco-degradable-pulp-boxes-guide" className="hover:text-primary-400 text-green-400 font-bold">Eco-Degradable Pulp Boxes Guide</Link></li>
+              <li><Link to="/knowledge/pulp-boxes-vs-corrugated-cardboard" className="hover:text-primary-400 text-green-400 font-bold">Pulp Boxes vs Corrugated Cardboard</Link></li>
+              <li><Link to="/knowledge/luxury-cork-gift-boxes" className="hover:text-primary-400 text-green-400 font-bold">Luxury Cork Gift Boxes <span className="bg-primary-500/20 text-[9px] px-1 rounded uppercase">New</span></Link></li>
+              <li><Link to="/knowledge/cork-packaging-sustainability" className="hover:text-primary-400 text-green-400 font-bold">Cork Packaging Sustainability</Link></li>
+              <li><Link to="/knowledge/custom-cork-gift-boxes-design" className="hover:text-primary-400 text-green-400 font-bold">Custom Cork Gift Boxes Design</Link></li>
+              <li><Link to="/knowledge/soft-wood-gift-boxes-wholesale" className="hover:text-primary-400 text-green-400 font-bold">Soft Wood Gift Boxes Wholesale <span className="bg-primary-500/20 text-[9px] px-1 rounded uppercase">New</span></Link></li>
+              <li><Link to="/knowledge/wooden-gift-boxes-sustainability" className="hover:text-primary-400 text-green-400 font-bold">Wooden Gift Boxes Sustainability</Link></li>
+              <li><Link to="/knowledge/balsa-soft-wood-packaging" className="hover:text-primary-400 text-green-400 font-bold">Balsa Soft Wood Packaging</Link></li>
             </ul>
           </div>
           </details>

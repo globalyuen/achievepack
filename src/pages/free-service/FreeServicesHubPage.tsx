@@ -6,17 +6,6 @@ import { useTranslation, Trans } from "react-i18next";
 
 const FREE_SERVICES = [
   {
-    id: '3d-studio',
-    title: 'Free 3D Studio',
-    description: 'Interactive WebGL package designer. Design, scale, and preview over 400+ custom packaging shapes in 3D, and download watermark-free models.',
-    emoji: '💻',
-    image: '/imgs/store/box/corrugated-box/ads/a_hero_kv_black_gold_mailer_4737831.webp',
-    link: '/app',
-    gradient: 'from-emerald-500 to-teal-500',
-    bgGradient: 'from-emerald-50 to-teal-50',
-    borderColor: 'border-emerald-200',
-  },
-  {
     id: 'design',
     title: 'Free Design Consultation',
     description: 'Expert packaging design advice from our team. Get custom dieline templates, color guidance, and print-ready artwork support.',
@@ -106,6 +95,90 @@ export default function FreeServicesHubPage() {
               {t(`${p}.exclusiveFreeServices`)}</h1>
             <p className="text-lg text-neutral-500 max-w-md mx-auto leading-relaxed">
               {t(`${p}.unlockPremiumPackagingBenefits`)}</p>
+          </motion.div>
+        </section>
+
+        {/* 3D Studio Spotlight Hero Section */}
+        <section className="px-4 pb-16 max-w-4xl mx-auto relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="relative bg-white rounded-[32px] overflow-hidden border border-neutral-100 shadow-[0_20px_50px_rgba(0,0,0,0.03)] hover:shadow-[0_30px_70px_rgba(0,0,0,0.06)] transition-all duration-500"
+          >
+            {/* Spotlight Accent */}
+            <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-gradient-to-bl from-emerald-500/10 to-transparent blur-[80px] pointer-events-none" />
+            
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 md:p-10 items-center">
+              {/* Left Side Content */}
+              <div className="lg:col-span-7 space-y-5">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100 text-[10px] font-bold tracking-wide uppercase">
+                  <Sparkles className="h-3.5 w-3.5" /> Featured Service
+                </div>
+                
+                <h2 className="text-2xl md:text-3xl font-extrabold text-neutral-900 leading-tight">
+                  Free 3D Packaging Studio
+                </h2>
+                
+                <p className="text-sm text-neutral-500 leading-relaxed">
+                  Access our industry-leading WebGL package design suite. Design, scale, and preview over 600+ custom boxes, pouches, and bottles in real-time 3D. Upload custom artwork, inspect dielines, adjust material finishes, and export print-ready layouts—100% free with no registration required.
+                </p>
+                
+                <div className="grid grid-cols-2 gap-3 pb-1">
+                  <div className="flex items-start gap-2">
+                    <div className="flex-none w-4 h-4 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-600 text-[10px] mt-0.5 font-bold">✓</div>
+                    <div>
+                      <h4 className="font-bold text-[11px] text-neutral-800">680+ 3D Models</h4>
+                      <p className="text-[10px] text-neutral-400">Boxes, pouches & bottles</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="flex-none w-4 h-4 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-600 text-[10px] mt-0.5 font-bold">✓</div>
+                    <div>
+                      <h4 className="font-bold text-[11px] text-neutral-800">Instant Dielines</h4>
+                      <p className="text-[10px] text-neutral-400">Download 2D layout templates</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="flex-none w-4 h-4 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-600 text-[10px] mt-0.5 font-bold">✓</div>
+                    <div>
+                      <h4 className="font-bold text-[11px] text-neutral-800">Real-Time WebGL</h4>
+                      <p className="text-[10px] text-neutral-400">Interactive 3D preview</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="flex-none w-4 h-4 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-600 text-[10px] mt-0.5 font-bold">✓</div>
+                    <div>
+                      <h4 className="font-bold text-[11px] text-neutral-800">Zero Watermarks</h4>
+                      <p className="text-[10px] text-neutral-400">Completely free downloads</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-1">
+                  <Link 
+                    to="/studio" 
+                    className="inline-flex items-center gap-2 px-6 py-3.5 bg-emerald-600 text-white text-sm font-bold rounded-2xl shadow-[0_8px_25px_rgba(16,185,129,0.25)] hover:bg-emerald-500 hover:shadow-[0_12px_30px_rgba(16,185,129,0.35)] hover:-translate-y-0.5 transition-all duration-300 group"
+                  >
+                    Launch 3D Studio 
+                    <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right Side Visual */}
+              <div className="lg:col-span-5 relative">
+                <div className="absolute inset-0 bg-emerald-500/10 rounded-2xl filter blur-2xl transform translate-x-4 translate-y-4 scale-95 pointer-events-none" />
+                <div className="relative border border-neutral-100 rounded-2xl overflow-hidden shadow-2xl bg-neutral-900 group">
+                  <img 
+                    src="/imgs/free-service/free-3d-studio-hero.jpg" 
+                    alt="Achieve Pack 3D Studio"
+                    className="w-full h-auto object-cover transform group-hover:scale-102 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/20 via-transparent to-transparent pointer-events-none" />
+                </div>
+              </div>
+            </div>
           </motion.div>
         </section>
 

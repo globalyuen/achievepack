@@ -457,7 +457,7 @@ export default function PouchEcoHomePage() {
 
               <div className="pt-4">
                 <Link
-                  to="/app"
+                  to="/studio"
                   className="inline-block bg-black text-[#D4FF00] hover:bg-[#10b981] hover:text-black font-black text-lg px-10 py-5 border-4 border-black shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:shadow-none transition-all uppercase tracking-wide"
                 >
                   START 3D STUDIO NOW &rarr;
@@ -469,7 +469,7 @@ export default function PouchEcoHomePage() {
             <div className="lg:col-span-6 grid grid-cols-2 gap-6">
               
               {/* Card 1 */}
-              <Link to="/app" className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
+              <Link to="/studio" className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
                 <div className="w-12 h-12 bg-[#10b981] border-3 border-black flex items-center justify-center mb-4 text-black font-black text-xl">
                   👝
                 </div>
@@ -479,7 +479,7 @@ export default function PouchEcoHomePage() {
               </Link>
 
               {/* Card 2 */}
-              <Link to="/app" className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
+              <Link to="/studio" className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
                 <div className="w-12 h-12 bg-[#3b82f6] border-3 border-black flex items-center justify-center mb-4 text-black font-black text-xl">
                   📦
                 </div>
@@ -489,7 +489,7 @@ export default function PouchEcoHomePage() {
               </Link>
 
               {/* Card 3 */}
-              <Link to="/app" className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
+              <Link to="/studio" className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
                 <div className="w-12 h-12 bg-[#f59e0b] border-3 border-black flex items-center justify-center mb-4 text-black font-black text-xl">
                   🧴
                 </div>
@@ -1002,7 +1002,7 @@ export default function PouchEcoHomePage() {
                           title={`${shape.id} - ${shape.name}`}
                         >
                           <img
-                            src={`/thumbnails/${shape.id}.png`}
+                            src={`/thumbnails/${shape.id}.png?v=2`}
                             alt={shape.name}
                             loading="lazy"
                             className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform"

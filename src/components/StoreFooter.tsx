@@ -164,7 +164,7 @@ export default function StoreFooter() {
                         title={`${shape.id} - ${shape.name}`}
                       >
                         <img
-                          src={`/thumbnails/${shape.id}.png`}
+                          src={`/thumbnails/${shape.id}.png?v=2`}
                           alt={shape.name}
                           loading="lazy"
                           className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform"

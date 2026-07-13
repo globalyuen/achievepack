@@ -199,7 +199,7 @@ export default function CatalogPage() {
 
                     // Render locally hosted Vercel asset paths
                     const dielineSrc = shape.dieline_image.startsWith('/') ? shape.dieline_image : `/api/proxy?url=${encodeURIComponent(shape.dieline_image)}`;
-                    const thumbnailSrc = shape.id === '978' ? dielineSrc : `/thumbnails/${shape.id}.png`;
+                    const thumbnailSrc = shape.id === '978' ? dielineSrc : `/thumbnails/${shape.id}.png?v=2`;
 
                     return (
                       <div
@@ -269,7 +269,7 @@ export default function CatalogPage() {
                             3D Specs
                           </Link>
                           <Link
-                            to={`/app?shape=${shape.id}`}
+                            to={`/studio?shape=${shape.id}`}
                             className="w-1/2 text-center bg-emerald-500 hover:bg-emerald-450 border border-emerald-500 text-neutral-950 font-bold text-xs py-2 rounded-lg transition-all flex items-center justify-center gap-1"
                           >
                             Edit 3D

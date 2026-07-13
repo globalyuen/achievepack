@@ -897,7 +897,7 @@ export default function ShapeDetailPage() {
   const previewImage = useMemo(() => {
     if (!shape) return '';
     const shapeIdStr = String(shape.id);
-    return MOCKUP_SHAPE_IDS.has(shapeIdStr) ? `/imgs/shapes/${shapeIdStr}.jpg` : `/thumbnails/${shape.id}.png`;
+    return MOCKUP_SHAPE_IDS.has(shapeIdStr) ? `/imgs/shapes/${shapeIdStr}.jpg` : `/thumbnails/${shape.id}.png?v=2`;
   }, [shape]);
 
   const watermarkStyle = useMemo(() => ({
@@ -1116,7 +1116,7 @@ export default function ShapeDetailPage() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  to={`/app?shape=${shape.id}`}
+                  to={`/studio?shape=${shape.id}`}
                   className="bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-bold text-center text-sm px-6 py-4 rounded-xl shadow-lg hover:shadow-emerald-500/10 transition-all flex items-center justify-center gap-2"
                 >
                   Configure in 3D Studio
@@ -1474,7 +1474,7 @@ export default function ShapeDetailPage() {
                 <div className="flex flex-col gap-3">
                   <NeoButton
                     variant="primary"
-                    href={`/app?shape=${shape.id}`}
+                    href={`/studio?shape=${shape.id}`}
                     className="w-full text-center py-4 font-black"
                   >
                     Customise in 3D Studio →

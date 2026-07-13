@@ -3,7 +3,7 @@ import { getDomain } from '../../utils/domain'
 import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import PouchLayout from '../../components/pouch/PouchLayout'
-import { Leaf, Shield, Award, RefreshCw, AlertTriangle, Lightbulb, ArrowRight, ShoppingBag } from 'lucide-react'
+import { Leaf, Shield, Award, RefreshCw, AlertTriangle, Lightbulb, ArrowRight, ShoppingBag, CheckCircle2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
@@ -65,7 +65,18 @@ const translations = {
     printBed: "Printability & Heated Bed",
     phaPrint: "No heated bed / Low shrinkage / No pre-drying",
     plaPrint: "Heated bed required / Prone to warping / 4h drying",
-    petgPrint: "Heated bed required / High stringing / 4h drying"
+    petgPrint: "Heated bed required / High stringing / 4h drying",
+    painPointsTitle: "5 Bioplastics Pain Points & Solutions",
+    pain1p: "High moisture sensitivity causing pre-drying bottlenecks",
+    pain1s: "PLA and PETG are highly hygroscopic and require a 4-hour pre-drying cycle before extrusion to avoid brittleness. CitrusCycle™ PHA has high moisture stability and can be processed directly without drying.",
+    pain2p: "Industrial-only composting requirements",
+    pain2s: "PLA only degrades in industrial composting facilities under high heat and pressure. CitrusCycle™ PHA is home-compostable and marine-degradable, breaking down naturally in backyard compost bins or ocean water.",
+    pain3p: "Persistent toxic microplastics residue",
+    pain3s: "Traditional plastics and typical bioplastics leave persistent microplastic residues. PHA is 100% bio-based and degrades completely into natural organic matter, leaving zero toxic traces.",
+    pain4p: "Warping and shrinkage on standard 3D printers",
+    pain4s: "PLA is prone to warping and requires a heated bed. PHA offers extremely low thermal shrinkage, allowing printing on standard bed surfaces without warping.",
+    pain5p: "Feedstock competing with food crops",
+    pain5s: "Most PLA is derived from starch-based crops (corn/sugarcane) which compete with food production. CitrusCycle™ PHA is synthesized by microbes from organic agricultural waste (orange peels, grape seeds, peach skins)."
   },
   'zh-TW': {
     title: "PHA 對比 PLA：永續 3D 列印與包裝材料的終極指南",
@@ -124,7 +135,18 @@ const translations = {
     printBed: "列印性與熱床",
     phaPrint: "無需熱床 / 低收縮率 / 無需預先乾燥",
     plaPrint: "需要熱床 / 易翹曲 / 4小時乾燥",
-    petgPrint: "需要熱床 / 高拉絲 / 4小時乾燥"
+    petgPrint: "需要熱床 / 高拉絲 / 4小時乾燥",
+    painPointsTitle: "5 大生物塑料痛點與工程解決方案",
+    pain1p: "高感濕性導致強制預乾燥瓶頸",
+    pain1s: "PLA 和 PETG 具有高度吸濕性，在擠出前需要 4 小時的預乾燥循環以防止脆化。CitrusCycle™ PHA 具有極高的水分穩定性，無需乾燥即可直接加工。",
+    pain2p: "僅限工業堆肥的限制",
+    pain2s: "PLA 僅能在高溫高壓的工業堆肥設施中降解。我們的 PHA 具有家庭可堆肥性和海洋降解性，可在後院堆肥箱或海水中自然分解。",
+    pain3p: "殘留有毒微塑料的危害",
+    pain3s: "傳統塑料和部分生物塑料降解後會留下持久的微塑料。PHA 是 100% 生物基，可完全降解為天然有機物，不留任何有毒殘留。",
+    pain4p: "標準 3D 列印中的翹曲與收縮",
+    pain4s: "PLA 容易翹曲並需要加熱床。PHA 提供極低的熱收縮率，可在標準列印表面上進行列印而不會翹曲。",
+    pain5p: "原料來源與糧食作物競爭",
+    pain5s: "大多數 PLA 源自澱粉作物（如玉米和甘蔗），會與糧食生產競爭。CitrusCycle™ PHA 是由微生物通過有機農業廢棄物（如橘皮、葡萄籽、桃皮）合成的。"
   },
   es: {
     title: "PHA vs PLA: La Guía Definitiva de Materiales Sostenibles para Impresión 3D y Empaques",
@@ -183,7 +205,18 @@ const translations = {
     printBed: "Imprimibilidad y Cama Caliente",
     phaPrint: "Sin cama caliente / Baja contracción / Sin secado previo",
     plaPrint: "Requiere cama caliente / Propenso a deformarse / 4h secado",
-    petgPrint: "Requiere cama caliente / Alto encordado / 4h secado"
+    petgPrint: "Requiere cama caliente / Alto encordado / 4h secado",
+    painPointsTitle: "5 Puntos de Dolor de los Bioplásticos y Soluciones de Ingeniería",
+    pain1p: "Alta sensibilidad a la humedad que causa cuellos de botella de presecado",
+    pain1s: "El PLA y el PETG son altamente higroscópicos y requieren un ciclo de secado previo de 4 horas antes de la extrusión para evitar la fragilidad. CitrusCycle™ PHA tiene una alta estabilidad a la humedad y se puede procesar directamente sin secar.",
+    pain2p: "Requisitos de compostaje únicamente industrial",
+    pain2s: "El PLA solo se degrada en instalaciones de compostaje industrial bajo alta temperatura y presión. CitrusCycle™ PHA es compostable en el hogar y degradable en el mar, descomponiéndose naturalmente en contenedores de compost de patio o agua de océano.",
+    pain3p: "Residuos persistentes de microplásticos tóxicos",
+    pain3s: "Los plásticos tradicionales y algunos bioplásticos dejan residuos de microplásticos persistentes. El PHA es 100% de base biológica y se degrada completamente en materia orgánica natural, sin dejar rastros tóxicos.",
+    pain4p: "Deformación y contracción en impresoras 3D estándar",
+    pain4s: "El PLA es propenso a deformarse y requiere una cama caliente. El PHA ofrece una contracción térmica extremadamente baja, lo que permite imprimir en superficies de cama estándar sin deformación.",
+    pain5p: "Materia prima que compite con los cultivos alimentarios",
+    pain5s: "La mayoría del PLA se deriva de cultivos a base de almidón (maíz/caña de azúcar) que compiten con la producción de alimentos. CitrusCycle™ PHA es sintetizado por microbios a partir de residuos agrícolas orgánicos (cáscaras de naranja, semillas de uva, pieles de durazno)."
   },
   fr: {
     title: "PHA vs PLA : Le Guide Ultime des Matériaux Durables d'Impression 3D et d'Emballage",
@@ -242,7 +275,18 @@ const translations = {
     printBed: "Imprimabilité et Plateau Chauffant",
     phaPrint: "Pas de plateau chauffant / Faible retrait / Sans pré-séchage",
     plaPrint: "Plateau chauffant requis / Sujet au gauchissement / Séchage 4h",
-    petgPrint: "Plateau chauffant requis / Fort cordage / Séchage 4h"
+    petgPrint: "Plateau chauffant requis / Fort cordage / Séchage 4h",
+    painPointsTitle: "5 Problèmes Majeurs des Bioplastiques et Solutions d'Ingénierie",
+    pain1p: "Haute sensibilité à l'humidité provoquant des goulots d'étranglement de pré-séchage",
+    pain1s: "Le PLA et le PETG sont très hygroscopiques et nécessitent un cycle de pré-séchage de 4 heures avant l'extrusion pour éviter la fragilité. CitrusCycle™ PHA a une grande stabilité à l'humidité et peut être traité directement sans séchage.",
+    pain2p: "Exigences de compostage uniquement industriel",
+    pain2s: "Le PLA ne se dégrade que dans les installations de compostage industriel sous haute chaleur et pression. CitrusCycle™ PHA est compostable à domicile et biodégradable en milieu marin, se décomposant naturellement dans les bacs à compost ou l'eau de l'océan.",
+    pain3p: "Résidus persistants de microplastiques toxiques",
+    pain3s: "Les plastiques traditionnels et certains bioplastics laissent des résidus de microplastiques persistants. Le PHA est 100% biosourcé et se dégrade complètement en matière organique naturelle, ne laissant aucune trace toxique.",
+    pain4p: "Déformation et retrait sur les imprimantes 3D standard",
+    pain4s: "Le PLA est sujet au gauchissement et nécessite un plateau chauffant. Le PHA offre un retrait thermique extrêmement faible, permettant d'imprimer sur des surfaces de plateau standard sans déformation.",
+    pain5p: "Matières premières en concurrence avec les cultures alimentaires",
+    pain5s: "La plupart des PLA sont dérivés de cultures à base d'amidon (maïs/canne à sucre) qui concurrencent la production alimentaire. CitrusCycle™ PHA est synthétisé par des microbes à partir de déchets agricoles organiques (écorces d'orange, pépins de raisin, peaux de pêche)."
   }
 }
 
@@ -258,7 +302,7 @@ export default function PhaVsPla() {
 
   const heroImageUrl = '/imgs/store/products/compostable-citrus-orange-filament-rollstock-orange-new.png'
   const contentImageUrl = '/imgs/store/products/compostable-citrus-orange-filament-rollstock-coffee.png'
-  const secondaryImageUrl = '/imgs/store/products/compostable-citrus-orange-filament-rollstock-spool.png'
+  const secondaryImageUrl = '/imgs/store/products/compostable-citrus-orange-filament-rollstock-tea.png'
 
   const seoProps = {
     title: t.title,
@@ -347,6 +391,36 @@ export default function PhaVsPla() {
       )
     },
     {
+      id: "pain-points",
+      title: t.painPointsTitle,
+      icon: <Shield className="h-6 w-6" />,
+      content: (
+        <div className="space-y-6 mt-6">
+          {[
+            { num: '01', problem: t.pain1p, solution: t.pain1s },
+            { num: '02', problem: t.pain2p, solution: t.pain2s },
+            { num: '03', problem: t.pain3p, solution: t.pain3s },
+            { num: '04', problem: t.pain4p, solution: t.pain4s },
+            { num: '05', problem: t.pain5p, solution: t.pain5s }
+          ].map((item) => (
+            <div key={item.num} className="bg-neutral-900 text-white rounded-xl p-6 relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 opacity-10">
+                <span className="text-6xl font-black font-mono">{item.num}</span>
+              </div>
+              <h4 className="text-lg font-bold mb-3 pr-12 text-white">{item.problem}</h4>
+              <div className="bg-neutral-800 rounded-lg p-4 border-l-4 border-emerald-500">
+                <div className="flex items-start gap-2 mb-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-emerald-400 font-bold text-sm tracking-wider uppercase">Solution:</span>
+                </div>
+                <p className="text-neutral-300 text-sm leading-relaxed">{item.solution}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )
+    },
+    {
       id: "expert-insight",
       title: t.expertSub,
       icon: <Award className="h-6 w-6" />,
@@ -420,6 +494,36 @@ export default function PhaVsPla() {
               Also explore the lifecycle differences in our <Link to="/knowledge/eco-packaging-reality" className="text-primary-600 font-medium hover:underline inline-flex items-center gap-1">Eco-Packaging Reality Guide <ArrowRight className="w-3 h-3"/></Link> and read about circular <Link to="/knowledge/reusable-packaging" className="text-primary-600 font-medium hover:underline inline-flex items-center gap-1">Reusable Packaging Systems <ArrowRight className="w-3 h-3"/></Link>.
             </p>
           </div>
+        </div>
+      )
+    },
+    {
+      id: "pain-points",
+      title: t.painPointsTitle,
+      icon: <Shield className="h-6 w-6" />,
+      content: (
+        <div className="space-y-6 mt-6">
+          {[
+            { num: '01', problem: t.pain1p, solution: t.pain1s },
+            { num: '02', problem: t.pain2p, solution: t.pain2s },
+            { num: '03', problem: t.pain3p, solution: t.pain3s },
+            { num: '04', problem: t.pain4p, solution: t.pain4s },
+            { num: '05', problem: t.pain5p, solution: t.pain5s }
+          ].map((item) => (
+            <div key={item.num} className="bg-neutral-900 text-white rounded-xl p-6 relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 opacity-10">
+                <span className="text-6xl font-black font-mono">{item.num}</span>
+              </div>
+              <h4 className="text-lg font-bold mb-3 pr-12 text-white">{item.problem}</h4>
+              <div className="bg-neutral-800 rounded-lg p-4 border-l-4 border-emerald-500">
+                <div className="flex items-start gap-2 mb-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-emerald-400 font-bold text-sm tracking-wider uppercase">Solution:</span>
+                </div>
+                <p className="text-neutral-300 text-sm leading-relaxed">{item.solution}</p>
+              </div>
+            </div>
+          ))}
         </div>
       )
     },

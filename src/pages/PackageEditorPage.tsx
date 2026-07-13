@@ -54,6 +54,7 @@ export default function PackageEditorPage() {
   const [modelName, setModelName] = useState<string>('包装模型 (Packaging Model)');
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [loadingText, setLoadingText] = useState<string>('正在加載 3D 模型...');
+  const [is3dSupported, setIs3dSupported] = useState<boolean>(true);
 
   // Share & Password states
   const [isShareModalOpen, setIsShareModalOpen] = useState<boolean>(false);
@@ -72,6 +73,15 @@ export default function PackageEditorPage() {
   const [designCode, setDesignCode] = useState<string>('');
   const [isSavingDesign, setIsSavingDesign] = useState<boolean>(false);
   const [isSaveModalOpen, setIsSaveModalOpen] = useState<boolean>(false);
+
+  // Custom exclusive web link sharing states
+  const [customSlug, setCustomSlug] = useState<string>('');
+  const [companyName, setCompanyName] = useState<string>('');
+  const [isCreatingCustomLink, setIsCreatingCustomLink] = useState<boolean>(false);
+  const [customLinkError, setCustomLinkError] = useState<string>('');
+  const [customLinkSuccess, setCustomLinkSuccess] = useState<boolean>(false);
+  const [createdCustomUrl, setCreatedCustomUrl] = useState<string>('');
+  const [copiedCustomLink, setCopiedCustomLink] = useState<boolean>(false);
 
   // Mobile tab state: '3d' | '2d' | 'settings'
   const [mobileTab, setMobileTab] = useState<'3d' | '2d' | 'settings'>('3d');
@@ -111,6 +121,7 @@ export default function PackageEditorPage() {
   const dielineLoadedRef = useRef<boolean>(false);
   const logoLoadedRef = useRef<boolean>(false);
   const currentLoadIdRef = useRef<number>(0);
+  const scaleFactorRef = useRef<number>(1);
 
   // Bounding box helpers
   const originalSizeRef = useRef<THREE.Vector3>(new THREE.Vector3());
@@ -285,6 +296,30 @@ export default function PackageEditorPage() {
       ctx.drawImage(dielineImgRef.current, 0, 0, 1000, 619);
     }
 
+    // Draw repeating pattern of AP Logo on 2D view
+    if (!isPremiumUnlocked && passwordInput !== 'ryan' && !exportingRef.current && logoImgRef.current && logoImgRef.current.complete) {
+      try {
+        ctx.save();
+        ctx.globalCompositeOperation = 'multiply';
+        const patCanvas = document.createElement('canvas');
+        patCanvas.width = 160;
+        patCanvas.height = 120;
+        const patCtx = patCanvas.getContext('2d');
+        if (patCtx) {
+          patCtx.globalAlpha = 0.12; // subtle repeated watermark pattern
+          patCtx.drawImage(logoImgRef.current, 20, 20, 120, 80);
+          const pattern = ctx.createPattern(patCanvas, 'repeat');
+          if (pattern) {
+            ctx.fillStyle = pattern;
+            ctx.fillRect(0, 0, 1000, 619);
+          }
+        }
+        ctx.restore();
+      } catch (e) {
+        console.error('Error rendering repeating pattern on 2D:', e);
+      }
+    }
+
     layers.forEach(layer => {
       drawSingleLayer(ctx, layer, true);
     });
@@ -311,12 +346,14 @@ export default function PackageEditorPage() {
       targetD *= 25.4;
     }
 
-    const scaleX = targetW / originalSizeRef.current.x;
-    const scaleY = targetH / originalSizeRef.current.y;
-    const scaleZ = targetD / originalSizeRef.current.z;
+    const scaleX = (targetW / originalSizeRef.current.x) * scaleFactorRef.current;
+    const scaleY = (targetH / originalSizeRef.current.y) * scaleFactorRef.current;
+    const scaleZ = (targetD / originalSizeRef.current.z) * scaleFactorRef.current;
 
     modelRef.current.scale.set(scaleX, scaleY, scaleZ);
-    modelRef.current.position.y = -originalBoxRef.current.min.y * scaleY;
+    
+    const relativeScaleY = targetH / originalSizeRef.current.y;
+    modelRef.current.position.y = -originalBoxRef.current.min.y * relativeScaleY;
 
     if (controlsRef.current) {
       controlsRef.current.target.set(0, targetH / 2, 0);
@@ -492,10 +529,13 @@ export default function PackageEditorPage() {
 
           if (size.x < 2.0 && size.y < 2.0) {
             model.scale.set(1000, 1000, 1000);
+            scaleFactorRef.current = 1000;
             originalBoxRef.current.setFromObject(model);
             originalBoxRef.current.getSize(originalSizeRef.current);
             size = originalSizeRef.current;
             center = originalBoxRef.current.getCenter(new THREE.Vector3());
+          } else {
+            scaleFactorRef.current = 1;
           }
 
           // Read URL preset parameters
@@ -751,6 +791,15 @@ export default function PackageEditorPage() {
       };
     }
 
+    if (shape && !shape.glb_file) {
+      setIs3dSupported(false);
+      setIsLoading(false);
+      setModelName(shapeName);
+      return;
+    }
+
+    setIs3dSupported(true);
+
     // Load GLTF model
     const loader = new GLTFLoader();
     const dracoLoader = new DRACOLoader();
@@ -797,10 +846,13 @@ export default function PackageEditorPage() {
 
         if (size.x < 2.0 && size.y < 2.0) {
           model.scale.set(1000, 1000, 1000);
+          scaleFactorRef.current = 1000;
           originalBoxRef.current.setFromObject(model);
           originalBoxRef.current.getSize(originalSizeRef.current);
           size = originalSizeRef.current;
           center = originalBoxRef.current.getCenter(new THREE.Vector3());
+        } else {
+          scaleFactorRef.current = 1;
         }
 
         // Set dimensions inputs (use preset values if loaded from share link)
@@ -993,15 +1045,22 @@ export default function PackageEditorPage() {
     }
 
     const loadInitialDesign = async () => {
-      // 1. Prioritize design code loading
-      if (codeParam) {
+      const slugParam = searchParams.get('slug');
+      // 1. Prioritize design code or slug loading
+      if (codeParam || slugParam) {
         setLoadingText('正在載入您的專屬設計方案...');
         setIsLoading(true);
         try {
-          const res = await fetch(`/api/get-design?code=${codeParam}`);
+          const url = codeParam 
+            ? `/api/get-design?code=${codeParam}`
+            : `/api/get-custom-studio?slug=${slugParam}`;
+          const res = await fetch(url);
           const data = await res.json();
-          if (data.success && data.design) {
-            const d = data.design;
+          
+          const design = codeParam ? data.design : data.designData;
+
+          if (data.success && design) {
+            const d = design;
             const shape = shapes.find(s => String(s.id) === String(d.shapeId));
             
             if (shape) {
@@ -1021,7 +1080,7 @@ export default function PackageEditorPage() {
             return;
           }
         } catch (err) {
-          console.error('Error fetching design by code:', err);
+          console.error('Error fetching design by code/slug:', err);
         }
       }
 
@@ -1055,6 +1114,61 @@ export default function PackageEditorPage() {
     };
 
     loadInitialDesign();
+  }, [shapes]);
+
+  // Expose thumbnail capturing tools to window for automated scripts
+  useEffect(() => {
+    if (shapes.length === 0) return;
+    (window as any).captureModelThumbnail = async (shapeId: string) => {
+      const shape = shapes.find(s => String(s.id) === String(shapeId));
+      if (!shape) {
+        throw new Error(`Shape ${shapeId} not found`);
+      }
+      
+      setSelectedShapeId(shape.id);
+      setViewMode('editor');
+      setIsLoading(true);
+
+      const url = new URL(window.location.href);
+      url.searchParams.set('shape', shape.id);
+      window.history.pushState({}, '', url.toString());
+
+      // Force synchronous load
+      await new Promise<void>((resolve, reject) => {
+        setTimeout(() => {
+          loadShape(shape);
+          const checkInterval = setInterval(() => {
+            const threeCanvas = containerRef.current?.querySelector('canvas') || document.getElementById('mobile-3d-container')?.querySelector('canvas');
+            if (threeCanvas && modelRef.current) {
+              clearInterval(checkInterval);
+              resolve();
+            }
+          }, 100);
+          setTimeout(() => {
+            clearInterval(checkInterval);
+            reject(new Error(`Timeout loading shape ${shapeId}`));
+          }, 60000);
+        }, 200);
+      });
+
+      // Wait a tiny bit for texture mapping & animations to settle
+      await new Promise(r => setTimeout(r, 400));
+
+      // Adjust camera and model rotation to 45 degrees
+      if (modelRef.current && cameraRef.current && controlsRef.current && rendererRef.current && sceneRef.current) {
+        // Reset rotation and apply 45-degree angle
+        modelRef.current.rotation.set(0.15, Math.PI / 4, 0); // slightly tilted down (X=0.15), rotated 45 degrees (Y=PI/4)
+        
+        // Force render
+        rendererRef.current.render(sceneRef.current, cameraRef.current);
+        
+        const canvas = containerRef.current?.querySelector('canvas') || document.getElementById('mobile-3d-container')?.querySelector('canvas');
+        if (canvas) {
+          return canvas.toDataURL('image/png');
+        }
+      }
+      throw new Error('WebGL elements or refs missing');
+    };
   }, [shapes]);
 
   // Handle Layer Selection and Drag-and-Move on 2D Canvas
@@ -1335,6 +1449,79 @@ export default function PackageEditorPage() {
     }
   };
 
+  const createCustomLink = async () => {
+    if (!customSlug.trim()) {
+      setCustomLinkError('請輸入網址路徑 (Slug)');
+      return;
+    }
+    if (!companyName.trim()) {
+      setCustomLinkError('請輸入公司/品牌名稱');
+      return;
+    }
+    
+    setIsCreatingCustomLink(true);
+    setCustomLinkError('');
+    
+    try {
+      const serializedLayers = layers.map(layer => {
+        // Safe check for URL format
+        let rawSrc = layer.img.src;
+        if (rawSrc.includes('/api/proxy?url=')) {
+          try {
+            rawSrc = decodeURIComponent(rawSrc.split('/api/proxy?url=')[1]);
+          } catch (_) {}
+        }
+        return {
+          id: layer.id,
+          name: layer.name,
+          imgSrc: rawSrc,
+          pos: layer.pos,
+          scale: layer.scale,
+          rotation: layer.rotation,
+          width: layer.width,
+          height: layer.height
+        };
+      });
+
+      const designPayload = {
+        shapeId: selectedShapeId || '',
+        width,
+        height,
+        depth,
+        unit,
+        layers: serializedLayers
+      };
+
+      const response = await fetch('/api/save-custom-studio', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          slug: customSlug.trim(),
+          companyName: companyName.trim(),
+          designData: designPayload
+        })
+      });
+
+      const data = await response.json();
+      if (response.ok && data.success) {
+        setCustomLinkSuccess(true);
+        const domain = window.location.hostname.includes('pouch.eco') || window.location.hostname.includes('localhost')
+          ? `${window.location.protocol}//${window.location.host}`
+          : 'https://pouch.eco';
+        setCreatedCustomUrl(`${domain}/${data.slug}`);
+      } else {
+        setCustomLinkError(data.error || '無法建立專屬連結，請稍後再試。');
+      }
+    } catch (err: any) {
+      console.error('Error creating custom link:', err);
+      setCustomLinkError('連線錯誤，請確認網路狀態。');
+    } finally {
+      setIsCreatingCustomLink(false);
+    }
+  };
+
   // Layers ordering Up / Down
   const moveLayerUp = (id: string) => {
     const idx = layers.findIndex(l => l.id === id);
@@ -1502,10 +1689,13 @@ export default function PackageEditorPage() {
 
       if (size.x < 2.0 && size.y < 2.0) {
         model.scale.set(1000, 1000, 1000);
+        scaleFactorRef.current = 1000;
         originalBoxRef.current.setFromObject(model);
         originalBoxRef.current.getSize(originalSizeRef.current);
         size = originalSizeRef.current;
         center = originalBoxRef.current.getCenter(new THREE.Vector3());
+      } else {
+        scaleFactorRef.current = 1;
       }
 
       model.position.x = -center.x;
@@ -1608,7 +1798,7 @@ export default function PackageEditorPage() {
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
               {filteredShapes.map(shape => {
-                const thumbnailSrc = `/thumbnails/${shape.id}.png`;
+                const thumbnailSrc = `/thumbnails/${shape.id}.png?v=2`;
                 const dielineSrc = shape.dieline_image.startsWith('/') ? shape.dieline_image : `/api/proxy?url=${encodeURIComponent(shape.dieline_image)}`;
 
                 return (
@@ -2068,7 +2258,21 @@ export default function PackageEditorPage() {
               </div>
             </div>
           )}
-          <div ref={containerRef} className="flex-grow w-full h-full relative" />
+          <div ref={containerRef} className={`flex-grow w-full h-full relative ${is3dSupported ? '' : 'hidden'}`} />
+          {!is3dSupported && (
+            <div className="flex-grow w-full h-full flex flex-col items-center justify-center bg-[#0d0e12] text-center p-8 border border-[rgba(255,255,255,0.05)]">
+              <div className="w-16 h-16 rounded-full bg-[#161b26] flex items-center justify-center border border-[rgba(100,255,218,0.15)] shadow-[0_0_20px_rgba(100,255,218,0.05)] mb-4">
+                <Box className="w-8 h-8 text-[#64ffda]" />
+              </div>
+              <h3 className="text-[#f3f4f6] font-bold text-lg mb-2">3D Preview Unloaded</h3>
+              <p className="text-xs text-[#9ca3af] max-w-sm leading-relaxed mb-6">
+                This is a 2D dieline-only template box. The 3D viewport has been unloaded. Please use the 2D Editor to customize your artwork, and then download.
+              </p>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[rgba(100,255,218,0.05)] border border-[#64ffda]/25 text-[#64ffda] rounded-lg text-[11px] font-mono">
+                <span>Dieline Mode Active</span>
+              </div>
+            </div>
+          )}
           {/* Status Overlay info */}
           <div id="preview-info" className="absolute bottom-4 left-4 right-4 bg-[rgba(16,20,28,0.85)] border border-[rgba(255,255,255,0.08)] rounded-xl py-2.5 px-4 text-xs flex justify-between shadow-2xl backdrop-blur-md">
             <span>Shape: <strong className="text-[#64ffda]">{modelName}</strong></span>
@@ -2088,11 +2292,22 @@ export default function PackageEditorPage() {
             style={{ display: mobileTab === '3d' ? 'flex' : 'none', flexDirection: 'column' }}
           >
             {/* Three.js mounts here on mobile - containerRef is always rendered in desktop, but on mobile-only viewport it needs to live here */}
-            <div className="flex-grow w-full h-full relative" id="mobile-3d-container" />
+            <div className={`flex-grow w-full h-full relative ${is3dSupported ? '' : 'hidden'}`} id="mobile-3d-container" />
+            {!is3dSupported && (
+              <div className="flex-grow w-full h-full flex flex-col items-center justify-center bg-[#0d0e12] text-center p-8 border border-[rgba(255,255,255,0.05)]">
+                <div className="w-12 h-12 rounded-full bg-[#161b26] flex items-center justify-center border border-[rgba(100,255,218,0.15)] shadow-[0_0_20px_rgba(100,255,218,0.05)] mb-3">
+                  <Box className="w-6 h-6 text-[#64ffda]" />
+                </div>
+                <h3 className="text-[#f3f4f6] font-bold text-base mb-1.5">3D Preview Unloaded</h3>
+                <p className="text-[11px] text-[#9ca3af] max-w-xs leading-relaxed mb-4">
+                  This is a 2D dieline-only template box. Please use the 2D Editor to customize your artwork.
+                </p>
+              </div>
+            )}
             {/* Status bar */}
             <div className="absolute bottom-2 left-2 right-2 bg-[rgba(16,20,28,0.88)] border border-[rgba(255,255,255,0.08)] rounded-xl py-2 px-3 text-[11px] flex justify-between backdrop-blur-md">
               <span>Shape: <strong className="text-[#64ffda]">{modelName}</strong></span>
-              <span className="text-[#9ca3af]">Pinch to zoom · Drag to rotate</span>
+              <span className="text-[#9ca3af]">{is3dSupported ? 'Pinch to zoom · Drag to rotate' : 'Dieline Mode Active'}</span>
             </div>
           </div>
 
@@ -2344,6 +2559,11 @@ export default function PackageEditorPage() {
                 setDesignCode('');
                 setCopiedCode(false);
                 setCopiedLink(false);
+                setCustomSlug('');
+                setCompanyName('');
+                setCustomLinkError('');
+                setCustomLinkSuccess(false);
+                setCreatedCustomUrl('');
               }}
               className="absolute top-4 right-4 text-neutral-400 hover:text-white transition-colors"
             >
@@ -2405,6 +2625,87 @@ export default function PackageEditorPage() {
                 </div>
               </div>
 
+              {/* Custom Slug Exclusive Share Link Builder */}
+              {customLinkSuccess ? (
+                <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-4 space-y-3">
+                  <div className="flex items-center gap-2 text-emerald-400 font-semibold text-sm">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>專屬連結已建立！</span>
+                  </div>
+                  <div className="flex gap-2">
+                    <input 
+                      type="text"
+                      readOnly
+                      value={createdCustomUrl}
+                      className="flex-grow bg-[rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.08)] rounded-lg text-white px-3 py-2 text-xs outline-none"
+                      onClick={(e) => (e.target as HTMLInputElement).select()}
+                    />
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText(createdCustomUrl);
+                        setCopiedCustomLink(true);
+                        setTimeout(() => setCopiedCustomLink(false), 2000);
+                      }}
+                      className="bg-emerald-500 text-[#08090c] hover:bg-emerald-400 font-bold text-xs px-4 py-2 rounded-lg transition-colors flex-shrink-0"
+                    >
+                      {copiedCustomLink ? '已複製!' : '複製連結'}
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="border border-white/5 bg-white/[0.02] rounded-xl p-4 space-y-4">
+                  <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-wider block">✨ 建立專屬分享連結 (pouch.eco/your-brand)</span>
+                  
+                  <div className="space-y-3">
+                    <div className="space-y-1">
+                      <label className="text-[11px] text-neutral-400 block">品牌 / 公司名稱</label>
+                      <input 
+                        type="text"
+                        placeholder="例如: ABC Company"
+                        value={companyName}
+                        onChange={(e) => setCompanyName(e.target.value)}
+                        className="w-full bg-[rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.08)] rounded-lg text-white px-3 py-2 text-xs outline-none focus:border-emerald-500 transition-colors"
+                      />
+                    </div>
+
+                    <div className="space-y-1">
+                      <label className="text-[11px] text-neutral-400 block">自訂網址路徑</label>
+                      <div className="flex items-center bg-[rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.08)] rounded-lg px-3 py-2">
+                        <span className="text-xs text-neutral-500">pouch.eco/</span>
+                        <input 
+                          type="text"
+                          placeholder="abc"
+                          value={customSlug}
+                          onChange={(e) => setCustomSlug(e.target.value.toLowerCase().replace(/[^a-z0-9-_]/g, ''))}
+                          className="flex-grow bg-transparent text-white text-xs outline-none pl-0.5"
+                        />
+                      </div>
+                    </div>
+
+                    {customLinkError && (
+                      <p className="text-[11px] text-rose-400">{customLinkError}</p>
+                    )}
+
+                    <button
+                      onClick={createCustomLink}
+                      disabled={isCreatingCustomLink}
+                      className="w-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 hover:bg-emerald-500/20 disabled:bg-neutral-800 disabled:text-neutral-500 font-bold text-xs py-2.5 rounded-lg transition-colors flex items-center justify-center gap-1.5"
+                    >
+                      {isCreatingCustomLink ? (
+                        <>
+                          <div className="w-3.5 h-3.5 border-2 border-t-emerald-400 border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin" />
+                          <span>建立中...</span>
+                        </>
+                      ) : (
+                        <span>建立專屬連結</span>
+                      )}
+                    </button>
+                  </div>
+                </div>
+              )}
+
               <div className="pt-2 text-center">
                 <button
                   onClick={() => {
@@ -2412,6 +2713,11 @@ export default function PackageEditorPage() {
                     setDesignCode('');
                     setCopiedCode(false);
                     setCopiedLink(false);
+                    setCustomSlug('');
+                    setCompanyName('');
+                    setCustomLinkError('');
+                    setCustomLinkSuccess(false);
+                    setCreatedCustomUrl('');
                   }}
                   className="w-full bg-neutral-800 hover:bg-neutral-700 text-white font-semibold text-xs py-2.5 rounded-lg transition-colors border border-[rgba(255,255,255,0.08)]"
                 >

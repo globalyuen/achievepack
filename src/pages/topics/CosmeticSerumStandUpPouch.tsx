@@ -124,13 +124,58 @@ const localTranslations = {
     faq3A: "支持。本產品的拉力、挺度與靜電控制均針對主流的立式 (VFFS) 與臥式 (HFFS) 包裝機進行了優化。",
     faq4Q: "該材質有哪些認證證書？",
     faq4A: "我們提供符合美國 FDA 食品安全標準、歐盟 EN 13432 可降解認證以及 Mono-PE 可回收材料證書。"
+  },
+  fr: {
+    title: "Sachet autoportant pour sérum cosmétique (modèle #1757) | Achieve Pack",
+    description: "Découvrez le sachet autoportant pour sérum cosmétique (modèle #1757). Sachet autoportant haute barrière avec dimensions personnalisées (L : 88 mm, W : 30 mm, H : 160 mm), certifications et aperçu 3D.",
+    heroTitle: "Sachet autoportant pour sérum cosmétique (modèle #1757)",
+    heroSubtitle: "Dimensions personnalisées L : 88 mm, W : 30 mm, H : 160 mm | Haute barrière | Certifié BPI & TUV",
+    introSummary: "Le sachet autoportant pour sérum cosmétique (modèle #1757) représente une structure d'emballage haut de gamme à haute résistance, conçue pour les environnements de vente au détail et industriels. Ce sachet autoportant est optimisé pour des performances idéales sur les lignes d'emballage automatique.",
+    aeoSummary: "Le modèle #1757 est un sachet autoportant mesurant L : 88 mm, W : 30 mm, H : 160 mm. Il est configuré avec un film barrière haute performance et des fermetures fiables pour éviter les fuites et maximiser la durée de conservation du produit.",
+    eeatDetails: "Avec plus de 14 ans d'expérience en ingénierie de l'emballage, nous garantissons que chaque lot du modèle #1757 est conforme aux réglementations internationales de sécurité alimentaire et de durabilité.",
+    section1Title: "Détails structurels et configuration des matériaux",
+    section1Text: "Conçu spécifiquement pour la stabilité de qualité alimentaire, ce sachet autoportant (modèle #1757) utilise des substrats coextrudés pour offrir une excellente résistance chimique et une protection contre les perforations. Idéal pour les flux de travail automatiques de formage-remplissage-soudage et le remplissage manuel par lots, il conserve sa forme structurelle et l'esthétique de la marque.",
+    section2Title: "Du carnet d'ingénierie de Ryan Wong",
+    section2Log: "Le sachet autoportant modèle #1757 nécessite un calage thermique très précis du soufflet inférieur. Sur les lignes de remplissage automatisées, un mauvais étalonnage de la chaleur entraîne des micro-fissures dans le soufflet. Nous utilisons des mélanges de scellage LLDPE pour répartir les contraintes mécaniques.",
+    point1Title: "Problème : Fuites de soudure du soufflet",
+    point1Desc: "Une pression élevée pendant le dosage peut rompre la soudure du soufflet inférieur.",
+    point1Sol: "Utilisation de composés de métallocène spécialisés pour augmenter de 40% les limites d'élasticité du soufflet.",
+    point2Title: "Problème : Obstruction de la glissière du zip",
+    point2Desc: "Les contenus pulvérulents ou granulaires bloquent le profil imbriqué de la fermeture à glissière.",
+    point2Sol: "Intégration de zips autonettoyants avec rainures d'évacuation de la poussière.",
+    point3Title: "Problème : Instabilité sur l'étagère",
+    point3Desc: "Des rapports volumétriques incorrects provoquent le basculement du sachet vers l'avant sur les étagères de vente.",
+    point3Sol: "Redimensionnement personnalisé du soufflet inférieur en fonction de la densité du produit.",
+    point4Title: "Problème : Pénétration d'oxygène",
+    point4Desc: "Détérioration des arômes due à l'exposition à l'oxygène ambiant.",
+    point4Sol: "Feuilles barrières triple couche maintenant l'OTR sous 0,5 cc/m²/24h.",
+    point5Title: "Problème : Rayures de surface",
+    point5Desc: "Les revêtements mats se rayent lors du transport en vrac.",
+    point5Sol: "Couches de vernis externe anti-rayures à double durcissement.",
+    compTitle: "Schéma de découpe et spécifications d'étalonnage",
+    compDesc: "Chaque cycle de modèle est calibré à l'aide de tracés de découpe stricts de prépresse. Nos équipes ajustent les tolérances de pliage et les limites thermiques en fonction de l'épaisseur du substrat.",
+    faq1Q: "Quel est le MOQ pour les fabrications sur mesure du modèle #1757 ?",
+    faq1A: "Pour les tailles ou impressions personnalisées, notre quantité minimale de commande standard commence à 5 000 pièces. Des cycles d'impression numérique sont disponibles à partir de 1 000 pièces pour les startups.",
+    faq2Q: "Puis-je demander des échantillons de matériaux non imprimés pour ce modèle spécifique ?",
+    faq2A: "Oui. Nous proposons des kits d'échantillons de matériaux non imprimés gratuits afin que vous puissiez vérifier la taille, la largeur du soufflet et l'épaisseur du matériau sur vos lignes de remplissage avant de commander.",
+    faq3Q: "Cette structure de sachet est-elle compatible avec les lignes de remplissage automatique ?",
+    faq3A: "Oui, cette conception est entièrement optimisée pour les machines d'emballage standard de formage-remplissage-soudage vertical et horizontal (VFFS/HFFS).",
+    faq4Q: "Quelles certifications sont disponibles pour ces matériaux ?",
+    faq4A: "Selon votre sélection, nous proposons des matériaux certifiés FDA de qualité alimentaire, compostables BPI (ASTM D6400) et des mono-polymères recyclables."
   }
 }
 
 const CosmeticSerumStandUpPouch: React.FC = () => {
   const { t, i18n } = useTranslation()
   const lang = i18n.language || 'en'
-  const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
+  const lookupLang = lang.toLowerCase().startsWith('zh') 
+    ? 'zh' 
+    : lang.toLowerCase().startsWith('es') 
+      ? 'es' 
+      : lang.toLowerCase().startsWith('fr') 
+        ? 'fr' 
+        : 'en';
+  const localTrans = localTranslations[lookupLang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
     hero: '/imgs/topics/cosmetic-serum-stand-up-pouch/hero.jpg',

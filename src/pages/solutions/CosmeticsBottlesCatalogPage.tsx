@@ -44,7 +44,7 @@ export default function CosmeticsBottlesCatalogPage() {
                 Browse 1000+ Bottle Designs
               </Link>
               <Link
-                to="/app"
+                to="/studio"
                 className="border border-neutral-700 hover:border-neutral-500 text-white font-bold text-sm px-6 py-3.5 rounded-xl transition-all"
               >
                 Launch 3D Studio

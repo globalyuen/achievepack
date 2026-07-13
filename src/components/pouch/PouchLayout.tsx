@@ -208,7 +208,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
 
                       {/* 3D Studio */}
                       <Link
-                        to="/app"
+                        to="/studio"
                         onClick={() => setIsAppsDropdownOpen(false)}
                         className="flex items-center gap-3 p-1.5 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all group"
                       >
@@ -584,10 +584,10 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                   </Link>
 
                   <Link
-                    to="/app"
+                    to="/studio"
                     onClick={() => setIsMenuOpen(false)}
                     className={`block px-4 py-2 border-2 border-black transition-all ${
-                      isActive('/app') ? 'bg-black text-[#D4FF00]' : 'bg-white hover:bg-[#D4FF00]'
+                      isActive('/studio') ? 'bg-black text-[#D4FF00]' : 'bg-white hover:bg-[#D4FF00]'
                     }`}
                   >
                     <span className="flex items-center gap-2 text-xs font-bold font-['JetBrains_Mono']">

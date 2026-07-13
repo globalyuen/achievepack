@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Navigate } from 'react-router-dom';
 import LazyRoute from '../components/LazyRoute';
 
 // Fallback component for lazy loading
@@ -475,7 +475,11 @@ const routes = [
   { path: "/free-service/maxi-foods-demo", element: <LazyRoute component={() => import('../pages/free-service/MaxiFoodsDemoPage')} fallback={<LoadingFallback />} /> },
   { path: "/free-service/pencil-demo", element: <LazyRoute component={() => import('../pages/free-service/PencilDemoPage')} fallback={<LoadingFallback />} /> },
 
-  { path: "/app", element: <LazyRoute component={() => import('../pages/PackageEditorPage')} fallback={<LoadingFallback />} /> },
+  { path: "/app", element: <Navigate to="/studio" replace /> },
+  { path: "/studio", element: <LazyRoute component={() => import('../pages/PackageEditorPage')} fallback={<LoadingFallback />} /> },
+
+  // Shared 3D Studio Showcase Page
+  { path: "/:slug", element: <LazyRoute component={() => import('../pages/SharedStudioPage')} fallback={<LoadingFallback />} /> },
 
   // 404 - Catch All Route
   { path: "*", element: <LazyRoute component={() => import('../pages/NotFoundPage')} fallback={<LoadingFallback />} /> },

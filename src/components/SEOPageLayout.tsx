@@ -123,7 +123,7 @@ const SEOPageHeader: React.FC = () => {
           <nav className="flex items-center gap-1">
             {/* 3D STUDIO Menu */}
             <Link
-              to="/app"
+              to="/studio"
               className="flex items-center gap-1 px-3 py-2 text-sm font-medium hover:bg-primary-600 rounded-lg transition whitespace-nowrap"
             >
               <Box className="h-4 w-4 text-emerald-300 flex-shrink-0" size={16} />

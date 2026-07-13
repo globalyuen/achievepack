@@ -1,9 +1,6 @@
 import React from 'react'
-import { getDomain } from '../../utils/domain'
-import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate'
 import SEOPageLayout from '../../components/SEOPageLayout'
-import PouchLayout from '../../components/pouch/PouchLayout'
-import { Leaf, Shield, Award, RefreshCw, AlertTriangle, Lightbulb, ArrowRight, ShoppingBag, Box } from 'lucide-react'
+import { Leaf, Shield, Award, ArrowRight, Box, ShieldCheck, Factory, CheckCircle2, Package } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import RelatedProductsShowcase from '../../components/RelatedProductsShowcase'
@@ -28,8 +25,8 @@ const translations = {
     takeaway3: "High-clarity food-grade acrylic delivers premium retail presence, airtight preservation, and 100% recyclability.",
     introP1: "For decades, single-use pouches and boxes have dominated the retail landscape. While they provide excellent barrier protection, their linear 'take-make-waste' model places a heavy ecological burden on brands and consumers alike.",
     introP2: "Transitioning to a circular model using high-performance reusable canisters and jars helps brands eliminate waste. Reusable canisters are designed for long-term storage, easy washing, and continuous refilling, turning packaging into a durable asset.",
-    expertTitle: "Expert Engineering Insight",
-    expertSub: "From Ryan Wong's Engineering Notebook",
+    expertTitle: "From Ryan Wong's Engineering Notebook",
+    expertSub: "Engineering Insight",
     expertQ1: "\"In my 14 years in materials science and packaging design, the biggest challenge of circular packaging systems has been cap sealing integrity under repeated washings. Thread degradation can lead to moisture ingress, spoiling dry goods like tea, coffee, or botanical powders.\"",
     expertQ2: "Our Reusable Acrylic Canister addresses this directly with a double-layer Gold Thread cap and marine-grade silicone gasket. It retains airtight MVTR barrier performance even after 500+ commercial wash-dry cycles, giving sustainable retailers an audit-compliant, zero-waste storage solution.",
     matrixTitle: "Canister vs. Pouch Comparison Matrix",
@@ -62,7 +59,18 @@ const translations = {
     softTemp: "Recyclability Profile",
     phaSoft: "100% Recyclable Rigid Polymer (#7 Acrylic)",
     plaSoft: "Industrial Compostable / PE Recyclable",
-    petgSoft: "Standard Soft Plastic Recyclable"
+    petgSoft: "Standard Soft Plastic Recyclable",
+    painPointsTitle: "5 Packaging Pain Points & Solutions",
+    pp1Prob: "Continuous Cost of Single-Use Procurement",
+    pp1Sol: "Switching to reusable canisters transforms packaging from a recurring expense into a durable asset, achieving ROI in just a few refill cycles.",
+    pp2Prob: "Brand Perception of Plastic Waste",
+    pp2Sol: "Reusable acrylic showcases a commitment to sustainability and circularity, aligning perfectly with modern eco-conscious consumer values.",
+    pp3Prob: "Compromised Seal Over Time",
+    pp3Sol: "Our double-layer Gold Thread cap with marine-grade silicone gasket guarantees MVTR barrier performance even after hundreds of wash cycles.",
+    pp4Prob: "High Carbon Footprint of Glass Alternatives",
+    pp4Sol: "High-clarity acrylic offers the premium look of glass but is significantly lighter and shatter-resistant, drastically reducing shipping emissions.",
+    pp5Prob: "Lack of Retail Presence for Refills",
+    pp5Sol: "Designed for premium retail display, these canisters provide an upscale unboxing and refill experience that single-use bags cannot match."
   },
   'zh-TW': {
     title: "重複使用與一次性包裝：循環經濟轉型指南",
@@ -83,8 +91,8 @@ const translations = {
     takeaway3: "高透光食品級亞克力提供了極佳的零售視覺美感、出色的氣密保鮮性能，且 100% 可回收。",
     introP1: "數十年來，一次性包裝袋和紙盒主導了零售市場。雖然它們提供了出色的屏障防護，但「取用-製造-廢棄」的線性模式給品牌和環境帶來了沉重的負擔。",
     introP2: "轉向使用高性能、可重複使用的密封罐和玻璃罐等循環模式，有助於徹底消除包裝廢棄物。這些密封罐經過專門設計，適合長期儲存、易於清洗，並可持續進行填充，將包裝轉化為耐用的資產。",
-    expertTitle: "專家工程見解",
-    expertSub: "來自 Ryan Wong 的工程筆記",
+    expertTitle: "來自 Ryan Wong 的工程筆記",
+    expertSub: "專家工程見解",
     expertQ1: "「在我 14 年的材料科學和包裝設計生涯中，循環包裝面臨的最大挑戰就是多次清洗後的瓶蓋密封性。螺紋磨損會導致濕氣滲入，從而使茶葉、咖啡或化妝粉末等乾燥產品變質。」",
     expertQ2: "我們的可重複使用亞克力罐通過雙層金色保護蓋和船用級矽膠密封圈直接解決了這一點。即使經歷了 500 次以上的商業清洗與乾燥循環，它仍能保持氣密保鮮性能，為永續零售品牌提供符合審計的零廢棄包裝解決方案。",
     matrixTitle: "亞克力罐與包裝袋技術比較矩陣",
@@ -117,197 +125,233 @@ const translations = {
     softTemp: "回收處置屬性",
     phaSoft: "100% 可回收剛性聚合物 (#7 亞克力)",
     plaSoft: "工業堆肥 / PE塑料回收",
-    petgSoft: "標準軟塑料回收"
+    petgSoft: "標準軟塑料回收",
+    painPointsTitle: "5 大包裝痛點與解決方案",
+    pp1Prob: "一次性採購的持續成本",
+    pp1Sol: "轉向可重複使用的密封罐可將包裝從經常性開支轉變為耐用資產，在幾次填充循環中即可實現投資回報。",
+    pp2Prob: "塑膠垃圾對品牌形象的影響",
+    pp2Sol: "可重複使用的亞克力材質展現了對永續發展和循環經濟的承諾，完美契合現代環保消費者的價值觀。",
+    pp3Prob: "長期使用後的密封性下降",
+    pp3Sol: "我們的雙層金線蓋配備船用級矽膠墊圈，即使經過數百次清洗循環，仍能保證優異的防潮防氧屏障性能。",
+    pp4Prob: "玻璃替代品的高碳足跡",
+    pp4Sol: "高透光亞克力提供與玻璃媲美的高級質感，但重量更輕且防碎，能大幅降低運輸碳排放。",
+    pp5Prob: "缺乏補充裝的零售展示效果",
+    pp5Sol: "專為高級零售展示設計，這些密封罐提供了單次使用包裝袋無法比擬的高端開箱和補充體驗。"
+  },
+  es: {
+    title: "Embalaje reutilizable vs. de un solo uso: Guía de transición a la economía circular",
+    metaDesc: "Descubra los beneficios ambientales y financieros de la transición del embalaje de un solo uso a envases y recipientes reutilizables. Analice ciclos de vida, integridad de lavado y cumplimiento de GRS.",
+    heroTitle: "Embalaje reutilizable vs. de un solo uso: Guía de transición a la economía circular",
+    heroSubtitle: "Cómo el cambio a envases recargables de alta durabilidad reduce el desperdicio de plástico y optimiza el volumen de envío.",
+    faq1q: "¿Qué hace que un empaque sea 'reutilizable' según los estándares GRS?",
+    faq1a: "Bajo el Estándar Global de Reciclado (GRS) y las directrices de la economía circular, el empaque reutilizable debe estar diseñado para completar un número mínimo de ciclos de vida (generalmente más de 100 a 1,000 ciclos de reutilización) manteniendo la integridad del sellado hermético, la lavabilidad y la seguridad estructural sin degradación del material.",
+    faq2q: "¿Son seguros los envases de acrílico para el contacto directo con alimentos a largo plazo?",
+    faq2a: "Sí. El acrílico de alta claridad de grado alimentario premium es 100% libre de BPA, no tóxico y resistente a la lixiviación química. Ofrece una claridad similar a la del vidrio con alta resistencia a roturas y un peso de envío significativamente menor, reduciendo las emisiones de transporte.",
+    faq3q: "¿Cómo se compara la huella de carbono de los envases reutilizables con las bolsas de un solo uso?",
+    faq3a: "Aunque los envases reutilizables tienen una huella de fabricación inicial más alta, alcanzan la neutralidad de carbono después de solo 4 a 6 ciclos de reutilización en comparación con las bolsas laminadas de un solo uso. A lo largo de más de 100 ciclos, reducen la huella de carbono total del empaque en más de un 80%.",
+    introTitle: "La era del empaque circular: más allá de las bolsas desechables",
+    quickAnswer: "Respuesta rápida: El empaque laminado de un solo uso requiere la extracción continua de recursos y genera residuos en vertederos, mientras que los envases reutilizables de alta durabilidad establecen un flujo circular de desperdicio cero, alcanzando la neutralidad de carbono tras solo 5 ciclos de recarga.",
+    takeawayTitle: "Puntos clave",
+    takeaway1: "Los envases acrílicos reutilizables eliminan el ciclo continuo de compra y desecho de bolsas laminadas de un solo uso.",
+    takeaway2: "Diseño REF-Cycle: Los recipientes recargables alcanzan el punto de equilibrio ecológico y económico después de solo 5 ciclos de recarga.",
+    takeaway3: "El acrílico de grado alimenticio de alta claridad ofrece una presencia premium en estantes, preservación hermética y es 100% reciclable.",
+    introP1: "Durante décadas, las bolsas y cajas de un solo uso han dominado el panorama minorista. Si bien proporcionan una excelente protección de barrera, su modelo lineal de 'tomar-hacer-desechar' impone una pesada carga ecológica sobre las marcas y los consumidores.",
+    introP2: "La transición a un modelo circular utilizando envases y frascos reutilizables de alto rendimiento ayuda a las marcas a eliminar residuos. Los envases reutilizables están diseñados para almacenamiento a largo plazo, lavado fácil y recargas continuas, convirtiendo el empaque en un activo duradero.",
+    expertTitle: "Del cuaderno de ingeniería de Ryan Wong",
+    expertSub: "Ingeniería de Empaque",
+    expertQ1: "\"En mis 14 años en ciencia de materiales y diseño de empaques, el mayor desafío de los sistemas de empaque circular ha sido la integridad del sellado de la tapa bajo lavados repetidos. La degradación de la rosca puede provocar el ingreso de humedad, echando a perder productos secos como té, café o polvos botánicos.\"",
+    expertQ2: "Nuestro envase de acrílico reutilizable soluciona esto directamente con una tapa de rosca dorada de doble capa y una junta de silicona de grado marino. Conserva el rendimiento hermético de barrera MVTR incluso después de más de 500 ciclos de lavado y secado comercial, brindando una solución de almacenamiento sin residuos conforme a las auditorías.",
+    matrixTitle: "Matriz de comparación: Envase vs. Bolsa",
+    matrixParam: "Parámetro técnico",
+    degEnv: "Límite de ciclo de vida",
+    tox: "Integridad del sellado hermético",
+    opHand: "Peso logístico y de envío",
+    therm: "Punto de equilibrio ecológico (CO2)",
+    phaDeg: "Más de 1,000 ciclos de lavado y recarga",
+    plaDeg: "Un solo uso (1 ciclo)",
+    petgDeg: "Un solo uso (1 ciclo)",
+    phaTox: "Junta de silicona hermética (Excelente OTR/MVTR)",
+    plaTox: "Cierre hermético estándar (Barrera media)",
+    petgTox: "Sellado térmico (Alta barrera hasta apertura)",
+    phaOp: "Alta rigidez, bajo peso de envío frente al vidrio",
+    plaOp: "Flexible, ultraligero",
+    petgOp: "Flexible, ultraligero",
+    ctaTitle: "Programar una auditoría de transición circular",
+    ctaDesc: "Analice cómo la introducción de envases reutilizables en su línea de productos se alinea con los objetivos internacionales GRS y FSC.",
+    ctaBtn: "Reservar con Ryan Wong",
+    upgradeCta: "Adopte el empaque reutilizable hoy",
+    upgradeDesc: "Explore nuestros envases herméticos reutilizables de alta claridad a precio de mayorista con tapas doradas de doble capa.",
+    shopTitle: "Comprar envases herméticos de acrílico reutilizables",
+    shopDesc: "Explore nuestros envases herméticos duraderos y de alta claridad. Optimizado para tiendas minoristas a granel de desperdicio cero, salones de té, marcas de especias y recargas de cosméticos de lujo.",
+    shopBtn: "Ver tamaños de envases",
+    sourceMat: "Personalización del producto",
+    phaSource: "Impresión de tampografía y etiquetas personalizadas desde 100 unidades",
+    plaSource: "Impresión de placa/digital desde 100 unidades",
+    petgSource: "Impresión de placa/digital desde 100 unidades",
+    softTemp: "Perfil de reciclabilidad",
+    phaSoft: "Polímero rígido 100% reciclable (Acrílico #7)",
+    plaSoft: "Compostable industrial / Reciclable como PE",
+    petgSoft: "Reciclable como plástico blando estándar",
+    painPointsTitle: "5 Puntos de Dolor en Empaque & Soluciones",
+    pp1Prob: "Costo continuo de adquisición de un solo uso",
+    pp1Sol: "Cambiar a envases reutilizables transforma el empaque de un gasto recurrente en un activo duradero, logrando el ROI en unos pocos ciclos de recarga.",
+    pp2Prob: "Percepción de marca sobre residuos plásticos",
+    pp2Sol: "El acrílico reutilizable muestra un compromiso con la sostenibilidad y la circularidad, alineándose perfectamente con los valores ecológicos de los consumidores modernos.",
+    pp3Prob: "Sello comprometido con el tiempo",
+    pp3Sol: "Nuestra tapa dorada de doble rosca con junta de silicona de grado marino garantiza el rendimiento de la barrera MVTR incluso tras cientos de lavados.",
+    pp4Prob: "Alta huella de carbono de las alternativas de vidrio",
+    pp4Sol: "El acrílico de alta claridad ofrece el aspecto premium del vidrio pero es significativamente más ligero y resistente a roturas, reduciendo las emisiones.",
+    pp5Prob: "Falta de presencia en estantes para recargas",
+    pp5Sol: "Diseñados para exhibición minorista premium, estos envases brindan una experiencia superior de desempaque y recarga que las bolsas de un solo uso no pueden igualar."
+  },
+  fr: {
+    title: "Emballage réutilisable vs usage unique : Le guide de transition vers l'économie circulaire",
+    metaDesc: "Découvrez les avantages environnementaux et financiers du passage des emballages à usage unique aux récipients réutilisables. Analysez les cycles de vie, la résistance au lavage et la conformité GRS.",
+    heroTitle: "Emballage réutilisable vs usage unique : Guide de transition vers l'économie circulaire",
+    heroSubtitle: "Comment le passage à des récipients rechargeables de haute durabilité réduit les déchets plastiques et optimise le volume de transport.",
+    faq1q: "Qu'est-ce qui rend un emballage 'réutilisable' selon les normes GRS ?",
+    faq1a: "Selon le Global Recycled Standard (GRS) et les principes de l'économie circulaire, les emballages réutilisables doivent être conçus pour effectuer un nombre de cycles minimal (généralement de 100 à plus de 1 000 cycles de réutilisation) tout en conservant leur étanchéité hermétique, leur lavabilité et leur sécurité structurelle sans dégradation du matériau.",
+    faq2q: "Les boîtes en acrylique sont-elles sûres pour un contact alimentaire prolongé ?",
+    faq2a: "Oui. L'acrylique de qualité alimentaire supérieure et haute clarté est 100 % sans BPA, non toxique et résistant à la lixiviation chimique. Il offre la transparence du verre avec une grande résistance aux chocs et un poids de transport réduit, limitant ainsi les émissions logistiques.",
+    faq3q: "Comment l'empreinte carbone des bocaux réutilisables se compare-t-elle aux sachets jetables ?",
+    faq3a: "Bien que les bocaux réutilisables aient une empreinte de fabrication initiale supérieure, ils atteignent la neutralité carbone après seulement 4 à 6 cycles de réutilisation par rapport aux sachets laminés à usage unique. Sur plus de 100 cycles, ils réduisent l'empreinte carbone totale de l'emballage de plus de 80 %.",
+    introTitle: "L'ère de l'emballage circulaire : Au-delà des sachets jetables",
+    quickAnswer: "Réponse rapide : Les emballages laminés à usage unique nécessitent une extraction continue des ressources et génèrent des déchets, tandis que les récipients réutilisables haute durabilité établissent un flux circulaire zéro déchet, atteignant la neutralité carbone après seulement 5 recharges.",
+    takeawayTitle: "Points clés à retenir",
+    takeaway1: "Les boîtes en acrylique réutilisables éliminent le cycle continu d'achat et d'élimination des sachets laminés jetables.",
+    takeaway2: "Conception REF-Cycle : Les récipients rechargeables atteignent le point d'équilibre écologique et financier après seulement 5 recharges.",
+    takeaway3: "L'acrylique de qualité alimentaire haute clarté offre une excellente visibilité en rayon, une étanchéité hermétique et est 100 % recyclable.",
+    introP1: "Pendant des décennies, les sachets et boîtes jetables ont dominé la distribution. Bien qu'ils offrent une excellente barrière, leur modèle linéaire 'prendre-fabriquer-jeter' impose un lourd tribut écologique aux marques et aux consommateurs.",
+    introP2: "La transition vers un modèle circulaire reposant sur des récipients réutilisables performants aide les marques à éliminer les déchets. Ces récipients sont conçus pour un stockage à long terme, un lavage facile et des recharges continues, transformant l'emballage en un actif durable.",
+    expertTitle: "Extrait du carnet de Ryan Wong",
+    expertSub: "Ingénierie de l'emballage",
+    expertQ1: "\"Au cours de mes 14 années en science des matériaux et conception d'emballages, le plus grand défi des systèmes réutilisables a été de maintenir l'étanchéité des couvercles lors des lavages répétés. L'usure du filetage peut entraîner des infiltrations d'humidité, altérant les produits secs comme le thé, le café ou les poudres.\"",
+    expertQ2: "Notre boîte réutilisable en acrylique y répond grâce à un couvercle doré à double filetage et un joint en silicone de qualité marine. Elle conserve des performances hermétiques MVTR même après 500+ lavages et séchages commerciaux, offrant une solution conforme pour la vente en vrac.",
+    matrixTitle: "Matrice de comparaison : Récipient vs Sachet",
+    matrixParam: "Paramètre technique",
+    degEnv: "Limite de cycle de vie",
+    tox: "Étanchéité hermétique du joint",
+    opHand: "Poids logistique et de transport",
+    therm: "Point d'équilibre écologique (CO2)",
+    phaDeg: "Plus de 1 000 cycles de lavage et de recharge",
+    plaDeg: "Usage unique (1 cycle)",
+    petgDeg: "Usage unique (1 cycle)",
+    phaTox: "Joint en silicone étanche (Excellent OTR/MVTR)",
+    plaTox: "Ziploc standard (Barrière moyenne)",
+    petgTox: "Thermoscellé (Haute barrière avant ouverture)",
+    phaOp: "Grande rigidité, poids de transport très inférieur au verre",
+    plaOp: "Flexible, ultra-léger",
+    petgOp: "Flexible, ultra-léger",
+    ctaTitle: "Planifier un audit de transition circulaire",
+    ctaDesc: "Discutez de l'intégration de récipients réutilisables dans votre gamme pour répondre aux objectifs GRS et FSC internationaux.",
+    ctaBtn: "Prendre RDV avec Ryan Wong",
+    upgradeCta: "Passez aux emballages réutilisables",
+    upgradeDesc: "Découvrez nos boîtes hermétiques réutilisables haute clarté à prix de gros avec couvercles dorés double couche.",
+    shopTitle: "Acheter des boîtes hermétiques en acrylique",
+    shopDesc: "Découvrez nos boîtes hermétiques durables haute clarté. Optimisées pour les épiceries vrac zéro déchet, les salons de thé, les marques d'épices et les recharges cosmétiques de luxe.",
+    shopBtn: "Voir les dimensions disponibles",
+    sourceMat: "Personnalisation du produit",
+    phaSource: "Tampographie et étiquettes personnalisées dès 100 unités",
+    plaSource: "Impression numérique/plaque dès 100 unités",
+    petgSource: "Impression numérique/plaque dès 100 unités",
+    softTemp: "Recyclabilité",
+    phaSoft: "Polymère rigide 100 % recyclable (Acrylique #7)",
+    plaSoft: "Compostable industriel / Recyclable comme PE",
+    petgSoft: "Recyclable comme plastique souple standard",
+    painPointsTitle: "5 Problématiques d'Emballage & Solutions",
+    pp1Prob: "Coût continu d'acquisition des emballages jetables",
+    pp1Sol: "Le passage aux boîtes réutilisables transforme l'emballage d'une dépense récurrente en un actif durable, avec un ROI rapide après quelques recharges.",
+    pp2Prob: "Image de marque dégradée par les déchets plastiques",
+    pp2Sol: "L'acrylique réutilisable montre un engagement envers la circularité et la durabilité, répondant aux attentes écologiques des consommateurs.",
+    pp3Prob: "Étanchéité dégradée au fil du temps",
+    pp3Sol: "Notre couvercle double filetage avec joint en silicone de qualité marine garantit une barrière MVTR durable, même après des centaines de lavages.",
+    pp4Prob: "Empreinte carbone élevée du verre",
+    pp4Sol: "L'acrylique haute clarté offre l'aspect premium du verre tout en étant beaucoup plus léger et résistant, réduisant le coût carbone du transport.",
+    pp5Prob: "Absence d'impact visuel en rayon pour les recharges",
+    pp5Sol: "Conçues pour une présentation premium, ces boîtes offrent une expérience de recharge haut de gamme que les sachets jetables ne peuvent égaler."
   }
 }
 
 export default function ReusablePackagingPage() {
   const { i18n } = useTranslation()
-  const isPouchDomain = getDomain() === 'pouch'
-  
-  // Detect active language translation fallback
-  const currentLang = i18n.language && i18n.language.startsWith('zh') ? 'zh-TW' : 'en'
+  const currentLang = i18n.language && i18n.language.startsWith('zh') ? 'zh-TW' : i18n.language && i18n.language.startsWith('es') ? 'es' : i18n.language && i18n.language.startsWith('fr') ? 'fr' : 'en'
   const t = translations[currentLang]
 
   const heroImageUrl = '/imgs/store/products/reusable-acrylic-airtight-canister-thumbnail-1.jpg'
   const contentImageUrl = '/imgs/store/products/reusable-acrylic-airtight-canister-thumbnail-2.jpg'
   
-  const seoProps = {
-    title: t.title,
-    metaDescription: t.metaDesc,
-    keywords: ["reusable packaging", "refillable jar", "acrylic canister", "airtight container", "circular economy packaging", "sustainable jar"],
-    canonicalUrl: isPouchDomain ? "https://www.pouch.eco/knowledge/reusable-packaging" : "https://achievepack.com/knowledge/reusable-packaging"
-  }
-
-  const heroProps = {
-    heroTitle: t.heroTitle,
-    heroSubtitle: t.heroSubtitle
-  }
-
-  const faqSections = [
-    { q: t.faq1q, a: t.faq1a },
-    { q: t.faq2q, a: t.faq2a },
-    { q: t.faq3q, a: t.faq3a }
-  ]
-
-  // B2C Pouch.eco Sections Layout
-  const sectionsForPouch = [
+  const sections = [
     {
       id: "introduction",
       title: t.introTitle,
-      icon: <Leaf className="h-6 w-6" />,
-      content: (
-        <div className="space-y-6">
-          <div className="bg-[#D4FF00] border-4 border-black p-6 font-['JetBrains_Mono'] font-bold text-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            <p className="text-black"><strong>{t.quickAnswer.split(':')[0]}:</strong> {t.quickAnswer.split(':')[1]}</p>
-          </div>
-          <div className="flex flex-col md:flex-row gap-6 my-8">
-            <div className="border-4 border-black p-2 bg-white w-full md:w-1/2 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-              <img src={heroImageUrl} alt="Airtight Canisters Alignment" className="w-full h-72 object-cover border-2 border-black" />
-            </div>
-            <div className="border-4 border-black p-2 bg-white w-full md:w-1/2 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-              <img src={contentImageUrl} alt="Canister Detail" className="w-full h-72 object-cover border-2 border-black" />
-            </div>
-          </div>
-          <p className="text-black font-semibold text-base leading-relaxed">{t.introP1}</p>
-          <p className="text-black font-semibold text-base leading-relaxed">{t.introP2}</p>
-          <div className="bg-white border-4 border-black p-6 font-['JetBrains_Mono'] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-6">
-            <h5 className="font-black text-sm uppercase mb-2">// Cross-Reference</h5>
-            <p className="text-black text-xs leading-relaxed mb-0">
-              To compare with single-use eco options, read our guide on the <Link to="/knowledge/eco-packaging-reality" className="font-bold underline">Eco-Packaging Reality</Link> or check our <Link to="/knowledge/pha-vs-pla" className="font-bold underline">PHA vs PLA Analysis</Link>.
-            </p>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: "expert-insight",
-      title: t.expertTitle,
-      icon: <Award className="h-6 w-6" />,
-      content: (
-        <div className="space-y-6 border-4 border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-          <div className="flex items-center gap-4 border-b-4 border-black pb-4 mb-4">
-            <Award className="w-10 h-10 text-black" strokeWidth={3} />
-            <div>
-              <h4 className="font-black text-2xl uppercase">{t.expertSub}</h4>
-              <p className="text-xs font-['JetBrains_Mono'] font-black uppercase bg-[#D4FF00] border-2 border-black px-2 py-0.5 mt-1 inline-block">14+ Years Experience | GRS Expert</p>
-            </div>
-          </div>
-          <p className="text-black font-bold italic text-lg border-l-4 border-black pl-4 my-4">"{t.expertQ1}"</p>
-          <p className="text-black text-base leading-relaxed">{t.expertQ2}</p>
-          
-          <div className="bg-[#00FFFF] border-4 border-black p-6 mt-8 font-['JetBrains_Mono'] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            <h5 className="font-black text-lg uppercase mb-2">{t.shopTitle}</h5>
-            <p className="text-black text-sm mb-4">{t.shopDesc}</p>
-            <Link to="/shop/reusable-acrylic-airtight-canister" className="inline-flex items-center gap-2 bg-white border-2 border-black px-4 py-2 font-black uppercase text-xs hover:bg-[#D4FF00] transition-colors">
-              {t.shopBtn} <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: "comparison",
-      title: t.matrixTitle,
-      icon: <Shield className="h-6 w-6" />,
-      content: (
-        <div className="border-4 border-black bg-white p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-x-auto">
-          <table className="w-full border-collapse border-2 border-black font-['JetBrains_Mono'] text-sm">
-            <thead>
-              <tr className="bg-[#FF00FF] text-white border-b-2 border-black">
-                <th className="border-2 border-black p-3 text-left uppercase font-black">{t.matrixParam}</th>
-                <th className="border-2 border-black p-3 text-left uppercase font-black bg-black text-[#D4FF00]">Reusable Canister</th>
-                <th className="border-2 border-black p-3 text-left uppercase font-black">Single-Use Pouch</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-b-2 border-black">
-                <td className="border-2 border-black p-3 font-bold">{t.degEnv}</td>
-                <td className="border-2 border-black p-3 font-bold bg-[#D4FF00]/30">{t.phaDeg}</td>
-                <td className="border-2 border-black p-3">{t.plaDeg}</td>
-              </tr>
-              <tr className="border-b-2 border-black">
-                <td className="border-2 border-black p-3 font-bold">{t.tox}</td>
-                <td className="border-2 border-black p-3 font-bold bg-[#D4FF00]/30">{t.phaTox}</td>
-                <td className="border-2 border-black p-3">{t.plaTox}</td>
-              </tr>
-              <tr className="border-b-2 border-black">
-                <td className="border-2 border-black p-3 font-bold">{t.opHand}</td>
-                <td className="border-2 border-black p-3 font-bold bg-[#D4FF00]/30">{t.phaOp}</td>
-                <td className="border-2 border-black p-3">{t.plaOp}</td>
-              </tr>
-              <tr className="border-b-2 border-black">
-                <td className="border-2 border-black p-3 font-bold">{t.therm}</td>
-                <td className="border-2 border-black p-3 font-bold bg-[#D4FF00]/30">{t.phaSoft}</td>
-                <td className="border-2 border-black p-3">{t.plaSoft}</td>
-              </tr>
-              <tr>
-                <td className="border-2 border-black p-3 font-bold">{t.sourceMat}</td>
-                <td className="border-2 border-black p-3 font-bold bg-[#D4FF00]/30">{t.phaSource}</td>
-                <td className="border-2 border-black p-3">{t.plaSource}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      )
-    }
-  ]
-
-  // B2B Achieve Pack Sections Layout
-  const sectionsForAchieve = [
-    {
-      id: "introduction",
-      title: t.introTitle,
-      icon: <Leaf className="h-6 w-6" />,
+      icon: <Leaf className="w-5 h-5" />,
       content: (
         <div className="space-y-4">
-          <div className="bg-primary-50 border-l-4 border-primary-500 p-5 mb-8 rounded-r-lg">
-            <p className="text-primary-900 font-medium text-lg"><strong>{t.quickAnswer.split(':')[0]}:</strong> {t.quickAnswer.split(':')[1]}</p>
-          </div>
-          
+          <p className="text-neutral-700 leading-relaxed"><strong>{t.quickAnswer.split(':')[0]}:</strong> {t.quickAnswer.split(':')[1]}</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
             <img src={heroImageUrl} alt="Acrylic Canisters Display" className="rounded-2xl w-full h-72 object-cover shadow-md border border-neutral-100" />
             <img src={contentImageUrl} alt="Airtight Lid Detail" className="rounded-2xl w-full h-72 object-cover shadow-md border border-neutral-100" />
           </div>
-          
-          <p className="text-neutral-700 text-lg leading-relaxed">{t.introP1}</p>
-          <p className="text-neutral-700 text-lg leading-relaxed">{t.introP2}</p>
-          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 my-6">
-            <h4 className="font-bold text-lg mb-2">Cross-Reference</h4>
-            <p className="text-neutral-600 mb-0 text-sm">
-              When reviewing reusable loops, it is helpful to compare single-use alternatives. Read our guide on the <Link to="/knowledge/eco-packaging-reality" className="text-primary-600 font-medium hover:underline inline-flex items-center gap-1">Eco-Packaging Reality <ArrowRight className="w-3 h-3"/></Link> or compare material specifications in our <Link to="/knowledge/pha-vs-pla" className="text-primary-600 font-medium hover:underline inline-flex items-center gap-1">PHA vs PLA Analysis <ArrowRight className="w-3 h-3"/></Link>.
-            </p>
-          </div>
+          <p className="text-neutral-700 leading-relaxed">{t.introP1}</p>
+          <p className="text-neutral-700 leading-relaxed">{t.introP2}</p>
+          <p className="text-neutral-700 leading-relaxed">
+            Read our guide on the <Link to="/knowledge/eco-packaging-reality" className="text-primary-600 font-medium hover:underline">Eco-Packaging Reality</Link> or check our <Link to="/knowledge/pha-vs-pla" className="text-primary-600 font-medium hover:underline">PHA vs PLA Analysis</Link>.
+          </p>
         </div>
       )
     },
     {
-      id: "expert-insight",
-      title: t.expertTitle,
-      icon: <Award className="h-6 w-6" />,
+      id: "pain-points",
+      title: t.painPointsTitle,
+      icon: <ShieldCheck className="w-5 h-5" />,
       content: (
-        <div className="space-y-8">
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 flex flex-col md:flex-row gap-8 items-start">
-            <div className="flex-shrink-0 w-24 h-24 bg-neutral-100 rounded-full overflow-hidden border-4 border-white shadow-md">
-              <img src="/imgs/ryan-wong-avatar.png" alt="Ryan Wong" className="w-full h-full object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
-            </div>
-            <div>
-              <h4 className="font-bold text-2xl text-neutral-900 mb-2">{t.expertSub}</h4>
-              <div className="flex flex-wrap items-center gap-2 mb-6">
-                <span className="text-xs font-bold uppercase tracking-wider text-primary-700 bg-primary-50 px-3 py-1.5 rounded-md">14+ Years Packaging Engineering</span>
-                <span className="text-xs font-bold uppercase tracking-wider text-green-700 bg-green-50 px-3 py-1.5 rounded-md">GRS Auditing Specialist</span>
+        <div className="space-y-6">
+          {[
+            { num: '01', problem: t.pp1Prob, solution: t.pp1Sol },
+            { num: '02', problem: t.pp2Prob, solution: t.pp2Sol },
+            { num: '03', problem: t.pp3Prob, solution: t.pp3Sol },
+            { num: '04', problem: t.pp4Prob, solution: t.pp4Sol },
+            { num: '05', problem: t.pp5Prob, solution: t.pp5Sol }
+          ].map((item) => (
+            <div key={item.num} className="bg-neutral-900 text-white rounded-xl p-6 relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 opacity-10">
+                <span className="text-6xl font-black font-mono">{item.num}</span>
               </div>
-              <p className="text-neutral-600 mb-5 text-lg italic border-l-4 border-neutral-200 pl-4">"{t.expertQ1}"</p>
-              <p className="text-neutral-700 text-lg leading-relaxed">{t.expertQ2}</p>
+              <h4 className="text-lg font-bold mb-3 pr-12 text-white">{item.problem}</h4>
+              <div className="bg-neutral-800 rounded-lg p-4 border-l-4 border-emerald-500">
+                <div className="flex items-start gap-2 mb-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-emerald-400 font-bold text-sm tracking-wider uppercase">Solution:</span>
+                </div>
+                <p className="text-neutral-300 text-sm leading-relaxed">{item.solution}</p>
+              </div>
             </div>
-          </div>
-          
-          <div className="bg-gradient-to-br from-primary-900 to-emerald-950 p-8 rounded-2xl text-white shadow-lg border border-primary-800">
-            <h4 className="font-bold text-2xl mb-2">{t.shopTitle}</h4>
-            <p className="text-primary-100 text-base mb-6 max-w-xl">{t.shopDesc}</p>
-            <Link to="/store/product/reusable-acrylic-airtight-canister" className="inline-flex items-center gap-2 bg-[#D4FF00] hover:bg-white text-black font-bold px-6 py-3 rounded-xl transition-all shadow-md">
-              {t.shopBtn} <ArrowRight className="w-5 h-5" />
-            </Link>
+          ))}
+        </div>
+      )
+    },
+    {
+      id: "engineering-notebook",
+      title: t.expertTitle,
+      icon: <Factory className="w-5 h-5" />,
+      content: (
+        <div className="bg-emerald-50 border border-emerald-200 p-6 rounded-xl shadow-sm">
+          <h4 className="text-emerald-900 font-bold mb-3 flex items-center gap-2">
+            <span className="text-xl">🔬</span> {t.expertSub}
+          </h4>
+          <p className="text-emerald-800 italic leading-relaxed text-sm">
+            {t.expertQ1}<br/><br/>
+            {t.expertQ2}<br/><br/>
+            — Ryan Wong, Co-Founder & Chief Packaging Engineer
+          </p>
+          <div className="bg-white rounded-lg p-4 flex items-center gap-4 mt-4">
+            <img src="/imgs/team/ryan-in-exhib.webp" alt="Ryan Wong" className="w-16 h-16 rounded-full object-cover border-2 border-emerald-200" onError={(e) => { e.currentTarget.style.display='none' }} />
+            <div>
+              <h5 className="font-bold text-neutral-900">Ryan Wong</h5>
+              <p className="text-xs text-neutral-500 font-medium mb-1">14+ Years Packaging Engineering | GRS Auditing Specialist</p>
+              <p className="text-xs text-neutral-600">Material science expert helping brands scale zero-waste sustainable packaging solutions.</p>
+              <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noreferrer" className="text-xs text-emerald-600 font-bold hover:underline mt-1 inline-block">Have a technical question? Schedule a 15-minute packaging audit with Ryan →</a>
+            </div>
           </div>
         </div>
       )
@@ -315,7 +359,7 @@ export default function ReusablePackagingPage() {
     {
       id: "comparison",
       title: t.matrixTitle,
-      icon: <Shield className="h-6 w-6" />,
+      icon: <Shield className="w-5 h-5" />,
       content: (
         <div className="overflow-hidden rounded-2xl border border-neutral-200 mt-8 shadow-sm">
           <div className="overflow-x-auto">
@@ -360,72 +404,60 @@ export default function ReusablePackagingPage() {
       )
     },
     {
-      id: "related-store-products",
+      id: "related-products",
       title: "Related Products & Equipment",
-      icon: <Box className="h-6 w-6" />,
-      content: <RelatedProductsShowcase productIds={['reusable-acrylic-airtight-canister']} />
+      icon: <Package className="w-5 h-5" />,
+      content: (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Link to="/store/product/reusable-acrylic-airtight-canister" className="block bg-white border border-neutral-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow">
+            <img src="/imgs/store/products/reusable-acrylic-airtight-canister-thumbnail-1.jpg" alt="Reusable Canister" className="w-full aspect-square object-cover" onError={(e) => { e.currentTarget.src = 'https://placehold.co/400x400?text=Reusable+Canister' }} />
+            <div className="p-4">
+              <h5 className="font-bold text-neutral-900 mb-1">Reusable Acrylic Canister</h5>
+              <p className="text-xs text-neutral-500">Premium airtight storage with Gold Thread cap for circular systems.</p>
+            </div>
+          </Link>
+          <Link to="/store/product/eco-pouch-stand-up" className="block bg-white border border-neutral-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow">
+            <img src="/imgs/store/products/compostable-standup-pouch.jpg" alt="Compostable Stand Up Pouch" className="w-full aspect-square object-cover" onError={(e) => { e.currentTarget.src = 'https://placehold.co/400x400?text=Eco+Pouch' }} />
+            <div className="p-4">
+              <h5 className="font-bold text-neutral-900 mb-1">Compostable Stand Up Pouch</h5>
+              <p className="text-xs text-neutral-500">A biodegradable alternative for short-term retail products.</p>
+            </div>
+          </Link>
+          <Link to="/store/product/kraft-paper-box" className="block bg-white border border-neutral-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow">
+            <img src="/imgs/store/products/kraft-box-premium.jpg" alt="Premium Kraft Box" className="w-full aspect-square object-cover" onError={(e) => { e.currentTarget.src = 'https://placehold.co/400x400?text=Kraft+Box' }} />
+            <div className="p-4">
+              <h5 className="font-bold text-neutral-900 mb-1">FSC Kraft Packaging</h5>
+              <p className="text-xs text-neutral-500">Sustainable outer packaging for a fully circular unboxing experience.</p>
+            </div>
+          </Link>
+        </div>
+      )
     }
   ]
 
-  if (isPouchDomain) {
-    return (
-      <PouchLayout>
-        <div className="sr-only" aria-hidden="true">
-          <section data-ai-faq="true" itemScope itemType="https://schema.org/FAQPage">
-            {faqSections.map((faq, i) => (
-              <article key={i} itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
-                <h3 itemProp="name">{faq.q}</h3>
-                <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                  <p itemProp="text">{faq.a}</p>
-                </div>
-              </article>
-            ))}
-          </section>
-        </div>
-        <BlogArticleTemplate
-          {...seoProps}
-          {...heroProps}
-          sections={sectionsForPouch}
-          faqSections={faqSections}
-          ctaTitle={t.upgradeCta}
-          ctaDescription={t.upgradeDesc}
-        />
-      </PouchLayout>
-    )
-  }
+  const faqs = [
+    { question: t.faq1q, answer: t.faq1a },
+    { question: t.faq2q, answer: t.faq2a },
+    { question: t.faq3q, answer: t.faq3a }
+  ]
 
-  // B2B Enterprise Layout (Achieve Pack)
   return (
-    <>
-      <div className="sr-only" aria-hidden="true">
-        <section data-ai-faq="true" itemScope itemType="https://schema.org/FAQPage">
-          {faqSections.map((faq, i) => (
-            <article key={i} itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
-              <h3 itemProp="name">{faq.q}</h3>
-              <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                <p itemProp="text">{faq.a}</p>
-              </div>
-            </article>
-          ))}
-        </section>
-      </div>
-      <SEOPageLayout
-        title={seoProps.title}
-        description={seoProps.metaDescription}
-        keywords={seoProps.keywords}
-        canonicalUrl={seoProps.canonicalUrl}
-        heroTitle={heroProps.heroTitle}
-        heroSubtitle={heroProps.heroSubtitle}
-        heroImage={heroImageUrl}
-        introSummary={t.quickAnswer}
-        sections={sectionsForAchieve}
-        faqs={faqSections.map(f => ({ question: f.q, answer: f.a }))}
-        schemaType="Article"
-        ctaTitle={t.ctaTitle}
-        ctaDescription={t.ctaDesc}
-        ctaButtonText={t.ctaBtn}
-        heroStyle="banner"
-      />
-    </>
+    <SEOPageLayout
+      title={t.title}
+      description={t.metaDesc}
+      keywords="reusable packaging, refillable jar, acrylic canister, airtight container, circular economy packaging, sustainable jar"
+      heroTitle={t.heroTitle}
+      heroSubtitle={t.heroSubtitle}
+      heroImage={heroImageUrl}
+      heroImageAlt="Reusable Acrylic Airtight Canister for Circular Packaging"
+      introSummary={t.quickAnswer}
+      sections={sections}
+      faqs={faqs}
+      schemaType="Article"
+      ctaTitle={t.ctaTitle}
+      ctaDescription={t.ctaDesc}
+      ctaButtonText={t.ctaBtn}
+      heroStyle="banner"
+    />
   )
 }

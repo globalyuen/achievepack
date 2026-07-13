@@ -87,7 +87,45 @@ const localTranslations = {
     faq4Q: "¿Qué certificaciones están disponibles para estos materiales?",
     faq4A: "Ofrecemos materiales aprobados por la FDA para alimentos, compostables certificados por BPI y monomateriales reciclables."
   },
-  zh: {
+  fr: {
+    title: "Sachet vertical zippé pour friandises pour animaux (Modèle #954) | Achieve Pack",
+    description: "Découvrez le sachet vertical zippé pour friandises pour animaux (Modèle #954). Sachet vertical haute barrière avec dimensions personnalisées (L:115mm H:235mm), certifications et aperçu 3D.",
+    heroTitle: "Sachet vertical zippé pour friandises (Modèle #954)",
+    heroSubtitle: "Dimensions personnalisées L:115mm H:235mm | Haute barrière | Certifié BPI & TUV",
+    introSummary: "Le sachet vertical zippé pour friandises pour animaux (Modèle #954) représente une structure d'emballage haut de gamme et haute résistance, conçue pour la vente au détail et les environnements industriels. Ce sachet vertical est conçu pour des performances optimales sur les lignes d'emballage automatiques.",
+    aeoSummary: "Le modèle #954 est un sachet vertical mesurant L:115mm H:235mm. Configuré avec un film barrière haute performance et des fermetures fiables pour éviter les fuites et maximiser la durée de conservation.",
+    eeatDetails: "Avec plus de 14 ans d'ingénierie d'emballage, nous garantissons que chaque lot de Modèle #954 est conforme aux réglementations internationales sur la sécurité alimentaire et la durabilité.",
+    section1Title: "Détails structurels & Configuration des matériaux",
+    section1Text: "Conçu spécifiquement pour la stabilité de qualité alimentaire, ce sachet vertical (Modèle #954) utilise des substrats co-extrudés pour assurer une résistance chimique et une protection contre les perforations. Idéal pour les processus automatiques de formage-remplissage-scellage et de remplissage manuel, il conserve sa structure et l'esthétique de la marque.",
+    section2Title: "Du carnet d'ingénierie de Ryan Wong",
+    section2Log: "Le sachet vertical Modèle #954 nécessite un timing précis de thermoscellage du soufflet inférieur. Sur les lignes de remplissage automatisées, un mauvais calibrage thermique entraîne des micro-fractures du soufflet. Nous utilisons des résines d'étanchéité LLDPE sur mesure pour dissiper les contraintes de remplissage.",
+    point1Title: "Problème: Fuite de soudure du soufflet",
+    point1Desc: "La pression de dosage élevée peut rompre le joint du soufflet inférieur.",
+    point1Sol: "Utilisation de composés de métallocène spécialisés pour augmenter de 40% les limites d'élasticité du soufflet.",
+    point2Title: "Problème: Obstruction de la glissière du zip",
+    point2Desc: "Les aliments ou poussières de friandises bloquent le zip de fermeture.",
+    point2Sol: "Intégration de fermetures à glissière autonettoyantes avec des rainures d'évacuation.",
+    point3Title: "Problème: Instabilité sur étagère",
+    point3Desc: "Des proportions volumétriques incorrectes provoquent le basculement du sachet.",
+    point3Sol: "Calibrage du soufflet inférieur en fonction de la densité du produit.",
+    point4Title: "Problème: Infiltration d'oxygène",
+    point4Desc: "Détérioration de l'arôme des friandises due à l'exposition à l'oxygène.",
+    point4Sol: "Feuilles barrières triples maintenant le taux de transmission d'oxygène sous 0,5 cc/m²/24h.",
+    point5Title: "Problème: Éraflure de surface",
+    point5Desc: "Les revêtements mats se rayent lors du transport en vrac.",
+    point5Sol: "Vernis externe anti-rayures à double durcissement.",
+    compTitle: "Dieline Layout & Spécifications de calibrage",
+    compDesc: "Chaque série de production est calibrée à l'aide de dielines prépresse rigoureuses. Nos équipes ajustent les tolérances de pliage et les limites thermiques en fonction de l'épaisseur du substrat.",
+    faq1Q: "Quel est le MOQ pour le format personnalisé du Modèle #954 ?",
+    faq1A: "Pour les dimensions ou impressions personnalisées, notre MOQ standard commence à 5 000 pièces. L'impression numérique est disponible à partir de 1 000 pièces pour les lancements de produits.",
+    faq2Q: "Puis-je demander des échantillons de matériaux neutres pour ce modèle spécifique ?",
+    faq2A: "Oui. Nous fournissons gratuitement des kits d'échantillons de matériaux sans impression pour vous permettre de vérifier les dimensions sur vos lignes de remplissage avant commande.",
+    faq3Q: "Cette structure de sachet est-elle compatible avec les lignes de remplissage automatisées ?",
+    faq3A: "Oui, ce modèle est entièrement optimisé pour les machines de conditionnement verticales et horizontales de formage-remplissage-scellage (VFFS/HFFS) standard.",
+    faq4Q: "Quelles certifications sont disponibles pour ces matériaux ?",
+    faq4A: "Selon votre choix, nous proposons des matériaux certifiés FDA de qualité alimentaire, compostables BPI (ASTM D6400) et mono-polymères recyclables."
+  },
+  'zh-tw': {
     title: "Pet Treat Stand-Up Zipper Pouch (Model #954) 3D包裝袋 | Achieve Pack",
     description: "了解 Pet Treat Stand-Up Zipper Pouch (Model #954)。高阻隔 Stand-Up Pouch，支持定製尺寸 (L:115mm  H:235mm)，提供 BPI/TUV 認證與 3D 交互式預覽。",
     heroTitle: "Pet Treat Stand-Up Zipper Pouch (Model #954) 3D包裝袋",
@@ -99,7 +137,7 @@ const localTranslations = {
     section1Text: "這款 Stand-Up Pouch（型號 #954）採用食品級高性能複合膜壓製而成，具備優秀的耐穿刺強度與氣密防潮性能，能有效阻隔外部潮氣。適合自動化流水線計量灌裝，完美保護產品風味。",
     section2Title: "工程師 Ryan Wong 的專業筆記",
     section2Log: "自立袋型號 #954 需要精確的底部折邊熱封配合。在自動化灌裝線上，溫度標定偏差易導致折邊微裂。我們採用專業配比的 LLDPE 封口料以分散應力。",
-    point1Title: "常見難題: 折邊漏封",
+    point1Title: "常見難體: 折邊漏封",
     point1Desc: "灌裝時衝擊力大，易導致底部折邊受壓破裂。",
     point1Sol: "使用茂金屬複合薄膜，提升底部接縫抗衝擊強度達40%。",
     point2Title: "常見難題: 拉鏈夾粉堵塞",
@@ -126,11 +164,15 @@ const localTranslations = {
     faq4A: "我們提供符合美國 FDA 食品安全標準、歐盟 EN 13432 可降解認證以及 Mono-PE 可回收材料證書。"
   }
 }
+// Alias for simplified zh key
+;(localTranslations as any)['zh'] = localTranslations['zh-tw']
 
 const PetTreatStandUpZipperPouch: React.FC = () => {
   const { t, i18n } = useTranslation()
-  const lang = i18n.language || 'en'
-  const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
+  const lang = (i18n.language || 'en').toLowerCase()
+  const localTrans = localTranslations[lang as keyof typeof localTranslations] || 
+                     localTranslations[lang.split('-')[0] as keyof typeof localTranslations] || 
+                     localTranslations.en
 
   const IMAGES = {
     hero: '/imgs/topics/pet-treat-stand-up-zipper-pouch/hero.jpg',

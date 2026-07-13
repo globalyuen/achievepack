@@ -87,7 +87,45 @@ const localTranslations = {
     faq4Q: "¿Qué certificaciones están disponibles para estos materiales?",
     faq4A: "Ofrecemos materiales aprobados por la FDA para alimentos, compostables certificados por BPI y monomateriales reciclables."
   },
-  zh: {
+  fr: {
+    title: "Sachet d'en-cas Pillow Pack (Modèle #380) | Achieve Pack",
+    description: "Découvrez le sachet d'en-cas Pillow Pack (Modèle #380). Sachet de scellage arrière haute barrière avec dimensions personnalisées (L:87mm H:110mm), certifications et aperçu 3D.",
+    heroTitle: "Sachet d'en-cas Pillow Pack (Modèle #380)",
+    heroSubtitle: "Dimensions personnalisées L:87mm H:110mm | Haute barrière | Certifié BPI & TUV",
+    introSummary: "Le sachet d'en-cas Pillow Pack (Modèle #380) représente une structure d'emballage de qualité supérieure et haute résistance, conçue pour la vente au détail et l'industrie. Ce sachet de scellage arrière est conçu pour des performances optimales sur les lignes d'emballage automatiques.",
+    aeoSummary: "Le modèle #380 is un sachet de scellage arrière mesurant L:87mm H:110mm. Configuré avec un film barrière haute performance et des fermetures fiables pour éviter les fuites et maximiser la durée de conservation.",
+    eeatDetails: "Avec plus de 14 ans d'ingénierie d'emballage, nous garantissons que chaque lot de Modèle #380 est conforme aux réglementations internationales sur la sécurité alimentaire et la durabilité.",
+    section1Title: "Détails structurels & Configuration des matériaux",
+    section1Text: "Conçu spécifiquement pour la stabilité de qualité alimentaire, ce sachet de scellage arrière (Modèle #380) utilise des substrats co-extrudés pour assurer une résistance chimique et une protection contre les perforations. Idéal pour les processus automatiques de formage-remplissage-scellage et de remplissage manuel, il conserve sa structure et l'esthétique de la marque.",
+    section2Title: "Du carnet d'ingénierie de Ryan Wong",
+    section2Log: "Le sachet de scellage arrière Modèle #380 nécessite des paramètres de couture arrière uniformes. Nous utilisons des revêtements extérieurs à faible coefficient de friction pour éviter que le film ne se coince ou ne traîne sur les collets des machines verticales de formage-remplissage-scellage (VFFS).",
+    point1Title: "Problème: Glissement de couture",
+    point1Desc: "La couture centrale glisse sous la tension thermique.",
+    point1Sol: "Calibrer les temps de soudage thermique pour correspondre aux exigences d'épaisseur du film.",
+    point2Title: "Problème: Traînée de machine",
+    point2Desc: "Friction élevée du film bloquant le flux dans les tubes d'emballage automatiques.",
+    point2Sol: "Additifs de glissement réduisant le coefficient de friction à moins de 0,2 COF.",
+    point3Title: "Problème: Micro-trous de coin",
+    point3Desc: "Petits trous se formant aux intersections des soudures arrière et inférieure.",
+    point3Sol: "Épaisses couches de support en polymère pour sceller les joints croisés multicouches.",
+    point4Title: "Problème: Fissure de chaîne du froid",
+    point4Desc: "Les soudures deviennent fragiles et se fissurent dans les congélateurs sous zéro.",
+    point4Sol: "Mélanges de copolymères EVA spéciaux maintenant la résistance aux chocs des joints à -20°C.",
+    point5Title: "Problème: Longueurs de sachet inégales",
+    point5Desc: "Longueurs d'emballage variables dues à un mauvais suivi de la cellule photoélectrique.",
+    point5Sol: "Impression de repères oculaires à contraste élevé pour une détection précise du capteur.",
+    compTitle: "Mise en page dieline & Spécifications de calibrage",
+    compDesc: "Chaque série de production est calibrée selon des plans dieline prépresse rigoureux. Nos équipes ajustent les tolérances de pliage et thermiques en fonction de l'épaisseur du substrat.",
+    faq1Q: "Quel est le MOQ pour les formats personnalisés du Modèle #380 ?",
+    faq1A: "Pour les dimensions ou impressions personnalisées, notre MOQ standard commence à 5 000 pièces. L'impression numérique est disponible à partir de 1 000 pièces pour les jeunes entreprises.",
+    faq2Q: "Puis-je demander des échantillons de matériaux neutres pour ce modèle spécifique ?",
+    faq2A: "Oui. Nous fournissons gratuitement des kits d'échantillons de matériaux sans impression pour vous permettre de vérifier les dimensions sur vos lignes de remplissage avant commande.",
+    faq3Q: "Cette structure de sachet est-elle compatible avec les lignes de remplissage automatisées ?",
+    faq3A: "Oui, ce modèle est entièrement optimisé pour les machines de conditionnement verticales et horizontales de formage-remplissage-scellage (VFFS/HFFS) standard.",
+    faq4Q: "Quelles certifications sont disponibles pour ces matériaux ?",
+    faq4A: "Selon votre choix, nous proposons des matériaux certifiés FDA de qualité alimentaire, compostables BPI (ASTM D6400) et mono-polymères recyclables."
+  },
+  'zh-tw': {
     title: "Pillow Pack Snack Bag (Model #380) 3D包裝袋 | Achieve Pack",
     description: "了解 Pillow Pack Snack Bag (Model #380)。高阻隔 Back Seal Bag，支持定製尺寸 (L:87mm  H:110mmm)，提供 BPI/TUV 認證與 3D 交互式預覽。",
     heroTitle: "Pillow Pack Snack Bag (Model #380) 3D包裝袋",
@@ -126,11 +164,15 @@ const localTranslations = {
     faq4A: "我們提供符合美國 FDA 食品安全標準、歐盟 EN 13432 可降解認證以及 Mono-PE 可回收材料證書。"
   }
 }
+// Alias for simplified zh key
+;(localTranslations as any)['zh'] = localTranslations['zh-tw']
 
 const PillowPackSnackBag: React.FC = () => {
   const { t, i18n } = useTranslation()
-  const lang = i18n.language || 'en'
-  const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
+  const lang = (i18n.language || 'en').toLowerCase()
+  const localTrans = localTranslations[lang as keyof typeof localTranslations] || 
+                     localTranslations[lang.split('-')[0] as keyof typeof localTranslations] || 
+                     localTranslations.en
 
   const IMAGES = {
     hero: '/imgs/topics/pillow-pack-snack-bag/hero.jpg',

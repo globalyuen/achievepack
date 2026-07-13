@@ -1627,14 +1627,14 @@ function App() {
 
               <div className="pt-4 flex flex-wrap gap-4">
                 <Link
-                  to="/app"
+                  to="/studio"
                   className="bg-[#64ffda] text-[#08090c] hover:bg-[#52ebd4] font-bold text-sm px-8 py-3.5 rounded-xl shadow-lg shadow-[#64ffda]/10 hover:shadow-[#64ffda]/25 flex items-center gap-2 transition-all duration-300 transform hover:-translate-y-0.5"
                 >
                   Launch 3D Studio
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
-                  to="/app"
+                  to="/studio"
                   className="border border-[rgba(255,255,255,0.15)] hover:border-white text-neutral-300 hover:text-white font-bold text-sm px-6 py-3.5 rounded-xl transition-all duration-300"
                 >
                   Browse shapes
@@ -1648,7 +1648,7 @@ function App() {
               <div className="absolute -inset-4 bg-gradient-to-tr from-[#64ffda]/10 to-transparent blur-2xl rounded-3xl pointer-events-none" />
 
               {/* Card 1: Pouches */}
-              <Link to="/app" className="group bg-[rgba(255,255,255,0.02)] hover:bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)] hover:border-[#64ffda]/45 rounded-2xl p-5 transition-all duration-300 transform hover:-translate-y-1 text-left">
+              <Link to="/studio" className="group bg-[rgba(255,255,255,0.02)] hover:bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)] hover:border-[#64ffda]/45 rounded-2xl p-5 transition-all duration-300 transform hover:-translate-y-1 text-left">
                 <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-[#64ffda] mb-4">
                   <Package className="w-5 h-5" />
                 </div>
@@ -1658,7 +1658,7 @@ function App() {
               </Link>
 
               {/* Card 2: Rigid Boxes */}
-              <Link to="/app" className="group bg-[rgba(255,255,255,0.02)] hover:bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)] hover:border-[#64ffda]/45 rounded-2xl p-5 transition-all duration-300 transform hover:-translate-y-1 text-left">
+              <Link to="/studio" className="group bg-[rgba(255,255,255,0.02)] hover:bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)] hover:border-[#64ffda]/45 rounded-2xl p-5 transition-all duration-300 transform hover:-translate-y-1 text-left">
                 <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-4">
                   <Box className="w-5 h-5" />
                 </div>
@@ -1668,7 +1668,7 @@ function App() {
               </Link>
 
               {/* Card 3: Bottles & Cans */}
-              <Link to="/app" className="group bg-[rgba(255,255,255,0.02)] hover:bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)] hover:border-[#64ffda]/45 rounded-2xl p-5 transition-all duration-300 transform hover:-translate-y-1 text-left">
+              <Link to="/studio" className="group bg-[rgba(255,255,255,0.02)] hover:bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)] hover:border-[#64ffda]/45 rounded-2xl p-5 transition-all duration-300 transform hover:-translate-y-1 text-left">
                 <div className="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-4">
                   <Sparkles className="w-5 h-5" />
                 </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { Cookie, Leaf, Shield, CheckCircle, Clock, TrendingUp, MessageCircle, Award, ShoppingBag, Target, Calendar, Phone, Download, Mail, AlertTriangle } from 'lucide-react'
+import { Cookie, Leaf, Shield, CheckCircle, Clock, TrendingUp, MessageCircle, Award, ShoppingBag, Target, Calendar, Phone, Download, Mail, AlertTriangle, BookOpen } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -18,7 +18,12 @@ const localTranslations = {
     prob4: "4. Pushback on Plastic Waste",
     sol4: "Solution: Switch to Recyclable (PE/PE) or Compostable (PLA) structures.",
     prob5: "5. Low Shelf Impact in Crowded Aisles",
-    sol5: "Solution: Spot Gloss & Matte Mixed Finishes for premium tactile appeal."
+    sol5: "Solution: Spot Gloss & Matte Mixed Finishes for premium tactile appeal.",
+    ryanTitle: "Ryan Wong's Engineering Notebook",
+    ryanEntry: "Entry: Overcoming Puncture Leaks in Granola Packaging",
+    ryanP1: "\"When a major US natural foods brand came to us, their granola pouches were failing at a 12% rate. The sharp oat clusters and nuts were micro-puncturing the inner PE layer during transit.\"",
+    ryanP2: "\"I re-engineered the laminate structure by introducing a specialized high-density Nylon (BOPA) layer between the PET and PE. This increased puncture resistance by 400% without adding bulk. We tested it on a 500-mile vibration simulation. Result? Zero leaks and extended shelf life.\"",
+    ryanAuthor: "- Ryan Wong, Lead Packaging Engineer"
   },
   es: {
     title: "5 Problemas Comunes de Empaques de Snacks (Y Soluciones)",
@@ -31,7 +36,12 @@ const localTranslations = {
     prob4: "4. Rechazo a los Residuos Plásticos",
     sol4: "Solución: Cambio a estructuras reciclables (PE/PE) o compostables (PLA).",
     prob5: "5. Bajo Impacto Visual en los Estantes",
-    sol5: "Solución: Acabados mixtos de brillo focalizado y mate para un atractivo táctil premium."
+    sol5: "Solución: Acabados mixtos de brillo focalizado y mate para un atractivo táctil premium.",
+    ryanTitle: "Cuaderno de Ingeniería de Ryan Wong",
+    ryanEntry: "Entrada: Superando Fugas por Perforaciones en Empaques de Granola",
+    ryanP1: "\"Cuando una importante marca de alimentos naturales de EE. UU. acudió a nosotros, sus bolsas de granola fallaban en un 12%. Los grupos afilados de avena y nueces estaban microperforando la capa interna de PE durante el tránsito.\"",
+    ryanP2: "\"Rediseñé la estructura del laminado introduciendo una capa especializada de Nylon de alta densidad (BOPA) entre el PET y el PE. Esto aumentó la resistencia a la perforación en un 400% sin agregar volumen. Lo probamos en una simulación de vibración de 500 millas. ¿Resultado? Cero fugas y vida útil prolongada.\"",
+    ryanAuthor: "- Ryan Wong, Ingeniero Principal de Empaques"
   },
   fr: {
     title: "5 Problèmes Courants d'Emballage de Snacks (Et Solutions)",
@@ -44,7 +54,12 @@ const localTranslations = {
     prob4: "4. Rejet des Déchets Plastiques",
     sol4: "Solution : Passage à des structures recyclables (PE/PE) ou compostables (PLA).",
     prob5: "5. Faible Attrait en Rayon",
-    sol5: "Solution : Finitions mixtes mates et vernis sélectif pour un effet premium."
+    sol5: "Solution : Finitions mixtes mates et vernis sélectif pour un effet premium.",
+    ryanTitle: "Carnet d'Ingénierie de Ryan Wong",
+    ryanEntry: "Entrée : Surmonter les Fuites par Perforation dans les Emballages de Granola",
+    ryanP1: "\"Lorsqu'une grande marque américaine d'aliments naturels est venue nous voir, ses sachets de granola présentaient un taux de défaillance de 12 %. Les grappes d'avoine et les noix pointues micro-perforaient la couche interne en PE pendant le transport.\"",
+    ryanP2: "\"J'ai repensé la structure du stratifié en introduisant une couche spécialisée de nylon haute densité (BOPA) entre le PET et le PE. Cela a augmenté la résistance à la perforation de 400 % sans ajouter de volume. Nous l'avons testé sur une simulation de vibration de 500 miles. Résultat ? Zéro fuite et durée de conservation prolongée.\"",
+    ryanAuthor: "- Ryan Wong, Ingénieur Principal en Emballage"
   },
   'zh-TW': {
     title: "5大常見美國零食包裝問題（與解決方案）",
@@ -57,7 +72,12 @@ const localTranslations = {
     prob4: "4. 塑料廢棄物抵制",
     sol4: "解決方案：改用可回收（PE/PE）或可堆肥（PLA）結構。",
     prob5: "5. 貨架吸引力不足",
-    sol5: "解決方案：局部亮光與啞光混合工藝，提升高端觸感。"
+    sol5: "解決方案：局部亮光與啞光混合工藝，提升高端觸感。",
+    ryanTitle: "Ryan Wong 的工程筆記",
+    ryanEntry: "條目：克服麥片包裝中的刺穿洩漏問題",
+    ryanP1: "\"當一個美國大型天然食品品牌找到我們時，他們的麥片袋故障率高達 12%。尖銳的燕麥簇和堅果在運輸過程中微刺穿了內部的 PE 層。\"",
+    ryanP2: "\"我透過在 PET 和 PE 之間引入特殊的極高密度尼龍 (BOPA) 層，重新設計了複合結構。這在不增加厚度的情況下將抗刺穿性提高了 400%。我們在 500 英里的振動模擬中對其進行了測試。結果？零洩漏並延長了保質期。\"",
+    ryanAuthor: "- Ryan Wong, 首席包裝工程師"
   }
 }
 
@@ -120,6 +140,19 @@ const USASnacksPage: React.FC = () => {
               className="w-full rounded-lg shadow-md"
             />
           </div>
+        </div>
+      )
+    },
+    {
+      id: 'ryan-wong-notebook',
+      title: tLocal.ryanTitle,
+      icon: <BookOpen className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-neutral-50 p-6 rounded-lg border-l-4 border-primary-600 font-mono text-sm text-neutral-800">
+          <p className="font-bold mb-2">{tLocal.ryanEntry}</p>
+          <p className="mb-2">{tLocal.ryanP1}</p>
+          <p className="mb-2">{tLocal.ryanP2}</p>
+          <p className="italic text-neutral-600 mt-4">{tLocal.ryanAuthor}</p>
         </div>
       )
     },

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { Coffee, Leaf, Shield, CheckCircle, Clock, TrendingUp, MessageCircle, Award, Target, Calendar, Phone, Download, Mail, AlertTriangle } from 'lucide-react'
+import { Coffee, Leaf, Shield, CheckCircle, Clock, TrendingUp, MessageCircle, Award, Target, Calendar, Phone, Download, Mail, AlertTriangle, BookOpen } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -19,7 +19,12 @@ const localTranslations = {
     prob4: "Punctures or Leaks During Shipping",
     sol4: "Solution: High tensile strength laminates and reinforced wide side-seals to survive transit.",
     prob5: "Sustainability & Eco-Friendly Demands",
-    sol5: "Solution: Innovative Recyclable Mono-PE or Industrially Compostable packaging structures."
+    sol5: "Solution: Innovative Recyclable Mono-PE or Industrially Compostable packaging structures.",
+    ryanTitle: "Ryan Wong's Engineering Notebook",
+    ryanEntry: "Entry: Overcoming Degassing Valve Failures in High-Altitude Transport",
+    ryanP1: "\"When we first started shipping freshly roasted beans across the Rockies, clients reported their bags were either bursting or arriving flat and stale. Standard valves were failing under pressure differentials.\"",
+    ryanP2: "\"I engineered a custom nylon-filtered one-way valve with a tighter silicone oil seal, calibrated precisely to 0.05 bar release pressure. We tested it in a vacuum chamber simulating 10,000 ft elevation. Result? Zero bursts, perfect aroma retention, and a shelf-life extension of 4 weeks.\"",
+    ryanAuthor: "- Ryan Wong, Lead Packaging Engineer"
   },
   es: {
     title: "5 Problemas Comunes del Empaque de Café (y Soluciones)",
@@ -33,7 +38,12 @@ const localTranslations = {
     prob4: "Perforaciones o Fugas Durante el Envío",
     sol4: "Solución: Laminados de alta resistencia a la tracción y sellos laterales reforzados para sobrevivir al transporte.",
     prob5: "Demandas de Sostenibilidad y Ecología",
-    sol5: "Solución: Innovadoras estructuras de empaque de Mono-PE reciclable o compostable industrialmente."
+    sol5: "Solución: Innovadoras estructuras de empaque de Mono-PE reciclable o compostable industrialmente.",
+    ryanTitle: "Cuaderno de Ingeniería de Ryan Wong",
+    ryanEntry: "Entrada: Superando Fallas de Válvulas de Desgasificación en Transporte a Gran Altitud",
+    ryanP1: "\"Cuando comenzamos a enviar granos recién tostados a través de las Montañas Rocosas, los clientes informaron que sus bolsas estallaban o llegaban desinfladas y rancias. Las válvulas estándar fallaban bajo diferencias de presión.\"",
+    ryanP2: "\"Ingenié una válvula unidireccional personalizada con filtro de nailon y un sello de aceite de silicona más ajustado, calibrada con precisión a una presión de liberación de 0.05 bar. La probamos en una cámara de vacío simulando 10,000 pies de elevación. ¿Resultado? Cero estallidos, perfecta retención de aroma y una extensión de vida útil de 4 semanas.\"",
+    ryanAuthor: "- Ryan Wong, Ingeniero Principal de Empaques"
   },
   fr: {
     title: "5 Problèmes Courants d'Emballage de Café (et Solutions)",
@@ -47,7 +57,12 @@ const localTranslations = {
     prob4: "Perforations ou Fuites Pendant l'Expédition",
     sol4: "Solution : Stratifiés à haute résistance à la traction et joints latéraux renforcés pour résister au transport.",
     prob5: "Exigences de Durabilité et d'Écologie",
-    sol5: "Solution : Structures d'emballage innovantes en Mono-PE recyclable ou compostables industriellement."
+    sol5: "Solution : Structures d'emballage innovantes en Mono-PE recyclable ou compostables industriellement.",
+    ryanTitle: "Carnet d'Ingénierie de Ryan Wong",
+    ryanEntry: "Entrée : Surmonter les Défaillances des Valves de Dégazage lors du Transport en Haute Altitude",
+    ryanP1: "\"Lorsque nous avons commencé à expédier des grains fraîchement torréfiés à travers les Rocheuses, les clients ont signalé que leurs sacs éclataient ou arrivaient plats et éventés. Les valves standard échouaient sous les différences de pression.\"",
+    ryanP2: "\"J'ai conçu une valve unidirectionnelle personnalisée avec un filtre en nylon et un joint d'huile de silicone plus serré, calibrée précisément à une pression de libération de 0,05 bar. Nous l'avons testée dans une chambre à vide simulant une altitude de 10 000 pieds. Résultat ? Zéro éclatement, une rétention d'arôme parfaite et une prolongation de la durée de conservation de 4 semaines.\"",
+    ryanAuthor: "- Ryan Wong, Ingénieur Principal en Emballage"
   },
   'zh-TW': {
     title: "5個常見的咖啡包裝問題（及解決方案）",
@@ -61,7 +76,12 @@ const localTranslations = {
     prob4: "運輸過程中的刺穿或洩漏",
     sol4: "解決方案：高抗拉強度複合材料和加固的寬邊封口，可承受運輸過程的考驗。",
     prob5: "可持續性與環保需求",
-    sol5: "解決方案：創新的可回收單一材質 PE 或工業可堆肥包裝結構。"
+    sol5: "解決方案：創新的可回收單一材質 PE 或工業可堆肥包裝結構。",
+    ryanTitle: "Ryan Wong 的工程筆記",
+    ryanEntry: "條目：克服高海拔運輸中的排氣閥失效問題",
+    ryanP1: "\"當我們第一次開始穿越洛磯山脈運輸新鮮烘焙的咖啡豆時，客戶報告說他們的袋子要麼破裂，要麼變得扁平且不新鮮。標準排氣閥在壓力差下容易失效。\"",
+    ryanP2: "\"我設計了一種定製的尼龍過濾單向排氣閥，帶有更緊密的矽油密封，精確校準至 0.05 巴的釋放壓力。我們在模擬 10,000 英尺海拔的真空室中對其進行了測試。結果？零破裂，完美的香氣保留，並且保質期延長了 4 週。\"",
+    ryanAuthor: "- Ryan Wong, 首席包裝工程師"
   }
 }
 const USACoffeePage: React.FC = () => {
@@ -135,6 +155,19 @@ const USACoffeePage: React.FC = () => {
               className="w-full rounded-lg shadow-md"
             />
           </div>
+        </div>
+      )
+    },
+    {
+      id: 'ryan-wong-notebook',
+      title: localTrans.ryanTitle,
+      icon: <BookOpen className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-neutral-50 p-6 rounded-lg border-l-4 border-primary-600 font-mono text-sm text-neutral-800">
+          <p className="font-bold mb-2">{localTrans.ryanEntry}</p>
+          <p className="mb-2">{localTrans.ryanP1}</p>
+          <p className="mb-2">{localTrans.ryanP2}</p>
+          <p className="italic text-neutral-600 mt-4">{localTrans.ryanAuthor}</p>
         </div>
       )
     },

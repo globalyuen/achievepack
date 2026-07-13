@@ -159,6 +159,7 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/solutions/cosmetics-bottles-catalog': () => import('./pages/solutions/CosmeticsBottlesCatalogPage'),
   '/solutions/shapes/:id': () => import('./pages/solutions/ShapeDetailPage'),
   '/app': () => import('./pages/PackageEditorPage'),
+  '/studio': () => import('./pages/PackageEditorPage'),
   '/pricing': () => import('./pages/pouch/PouchEcoGPTKPage'),
   '/dieline-finder': () => import('./pages/PouchDielineFinderPage'),
   '/dieline-creator': () => import('./pages/PouchDielineCreatorPage'),
@@ -168,6 +169,9 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/knowledge/food-packaging-compliance-date-coding': () => import('./pages/knowledge/FoodPackagingCompliancePage'),
   '/knowledge/packaging-line-automation-date-coding': () => import('./pages/knowledge/PackagingLineAutomationPage'),
   '/knowledge/compostable-packaging-inkjet-coding': () => import('./pages/knowledge/CompostablePackagingCodingPage'),
+  '/knowledge/k-seal-stand-up-pouches': () => import('./pages/knowledge/KSealStandUpPouchesPage'),
+  '/knowledge/eco-packaging-reality': () => import('./pages/knowledge/EcoPackagingRealityPage'),
+  '/knowledge/flat-bottom-vs-gusset': () => import('./pages/knowledge/FlatBottomVsGussetPage'),
   '/ctrl-x9k7m/bookkeeping': () => import('./pages/admin/BookkeepingPage'),
 }
 
@@ -401,6 +405,20 @@ const PouchDateCodingGuidePage = lazyWithRetry(() => import('./pages/knowledge/P
 const FoodPackagingCompliancePage = lazyWithRetry(() => import('./pages/knowledge/FoodPackagingCompliancePage'))
 const PackagingLineAutomationPage = lazyWithRetry(() => import('./pages/knowledge/PackagingLineAutomationPage'))
 const CompostablePackagingCodingPage = lazyWithRetry(() => import('./pages/knowledge/CompostablePackagingCodingPage'))
+const DupontPaperToteBagsBenefits = lazyWithRetry(() => import('./pages/knowledge/DupontPaperToteBagsBenefits'))
+const TyvekVsCanvasToteBags = lazyWithRetry(() => import('./pages/knowledge/TyvekVsCanvasToteBags'))
+const EcoFriendlyDupontPaperBags = lazyWithRetry(() => import('./pages/knowledge/EcoFriendlyDupontPaperBags'))
+const MoldedPulpPackagingBenefits = lazyWithRetry(() => import('./pages/knowledge/MoldedPulpPackagingBenefits'))
+const MoldedPulpGuide = lazyWithRetry(() => import('./pages/knowledge/MoldedPulpGuide'))
+const AutomatingPulpLines = lazyWithRetry(() => import('./pages/knowledge/AutomatingPulpLines'))
+const EcoDegradablePulpBoxesGuide = lazyWithRetry(() => import('./pages/knowledge/EcoDegradablePulpBoxesGuide'))
+const PulpBoxesVsCorrugatedCardboard = lazyWithRetry(() => import('./pages/knowledge/PulpBoxesVsCorrugatedCardboard'))
+const LuxuryCorkGiftBoxes = lazyWithRetry(() => import('./pages/knowledge/LuxuryCorkGiftBoxes'))
+const CorkPackagingSustainability = lazyWithRetry(() => import('./pages/knowledge/CorkPackagingSustainability'))
+const CustomCorkGiftBoxesDesign = lazyWithRetry(() => import('./pages/knowledge/CustomCorkGiftBoxesDesign'))
+const SoftWoodGiftBoxesWholesale = lazyWithRetry(() => import('./pages/knowledge/SoftWoodGiftBoxesWholesale'))
+const WoodenGiftBoxesSustainability = lazyWithRetry(() => import('./pages/knowledge/WoodenGiftBoxesSustainability'))
+const BalsaSoftWoodPackaging = lazyWithRetry(() => import('./pages/knowledge/BalsaSoftWoodPackaging'))
 
 // Support Pages - Lazy loaded
 const FAQsPage = lazyWithRetry(() => import('./pages/support/FAQsPage'))
@@ -831,6 +849,7 @@ const ShipmentTrackingPage = lazyWithRetry(() => import('./pages/ShipmentTrackin
 const SharedQuotePage = lazyWithRetry(() => import('./pages/SharedQuotePage'))
 const SharedPackingPage = lazyWithRetry(() => import('./pages/SharedPackingPage'))
 const DocumentTemplatesPage = lazyWithRetry(() => import('./pages/admin/DocumentTemplatesPage'))
+const SharedStudioPage = lazyWithRetry(() => import('./pages/SharedStudioPage'))
 
 import AdminProtectedRoute from './components/admin/AdminProtectedRoute'
 // Cookie Consent Component
@@ -904,6 +923,9 @@ if (getDomain() === 'pouch') {
                   <Route path="/knowledge/food-packaging-compliance-date-coding" element={<FoodPackagingCompliancePage />} />
                   <Route path="/knowledge/packaging-line-automation-date-coding" element={<PackagingLineAutomationPage />} />
                   <Route path="/knowledge/compostable-packaging-inkjet-coding" element={<CompostablePackagingCodingPage />} />
+                  <Route path="/knowledge/molded-pulp-packaging-benefits" element={<MoldedPulpPackagingBenefits />} />
+                  <Route path="/knowledge/molded-pulp-guide" element={<MoldedPulpGuide />} />
+                  <Route path="/knowledge/automating-pulp-packaging-lines" element={<AutomatingPulpLines />} />
                   {/* <Route path="/blog/industrial-compostable-guide" element={<IndustrialCompostableGuide />} /> */}
                   {/* <Route path="/blog/bpi-certified-guide" element={<BPICertifiedGuide />} /> */}
                   {/* <Route path="/blog/coffee-degassing-valve-guide" element={<CoffeeDegassingValveGuide />} /> */}
@@ -1239,7 +1261,8 @@ if (getDomain() === 'pouch') {
                   <Route path="/solutions/flexible-pouches-catalog" element={<FlexiblePouchesCatalogPage />} />
                   <Route path="/solutions/cosmetics-bottles-catalog" element={<CosmeticsBottlesCatalogPage />} />
                   <Route path="/solutions/shapes/:id" element={<ShapeDetailPage />} />
-                  <Route path="/app" element={<PackageEditorPage />} />
+                  <Route path="/app" element={<Navigate to="/studio" replace />} />
+                  <Route path="/studio" element={<PackageEditorPage />} />
                   <Route path="/case-studies/coffee-roastery" element={<CoffeeRoasteryCaseStudy />} />
                   <Route path="/case-studies/tea-brand" element={<TeaBrandCaseStudy />} />
                   <Route path="/case-studies/superfood-brand" element={<SuperfoodBrandCaseStudy />} />
@@ -1364,7 +1387,24 @@ if (getDomain() === 'pouch') {
                   <Route path="/ctrl-x9k7m/ai-image" element={<AdminProtectedRoute><ImageGeneratorPage /></AdminProtectedRoute>} />
                   <Route path="/ctrl-x9k7m/bookkeeping" element={<AdminProtectedRoute><BookkeepingPage /></AdminProtectedRoute>} />
 
+                  {/* Duplicate Root Routes for EP (pouch.eco aliases) */}
+                  <Route path="/dupont-paper-tote-bags-benefits" element={<DupontPaperToteBagsBenefits />} />
+                  <Route path="/tyvek-vs-canvas-tote-bags" element={<TyvekVsCanvasToteBags />} />
+                  <Route path="/eco-friendly-dupont-paper-bags" element={<EcoFriendlyDupontPaperBags />} />
+                  <Route path="/molded-pulp-packaging-benefits" element={<MoldedPulpPackagingBenefits />} />
+                  <Route path="/molded-pulp-guide" element={<MoldedPulpGuide />} />
+                  <Route path="/automating-pulp-packaging-lines" element={<AutomatingPulpLines />} />
+                  <Route path="/eco-degradable-pulp-boxes-guide" element={<EcoDegradablePulpBoxesGuide />} />
+                  <Route path="/pulp-boxes-vs-corrugated-cardboard" element={<PulpBoxesVsCorrugatedCardboard />} />
+                  <Route path="/luxury-cork-gift-boxes" element={<LuxuryCorkGiftBoxes />} />
+                  <Route path="/cork-packaging-sustainability" element={<CorkPackagingSustainability />} />
+                  <Route path="/custom-cork-gift-boxes-design" element={<CustomCorkGiftBoxesDesign />} />
+                  <Route path="/soft-wood-gift-boxes-wholesale" element={<SoftWoodGiftBoxesWholesale />} />
+                  <Route path="/wooden-gift-boxes-sustainability" element={<WoodenGiftBoxesSustainability />} />
+                  <Route path="/balsa-soft-wood-packaging" element={<BalsaSoftWoodPackaging />} />
+
                   {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
+                  <Route path="/:slug" element={<SharedStudioPage />} />
                   <Route path="*" element={<PouchHomePage />} />
                 </MultilingualRoutes>
               </Suspense>
@@ -1709,7 +1749,8 @@ if (getDomain() === 'pouch') {
                         <Route path="/solutions/flexible-pouches-catalog" element={<FlexiblePouchesCatalogPage />} />
                         <Route path="/solutions/cosmetics-bottles-catalog" element={<CosmeticsBottlesCatalogPage />} />
                         <Route path="/solutions/shapes/:id" element={<ShapeDetailPage />} />
-                        <Route path="/app" element={<PackageEditorPage />} />
+                        <Route path="/app" element={<Navigate to="/studio" replace />} />
+                   <Route path="/studio" element={<PackageEditorPage />} />
                         
                         {/* Topics Pages - AI Search Volume SEO */}
           <Route path="/topics/ai-packaging-resolution" element={<AiPackagingResolutionPage />} />
@@ -1798,6 +1839,38 @@ if (getDomain() === 'pouch') {
                         <Route path="/topics/custom-printed-sustainable-pouches" element={<CustomPrintedSustainablePouchesPage />} />
                         <Route path="/topics/eco-packaging-regulations" element={<EcoPackagingRegulationsPage />} />
                         <Route path="/topics/eu-ppwr-compliance" element={<EUPPWRCompliancePage />} />
+                        
+                        {/* New Knowledge Base Routes */}
+                        <Route path="/knowledge/dupont-paper-tote-bags-benefits" element={<DupontPaperToteBagsBenefits />} />
+                        <Route path="/knowledge/tyvek-vs-canvas-tote-bags" element={<TyvekVsCanvasToteBags />} />
+                        <Route path="/knowledge/eco-friendly-dupont-paper-bags" element={<EcoFriendlyDupontPaperBags />} />
+                        <Route path="/knowledge/molded-pulp-packaging-benefits" element={<MoldedPulpPackagingBenefits />} />
+                        <Route path="/knowledge/molded-pulp-guide" element={<MoldedPulpGuide />} />
+                        <Route path="/knowledge/automating-pulp-packaging-lines" element={<AutomatingPulpLines />} />
+                        <Route path="/knowledge/eco-degradable-pulp-boxes-guide" element={<EcoDegradablePulpBoxesGuide />} />
+                        <Route path="/knowledge/pulp-boxes-vs-corrugated-cardboard" element={<PulpBoxesVsCorrugatedCardboard />} />
+                        <Route path="/knowledge/luxury-cork-gift-boxes" element={<LuxuryCorkGiftBoxes />} />
+                        <Route path="/knowledge/cork-packaging-sustainability" element={<CorkPackagingSustainability />} />
+                        <Route path="/knowledge/custom-cork-gift-boxes-design" element={<CustomCorkGiftBoxesDesign />} />
+                        <Route path="/knowledge/soft-wood-gift-boxes-wholesale" element={<SoftWoodGiftBoxesWholesale />} />
+                        <Route path="/knowledge/wooden-gift-boxes-sustainability" element={<WoodenGiftBoxesSustainability />} />
+                        <Route path="/knowledge/balsa-soft-wood-packaging" element={<BalsaSoftWoodPackaging />} />
+
+                        {/* Duplicate Root Routes for EP (pouch.eco aliases) */}
+                        <Route path="/dupont-paper-tote-bags-benefits" element={<DupontPaperToteBagsBenefits />} />
+                        <Route path="/tyvek-vs-canvas-tote-bags" element={<TyvekVsCanvasToteBags />} />
+                        <Route path="/eco-friendly-dupont-paper-bags" element={<EcoFriendlyDupontPaperBags />} />
+                        <Route path="/molded-pulp-packaging-benefits" element={<MoldedPulpPackagingBenefits />} />
+                        <Route path="/molded-pulp-guide" element={<MoldedPulpGuide />} />
+                        <Route path="/automating-pulp-packaging-lines" element={<AutomatingPulpLines />} />
+                        <Route path="/eco-degradable-pulp-boxes-guide" element={<EcoDegradablePulpBoxesGuide />} />
+                        <Route path="/pulp-boxes-vs-corrugated-cardboard" element={<PulpBoxesVsCorrugatedCardboard />} />
+                        <Route path="/luxury-cork-gift-boxes" element={<LuxuryCorkGiftBoxes />} />
+                        <Route path="/cork-packaging-sustainability" element={<CorkPackagingSustainability />} />
+                        <Route path="/custom-cork-gift-boxes-design" element={<CustomCorkGiftBoxesDesign />} />
+                        <Route path="/soft-wood-gift-boxes-wholesale" element={<SoftWoodGiftBoxesWholesale />} />
+                        <Route path="/wooden-gift-boxes-sustainability" element={<WoodenGiftBoxesSustainability />} />
+                        <Route path="/balsa-soft-wood-packaging" element={<BalsaSoftWoodPackaging />} />
                         <Route path="/topics/custom-brand-solutions" element={<CustomBrandPackagingServicePage />} />
                         <Route path="/topics/eco-friendly-supplier-verification" element={<EcoFriendlySupplierVerificationPage />} />
                         <Route path="/topics/reduce-packaging-waste-guide" element={<ReducePackagingWasteGuidePage />} />
@@ -1930,6 +2003,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/ctrl-x9k7m/email-campaign" element={<AdminProtectedRoute><EmailCampaignPage /></AdminProtectedRoute>} />
 
                         {/* 404 - Catch All Route */}
+                        <Route path="/:slug" element={<SharedStudioPage />} />
                         <Route path="*" element={<NotFoundPage />} />
                       </MultilingualRoutes>
                     </Suspense>

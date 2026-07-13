@@ -16,7 +16,7 @@ const FREE_SERVICES = [
     benefits: ['400+ custom shapes', 'Real-time WebGL editor', 'Watermark-free downloads'],
     icon: Box,
     image: '/imgs/store/box/corrugated-box/ads/a_hero_kv_black_gold_mailer_4737831.webp',
-    link: '/app',
+    link: '/studio',
     gradient: 'from-emerald-500 to-teal-500',
     bgColor: 'bg-emerald-50',
     borderColor: 'border-emerald-200',

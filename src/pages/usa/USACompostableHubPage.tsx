@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { Leaf, Shield, Award, CheckCircle, Globe, MapPin, FileCheck, AlertTriangle, MessageCircle, Package, Coffee, Cookie, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
+import { Leaf, Shield, Award, CheckCircle, Globe, MapPin, FileCheck, AlertTriangle, MessageCircle, Package, Coffee, Cookie, Target, Calendar, Phone, Download, Mail, BookOpen } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -23,7 +23,12 @@ const localTranslations = {
     p4Sol: "Solution: Supply chain optimization and right-sizing the pouch minimize excess waste and cost.",
     p5Title: "5. Certification Confusion (BPI vs TUV)",
     p5Desc: "Navigating regional compostability standards in the US is complex.",
-    p5Sol: "Solution: Using pre-certified materials (BPI, TUV) guarantees compliance and consumer trust."
+    p5Sol: "Solution: Using pre-certified materials (BPI, TUV) guarantees compliance and consumer trust.",
+    ryanTitle: "Ryan Wong's Engineering Notebook",
+    ryanEntry: "Entry: ASTM D6400 vs Home Compostable Barriers",
+    ryanP1: "\"Many US brands ask for 'home compostable' packaging but need a 12-month shelf life. The reality? Home compostable films (like NatureFlex) often lack the moisture barrier needed for sensitive foods.\"",
+    ryanP2: "\"For a recent organic snack brand, we pivoted from home compostable to an ASTM D6400 certified industrial compostable structure (Kraft/PLA). It met California AB 1201 labeling laws and achieved their 12-month shelf-life requirement. Don't compromise product integrity for an unattainable end-of-life scenario.\"",
+    ryanAuthor: "- Ryan Wong, Lead Packaging Engineer"
   },
   es: {
     title: "5 Problemas Comunes de Empaques Compostables en EE.UU. (Y Soluciones)",
@@ -41,7 +46,12 @@ const localTranslations = {
     p4Sol: "Solución: Optimización de la cadena de suministro y el tamaño adecuado reducen el desperdicio y costo.",
     p5Title: "5. Confusión de Certificaciones (BPI vs TUV)",
     p5Desc: "Navegar los estándares regionales de compostabilidad en EE.UU. es complejo.",
-    p5Sol: "Solución: Uso de materiales precertificados (BPI, TUV) garantiza cumplimiento y confianza."
+    p5Sol: "Solución: Uso de materiales precertificados (BPI, TUV) garantiza cumplimiento y confianza.",
+    ryanTitle: "Cuaderno de Ingeniería de Ryan Wong",
+    ryanEntry: "Entrada: Barreras ASTM D6400 vs. Compostables en el Hogar",
+    ryanP1: "\"Muchas marcas de EE. UU. piden empaques 'compostables en el hogar' pero necesitan una vida útil de 12 meses. ¿La realidad? Las películas compostables en el hogar (como NatureFlex) a menudo carecen de la barrera de humedad necesaria para alimentos sensibles.\"",
+    ryanP2: "\"Para una reciente marca de snacks orgánicos, cambiamos de compostable en el hogar a una estructura compostable industrial certificada por ASTM D6400 (Kraft/PLA). Cumplió con las leyes de etiquetado AB 1201 de California y logró su requisito de vida útil de 12 meses. No comprometa la integridad del producto por un escenario de fin de vida inalcanzable.\"",
+    ryanAuthor: "- Ryan Wong, Ingeniero Principal de Empaques"
   },
   fr: {
     title: "5 Problèmes Courants d'Emballages Compostables aux États-Unis (Et Solutions)",
@@ -59,7 +69,12 @@ const localTranslations = {
     p4Sol: "Solution : L'optimisation de la chaîne d'approvisionnement et le dimensionnement adéquat minimisent les coûts.",
     p5Title: "5. Confusion des Certifications (BPI vs TUV)",
     p5Desc: "Naviguer dans les normes régionales de compostabilité aux États-Unis est complexe.",
-    p5Sol: "Solution : L'utilisation de matériaux pré-certifiés (BPI, TUV) garantit la conformité et la confiance."
+    p5Sol: "Solution : L'utilisation de matériaux pré-certifiés (BPI, TUV) garantit la conformité et la confiance.",
+    ryanTitle: "Carnet d'Ingénierie de Ryan Wong",
+    ryanEntry: "Entrée : Barrières ASTM D6400 vs Compostables à Domicile",
+    ryanP1: "\"De nombreuses marques américaines demandent des emballages 'compostables à domicile' mais ont besoin d'une durée de conservation de 12 mois. La réalité ? Les films compostables à domicile (comme NatureFlex) manquent souvent de la barrière contre l'humidité nécessaire pour les aliments sensibles.\"",
+    ryanP2: "\"Pour une marque récente de snacks biologiques, nous sommes passés du compostable à domicile à une structure compostable industrielle certifiée ASTM D6400 (Kraft/PLA). Elle répondait aux lois d'étiquetage californiennes AB 1201 et atteignait leur exigence de 12 mois de durée de conservation. Ne compromettez pas l'intégrité du produit pour un scénario de fin de vie inatteignable.\"",
+    ryanAuthor: "- Ryan Wong, Ingénieur Principal en Emballage"
   },
   'zh-TW': {
     title: "美國可堆肥包裝的5個常見問題（及解決方案）",
@@ -77,7 +92,12 @@ const localTranslations = {
     p4Sol: "解決方案：供應鏈優化和合適尺寸設計可最大程度減少浪費和成本。",
     p5Title: "5. 認證混亂（BPI vs TUV）",
     p5Desc: "在美國各地應對區域可堆肥性標準非常複雜。",
-    p5Sol: "解決方案：使用預先認證的材料（BPI、TUV）可確保合規性和消費者信任。"
+    p5Sol: "解決方案：使用預先認證的材料（BPI、TUV）可確保合規性和消費者信任。",
+    ryanTitle: "Ryan Wong 的工程筆記",
+    ryanEntry: "記錄：ASTM D6400 與家庭可堆肥阻隔材料",
+    ryanP1: "「許多美國品牌要求使用『家庭可堆肥』包裝，但同時需要 12 個月的保質期。現實呢？家庭可堆肥薄膜（如 NatureFlex）往往缺乏敏感食品所需的水分阻隔性。」",
+    ryanP2: "「針對最近一個有機零食品牌，我們從家庭可堆肥轉向了經過 ASTM D6400 認證的工業可堆肥結構（牛皮紙/PLA）。這符合加州 AB 1201 標籤法，並達到了他們 12 個月的保質期要求。不要為了無法實現的生命終期場景而犧牲產品完整性。」",
+    ryanAuthor: "— Ryan Wong，首席包裝工程師"
   }
 }
 
@@ -176,6 +196,19 @@ const USACompostableHubPage: React.FC = () => {
               caption={t(`${p}.sections.materials.imgCaption`)}
             />
           </div>
+        </div>
+      )
+    },
+    {
+      id: 'ryan-wong-notebook',
+      title: currentLangTranslations.ryanTitle,
+      icon: <BookOpen className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-neutral-50 p-6 rounded-lg border-l-4 border-primary-600 font-mono text-sm text-neutral-800">
+          <p className="font-bold mb-2">{currentLangTranslations.ryanEntry}</p>
+          <p className="mb-2">{currentLangTranslations.ryanP1}</p>
+          <p className="mb-2">{currentLangTranslations.ryanP2}</p>
+          <p className="italic text-neutral-600 mt-4">{currentLangTranslations.ryanAuthor}</p>
         </div>
       )
     },

@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-12",
-  "total_images": 5051,
-  "total_categories": 241,
+  "generated": "2026-07-13",
+  "total_images": 5196,
+  "total_categories": 242,
   "extensions": {
     ".webp": 1313,
     ".png": 3027,
-    ".jpg": 708,
+    ".jpg": 853,
     ".svg": 3
   },
   "categories": {
@@ -6880,6 +6880,17 @@
         }
       ]
     },
+    "free-service": {
+      "count": 1,
+      "images": [
+        {
+          "filename": "free-3d-studio-hero.jpg",
+          "path": "/imgs/free-service/free-3d-studio-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-13T00:08:29.567Z"
+        }
+      ]
+    },
     "free/center": {
       "count": 4,
       "images": [
@@ -12742,8 +12753,524 @@
       ]
     },
     "knowledge": {
-      "count": 174,
+      "count": 259,
       "images": [
+        {
+          "filename": "sustainable-custom-pouches-pain-points.jpg",
+          "path": "/imgs/knowledge/sustainable-custom-pouches-pain-points.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T14:02:33.362Z"
+        },
+        {
+          "filename": "wooden_gift_lifestyle.jpg",
+          "path": "/imgs/knowledge/wooden_gift_lifestyle.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:10:21.500Z"
+        },
+        {
+          "filename": "wooden_gift_feature.jpg",
+          "path": "/imgs/knowledge/wooden_gift_feature.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:10:13.650Z"
+        },
+        {
+          "filename": "wooden_gift_hero.jpg",
+          "path": "/imgs/knowledge/wooden_gift_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:10:05.771Z"
+        },
+        {
+          "filename": "eco_degradable_pulp_lifestyle.jpg",
+          "path": "/imgs/knowledge/eco_degradable_pulp_lifestyle.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:09:23.929Z"
+        },
+        {
+          "filename": "eco_degradable_pulp_feature.jpg",
+          "path": "/imgs/knowledge/eco_degradable_pulp_feature.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:09:15.810Z"
+        },
+        {
+          "filename": "eco_degradable_pulp_hero.jpg",
+          "path": "/imgs/knowledge/eco_degradable_pulp_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:09:05.806Z"
+        },
+        {
+          "filename": "dupont_tote_lifestyle.jpg",
+          "path": "/imgs/knowledge/dupont_tote_lifestyle.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:08:27.241Z"
+        },
+        {
+          "filename": "dupont_tote_feature.jpg",
+          "path": "/imgs/knowledge/dupont_tote_feature.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:08:18.864Z"
+        },
+        {
+          "filename": "dupont_tote_hero.jpg",
+          "path": "/imgs/knowledge/dupont_tote_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:08:10.763Z"
+        },
+        {
+          "filename": "custom_cork_lifestyle.jpg",
+          "path": "/imgs/knowledge/custom_cork_lifestyle.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:07:29.719Z"
+        },
+        {
+          "filename": "custom_cork_feature.jpg",
+          "path": "/imgs/knowledge/custom_cork_feature.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:07:19.422Z"
+        },
+        {
+          "filename": "custom_cork_hero.jpg",
+          "path": "/imgs/knowledge/custom_cork_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:07:09.284Z"
+        },
+        {
+          "filename": "dupont_paper_lifestyle.jpg",
+          "path": "/imgs/knowledge/dupont_paper_lifestyle.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:06:07.054Z"
+        },
+        {
+          "filename": "dupont_paper_feature.jpg",
+          "path": "/imgs/knowledge/dupont_paper_feature.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:05:57.100Z"
+        },
+        {
+          "filename": "dupont_paper_hero.jpg",
+          "path": "/imgs/knowledge/dupont_paper_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:05:47.361Z"
+        },
+        {
+          "filename": "cork_sustainability_lifestyle.jpg",
+          "path": "/imgs/knowledge/cork_sustainability_lifestyle.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:05:01.197Z"
+        },
+        {
+          "filename": "cork_sustainability_feature.jpg",
+          "path": "/imgs/knowledge/cork_sustainability_feature.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:04:53.148Z"
+        },
+        {
+          "filename": "cork_sustainability_hero.jpg",
+          "path": "/imgs/knowledge/cork_sustainability_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:04:43.330Z"
+        },
+        {
+          "filename": "molded_pulp_lifestyle.jpg",
+          "path": "/imgs/knowledge/molded_pulp_lifestyle.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:03:53.663Z"
+        },
+        {
+          "filename": "molded_pulp_feature.jpg",
+          "path": "/imgs/knowledge/molded_pulp_feature.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:03:46.499Z"
+        },
+        {
+          "filename": "molded_pulp_hero.jpg",
+          "path": "/imgs/knowledge/molded_pulp_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:03:38.543Z"
+        },
+        {
+          "filename": "soft_wood_wholesale_lifestyle.jpg",
+          "path": "/imgs/knowledge/soft_wood_wholesale_lifestyle.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:02:45.509Z"
+        },
+        {
+          "filename": "soft_wood_wholesale_feature.jpg",
+          "path": "/imgs/knowledge/soft_wood_wholesale_feature.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:02:37.283Z"
+        },
+        {
+          "filename": "soft_wood_wholesale_hero.jpg",
+          "path": "/imgs/knowledge/soft_wood_wholesale_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:02:30.176Z"
+        },
+        {
+          "filename": "balsa_wood_lifestyle.jpg",
+          "path": "/imgs/knowledge/balsa_wood_lifestyle.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:01:09.539Z"
+        },
+        {
+          "filename": "balsa_wood_feature.jpg",
+          "path": "/imgs/knowledge/balsa_wood_feature.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:00:59.947Z"
+        },
+        {
+          "filename": "balsa_wood_hero.jpg",
+          "path": "/imgs/knowledge/balsa_wood_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T10:00:51.735Z"
+        },
+        {
+          "filename": "pulp_vs_corrugated_lifestyle.jpg",
+          "path": "/imgs/knowledge/pulp_vs_corrugated_lifestyle.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T09:59:48.835Z"
+        },
+        {
+          "filename": "pulp_vs_corrugated_feature.jpg",
+          "path": "/imgs/knowledge/pulp_vs_corrugated_feature.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T09:59:39.878Z"
+        },
+        {
+          "filename": "pulp_vs_corrugated_hero.jpg",
+          "path": "/imgs/knowledge/pulp_vs_corrugated_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T09:59:31.905Z"
+        },
+        {
+          "filename": "luxury_cork_lifestyle.jpg",
+          "path": "/imgs/knowledge/luxury_cork_lifestyle.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T09:58:42.392Z"
+        },
+        {
+          "filename": "luxury_cork_feature.jpg",
+          "path": "/imgs/knowledge/luxury_cork_feature.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T09:58:33.782Z"
+        },
+        {
+          "filename": "luxury_cork_hero.jpg",
+          "path": "/imgs/knowledge/luxury_cork_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T09:58:25.583Z"
+        },
+        {
+          "filename": "tyvek_canvas_lifestyle.jpg",
+          "path": "/imgs/knowledge/tyvek_canvas_lifestyle.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T09:57:27.116Z"
+        },
+        {
+          "filename": "tyvek_canvas_feature.jpg",
+          "path": "/imgs/knowledge/tyvek_canvas_feature.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T09:57:18.941Z"
+        },
+        {
+          "filename": "tyvek_canvas_hero.jpg",
+          "path": "/imgs/knowledge/tyvek_canvas_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T09:57:08.960Z"
+        },
+        {
+          "filename": "softwood_wholesale_3.jpg",
+          "path": "/imgs/knowledge/softwood_wholesale_3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T08:32:28.389Z"
+        },
+        {
+          "filename": "softwood_wholesale_2.jpg",
+          "path": "/imgs/knowledge/softwood_wholesale_2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T08:32:28.387Z"
+        },
+        {
+          "filename": "softwood_wholesale_1.jpg",
+          "path": "/imgs/knowledge/softwood_wholesale_1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T08:32:28.385Z"
+        },
+        {
+          "filename": "cork_design_2.jpg",
+          "path": "/imgs/knowledge/cork_design_2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T08:32:15.446Z"
+        },
+        {
+          "filename": "cork_design_3.jpg",
+          "path": "/imgs/knowledge/cork_design_3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T08:32:15.446Z"
+        },
+        {
+          "filename": "cork_design_1.jpg",
+          "path": "/imgs/knowledge/cork_design_1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T08:32:15.445Z"
+        },
+        {
+          "filename": "balsa_wood_3.jpg",
+          "path": "/imgs/knowledge/balsa_wood_3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T08:31:43.883Z"
+        },
+        {
+          "filename": "balsa_wood_2.jpg",
+          "path": "/imgs/knowledge/balsa_wood_2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T08:31:42.440Z"
+        },
+        {
+          "filename": "balsa_wood_1.jpg",
+          "path": "/imgs/knowledge/balsa_wood_1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T08:31:40.637Z"
+        },
+        {
+          "filename": "luxury-cork-gift-box-open.jpg",
+          "path": "/imgs/knowledge/luxury-cork-gift-box-open.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T08:31:37.625Z"
+        },
+        {
+          "filename": "luxury-cork-gift-box-premium.jpg",
+          "path": "/imgs/knowledge/luxury-cork-gift-box-premium.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T08:31:37.625Z"
+        },
+        {
+          "filename": "luxury-cork-gift-box-hero.jpg",
+          "path": "/imgs/knowledge/luxury-cork-gift-box-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T08:31:37.624Z"
+        },
+        {
+          "filename": "pulp_corrugated_3.jpg",
+          "path": "/imgs/knowledge/pulp_corrugated_3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T08:30:58.884Z"
+        },
+        {
+          "filename": "pulp_corrugated_2.jpg",
+          "path": "/imgs/knowledge/pulp_corrugated_2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T08:30:58.882Z"
+        },
+        {
+          "filename": "pulp_corrugated_1.jpg",
+          "path": "/imgs/knowledge/pulp_corrugated_1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T08:30:58.880Z"
+        },
+        {
+          "filename": "corporate-cork-gift-boxes-eco-branding-hero.jpg",
+          "path": "/imgs/knowledge/corporate-cork-gift-boxes-eco-branding-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:39:48.034Z"
+        },
+        {
+          "filename": "premium-cork-gift-packaging-textural-experience-content.jpg",
+          "path": "/imgs/knowledge/premium-cork-gift-packaging-textural-experience-content.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:39:48.030Z"
+        },
+        {
+          "filename": "premium-cork-gift-packaging-textural-experience-hero.jpg",
+          "path": "/imgs/knowledge/premium-cork-gift-packaging-textural-experience-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:39:48.025Z"
+        },
+        {
+          "filename": "eco-friendly-cork-gift-boxes-sustainable-luxury-content.jpg",
+          "path": "/imgs/knowledge/eco-friendly-cork-gift-boxes-sustainable-luxury-content.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:39:48.020Z"
+        },
+        {
+          "filename": "eco-friendly-cork-gift-boxes-sustainable-luxury-hero.jpg",
+          "path": "/imgs/knowledge/eco-friendly-cork-gift-boxes-sustainable-luxury-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:39:48.012Z"
+        },
+        {
+          "filename": "lightweight-balsa-wood-boxes.jpg",
+          "path": "/imgs/knowledge/lightweight-balsa-wood-boxes.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:36:45.004Z"
+        },
+        {
+          "filename": "eco-friendly-soft-wood-lifecycle.jpg",
+          "path": "/imgs/knowledge/eco-friendly-soft-wood-lifecycle.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:36:45.001Z"
+        },
+        {
+          "filename": "soft-wood-packaging-applications.jpg",
+          "path": "/imgs/knowledge/soft-wood-packaging-applications.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:36:44.998Z"
+        },
+        {
+          "filename": "balsa-soft-wood-packaging-hero.jpg",
+          "path": "/imgs/knowledge/balsa-soft-wood-packaging-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:36:44.995Z"
+        },
+        {
+          "filename": "sustainable-wooden-gift-boxes-hero.jpg",
+          "path": "/imgs/knowledge/sustainable-wooden-gift-boxes-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:36:44.991Z"
+        },
+        {
+          "filename": "soft-wood-gift-boxes-wholesale-hero.jpg",
+          "path": "/imgs/knowledge/soft-wood-gift-boxes-wholesale-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:36:44.987Z"
+        },
+        {
+          "filename": "eco-friendly-dupont-paper-bags-content.jpg",
+          "path": "/imgs/knowledge/eco-friendly-dupont-paper-bags-content.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:36:29.062Z"
+        },
+        {
+          "filename": "eco-friendly-dupont-paper-bags-hero.jpg",
+          "path": "/imgs/knowledge/eco-friendly-dupont-paper-bags-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:36:27.313Z"
+        },
+        {
+          "filename": "tyvek-vs-canvas-tote-bags-content.jpg",
+          "path": "/imgs/knowledge/tyvek-vs-canvas-tote-bags-content.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:36:25.556Z"
+        },
+        {
+          "filename": "tyvek-vs-canvas-tote-bags-hero.jpg",
+          "path": "/imgs/knowledge/tyvek-vs-canvas-tote-bags-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:36:23.923Z"
+        },
+        {
+          "filename": "dupont-paper-tote-bags-benefits-content.jpg",
+          "path": "/imgs/knowledge/dupont-paper-tote-bags-benefits-content.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:36:22.353Z"
+        },
+        {
+          "filename": "dupont-paper-tote-bags-benefits-hero.jpg",
+          "path": "/imgs/knowledge/dupont-paper-tote-bags-benefits-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:36:21.229Z"
+        },
+        {
+          "filename": "tyvek-strength-load-test.jpg",
+          "path": "/imgs/knowledge/tyvek-strength-load-test.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:35:41.315Z"
+        },
+        {
+          "filename": "tyvek-waterproof-durability-test.jpg",
+          "path": "/imgs/knowledge/tyvek-waterproof-durability-test.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:35:41.312Z"
+        },
+        {
+          "filename": "tyvek-eco-friendly-material.jpg",
+          "path": "/imgs/knowledge/tyvek-eco-friendly-material.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:35:41.301Z"
+        },
+        {
+          "filename": "tyvek-vs-kraft-tote-hero.jpg",
+          "path": "/imgs/knowledge/tyvek-vs-kraft-tote-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:35:41.290Z"
+        },
+        {
+          "filename": "dupont-tyvek-eco-tote-hero.jpg",
+          "path": "/imgs/knowledge/dupont-tyvek-eco-tote-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:35:41.284Z"
+        },
+        {
+          "filename": "eco-friendly-wood-sourcing-forestry.jpg",
+          "path": "/imgs/knowledge/eco-friendly-wood-sourcing-forestry.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:35:36.134Z"
+        },
+        {
+          "filename": "fsc-certified-sustainable-wood-packaging-hero.jpg",
+          "path": "/imgs/knowledge/fsc-certified-sustainable-wood-packaging-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:35:36.130Z"
+        },
+        {
+          "filename": "b2b-laser-engraving-process-wood.jpg",
+          "path": "/imgs/knowledge/b2b-laser-engraving-process-wood.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:35:36.126Z"
+        },
+        {
+          "filename": "laser-engraved-wood-box-branding-hero.jpg",
+          "path": "/imgs/knowledge/laser-engraved-wood-box-branding-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:35:36.118Z"
+        },
+        {
+          "filename": "soft-wood-grain-texture-premium.jpg",
+          "path": "/imgs/knowledge/soft-wood-grain-texture-premium.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:35:36.114Z"
+        },
+        {
+          "filename": "soft-wood-gift-box-unboxing-hero.jpg",
+          "path": "/imgs/knowledge/soft-wood-gift-box-unboxing-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:35:36.110Z"
+        },
+        {
+          "filename": "molded-pulp-vffs-coding-process.jpg",
+          "path": "/imgs/knowledge/molded-pulp-vffs-coding-process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:35:33.039Z"
+        },
+        {
+          "filename": "molded-pulp-packaging-automation-hero.jpg",
+          "path": "/imgs/knowledge/molded-pulp-packaging-automation-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:35:33.036Z"
+        },
+        {
+          "filename": "pulp-packaging-protective-cushioning.jpg",
+          "path": "/imgs/knowledge/pulp-packaging-protective-cushioning.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:35:33.034Z"
+        },
+        {
+          "filename": "pulp-box-vs-cardboard-comparison-hero.jpg",
+          "path": "/imgs/knowledge/pulp-box-vs-cardboard-comparison-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:35:33.032Z"
+        },
+        {
+          "filename": "compostable-pulp-tray-texture.jpg",
+          "path": "/imgs/knowledge/compostable-pulp-tray-texture.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:35:33.029Z"
+        },
+        {
+          "filename": "molded-pulp-eco-box-hero.jpg",
+          "path": "/imgs/knowledge/molded-pulp-eco-box-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:35:33.027Z"
+        },
         {
           "filename": "pouch-coding-debossing.jpg",
           "path": "/imgs/knowledge/pouch-coding-debossing.jpg",
@@ -13595,12 +14122,6 @@
           "path": "/imgs/knowledge/kraft-duplex-pain-points.jpg",
           "extension": ".jpg",
           "modified": "2026-07-02T02:50:12.673Z"
-        },
-        {
-          "filename": "sustainable-custom-pouches-pain-points.jpg",
-          "path": "/imgs/knowledge/sustainable-custom-pouches-pain-points.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-02T02:49:26.366Z"
         },
         {
           "filename": "pouch-material-catalog-pain-points.jpg",
@@ -14720,8 +15241,26 @@
       ]
     },
     "pcr/7": {
-      "count": 8,
+      "count": 11,
       "images": [
+        {
+          "filename": "pcr-supply-chain-reliability.jpg",
+          "path": "/imgs/pcr/7/pcr-supply-chain-reliability.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T23:30:02.139Z"
+        },
+        {
+          "filename": "pcr-quality-consistency-check.jpg",
+          "path": "/imgs/pcr/7/pcr-quality-consistency-check.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T23:30:02.136Z"
+        },
+        {
+          "filename": "pcr-packaging-checklist-hero.jpg",
+          "path": "/imgs/pcr/7/pcr-packaging-checklist-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T23:30:02.133Z"
+        },
         {
           "filename": "a_landscape_comparison_pcr_virgin_9079701.webp",
           "path": "/imgs/pcr/7/a_landscape_comparison_pcr_virgin_9079701.webp",
@@ -25227,8 +25766,344 @@
       ]
     },
     "store/products": {
-      "count": 431,
+      "count": 487,
       "images": [
+        {
+          "filename": "compostable-mailer-bag.jpg",
+          "path": "/imgs/store/products/compostable-mailer-bag.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-13T00:06:57.340Z"
+        },
+        {
+          "filename": "kraft-box-premium.jpg",
+          "path": "/imgs/store/products/kraft-box-premium.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-13T00:06:57.332Z"
+        },
+        {
+          "filename": "compostable-standup-pouch.jpg",
+          "path": "/imgs/store/products/compostable-standup-pouch.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-13T00:06:57.322Z"
+        },
+        {
+          "filename": "dupont-paper-tote-bags-thumbnail-1.jpg",
+          "path": "/imgs/store/products/dupont-paper-tote-bags-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T13:52:54.005Z"
+        },
+        {
+          "filename": "eco-friendly-soft-wood-gift-box-thumbnail-9.jpg",
+          "path": "/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-9.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:21:51.895Z"
+        },
+        {
+          "filename": "eco-friendly-soft-wood-gift-box-thumbnail-8.jpg",
+          "path": "/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-8.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:21:51.890Z"
+        },
+        {
+          "filename": "eco-friendly-soft-wood-gift-box-thumbnail-7.jpg",
+          "path": "/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-7.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:21:51.884Z"
+        },
+        {
+          "filename": "eco-friendly-soft-wood-gift-box-thumbnail-6.jpg",
+          "path": "/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-6.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:21:51.877Z"
+        },
+        {
+          "filename": "eco-friendly-soft-wood-gift-box-thumbnail-5.jpg",
+          "path": "/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-5.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:21:51.872Z"
+        },
+        {
+          "filename": "eco-friendly-soft-wood-gift-box-thumbnail-4.jpg",
+          "path": "/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-4.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:21:51.865Z"
+        },
+        {
+          "filename": "eco-friendly-soft-wood-gift-box-thumbnail-3.jpg",
+          "path": "/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:21:51.859Z"
+        },
+        {
+          "filename": "eco-friendly-soft-wood-gift-box-thumbnail-2.jpg",
+          "path": "/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:21:51.853Z"
+        },
+        {
+          "filename": "eco-friendly-soft-wood-gift-box-thumbnail-1.jpg",
+          "path": "/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:21:51.845Z"
+        },
+        {
+          "filename": "eco-friendly-soft-wood-gift-box-thumbnail-10.jpg",
+          "path": "/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-10.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:21:51.839Z"
+        },
+        {
+          "filename": "eco-friendly-cork-gift-box-thumbnail-9.jpg",
+          "path": "/imgs/store/products/eco-friendly-cork-gift-box-thumbnail-9.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:21:51.545Z"
+        },
+        {
+          "filename": "eco-friendly-cork-gift-box-thumbnail-8.jpg",
+          "path": "/imgs/store/products/eco-friendly-cork-gift-box-thumbnail-8.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:21:51.535Z"
+        },
+        {
+          "filename": "eco-friendly-cork-gift-box-thumbnail-7.jpg",
+          "path": "/imgs/store/products/eco-friendly-cork-gift-box-thumbnail-7.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:21:51.521Z"
+        },
+        {
+          "filename": "eco-friendly-cork-gift-box-thumbnail-6.jpg",
+          "path": "/imgs/store/products/eco-friendly-cork-gift-box-thumbnail-6.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:21:51.506Z"
+        },
+        {
+          "filename": "eco-friendly-cork-gift-box-thumbnail-5.jpg",
+          "path": "/imgs/store/products/eco-friendly-cork-gift-box-thumbnail-5.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:21:51.490Z"
+        },
+        {
+          "filename": "eco-friendly-cork-gift-box-thumbnail-4.jpg",
+          "path": "/imgs/store/products/eco-friendly-cork-gift-box-thumbnail-4.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:21:51.477Z"
+        },
+        {
+          "filename": "eco-friendly-cork-gift-box-thumbnail-3.jpg",
+          "path": "/imgs/store/products/eco-friendly-cork-gift-box-thumbnail-3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:21:51.470Z"
+        },
+        {
+          "filename": "eco-friendly-cork-gift-box-thumbnail-2.jpg",
+          "path": "/imgs/store/products/eco-friendly-cork-gift-box-thumbnail-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:21:51.458Z"
+        },
+        {
+          "filename": "eco-friendly-cork-gift-box-thumbnail-1.jpg",
+          "path": "/imgs/store/products/eco-friendly-cork-gift-box-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:21:51.448Z"
+        },
+        {
+          "filename": "eco-friendly-cork-gift-box-thumbnail-10.jpg",
+          "path": "/imgs/store/products/eco-friendly-cork-gift-box-thumbnail-10.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:21:51.440Z"
+        },
+        {
+          "filename": "dupont-paper-tote-bags-thumbnail-9.jpg",
+          "path": "/imgs/store/products/dupont-paper-tote-bags-thumbnail-9.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:12:24.209Z"
+        },
+        {
+          "filename": "dupont-paper-tote-bags-thumbnail-8.jpg",
+          "path": "/imgs/store/products/dupont-paper-tote-bags-thumbnail-8.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:12:24.208Z"
+        },
+        {
+          "filename": "dupont-paper-tote-bags-thumbnail-5.jpg",
+          "path": "/imgs/store/products/dupont-paper-tote-bags-thumbnail-5.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:12:24.206Z"
+        },
+        {
+          "filename": "dupont-paper-tote-bags-thumbnail-6.jpg",
+          "path": "/imgs/store/products/dupont-paper-tote-bags-thumbnail-6.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:12:24.206Z"
+        },
+        {
+          "filename": "dupont-paper-tote-bags-thumbnail-7.jpg",
+          "path": "/imgs/store/products/dupont-paper-tote-bags-thumbnail-7.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:12:24.206Z"
+        },
+        {
+          "filename": "dupont-paper-tote-bags-thumbnail-4.jpg",
+          "path": "/imgs/store/products/dupont-paper-tote-bags-thumbnail-4.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:12:24.202Z"
+        },
+        {
+          "filename": "dupont-paper-tote-bags-thumbnail-3.jpg",
+          "path": "/imgs/store/products/dupont-paper-tote-bags-thumbnail-3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:12:24.201Z"
+        },
+        {
+          "filename": "dupont-paper-tote-bags-thumbnail-10.jpg",
+          "path": "/imgs/store/products/dupont-paper-tote-bags-thumbnail-10.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:12:24.200Z"
+        },
+        {
+          "filename": "dupont-paper-tote-bags-thumbnail-2.jpg",
+          "path": "/imgs/store/products/dupont-paper-tote-bags-thumbnail-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:12:24.200Z"
+        },
+        {
+          "filename": "eco-degradable-pulp-boxes-thumbnail-9.jpg",
+          "path": "/imgs/store/products/eco-degradable-pulp-boxes-thumbnail-9.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:02:05.713Z"
+        },
+        {
+          "filename": "eco-degradable-pulp-boxes-thumbnail-6.jpg",
+          "path": "/imgs/store/products/eco-degradable-pulp-boxes-thumbnail-6.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:02:05.712Z"
+        },
+        {
+          "filename": "eco-degradable-pulp-boxes-thumbnail-7.jpg",
+          "path": "/imgs/store/products/eco-degradable-pulp-boxes-thumbnail-7.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:02:05.712Z"
+        },
+        {
+          "filename": "eco-degradable-pulp-boxes-thumbnail-8.jpg",
+          "path": "/imgs/store/products/eco-degradable-pulp-boxes-thumbnail-8.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:02:05.712Z"
+        },
+        {
+          "filename": "eco-degradable-pulp-boxes-thumbnail-2.jpg",
+          "path": "/imgs/store/products/eco-degradable-pulp-boxes-thumbnail-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:02:05.711Z"
+        },
+        {
+          "filename": "eco-degradable-pulp-boxes-thumbnail-3.jpg",
+          "path": "/imgs/store/products/eco-degradable-pulp-boxes-thumbnail-3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:02:05.711Z"
+        },
+        {
+          "filename": "eco-degradable-pulp-boxes-thumbnail-4.jpg",
+          "path": "/imgs/store/products/eco-degradable-pulp-boxes-thumbnail-4.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:02:05.711Z"
+        },
+        {
+          "filename": "eco-degradable-pulp-boxes-thumbnail-5.jpg",
+          "path": "/imgs/store/products/eco-degradable-pulp-boxes-thumbnail-5.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:02:05.711Z"
+        },
+        {
+          "filename": "eco-degradable-pulp-boxes-thumbnail-1.jpg",
+          "path": "/imgs/store/products/eco-degradable-pulp-boxes-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:02:05.710Z"
+        },
+        {
+          "filename": "eco-degradable-pulp-boxes-thumbnail-10.jpg",
+          "path": "/imgs/store/products/eco-degradable-pulp-boxes-thumbnail-10.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T03:02:05.710Z"
+        },
+        {
+          "filename": "custom-box-packaging-thumbnail-8.jpg",
+          "path": "/imgs/store/products/custom-box-packaging-thumbnail-8.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T02:43:22.962Z"
+        },
+        {
+          "filename": "custom-box-packaging-thumbnail-9.jpg",
+          "path": "/imgs/store/products/custom-box-packaging-thumbnail-9.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T02:43:22.962Z"
+        },
+        {
+          "filename": "custom-box-packaging-thumbnail-6.jpg",
+          "path": "/imgs/store/products/custom-box-packaging-thumbnail-6.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T02:43:22.961Z"
+        },
+        {
+          "filename": "custom-box-packaging-thumbnail-7.jpg",
+          "path": "/imgs/store/products/custom-box-packaging-thumbnail-7.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T02:43:22.961Z"
+        },
+        {
+          "filename": "custom-box-packaging-thumbnail-3.jpg",
+          "path": "/imgs/store/products/custom-box-packaging-thumbnail-3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T02:43:22.960Z"
+        },
+        {
+          "filename": "custom-box-packaging-thumbnail-4.jpg",
+          "path": "/imgs/store/products/custom-box-packaging-thumbnail-4.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T02:43:22.960Z"
+        },
+        {
+          "filename": "custom-box-packaging-thumbnail-5.jpg",
+          "path": "/imgs/store/products/custom-box-packaging-thumbnail-5.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T02:43:22.960Z"
+        },
+        {
+          "filename": "custom-box-packaging-thumbnail-1.jpg",
+          "path": "/imgs/store/products/custom-box-packaging-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T02:43:22.959Z"
+        },
+        {
+          "filename": "custom-box-packaging-thumbnail-2.jpg",
+          "path": "/imgs/store/products/custom-box-packaging-thumbnail-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T02:43:22.959Z"
+        },
+        {
+          "filename": "custom-box-packaging-thumbnail-10.jpg",
+          "path": "/imgs/store/products/custom-box-packaging-thumbnail-10.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T02:43:22.957Z"
+        },
+        {
+          "filename": "28lb-dry-food-bag-pet12-hero.jpg",
+          "path": "/imgs/store/products/28lb-dry-food-bag-pet12-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T02:22:20.238Z"
+        },
+        {
+          "filename": "stand-up-pouch-full-matte-pe70-hero.jpg",
+          "path": "/imgs/store/products/stand-up-pouch-full-matte-pe70-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T02:22:20.235Z"
+        },
+        {
+          "filename": "triangle-coffee-box-card-hero.jpg",
+          "path": "/imgs/store/products/triangle-coffee-box-card-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-12T02:22:20.232Z"
+        },
         {
           "filename": "premium-cotton-paper-foil-pouch-guide.jpg",
           "path": "/imgs/store/products/premium-cotton-paper-foil-pouch-guide.jpg",

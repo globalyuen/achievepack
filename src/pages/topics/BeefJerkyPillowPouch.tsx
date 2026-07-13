@@ -124,13 +124,58 @@ const localTranslations = {
     faq3A: "支持。本產品的拉力、挺度與靜電控制均針對主流的立式 (VFFS) 與臥式 (HFFS) 包裝機進行了優化。",
     faq4Q: "該材質有哪些認證證書？",
     faq4A: "我們提供符合美國 FDA 食品安全標準、歐盟 EN 13432 可降解認證以及 Mono-PE 可回收材料證書。"
-  }
+  },
+  fr: {
+    title: "Sachet coussin pour bœuf séché (modèle #587) | Achieve Pack",
+    description: "Découvrez le sachet coussin pour bœuf séché (modèle #587). Sachet à soudure dorsale haute barrière avec dimensions personnalisées (L : 153 mm, H : 225 mm), certifications et aperçu 3D.",
+    heroTitle: "Sachet coussin pour bœuf séché (modèle #587)",
+    heroSubtitle: "Dimensions personnalisées L : 153 mm, H : 225 mm | Haute barrière | Certifié BPI & TUV",
+    introSummary: "Le sachet coussin pour bœuf séché (modèle #587) représente une structure d'emballage haut de gamme à haute résistance, conçue pour les environnements de vente au détail et industriels. Ce sachet à soudure dorsale est optimisé pour des performances idéales sur les lignes d'emballage automatique.",
+    aeoSummary: "Le modèle #587 est un sachet à soudure dorsale mesurant L : 153 mm, H : 225 mm. Il est configuré avec un film barrière haute performance et des fermetures fiables pour éviter les fuites et maximiser la durée de conservation du produit.",
+    eeatDetails: "Avec plus de 14 ans d'expérience en ingénierie de l'emballage, nous garantissons que chaque lot du modèle #587 est conforme aux réglementations internationales de sécurité alimentaire et de durabilité.",
+    section1Title: "Détails structurels et configuration des matériaux",
+    section1Text: "Conçu spécifiquement pour la stabilité de qualité alimentaire, ce sachet à soudure dorsale (modèle #587) utilise des substrats coextrudés pour offrir une excellente résistance chimique et une protection contre les perforations. Idéal pour les flux de travail automatiques de formage-remplissage-soudage et le remplissage manuel par lots, il conserve sa forme structurelle et l'esthétique de la marque.",
+    section2Title: "Du carnet d'ingénierie de Ryan Wong",
+    section2Log: "Le sachet à soudure dorsale modèle #587 exige des paramètres de soudure dorsale uniformes. Nous utilisons des revêtements externes à faible frottement pour éviter le blocage du film et la traînée sur les cols des machines de formage-remplissage-soudage vertical (VFFS).",
+    point1Title: "Problème : Glissement de la soudure",
+    point1Desc: "Glissement de la soudure centrale sous la tension thermique.",
+    point1Sol: "Étalonnage des temps de maintien du soudage thermique pour correspondre à l'épaisseur du film.",
+    point2Title: "Problème : Résistance au glissement sur machine",
+    point2Desc: "Frottement élevé du film arrêtant le flux dans les tubes d'emballage automatique.",
+    point2Sol: "Additifs de glissement réduisant le coefficient de frottement (COF) sous 0,2.",
+    point3Title: "Problème : Micro-trous d'angle",
+    point3Desc: "Formation de micro-trous aux intersections de la soudure inférieure et dorsale.",
+    point3Sol: "Épaisses couches de polymère de scellage pour sceller les joints croisés multicouches.",
+    point4Title: "Problème : Fissuration à froid",
+    point4Desc: "Les soudures deviennent cassantes et se fissurent dans les congélateurs sous zéro.",
+    point4Sol: "Mélanges spéciaux de copolymères EVA conservant la résistance aux chocs de la soudure à -20°C.",
+    point5Title: "Problème : Longueurs de sachets inégales",
+    point5Desc: "Longueurs de sachets variables en raison d'un mauvais suivi par cellule photoélectrique.",
+    point5Sol: "Impression de repères de repérage à fort contraste pour une détection précise par capteur.",
+    compTitle: "Schéma de découpe et spécifications d'étalonnage",
+    compDesc: "Chaque cycle de modèle est calibré à l'aide de tracés de découpe stricts de prépresse. Nos équipes ajustent les tolérances de pliage et les limites thermiques en fonction de l'épaisseur du substrat.",
+    faq1Q: "Quel est le MOQ pour les fabrications sur mesure du modèle #587 ?",
+    faq1A: "Pour les tailles ou impressions personnalisées, notre quantité minimale de commande standard commence à 5 000 pièces. Des cycles d'impression numérique sont disponibles à partir de 1 000 pièces pour les startups.",
+    faq2Q: "Puis-je demander des échantillons de matériaux non imprimés pour ce modèle spécifique ?",
+    faq2A: "Oui. Nous proposons des kits d'échantillons de matériaux non imprimés gratuits afin que vous puissiez vérifier la taille, la largeur du soufflet et l'épaisseur du matériau sur vos lignes de remplissage avant de commander.",
+    faq3Q: "Cette structure de sachet est-elle compatible avec les lignes de remplissage automatique ?",
+    faq3A: "Oui, cette conception est entièrement optimisée pour les machines d'emballage standard de formage-remplissage-soudage vertical et horizontal (VFFS/HFFS).",
+    faq4Q: "Quelles certifications sont disponibles pour ces matériaux ?",
+    faq4A: "Selon votre sélection, nous proposons des matériaux certifiés FDA de qualité alimentaire, compostables BPI (ASTM D6400) et des mono-polymères recyclables."
+  },
 }
 
 const BeefJerkyPillowPouch: React.FC = () => {
   const { t, i18n } = useTranslation()
   const lang = i18n.language || 'en'
-  const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
+  const lookupLang = lang.toLowerCase().startsWith('zh') 
+    ? 'zh' 
+    : lang.toLowerCase().startsWith('es') 
+      ? 'es' 
+      : lang.toLowerCase().startsWith('fr') 
+        ? 'fr' 
+        : 'en';
+  const localTrans = localTranslations[lookupLang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
     hero: '/imgs/topics/beef-jerky-pillow-pouch/hero.jpg',

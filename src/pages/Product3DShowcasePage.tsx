@@ -10,13 +10,13 @@ export default function Product3DShowcasePage() {
 
   useEffect(() => {
     if (window.location.hash === '#generate' || window.location.hash.includes('generate')) {
-      window.location.href = 'https://achievepack.com/app';
+      window.location.href = 'https://achievepack.com/studio';
     }
   }, []);
 
   const appLink = typeof window !== 'undefined' && window.location.hostname.includes('pouch.eco')
-    ? 'https://achievepack.com/app'
-    : '/app';
+    ? 'https://achievepack.com/studio'
+    : '/studio';
 
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({

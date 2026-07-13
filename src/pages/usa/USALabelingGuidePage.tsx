@@ -19,7 +19,12 @@ const localTranslations = {
     prob4Desc: "Problem: Essential barcodes and texts fade during transport. Solution: Apply UV-resistant, eco-friendly soy inks combined with durable top coats.",
     prob5: "5. Incorrect Warning Placement",
     prob5Desc: "Problem: Mandatory Prop 65 warnings hidden or misplaced causing recalls. Solution: Enforce precision dieline reviews with strict safe zones before printing.",
-    imageAlt: "Common USA labeling problems and solutions illustration"
+    imageAlt: "Common USA labeling problems and solutions illustration",
+    ryanTitle: "Ryan Wong's Engineering Notebook",
+    ryanEntry: "Entry: Correcting Prop 65 Placement",
+    ryanP1: "\"A US health supplement client faced a recall because their Prop 65 warning was partially obscured in the gusset fold of their stand-up pouches.\"",
+    ryanP2: "\"I revised their dieline template, establishing a strict 15mm 'safe zone' above the bottom seal. We also adjusted the font to meet the exact 6pt minimum requirement. Since the redesign, they've passed every compliance audit without a single issue.\"",
+    ryanAuthor: "- Ryan Wong, Lead Packaging Engineer"
   },
   es: {
     problemsTitle: "5 Problemas Comunes de Etiquetado en EE. UU. (Y Soluciones)",
@@ -33,7 +38,12 @@ const localTranslations = {
     prob4Desc: "Problema: Códigos de barras y textos esenciales se desvanecen. Solución: Aplique tintas de soya ecológicas resistentes a los rayos UV con capas superiores duraderas.",
     prob5: "5. Colocación Incorrecta de Advertencias",
     prob5Desc: "Problema: Advertencias obligatorias de la Prop 65 ocultas o mal ubicadas. Solución: Exija revisiones precisas de las líneas de troquel con zonas seguras estrictas.",
-    imageAlt: "Ilustración de problemas y soluciones comunes de etiquetado en EE. UU."
+    imageAlt: "Ilustración de problemas y soluciones comunes de etiquetado en EE. UU.",
+    ryanTitle: "Cuaderno de Ingeniería de Ryan Wong",
+    ryanEntry: "Entrada: Corrigiendo la Colocación de Prop 65",
+    ryanP1: "\"Un cliente de suplementos de salud de EE. UU. enfrentó un retiro del mercado porque su advertencia de la Prop 65 estaba parcialmente oscurecida en el pliegue del fuelle de sus bolsas tipo stand-up.\"",
+    ryanP2: "\"Revisé su plantilla de línea de troquel, estableciendo una estricta 'zona segura' de 15 mm sobre el sello inferior. También ajustamos la fuente para cumplir con el requisito mínimo exacto de 6 puntos. Desde el rediseño, han superado todas las auditorías de cumplimiento sin un solo problema.\"",
+    ryanAuthor: "- Ryan Wong, Ingeniero Principal de Empaques"
   },
   fr: {
     problemsTitle: "5 Problèmes Courants d'Étiquetage aux États-Unis (Et Solutions)",
@@ -47,7 +57,12 @@ const localTranslations = {
     prob4Desc: "Problème: Les codes-barres essentiels s'effacent. Solution: Appliquez des encres de soja écologiques résistantes aux UV et des couches de finition durables.",
     prob5: "5. Mauvais Emplacement des Avertissements",
     prob5Desc: "Problème: Avertissements Prop 65 mal placés provoquant des rappels. Solution: Examens de découpe de précision avec des zones de sécurité strictes avant l'impression.",
-    imageAlt: "Illustration des problèmes et solutions courants d'étiquetage aux États-Unis"
+    imageAlt: "Illustration des problèmes et solutions courants d'étiquetage aux États-Unis",
+    ryanTitle: "Carnet d'Ingénierie de Ryan Wong",
+    ryanEntry: "Entrée : Correction de l'Emplacement de la Prop 65",
+    ryanP1: "\"Un client américain de suppléments de santé a dû faire face à un rappel car son avertissement Prop 65 était partiellement masqué dans le pli du soufflet de ses sachets tenant debout.\"",
+    ryanP2: "\"J'ai révisé leur modèle de découpe, établissant une « zone de sécurité » stricte de 15 mm au-dessus du joint inférieur. Nous avons également ajusté la police pour respecter l'exigence minimale exacte de 6 points. Depuis la refonte, ils ont réussi chaque audit de conformité sans un seul problème.\"",
+    ryanAuthor: "- Ryan Wong, Ingénieur Principal en Emballage"
   },
   'zh-TW': {
     problemsTitle: "5 個常見的美國標籤問題（與解決方案）",
@@ -61,7 +76,12 @@ const localTranslations = {
     prob4Desc: "問題：重要的條碼和文字在運輸過程中褪色。解決方案：應用抗紫外線的環保大豆油墨和耐用的頂層塗層。",
     prob5: "5. 警告標語位置不正確",
     prob5Desc: "問題：強制性的 65 號提案警告被隱藏或位置錯誤，導致產品召回。解決方案：在印刷前，嚴格審查刀模線並設定安全區域。",
-    imageAlt: "美國常見標籤問題與解決方案插圖"
+    imageAlt: "美國常見標籤問題與解決方案插圖",
+    ryanTitle: "Ryan Wong 的工程筆記",
+    ryanEntry: "條目：修正 65 號提案警告標示位置",
+    ryanP1: "\"一個美國保健品客戶面臨產品召回，因為他們的 65 號提案警告被部分隱藏在直立袋的底部折邊中。\"",
+    ryanP2: "\"我修改了他們的刀模模板，在底部封口上方建立了一個嚴格的 15 毫米「安全區」。我們還調整了字體，以完全符合 6 點的最小要求。自從重新設計以來，他們通過了每一次的合規審計，沒有出現任何問題。\"",
+    ryanAuthor: "- Ryan Wong, 首席包裝工程師"
   }
 }
 
@@ -133,6 +153,19 @@ const USALabelingGuidePage: React.FC = () => {
               caption={t(`${p}.sections.overview.imgCaption`)}
             />
           </div>
+        </div>
+      )
+    },
+    {
+      id: 'ryan-wong-notebook',
+      title: l.ryanTitle,
+      icon: <BookOpen className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-neutral-50 p-6 rounded-lg border-l-4 border-primary-600 font-mono text-sm text-neutral-800">
+          <p className="font-bold mb-2">{l.ryanEntry}</p>
+          <p className="mb-2">{l.ryanP1}</p>
+          <p className="mb-2">{l.ryanP2}</p>
+          <p className="italic text-neutral-600 mt-4">{l.ryanAuthor}</p>
         </div>
       )
     },
