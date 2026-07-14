@@ -21,6 +21,7 @@ import CalendlyFollowUp from '../../components/admin/CalendlyFollowUp';
 import UnifiedInbox from '../../components/admin/UnifiedInbox';
 import CalendarView from '../../components/admin/CalendarView';
 import PouchEcoGPTKPage from '../pouch/PouchEcoGPTKPage';
+import SelfMediaDashboard from '../../components/admin/SelfMediaDashboard';
 import * as XLSX from 'xlsx';
 import { useTranslation, Trans } from "react-i18next";
 
@@ -109,7 +110,7 @@ export default function DailyReportsPage() {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   
-  const [activeTab, setActiveTab] = useState<'calendly'|'whatsapp'|'reports'|'calendar'|'logs'|'rfq'|'quote'|'packing'|'spec'|'seo'|'compliance'|'coa'|'family'|'pricing'>('reports');
+  const [activeTab, setActiveTab] = useState<'calendly'|'whatsapp'|'reports'|'calendar'|'logs'|'rfq'|'quote'|'packing'|'spec'|'seo'|'self-media'|'compliance'|'coa'|'family'|'pricing'>('reports');
   const [seoSubTab, setSeoSubTab] = useState<'migration' | 'ranking'>('migration');
 
   const [reports, setReports] = useState<DailyReport[]>([]);
@@ -1400,6 +1401,10 @@ export default function DailyReportsPage() {
                 <span className="hidden xs:inline">{t(`${p}.seoGeoMonitor`)}</span>
                 <span className="xs:hidden">{t(`${p}.seo`)}</span>
               </button>
+              <button onClick={() => setActiveTab('self-media')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'self-media' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
+                <Sparkles className="w-4 h-4"/>
+                <span>Traffic Booster</span>
+              </button>
             </div>
           </div>
 
@@ -1501,6 +1506,11 @@ export default function DailyReportsPage() {
               <SeoRankingDashboard />
             )}
           </div>
+        )}
+
+        {/* Tab Content: Self-Media Traffic Booster */}
+        {activeTab === 'self-media' && (
+          <SelfMediaDashboard reports={reports} logs={logs} onRefresh={fetchData} />
         )}
 
         {/* Tab Content: Daily Reports */}

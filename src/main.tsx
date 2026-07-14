@@ -158,6 +158,16 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/solutions/flexible-pouches-catalog': () => import('./pages/solutions/FlexiblePouchesCatalogPage'),
   '/solutions/cosmetics-bottles-catalog': () => import('./pages/solutions/CosmeticsBottlesCatalogPage'),
   '/solutions/shapes/:id': () => import('./pages/solutions/ShapeDetailPage'),
+  '/topics/digital-product-passport-packaging': () => import('./pages/topics/DigitalProductPassportPackaging'),
+  '/topics/sensory-unboxing-experience': () => import('./pages/topics/SensoryUnboxingExperience'),
+  '/topics/epr-tax-minimization-strategies': () => import('./pages/topics/EprTaxMinimizationStrategies'),
+  '/topics/ultrasonic-vs-heat-sealing': () => import('./pages/topics/UltrasonicVsHeatSealing'),
+  '/topics/plant-based-barrier-coatings': () => import('./pages/topics/PlantBasedBarrierCoatings'),
+  '/topics/ocean-bound-plastic-packaging': () => import('./pages/topics/OceanBoundPlasticPackaging'),
+  '/topics/active-modified-atmosphere-packaging': () => import('./pages/topics/ActiveModifiedAtmospherePackaging'),
+  '/topics/tamper-evident-sealing-standards': () => import('./pages/topics/TamperEvidentSealingStandards'),
+  '/topics/liquid-barrier-packaging-spouts': () => import('./pages/topics/LiquidBarrierPackagingSpouts'),
+  '/topics/carbon-footprint-tracking-packaging': () => import('./pages/topics/CarbonFootprintTrackingPackaging'),
   '/app': () => import('./pages/PackageEditorPage'),
   '/studio': () => import('./pages/PackageEditorPage'),
   '/pricing': () => import('./pages/pouch/PouchEcoGPTKPage'),
@@ -184,6 +194,16 @@ export const preloadRoute = (path: string) => {
 }
 
 // Lazy load all pages for better code splitting
+const DigitalProductPassportPackagingPage = lazyWithRetry(() => import('./pages/topics/DigitalProductPassportPackaging'))
+const SensoryUnboxingExperiencePage = lazyWithRetry(() => import('./pages/topics/SensoryUnboxingExperience'))
+const EprTaxMinimizationStrategiesPage = lazyWithRetry(() => import('./pages/topics/EprTaxMinimizationStrategies'))
+const UltrasonicVsHeatSealingPage = lazyWithRetry(() => import('./pages/topics/UltrasonicVsHeatSealing'))
+const PlantBasedBarrierCoatingsPage = lazyWithRetry(() => import('./pages/topics/PlantBasedBarrierCoatings'))
+const OceanBoundPlasticPackagingPage = lazyWithRetry(() => import('./pages/topics/OceanBoundPlasticPackaging'))
+const ActiveModifiedAtmospherePackagingPage = lazyWithRetry(() => import('./pages/topics/ActiveModifiedAtmospherePackaging'))
+const TamperEvidentSealingStandardsPage = lazyWithRetry(() => import('./pages/topics/TamperEvidentSealingStandards'))
+const LiquidBarrierPackagingSpoutsPage = lazyWithRetry(() => import('./pages/topics/LiquidBarrierPackagingSpouts'))
+const CarbonFootprintTrackingPackagingPage = lazyWithRetry(() => import('./pages/topics/CarbonFootprintTrackingPackaging'))
 const StorePage = lazyWithRetry(() => import('./pages/StorePage'))
 const ProductPage = lazyWithRetry(() => import('./pages/ProductPage'))
 const CheckoutPage = lazyWithRetry(() => import('./pages/CheckoutPage'))
@@ -1062,6 +1082,16 @@ if (getDomain() === 'pouch') {
                   <Route path="/topics/recycled-ocean-plastic-packaging" element={<PouchRecycledOceanPlasticPackagingPage />} />
                   <Route path="/topics/minimalist-d2c-packaging" element={<PouchMinimalistD2CPackagingPage />} />
                   <Route path="/topics/high-heat-compostable-candle-packaging" element={<PouchHighHeatCandlePackagingPage />} />
+                  <Route path="/topics/digital-product-passport-packaging" element={<DigitalProductPassportPackagingPage />} />
+                  <Route path="/topics/sensory-unboxing-experience" element={<SensoryUnboxingExperiencePage />} />
+                  <Route path="/topics/epr-tax-minimization-strategies" element={<EprTaxMinimizationStrategiesPage />} />
+                  <Route path="/topics/ultrasonic-vs-heat-sealing" element={<UltrasonicVsHeatSealingPage />} />
+                  <Route path="/topics/plant-based-barrier-coatings" element={<PlantBasedBarrierCoatingsPage />} />
+                  <Route path="/topics/ocean-bound-plastic-packaging" element={<OceanBoundPlasticPackagingPage />} />
+                  <Route path="/topics/active-modified-atmosphere-packaging" element={<ActiveModifiedAtmospherePackagingPage />} />
+                  <Route path="/topics/tamper-evident-sealing-standards" element={<TamperEvidentSealingStandardsPage />} />
+                  <Route path="/topics/liquid-barrier-packaging-spouts" element={<LiquidBarrierPackagingSpoutsPage />} />
+                  <Route path="/topics/carbon-footprint-tracking-packaging" element={<CarbonFootprintTrackingPackagingPage />} />
                   <Route path="/topics/ai-packaging-resolution" element={<AiPackagingResolutionPage />} />
                   <Route path="/topics/ai-packaging-bleed-dimensions" element={<AiPackagingBleedDimensionsPage />} />
                   <Route path="/topics/ai-packaging-safe-margins" element={<AiPackagingSafeMarginsPage />} />
@@ -1753,6 +1783,16 @@ if (getDomain() === 'pouch') {
                    <Route path="/studio" element={<PackageEditorPage />} />
                         
                         {/* Topics Pages - AI Search Volume SEO */}
+          <Route path="/topics/digital-product-passport-packaging" element={<DigitalProductPassportPackagingPage />} />
+          <Route path="/topics/sensory-unboxing-experience" element={<SensoryUnboxingExperiencePage />} />
+          <Route path="/topics/epr-tax-minimization-strategies" element={<EprTaxMinimizationStrategiesPage />} />
+          <Route path="/topics/ultrasonic-vs-heat-sealing" element={<UltrasonicVsHeatSealingPage />} />
+          <Route path="/topics/plant-based-barrier-coatings" element={<PlantBasedBarrierCoatingsPage />} />
+          <Route path="/topics/ocean-bound-plastic-packaging" element={<OceanBoundPlasticPackagingPage />} />
+          <Route path="/topics/active-modified-atmosphere-packaging" element={<ActiveModifiedAtmospherePackagingPage />} />
+          <Route path="/topics/tamper-evident-sealing-standards" element={<TamperEvidentSealingStandardsPage />} />
+          <Route path="/topics/liquid-barrier-packaging-spouts" element={<LiquidBarrierPackagingSpoutsPage />} />
+          <Route path="/topics/carbon-footprint-tracking-packaging" element={<CarbonFootprintTrackingPackagingPage />} />
           <Route path="/topics/ai-packaging-resolution" element={<AiPackagingResolutionPage />} />
           <Route path="/topics/ai-packaging-bleed-dimensions" element={<AiPackagingBleedDimensionsPage />} />
           <Route path="/topics/ai-packaging-safe-margins" element={<AiPackagingSafeMarginsPage />} />

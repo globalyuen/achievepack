@@ -55,7 +55,7 @@ const CATEGORY_MENU: CategoryMenuItem[] = [
       { id: 'conventional-stock-plain', label: 'Conventional Stock', count: 1 },
       { id: 'machinery', label: 'Packaging Machinery', count: 3 },
       { id: '3d-print', label: '3D Printing', count: 1 },
-      { id: 'reusable', label: 'Reusable Packaging', count: 1 },
+      { id: 'reusable', label: 'Reusable Packaging', count: 4 },
     ]
   },
   {
@@ -112,6 +112,7 @@ const SHAPES = [
   { id: 'Label & Sticker', label: 'Label & Sticker' },
   { id: 'Wrapping Paper', label: 'Wrapping Paper' },
   { id: 'Machinery', label: 'Machinery' },
+  { id: 'custom-size', label: '📐 Custom Size' },
 ]
 
 const getProductClassification = (product: StoreProduct): 'compostable' | 'recyclable' | 'conventional' => {
@@ -362,6 +363,33 @@ const SHAPE_ITEMS = [
         <path d="M45 45 H55" strokeWidth="2" />
         <path d="M25 35 H75" strokeWidth="1" />
         <path d="M40 25 V15 H60 V25" strokeWidth="1.5" />
+      </svg>
+    )
+  },
+  {
+    id: 'custom-size',
+    label: 'Custom Size',
+    icon: (
+      <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-14 h-11">
+        {/* Ruler horizontal */}
+        <rect x="18" y="46" width="64" height="13" rx="2" strokeWidth="2" />
+        <line x1="26" y1="46" x2="26" y2="53" strokeWidth="1.5" />
+        <line x1="34" y1="46" x2="34" y2="50" strokeWidth="1.2" />
+        <line x1="42" y1="46" x2="42" y2="53" strokeWidth="1.5" />
+        <line x1="50" y1="46" x2="50" y2="50" strokeWidth="1.2" />
+        <line x1="58" y1="46" x2="58" y2="53" strokeWidth="1.5" />
+        <line x1="66" y1="46" x2="66" y2="50" strokeWidth="1.2" />
+        <line x1="74" y1="46" x2="74" y2="53" strokeWidth="1.5" />
+        {/* Ruler vertical */}
+        <rect x="18" y="16" width="13" height="50" rx="2" strokeWidth="2" />
+        <line x1="18" y1="24" x2="25" y2="24" strokeWidth="1.5" />
+        <line x1="18" y1="32" x2="22" y2="32" strokeWidth="1.2" />
+        <line x1="18" y1="40" x2="25" y2="40" strokeWidth="1.5" />
+        <line x1="18" y1="48" x2="22" y2="48" strokeWidth="1.2" />
+        {/* Arrow indicating size */}
+        <path d="M38 20 L50 12 L62 20" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M50 12 V38" strokeWidth="1.8" strokeDasharray="3 2" />
+        <path d="M38 38 L62 38" strokeWidth="1.2" strokeDasharray="3 2" />
       </svg>
     )
   }
@@ -727,17 +755,40 @@ const StorePage: React.FC = () => {
     'box': 'Box',
     'label': 'Label & Sticker',
     'wrapping-paper': 'Wrapping Paper',
-    'machinery': 'Machinery'
+    'machinery': 'Machinery',
+    'custom-size': 'custom-size',
   }
 
   const filteredProducts = useMemo(() => {
     // Convert URL shape param to internal shape name
     const internalShape = urlShapeToInternal[selectedShape] || selectedShape
     
+    // 'custom-size' shape mode: show ONLY the hidden fixed-size quote products
+    const isCustomSizeMode = selectedShape === 'custom-size' || internalShape === 'custom-size'
+    
     return translateProducts(
       FEATURED_PRODUCTS.filter(product => {
         // Get product's subCategory for filtering
         const productSubCategory = getProductSubCategory(product)
+
+        // --- Custom Size Mode ---
+        // Show only products that are hidden from the regular list (have viewQuoteLink)
+        if (isCustomSizeMode) {
+          const isCustomSizeProduct = 'viewQuoteLink' in product && 
+            typeof product.viewQuoteLink === 'string' &&
+            product.viewQuoteLink.startsWith('/view-quote/')
+          if (!isCustomSizeProduct) return false
+          const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                               product.description.toLowerCase().includes(searchQuery.toLowerCase())
+          return matchesSearch
+        }
+        
+        // --- Regular Mode ---
+        // Always exclude custom-size (viewQuoteLink) products from normal listings
+        const isCustomSizeProduct = 'viewQuoteLink' in product && 
+          typeof product.viewQuoteLink === 'string' &&
+          product.viewQuoteLink.startsWith('/view-quote/')
+        if (isCustomSizeProduct) return false
         
         // Special handling for different category filters
         let matchesCategory = false
@@ -1210,30 +1261,39 @@ const StorePage: React.FC = () => {
               {/* Duplicate the items for seamless infinite marquee loop */}
               {[...SHAPE_ITEMS, ...SHAPE_ITEMS].map((item, idx) => {
                 const isActive = selectedShape === item.id;
+                const isCustomSize = item.id === 'custom-size';
                 return (
                   <button
                     key={`${item.id}-${idx}`}
                     onClick={() => handleShapeChange(item.id)}
                     title={item.label}
-                    className={`flex-shrink-0 flex items-center justify-center w-16 h-16 border rounded-xl transition-all duration-200 group cursor-pointer relative overflow-visible ${
+                    className={`flex-shrink-0 flex items-center justify-center w-16 h-16 rounded-xl transition-all duration-200 group cursor-pointer relative overflow-visible ${
                       isActive 
-                        ? 'border-primary-500 bg-gradient-to-b from-primary-50/80 to-primary-100/40 text-primary-700 shadow-sm' 
-                        : 'border-neutral-200 hover:border-neutral-300 hover:bg-neutral-50/80 text-neutral-800 hover:text-primary-600'
+                        ? isCustomSize
+                          ? 'border-2 border-dashed border-amber-500 bg-gradient-to-b from-amber-50 to-orange-50 text-amber-700 shadow-sm'
+                          : 'border border-primary-500 bg-gradient-to-b from-primary-50/80 to-primary-100/40 text-primary-700 shadow-sm' 
+                        : isCustomSize
+                          ? 'border-2 border-dashed border-amber-300 hover:border-amber-500 bg-amber-50/40 hover:bg-amber-50 text-amber-600 hover:text-amber-700'
+                          : 'border border-neutral-200 hover:border-neutral-300 hover:bg-neutral-50/80 text-neutral-800 hover:text-primary-600'
                     }`}
                   >
-                    <div className={`w-10 h-10 flex items-center justify-center transition-all duration-200 group-hover:scale-110 ${isActive ? 'text-primary-600' : 'text-neutral-500 group-hover:text-neutral-800'}`}>
+                    <div className={`w-10 h-10 flex items-center justify-center transition-all duration-200 group-hover:scale-110 ${
+                      isActive 
+                        ? isCustomSize ? 'text-amber-600' : 'text-primary-600' 
+                        : isCustomSize ? 'text-amber-400 group-hover:text-amber-600' : 'text-neutral-500 group-hover:text-neutral-800'
+                    }`}>
                       {item.icon}
                     </div>
                     
                     {/* Custom CSS Tooltip */}
                     <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1 bg-neutral-900 text-white text-[10px] font-black uppercase tracking-wider rounded-md shadow-md whitespace-nowrap pointer-events-none opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50 border border-neutral-800">
-                      {item.label}
+                      {isCustomSize ? '📐 ' : ''}{item.label}
                       <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-neutral-900" />
                     </div>
 
                     {/* Premium bottom active highlight indicator */}
                     {isActive && (
-                      <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary-600 rounded-b-xl" />
+                      <div className={`absolute bottom-0 left-0 right-0 h-1 rounded-b-xl ${isCustomSize ? 'bg-amber-500' : 'bg-primary-600'}`} />
                     )}
                   </button>
                 );
@@ -1257,18 +1317,27 @@ const StorePage: React.FC = () => {
         <div className="flex px-4 gap-2.5">
           {SHAPE_ITEMS.map((item) => {
             const isActive = selectedShape === item.id;
+            const isCustomSize = item.id === 'custom-size';
             return (
               <button
                 key={item.id}
                 onClick={() => handleShapeChange(item.id)}
                 title={item.label}
-                className={`flex-shrink-0 flex items-center justify-center w-12 h-12 border rounded-xl transition-all duration-200 snap-center relative overflow-visible group ${
+                className={`flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-200 snap-center relative overflow-visible group ${
                   isActive 
-                    ? 'bg-gradient-to-b from-primary-50 to-primary-100/30 border-primary-500 text-primary-700 shadow-sm' 
-                    : 'bg-white border-neutral-200 text-neutral-600 active:bg-neutral-50'
+                    ? isCustomSize
+                      ? 'border-2 border-dashed border-amber-500 bg-amber-50 text-amber-700 shadow-sm'
+                      : 'bg-gradient-to-b from-primary-50 to-primary-100/30 border border-primary-500 text-primary-700 shadow-sm' 
+                    : isCustomSize
+                      ? 'border-2 border-dashed border-amber-300 bg-amber-50/30 text-amber-500 active:bg-amber-50'
+                      : 'bg-white border border-neutral-200 text-neutral-600 active:bg-neutral-50'
                 }`}
               >
-                <div className={`w-8 h-8 flex items-center justify-center transition-transform duration-200 ${isActive ? 'text-primary-600' : 'text-neutral-400'}`}>
+                <div className={`w-8 h-8 flex items-center justify-center transition-transform duration-200 ${
+                  isActive 
+                    ? isCustomSize ? 'text-amber-600' : 'text-primary-600'
+                    : isCustomSize ? 'text-amber-400' : 'text-neutral-400'
+                }`}>
                   {item.icon}
                 </div>
 
@@ -1280,7 +1349,7 @@ const StorePage: React.FC = () => {
                 
                 {/* Mobile bottom active indicator */}
                 {isActive && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-500 rounded-b-xl" />
+                  <div className={`absolute bottom-0 left-0 right-0 h-0.5 rounded-b-xl ${isCustomSize ? 'bg-amber-500' : 'bg-primary-500'}`} />
                 )}
               </button>
             );
@@ -1301,9 +1370,15 @@ const StorePage: React.FC = () => {
             <div className="bg-gradient-to-r from-neutral-50 via-white to-neutral-50 border border-neutral-200 rounded-xl p-2.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm select-none">
               {/* Left side: Active Shape indicator */}
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-black uppercase text-primary-700 bg-primary-50 px-2.5 py-1 rounded-full border border-primary-200/50 animate-pulse">
-                  Shape: {SHAPE_ITEMS.find(item => item.id === selectedShape)?.label || selectedShape}
-                </span>
+                {selectedShape === 'custom-size' ? (
+                  <span className="text-[10px] font-black uppercase text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-300 animate-pulse">
+                    📐 Custom Size Products — Fixed-dimension stock pouches available for quote
+                  </span>
+                ) : (
+                  <span className="text-[10px] font-black uppercase text-primary-700 bg-primary-50 px-2.5 py-1 rounded-full border border-primary-200/50 animate-pulse">
+                    Shape: {SHAPE_ITEMS.find(item => item.id === selectedShape)?.label || selectedShape}
+                  </span>
+                )}
                 <button
                   onClick={() => handleShapeChange('all')}
                   className="text-[9px] font-extrabold text-neutral-400 hover:text-red-500 transition-colors uppercase cursor-pointer"

@@ -459,6 +459,16 @@ export default function Footer() {
               <li><Link to="/topics/home-vs-industrial-compostable" className="hover:text-primary-400">{t('seo_topics.home_vs_industrial_compostable.title', 'Home vs Industrial')}</Link></li>
               <li><Link to="/industry/kraft-window-pouch" className="hover:text-primary-400">Kraft Window Pouches</Link></li>
               <li><Link to="/industry/durable-reusable-pouches" className="hover:text-primary-400">Eco-Friendly Ziplock Bags</Link></li>
+              <li><Link to="/topics/digital-product-passport-packaging" className="hover:text-primary-400">{t('seo_topics.digital_product_passport_packaging.title', 'Digital Product Passport Packaging')}</Link></li>
+              <li><Link to="/topics/sensory-unboxing-experience" className="hover:text-primary-400">{t('seo_topics.sensory_unboxing_experience.title', 'Sensory Unboxing Experience')}</Link></li>
+              <li><Link to="/topics/epr-tax-minimization-strategies" className="hover:text-primary-400">{t('seo_topics.epr_tax_minimization_strategies.title', 'EPR Tax Minimization')}</Link></li>
+              <li><Link to="/topics/ultrasonic-vs-heat-sealing" className="hover:text-primary-400">{t('seo_topics.ultrasonic_vs_heat_sealing.title', 'Ultrasonic vs. Heat Sealing')}</Link></li>
+              <li><Link to="/topics/plant-based-barrier-coatings" className="hover:text-primary-400">{t('seo_topics.plant_based_barrier_coatings.title', 'Plant-Based Barrier Coatings')}</Link></li>
+              <li><Link to="/topics/ocean-bound-plastic-packaging" className="hover:text-primary-400">{t('seo_topics.ocean_bound_plastic_packaging.title', 'Ocean-Bound Plastic Packaging')}</Link></li>
+              <li><Link to="/topics/active-modified-atmosphere-packaging" className="hover:text-primary-400">{t('seo_topics.active_modified_atmosphere_packaging.title', 'Active & Modified Atmosphere Packaging (MAP) Guide')}</Link></li>
+              <li><Link to="/topics/tamper-evident-sealing-standards" className="hover:text-primary-400">{t('seo_topics.tamper_evident_sealing_standards.title', 'Tamper-Evident Sealing')}</Link></li>
+              <li><Link to="/topics/liquid-barrier-packaging-spouts" className="hover:text-primary-400">{t('seo_topics.liquid_barrier_packaging_spouts.title', 'Liquid Barrier Packaging')}</Link></li>
+              <li><Link to="/topics/carbon-footprint-tracking-packaging" className="hover:text-primary-400">{t('seo_topics.carbon_footprint_tracking_packaging.title', 'Carbon Footprint Tracking')}</Link></li>
               <li><Link to="/topics/ai-packaging-resolution" className="hover:text-primary-400">{t('seo_topics.ai_packaging_resolution.title', 'AI Artwork Resolution')}</Link></li>
               <li><Link to="/topics/ai-packaging-bleed-dimensions" className="hover:text-primary-400">{t('seo_topics.ai_packaging_bleed_dimensions.title', 'AI Bleed & Dimensions')}</Link></li>
               <li><Link to="/topics/ai-packaging-safe-margins" className="hover:text-primary-400">{t('seo_topics.ai_packaging_safe_margins.title', 'AI Background Margins')}</Link></li>

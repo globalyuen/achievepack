@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-13",
-  "total_images": 5197,
+  "generated": "2026-07-14",
+  "total_images": 5227,
   "total_categories": 242,
   "extensions": {
     ".webp": 1313,
     ".png": 3027,
-    ".jpg": 853,
+    ".jpg": 883,
     ".svg": 4
   },
   "categories": {
@@ -12753,8 +12753,188 @@
       ]
     },
     "knowledge": {
-      "count": 259,
+      "count": 289,
       "images": [
+        {
+          "filename": "carbon-footprint-packaging-comparison.jpg",
+          "path": "/imgs/knowledge/carbon-footprint-packaging-comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.717Z"
+        },
+        {
+          "filename": "carbon-footprint-packaging-guide.jpg",
+          "path": "/imgs/knowledge/carbon-footprint-packaging-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.716Z"
+        },
+        {
+          "filename": "carbon-footprint-packaging-process.jpg",
+          "path": "/imgs/knowledge/carbon-footprint-packaging-process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.716Z"
+        },
+        {
+          "filename": "liquid-spout-pouches-comparison.jpg",
+          "path": "/imgs/knowledge/liquid-spout-pouches-comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.715Z"
+        },
+        {
+          "filename": "liquid-spout-pouches-guide.jpg",
+          "path": "/imgs/knowledge/liquid-spout-pouches-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.714Z"
+        },
+        {
+          "filename": "liquid-spout-pouches-process.jpg",
+          "path": "/imgs/knowledge/liquid-spout-pouches-process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.714Z"
+        },
+        {
+          "filename": "tamper-evident-sealing-comparison.jpg",
+          "path": "/imgs/knowledge/tamper-evident-sealing-comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.713Z"
+        },
+        {
+          "filename": "tamper-evident-sealing-guide.jpg",
+          "path": "/imgs/knowledge/tamper-evident-sealing-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.712Z"
+        },
+        {
+          "filename": "tamper-evident-sealing-process.jpg",
+          "path": "/imgs/knowledge/tamper-evident-sealing-process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.712Z"
+        },
+        {
+          "filename": "modified-atmosphere-packaging-comparison.jpg",
+          "path": "/imgs/knowledge/modified-atmosphere-packaging-comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.710Z"
+        },
+        {
+          "filename": "modified-atmosphere-packaging-process.jpg",
+          "path": "/imgs/knowledge/modified-atmosphere-packaging-process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.710Z"
+        },
+        {
+          "filename": "modified-atmosphere-packaging-guide.jpg",
+          "path": "/imgs/knowledge/modified-atmosphere-packaging-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.709Z"
+        },
+        {
+          "filename": "ocean-bound-plastic-comparison.jpg",
+          "path": "/imgs/knowledge/ocean-bound-plastic-comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.708Z"
+        },
+        {
+          "filename": "ocean-bound-plastic-process.jpg",
+          "path": "/imgs/knowledge/ocean-bound-plastic-process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.708Z"
+        },
+        {
+          "filename": "ocean-bound-plastic-guide.jpg",
+          "path": "/imgs/knowledge/ocean-bound-plastic-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.707Z"
+        },
+        {
+          "filename": "compostable-barrier-coatings-comparison.jpg",
+          "path": "/imgs/knowledge/compostable-barrier-coatings-comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.706Z"
+        },
+        {
+          "filename": "compostable-barrier-coatings-guide.jpg",
+          "path": "/imgs/knowledge/compostable-barrier-coatings-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.705Z"
+        },
+        {
+          "filename": "compostable-barrier-coatings-process.jpg",
+          "path": "/imgs/knowledge/compostable-barrier-coatings-process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.705Z"
+        },
+        {
+          "filename": "ultrasonic-pouch-sealing-guide.jpg",
+          "path": "/imgs/knowledge/ultrasonic-pouch-sealing-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.703Z"
+        },
+        {
+          "filename": "ultrasonic-vs-heat-sealing-comparison.jpg",
+          "path": "/imgs/knowledge/ultrasonic-vs-heat-sealing-comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.703Z"
+        },
+        {
+          "filename": "ultrasonic-vs-heat-sealing-process.jpg",
+          "path": "/imgs/knowledge/ultrasonic-vs-heat-sealing-process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.703Z"
+        },
+        {
+          "filename": "epr-tax-minimization-comparison.jpg",
+          "path": "/imgs/knowledge/epr-tax-minimization-comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.701Z"
+        },
+        {
+          "filename": "epr-tax-minimization-guide.jpg",
+          "path": "/imgs/knowledge/epr-tax-minimization-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.701Z"
+        },
+        {
+          "filename": "epr-tax-minimization-process.jpg",
+          "path": "/imgs/knowledge/epr-tax-minimization-process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.701Z"
+        },
+        {
+          "filename": "sensory-unboxing-comparison.jpg",
+          "path": "/imgs/knowledge/sensory-unboxing-comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.700Z"
+        },
+        {
+          "filename": "sensory-unboxing-pouch-guide.jpg",
+          "path": "/imgs/knowledge/sensory-unboxing-pouch-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.699Z"
+        },
+        {
+          "filename": "sensory-unboxing-process.jpg",
+          "path": "/imgs/knowledge/sensory-unboxing-process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.699Z"
+        },
+        {
+          "filename": "digital-product-passport-comparison.jpg",
+          "path": "/imgs/knowledge/digital-product-passport-comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.697Z"
+        },
+        {
+          "filename": "digital-product-passport-process.jpg",
+          "path": "/imgs/knowledge/digital-product-passport-process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.697Z"
+        },
+        {
+          "filename": "digital-product-passport-guide.jpg",
+          "path": "/imgs/knowledge/digital-product-passport-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T02:44:50.696Z"
+        },
         {
           "filename": "sustainable-custom-pouches-pain-points.jpg",
           "path": "/imgs/knowledge/sustainable-custom-pouches-pain-points.jpg",
