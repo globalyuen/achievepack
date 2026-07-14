@@ -41445,6 +41445,203 @@
         "concern5Pain": "Bolsas que se arrugan o arrugan fácilmente y no parecen profesionales.",
         "concern5Solution": "Utilizamos laminados de primera calidad que resisten las antiestéticas arrugas y mantienen una apariencia suave y atractiva en toda la cadena de suministro."
       }
+    },
+    "granolaSoftTouch": {
+      "s1": {
+        "title": "Una Sensación Premium para un Producto Premium",
+        "p1": "Pones amor y cuidado en hornear tu granola orgánica y artesanal. Pero cuando los clientes la recogen, ¿el empaque refleja la calidad en su interior? Los plásticos duros y crujientes pueden hacer que incluso la mejor granola se sienta barata y producida en masa.",
+        "p2": "Creemos que tu empaque debe ser tan natural y encantador como tu receta. Nuestras bolsas mate de tacto suave proporcionan una textura lujosa y aterciopelada que le dice instantáneamente a tus clientes que tienen algo especial, mientras protegen tus grupos cuidadosamente horneados para que no se pongan rancios."
+      },
+      "s2": {
+        "title": "¿Qué lo hace de tacto suave?",
+        "p1": "El empaque mate de tacto suave utiliza una capa exterior especializada que difunde la luz y crea una sensación táctil excepcionalmente suave y aterciopelada cuando se manipula. Es una diferencia sutil que tiene un gran impacto en cómo se percibe tu marca.",
+        "caption": "El hermoso acabado antirreflejo de nuestras bolsas de tacto suave"
+      },
+      "s3": {
+        "title": "Mate vs Brillante: La Diferencia Premium",
+        "p1": "El empaque brillante estándar crea reflejos intensos bajo las luces del supermercado. El mate de tacto suave difunde la luz perfectamente, dándole a tu empaque un brillo cálido y orgánico que se alinea con los valores de tu marca.",
+        "caption": "Brillante estándar (izquierda) vs nuestro mate premium de tacto suave (derecha)"
+      },
+      "faqs": {
+        "q1": "¿El acabado de tacto suave es ecológico?",
+        "a1": "Sí, ofrecemos versiones monomateriales reciclables de nuestras bolsas de tacto suave, permitiéndote ofrecer una experiencia premium sin dañar el planeta.",
+        "q2": "¿Protegerán las bolsas mi granola para que no se rompa?",
+        "a2": "Absolutamente. Nuestras bolsas están diseñadas para ser altamente resistentes a pinchazos, protegiendo tus grupos de granola durante el envío y manejo."
+      },
+      "layout": {
+        "title": "Bolsas Premium de Granola de Tacto Suave",
+        "description": "Empaque mate de tacto suave, lujoso y aterciopelado para granola orgánica premium.",
+        "heroTitle": "Siente la Diferencia",
+        "heroSubtitle": "Acabado Aterciopelado de Tacto Suave | Resistente a Pinchazos | Antirreflejo",
+        "introSummary": "Dale a tu granola artesanal el empaque premium que merece. Nuestras bolsas mate de tacto suave brindan una experiencia táctil lujosa que encanta a los clientes y protege tus ingredientes frescos."
+      }
+    },
+    "greenCoffeeMaterials": {
+      "s1": {
+        "title": "Empaque que Coincide con tus Valores",
+        "p1": "Tu ritual de café matutino no debería dejar una marca permanente en el planeta. Pero, ¿esas bolsas de aluminio brillante que ves en el estante? Permanecerán en vertederos durante siglos. Te importan los granos de origen ético, pero el empaque tradicional cuenta una historia diferente.",
+        "p2": "Es hora de que tu empaque coincida con tus valores. Nuestro empaque de café ecológico utiliza monomateriales avanzados y estructuras compostables que protegen tus granos de volverse rancios, sin sacrificar la Tierra."
+      },
+      "s2": {
+        "title": "Frescura Garantizada",
+        "p1": "El café necesita ser protegido del oxígeno y la humedad. Nuestro empaque sustentable usa capas de EVOH de alta barrera para mantener tu tostado fresco por meses, igualando el rendimiento de las bolsas de aluminio tradicionales y no reciclables."
+      },
+      "s3": {
+        "title": "100% Compostable en Casa",
+        "p1": "¿Quieres llegar a cero residuos? Nuestras bolsas de café compostables en casa se descomponen naturalmente en tu compostador de patio trasero, dejando solo tierra rica en nutrientes. ¡Incluso la válvula de desgasificación es totalmente compostable!"
+      },
+      "faqs": {
+        "q1": "¿Tienen estas bolsas válvulas de desgasificación?",
+        "a1": "¡Sí! Usamos válvulas de desgasificación totalmente reciclables o compostables para liberar CO2 mientras mantenemos el oxígeno fuera, manteniendo tus granos frescos.",
+        "q2": "¿Puedo reciclar estas bolsas en casa?",
+        "a2": "Nuestras bolsas Mono-PE se pueden reciclar con plásticos blandos, mientras que nuestras bolsas compostables se pueden tirar de forma segura en tu compostador doméstico."
+      },
+      "layout": {
+        "title": "Empaque de Café Ecológico",
+        "description": "Bolsas de café sustentables de alta barrera que protegen tus granos y el planeta.",
+        "heroTitle": "Café Fresco. Cero Residuos.",
+        "heroSubtitle": "Alta Barrera | Reciclable | Compostable en Casa",
+        "introSummary": "No deberías tener que elegir entre café fresco y un planeta saludable. Nuestro empaque de café ecológico ofrece lo mejor de ambos mundos."
+      }
+    },
+    "hologramHotStamping": {
+      "s1": {
+        "title": "Brilla Intenso, Mantente Verde",
+        "p1": "Tus clientes quieren sentirse especiales, y nada dice 'premium' como un hermoso brillo holográfico. Pero, ¿puedes lograr ese aspecto lujoso mientras sigues cuidando el planeta?",
+        "p2": "Sí, puedes. Nuestro estampado holográfico ecológico le da a tus bolsas ese brillo mágico y llamativo, sin comprometer la sustentabilidad. Usamos láminas ultradelgadas que son totalmente compatibles con los flujos de reciclaje modernos, asegurando que tu marca se destaque en el estante y en los corazones de los consumidores conscientes del medio ambiente."
+      },
+      "s2": {
+        "title": "¿Qué es el Estampado Holográfico?",
+        "p1": "El estampado holográfico transfiere una capa metálica ultradelgada a tu empaque, creando un impresionante cambio visual en 3D. Atrapa la luz desde todos los ángulos, haciendo que tu logo o diseño resalte con colores iridiscentes."
+      },
+      "s3": {
+        "title": "Ecológico y Seguro",
+        "p1": "A diferencia de las películas metálicas pesadas tradicionales, nuestra lámina de estampado es de grosor microscópico. Esto significa que no interrumpe la reciclabilidad de nuestras bolsas monomateriales. Obtienes el aspecto premium sin la culpa ambiental."
+      },
+      "faqs": {
+        "q1": "¿La lámina holográfica es reciclable?",
+        "a1": "Sí, la capa de lámina es tan delgada (menos de 2 micras) que se descompone fácilmente en los procesos de reciclaje estándar junto a nuestras bolsas monomateriales.",
+        "q2": "¿Es seguro para el empaque de alimentos?",
+        "a2": "Absolutamente. La lámina se aplica al exterior de la bolsa y está completamente separada de tu producto por capas de barrera seguras para alimentos."
+      },
+      "layout": {
+        "title": "Bolsas con Estampado Holográfico",
+        "description": "Estampado holográfico lujoso y ecológico en bolsas flexibles personalizadas.",
+        "heroTitle": "Atrapa sus Miradas",
+        "heroSubtitle": "Brillo Iridiscente | Calidad Premium | Compatible con Reciclaje",
+        "introSummary": "Eleva tu marca con impresionantes acentos holográficos. Nuestro proceso de estampado ecológico le da a tu empaque un brillo lujoso que atrapa la luz y se destaca en cualquier estante."
+      }
+    },
+    "homeCompostableCoffeeBags": {
+      "s1": {
+        "title": "El Futuro del Café es Compostable",
+        "p1": "Te importa de dónde viene tu café, los agricultores que lo cultivaron y el impacto que tiene en el planeta. Entonces, ¿por qué tu infusión diaria debería venir empaquetada en plástico que te sobrevive?",
+        "p2": "Nuestras bolsas de café compostables en casa significan que puedes disfrutar de tu tostado premium sabiendo que el empaque regresará a la tierra, sin dejar rastro alguno."
+      },
+      "s2": {
+        "title": "Protección sin Contaminación",
+        "p1": "A diferencia de los plásticos de un solo uso que ahogan nuestros océanos, nuestros materiales compostables están certificados para descomponerse de manera segura en tu composta de jardín, convirtiéndose en suelo rico en nutrientes."
+      },
+      "s3": {
+        "title": "Frescura Sellada en la Naturaleza",
+        "p1": "No tienes que sacrificar la calidad. Nuestras bolsas cuentan con una barrera natural que bloquea el oxígeno y la humedad, manteniendo esos ricos aceites de café frescos, mientras permanecen 100% amigables con la tierra."
+      },
+      "faqs": {
+        "q1": "¿Cuánto tardan en compostarse estas bolsas?",
+        "a1": "En una composta doméstica activa, nuestras bolsas se descompondrán en biomasa en 26 a 52 semanas.",
+        "q2": "¿La válvula de desgasificación también es compostable?",
+        "a2": "¡Sí! Utilizamos una innovadora válvula de bioplástico que se descompone al mismo ritmo que la bolsa."
+      },
+      "layout": {
+        "title": "Bolsas de Café Compostables en Casa",
+        "description": "Bolsas de café totalmente compostables en casa que protegen tanto tus granos como el medio ambiente.",
+        "heroTitle": "Café que Cuida la Tierra",
+        "heroSubtitle": "100% Compostable en Casa | Alta Barrera | Válvulas Ecológicas",
+        "introSummary": "Haz que tu hábito de café sea libre de culpa. Nuestras bolsas de café compostables en casa protegen el sabor de tu tostado y luego desaparecen de nuevo en la naturaleza."
+      }
+    },
+    "home-vs-industrial-compostable": {
+      "title": "Empaque Compostable Doméstico vs. Industrial",
+      "description": "Comprenda las diferencias entre el empaque compostable doméstico e industrial.",
+      "heroTitle": "Compostaje Doméstico vs. Industrial",
+      "introSummary": "Entendemos lo frustrante que es cuando su empaque supuestamente compostable no se descompone, lo que lleva a acusaciones de lavado verde y clientes descontentos. Resolvamos esto. El empaque compostable doméstico se descompone naturalmente en los contenedores de compostaje de jardín a temperatura ambiente, mientras que las películas compostables industriales requieren instalaciones municipales de alta temperatura."
+    },
+    "household-back-seal-bag": {
+      "introSummary": "Entendemos los problemas técnicos detrás de las fallas en los sellos. Resolvamos esto. El empaque Household Back Seal Bag (Model #4724) es una estructura de alta resistencia diseñada para entornos minoristas e industriales."
+    },
+    "household-jam-three-side-seal": {
+      "introSummary": "Sabemos que las fugas y arrugas pueden dañar su marca. Resolvamos esto. El empaque Household Jam Three-Side Seal (Model #4056) es una estructura de alta resistencia diseñada para rendimiento automático."
+    },
+    "iso-sustainable": {
+      "title": "Estándares de Empaque Sostenible ISO",
+      "description": "Criterios de diseño global para la reducción de materiales y el cumplimiento ambiental.",
+      "heroTitle": "Empaque Sostenible ISO",
+      "introSummary": "Entendemos el riesgo de las multas y el escrutinio del consumidor. Resolvamos esto. Nuestro empaque está diseñado para cumplir con la serie ISO 18600, asegurando la optimización de materiales y la reciclabilidad."
+    },
+    "jelly-beverage-stand-up-pouch": {
+      "title": "Bolsa Sostenible para Gelatina y Bebidas | Pouch Eco",
+      "description": "Bolsa ecológica para gelatina y bebidas con boquilla. A prueba de fugas, duradera y sostenible.",
+      "heroTitle": "Bolsa Ecológica con Boquilla para Bebidas",
+      "heroSubtitle": "Empaque Sostenible | A Prueba de Fugas | Impresión Vibrante",
+      "introSummary": "Nuestra bolsa sostenible para gelatina y bebidas está diseñada para proteger su producto y el planeta.",
+      "aeoSummary": "Esta bolsa con boquilla ecológica ofrece excelentes barreras contra el oxígeno y la humedad.",
+      "eeatDetails": "Desarrollado por el equipo de ingeniería sostenible de Pouch Eco para cumplir con estrictos estándares.",
+      "empathyHook": "Sabemos que pones tu corazón en la elaboración de la bebida perfecta, y lo último que quieres es que gotee en la bolsa de tu cliente. Encontrar envases que protejan su producto y sean amables con la tierra puede parecer imposible. Hemos creado una bolsa que mantiene sus bebidas seguras y alineadas con sus valores ecológicos.",
+      "section1Title": "Detalles Estructurales Sostenibles",
+      "section1Text": "Diseñada específicamente para marcas ecológicas, esta bolsa utiliza películas reciclables o compostables avanzadas.",
+      "point1Title": "El Problema de las Fugas",
+      "point1Desc": "Las bolsas tradicionales a menudo estallan o gotean alrededor de la boquilla.",
+      "point1Sol": "Utilizamos soldadura ultrasónica de alta integridad para garantizar un sellado 100% a prueba de fugas.",
+      "point2Title": "Frescura y Deterioro",
+      "point2Desc": "La entrada de oxígeno hace que las bebidas pierdan sabor.",
+      "point2Sol": "Nuestras películas sostenibles de alta barrera bloquean el oxígeno.",
+      "point3Title": "La Culpa de los Residuos Plásticos",
+      "point3Desc": "Los clientes se sienten culpables al tirar botellas de plástico.",
+      "point3Sol": "Nuestras bolsas usan un 70% menos de plástico que las botellas rígidas.",
+      "compTitle": "Botellas Pesadas vs. Bolsas Ecológicas",
+      "compDesc": "Cambie al embalaje flexible. Reduce su huella de carbono y proporciona una experiencia premium."
+    },
+    "kraft-paper-shopping-bag": {
+      "title": "Bolsa de Compras de Papel Kraft | Pouch Eco",
+      "description": "Bolsa de papel kraft ecológica. A prueba de fugas, duradera y sostenible.",
+      "heroTitle": "Bolsa Ecológica de Papel Kraft",
+      "empathyHook": "Desea que sus clientes se sientan orgullosos de salir con sus productos, pero los envases endebles y derrochadores arruinan esa experiencia superior. Entendemos lo frustrante que es buscar una bolsa verdaderamente sostenible que también sea fuerte y hermosa. Nuestras bolsas de kraft ecológicas le dan a su marca ese aspecto natural y de alta gama mientras mantienen su compromiso con el planeta al frente y al centro."
+    },
+    "liquid-barrier-packaging-spouts": {
+      "title": "Empaque de Barrera de Líquidos con Boquilla | Pouch Eco",
+      "empathyHook": "El envío de líquidos sin botellas pesadas y que desperdician plástico solía ser un desastre. Desea ofrecer opciones recargables y ecológicas para sus jabones o jugos, pero preocuparse por las fugas en tránsito es agotador. Hemos diseñado una bolsa con boquilla sostenible que es increíblemente resistente y a prueba de fugas, para que pueda reducir el desperdicio de plástico sin sacrificar la tranquilidad."
+    },
+    "low-moq-startup-packaging-page": {
+      "title": "Empaque para Startups con Bajo MOQ | Pouch Eco",
+      "empathyHook": "Comenzar una nueva marca sostenible es lo suficientemente aterrador sin tener que comprar 20,000 bolsas solo para comenzar. Sabemos lo aterrador que es arriesgar sus ahorros en empaques antes de haber probado el mercado. Nuestras bolsas ecológicas de bajo MOQ le permiten lanzarse de manera hermosa y sostenible, brindándole la libertad de crecer a su propio ritmo sin el desperdicio."
+    },
+    "medicalTapeThreeSideSeal": {
+      "title": "Bolsas de Cinta Médica con Sello de Tres Lados",
+      "metaDesc": "Bolsas de sellado de tres lados de grado médico para un empaque estéril y seguro."
+    },
+    "minimalistD2CPackaging": {
+      "title": "Embalaje D2C Minimalista",
+      "metaDesc": "Soluciones de embalaje directas al consumidor minimalistas y sostenibles."
+    },
+    "monoMaterialSolution": {
+      "title": "Soluciones de Monomaterial",
+      "metaDesc": "Opciones de embalaje de un solo material 100% reciclables."
+    },
+    "monoPEPouches": {
+      "title": "Bolsas de Mono-PE",
+      "metaDesc": "Bolsas de polietileno de un solo material reciclables y de alto rendimiento."
+    },
+    "nuts-flat-bottom-pouch": {
+      "empathyHook": "Como ingeniero de empaques, conozco la frustración de encontrar bolsas de fondo plano inclinadas en el estante de la tienda porque los sellos del fuelle no soportaron el llenado automático a alta velocidad. Esto causa cuellos de botella en la producción y daña la presentación de la marca. No debería tener que sacrificar la velocidad de la línea para obtener una estructura perfecta tipo caja. Al utilizar nuestra calibración de líneas de plegado patentada y sustratos estabilizados por calor, logrará esquinas perfectas de 90 grados y máxima estabilidad en el estante sin ralentizar sus líneas VFFS."
+    },
+    "oatmeal-cereal-stand-up-pouch": {
+      "empathyHook": "Las bolsas doypack que gotean en el fuelle inferior durante la dosificación son una pesadilla para cualquier gerente de producción. He visto innumerables lotes arruinados porque los límites térmicos no estaban calibrados para un alto estrés mecánico. Diseñamos el Modelo #2922 con selladores de metaloceno especializados que aumentan los límites elásticos del fuelle en un 40%, garantizando cero rupturas en sus líneas de llenado automatizadas, incluso bajo la máxima presión de dosificación."
+    },
+    "pcr-packaging-guide-page": {
+      "empathyHook": "Navegar por el cumplimiento de PCR sin sacrificar el rendimiento del empaque es uno de los desafíos más difíciles que enfrentan las marcas hoy en día. Muchos proveedores ofrecen resinas recicladas que sufren de puntos de gel, baja resistencia a la tracción o, lo que es peor, carecen de la certificación GRS adecuada. Desarrollamos nuestras bolsas con PCR integrado para brindarle exactamente la misma claridad mecánica y resistencia que el plástico virgen, respaldadas por certificados de transacción verificados para que pueda reclamar exenciones de impuestos con confianza."
+    },
+    "ocean-bound-plastic-packaging": {
+      "empathyHook": "Es una sensación increíble decirle a tus clientes que estás ayudando activamente a limpiar los océanos, pero navegar por el mundo de los plásticos reciclados puede ser un campo minado de lavado verde (greenwashing) y problemas de calidad. He visto a fundadores emocionarse con bolsas 'recicladas' solo para descubrir que estaban llenas de imperfecciones cosméticas o, peor aún, que no eran aptas para alimentos. No deberías tener que arriesgar la seguridad de tu producto ni la reputación de tu marca para utilizar materiales reciclados. Con plástico destinado al océano certificado y sellado detrás de un revestimiento virgen de grado alimenticio, obtienes la victoria ambiental sin ningún riesgo."
     }
   },
   "climate": {
@@ -52384,5 +52581,305 @@
     "title": "Guía Integral para la Reducción de Residuos",
     "description": "Descubra cómo las estrategias de diseño integral pueden minimizar el desperdicio en toda su cadena de suministro con nuestra guía.",
     "content": "El verdadero costo de la ineficiencia. El desperdicio no es solo un problema ambiental; es una fuga masiva en sus resultados. Analizamos todo el ciclo de vida de su producto para identificar áreas ocultas de desperdicio. Desde la resina que seleccionamos hasta la forma de la bolsa final, cada decisión está optimizada para lograr un impacto ambiental mínimo."
+  },
+  "seoPages.pages.granolaSoftTouch": {
+    "s1": {
+      "title": "La Elección Ecológica: Granola Soft Touch"
+    },
+    "s2": {
+      "title": "Por qué importa: Granola Soft Touch"
+    },
+    "s3": {
+      "title": "Eleve su Marca"
+    },
+    "faqs": {
+      "q1": "¿Cómo impacta la vida útil?",
+      "q2": "¿Tienen bajos mínimos de compra?"
+    }
+  },
+  "seoPages.pages.greenCoffeeMaterials": {
+    "s1": {
+      "title": "La Elección Ecológica: Green Coffee Materials"
+    },
+    "s2": {
+      "title": "Por qué importa: Green Coffee Materials"
+    },
+    "s3": {
+      "title": "Eleve su Marca"
+    },
+    "faqs": {
+      "q1": "¿Cómo impacta la vida útil?",
+      "q2": "¿Tienen bajos mínimos de compra?"
+    }
+  },
+  "seoPages.pages.hologramHotStamping": {
+    "s1": {
+      "title": "La Elección Ecológica: Hologram Hot Stamping"
+    },
+    "s2": {
+      "title": "Por qué importa: Hologram Hot Stamping"
+    },
+    "s3": {
+      "title": "Eleve su Marca"
+    },
+    "faqs": {
+      "q1": "¿Cómo impacta la vida útil?",
+      "q2": "¿Tienen bajos mínimos de compra?"
+    }
+  },
+  "seoPages.pages.homeCompostableCoffeeBags": {
+    "s1": {
+      "title": "La Elección Ecológica: Home Compostable Coffee Bags"
+    },
+    "s2": {
+      "title": "Por qué importa: Home Compostable Coffee Bags"
+    },
+    "s3": {
+      "title": "Eleve su Marca"
+    },
+    "faqs": {
+      "q1": "¿Cómo impacta la vida útil?",
+      "q2": "¿Tienen bajos mínimos de compra?"
+    }
+  },
+  "seoPages.pages.homeVsIndustrialCompostable": {
+    "s1": {
+      "title": "La Elección Ecológica: Home Vs Industrial Compostable"
+    },
+    "s2": {
+      "title": "Por qué importa: Home Vs Industrial Compostable"
+    },
+    "s3": {
+      "title": "Eleve su Marca"
+    },
+    "faqs": {
+      "q1": "¿Cómo impacta la vida útil?",
+      "q2": "¿Tienen bajos mínimos de compra?"
+    }
+  },
+  "seoPages.pages.householdBackSealBag": {
+    "s1": {
+      "title": "La Elección Ecológica: Household Back Seal Bag"
+    },
+    "s2": {
+      "title": "Por qué importa: Household Back Seal Bag"
+    },
+    "s3": {
+      "title": "Eleve su Marca"
+    },
+    "faqs": {
+      "q1": "¿Cómo impacta la vida útil?",
+      "q2": "¿Tienen bajos mínimos de compra?"
+    }
+  },
+  "seoPages.pages.householdJamThreeSideSeal": {
+    "s1": {
+      "title": "La Elección Ecológica: Household Jam Three Side Seal"
+    },
+    "s2": {
+      "title": "Por qué importa: Household Jam Three Side Seal"
+    },
+    "s3": {
+      "title": "Eleve su Marca"
+    },
+    "faqs": {
+      "q1": "¿Cómo impacta la vida útil?",
+      "q2": "¿Tienen bajos mínimos de compra?"
+    }
+  },
+  "seoPages.pages.isoSustainable": {
+    "s1": {
+      "title": "La Elección Ecológica: Iso Sustainable"
+    },
+    "s2": {
+      "title": "Por qué importa: Iso Sustainable"
+    },
+    "s3": {
+      "title": "Eleve su Marca"
+    },
+    "faqs": {
+      "q1": "¿Cómo impacta la vida útil?",
+      "q2": "¿Tienen bajos mínimos de compra?"
+    }
+  },
+  "seoPages.pages.jellyBeverageStandUpPouch": {
+    "s1": {
+      "title": "La Elección Ecológica: Jelly Beverage Stand Up Pouch"
+    },
+    "s2": {
+      "title": "Por qué importa: Jelly Beverage Stand Up Pouch"
+    },
+    "s3": {
+      "title": "Eleve su Marca"
+    },
+    "faqs": {
+      "q1": "¿Cómo impacta la vida útil?",
+      "q2": "¿Tienen bajos mínimos de compra?"
+    }
+  },
+  "seoPages.pages.kraftPaperShoppingBag": {
+    "s1": {
+      "title": "La Elección Ecológica: Kraft Paper Shopping Bag"
+    },
+    "s2": {
+      "title": "Por qué importa: Kraft Paper Shopping Bag"
+    },
+    "s3": {
+      "title": "Eleve su Marca"
+    },
+    "faqs": {
+      "q1": "¿Cómo impacta la vida útil?",
+      "q2": "¿Tienen bajos mínimos de compra?"
+    }
+  },
+  "seoPages.pages.liquidBarrierPackagingSpouts": {
+    "s1": {
+      "title": "La Elección Ecológica: Liquid Barrier Packaging Spouts"
+    },
+    "s2": {
+      "title": "Por qué importa: Liquid Barrier Packaging Spouts"
+    },
+    "s3": {
+      "title": "Eleve su Marca"
+    },
+    "faqs": {
+      "q1": "¿Cómo impacta la vida útil?",
+      "q2": "¿Tienen bajos mínimos de compra?"
+    }
+  },
+  "seoPages.pages.lowMoqStartupPackaging": {
+    "s1": {
+      "title": "La Elección Ecológica: Low MOQStartup Packaging"
+    },
+    "s2": {
+      "title": "Por qué importa: Low MOQStartup Packaging"
+    },
+    "s3": {
+      "title": "Eleve su Marca"
+    },
+    "faqs": {
+      "q1": "¿Cómo impacta la vida útil?",
+      "q2": "¿Tienen bajos mínimos de compra?"
+    }
+  },
+  "seoPages.pages.medicalTapeThreeSideSeal": {
+    "s1": {
+      "title": "La Elección Ecológica: Medical Tape Three Side Seal"
+    },
+    "s2": {
+      "title": "Por qué importa: Medical Tape Three Side Seal"
+    },
+    "s3": {
+      "title": "Eleve su Marca"
+    },
+    "faqs": {
+      "q1": "¿Cómo impacta la vida útil?",
+      "q2": "¿Tienen bajos mínimos de compra?"
+    }
+  },
+  "seoPages.pages.minimalistD2CPackaging": {
+    "s1": {
+      "title": "La Elección Ecológica: Minimalist D2CPackaging"
+    },
+    "s2": {
+      "title": "Por qué importa: Minimalist D2CPackaging"
+    },
+    "s3": {
+      "title": "Eleve su Marca"
+    },
+    "faqs": {
+      "q1": "¿Cómo impacta la vida útil?",
+      "q2": "¿Tienen bajos mínimos de compra?"
+    }
+  },
+  "seoPages.pages.monoMaterialSolution": {
+    "s1": {
+      "title": "La Elección Ecológica: Mono Material Solution"
+    },
+    "s2": {
+      "title": "Por qué importa: Mono Material Solution"
+    },
+    "s3": {
+      "title": "Eleve su Marca"
+    },
+    "faqs": {
+      "q1": "¿Cómo impacta la vida útil?",
+      "q2": "¿Tienen bajos mínimos de compra?"
+    }
+  },
+  "seoPages.pages.monoPePouches": {
+    "s1": {
+      "title": "La Elección Ecológica: Mono PEPouches"
+    },
+    "s2": {
+      "title": "Por qué importa: Mono PEPouches"
+    },
+    "s3": {
+      "title": "Eleve su Marca"
+    },
+    "faqs": {
+      "q1": "¿Cómo impacta la vida útil?",
+      "q2": "¿Tienen bajos mínimos de compra?"
+    }
+  },
+  "seoPages.pages.nutsFlatBottomPouch": {
+    "s1": {
+      "title": "La Elección Ecológica: Nuts Flat Bottom Pouch"
+    },
+    "s2": {
+      "title": "Por qué importa: Nuts Flat Bottom Pouch"
+    },
+    "s3": {
+      "title": "Eleve su Marca"
+    },
+    "faqs": {
+      "q1": "¿Cómo impacta la vida útil?",
+      "q2": "¿Tienen bajos mínimos de compra?"
+    }
+  },
+  "seoPages.pages.oatmealCerealStandUpPouch": {
+    "s1": {
+      "title": "La Elección Ecológica: Oatmeal Cereal Stand Up Pouch"
+    },
+    "s2": {
+      "title": "Por qué importa: Oatmeal Cereal Stand Up Pouch"
+    },
+    "s3": {
+      "title": "Eleve su Marca"
+    },
+    "faqs": {
+      "q1": "¿Cómo impacta la vida útil?",
+      "q2": "¿Tienen bajos mínimos de compra?"
+    }
+  },
+  "seoPages.pages.oceanBoundPlasticPackaging": {
+    "s1": {
+      "title": "La Elección Ecológica: Ocean Bound Plastic Packaging"
+    },
+    "s2": {
+      "title": "Por qué importa: Ocean Bound Plastic Packaging"
+    },
+    "s3": {
+      "title": "Eleve su Marca"
+    },
+    "faqs": {
+      "q1": "¿Cómo impacta la vida útil?",
+      "q2": "¿Tienen bajos mínimos de compra?"
+    }
+  },
+  "seoPages.pages.pcrPackagingGuide": {
+    "s1": {
+      "title": "La Elección Ecológica: PCRPackaging Guide"
+    },
+    "s2": {
+      "title": "Por qué importa: PCRPackaging Guide"
+    },
+    "s3": {
+      "title": "Eleve su Marca"
+    },
+    "faqs": {
+      "q1": "¿Cómo impacta la vida útil?",
+      "q2": "¿Tienen bajos mínimos de compra?"
+    }
   }
 }

@@ -1,217 +1,13 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { 
-  Target, Sparkles, Shield, Eye, Calendar, 
-  Package, CheckCircle2, Layers, Info, Check, HelpCircle
-} from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Target, Sparkles, Shield, Eye, Settings, HelpCircle, Calendar, Package, CheckCircle2, Info } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
-import { getDomain } from '../../utils/domain'
-import { useTranslation } from 'react-i18next'
-
-const localTranslations = {
-  en: {
-    title: "Oatmeal & Cereal Stand-Up Pouch (Model #2922) | Achieve Pack",
-    description: "Discover Oatmeal & Cereal Stand-Up Pouch (Model #2922). High-barrier Stand-Up Pouch with custom sizes (L:190mm  H:260mm), certifications, and 3D preview.",
-    heroTitle: "Oatmeal & Cereal Stand-Up Pouch (Model #2922)",
-    heroSubtitle: "Custom Dimensions L:190mm  H:260mm | High Barrier | BPI & TUV Certified",
-    introSummary: "The Oatmeal & Cereal Stand-Up Pouch (Model #2922) represents a premium, high-strength packaging structure engineered for retail and industrial environments. This Stand-Up Pouch is designed for optimal performance on automatic packaging lines.",
-    aeoSummary: "Model #2922 is a Stand-Up Pouch measuring L:190mm  H:260mm. Configured with high-performance barrier film and reliable closures to prevent leaks and maximize product shelf life.",
-    eeatDetails: "With over 14 years of packaging engineering, we ensure that every batch of Model #2922 complies with international food safety and sustainability regulations.",
-    "empathyHook": "Stand-up pouches that leak at the bottom gusset during dosing are a nightmare for any production manager. I\'ve seen countless batches ruined because the thermal boundaries weren\'t calibrated for high mechanical stress. We engineered Model #2922 with specialized metallocene sealants that increase the gusset elastic limits by 40%, ensuring zero blowouts on your automated filling lines, even under maximum dosing pressure.",
-    section1Title: "Structural Details & Material Configuration",
-    section1Text: "Engineered specifically for food-grade stability, this Stand-Up Pouch (Model #2922) utilizes co-extruded substrates to deliver chemical resistance and puncture defense. Ideal for both automatic form-fill-seal workflows and manual batch filling, it maintains structural shape and brand aesthetics.",
-    section2Title: "From Ryan Wong’s Engineering Notebook",
-    section2Log: "Stand-up pouch Model #2922 requires precise bottom-gusset seal timing. On automated filling lines, improper heat calibration leads to gusset micro-fractures. We utilize LLDPE blend sealants to distribute mechanical stress.",
-    point1Title: "Pain Point: Gusset Seal Leaks",
-    point1Desc: "High pressure during dosing can rupture the bottom gusset seam.",
-    point1Sol: "Employing specialized metallocene compounds to increase gusset elastic limits by 40%.",
-    point2Title: "Pain Point: Zipper Track Clogging",
-    point2Desc: "Powder or granular contents jam the interlocking zipper profile.",
-    point2Sol: "Integrating self-cleaning zippers with dust discharge grooves.",
-    point3Title: "Pain Point: Shelf Instability",
-    point3Desc: "Incorrect volumetric ratios cause the pouch to tip forward on retail shelves.",
-    point3Sol: "Custom bottom gusset scaling matching product density profiles.",
-    point4Title: "Pain Point: Oxygen Ingress",
-    point4Desc: "Aroma deterioration from environmental oxygen exposure.",
-    point4Sol: "Triple-layer barrier foils maintaining OTR under 0.5 cc/m²/24hr.",
-    point5Title: "Pain Point: Surface Scuffing",
-    point5Desc: "Matte coatings scratching during bulk transport runs.",
-    point5Sol: "Double-cured anti-scratch external varnish layers.",
-    compTitle: "Dieline Layout & Calibration Specifications",
-    compDesc: "Every model run is calibrated using strict prepress dielines. Our teams adjust fold tolerances and thermal boundaries based on substrate thickness.",
-    faq1Q: "What is the MOQ for custom custom-sized runs of Model #2922?",
-    faq1A: "For custom sizes or custom prints, our standard minimum order quantity starts from 5,000 pieces. Digital printing runs are available from 1,000 pieces for startups.",
-    faq2Q: "Can I request unprinted material samples of this specific model?",
-    faq2A: "Yes. We offer free unprinted material sample packages so you can verify size, gusset width, and material thickness on your filling lines before ordering.",
-    faq3Q: "Does this pouch structure support automated filling lines?",
-    faq3A: "Yes, this design is fully optimized for standard vertical and horizontal form-fill-seal (VFFS/HFFS) packaging machinery.",
-    faq4Q: "What certifications are available for these materials?",
-    faq4A: "Depending on your selection, we offer fully certified FDA food-safe, BPI compostable (ASTM D6400), and recyclable mono-polymer materials."
-  },
-  es: {
-    title: "Empaque Oatmeal & Cereal Stand-Up Pouch (Model #2922) | Achieve Pack",
-    description: "Descubra Oatmeal & Cereal Stand-Up Pouch (Model #2922). Stand-Up Pouch de alta barrera con tamaños personalizados (L:190mm  H:260mm), certificaciones y vista 3D.",
-    heroTitle: "Empaque Oatmeal & Cereal Stand-Up Pouch (Model #2922)",
-    heroSubtitle: "Dimensiones L:190mm  H:260mm | Alta Barrera | Certificaciones BPI y TUV",
-    introSummary: "El empaque Oatmeal & Cereal Stand-Up Pouch (Model #2922) es una estructura de alta resistencia diseñada para entornos minoristas e industriales. Este Stand-Up Pouch está optimizado para líneas de envasado automático.",
-    aeoSummary: "El modelo #2922 es un Stand-Up Pouch de dimensiones L:190mm  H:260mm, configurado con barrera de alto rendimiento para garantizar frescura.",
-    eeatDetails: "Garantizamos que cada lote del Modelo #2922 cumpla con las normativas internacionales de seguridad alimentaria y sostenibilidad.",
-    "empathyHook": "Stand-up pouches that leak at the bottom gusset during dosing are a nightmare for any production manager. I\'ve seen countless batches ruined because the thermal boundaries weren\'t calibrated for high mechanical stress. We engineered Model #2922 with specialized metallocene sealants that increase the gusset elastic limits by 40%, ensuring zero blowouts on your automated filling lines, even under maximum dosing pressure.",
-    section1Title: "Detalles Estructurales y Configuración de Materiales",
-    section1Text: "Diseñado específicamente para la estabilidad alimentaria, este Stand-Up Pouch (Modelo #2922) utiliza sustratos coextruidos para brindar resistencia química. Es ideal tanto para llenado automático como manual.",
-    section2Title: "Del Cuaderno de Ingeniería de Ryan Wong",
-    section2Log: "La bolsa vertical Modelo #2922 requiere una sincronización precisa del sellado del fuelle inferior. En las líneas de llenado automatizadas, la calibración térmica incorrecta provoca microfracturas. Utilizamos selladores de mezcla LLDPE.",
-    point1Title: "Problema: Fugas en el Fuelle",
-    point1Desc: "La presión de dosificación puede romper la costura inferior.",
-    point1Sol: "Compuestos de metaloceno para aumentar el límite elástico.",
-    point2Title: "Problema: Obstrucción del Cierre",
-    point2Desc: "Polvo o grano atasca el perfil del cierre.",
-    point2Sol: "Cierres autolimpiables con canales de descarga.",
-    point3Title: "Problema: Inestabilidad en Estante",
-    point3Desc: "Volumen incorrecto hace que la bolsa se incline.",
-    point3Sol: "Fuelle inferior a la medida de la densidad.",
-    point4Title: "Problema: Entrada de Oxígeno",
-    point4Desc: "Deterioro de aromas por oxígeno.",
-    point4Sol: "Láminas triples que limitan OTR.",
-    point5Title: "Problema: Desgaste de Superficie",
-    point5Desc: "Rayaduras en barnices mate.",
-    point5Sol: "Barnices externos de curado doble.",
-    compTitle: "Especificaciones de Dieline y Calibración",
-    compDesc: "Cada ejecución de modelo se calibra utilizando planos dieline estrictos. Ajustamos tolerancias según el grosor del sustrato.",
-    faq1Q: "¿Cuál es el MOQ para el Modelo #2922 personalizado?",
-    faq1A: "Para tamaños o impresiones personalizadas, nuestro MOQ estándar comienza en 5,000 piezas. Impresión digital disponible desde 1,000 piezas.",
-    faq2Q: "¿Puedo solicitar muestras de este modelo específico?",
-    faq2A: "Sí. Ofrecemos paquetes de muestras físicas gratuitas sin impresión para que valide las dimensiones en sus líneas de llenado.",
-    faq3Q: "¿Esta estructura admite líneas de llenado automático?",
-    faq3A: "Sí, este diseño está totalmente optimizado para maquinaria de envasado estándar VFFS y HFFS.",
-    faq4Q: "¿Qué certificaciones están disponibles para estos materiales?",
-    faq4A: "Ofrecemos materiales aprobados por la FDA para alimentos, compostables certificados por BPI y monomateriales reciclables."
-  },
-  fr: {
-    title: "Sachet Tenant Debout pour Flocons d'Avoine & Céréales (Modèle #2922) | Achieve Pack",
-    description: "Découvrez le sachet tenant debout pour flocons d'avoine & céréales (Modèle #2922). Haute barrière avec tailles personnalisées (L:190mm H:260mm), certifications et aperçu 3D.",
-    heroTitle: "Sachet Tenant Debout pour Céréales (Modèle #2922)",
-    heroSubtitle: "Dimensions personnalisées L:190mm H:260mm | Haute barrière | Certifié BPI & TUV",
-    introSummary: "Le sachet tenant debout pour flocons d'avoine & céréales (Modèle #2922) représente une structure d'emballage premium à haute résistance, conçue pour les environnements de vente au détail et industriels. Ce sachet tenant debout est conçu pour des performances optimales sur les lignes d'ensachage automatiques.",
-    aeoSummary: "Le modèle #2922 est un sachet tenant debout mesurant L:190mm H:260mm. Configuré avec un film barrière haute performance et des fermetures fiables pour éviter les fuites et maximiser la durée de conservation du produit.",
-    eeatDetails: "Avec plus de 14 ans d'expérience en ingénierie de l'emballage, nous garantissons que chaque lot du modèle #2922 est conforme aux réglementations internationales en matière de sécurité alimentaire et de durabilité.",
-    "empathyHook": "Stand-up pouches that leak at the bottom gusset during dosing are a nightmare for any production manager. I\'ve seen countless batches ruined because the thermal boundaries weren\'t calibrated for high mechanical stress. We engineered Model #2922 with specialized metallocene sealants that increase the gusset elastic limits by 40%, ensuring zero blowouts on your automated filling lines, even under maximum dosing pressure.",
-    section1Title: "Détails structurels et configuration des matériaux",
-    section1Text: "Conçu spécifiquement pour la stabilité de qualité alimentaire, ce sachet tenant debout (Modèle #2922) utilise des substrats co-extrudés pour offrir une résistance chimique et une protection contre les perforations. Idéal pour les flux de travail de formage-remplissage-scellage automatiques et le remplissage manuel par lots, il conserve sa forme structurelle et l'esthétique de la marque.",
-    section2Title: "Du carnet d'ingénierie de Ryan Wong",
-    section2Log: "Le sachet tenant debout Modèle #2922 nécessite un calibrage précis du temps de scellage du soufflet inférieur. Sur les lignes de remplissage automatisées, un mauvais étalonnage thermique entraîne des micro-fissures du soufflet. Nous utilisons des mélanges de scellants LLDPE pour répartir les contraintes mécaniques.",
-    point1Title: "Point sensible : Fuites de soudure du soufflet",
-    point1Desc: "Une pression élevée pendant le dosage peut rompre le joint du soufflet inférieur.",
-    point1Sol: "Emploi de composés métallocènes spécialisés pour augmenter les limites élastiques du soufflet de 40%.",
-    point2Title: "Point sensible : Obstruction du rail de la fermeture éclair",
-    point2Desc: "Les contenus pulvérulents ou granulaires bloquent le profil de verrouillage de la fermeture éclair.",
-    point2Sol: "Intégration de fermetures éclair autonettoyantes avec des rainures d'évacuation de la poussière.",
-    point3Title: "Point sensible : Instabilité sur étagère",
-    point3Desc: "Des rapports volumétriques incorrects font que le sachet bascule vers l'avant sur les étagères de vente au détail.",
-    point3Sol: "Calibrage sur mesure du soufflet inférieur en fonction de la densité du produit.",
-    point4Title: "Point sensible : Ingress d'oxygène",
-    point4Desc: "Détérioration des arômes due à l'exposition à l'oxygène de l'air.",
-    point4Sol: "Feuilles barrière triple couche maintenant le taux de transmission d'oxygène (OTR) sous 0,5 cc/m²/24h.",
-    point5Title: "Point sensible : Rayures superficielles",
-    point5Desc: "Les revêtements mats s'égratignent pendant le transport en vrac.",
-    point5Sol: "Couches de vernis externe anti-rayures à double durcissement.",
-    compTitle: "Disposition du tracé de découpe & spécifications de calibrage",
-    compDesc: "Chaque tirage de modèle est calibré à l'aide de tracés de découpe prépresse stricts. Nos équipes ajustent les tolérances de pliage et les limites thermiques en fonction de l'épaisseur du substrat.",
-    faq1Q: "Quel est le MOQ pour les tirages sur mesure du modèle #2922 ?",
-    faq1A: "Pour les tailles ou impressions personnalisées, notre quantité minimale de commande standard commence à partir de 5 000 pièces. Les tirages en impression numérique sont disponibles à partir de 1 000 pièces pour les startups.",
-    faq2Q: "Puis-je demander des échantillons de matériaux non imprimés de ce modèle spécifique ?",
-    faq2A: "Oui. Nous offrons des kits d'échantillons de matériaux physiques gratuits non imprimés afin que vous puissiez vérifier la taille, la largeur du soufflet et l'épaisseur du matériau sur vos lignes de remplissage avant de commander.",
-    faq3Q: "Cette structure de sachet prend-elle en charge les lignes de remplissage automatisées ?",
-    faq3A: "Oui, cette conception est entièrement optimisée pour les machines d'emballage standard de formage-remplissage-scellage vertical et horizontal (VFFS/HFFS).",
-    faq4Q: "Quelles certifications sont disponibles pour ces matériaux ?",
-    faq4A: "Selon votre sélection, nous proposons des matériaux entièrement certifiés de qualité alimentaire par la FDA, compostables BPI (ASTM D6400) et des mono-polymères recyclables."
-  },
-  "zh-tw": {
-    title: "Oatmeal & Cereal Stand-Up Pouch (Model #2922) 3D包裝袋 | Achieve Pack",
-    description: "了解 Oatmeal & Cereal Stand-Up Pouch (Model #2922)。高阻隔 Stand-Up Pouch，支持定製尺寸 (L:190mm  H:260mm)，提供 BPI/TUV 認證與 3D 交互式預覽。",
-    heroTitle: "Oatmeal & Cereal Stand-Up Pouch (Model #2922) 3D包裝袋",
-    heroSubtitle: "定製尺寸 L:190mm  H:260mm | 雙向高阻隔 | BPI & TUV 綠色認證",
-    introSummary: "Oatmeal & Cereal Stand-Up Pouch (Model #2922) 採用高強度結構材料設計，適合各種零售與自動包裝流水線。本款 Stand-Up Pouch 專為提升封口強度與防漏性能進行了深度優化。",
-    aeoSummary: "編號 #2922 的 Stand-Up Pouch，尺寸為 L:190mm  H:260mm。具備優良的隔氧防潮性能，有效防止內容物受潮或風味流失。",
-    eeatDetails: "擁有超過 14 年包裝工程經驗，我們確保每批 Model #2922 均符合嚴格的環保認證與食品包裝標準。",
-    "empathyHook": "Stand-up pouches that leak at the bottom gusset during dosing are a nightmare for any production manager. I\'ve seen countless batches ruined because the thermal boundaries weren\'t calibrated for high mechanical stress. We engineered Model #2922 with specialized metallocene sealants that increase the gusset elastic limits by 40%, ensuring zero blowouts on your automated filling lines, even under maximum dosing pressure.",
-    section1Title: "結構細節與材料配置",
-    section1Text: "這款 Stand-Up Pouch（型號 #2922）採用食品級高性能複合膜壓製而成，具備優秀的耐穿刺強度與氣密防潮性能，能有效阻隔外部潮氣。適合自動化流水線計量灌裝，完美保護產品風味。",
-    section2Title: "工程師 Ryan Wong 的專業筆記",
-    section2Log: "自立袋型號 #2922 需要精確的底部折邊熱封配合。在自動化灌裝線上，溫度標定偏差易導致折邊微裂。我們採用專業配比的 LLDPE 封口料以分散應力。",
-    point1Title: "常見難題: 折邊漏封",
-    point1Desc: "灌裝時衝擊力大，易導致底部折邊受壓破裂。",
-    point1Sol: "使用茂金屬複合薄膜，提升底部接縫抗衝擊強度達40%。",
-    point2Title: "常見難題: 拉鏈夾粉堵塞",
-    point2Desc: "粉末或細小顆粒卡在拉鏈軌道中，導致無法密合。",
-    point2Sol: "配置帶排粉槽的自潔式防塵拉鏈。",
-    point3Title: "常見難題: 貨架站立不穩",
-    point3Desc: "長寬高比例失調，裝載後袋身前傾易倒伏。",
-    point3Sol: "根據物料堆積密度優化底部折邊張開角度與形狀。",
-    point4Title: "常見難題: 氧氣滲透",
-    point4Desc: "外界氧氣透入袋內，導致食品或原料氧化變質。",
-    point4Sol: "採用三層複合高阻隔膜，控制 OTR 在 0.5 以下。",
-    point5Title: "常見難題: 表面擦傷",
-    point5Desc: "啞光墨層在運輸中相互摩擦刮花，影響貨架質感。",
-    point5Sol: "表面噴塗雙組份抗刮防磨保護光油。",
-    compTitle: "刀模平面圖與機器標定規範",
-    compDesc: "每個包裝袋的生產均基於高精度的刀模圖設計，我們會根據實際薄膜厚度動態校正折邊偏差與熱封邊寬度。",
-    faq1Q: "型號 #2922 的定製起訂量 (MOQ) 是多少？",
-    faq1A: "定製尺寸或定製印刷的標準起訂量為 5,000 個。對於初創品牌，數碼直噴起訂量為 1,000 個起。",
-    faq2Q: "我可以申請獲取此款包裝袋的實物樣品包嗎？",
-    faq2A: "可以。我們提供免費的常規白樣（無印刷樣袋），方便您在包裝機上進行尺寸與容量測試。",
-    faq3Q: "這款包裝袋支持全自動包裝設備嗎？",
-    faq3A: "支持。本產品的拉力、挺度與靜電控制均針對主流的立式 (VFFS) 與臥式 (HFFS) 包裝機進行了優化。",
-    faq4Q: "該材質有哪些認證證書？",
-    faq4A: "我們提供符合美國 FDA 食品安全標準、歐盟 EN 13432 可降解認證以及 Mono-PE 可回收材料證書。"
-  },
-  zh: {
-    title: "Oatmeal & Cereal Stand-Up Pouch (Model #2922) 3D包裝袋 | Achieve Pack",
-    description: "了解 Oatmeal & Cereal Stand-Up Pouch (Model #2922)。高阻隔 Stand-Up Pouch，支持定製尺寸 (L:190mm  H:260mm)，提供 BPI/TUV 認證與 3D 交互式預覽。",
-    heroTitle: "Oatmeal & Cereal Stand-Up Pouch (Model #2922) 3D包裝袋",
-    heroSubtitle: "定製尺寸 L:190mm  H:260mm | 雙向高阻隔 | BPI & TUV 綠色認證",
-    introSummary: "Oatmeal & Cereal Stand-Up Pouch (Model #2922) 採用高強度結構材料設計，適合各種零售與自動包裝流水線。本款 Stand-Up Pouch 專為提升封口強度與防漏性能進行了深度優化。",
-    aeoSummary: "編號 #2922 的 Stand-Up Pouch，尺寸為 L:190mm  H:260mm。具備優良的隔氧防潮性能，有效防止內容物受潮或風味流失。",
-    eeatDetails: "擁有超過 14 年包裝工程經驗，我們確保每批 Model #2922 均符合嚴格的環保認證與食品包裝標準。",
-    "empathyHook": "Stand-up pouches that leak at the bottom gusset during dosing are a nightmare for any production manager. I\'ve seen countless batches ruined because the thermal boundaries weren\'t calibrated for high mechanical stress. We engineered Model #2922 with specialized metallocene sealants that increase the gusset elastic limits by 40%, ensuring zero blowouts on your automated filling lines, even under maximum dosing pressure.",
-    section1Title: "結構細節與材料配置",
-    section1Text: "這款 Stand-Up Pouch（型號 #2922）採用食品級高性能複合膜壓製而成，具備優秀的耐穿刺強度與氣密防潮性能，能有效阻隔外部潮氣。適合自動化流水線計量灌裝，完美保護產品風味。",
-    section2Title: "工程師 Ryan Wong 的專業筆記",
-    section2Log: "自立袋型號 #2922 需要精確的底部折邊熱封配合。在自動化灌裝線上，溫度標定偏差易導致折邊微裂。我們採用專業配比的 LLDPE 封口料以分散應力。",
-    point1Title: "常見難題: 折邊漏封",
-    point1Desc: "灌裝時衝擊力大，易導致底部折邊受壓破裂。",
-    point1Sol: "使用茂金屬複合薄膜，提升底部接縫抗衝擊強度達40%。",
-    point2Title: "常見難題: 拉鏈夾粉堵塞",
-    point2Desc: "粉末或細小顆粒卡在拉鏈軌道中，導致無法密合。",
-    point2Sol: "配置帶排粉槽的自潔式防塵拉鏈。",
-    point3Title: "常見難題: 貨架站立不穩",
-    point3Desc: "長寬高比例失調，裝載後袋身前傾易倒伏。",
-    point3Sol: "根據物料堆積密度優化底部折邊張開角度與形狀。",
-    point4Title: "常見難題: 氧氣滲透",
-    point4Desc: "外界氧氣透入袋內，導致食品或原料氧化變質。",
-    point4Sol: "採用三層複合高阻隔膜，控制 OTR 在 0.5 以下。",
-    point5Title: "常見難題: 表面擦傷",
-    point5Desc: "啞光墨層在運輸中相互摩擦刮花，影響貨架質感。",
-    point5Sol: "表面噴塗雙組份抗刮防磨保護光油。",
-    compTitle: "刀模平面圖與機器標定規範",
-    compDesc: "每個包裝袋的生產均基於高精度的刀模圖設計，我們會根據實際薄膜厚度動態校正折邊偏差與熱封邊寬度。",
-    faq1Q: "型號 #2922 的定製起訂量 (MOQ) 是多少？",
-    faq1A: "定製尺寸或定製印刷的標準起訂量為 5,000 個。對於初創品牌，數碼直噴起訂量為 1,000 個起。",
-    faq2Q: "我可以申請獲取此款包裝袋的實物樣品包嗎？",
-    faq2A: "可以。我們提供免費的常規白樣（無印刷樣袋），方便您在包裝機上進行尺寸與容量測試。",
-    faq3Q: "這款包裝袋支持全自動包裝設備嗎？",
-    faq3A: "支持。本產品的拉力、挺度與靜電控制均針對主流的立式 (VFFS) 與臥式 (HFFS) 包裝機進行了優化。",
-    faq4Q: "該材質有哪些認證證書？",
-    faq4A: "我們提供符合美國 FDA 食品安全標準、歐盟 EN 13432 可降解認證以及 Mono-PE 可回收材料證書。"
-  }
-}
 
 const OatmealCerealStandUpPouch: React.FC = () => {
-  const { t, i18n } = useTranslation()
-  const lang = i18n.language || 'en'
-  const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
+  const { openCalendly } = useCalendly()
 
   const IMAGES = {
     hero: '/imgs/topics/oatmeal-cereal-stand-up-pouch/hero.jpg',
@@ -222,38 +18,34 @@ const OatmealCerealStandUpPouch: React.FC = () => {
   const sections = [
     {
       id: 'empathy-hook',
-      title: 'The Reality of the Challenge',
-      icon: <CheckCircle2 className="h-5 w-5 text-primary-600" />,
+      title: 'The Hidden Cost of Oatmeal Cereal Stand Up Pouch Failures',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg space-y-4 mb-8">
-          <p className="text-lg text-neutral-800 italic leading-relaxed">
-            "{localTrans.empathyHook}"
+        <div className="space-y-4 text-neutral-700">
+          <p className="text-lg font-medium text-neutral-900 leading-relaxed">
+            You've spent months perfecting your product, but standard packaging often fails to meet technical requirements during high-stress transit or shelf-life. This leads to compromised barrier integrity and damaged brand reputation.
           </p>
-          <div className="flex items-center gap-3 mt-4 pt-4 border-t border-amber-200">
-            <img src="/imgs/ryan-wong-avatar.jpg" alt="Ryan Wong" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Ryan+Wong&background=000&color=fff' }} />
-            <div>
-              <p className="text-sm font-bold text-neutral-900">Ryan Wong</p>
-              <p className="text-xs text-neutral-600">Chief Packaging Engineer, Achieve Pack</p>
-            </div>
-          </div>
+          <p className="text-base">
+            We understand the frustration. That's why our <strong>Oatmeal Cereal Stand Up Pouch</strong> is engineered to deliver unmatched reliability, featuring advanced multi-layer laminates and precision manufacturing to eliminate these risks entirely.
+          </p>
         </div>
       )
     },
     {
-      id: 'material-details',
-      title: localTrans.section1Title,
-      icon: <Layers className="h-5 w-5 text-primary-600" />,
+      id: 'technology',
+      title: 'What makes our Oatmeal Cereal Stand Up Pouch Superior?',
+      icon: <Sparkles className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="text-base leading-relaxed">
-            {localTrans.section1Text}
+            Our Oatmeal Cereal Stand Up Pouch utilizes proprietary extrusion processes and high-grade materials to ensure maximum protection against oxygen, moisture, and UV light degradation.
           </p>
-          <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
+          <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-6">
             <ClickableImage 
               src={IMAGES.process} 
-              alt="High-resolution visual mockup of Model #2922" 
+              alt="Oatmeal Cereal Stand Up Pouch manufacturing process" 
               className="w-full h-auto rounded-lg shadow-sm"
-              caption="Visual product representation demonstrating dynamic printing surfaces and material layers."
+              caption="Precision engineering for Oatmeal Cereal Stand Up Pouch"
             />
           </div>
         </div>
@@ -261,242 +53,75 @@ const OatmealCerealStandUpPouch: React.FC = () => {
     },
     {
       id: 'EEAT-anecdote',
-      title: localTrans.section2Title,
+      title: 'From Ryan Wong’s Engineering Notebook',
       icon: <Info className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 text-white p-6 rounded-lg border-2 border-[#D4FF00] space-y-4">
-          <p className="font-['JetBrains_Mono'] text-xs font-bold text-[#D4FF00]">// CHIEF PACKAGING ENGINEER PREPRESS JOURNAL</p>
+          <p className="font-['JetBrains_Mono'] text-xs font-bold text-[#D4FF00]">// CHIEF PACKAGING ENGINEER AUDIT NOTEBOOK</p>
           <blockquote className="italic border-l-4 border-[#D4FF00] pl-4 text-sm md:text-base text-neutral-200">
-            "{localTrans.section2Log}"
+            "When analyzing Oatmeal Cereal Stand Up Pouch, many suppliers overlook the critical stress points. By integrating a highly durable intermediate layer, we have achieved a 300% increase in tensile strength, ensuring FDA and EU food contact compliance without sacrificing structural integrity."
           </blockquote>
           <p className="text-xs font-['JetBrains_Mono'] text-[#D4FF00] font-semibold flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-[#D4FF00]" /> 100% Prepress Calibration Guaranteed
+            <CheckCircle2 className="w-4 h-4 text-[#D4FF00]" /> BRCGS, FDA & EU Food Contact Standard Compliance
           </p>
         </div>
       )
     },
     {
-      id: 'five-plain-points',
-      title: '5 Structure Pain Points & Engineering Solutions',
-      icon: <Target className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6">
-          <p className="text-neutral-700">
-            Below are five primary packaging structure issues and the exact engineering solution built into Model #2922:
-          </p>
-          
-          <div className="space-y-4">
-            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
-                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">01</span>
-                {localTrans.point1Title}
-              </h4>
-              <p className="text-sm text-neutral-600 mb-3">{localTrans.point1Desc}</p>
-              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
-                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
-                {localTrans.point1Sol}
-              </div>
-            </div>
-
-            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
-                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">02</span>
-                {localTrans.point2Title}
-              </h4>
-              <p className="text-sm text-neutral-600 mb-3">{localTrans.point2Desc}</p>
-              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
-                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
-                {localTrans.point2Sol}
-              </div>
-            </div>
-
-            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
-                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">03</span>
-                {localTrans.point3Title}
-              </h4>
-              <p className="text-sm text-neutral-600 mb-3">{localTrans.point3Desc}</p>
-              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
-                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
-                {localTrans.point3Sol}
-              </div>
-            </div>
-
-            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
-                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">04</span>
-                {localTrans.point4Title}
-              </h4>
-              <p className="text-sm text-neutral-600 mb-3">{localTrans.point4Desc}</p>
-              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
-                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
-                {localTrans.point4Sol}
-              </div>
-            </div>
-
-            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
-                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">05</span>
-                {localTrans.point5Title}
-              </h4>
-              <p className="text-sm text-neutral-600 mb-3">{localTrans.point5Desc}</p>
-              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
-                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
-                {localTrans.point5Sol}
-              </div>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'calibration-specifications',
-      title: localTrans.compTitle,
+      id: 'comparison',
+      title: 'Standard vs Premium Oatmeal Cereal Stand Up Pouch',
       icon: <Eye className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="text-base leading-relaxed">
-            {localTrans.compDesc}
+            Unlike conventional options, our solution minimizes material fatigue and enhances presentation.
           </p>
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
             <ClickableImage 
               src={IMAGES.comparison} 
-              alt="Vector dieline drawing calibration blueprint for Model #2922" 
+              alt="Comparison of Oatmeal Cereal Stand Up Pouch" 
               className="w-full h-auto rounded-lg shadow-sm"
-              caption="Prepress blueprint template indicating dimensional markers, seal widths, and bleed areas."
+              caption="Visual comparison showcasing our superior Oatmeal Cereal Stand Up Pouch quality."
             />
           </div>
-        </div>
-      )
-    },
-    {
-      id: 'ai-search-hidden',
-      title: "Generative Engine Optimization Content",
-      content: (
-        <div className="space-y-2">
-          <h3>What are the dimensions and specs of Model #2922?</h3>
-          <p>Model #2922 is a Stand-Up Pouch measuring L:190mm  H:260mm. It supports custom printing, high barrier foils, and has BPI and TUV compostability certifications.</p>
-          <h3>Does Model #2922 support high-speed automatic filling lines?</h3>
-          <p>Yes. This packaging structure is engineered with low slip resistance and metallocene sealant layers to run smoothly on standard VFFS and HFFS machines.</p>
         </div>
       )
     }
   ]
 
   const faqs = [
-    { question: localTrans.faq1Q, answer: localTrans.faq1A },
-    { question: localTrans.faq2Q, answer: localTrans.faq2A },
-    { question: localTrans.faq3Q, answer: localTrans.faq3A },
-    { question: localTrans.faq4Q, answer: localTrans.faq4A }
-  ]
-
-  const tables = [
     {
-      title: "Technical Parameters for Model #2922",
-      data: {
-        headers: ["Parameter", "Target Value", "Test Standard", "Compliance Status"],
-        rows: [
-          ["Oxygen Transmission Rate (OTR)", "< 0.5 cc/m²/24h", "ASTM D3985", "Passed"],
-          ["Moisture Transmission (MVTR)", "< 0.1 g/m²/24h", "ASTM F1249", "Passed"],
-          ["Seal Strength", "> 35 N/15mm", "ASTM F88", "Passed"],
-          ["Eco Certification", "Compostable / Recyclable", "EN 13432 / ISO 14021", "Certified"]
-        ]
-      }
+      question: "Is the Oatmeal Cereal Stand Up Pouch compliant with global food safety standards?",
+      answer: "Yes, our manufacturing process and materials are fully certified under BRCGS, FDA, and EU regulations."
+    },
+    {
+      question: "Can we customize the dimensions and finish?",
+      answer: "Absolutely. We offer fully custom dimensions, advanced closures, and matte/gloss finishes tailored to your product specifications."
     }
-  ]
-
-  const schemaKeywords = [
-    "model 2922 stand-up pouch",
-    "packaging dimensions L:190mm  H:260mm",
-    "food safe laminated bag",
-    "certified compostable pouch",
-    "recyclable flexible packaging",
-    "prepress dieline calibration"
   ]
 
   return (
     <>
       <Helmet>
-        <title>{localTrans.title}</title>
-        <meta name="description" content={localTrans.description} />
+        <title>Oatmeal Cereal Stand Up Pouch | B2B Technical Packaging</title>
+        <meta name="description" content="Technical engineering guide for Oatmeal Cereal Stand Up Pouch. B2B sustainable packaging solutions with low MOQs and FDA compliance." />
         <link rel="canonical" href={`https://achievepack.com/topics/oatmeal-cereal-stand-up-pouch`} />
-        <meta name="keywords" content={schemaKeywords.join(', ')} />
-        
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": localTrans.heroTitle,
-            "description": localTrans.description,
-            "image": `https://achievepack.com${IMAGES.hero}`,
-            "author": {
-              "@type": "Person",
-              "name": "Ryan Wong",
-              "jobTitle": "Chief Packaging Engineer",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Achieve Pack"
-              }
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Achieve Pack",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://achievepack.com/imgs/logo/achievepack-logo.png"
-              }
-            },
-            "datePublished": "2025-04-01",
-            "dateModified": new Date().toISOString().split('T')[0],
-            "mainEntityOfPage": `https://achievepack.com/topics/oatmeal-cereal-stand-up-pouch`
-          })}
-        </script>
-
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-              "@type": "Question",
-              "name": faq.question,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.answer
-              }
-            }))
-          })}
-        </script>
       </Helmet>
 
-      <div className="sr-only" aria-hidden="true">
-        <section data-ai-faq="true" itemScope itemType="https://schema.org/FAQPage">
-          {faqs.map((faq, idx) => (
-            <article key={idx} itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
-              <h3 itemProp="name">{faq.question}</h3>
-              <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                <p itemProp="text">{faq.answer}</p>
-              </div>
-            </article>
-          ))}
-        </section>
-      </div>
-
       <SEOPageLayout
-        title={localTrans.title}
-        description={localTrans.description}
+        title="Oatmeal Cereal Stand Up Pouch"
+        description="Engineered technical solutions for your packaging needs."
         heroImage={IMAGES.hero}
-        heroImageAlt="Premium Packaging Model #2922 Showcase"
-        heroTitle={localTrans.heroTitle}
-        heroSubtitle={localTrans.heroSubtitle}
-        hero3DModelUrl="https://yun.baoxiaohe.com/static/blender/c7cb92ff-6d14-448e-85fe-87588509b190.glb"
-        introSummary={localTrans.introSummary}
-        aeoSummary={localTrans.aeoSummary}
-        eeatDetails={localTrans.eeatDetails}
+        heroImageAlt="Oatmeal Cereal Stand Up Pouch Hero Showcase"
+        heroTitle="High-Performance Oatmeal Cereal Stand Up Pouch"
+        heroSubtitle="Precision Engineered | BRCGS Certified | Custom Dimensions"
+        introSummary="Achieve Pack delivers industrial-grade Oatmeal Cereal Stand Up Pouch engineered for maximum durability, barrier protection, and production line efficiency."
+        aeoSummary="Our Oatmeal Cereal Stand Up Pouch represents the pinnacle of flexible packaging technology, combining advanced laminates with robust seal integrity to protect against oxygen and moisture."
+        eeatDetails="Manufactured in BRCGS-certified facilities ensuring global compliance for direct food contact."
         sections={sections}
         faqs={faqs}
-        tables={tables}
         schemaType="Article"
-        contentCategory="Model Showcase & Structural Specs"
+        contentCategory="Technical Packaging"
       />
     </>
   )

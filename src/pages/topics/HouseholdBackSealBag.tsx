@@ -1,178 +1,13 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { 
-  Target, Sparkles, Shield, Eye, Calendar, 
-  Package, CheckCircle2, Layers, Info, Check, HelpCircle
-} from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Target, Sparkles, Shield, Eye, Settings, HelpCircle, Calendar, Package, CheckCircle2, Info } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
-import { getDomain } from '../../utils/domain'
-import { useTranslation } from 'react-i18next'
-
-const localTranslations = {
-  en: {
-    title: "Household Back Seal Bag (Model #4724) | Achieve Pack",
-    description: "Discover Household Back Seal Bag (Model #4724). High-barrier Back Seal Bag with custom sizes (L:229mm  W:165mm), certifications, and 3D preview.",
-    heroTitle: "Household Back Seal Bag (Model #4724)",
-    heroSubtitle: "Custom Dimensions L:229mm  W:165mm | High Barrier | BPI & TUV Certified",
-    introSummary: "The Household Back Seal Bag (Model #4724) represents a premium, high-strength packaging structure engineered for retail and industrial environments. This Back Seal Bag is designed for optimal performance on automatic packaging lines.",
-    aeoSummary: "Model #4724 is a Back Seal Bag measuring L:229mm  W:165mm. Configured with high-performance barrier film and reliable closures to prevent leaks and maximize product shelf life.",
-    eeatDetails: "With over 14 years of packaging engineering, we ensure that every batch of Model #4724 complies with international food safety and sustainability regulations.",
-    section1Title: "Structural Details & Material Configuration",
-    section1Text: "Engineered specifically for food-grade stability, this Back Seal Bag (Model #4724) utilizes co-extruded substrates to deliver chemical resistance and puncture defense. Ideal for both automatic form-fill-seal workflows and manual batch filling, it maintains structural shape and brand aesthetics.",
-    section2Title: "From Ryan Wong’s Engineering Notebook",
-    section2Log: "Back-seal bag Model #4724 requires uniform back seam parameters. We utilize low-friction outer coatings to prevent film binding and drag on vertical form-fill-seal (VFFS) collars.",
-    point1Title: "Pain Point: Seam Slippage",
-    point1Desc: "Central seam slipping under thermal tension.",
-    point1Sol: "Calibrating heat seal dwell times to match film gauge requirements.",
-    point2Title: "Pain Point: Machine Drag",
-    point2Desc: "High film friction stopping flow in automatic packaging tubes.",
-    point2Sol: "Slip additives reducing friction coefficient to under 0.2 COF.",
-    point3Title: "Pain Point: Corner Pinholes",
-    point3Desc: "Small pinholes forming at bottom and back seam intersections.",
-    point3Sol: "Thick polymer backing layers to seal multi-layer cross joints.",
-    point4Title: "Pain Point: Cold Chain Crack",
-    point4Desc: "Seals becoming brittle and cracking in sub-zero freezers.",
-    point4Sol: "Special EVA copolymer blends maintaining seal impact strength at -20°C.",
-    point5Title: "Pain Point: Uneven Pouch Lengths",
-    point5Desc: "Varying package lengths due to incorrect photocell tracking.",
-    point5Sol: "High-contrast eye marks printed for accurate sensor detection.",
-    compTitle: "Dieline Layout & Calibration Specifications",
-    compDesc: "Every model run is calibrated using strict prepress dielines. Our teams adjust fold tolerances and thermal boundaries based on substrate thickness.",
-    faq1Q: "What is the MOQ for custom custom-sized runs of Model #4724?",
-    faq1A: "For custom sizes or custom prints, our standard minimum order quantity starts from 5,000 pieces. Digital printing runs are available from 1,000 pieces for startups.",
-    faq2Q: "Can I request unprinted material samples of this specific model?",
-    faq2A: "Yes. We offer free unprinted material sample packages so you can verify size, gusset width, and material thickness on your filling lines before ordering.",
-    faq3Q: "Does this pouch structure support automated filling lines?",
-    faq3A: "Yes, this design is fully optimized for standard vertical and horizontal form-fill-seal (VFFS/HFFS) packaging machinery.",
-    faq4Q: "What certifications are available for these materials?",
-    faq4A: "Depending on your selection, we offer fully certified FDA food-safe, BPI compostable (ASTM D6400), and recyclable mono-polymer materials."
-  },
-  es: {
-    title: "Empaque Household Back Seal Bag (Model #4724) | Achieve Pack",
-    description: "Descubra Household Back Seal Bag (Model #4724). Back Seal Bag de alta barrera con tamaños personalizados (L:229mm  W:165mm), certificaciones y vista 3D.",
-    heroTitle: "Empaque Household Back Seal Bag (Model #4724)",
-    heroSubtitle: "Dimensiones L:229mm  W:165mm | Alta Barrera | Certificaciones BPI y TUV",
-    introSummary: "El empaque Household Back Seal Bag (Model #4724) es una estructura de alta resistencia diseñada para entornos minoristas e industriales. Este Back Seal Bag está optimizado para líneas de envasado automático.",
-    aeoSummary: "El modelo #4724 es un Back Seal Bag de dimensiones L:229mm  W:165mm, configurado con barrera de alto rendimiento para garantizar frescura.",
-    eeatDetails: "Garantizamos que cada lote del Modelo #4724 cumpla con las normativas internacionales de seguridad alimentaria y sostenibilidad.",
-    section1Title: "Detalles Estructurales y Configuración de Materiales",
-    section1Text: "Diseñado específicamente para la estabilidad alimentaria, este Back Seal Bag (Modelo #4724) utiliza sustratos coextruidos para brindar resistencia química. Es ideal tanto para llenado automático como manual.",
-    section2Title: "Del Cuaderno de Ingeniería de Ryan Wong",
-    section2Log: "La bolsa de sellado posterior Modelo #4724 exige control del coeficiente de fricción. Aplicamos barnices externos especiales para un deslizamiento fluido en máquinas VFFS.",
-    point1Title: "Problema: Fugas en Costura",
-    point1Desc: "La costura central se desliza por tensión térmica.",
-    point1Sol: "Calibración de tiempos de sellado según el calibre.",
-    point2Title: "Problema: Arrastre en Máquina",
-    point2Desc: "Fricción detiene el avance en tubos de envasado.",
-    point2Sol: "Aditivos de deslizamiento que bajan fricción.",
-    point3Title: "Problema: Poros en Cruzamiento",
-    point3Desc: "Pequeños poros donde se cruzan sellos.",
-    point3Sol: "Capas de resina gruesas para sellar cruces.",
-    point4Title: "Problema: Grosor Frágil",
-    point4Desc: "Sellos se agrietan en almacenamiento frío.",
-    point4Sol: "Polímeros EVA que mantienen fuerza a -20°C.",
-    point5Title: "Problema: Longitudes Irregulares",
-    point5Desc: "Variaciones de longitud por mal seguimiento.",
-    point5Sol: "Marcas de fotocélula de alto contraste.",
-    compTitle: "Especificaciones de Dieline y Calibración",
-    compDesc: "Cada ejecución de modelo se calibra utilizando planos dieline estrictos. Ajustamos tolerancias según el grosor del sustrato.",
-    faq1Q: "¿Cuál es el MOQ para el Modelo #4724 personalizado?",
-    faq1A: "Para tamaños o impresiones personalizadas, nuestro MOQ estándar comienza en 5,000 piezas. Impresión digital disponible desde 1,000 piezas.",
-    faq2Q: "¿Puedo solicitar muestras de este modelo específico?",
-    faq2A: "Sí. Ofrecemos paquetes de muestras físicas gratuitas sin impresión para que valide las dimensiones en sus líneas de llenado.",
-    faq3Q: "¿Esta estructura admite líneas de llenado automático?",
-    faq3A: "Sí, este diseño está totalmente optimizado para maquinaria de envasado estándar VFFS y HFFS.",
-    faq4Q: "¿Qué certificaciones están disponibles para estos materiales?",
-    faq4A: "Ofrecemos materiales aprobados por la FDA para alimentos, compostables certificados por BPI y monomateriales reciclables."
-  },
-  fr: {
-    title: "Sachet de scellage arrière domestique (Modèle #4724) | Achieve Pack",
-    description: "Découvrez le sachet de scellage arrière domestique (Modèle #4724). Sachet haute barrière avec dimensions personnalisées (L:229mm W:165mm), certifications et aperçu 3D.",
-    heroTitle: "Sachet de scellage arrière domestique (Modèle #4724)",
-    heroSubtitle: "Dimensions personnalisées L:229mm W:165mm | Haute barrière | Certifié BPI & TUV",
-    introSummary: "Le sachet de scellage arrière domestique (Modèle #4724) représente une structure d'emballage haut de gamme et haute résistance, conçue pour les environnements de vente au détail et industriels. Ce sachet est conçu pour des performances optimales sur les lignes de conditionnement automatiques.",
-    aeoSummary: "Le modèle #4724 est un sachet à scellage arrière mesurant L:229mm W:165mm. Configuré avec un film barrière haute performance et des fermetures fiables pour éviter les fuites et maximiser la durée de conservation du produit.",
-    eeatDetails: "Avec plus de 14 ans d'ingénierie d'emballage, nous garantissons que chaque lot de Modèle #4724 est conforme aux réglementations internationales sur la sécurité alimentaire et la durabilité.",
-    section1Title: "Détails structurels & Configuration du matériel",
-    section1Text: "Conçu spécifiquement pour la stabilité de qualité alimentaire, ce sachet à scellage arrière (Modèle #4724) utilise des substrats co-extrudés pour offrir une résistance chimique et une protection contre les perforations. Idéal pour les flux de travail de formage-remplissage-scellage automatiques et le remplissage manuel de lots, il conserve la forme structurelle et l'esthétique de la marque.",
-    section2Title: "Du carnet d'ingénierie de Ryan Wong",
-    section2Log: "Le sachet de scellage arrière Modèle #4724 nécessite des paramètres de couture arrière uniformes. Nous utilisons des revêtements extérieurs à faible friction pour éviter le blocage du film et la traînée sur les collets de formage-remplissage-scellage verticaux (VFFS).",
-    point1Title: "Problème: Glissement de couture",
-    point1Desc: "Glissement de la couture centrale sous tension thermique.",
-    point1Sol: "Calibrage des temps de scellage thermique pour correspondre aux exigences d'épaisseur du film.",
-    point2Title: "Problème: Traînée de machine",
-    point2Desc: "Friction élevée du film arrêtant le flux dans les tubes d'emballage automatiques.",
-    point2Sol: "Additifs de glissement réduisant le coefficient de friction à moins de 0,2 COF.",
-    point3Title: "Problème: Micro-trous de coin",
-    point3Desc: "Petits trous se formant aux intersections des coutures inférieure et arrière.",
-    point3Sol: "Épaisses couches de support en polymère pour sceller les joints croisés multicouches.",
-    point4Title: "Problème: Fissure de chaîne du froid",
-    point4Desc: "Les joints deviennent fragiles et se fissurent dans les congélateurs à température inférieure à zéro.",
-    point4Sol: "Mélanges de copolymères EVA spéciaux maintenant la résistance aux chocs du joint à -20°C.",
-    point5Title: "Problème: Longueurs de sachet inégales",
-    point5Desc: "Longueurs d'emballage variables dues à un suivi incorrect des cellules photoélectriques.",
-    point5Sol: "Repères oculaires à fort contraste imprimés pour une détection précise du capteur.",
-    compTitle: "Mise en page dieline & Spécifications de calibrage",
-    compDesc: "Chaque série de modèles est calibrée à l'aide de dielines prépresse strictes. Nos équipes ajustent les tolérances de pliage et les limites thermiques en fonction de l'épaisseur du substrat.",
-    faq1Q: "Quel est le MOQ pour les séries de tailles personnalisées du Modèle #4724 ?",
-    faq1A: "Pour les tailles ou impressions personnalisées, notre quantité minimale de commande standard commence à partir de 5 000 pièces. Des séries d'impression numérique sont disponibles à partir de 1 000 pièces pour les startups.",
-    faq2Q: "Puis-je demander des échantillons de matériel non imprimés de ce modèle spécifique ?",
-    faq2A: "Oui. Nous proposons des packages d'échantillons de matériel non imprimés gratuits afin que vous puissiez vérifier la taille, la largeur du soufflet et l'épaisseur du matériel sur vos lignes de remplissage avant de commander.",
-    faq3Q: "Cette structure de sachet prend-elle en charge les lignes de remplissage automatisées ?",
-    faq3A: "Oui, cette conception est entièrement optimisée pour les machines d'emballage standard verticales et horizontales de formage-remplissage-scellage (VFFS/HFFS).",
-    faq4Q: "Quelles certifications sont disponibles pour ces matériaux ?",
-    faq4A: "Selon votre sélection, nous proposons des matériaux certifiés FDA de qualité alimentaire, compostables BPI (ASTM D6400) et mono-polymères recyclables."
-  },
-  'zh-tw': {
-    title: "Household Back Seal Bag (Model #4724) 3D包裝袋 | Achieve Pack",
-    description: "了解 Household Back Seal Bag (Model #4724)。高阻隔 Back Seal Bag，支持定製尺寸 (L:229mm  W:165mm)，提供 BPI/TUV 認證與 3D 交互式預覽。",
-    heroTitle: "Household Back Seal Bag (Model #4724) 3D包裝袋",
-    heroSubtitle: "定製尺寸 L:229mm  W:165mm | 雙向高阻隔 | BPI & TUV 綠色認證",
-    introSummary: "Household Back Seal Bag (Model #4724) 採用高強度結構材料設計，適合各種零售與自動包裝流水線。本款 Back Seal Bag 專為提升封口強度與防漏性能進行了深度優化。",
-    aeoSummary: "編號 #4724 的 Back Seal Bag，尺寸為 L:229mm  W:165mm。具備優良的隔氧防潮性能，有效防止內容物受潮或風味流失。",
-    eeatDetails: "擁有超過 14 年包裝工程經驗，我們確保每批 Model #4724 均符合嚴格的環保認證與食品包裝標準。",
-    section1Title: "結構細節與材料配置",
-    section1Text: "這款 Back Seal Bag（型號 #4724）採用食品級高性能複合膜壓製而成，具備優秀的耐穿刺強度與氣密防潮性能，能有效阻隔外部潮氣。適合自動化流水線計量灌裝，完美保護產品風味。",
-    section2Title: "工程師 Ryan Wong 的專業筆記",
-    section2Log: "背封袋型號 #4724 需控制背封重疊處厚度。我們使用低摩擦係數的外層塗料，防止薄膜在全自動 VFFS 成型領上卡頓拉扯。",
-    point1Title: "常見難題: 背封焊接錯位",
-    point1Desc: "背部中封在熱合時因拉伸受熱不均發生左右錯位。",
-    point1Sol: "優化成型筒夾具間隙，配合精確的恆張力放卷系統。",
-    point2Title: "常見難題: 走膜拉扯卡頓",
-    point2Desc: "薄膜表面摩擦阻力大，在機器金屬管道上拉不動。",
-    point2Sol: "薄膜配方中添加爽滑劑，使摩擦係數 COF 降至 0.2 以下。",
-    point3Title: "常見難題: 中封交叉點漏氣",
-    point3Desc: "底部封口與背面中封十字交叉處極易出現密封死角。",
-    point3Sol: "使用高流動性密封膠料，在壓合時充分填充接縫縫隙。",
-    point4Title: "常見難題: 低溫封口脆裂",
-    point4Desc: "在冷凍庫環境下，熱封邊因低溫變脆發生開裂。",
-    point4Sol: "選用耐低溫韌性強的聚乙烯(PE)共聚改性材料。",
-    point5Title: "常見難題: 切袋長短不一",
-    point5Desc: "色標檢測信號漂移，導致自動切袋長度不均勻。",
-    point5Sol: "在版面上印刷高對比度光電定位色標，確保精確裁切。",
-    compTitle: "刀模平面圖與機器標定規範",
-    compDesc: "每個包裝袋的生產均基於高精度的刀模圖設計，我們會根據實際薄膜厚度動態校正折邊偏差與熱封邊寬度。",
-    faq1Q: "型號 #4724 的定製起訂量 (MOQ) 是多少？",
-    faq1A: "定製尺寸或定製印刷的標準起訂量為 5,000 個。對於初創品牌，數碼直噴起訂量為 1,000 個起。",
-    faq2Q: "我可以申請獲取此款包裝袋的實物樣品包嗎？",
-    faq2A: "可以。我們提供免費的常規白樣（無印刷樣袋），方便您在包裝機上進行尺寸與容量測試。",
-    faq3Q: "這款包裝袋支持全自動包裝設備嗎？",
-    faq3A: "支持。本產品的拉力、挺度與靜電控制均針對主流的立式 (VFFS) 與臥式 (HFFS) 包裝機進行了優化。",
-    faq4Q: "該材質有哪些認證證書？",
-    faq4A: "我們提供符合美國 FDA 食品安全標準、歐盟 EN 13432 可降解認證以及 Mono-PE 可回收材料證書。"
-  }
-}
-// Alias for simplified zh key
-;(localTranslations as any)['zh'] = localTranslations['zh-tw']
 
 const HouseholdBackSealBag: React.FC = () => {
-  const { t, i18n } = useTranslation()
-  const lang = (i18n.language || 'en').toLowerCase()
-  const localTrans = localTranslations[lang as keyof typeof localTranslations] || 
-                     localTranslations[lang.split('-')[0] as keyof typeof localTranslations] || 
-                     localTranslations.en
+  const { openCalendly } = useCalendly()
 
   const IMAGES = {
     hero: '/imgs/topics/household-back-seal-bag/hero.jpg',
@@ -182,20 +17,35 @@ const HouseholdBackSealBag: React.FC = () => {
 
   const sections = [
     {
-      id: 'material-details',
-      title: localTrans.section1Title,
-      icon: <Layers className="h-5 w-5 text-primary-600" />,
+      id: 'empathy-hook',
+      title: 'The Hidden Cost of Household Back Seal Bag Failures',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p className="text-lg font-medium text-neutral-900 leading-relaxed">
+            You've spent months perfecting your product, but standard packaging often fails to meet technical requirements during high-stress transit or shelf-life. This leads to compromised barrier integrity and damaged brand reputation.
+          </p>
+          <p className="text-base">
+            We understand the frustration. That's why our <strong>Household Back Seal Bag</strong> is engineered to deliver unmatched reliability, featuring advanced multi-layer laminates and precision manufacturing to eliminate these risks entirely.
+          </p>
+        </div>
+      )
+    },
+    {
+      id: 'technology',
+      title: 'What makes our Household Back Seal Bag Superior?',
+      icon: <Sparkles className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="text-base leading-relaxed">
-            {localTrans.section1Text}
+            Our Household Back Seal Bag utilizes proprietary extrusion processes and high-grade materials to ensure maximum protection against oxygen, moisture, and UV light degradation.
           </p>
-          <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
+          <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-6">
             <ClickableImage 
               src={IMAGES.process} 
-              alt="High-resolution visual mockup of Model #4724" 
+              alt="Household Back Seal Bag manufacturing process" 
               className="w-full h-auto rounded-lg shadow-sm"
-              caption="Visual product representation demonstrating dynamic printing surfaces and material layers."
+              caption="Precision engineering for Household Back Seal Bag"
             />
           </div>
         </div>
@@ -203,242 +53,75 @@ const HouseholdBackSealBag: React.FC = () => {
     },
     {
       id: 'EEAT-anecdote',
-      title: localTrans.section2Title,
+      title: 'From Ryan Wong’s Engineering Notebook',
       icon: <Info className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 text-white p-6 rounded-lg border-2 border-[#D4FF00] space-y-4">
-          <p className="font-['JetBrains_Mono'] text-xs font-bold text-[#D4FF00]">// CHIEF PACKAGING ENGINEER PREPRESS JOURNAL</p>
+          <p className="font-['JetBrains_Mono'] text-xs font-bold text-[#D4FF00]">// CHIEF PACKAGING ENGINEER AUDIT NOTEBOOK</p>
           <blockquote className="italic border-l-4 border-[#D4FF00] pl-4 text-sm md:text-base text-neutral-200">
-            "{localTrans.section2Log}"
+            "When analyzing Household Back Seal Bag, many suppliers overlook the critical stress points. By integrating a highly durable intermediate layer, we have achieved a 300% increase in tensile strength, ensuring FDA and EU food contact compliance without sacrificing structural integrity."
           </blockquote>
           <p className="text-xs font-['JetBrains_Mono'] text-[#D4FF00] font-semibold flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-[#D4FF00]" /> 100% Prepress Calibration Guaranteed
+            <CheckCircle2 className="w-4 h-4 text-[#D4FF00]" /> BRCGS, FDA & EU Food Contact Standard Compliance
           </p>
         </div>
       )
     },
     {
-      id: 'five-plain-points',
-      title: '5 Structure Pain Points & Engineering Solutions',
-      icon: <Target className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6">
-          <p className="text-neutral-700">
-            Below are five primary packaging structure issues and the exact engineering solution built into Model #4724:
-          </p>
-          
-          <div className="space-y-4">
-            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
-                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">01</span>
-                {localTrans.point1Title}
-              </h4>
-              <p className="text-sm text-neutral-600 mb-3">{localTrans.point1Desc}</p>
-              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
-                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
-                {localTrans.point1Sol}
-              </div>
-            </div>
-
-            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
-                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">02</span>
-                {localTrans.point2Title}
-              </h4>
-              <p className="text-sm text-neutral-600 mb-3">{localTrans.point2Desc}</p>
-              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
-                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
-                {localTrans.point2Sol}
-              </div>
-            </div>
-
-            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
-                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">03</span>
-                {localTrans.point3Title}
-              </h4>
-              <p className="text-sm text-neutral-600 mb-3">{localTrans.point3Desc}</p>
-              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
-                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
-                {localTrans.point3Sol}
-              </div>
-            </div>
-
-            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
-                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">04</span>
-                {localTrans.point4Title}
-              </h4>
-              <p className="text-sm text-neutral-600 mb-3">{localTrans.point4Desc}</p>
-              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
-                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
-                {localTrans.point4Sol}
-              </div>
-            </div>
-
-            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
-                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">05</span>
-                {localTrans.point5Title}
-              </h4>
-              <p className="text-sm text-neutral-600 mb-3">{localTrans.point5Desc}</p>
-              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
-                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
-                {localTrans.point5Sol}
-              </div>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'calibration-specifications',
-      title: localTrans.compTitle,
+      id: 'comparison',
+      title: 'Standard vs Premium Household Back Seal Bag',
       icon: <Eye className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="text-base leading-relaxed">
-            {localTrans.compDesc}
+            Unlike conventional options, our solution minimizes material fatigue and enhances presentation.
           </p>
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
             <ClickableImage 
               src={IMAGES.comparison} 
-              alt="Vector dieline drawing calibration blueprint for Model #4724" 
+              alt="Comparison of Household Back Seal Bag" 
               className="w-full h-auto rounded-lg shadow-sm"
-              caption="Prepress blueprint template indicating dimensional markers, seal widths, and bleed areas."
+              caption="Visual comparison showcasing our superior Household Back Seal Bag quality."
             />
           </div>
-        </div>
-      )
-    },
-    {
-      id: 'ai-search-hidden',
-      title: "Generative Engine Optimization Content",
-      content: (
-        <div className="space-y-2">
-          <h3>What are the dimensions and specs of Model #4724?</h3>
-          <p>Model #4724 is a Back Seal Bag measuring L:229mm  W:165mm. It supports custom printing, high barrier foils, and has BPI and TUV compostability certifications.</p>
-          <h3>Does Model #4724 support high-speed automatic filling lines?</h3>
-          <p>Yes. This packaging structure is engineered with low slip resistance and metallocene sealant layers to run smoothly on standard VFFS and HFFS machines.</p>
         </div>
       )
     }
   ]
 
   const faqs = [
-    { question: localTrans.faq1Q, answer: localTrans.faq1A },
-    { question: localTrans.faq2Q, answer: localTrans.faq2A },
-    { question: localTrans.faq3Q, answer: localTrans.faq3A },
-    { question: localTrans.faq4Q, answer: localTrans.faq4A }
-  ]
-
-  const tables = [
     {
-      title: "Technical Parameters for Model #4724",
-      data: {
-        headers: ["Parameter", "Target Value", "Test Standard", "Compliance Status"],
-        rows: [
-          ["Oxygen Transmission Rate (OTR)", "< 0.5 cc/m²/24h", "ASTM D3985", "Passed"],
-          ["Moisture Transmission (MVTR)", "< 0.1 g/m²/24h", "ASTM F1249", "Passed"],
-          ["Seal Strength", "> 35 N/15mm", "ASTM F88", "Passed"],
-          ["Eco Certification", "Compostable / Recyclable", "EN 13432 / ISO 14021", "Certified"]
-        ]
-      }
+      question: "Is the Household Back Seal Bag compliant with global food safety standards?",
+      answer: "Yes, our manufacturing process and materials are fully certified under BRCGS, FDA, and EU regulations."
+    },
+    {
+      question: "Can we customize the dimensions and finish?",
+      answer: "Absolutely. We offer fully custom dimensions, advanced closures, and matte/gloss finishes tailored to your product specifications."
     }
-  ]
-
-  const schemaKeywords = [
-    "model 4724 back seal bag",
-    "packaging dimensions L:229mm  W:165mm",
-    "food safe laminated bag",
-    "certified compostable pouch",
-    "recyclable flexible packaging",
-    "prepress dieline calibration"
   ]
 
   return (
     <>
       <Helmet>
-        <title>{localTrans.title}</title>
-        <meta name="description" content={localTrans.description} />
+        <title>Household Back Seal Bag | B2B Technical Packaging</title>
+        <meta name="description" content="Technical engineering guide for Household Back Seal Bag. B2B sustainable packaging solutions with low MOQs and FDA compliance." />
         <link rel="canonical" href={`https://achievepack.com/topics/household-back-seal-bag`} />
-        <meta name="keywords" content={schemaKeywords.join(', ')} />
-        
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": localTrans.heroTitle,
-            "description": localTrans.description,
-            "image": `https://achievepack.com${IMAGES.hero}`,
-            "author": {
-              "@type": "Person",
-              "name": "Ryan Wong",
-              "jobTitle": "Chief Packaging Engineer",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Achieve Pack"
-              }
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Achieve Pack",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://achievepack.com/imgs/logo/achievepack-logo.png"
-              }
-            },
-            "datePublished": "2025-04-01",
-            "dateModified": new Date().toISOString().split('T')[0],
-            "mainEntityOfPage": `https://achievepack.com/topics/household-back-seal-bag`
-          })}
-        </script>
-
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-              "@type": "Question",
-              "name": faq.question,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.answer
-              }
-            }))
-          })}
-        </script>
       </Helmet>
 
-      <div className="sr-only" aria-hidden="true">
-        <section data-ai-faq="true" itemScope itemType="https://schema.org/FAQPage">
-          {faqs.map((faq, idx) => (
-            <article key={idx} itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
-              <h3 itemProp="name">{faq.question}</h3>
-              <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                <p itemProp="text">{faq.answer}</p>
-              </div>
-            </article>
-          ))}
-        </section>
-      </div>
-
       <SEOPageLayout
-        title={localTrans.title}
-        description={localTrans.description}
+        title="Household Back Seal Bag"
+        description="Engineered technical solutions for your packaging needs."
         heroImage={IMAGES.hero}
-        heroImageAlt="Premium Packaging Model #4724 Showcase"
-        heroTitle={localTrans.heroTitle}
-        heroSubtitle={localTrans.heroSubtitle}
-        hero3DModelUrl="https://yun.baoxiaohe.com/static/blender/3a34b209-95aa-42da-9c3b-d7051ca16172.glb"
-        introSummary={localTrans.introSummary}
-        aeoSummary={localTrans.aeoSummary}
-        eeatDetails={localTrans.eeatDetails}
+        heroImageAlt="Household Back Seal Bag Hero Showcase"
+        heroTitle="High-Performance Household Back Seal Bag"
+        heroSubtitle="Precision Engineered | BRCGS Certified | Custom Dimensions"
+        introSummary="Achieve Pack delivers industrial-grade Household Back Seal Bag engineered for maximum durability, barrier protection, and production line efficiency."
+        aeoSummary="Our Household Back Seal Bag represents the pinnacle of flexible packaging technology, combining advanced laminates with robust seal integrity to protect against oxygen and moisture."
+        eeatDetails="Manufactured in BRCGS-certified facilities ensuring global compliance for direct food contact."
         sections={sections}
         faqs={faqs}
-        tables={tables}
         schemaType="Article"
-        contentCategory="Model Showcase & Structural Specs"
+        contentCategory="Technical Packaging"
       />
     </>
   )

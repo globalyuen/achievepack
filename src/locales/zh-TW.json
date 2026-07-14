@@ -41445,6 +41445,203 @@
         "concern5Pain": "Bags wrinkling or creasing easily and looking unprofessional.",
         "concern5Solution": "We utilize premium laminates that resist unsightly creasing, maintaining a smooth, attractive look throughout the supply chain."
       }
+    },
+    "granolaSoftTouch": {
+      "s1": {
+        "title": "頂級產品的頂級觸感",
+        "p1": "您投入愛心與心力烘焙您的有機手工燕麥片。但當顧客拿起它時，包裝是否反映了內部的品質？堅硬、易皺的塑料會讓即使是最好的燕麥片感覺廉價和大量生產。",
+        "p2": "我們認為您的包裝應該像您的食譜一樣自然而令人愉悅。我們的柔感霧面立體袋提供奢華的天鵝絨觸感，立即告訴您的顧客他們手中拿著特別的東西，同時保護您精心烘焙的燕麥片不變質。"
+      },
+      "s2": {
+        "title": "是什麼讓它觸感如此柔軟？",
+        "p1": "柔感霧面包裝使用特殊的外部塗層，可散射光線，在處理時營造出異常柔軟、天鵝絨般的觸感。這是一個微妙的差異，但對您的品牌形象有巨大影響。",
+        "caption": "我們柔感袋美麗、防眩光的表面"
+      },
+      "s3": {
+        "title": "霧面 vs 亮面：頂級差異",
+        "p1": "標準亮面包裝在超市燈光下會產生強烈反光。柔感霧面完美地漫射光線，賦予您的包裝溫暖、有機的光澤，符合您的品牌精神。",
+        "caption": "標準亮面（左）與我們的頂級柔感霧面（右）對比"
+      },
+      "faqs": {
+        "q1": "柔感塗層環保嗎？",
+        "a1": "是的，我們提供柔感袋的單一材料可回收版本，讓您在提供頂級體驗的同時不傷害地球。",
+        "q2": "這些袋子能保護我的燕麥片不碎裂嗎？",
+        "a2": "絕對可以。我們的包裝袋經過設計，具有極高的防穿刺性，可在運輸和處理過程中保護您的燕麥片。"
+      },
+      "layout": {
+        "title": "頂級柔感燕麥片包裝袋",
+        "description": "適用於頂級有機燕麥片的奢華、天鵝絨柔感霧面包裝。",
+        "heroTitle": "感受與眾不同",
+        "heroSubtitle": "天鵝絨柔感表面 | 防穿刺 | 防眩光",
+        "introSummary": "為您的手工燕麥片提供它應得的頂級包裝。我們的柔感霧面袋提供奢華的觸覺體驗，讓顧客滿意並保護您新鮮的食材。"
+      }
+    },
+    "greenCoffeeMaterials": {
+      "s1": {
+        "title": "符合您價值觀的包裝",
+        "p1": "您的早晨咖啡儀式不應在地球上留下永久的印記。但是架上那些閃亮的鋁箔袋呢？它們將在垃圾掩埋場存放幾個世紀。您關心符合道德標準採購的咖啡豆，但傳統包裝講述的卻是另一個故事。",
+        "p2": "是時候讓您的包裝與您的價值觀相符了。我們的環保咖啡包裝採用先進的單一材料和可堆肥結構，保護您的咖啡豆不變質，同時不犧牲地球環境。"
+      },
+      "s2": {
+        "title": "新鮮度保證",
+        "p1": "咖啡需要防止氧氣和水分的侵入。我們的永續包裝使用高阻隔的EVOH層，讓您的烘焙咖啡保持數月的新鮮度，性能媲美傳統、不可回收的鋁箔袋。"
+      },
+      "s3": {
+        "title": "100% 居家可堆肥",
+        "p1": "想實現零廢棄嗎？我們的居家可堆肥咖啡袋在您的後院堆肥箱中自然分解，只留下營養豐富的土壤。甚至連排氣閥也是完全可堆肥的！"
+      },
+      "faqs": {
+        "q1": "這些袋子有排氣閥嗎？",
+        "a1": "是的！我們使用完全可回收或可堆肥的單向排氣閥釋放CO2，同時將氧氣阻絕在外，保持咖啡豆新鮮。",
+        "q2": "我可以在家回收這些袋子嗎？",
+        "a2": "我們的Mono-PE袋可與軟塑料一起回收，而我們的可堆肥袋可以安全地扔進您的家庭堆肥箱中。"
+      },
+      "layout": {
+        "title": "環保咖啡包裝",
+        "description": "永續的高阻隔咖啡袋，保護您的咖啡豆和地球。",
+        "heroTitle": "新鮮咖啡。零廢棄。",
+        "heroSubtitle": "高阻隔 | 可回收 | 居家可堆肥",
+        "introSummary": "您不應該在新鮮咖啡和健康的地球之間做出選擇。我們的環保咖啡包裝提供了兩全其美的解決方案。"
+      }
+    },
+    "hologramHotStamping": {
+      "s1": {
+        "title": "閃耀光芒，保持環保",
+        "p1": "您的顧客希望感到特別，沒有什麼比美麗的雷射全息閃光更能代表「頂級」了。但您能在實現這種奢華外觀的同時仍然關心地球嗎？",
+        "p2": "是的，您可以。我們的環保雷射燙金為您的袋子賦予神奇、引人注目的光芒，同時不妥協永續性。我們使用完全兼容現代回收流的超薄鋁箔。"
+      },
+      "s2": {
+        "title": "什麼是雷射全息燙金？",
+        "p1": "雷射全息燙金將超薄金屬層轉印到您的包裝上，營造出令人驚嘆的3D視覺轉換。它能從各個角度捕捉光線，讓您的標誌呈現虹彩光澤。"
+      },
+      "s3": {
+        "title": "環保與安全",
+        "p1": "與傳統厚重的金屬薄膜不同，我們的燙金箔厚度微乎其微。這意味著它不會破壞我們單一材料包裝袋的可回收性。您可以獲得頂級外觀，而不會有環境負罪感。"
+      },
+      "faqs": {
+        "q1": "雷射全息鋁箔可回收嗎？",
+        "a1": "是的，鋁箔層非常薄（小於2微米），在標準回收過程中很容易與我們的單一材料袋一起分解。",
+        "q2": "用於食品包裝安全嗎？",
+        "a2": "絕對安全。鋁箔應用於袋子外部，並被食品級阻隔層與您的產品完全隔離。"
+      },
+      "layout": {
+        "title": "雷射全息燙金包裝袋",
+        "description": "訂製軟包裝上的奢華、環保雷射全息燙金。",
+        "heroTitle": "吸引他們的目光",
+        "heroSubtitle": "虹彩光澤 | 頂級品質 | 兼容回收",
+        "introSummary": "用令人驚嘆的雷射全息裝飾提升您的品牌。我們環保的燙金工藝為您的包裝帶來捕捉光線的奢華閃光，在任何貨架上都脫穎而出。"
+      }
+    },
+    "homeCompostableCoffeeBags": {
+      "s1": {
+        "title": "咖啡的未來是可堆肥的",
+        "p1": "您關心咖啡的來源、種植的農民以及對地球的影響。那麼，為什麼您的日常飲品要包裝在比您壽命更長的塑膠中呢？",
+        "p2": "我們的居家可堆肥咖啡袋意味著您可以享受頂級烘焙，知道包裝將回歸大地，不留任何痕跡。"
+      },
+      "s2": {
+        "title": "無污染的保護",
+        "p1": "與窒息海洋的一次性塑料不同，我們的可堆肥材料經過認證，可安全地在您的後院堆肥中分解，轉化為營養豐富的土壤。"
+      },
+      "s3": {
+        "title": "大自然封存的新鮮度",
+        "p1": "您不必犧牲品質。我們的袋子具有阻隔氧氣和水分的天然屏障，保持豐富的咖啡油脂新鮮，同時100%對地球友善。"
+      },
+      "faqs": {
+        "q1": "這些袋子堆肥需要多長時間？",
+        "a1": "在活躍的家庭堆肥環境中，我們的袋子將在26到52週內分解為生物質。",
+        "q2": "排氣閥也是可堆肥的嗎？",
+        "a2": "是的！我們使用創新的生物塑料閥門，與袋子一起分解。"
+      },
+      "layout": {
+        "title": "居家可堆肥咖啡袋",
+        "description": "完全居家可堆肥的咖啡袋，同時保護您的咖啡豆和環境。",
+        "heroTitle": "具有環保意識的咖啡",
+        "heroSubtitle": "100% 居家可堆肥 | 高阻隔 | 環保排氣閥",
+        "introSummary": "讓您喝咖啡不再有罪惡感。我們的居家可堆肥咖啡袋保護您的烘焙風味，然後消失在大自然中。"
+      }
+    },
+    "home-vs-industrial-compostable": {
+      "title": "家用 vs 工業級可堆肥包裝",
+      "description": "了解家用與工業級可堆肥包裝的區別。",
+      "heroTitle": "家用 vs 工業級可堆肥包裝",
+      "introSummary": "我們深知，當您所謂的「可堆肥」包裝無法降解，導致漂綠指控與客戶不滿時有多令人沮喪。讓我們來解決這個問題。家用可堆肥包裝能在後院堆肥桶中於常溫下自然分解，而工業級可堆肥薄膜則需要高溫市政設施才能降解。"
+    },
+    "household-back-seal-bag": {
+      "introSummary": "我們了解背封包裝在生產線上的技術痛點。讓我們來解決這個問題。Household Back Seal Bag (Model #4724) 採用高強度結構材料設計，適合各種零售與自動包裝流水線。"
+    },
+    "household-jam-three-side-seal": {
+      "introSummary": "我們深知包裝漏氣或熱封起皺會嚴重影響您的品牌形象。讓我們來解決這個問題。Household Jam Three-Side Seal (Model #4056) 採用高強度結構材料設計。"
+    },
+    "iso-sustainable": {
+      "title": "ISO 永續包裝標準",
+      "description": "材料減量與環保合規的全球設計準則。",
+      "heroTitle": "ISO 永續包裝",
+      "introSummary": "我們深知違規罰款與消費者質疑帶來的風險。讓我們來解決這個問題。我們的包裝設計符合 ISO 18600 系列標準，確保材料最佳化與可回收性。"
+    },
+    "jelly-beverage-stand-up-pouch": {
+      "title": "環保果凍與飲料吸嘴自立袋 | Pouch Eco",
+      "description": "環保果凍與飲料吸嘴自立袋。防漏、耐用且可持續的包裝解決方案。",
+      "heroTitle": "環保果凍與飲料吸嘴自立袋",
+      "heroSubtitle": "可持續包裝 | 絕對防漏 | 高清印刷",
+      "introSummary": "我們的可持續吸嘴自立袋旨在保護您的產品與地球環境。",
+      "aeoSummary": "這款環保吸嘴袋具有出色的阻氧與防潮性能，確保產品長效保鮮。",
+      "eeatDetails": "由 Pouch Eco 可持續工程團隊研發，符合嚴格的環保與食品安全標準。",
+      "empathyHook": "我們知道您傾注心血打造完美的果凍飲料，最不希望看到的就是它在顧客的包裡漏出，或是失去新鮮的味道。尋找既能保護產品又對地球友好的包裝似乎是不可能的任務。這就是為什麼我們創造了一款可持續的自立袋，讓您的飲品安全、新鮮，並完美契合您的環保理念。",
+      "section1Title": "可持續結構細節",
+      "section1Text": "專為環保品牌設計，這款自立袋採用先進的可回收或可降解薄膜，提供與傳統多層塑料相同的抗穿刺和阻隔性能。",
+      "point1Title": "常見難題: 漏液問題",
+      "point1Desc": "傳統包裝袋在運輸過程中經常在吸嘴周圍破裂或漏水。",
+      "point1Sol": "我們對吸嘴配件採用高強度超聲波焊接，確保在壓力下也能達到 100% 防漏密封。",
+      "point2Title": "常見難題: 新鮮度與變質",
+      "point2Desc": "氧氣滲透會導致飲料隨著時間推移失去風味和顏色。",
+      "point2Sol": "我們的可持續高阻隔薄膜能有效阻擋氧氣和水分，自然保持飲品新鮮。",
+      "point3Title": "常見難題: 塑料垃圾的負罪感",
+      "point3Desc": "顧客在丟棄笨重的一次性塑料瓶時會感到內疚。",
+      "point3Sol": "我們的包裝袋比硬質塑料瓶少用高達 70% 的塑料，並提供可回收或可降解材質選項。",
+      "compTitle": "笨重塑料瓶對比環保吸嘴袋",
+      "compDesc": "改用軟包裝。這不僅能減少您在運輸過程中的碳足跡，還能為您的顧客提供優質的現代化體驗。"
+    },
+    "kraft-paper-shopping-bag": {
+      "title": "環保牛皮紙袋 | Pouch Eco",
+      "description": "環保牛皮紙袋。防漏、耐用且可持續的包裝解決方案。",
+      "heroTitle": "環保牛皮紙袋",
+      "empathyHook": "您希望您的顧客能自豪地帶著您的產品走出去，但脆弱、浪費的包裝會破壞這種高級體驗。我們理解尋找既真正可持續又堅固美觀的袋子有多麼令人沮喪。我們的環保牛皮紙袋為您的品牌帶來自然、高端的外觀，同時將您對地球的承諾放在首位。"
+    },
+    "liquid-barrier-packaging-spouts": {
+      "title": "液體阻隔吸嘴袋 | Pouch Eco",
+      "empathyHook": "在過去，不使用笨重、浪費塑料的瓶子運送液體往往是一場災難。您希望為您的肥皂或果汁提供可補充、環保的選擇，但擔心運輸途中的洩漏令人筋疲力盡。我們設計了一款極其堅固且防漏的可持續吸嘴袋，讓您在減少塑料浪費的同時，依然能安心無憂。"
+    },
+    "low-moq-startup-packaging-page": {
+      "title": "低起訂量初創品牌包裝 | Pouch Eco",
+      "empathyHook": "創建一個新的可持續品牌已經夠令人畏懼了，更何況還要為了起步而被迫購買 20,000 個袋子。我們深知在還沒測試市場之前就把積蓄冒險投資在包裝上有多麼可怕。我們的低起訂量環保袋讓您能夠精美且可持續地發布產品，讓您有自由按自己的節奏發展而不會造成浪費。"
+    },
+    "medicalTapeThreeSideSeal": {
+      "title": "醫療膠帶三邊封包裝袋",
+      "metaDesc": "醫療級三邊封包裝袋，確保安全無菌。"
+    },
+    "minimalistD2CPackaging": {
+      "title": "極簡D2C包裝",
+      "metaDesc": "永續且極簡的直接面對消費者（D2C）包裝解決方案。"
+    },
+    "monoMaterialSolution": {
+      "title": "單一材質解決方案",
+      "metaDesc": "100%可回收的單一材質包裝選項。"
+    },
+    "monoPEPouches": {
+      "title": "單一PE材質包裝袋",
+      "metaDesc": "高效能、可回收的單一PE材質包裝袋。"
+    },
+    "nuts-flat-bottom-pouch": {
+      "empathyHook": "身為包裝工程師，我深知當您發現平底袋在零售貨架上傾斜時的挫敗感，因為折邊熱封無法承受高速自動灌裝。這不僅會造成生產瓶頸，還會損害品牌形象。您不應該為了獲得完美的盒狀結構而犧牲生產線速度。透過使用我們專利的折線校準技術和熱穩定基材，您可以實現完美的 90 度直角和最大的貨架穩定性，而完全不會拖慢您的 VFFS 包裝機速度。"
+    },
+    "oatmeal-cereal-stand-up-pouch": {
+      "empathyHook": "在計量灌裝過程中，底部折邊漏氣的自立袋是任何生產經理的噩夢。我見過無數批次因為熱封邊界未針對高機械應力進行校準而被毀。我們設計了配備特殊茂金屬封口料的 Model #2922，將折邊彈性極限提高了 40%，確保在您的自動灌裝線上達到零爆袋，即使在最大灌裝壓力下也是如此。"
+    },
+    "pcr-packaging-guide-page": {
+      "empathyHook": "在不犧牲包裝性能的情況下達到 PCR 合規標準，是當今品牌面臨的最艱鉅挑戰之一。許多供應商提供的再生樹脂存在凝膠點、抗拉強度差等問題，或者更糟的是——缺乏適當的 GRS 認證。我們開發了整合 PCR 的包裝袋，為您提供與原生塑膠完全相同的機械清晰度和強度，並以經過驗證的交易憑證作為後盾，讓您可以充滿信心地申請免稅。"
+    },
+    "ocean-bound-plastic-packaging": {
+      "empathyHook": "能夠告訴顧客您正在積極協助清理海洋，這是一種很棒的感覺。但在再生塑膠的世界中航行，可能會是一片充滿漂綠（greenwashing）和品質問題的地雷區。我見過有些創始人對「回收」袋子感到興奮，結果卻發現它們充滿了外觀瑕疵，或者更糟的是，它們根本不符合食品安全標準。您不應該為了使用回收材料而冒著產品安全或品牌聲譽的風險。透過將經過認證的海廢塑膠密封在原生食品級內層後面，您可以零風險地獲得環境保護的雙贏。"
     }
   },
   "climate": {
@@ -52369,5 +52566,305 @@
     "title": "綜合減廢指南",
     "description": "了解透過我們的指南，整體設計策略如何最大限度地減少整個供應鏈中的浪費。",
     "content": "低效的真正成本。浪費不僅僅是一個環境問題；這是你底線的一個巨大漏洞。我們分析您的整個產品生命週期，以找出隱藏的浪費區域。從我們選擇的樹脂到最終袋子的形狀，每一個決定都經過優化，以最大限度地減少對環境的影響。"
+  },
+  "seoPages.pages.granolaSoftTouch": {
+    "s1": {
+      "title": "環保選擇：Granola Soft Touch"
+    },
+    "s2": {
+      "title": "為什麼 Granola Soft Touch 很重要"
+    },
+    "s3": {
+      "title": "提升您的品牌"
+    },
+    "faqs": {
+      "q1": "這如何影響保質期？",
+      "q2": "有最低訂購量嗎？"
+    }
+  },
+  "seoPages.pages.greenCoffeeMaterials": {
+    "s1": {
+      "title": "環保選擇：Green Coffee Materials"
+    },
+    "s2": {
+      "title": "為什麼 Green Coffee Materials 很重要"
+    },
+    "s3": {
+      "title": "提升您的品牌"
+    },
+    "faqs": {
+      "q1": "這如何影響保質期？",
+      "q2": "有最低訂購量嗎？"
+    }
+  },
+  "seoPages.pages.hologramHotStamping": {
+    "s1": {
+      "title": "環保選擇：Hologram Hot Stamping"
+    },
+    "s2": {
+      "title": "為什麼 Hologram Hot Stamping 很重要"
+    },
+    "s3": {
+      "title": "提升您的品牌"
+    },
+    "faqs": {
+      "q1": "這如何影響保質期？",
+      "q2": "有最低訂購量嗎？"
+    }
+  },
+  "seoPages.pages.homeCompostableCoffeeBags": {
+    "s1": {
+      "title": "環保選擇：Home Compostable Coffee Bags"
+    },
+    "s2": {
+      "title": "為什麼 Home Compostable Coffee Bags 很重要"
+    },
+    "s3": {
+      "title": "提升您的品牌"
+    },
+    "faqs": {
+      "q1": "這如何影響保質期？",
+      "q2": "有最低訂購量嗎？"
+    }
+  },
+  "seoPages.pages.homeVsIndustrialCompostable": {
+    "s1": {
+      "title": "環保選擇：Home Vs Industrial Compostable"
+    },
+    "s2": {
+      "title": "為什麼 Home Vs Industrial Compostable 很重要"
+    },
+    "s3": {
+      "title": "提升您的品牌"
+    },
+    "faqs": {
+      "q1": "這如何影響保質期？",
+      "q2": "有最低訂購量嗎？"
+    }
+  },
+  "seoPages.pages.householdBackSealBag": {
+    "s1": {
+      "title": "環保選擇：Household Back Seal Bag"
+    },
+    "s2": {
+      "title": "為什麼 Household Back Seal Bag 很重要"
+    },
+    "s3": {
+      "title": "提升您的品牌"
+    },
+    "faqs": {
+      "q1": "這如何影響保質期？",
+      "q2": "有最低訂購量嗎？"
+    }
+  },
+  "seoPages.pages.householdJamThreeSideSeal": {
+    "s1": {
+      "title": "環保選擇：Household Jam Three Side Seal"
+    },
+    "s2": {
+      "title": "為什麼 Household Jam Three Side Seal 很重要"
+    },
+    "s3": {
+      "title": "提升您的品牌"
+    },
+    "faqs": {
+      "q1": "這如何影響保質期？",
+      "q2": "有最低訂購量嗎？"
+    }
+  },
+  "seoPages.pages.isoSustainable": {
+    "s1": {
+      "title": "環保選擇：Iso Sustainable"
+    },
+    "s2": {
+      "title": "為什麼 Iso Sustainable 很重要"
+    },
+    "s3": {
+      "title": "提升您的品牌"
+    },
+    "faqs": {
+      "q1": "這如何影響保質期？",
+      "q2": "有最低訂購量嗎？"
+    }
+  },
+  "seoPages.pages.jellyBeverageStandUpPouch": {
+    "s1": {
+      "title": "環保選擇：Jelly Beverage Stand Up Pouch"
+    },
+    "s2": {
+      "title": "為什麼 Jelly Beverage Stand Up Pouch 很重要"
+    },
+    "s3": {
+      "title": "提升您的品牌"
+    },
+    "faqs": {
+      "q1": "這如何影響保質期？",
+      "q2": "有最低訂購量嗎？"
+    }
+  },
+  "seoPages.pages.kraftPaperShoppingBag": {
+    "s1": {
+      "title": "環保選擇：Kraft Paper Shopping Bag"
+    },
+    "s2": {
+      "title": "為什麼 Kraft Paper Shopping Bag 很重要"
+    },
+    "s3": {
+      "title": "提升您的品牌"
+    },
+    "faqs": {
+      "q1": "這如何影響保質期？",
+      "q2": "有最低訂購量嗎？"
+    }
+  },
+  "seoPages.pages.liquidBarrierPackagingSpouts": {
+    "s1": {
+      "title": "環保選擇：Liquid Barrier Packaging Spouts"
+    },
+    "s2": {
+      "title": "為什麼 Liquid Barrier Packaging Spouts 很重要"
+    },
+    "s3": {
+      "title": "提升您的品牌"
+    },
+    "faqs": {
+      "q1": "這如何影響保質期？",
+      "q2": "有最低訂購量嗎？"
+    }
+  },
+  "seoPages.pages.lowMoqStartupPackaging": {
+    "s1": {
+      "title": "環保選擇：Low MOQStartup Packaging"
+    },
+    "s2": {
+      "title": "為什麼 Low MOQStartup Packaging 很重要"
+    },
+    "s3": {
+      "title": "提升您的品牌"
+    },
+    "faqs": {
+      "q1": "這如何影響保質期？",
+      "q2": "有最低訂購量嗎？"
+    }
+  },
+  "seoPages.pages.medicalTapeThreeSideSeal": {
+    "s1": {
+      "title": "環保選擇：Medical Tape Three Side Seal"
+    },
+    "s2": {
+      "title": "為什麼 Medical Tape Three Side Seal 很重要"
+    },
+    "s3": {
+      "title": "提升您的品牌"
+    },
+    "faqs": {
+      "q1": "這如何影響保質期？",
+      "q2": "有最低訂購量嗎？"
+    }
+  },
+  "seoPages.pages.minimalistD2CPackaging": {
+    "s1": {
+      "title": "環保選擇：Minimalist D2CPackaging"
+    },
+    "s2": {
+      "title": "為什麼 Minimalist D2CPackaging 很重要"
+    },
+    "s3": {
+      "title": "提升您的品牌"
+    },
+    "faqs": {
+      "q1": "這如何影響保質期？",
+      "q2": "有最低訂購量嗎？"
+    }
+  },
+  "seoPages.pages.monoMaterialSolution": {
+    "s1": {
+      "title": "環保選擇：Mono Material Solution"
+    },
+    "s2": {
+      "title": "為什麼 Mono Material Solution 很重要"
+    },
+    "s3": {
+      "title": "提升您的品牌"
+    },
+    "faqs": {
+      "q1": "這如何影響保質期？",
+      "q2": "有最低訂購量嗎？"
+    }
+  },
+  "seoPages.pages.monoPePouches": {
+    "s1": {
+      "title": "環保選擇：Mono PEPouches"
+    },
+    "s2": {
+      "title": "為什麼 Mono PEPouches 很重要"
+    },
+    "s3": {
+      "title": "提升您的品牌"
+    },
+    "faqs": {
+      "q1": "這如何影響保質期？",
+      "q2": "有最低訂購量嗎？"
+    }
+  },
+  "seoPages.pages.nutsFlatBottomPouch": {
+    "s1": {
+      "title": "環保選擇：Nuts Flat Bottom Pouch"
+    },
+    "s2": {
+      "title": "為什麼 Nuts Flat Bottom Pouch 很重要"
+    },
+    "s3": {
+      "title": "提升您的品牌"
+    },
+    "faqs": {
+      "q1": "這如何影響保質期？",
+      "q2": "有最低訂購量嗎？"
+    }
+  },
+  "seoPages.pages.oatmealCerealStandUpPouch": {
+    "s1": {
+      "title": "環保選擇：Oatmeal Cereal Stand Up Pouch"
+    },
+    "s2": {
+      "title": "為什麼 Oatmeal Cereal Stand Up Pouch 很重要"
+    },
+    "s3": {
+      "title": "提升您的品牌"
+    },
+    "faqs": {
+      "q1": "這如何影響保質期？",
+      "q2": "有最低訂購量嗎？"
+    }
+  },
+  "seoPages.pages.oceanBoundPlasticPackaging": {
+    "s1": {
+      "title": "環保選擇：Ocean Bound Plastic Packaging"
+    },
+    "s2": {
+      "title": "為什麼 Ocean Bound Plastic Packaging 很重要"
+    },
+    "s3": {
+      "title": "提升您的品牌"
+    },
+    "faqs": {
+      "q1": "這如何影響保質期？",
+      "q2": "有最低訂購量嗎？"
+    }
+  },
+  "seoPages.pages.pcrPackagingGuide": {
+    "s1": {
+      "title": "環保選擇：PCRPackaging Guide"
+    },
+    "s2": {
+      "title": "為什麼 PCRPackaging Guide 很重要"
+    },
+    "s3": {
+      "title": "提升您的品牌"
+    },
+    "faqs": {
+      "q1": "這如何影響保質期？",
+      "q2": "有最低訂購量嗎？"
+    }
   }
 }

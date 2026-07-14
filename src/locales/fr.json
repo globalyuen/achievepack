@@ -41445,6 +41445,203 @@
         "concern5Pain": "Les sacs se froissent ou se froissent facilement et ne semblent pas professionnels.",
         "concern5Solution": "Nous utilisons des stratifiés haut de gamme qui résistent aux plis disgracieux, conservant ainsi un aspect lisse et attrayant tout au long de la chaîne d'approvisionnement."
       }
+    },
+    "granolaSoftTouch": {
+      "s1": {
+        "title": "Une Sensation Premium pour un Produit Premium",
+        "p1": "Vous mettez de l'amour et du soin à cuire votre granola bio et artisanal. Mais quand les clients le prennent, l'emballage reflète-t-il la qualité à l'intérieur ? Les plastiques durs et froissés peuvent donner à votre granola un aspect bon marché et produit en masse.",
+        "p2": "Nous pensons que votre emballage doit être aussi naturel et délicieux que votre recette. Nos sachets mats au toucher doux offrent une texture luxueuse et veloutée qui indique instantanément à vos clients qu'ils tiennent quelque chose de spécial, tout en protégeant vos pépites soigneusement cuites contre le rancissement."
+      },
+      "s2": {
+        "title": "Qu'est-ce qui le rend doux au toucher ?",
+        "p1": "L'emballage mat au toucher doux utilise une couche externe spécialisée qui diffuse la lumière et crée une sensation tactile exceptionnellement douce et veloutée lors de la manipulation. C'est une différence subtile qui a un impact énorme sur la façon dont votre marque est perçue.",
+        "caption": "La belle finition antireflet de nos sachets au toucher doux"
+      },
+      "s3": {
+        "title": "Mat vs Brillant : La Différence Premium",
+        "p1": "Les emballages brillants standards créent des reflets intenses sous les lumières des supermarchés. Le mat au toucher doux diffuse parfaitement la lumière, donnant à votre emballage une lueur chaude et organique qui s'aligne sur les valeurs de votre marque.",
+        "caption": "Brillant standard (gauche) vs notre mat premium au toucher doux (droite)"
+      },
+      "faqs": {
+        "q1": "La finition au toucher doux est-elle écologique ?",
+        "a1": "Oui, nous proposons des versions monomatériaux recyclables de nos sachets au toucher doux, vous permettant d'offrir une expérience premium sans nuire à la planète.",
+        "q2": "Les sachets protégeront-ils mon granola de la casse ?",
+        "a2": "Absolument. Nos sachets sont conçus pour être très résistants aux perforations, protégeant vos pépites de granola pendant le transport et la manutention."
+      },
+      "layout": {
+        "title": "Sachets Premium de Granola au Toucher Doux",
+        "description": "Emballage mat au toucher doux, luxueux et velouté pour granola bio premium.",
+        "heroTitle": "Sentez la Différence",
+        "heroSubtitle": "Finition Veloutée au Toucher Doux | Résistant aux Perforations | Antireflet",
+        "introSummary": "Offrez à votre granola artisanal l'emballage premium qu'il mérite. Nos sachets mats au toucher doux offrent une expérience tactile luxueuse qui ravit les clients et protège vos ingrédients frais."
+      }
+    },
+    "greenCoffeeMaterials": {
+      "s1": {
+        "title": "Un Emballage Qui Correspond à Vos Valeurs",
+        "p1": "Votre rituel café matinal ne devrait pas laisser de trace permanente sur la planète. Mais ces sachets en aluminium brillants que vous voyez en rayon ? Ils resteront dans les décharges pendant des siècles. Vous vous souciez des grains d'origine éthique, mais l'emballage traditionnel raconte une autre histoire.",
+        "p2": "Il est temps que votre emballage corresponde à vos valeurs. Notre emballage de café écologique utilise des monomatériaux avancés et des structures compostables qui empêchent vos grains de rancir, sans sacrifier la Terre."
+      },
+      "s2": {
+        "title": "Fraîcheur Garantie",
+        "p1": "Le café a besoin d'être protégé de l'oxygène et de l'humidité. Notre emballage durable utilise des couches EVOH à haute barrière pour garder votre torréfaction fraîche pendant des mois, égalant les performances des sachets en aluminium traditionnels non recyclables."
+      },
+      "s3": {
+        "title": "100% Compostable à Domicile",
+        "p1": "Envie de zéro déchet ? Nos sachets de café compostables à domicile se décomposent naturellement dans votre composteur de jardin, ne laissant que du terreau riche en nutriments. Même la valve de dégazage est entièrement compostable !"
+      },
+      "faqs": {
+        "q1": "Ces sachets ont-ils des valves de dégazage ?",
+        "a1": "Oui ! Nous utilisons des valves de dégazage entièrement recyclables ou compostables pour libérer le CO2 tout en empêchant l'oxygène d'entrer, gardant vos grains frais.",
+        "q2": "Puis-je recycler ces sachets chez moi ?",
+        "a2": "Nos sachets Mono-PE peuvent être recyclés avec les plastiques souples, tandis que nos sachets compostables peuvent être jetés en toute sécurité dans votre bac à compost domestique."
+      },
+      "layout": {
+        "title": "Emballage de Café Écologique",
+        "description": "Sachets de café durables à haute barrière qui protègent vos grains et la planète.",
+        "heroTitle": "Café Frais. Zéro Déchet.",
+        "heroSubtitle": "Haute Barrière | Recyclable | Compostable à Domicile",
+        "introSummary": "Vous ne devriez pas avoir à choisir entre un café frais et une planète saine. Notre emballage de café écologique offre le meilleur des deux mondes."
+      }
+    },
+    "hologramHotStamping": {
+      "s1": {
+        "title": "Brillez de Mille Feux, Restez Écolo",
+        "p1": "Vos clients veulent se sentir spéciaux, et rien ne crie 'premium' comme un magnifique reflet holographique. Mais pouvez-vous obtenir ce look luxueux tout en prenant soin de la planète ?",
+        "p2": "Oui, vous pouvez. Notre estampage holographique écologique donne à vos sachets cet éclat magique et accrocheur, sans compromettre la durabilité. Nous utilisons des films ultra-fins qui sont entièrement compatibles avec les filières de recyclage modernes."
+      },
+      "s2": {
+        "title": "Qu'est-ce que l'Estampage Holographique ?",
+        "p1": "L'estampage holographique transfère une couche métallique ultra-fine sur votre emballage, créant un décalage visuel 3D époustouflant. Il capte la lumière sous tous les angles, faisant ressortir votre logo avec des couleurs irisées."
+      },
+      "s3": {
+        "title": "Écologique & Sûr",
+        "p1": "Contrairement aux films métalliques lourds traditionnels, notre film d'estampage est d'une épaisseur microscopique. Cela signifie qu'il ne perturbe pas la recyclabilité de nos sachets monomatériaux."
+      },
+      "faqs": {
+        "q1": "Le film holographique est-il recyclable ?",
+        "a1": "Oui, la couche de film est si fine (moins de 2 microns) qu'elle se décompose facilement dans les processus de recyclage standards avec nos sachets monomatériaux.",
+        "q2": "Est-ce sûr pour les emballages alimentaires ?",
+        "a2": "Absolument. Le film est appliqué à l'extérieur du sachet et est complètement séparé de votre produit par des couches barrières de qualité alimentaire."
+      },
+      "layout": {
+        "title": "Sachets avec Estampage Holographique",
+        "description": "Estampage holographique luxueux et écologique sur sachets flexibles.",
+        "heroTitle": "Attirez Leurs Regards",
+        "heroSubtitle": "Éclat Irisé | Qualité Premium | Compatible Recyclage",
+        "introSummary": "Élevez votre marque avec de superbes accents holographiques. Notre processus d'estampage écologique donne à votre emballage un scintillement luxueux qui se démarque."
+      }
+    },
+    "homeCompostableCoffeeBags": {
+      "s1": {
+        "title": "L'Avenir du Café est Compostable",
+        "p1": "Vous vous souciez de la provenance de votre café, des agriculteurs qui l'ont cultivé et de son impact sur la planète. Alors pourquoi votre infusion quotidienne devrait-elle être emballée dans du plastique qui vous survivra ?",
+        "p2": "Nos sachets de café compostables à domicile signifient que vous pouvez profiter de votre torréfaction premium en sachant que l'emballage retournera à la terre, sans laisser aucune trace."
+      },
+      "s2": {
+        "title": "Protection sans Pollution",
+        "p1": "Contrairement aux plastiques à usage unique qui étouffent nos océans, nos matériaux compostables sont certifiés pour se décomposer en toute sécurité dans votre compost de jardin, se transformant en un sol riche en nutriments."
+      },
+      "s3": {
+        "title": "Fraîcheur Scellée dans la Nature",
+        "p1": "Vous n'avez pas à sacrifier la qualité. Nos sachets disposent d'une barrière naturelle qui bloque l'oxygène et l'humidité, gardant ces riches huiles de café fraîches, tout en restant 100% respectueux de la terre."
+      },
+      "faqs": {
+        "q1": "Combien de temps faut-il pour que ces sachets se compostent ?",
+        "a1": "Dans un compost domestique actif, nos sachets se décomposeront en biomasse dans les 26 à 52 semaines.",
+        "q2": "La valve de dégazage est-elle également compostable ?",
+        "a2": "Oui ! Nous utilisons une valve innovante en bioplastique qui se décompose en même temps que le sachet."
+      },
+      "layout": {
+        "title": "Sachets de Café Compostables à Domicile",
+        "description": "Sachets de café entièrement compostables à domicile qui protègent à la fois vos grains et l'environnement.",
+        "heroTitle": "Café Respectueux de la Terre",
+        "heroSubtitle": "100% Compostable à Domicile | Haute Barrière | Valves Écologiques",
+        "introSummary": "Rendez votre habitude de café sans culpabilité. Nos sachets de café compostables à domicile protègent la saveur de votre torréfaction et disparaissent ensuite dans la nature."
+      }
+    },
+    "home-vs-industrial-compostable": {
+      "title": "Emballage Compostable Domestique vs Industriel",
+      "description": "Comprendre les différences entre les emballages compostables domestiques et industriels.",
+      "heroTitle": "Compostage Domestique vs Industriel",
+      "introSummary": "Nous comprenons à quel point il est frustrant de voir que votre emballage prétendument compostable ne se décompose pas, entraînant des accusations de greenwashing et le mécontentement des clients. Résolvons cela. Les emballages compostables à domicile se décomposent naturellement dans les bacs à compost à température ambiante, tandis que les films industriels nécessitent des installations à haute température."
+    },
+    "household-back-seal-bag": {
+      "introSummary": "Nous comprenons les défis techniques liés aux défauts d'étanchéité. Résolvons cela. Le sachet de scellage arrière domestique (Modèle #4724) représente une structure d'emballage haut de gamme et haute résistance."
+    },
+    "household-jam-three-side-seal": {
+      "introSummary": "Nous savons que les fuites et les plis thermiques peuvent nuire à votre marque. Résolvons cela. Le sachet à trois côtés scellés pour confiture ménagère (Modèle #4056) est une structure d'emballage premium à haute résistance."
+    },
+    "iso-sustainable": {
+      "title": "Normes d'Emballage Durable ISO",
+      "description": "Critères de conception mondiaux pour la réduction des matériaux et la conformité environnementale.",
+      "heroTitle": "Emballage Durable ISO",
+      "introSummary": "Nous comprenons le risque d'amendes et la pression des consommateurs. Résolvons cela. Nos emballages sont conçus pour se conformer à la série ISO 18600, garantissant l'optimisation et la recyclabilité des matériaux."
+    },
+    "jelly-beverage-stand-up-pouch": {
+      "title": "Sachet autoportant durable pour gelée et boisson | Pouch Eco",
+      "description": "Sachet autoportant écologique pour gelée et boisson. Étanche, durable et durable.",
+      "heroTitle": "Sachet à bec verseur écologique pour boissons",
+      "heroSubtitle": "Emballage durable | Étanche | Impression vibrante",
+      "introSummary": "Notre sachet autoportant durable pour gelée et boisson est conçu pour protéger votre produit et la planète.",
+      "aeoSummary": "Ce sachet à bec verseur écologique offre d'excellentes barrières contre l'oxygène et l'humidité.",
+      "eeatDetails": "Développé par l'équipe d'ingénierie durable de Pouch Eco pour répondre à des normes strictes.",
+      "empathyHook": "Nous savons que vous mettez tout votre cœur à créer la boisson parfaite, et la dernière chose que vous souhaitez, c'est qu'elle fuie dans le sac de votre client. Trouver un emballage qui protège votre produit tout en restant respectueux de la terre peut sembler impossible. C'est pourquoi nous avons créé un sachet durable qui garde vos boissons sûres, fraîches et parfaitement alignées avec vos valeurs écologiques.",
+      "section1Title": "Détails structurels durables",
+      "section1Text": "Conçu spécifiquement pour les marques écologiques, ce sachet utilise des films recyclables ou compostables avancés.",
+      "point1Title": "Le problème des fuites",
+      "point1Desc": "Les sachets traditionnels éclatent ou fuient souvent autour du bec.",
+      "point1Sol": "Nous utilisons un soudage par ultrasons de haute intégrité pour garantir une étanchéité à 100 %.",
+      "point2Title": "Fraîcheur et détérioration",
+      "point2Desc": "La pénétration d'oxygène fait perdre de la saveur aux boissons.",
+      "point2Sol": "Nos films durables à haute barrière bloquent l'oxygène et l'humidité.",
+      "point3Title": "La culpabilité des déchets plastiques",
+      "point3Desc": "Les clients se sentent coupables de jeter des bouteilles en plastique lourdes.",
+      "point3Sol": "Nos sachets utilisent jusqu'à 70 % de plastique en moins que les bouteilles rigides.",
+      "compTitle": "Bouteilles en plastique lourdes vs sachets écologiques",
+      "compDesc": "Passez aux emballages flexibles. Cela réduit votre empreinte carbone et offre une expérience premium."
+    },
+    "kraft-paper-shopping-bag": {
+      "title": "Sac de Courses en Papier Kraft | Pouch Eco",
+      "description": "Sac en papier kraft écologique. Étanche, durable et durable.",
+      "heroTitle": "Sac Écologique en Papier Kraft",
+      "empathyHook": "Vous voulez que vos clients soient fiers de repartir avec vos produits, mais des emballages fragiles et gaspilleurs ruinent cette expérience haut de gamme. Nous comprenons à quel point il est frustrant de chercher un sac vraiment durable qui soit aussi solide et beau. Nos sacs en kraft écologiques donnent à votre marque ce look naturel et haut de gamme tout en gardant votre engagement envers la planète au premier plan."
+    },
+    "liquid-barrier-packaging-spouts": {
+      "title": "Emballage Barrière pour Liquides à Bec Verseur | Pouch Eco",
+      "empathyHook": "L'expédition de liquides sans bouteilles lourdes et gaspillant du plastique était autrefois un gâchis. Vous souhaitez proposer des options rechargeables et écologiques pour vos savons ou vos jus, mais vous inquiéter des fuites pendant le transport est épuisant. Nous avons conçu un sachet à bec verseur durable, incroyablement solide et étanche, afin que vous puissiez réduire les déchets plastiques sans sacrifier votre tranquillité d'esprit."
+    },
+    "low-moq-startup-packaging-page": {
+      "title": "Emballage de Démarrage à Faible MOQ | Pouch Eco",
+      "empathyHook": "Lancer une nouvelle marque durable est déjà assez effrayant sans avoir à acheter 20 000 sacs juste pour commencer. Nous savons à quel point il est terrifiant de risquer vos économies sur des emballages avant même d'avoir testé le marché. Nos sachets écologiques à faible MOQ vous permettent de vous lancer de manière belle et durable, vous donnant la liberté de vous développer à votre propre rythme sans gaspillage."
+    },
+    "medicalTapeThreeSideSeal": {
+      "title": "Sachets de Ruban Médical à Soudure Trois Côtés",
+      "metaDesc": "Sachets à trois soudures de qualité médicale pour un emballage stérile."
+    },
+    "minimalistD2CPackaging": {
+      "title": "Emballage D2C Minimaliste",
+      "metaDesc": "Solutions d'emballage direct-consommateur minimalistes et durables."
+    },
+    "monoMaterialSolution": {
+      "title": "Solutions Mono-Matériau",
+      "metaDesc": "Options d'emballage mono-matériau 100% recyclables."
+    },
+    "monoPEPouches": {
+      "title": "Sachets Mono-PE",
+      "metaDesc": "Sachets en polyéthylène mono-matériau recyclables et performants."
+    },
+    "nuts-flat-bottom-pouch": {
+      "empathyHook": "En tant qu'ingénieur en emballage, je connais la frustration de voir vos sachets à fond plat s'incliner sur les étagères parce que les soudures des soufflets n'ont pas résisté au remplissage automatique à grande vitesse. Cela provoque des goulots d'étranglement dans la production et nuit à la présentation de la marque. Vous ne devriez pas avoir à sacrifier la vitesse de la ligne pour obtenir une structure parfaite en forme de boîte. En utilisant notre étalonnage exclusif des lignes de pliage et nos substrats stabilisés thermiquement, vous obtenez des angles parfaits de 90 degrés et une stabilité maximale en rayon sans ralentir vos lignes VFFS."
+    },
+    "oatmeal-cereal-stand-up-pouch": {
+      "empathyHook": "Les sachets tenant debout qui fuient au niveau du soufflet inférieur pendant le dosage sont un cauchemar pour tout directeur de production. J'ai vu d'innombrables lots ruinés parce que les limites thermiques n'étaient pas calibrées pour des contraintes mécaniques élevées. Nous avons conçu le modèle #2922 avec des scellants métallocènes spécialisés qui augmentent les limites élastiques du soufflet de 40%, garantissant zéro éclatement sur vos lignes de remplissage automatisées, même sous une pression de dosage maximale."
+    },
+    "pcr-packaging-guide-page": {
+      "empathyHook": "Naviguer dans la conformité PCR sans sacrifier les performances de l'emballage est l'un des défis les plus difficiles auxquels les marques sont confrontées aujourd'hui. De nombreux fournisseurs proposent des résines recyclées qui souffrent de points de gel, d'une faible résistance à la traction ou, pire encore, qui manquent de certification GRS appropriée. Nous avons développé nos sachets intégrés PCR pour vous offrir exactement la même clarté mécanique et la même résistance que le plastique vierge, soutenus par des certificats de transaction vérifiés afin que vous puissiez réclamer des exonérations fiscales en toute confiance."
+    },
+    "ocean-bound-plastic-packaging": {
+      "empathyHook": "C'est un sentiment incroyable de dire à vos clients que vous aider activement à nettoyer les océans, mais naviguer dans le monde des plastiques recyclés peut être un champ de mines d'écoblanchiment et de problèmes de qualité. J'ai vu des fondateurs s'enthousiasmer pour des sacs 'recyclés' pour découvrir ensuite qu'ils étaient remplis de défauts cosmétiques ou, pire, qu'ils n'étaient pas de qualité alimentaire. Vous ne devriez pas avoir à risquer la sécurité de votre produit ou la réputation de votre marque pour utiliser des matériaux recyclés. Avec du plastique destiné aux océans certifié, scellé derrière une doublure vierge de qualité alimentaire, vous obtenez la victoire environnementale sans aucun risque."
     }
   },
   "climate": {
@@ -52370,5 +52567,305 @@
     "title": "Guide Complet de Réduction des Déchets",
     "description": "Découvrez comment des stratégies de conception holistiques peuvent minimiser les déchets tout au long de votre chaîne d'approvisionnement avec notre guide.",
     "content": "Le véritable coût de l'inefficacité. Le gaspillage n'est pas seulement un problème environnemental ; c'est une fuite massive dans vos résultats. Nous analysons l'ensemble du cycle de vie de votre produit pour identifier les zones cachées de gaspillage. De la résine que nous sélectionnons à la forme de la pochette finale, chaque décision est optimisée pour un impact environnemental minimal."
+  },
+  "seoPages.pages.granolaSoftTouch": {
+    "s1": {
+      "title": "Le Choix Écologique: Granola Soft Touch"
+    },
+    "s2": {
+      "title": "Pourquoi Granola Soft Touch est important"
+    },
+    "s3": {
+      "title": "Élevez votre Marque"
+    },
+    "faqs": {
+      "q1": "Quel est l'impact sur la durée de conservation?",
+      "q2": "Avez-vous des quantités minimales faibles?"
+    }
+  },
+  "seoPages.pages.greenCoffeeMaterials": {
+    "s1": {
+      "title": "Le Choix Écologique: Green Coffee Materials"
+    },
+    "s2": {
+      "title": "Pourquoi Green Coffee Materials est important"
+    },
+    "s3": {
+      "title": "Élevez votre Marque"
+    },
+    "faqs": {
+      "q1": "Quel est l'impact sur la durée de conservation?",
+      "q2": "Avez-vous des quantités minimales faibles?"
+    }
+  },
+  "seoPages.pages.hologramHotStamping": {
+    "s1": {
+      "title": "Le Choix Écologique: Hologram Hot Stamping"
+    },
+    "s2": {
+      "title": "Pourquoi Hologram Hot Stamping est important"
+    },
+    "s3": {
+      "title": "Élevez votre Marque"
+    },
+    "faqs": {
+      "q1": "Quel est l'impact sur la durée de conservation?",
+      "q2": "Avez-vous des quantités minimales faibles?"
+    }
+  },
+  "seoPages.pages.homeCompostableCoffeeBags": {
+    "s1": {
+      "title": "Le Choix Écologique: Home Compostable Coffee Bags"
+    },
+    "s2": {
+      "title": "Pourquoi Home Compostable Coffee Bags est important"
+    },
+    "s3": {
+      "title": "Élevez votre Marque"
+    },
+    "faqs": {
+      "q1": "Quel est l'impact sur la durée de conservation?",
+      "q2": "Avez-vous des quantités minimales faibles?"
+    }
+  },
+  "seoPages.pages.homeVsIndustrialCompostable": {
+    "s1": {
+      "title": "Le Choix Écologique: Home Vs Industrial Compostable"
+    },
+    "s2": {
+      "title": "Pourquoi Home Vs Industrial Compostable est important"
+    },
+    "s3": {
+      "title": "Élevez votre Marque"
+    },
+    "faqs": {
+      "q1": "Quel est l'impact sur la durée de conservation?",
+      "q2": "Avez-vous des quantités minimales faibles?"
+    }
+  },
+  "seoPages.pages.householdBackSealBag": {
+    "s1": {
+      "title": "Le Choix Écologique: Household Back Seal Bag"
+    },
+    "s2": {
+      "title": "Pourquoi Household Back Seal Bag est important"
+    },
+    "s3": {
+      "title": "Élevez votre Marque"
+    },
+    "faqs": {
+      "q1": "Quel est l'impact sur la durée de conservation?",
+      "q2": "Avez-vous des quantités minimales faibles?"
+    }
+  },
+  "seoPages.pages.householdJamThreeSideSeal": {
+    "s1": {
+      "title": "Le Choix Écologique: Household Jam Three Side Seal"
+    },
+    "s2": {
+      "title": "Pourquoi Household Jam Three Side Seal est important"
+    },
+    "s3": {
+      "title": "Élevez votre Marque"
+    },
+    "faqs": {
+      "q1": "Quel est l'impact sur la durée de conservation?",
+      "q2": "Avez-vous des quantités minimales faibles?"
+    }
+  },
+  "seoPages.pages.isoSustainable": {
+    "s1": {
+      "title": "Le Choix Écologique: Iso Sustainable"
+    },
+    "s2": {
+      "title": "Pourquoi Iso Sustainable est important"
+    },
+    "s3": {
+      "title": "Élevez votre Marque"
+    },
+    "faqs": {
+      "q1": "Quel est l'impact sur la durée de conservation?",
+      "q2": "Avez-vous des quantités minimales faibles?"
+    }
+  },
+  "seoPages.pages.jellyBeverageStandUpPouch": {
+    "s1": {
+      "title": "Le Choix Écologique: Jelly Beverage Stand Up Pouch"
+    },
+    "s2": {
+      "title": "Pourquoi Jelly Beverage Stand Up Pouch est important"
+    },
+    "s3": {
+      "title": "Élevez votre Marque"
+    },
+    "faqs": {
+      "q1": "Quel est l'impact sur la durée de conservation?",
+      "q2": "Avez-vous des quantités minimales faibles?"
+    }
+  },
+  "seoPages.pages.kraftPaperShoppingBag": {
+    "s1": {
+      "title": "Le Choix Écologique: Kraft Paper Shopping Bag"
+    },
+    "s2": {
+      "title": "Pourquoi Kraft Paper Shopping Bag est important"
+    },
+    "s3": {
+      "title": "Élevez votre Marque"
+    },
+    "faqs": {
+      "q1": "Quel est l'impact sur la durée de conservation?",
+      "q2": "Avez-vous des quantités minimales faibles?"
+    }
+  },
+  "seoPages.pages.liquidBarrierPackagingSpouts": {
+    "s1": {
+      "title": "Le Choix Écologique: Liquid Barrier Packaging Spouts"
+    },
+    "s2": {
+      "title": "Pourquoi Liquid Barrier Packaging Spouts est important"
+    },
+    "s3": {
+      "title": "Élevez votre Marque"
+    },
+    "faqs": {
+      "q1": "Quel est l'impact sur la durée de conservation?",
+      "q2": "Avez-vous des quantités minimales faibles?"
+    }
+  },
+  "seoPages.pages.lowMoqStartupPackaging": {
+    "s1": {
+      "title": "Le Choix Écologique: Low MOQStartup Packaging"
+    },
+    "s2": {
+      "title": "Pourquoi Low MOQStartup Packaging est important"
+    },
+    "s3": {
+      "title": "Élevez votre Marque"
+    },
+    "faqs": {
+      "q1": "Quel est l'impact sur la durée de conservation?",
+      "q2": "Avez-vous des quantités minimales faibles?"
+    }
+  },
+  "seoPages.pages.medicalTapeThreeSideSeal": {
+    "s1": {
+      "title": "Le Choix Écologique: Medical Tape Three Side Seal"
+    },
+    "s2": {
+      "title": "Pourquoi Medical Tape Three Side Seal est important"
+    },
+    "s3": {
+      "title": "Élevez votre Marque"
+    },
+    "faqs": {
+      "q1": "Quel est l'impact sur la durée de conservation?",
+      "q2": "Avez-vous des quantités minimales faibles?"
+    }
+  },
+  "seoPages.pages.minimalistD2CPackaging": {
+    "s1": {
+      "title": "Le Choix Écologique: Minimalist D2CPackaging"
+    },
+    "s2": {
+      "title": "Pourquoi Minimalist D2CPackaging est important"
+    },
+    "s3": {
+      "title": "Élevez votre Marque"
+    },
+    "faqs": {
+      "q1": "Quel est l'impact sur la durée de conservation?",
+      "q2": "Avez-vous des quantités minimales faibles?"
+    }
+  },
+  "seoPages.pages.monoMaterialSolution": {
+    "s1": {
+      "title": "Le Choix Écologique: Mono Material Solution"
+    },
+    "s2": {
+      "title": "Pourquoi Mono Material Solution est important"
+    },
+    "s3": {
+      "title": "Élevez votre Marque"
+    },
+    "faqs": {
+      "q1": "Quel est l'impact sur la durée de conservation?",
+      "q2": "Avez-vous des quantités minimales faibles?"
+    }
+  },
+  "seoPages.pages.monoPePouches": {
+    "s1": {
+      "title": "Le Choix Écologique: Mono PEPouches"
+    },
+    "s2": {
+      "title": "Pourquoi Mono PEPouches est important"
+    },
+    "s3": {
+      "title": "Élevez votre Marque"
+    },
+    "faqs": {
+      "q1": "Quel est l'impact sur la durée de conservation?",
+      "q2": "Avez-vous des quantités minimales faibles?"
+    }
+  },
+  "seoPages.pages.nutsFlatBottomPouch": {
+    "s1": {
+      "title": "Le Choix Écologique: Nuts Flat Bottom Pouch"
+    },
+    "s2": {
+      "title": "Pourquoi Nuts Flat Bottom Pouch est important"
+    },
+    "s3": {
+      "title": "Élevez votre Marque"
+    },
+    "faqs": {
+      "q1": "Quel est l'impact sur la durée de conservation?",
+      "q2": "Avez-vous des quantités minimales faibles?"
+    }
+  },
+  "seoPages.pages.oatmealCerealStandUpPouch": {
+    "s1": {
+      "title": "Le Choix Écologique: Oatmeal Cereal Stand Up Pouch"
+    },
+    "s2": {
+      "title": "Pourquoi Oatmeal Cereal Stand Up Pouch est important"
+    },
+    "s3": {
+      "title": "Élevez votre Marque"
+    },
+    "faqs": {
+      "q1": "Quel est l'impact sur la durée de conservation?",
+      "q2": "Avez-vous des quantités minimales faibles?"
+    }
+  },
+  "seoPages.pages.oceanBoundPlasticPackaging": {
+    "s1": {
+      "title": "Le Choix Écologique: Ocean Bound Plastic Packaging"
+    },
+    "s2": {
+      "title": "Pourquoi Ocean Bound Plastic Packaging est important"
+    },
+    "s3": {
+      "title": "Élevez votre Marque"
+    },
+    "faqs": {
+      "q1": "Quel est l'impact sur la durée de conservation?",
+      "q2": "Avez-vous des quantités minimales faibles?"
+    }
+  },
+  "seoPages.pages.pcrPackagingGuide": {
+    "s1": {
+      "title": "Le Choix Écologique: PCRPackaging Guide"
+    },
+    "s2": {
+      "title": "Pourquoi PCRPackaging Guide est important"
+    },
+    "s3": {
+      "title": "Élevez votre Marque"
+    },
+    "faqs": {
+      "q1": "Quel est l'impact sur la durée de conservation?",
+      "q2": "Avez-vous des quantités minimales faibles?"
+    }
   }
 }
