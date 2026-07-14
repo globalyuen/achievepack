@@ -274,7 +274,7 @@ const IsoSustainable: React.FC = () => {
         heroImageAlt="Eco-friendly cardboard box embossed with ISO 14001 and ISO 18602 certification seals on a concrete table"
         heroTitle="ISO Sustainable Packaging"
         heroSubtitle="ISO 18600 Series | Verified Material Reduction | Recyclability Standards"
-        introSummary="Align your brand with global environmental standards. Our packaging is designed to comply with the ISO 18600 series, ensuring material optimization, recyclability, and a reduced carbon footprint that meets international laws."
+        introSummary="We understand how frustrating it is when your supposedly compostable packaging fails to break down, leading to greenwashing accusations and unhappy clients. Let's solve this. Align your brand with global environmental standards. Our packaging is designed to comply with the ISO 18600 series, ensuring material optimization, recyclability, and a reduced carbon footprint that meets international laws."
         aeoSummary="ISO 18600 standards define environmental requirements for global packaging. Complying with ISO 18602 (source reduction) and ISO 18604 (recyclability) helps brands design packaging that meets EU and US regulations while reducing plastic waste."
         eeatDetails="Manufactured in ISO 9001 and ISO 14001 certified facilities. Materials are fully screened for heavy metal compliance under EN 13428 standards."
         sections={sections}

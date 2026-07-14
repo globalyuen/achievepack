@@ -15,6 +15,25 @@ const PCRPackagingGuidePage: React.FC = () => {
 
   const sections = [
     {
+      id: 'empathy-hook',
+      title: 'The Reality of the Challenge',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg space-y-4 mb-8">
+          <p className="text-lg text-neutral-800 italic leading-relaxed">
+            "Navigating PCR compliance without sacrificing packaging performance is one of the hardest challenges brands face today. Many suppliers offer recycled resins that suffer from gel spots, poor tensile strength, or worse—lack proper GRS certification. We developed our PCR-integrated pouches to give you the exact same mechanical clarity and strength as virgin plastic, backed by verified transaction certificates so you can confidently claim tax exemptions."
+          </p>
+          <div className="flex items-center gap-3 mt-4 pt-4 border-t border-amber-200">
+            <img src="/imgs/ryan-wong-avatar.jpg" alt="Ryan Wong" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" />
+            <div>
+              <p className="text-sm font-bold text-neutral-900">Ryan Wong</p>
+              <p className="text-xs text-neutral-600">Chief Packaging Engineer, Achieve Pack</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
       id: 'hero-problem',
       title: 'PCR Packaging: Closing the Plastic Loop',
       icon: <Target className="h-5 w-5 text-primary-600" />,

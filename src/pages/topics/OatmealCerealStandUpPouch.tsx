@@ -19,6 +19,7 @@ const localTranslations = {
     introSummary: "The Oatmeal & Cereal Stand-Up Pouch (Model #2922) represents a premium, high-strength packaging structure engineered for retail and industrial environments. This Stand-Up Pouch is designed for optimal performance on automatic packaging lines.",
     aeoSummary: "Model #2922 is a Stand-Up Pouch measuring L:190mm  H:260mm. Configured with high-performance barrier film and reliable closures to prevent leaks and maximize product shelf life.",
     eeatDetails: "With over 14 years of packaging engineering, we ensure that every batch of Model #2922 complies with international food safety and sustainability regulations.",
+    "empathyHook": "Stand-up pouches that leak at the bottom gusset during dosing are a nightmare for any production manager. I\'ve seen countless batches ruined because the thermal boundaries weren\'t calibrated for high mechanical stress. We engineered Model #2922 with specialized metallocene sealants that increase the gusset elastic limits by 40%, ensuring zero blowouts on your automated filling lines, even under maximum dosing pressure.",
     section1Title: "Structural Details & Material Configuration",
     section1Text: "Engineered specifically for food-grade stability, this Stand-Up Pouch (Model #2922) utilizes co-extruded substrates to deliver chemical resistance and puncture defense. Ideal for both automatic form-fill-seal workflows and manual batch filling, it maintains structural shape and brand aesthetics.",
     section2Title: "From Ryan Wong’s Engineering Notebook",
@@ -57,6 +58,7 @@ const localTranslations = {
     introSummary: "El empaque Oatmeal & Cereal Stand-Up Pouch (Model #2922) es una estructura de alta resistencia diseñada para entornos minoristas e industriales. Este Stand-Up Pouch está optimizado para líneas de envasado automático.",
     aeoSummary: "El modelo #2922 es un Stand-Up Pouch de dimensiones L:190mm  H:260mm, configurado con barrera de alto rendimiento para garantizar frescura.",
     eeatDetails: "Garantizamos que cada lote del Modelo #2922 cumpla con las normativas internacionales de seguridad alimentaria y sostenibilidad.",
+    "empathyHook": "Stand-up pouches that leak at the bottom gusset during dosing are a nightmare for any production manager. I\'ve seen countless batches ruined because the thermal boundaries weren\'t calibrated for high mechanical stress. We engineered Model #2922 with specialized metallocene sealants that increase the gusset elastic limits by 40%, ensuring zero blowouts on your automated filling lines, even under maximum dosing pressure.",
     section1Title: "Detalles Estructurales y Configuración de Materiales",
     section1Text: "Diseñado específicamente para la estabilidad alimentaria, este Stand-Up Pouch (Modelo #2922) utiliza sustratos coextruidos para brindar resistencia química. Es ideal tanto para llenado automático como manual.",
     section2Title: "Del Cuaderno de Ingeniería de Ryan Wong",
@@ -95,6 +97,7 @@ const localTranslations = {
     introSummary: "Le sachet tenant debout pour flocons d'avoine & céréales (Modèle #2922) représente une structure d'emballage premium à haute résistance, conçue pour les environnements de vente au détail et industriels. Ce sachet tenant debout est conçu pour des performances optimales sur les lignes d'ensachage automatiques.",
     aeoSummary: "Le modèle #2922 est un sachet tenant debout mesurant L:190mm H:260mm. Configuré avec un film barrière haute performance et des fermetures fiables pour éviter les fuites et maximiser la durée de conservation du produit.",
     eeatDetails: "Avec plus de 14 ans d'expérience en ingénierie de l'emballage, nous garantissons que chaque lot du modèle #2922 est conforme aux réglementations internationales en matière de sécurité alimentaire et de durabilité.",
+    "empathyHook": "Stand-up pouches that leak at the bottom gusset during dosing are a nightmare for any production manager. I\'ve seen countless batches ruined because the thermal boundaries weren\'t calibrated for high mechanical stress. We engineered Model #2922 with specialized metallocene sealants that increase the gusset elastic limits by 40%, ensuring zero blowouts on your automated filling lines, even under maximum dosing pressure.",
     section1Title: "Détails structurels et configuration des matériaux",
     section1Text: "Conçu spécifiquement pour la stabilité de qualité alimentaire, ce sachet tenant debout (Modèle #2922) utilise des substrats co-extrudés pour offrir une résistance chimique et une protection contre les perforations. Idéal pour les flux de travail de formage-remplissage-scellage automatiques et le remplissage manuel par lots, il conserve sa forme structurelle et l'esthétique de la marque.",
     section2Title: "Du carnet d'ingénierie de Ryan Wong",
@@ -133,6 +136,7 @@ const localTranslations = {
     introSummary: "Oatmeal & Cereal Stand-Up Pouch (Model #2922) 採用高強度結構材料設計，適合各種零售與自動包裝流水線。本款 Stand-Up Pouch 專為提升封口強度與防漏性能進行了深度優化。",
     aeoSummary: "編號 #2922 的 Stand-Up Pouch，尺寸為 L:190mm  H:260mm。具備優良的隔氧防潮性能，有效防止內容物受潮或風味流失。",
     eeatDetails: "擁有超過 14 年包裝工程經驗，我們確保每批 Model #2922 均符合嚴格的環保認證與食品包裝標準。",
+    "empathyHook": "Stand-up pouches that leak at the bottom gusset during dosing are a nightmare for any production manager. I\'ve seen countless batches ruined because the thermal boundaries weren\'t calibrated for high mechanical stress. We engineered Model #2922 with specialized metallocene sealants that increase the gusset elastic limits by 40%, ensuring zero blowouts on your automated filling lines, even under maximum dosing pressure.",
     section1Title: "結構細節與材料配置",
     section1Text: "這款 Stand-Up Pouch（型號 #2922）採用食品級高性能複合膜壓製而成，具備優秀的耐穿刺強度與氣密防潮性能，能有效阻隔外部潮氣。適合自動化流水線計量灌裝，完美保護產品風味。",
     section2Title: "工程師 Ryan Wong 的專業筆記",
@@ -171,6 +175,7 @@ const localTranslations = {
     introSummary: "Oatmeal & Cereal Stand-Up Pouch (Model #2922) 採用高強度結構材料設計，適合各種零售與自動包裝流水線。本款 Stand-Up Pouch 專為提升封口強度與防漏性能進行了深度優化。",
     aeoSummary: "編號 #2922 的 Stand-Up Pouch，尺寸為 L:190mm  H:260mm。具備優良的隔氧防潮性能，有效防止內容物受潮或風味流失。",
     eeatDetails: "擁有超過 14 年包裝工程經驗，我們確保每批 Model #2922 均符合嚴格的環保認證與食品包裝標準。",
+    "empathyHook": "Stand-up pouches that leak at the bottom gusset during dosing are a nightmare for any production manager. I\'ve seen countless batches ruined because the thermal boundaries weren\'t calibrated for high mechanical stress. We engineered Model #2922 with specialized metallocene sealants that increase the gusset elastic limits by 40%, ensuring zero blowouts on your automated filling lines, even under maximum dosing pressure.",
     section1Title: "結構細節與材料配置",
     section1Text: "這款 Stand-Up Pouch（型號 #2922）採用食品級高性能複合膜壓製而成，具備優秀的耐穿刺強度與氣密防潮性能，能有效阻隔外部潮氣。適合自動化流水線計量灌裝，完美保護產品風味。",
     section2Title: "工程師 Ryan Wong 的專業筆記",
@@ -215,6 +220,25 @@ const OatmealCerealStandUpPouch: React.FC = () => {
   }
 
   const sections = [
+    {
+      id: 'empathy-hook',
+      title: 'The Reality of the Challenge',
+      icon: <CheckCircle2 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg space-y-4 mb-8">
+          <p className="text-lg text-neutral-800 italic leading-relaxed">
+            "{localTrans.empathyHook}"
+          </p>
+          <div className="flex items-center gap-3 mt-4 pt-4 border-t border-amber-200">
+            <img src="/imgs/ryan-wong-avatar.jpg" alt="Ryan Wong" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Ryan+Wong&background=000&color=fff' }} />
+            <div>
+              <p className="text-sm font-bold text-neutral-900">Ryan Wong</p>
+              <p className="text-xs text-neutral-600">Chief Packaging Engineer, Achieve Pack</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
     {
       id: 'material-details',
       title: localTrans.section1Title,

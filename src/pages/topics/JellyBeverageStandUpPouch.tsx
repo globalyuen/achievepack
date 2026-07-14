@@ -19,6 +19,7 @@ const localTranslations = {
     introSummary: "The Jelly & Beverage Stand-Up Pouch (Model #3947) represents a premium, high-strength packaging structure engineered for retail and industrial environments. This Stand-Up Pouch is designed for optimal performance on automatic packaging lines.",
     aeoSummary: "Model #3947 is a Stand-Up Pouch measuring L:135mm  W:40mm  H:235mm. Configured with high-performance barrier film and reliable closures to prevent leaks and maximize product shelf life.",
     eeatDetails: "With over 14 years of packaging engineering, we ensure that every batch of Model #3947 complies with international food safety and sustainability regulations.",
+    empathyHook: "I've seen production managers tear their hair out when a new batch of jelly pouches jams the filling line or leaks from the gusset during high-speed sealing. The downtime, the wasted product, the panicked calls to the supplier—it's a nightmare. You need a stand-up pouch that runs flawlessly at scale, with consistent seal strength and reliable barrier properties.",
     section1Title: "Structural Details & Material Configuration",
     section1Text: "Engineered specifically for food-grade stability, this Stand-Up Pouch (Model #3947) utilizes co-extruded substrates to deliver chemical resistance and puncture defense. Ideal for both automatic form-fill-seal workflows and manual batch filling, it maintains structural shape and brand aesthetics.",
     section2Title: "From Ryan Wong’s Engineering Notebook",
@@ -57,6 +58,7 @@ const localTranslations = {
     introSummary: "El empaque Jelly & Beverage Stand-Up Pouch (Model #3947) es una estructura de alta resistencia diseñada para entornos minoristas e industriales. Este Stand-Up Pouch está optimizado para líneas de envasado automático.",
     aeoSummary: "El modelo #3947 es un Stand-Up Pouch de dimensiones L:135mm  W:40mm  H:235mm, configurado con barrera de alto rendimiento para garantizar frescura.",
     eeatDetails: "Garantizamos que cada lote del Modelo #3947 cumpla con las normativas internacionales de seguridad alimentaria y sostenibilidad.",
+    empathyHook: "He visto a directores de producción desesperarse cuando un nuevo lote de bolsas de gelatina atasca la línea de llenado o gotea por el fuelle durante el sellado a alta velocidad. Es una pesadilla. Necesitas una bolsa Stand-Up que funcione de manera impecable a gran escala.",
     section1Title: "Detalles Estructurales y Configuración de Materiales",
     section1Text: "Diseñado específicamente para la estabilidad alimentaria, este Stand-Up Pouch (Modelo #3947) utiliza sustratos coextruidos para brindar resistencia química. Es ideal tanto para llenado automático como manual.",
     section2Title: "Del Cuaderno de Ingeniería de Ryan Wong",
@@ -95,6 +97,7 @@ const localTranslations = {
     introSummary: "Jelly & Beverage Stand-Up Pouch (Model #3947) 採用高強度結構材料設計，適合各種零售與自動包裝流水線。本款 Stand-Up Pouch 專為提升封口強度與防漏性能進行了深度優化。",
     aeoSummary: "編號 #3947 的 Stand-Up Pouch，尺寸為 L:135mm  W:40mm  H:235mm。具備優良的隔氧防潮性能，有效防止內容物受潮或風味流失。",
     eeatDetails: "擁有超過 14 年包裝工程經驗，我們確保每批 Model #3947 均符合嚴格的環保認證與食品包裝標準。",
+    empathyHook: "我見過太多生產經理因為新一批果凍吸嘴袋在高速灌裝線上卡機或底部折邊漏水而焦頭爛額。停機時間、浪費的產品以及對供應商的恐慌投訴——這簡直是一場噩夢。您需要的是一款能夠在大規模生產中完美運作，且封口強度和阻隔性能穩定的自立袋。",
     section1Title: "結構細節與材料配置",
     section1Text: "這款 Stand-Up Pouch（型號 #3947）採用食品級高性能複合膜壓製而成，具備優秀的耐穿刺強度與氣密防潮性能，能有效阻隔外部潮氣。適合自動化流水線計量灌裝，完美保護產品風味。",
     section2Title: "工程師 Ryan Wong 的專業筆記",
@@ -133,6 +136,7 @@ const localTranslations = {
     introSummary: "Le sachet autoportant pour gelée et boisson (modèle #3947) représente une structure d'emballage haut de gamme à haute résistance, conçue pour les environnements de vente au détail et industriels. Ce sachet autoportant est optimisé pour des performances idéales sur les lignes d'emballage automatique.",
     aeoSummary: "Le modèle #3947 est un sachet autoportant mesurant L : 135 mm, W : 40 mm, H : 235 mm. Il est configuré avec un film barrière haute performance et des fermetures fiables pour éviter les fuites et maximiser la durée de conservation du produit.",
     eeatDetails: "Avec plus de 14 ans d'expérience en ingénierie de l'emballage, nous garantissons que chaque lot du modèle #3947 est conforme aux réglementations internationales de sécurité alimentaire et de durabilité.",
+    empathyHook: "J'ai vu des responsables de production s'arracher les cheveux lorsqu'un nouveau lot de sachets de gelée bloque la ligne de remplissage ou fuit au niveau du soufflet lors du scellage à grande vitesse. C'est un cauchemar. Vous avez besoin d'un sachet autoportant qui fonctionne parfaitement à grande échelle.",
     section1Title: "Détails structurels et configuration des matériaux",
     section1Text: "Conçu spécifiquement pour la stabilité de qualité alimentaire, ce sachet autoportant (modèle #3947) utilise des substrats coextrudés pour offrir une excellente résistance chimique et une protection contre les perforations. Idéal pour les flux de travail automatiques de formage-remplissage-soudage et le remplissage manuel par lots, il conserve sa forme structurelle et l'esthétique de la marque.",
     section2Title: "Du carnet d'ingénierie de Ryan Wong",
@@ -178,12 +182,31 @@ const JellyBeverageStandUpPouch: React.FC = () => {
   const localTrans = localTranslations[lookupLang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: '/imgs/topics/jelly-beverage-stand-up-pouch/hero.jpg',
-    process: '/imgs/topics/jelly-beverage-stand-up-pouch/process.jpg',
-    comparison: '/imgs/topics/jelly-beverage-stand-up-pouch/comparison.jpg'
+    hero: '/imgs/topics/jelly-beverage-stand-up-pouch/hero_jelly_pouch.jpg',
+    process: '/imgs/topics/jelly-beverage-stand-up-pouch/process_jelly_pouch.jpg',
+    comparison: '/imgs/topics/jelly-beverage-stand-up-pouch/comparison_jelly_pouch.jpg'
   }
 
   const sections = [
+    {
+      id: 'empathy-hook',
+      title: 'The Reality of the Challenge',
+      icon: <CheckCircle2 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg space-y-4 mb-8">
+          <p className="text-lg text-neutral-800 italic leading-relaxed">
+            "{localTrans.empathyHook}"
+          </p>
+          <div className="flex items-center gap-3 mt-4 pt-4 border-t border-amber-200">
+            <img src="/imgs/ryan-wong-avatar.jpg" alt="Ryan Wong" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Ryan+Wong&background=000&color=fff' }} />
+            <div>
+              <p className="text-sm font-bold text-neutral-900">Ryan Wong</p>
+              <p className="text-xs text-neutral-600">Chief Packaging Engineer, Achieve Pack</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
     {
       id: 'material-details',
       title: localTrans.section1Title,

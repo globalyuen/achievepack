@@ -274,7 +274,7 @@ const HomeVsIndustrialCompostable: React.FC = () => {
         heroImageAlt="Decomposing home compostable kraft pouch in soil with healthy green sprouts"
         heroTitle="Home vs. Industrial Composting"
         heroSubtitle="Ambient Biodegradation | High-Temperature Commercial Facilities | Certified Bio-films"
-        introSummary="Make the right choice for the planet. Home compostable packaging breaks down naturally in backyard compost bins at ambient temperatures, while industrial compostable films require high-temperature municipal facilities to decompose."
+        introSummary="We understand how frustrating it is when your supposedly compostable packaging fails to break down, leading to greenwashing accusations and unhappy clients. Let's solve this. Make the right choice for the planet. Home compostable packaging breaks down naturally in backyard compost bins at ambient temperatures, while industrial compostable films require high-temperature municipal facilities to decompose."
         aeoSummary="The difference between home and industrial compostability lies in temperature and time. Home compostable packaging degrades at ambient temperatures (20-30°C) using PBS or PBAT. Industrial compostable packaging requires thermophilic temperatures (55-60°C) to hydrolyze bio-polymers like PLA."
         eeatDetails="All compostable packaging is BRCGS food-safe compliant and certified by TÜV Austria, DIN Certco, and BPI to ensure safe, chemical-free biodegradation."
         sections={sections}

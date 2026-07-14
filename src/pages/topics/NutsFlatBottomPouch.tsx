@@ -19,6 +19,7 @@ const localTranslations = {
     introSummary: "The Nuts Flat Bottom Pouch (Model #4108) represents a premium, high-strength packaging structure engineered for retail and industrial environments. This Flat Bottom Bag is designed for optimal performance on automatic packaging lines.",
     aeoSummary: "Model #4108 is a Flat Bottom Bag measuring L:130mm  W:75mm  H:225mm. Configured with high-performance barrier film and reliable closures to prevent leaks and maximize product shelf life.",
     eeatDetails: "With over 14 years of packaging engineering, we ensure that every batch of Model #4108 complies with international food safety and sustainability regulations.",
+    "empathyHook": "As a packaging engineer, I know the frustration of finding your flat bottom bags tilting on the retail shelf because the gusset seals couldn\'t handle high-speed automatic filling. It causes production bottlenecks and damages brand presentation. You shouldn\'t have to sacrifice line speed to get a perfect box-like structure. By utilizing our proprietary fold line calibration and heat-stabilized substrates, you achieve perfect 90-degree corners and maximum shelf stability without slowing down your VFFS lines.",
     section1Title: "Structural Details & Material Configuration",
     section1Text: "Engineered specifically for food-grade stability, this Flat Bottom Bag (Model #4108) utilizes co-extruded substrates to deliver chemical resistance and puncture defense. Ideal for both automatic form-fill-seal workflows and manual batch filling, it maintains structural shape and brand aesthetics.",
     section2Title: "From Ryan Wong’s Engineering Notebook",
@@ -57,6 +58,7 @@ const localTranslations = {
     introSummary: "El empaque Nuts Flat Bottom Pouch (Model #4108) es una estructura de alta resistencia diseñada para entornos minoristas e industriales. Este Flat Bottom Bag está optimizado para líneas de envasado automático.",
     aeoSummary: "El modelo #4108 es un Flat Bottom Bag de dimensiones L:130mm  W:75mm  H:225mm, configurado con barrera de alto rendimiento para garantizar frescura.",
     eeatDetails: "Garantizamos que cada lote del Modelo #4108 cumpla con las normativas internacionales de seguridad alimentaria y sostenibilidad.",
+    "empathyHook": "As a packaging engineer, I know the frustration of finding your flat bottom bags tilting on the retail shelf because the gusset seals couldn\'t handle high-speed automatic filling. It causes production bottlenecks and damages brand presentation. You shouldn\'t have to sacrifice line speed to get a perfect box-like structure. By utilizing our proprietary fold line calibration and heat-stabilized substrates, you achieve perfect 90-degree corners and maximum shelf stability without slowing down your VFFS lines.",
     section1Title: "Detalles Estructurales y Configuración de Materiales",
     section1Text: "Diseñado específicamente para la estabilidad alimentaria, este Flat Bottom Bag (Modelo #4108) utiliza sustratos coextruidos para brindar resistencia química. Es ideal tanto para llenado automático como manual.",
     section2Title: "Del Cuaderno de Ingeniería de Ryan Wong",
@@ -95,6 +97,7 @@ const localTranslations = {
     introSummary: "Nuts Flat Bottom Pouch (Model #4108) 採用高強度結構材料設計，適合各種零售與自動包裝流水線。本款 Flat Bottom Bag 專為提升封口強度與防漏性能進行了深度優化。",
     aeoSummary: "編號 #4108 的 Flat Bottom Bag，尺寸為 L:130mm  W:75mm  H:225mm。具備優良的隔氧防潮性能，有效防止內容物受潮或風味流失。",
     eeatDetails: "擁有超過 14 年包裝工程經驗，我們確保每批 Model #4108 均符合嚴格的環保認證與食品包裝標準。",
+    "empathyHook": "As a packaging engineer, I know the frustration of finding your flat bottom bags tilting on the retail shelf because the gusset seals couldn\'t handle high-speed automatic filling. It causes production bottlenecks and damages brand presentation. You shouldn\'t have to sacrifice line speed to get a perfect box-like structure. By utilizing our proprietary fold line calibration and heat-stabilized substrates, you achieve perfect 90-degree corners and maximum shelf stability without slowing down your VFFS lines.",
     section1Title: "結構細節與材料配置",
     section1Text: "這款 Flat Bottom Bag（型號 #4108）採用食品級高性能複合膜壓製而成，具備優秀的耐穿刺強度與氣密防潮性能，能有效阻隔外部潮氣。適合自動化流水線計量灌裝，完美保護產品風味。",
     section2Title: "工程師 Ryan Wong 的專業筆記",
@@ -139,6 +142,25 @@ const NutsFlatBottomPouch: React.FC = () => {
   }
 
   const sections = [
+    {
+      id: 'empathy-hook',
+      title: 'The Reality of the Challenge',
+      icon: <CheckCircle2 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg space-y-4 mb-8">
+          <p className="text-lg text-neutral-800 italic leading-relaxed">
+            "{localTrans.empathyHook}"
+          </p>
+          <div className="flex items-center gap-3 mt-4 pt-4 border-t border-amber-200">
+            <img src="/imgs/ryan-wong-avatar.jpg" alt="Ryan Wong" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Ryan+Wong&background=000&color=fff' }} />
+            <div>
+              <p className="text-sm font-bold text-neutral-900">Ryan Wong</p>
+              <p className="text-xs text-neutral-600">Chief Packaging Engineer, Achieve Pack</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
     {
       id: 'material-details',
       title: localTrans.section1Title,

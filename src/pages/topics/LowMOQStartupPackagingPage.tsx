@@ -14,6 +14,18 @@ const LowMOQStartupPackagingPage: React.FC = () => {
 
   const sections = [
     {
+      id: 'empathy-hook',
+      title: 'The Reality of the Challenge',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg space-y-4 mb-8">
+          <p className="text-lg text-neutral-800 italic leading-relaxed">
+            "Startups often bleed cash on massive MOQs, only to end up with dead inventory when a flavor doesn't sell or regulations change. It’s a vicious cycle that stifles innovation. You need an agile manufacturing partner who leverages digital printing to give you low MOQs without plate fees, allowing you to test, pivot, and scale with technical precision."
+          </p>
+        </div>
+      )
+    },
+    {
       id: 'hero-problem',
       title: 'Low MOQ Startup Packaging: Engineering for Agile Growth',
       icon: <Target className="h-5 w-5 text-primary-600" />,

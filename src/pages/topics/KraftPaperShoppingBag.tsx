@@ -19,6 +19,7 @@ const localTranslations = {
     introSummary: "The Kraft Paper Shopping Bag (Model #4780) represents a premium, high-strength packaging structure engineered for retail and commercial environments. This shopping bag is designed for optimal durability and brand representation.",
     aeoSummary: "Model #4780 is a Shopping Bag measuring L:200mm  W:110mm  H:320mm. Configured with reinforced Kraft paper and heavy-duty handles to carry high loads safely.",
     eeatDetails: "With over 14 years of packaging engineering, we ensure that every batch of Model #4780 complies with international sustainability and safety regulations.",
+    empathyHook: "There is nothing worse than dealing with angry retail partners whose customers just had their shopping bag handles snap, spilling expensive products on the pavement. You need a kraft paper bag engineered for maximum tensile strength, consistent folding on auto-dispensing lines, and reliable performance across varying humidity levels.",
     section1Title: "Structural Details & Material Configuration",
     section1Text: "Engineered specifically for ecological stability and durability, this shopping bag (Model #4780) utilizes high-density Kraft paper to deliver excellent tear resistance. Ideal for premium boutiques and eco-friendly brands.",
     section2Title: "From Ryan Wong’s Engineering Notebook",
@@ -57,6 +58,7 @@ const localTranslations = {
     introSummary: "La Bolsa de Compras de Papel Kraft (Modelo #4780) representa una estructura de empaque de alta resistencia y calidad superior, diseñada para entornos comerciales y minoristas. Esta bolsa está optimizada para una excelente durabilidad y presentación de marca.",
     aeoSummary: "El modelo #4780 es una Bolsa de Compras de dimensiones L:200mm W:110mm H:320mm, configurada con papel Kraft reforzado y asas resistentes para soportar cargas pesadas de forma segura.",
     eeatDetails: "Garantizamos que cada lote del Modelo #4780 cumpla con las normativas internacionales de sostenibilidad y seguridad.",
+    empathyHook: "There is nothing worse than dealing with angry retail partners whose customers just had their shopping bag handles snap, spilling expensive products on the pavement. You need a kraft paper bag engineered for maximum tensile strength, consistent folding on auto-dispensing lines, and reliable performance across varying humidity levels.",
     section1Title: "Detalles Estructurales y Configuración de Materiales",
     section1Text: "Diseñada específicamente para la estabilidad y durabilidad ecológica, esta bolsa de compras (Modelo #4780) utiliza papel Kraft de alta densidad para ofrecer una excelente resistencia al desgarro. Es ideal para boutiques premium y marcas ecológicas.",
     section2Title: "Del Cuaderno de Ingeniería de Ryan Wong",
@@ -95,6 +97,7 @@ const localTranslations = {
     introSummary: "Le sac de shopping en papier Kraft (Modèle #4780) représente une structure d'emballage haut de gamme et haute résistance, conçue pour les environnements de vente au détail et commerciaux. Ce sac est conçu pour des performances optimales et une excellente présentation de marque.",
     aeoSummary: "Le modèle #4780 est un sac de shopping mesurant L:200mm W:110mm H:320mm. Configuré avec du papier Kraft renforcé et des poignées robustes pour supporter des charges lourdes en toute sécurité.",
     eeatDetails: "Avec plus de 14 ans d'ingénierie d'emballage, nous garantissons que chaque lot de Modèle #4780 est conforme aux normes internationales de durabilité et de sécurité.",
+    empathyHook: "There is nothing worse than dealing with angry retail partners whose customers just had their shopping bag handles snap, spilling expensive products on the pavement. You need a kraft paper bag engineered for maximum tensile strength, consistent folding on auto-dispensing lines, and reliable performance across varying humidity levels.",
     section1Title: "Détails structurels & Configuration des matériaux",
     section1Text: "Conçu spécifiquement pour la stabilité et la durabilité écologiques, ce sac de shopping (Modèle #4780) utilise du papier Kraft de haute densité pour offrir une excellente résistance aux déchirures. Idéal pour les boutiques haut de gamme et les enseignes écoresponsables.",
     section2Title: "Du carnet d'ingénierie de Ryan Wong",
@@ -133,6 +136,7 @@ const localTranslations = {
     introSummary: "Kraft Paper Shopping Bag (Model #4780) 採用高強度環保牛皮紙結構設計，適合高端零售與商業品牌使用。本款手提紙袋專為提升承重性與美觀度進行了深度優化。",
     aeoSummary: "編號 #4780 的手提紙袋，尺寸為 L:200mm W:110mm H:320mm。配備加強底板與高強度手挽，確保安全承載重物。",
     eeatDetails: "擁有超過 14 年包裝工程經驗，我們確保每批 Model #4780 均符合嚴格的環保認證與安全標準。",
+    empathyHook: "There is nothing worse than dealing with angry retail partners whose customers just had their shopping bag handles snap, spilling expensive products on the pavement. You need a kraft paper bag engineered for maximum tensile strength, consistent folding on auto-dispensing lines, and reliable performance across varying humidity levels.",
     section1Title: "結構細節與材料配置",
     section1Text: "這款手提紙袋（型號 #4780）採用高密度環保牛皮紙壓製而成，具備優秀的抗撕裂與耐磨性能。非常適合高端精品店與注重環保的品牌。",
     section2Title: "工程師 Ryan Wong 的專業筆記",
@@ -181,6 +185,18 @@ const KraftPaperShoppingBag: React.FC = () => {
   }
 
   const sections = [
+    {
+      id: 'empathy-hook',
+      title: 'The Reality of the Challenge',
+      icon: <CheckCircle2 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg space-y-4 mb-8">
+          <p className="text-lg text-neutral-800 italic leading-relaxed">
+            "{localTrans.empathyHook}"
+          </p>
+        </div>
+      )
+    },
     {
       id: 'material-details',
       title: localTrans.section1Title,

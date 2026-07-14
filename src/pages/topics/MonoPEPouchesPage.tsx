@@ -220,7 +220,7 @@ const MonoPEPouchesPage: React.FC = () => {
         keywords={['mono-PE pouches', 'recyclable pouches', 'circular economy packaging']}
         heroTitle="Recyclable. Without Compromise."
         heroSubtitle="High-Barrier MDO-PE | 100% Circular | Lab-Verified"
-        introSummary="The days of landfill-bound multi-layer packaging are numbered. We provide the technical bridge to 100% recyclability through Mono-PE engineering, delivering the stiffness, barrier protection, and shelf-impact your brand demands in a circular-ready format."
+        introSummary="Your competitors are making bold sustainability claims, while you are losing sleep over upcoming plastic taxes and Extended Producer Responsibility (EPR) fees because your current multi-layer pouches are technically unrecyclable. The days of landfill-bound multi-layer packaging are numbered. We provide the technical bridge to 100% recyclability through Mono-PE engineering, delivering the stiffness, barrier protection, and shelf-impact your brand demands in a circular-ready format."
         sections={sections}
         faqs={faqs}
         schemaType="Product"

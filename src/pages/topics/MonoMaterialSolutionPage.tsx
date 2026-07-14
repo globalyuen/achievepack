@@ -237,7 +237,7 @@ const MonoMaterialSolutionPage: React.FC = () => {
         keywords={['mono-material solutions', 'mono-PE engineering', 'recyclable packaging tech']}
         heroTitle={t(`seoPages.pages.monoMaterialSolution.heroTitle2`)}
         heroSubtitle="MDO-PE | Mono-PP | Cyclos-HTP Certified | CEFLEX Ready"
-        introSummary="The key to circularity is simplicity. By engineering complex packaging performance—including high barrier and heat resistance—into a single polymer family, we eliminate the need for non-recyclable laminates. This guide explores the material science of Mono-PE and Mono-PP, the technologies behind them, and how they secure your brand's future in a regulated market."
+        introSummary="You want to claim your packaging is 100% recyclable, but you know the dirty secret: most high-barrier pouches end up in landfills because their multi-material layers cannot be separated. You are stuck choosing between protecting your product's shelf life and protecting your brand's sustainable reputation. The key to circularity is simplicity. By engineering complex packaging performance—including high barrier and heat resistance—into a single polymer family, we eliminate the need for non-recyclable laminates. This guide explores the material science of Mono-PE and Mono-PP, the technologies behind them, and how they secure your brand's future in a regulated market."
         sections={sections}
         faqs={faqs}
         schemaType="Article"

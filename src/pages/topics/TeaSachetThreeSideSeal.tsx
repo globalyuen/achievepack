@@ -1,481 +1,68 @@
-import React from 'react'
-import { Helmet } from 'react-helmet-async'
-import { 
-  Target, Sparkles, Shield, Eye, Calendar, 
-  Package, CheckCircle2, Layers, Info, Check, HelpCircle
-} from 'lucide-react'
-import SEOPageLayout from '../../components/SEOPageLayout'
-import ClickableImage from '../../components/ClickableImage'
-import { useCalendly } from '../../contexts/CalendlyContext'
-import { getDomain } from '../../utils/domain'
-import { useTranslation } from 'react-i18next'
-
-const localTranslations = {
-  en: {
-    title: "Tea Sachet Three-Side Seal (Model #2854) | Achieve Pack",
-    description: "Discover Tea Sachet Three-Side Seal (Model #2854). High-barrier Three-Side Seal with custom sizes (L33mm  H:145mm), certifications, and 3D preview.",
-    heroTitle: "Tea Sachet Three-Side Seal (Model #2854)",
-    heroSubtitle: "Custom Dimensions L33mm  H:145mm | High Barrier | BPI & TUV Certified",
-    introSummary: "The Tea Sachet Three-Side Seal (Model #2854) represents a premium, high-strength packaging structure engineered for retail and industrial environments. This Three-Side Seal is designed for optimal performance on automatic packaging lines.",
-    aeoSummary: "Model #2854 is a Three-Side Seal measuring L33mm  H:145mm. Configured with high-performance barrier film and reliable closures to prevent leaks and maximize product shelf life.",
-    eeatDetails: "With over 14 years of packaging engineering, we ensure that every batch of Model #2854 complies with international food safety and sustainability regulations.",
-    section1Title: "Structural Details & Material Configuration",
-    section1Text: "Engineered specifically for food-grade stability, this Three-Side Seal (Model #2854) utilizes co-extruded substrates to deliver chemical resistance and puncture defense. Ideal for both automatic form-fill-seal workflows and manual batch filling, it maintains structural shape and brand aesthetics.",
-    section2Title: "From Ryan Wong’s Engineering Notebook",
-    section2Log: "Three-side seal sachet Model #2854 requires optimal jaw alignment to prevent edge channel leaks. We use 10mm wide heat seal lines and double-cooling bars to ensure perfect flat seam results.",
-    point1Title: "Pain Point: Thermal Wrinkling",
-    point1Desc: "High temperature seal jaws cause film shrinkage and puckering near edges.",
-    point1Sol: "Utilizing biaxially oriented layers to resist heat jaw contraction.",
-    point2Title: "Pain Point: Inconsistent Tear Notch",
-    point2Desc: "Tear notch tears sideways, ruining product access.",
-    point2Sol: "Adding laser-guided score marks to guide linear tear behavior.",
-    point3Title: "Pain Point: Seam Powder Contamination",
-    point3Desc: "Powder clinging to seal track preventing proper plastic weld.",
-    point3Sol: "Inner ionomer layers that fuse cleanly through powder residues.",
-    point4Title: "Pain Point: Transit Bursting",
-    point4Desc: "Sachets splitting open when stacked under heavy master cartons.",
-    point4Sol: "Reinforced polyurethane laminating adhesives with high green bond strength.",
-    point5Title: "Pain Point: Moisture Absorption",
-    point5Desc: "Hygroscopic ingredients caking inside the flat bag.",
-    point5Sol: "Metalized PET or foil barriers providing OTR < 0.1g/m²/24h.",
-    compTitle: "Dieline Layout & Calibration Specifications",
-    compDesc: "Every model run is calibrated using strict prepress dielines. Our teams adjust fold tolerances and thermal boundaries based on substrate thickness.",
-    faq1Q: "What is the MOQ for custom custom-sized runs of Model #2854?",
-    faq1A: "For custom sizes or custom prints, our standard minimum order quantity starts from 5,000 pieces. Digital printing runs are available from 1,000 pieces for startups.",
-    faq2Q: "Can I request unprinted material samples of this specific model?",
-    faq2A: "Yes. We offer free unprinted material sample packages so you can verify size, gusset width, and material thickness on your filling lines before ordering.",
-    faq3Q: "Does this pouch structure support automated filling lines?",
-    faq3A: "Yes, this design is fully optimized for standard vertical and horizontal form-fill-seal (VFFS/HFFS) packaging machinery.",
-    faq4Q: "What certifications are available for these materials?",
-    faq4A: "Depending on your selection, we offer fully certified FDA food-safe, BPI compostable (ASTM D6400), and recyclable mono-polymer materials."
-  },
-  es: {
-    title: "Empaque Tea Sachet Three-Side Seal (Model #2854) | Achieve Pack",
-    description: "Descubra Tea Sachet Three-Side Seal (Model #2854). Three-Side Seal de alta barrera con tamaños personalizados (L33mm  H:145mm), certificaciones y vista 3D.",
-    heroTitle: "Empaque Tea Sachet Three-Side Seal (Model #2854)",
-    heroSubtitle: "Dimensiones L33mm  H:145mm | Alta Barrera | Certificaciones BPI y TUV",
-    introSummary: "El empaque Tea Sachet Three-Side Seal (Model #2854) es una estructura de alta resistencia diseñada para entornos minoristas e industriales. Este Three-Side Seal está optimizado para líneas de envasado automático.",
-    aeoSummary: "El modelo #2854 es un Three-Side Seal de dimensiones L33mm  H:145mm, configurado con barrera de alto rendimiento para garantizar frescura.",
-    eeatDetails: "Garantizamos que cada lote del Modelo #2854 cumpla con las normativas internacionales de seguridad alimentaria y sostenibilidad.",
-    section1Title: "Detalles Estructurales y Configuración de Materiales",
-    section1Text: "Diseñado específicamente para la estabilidad alimentaria, este Three-Side Seal (Modelo #2854) utiliza sustratos coextruidos para brindar resistencia química. Es ideal tanto para llenado automático como manual.",
-    section2Title: "Del Cuaderno de Ingeniería de Ryan Wong",
-    section2Log: "El sobre de tres sellos Modelo #2854 requiere una alineación perfecta de las mordazas. Utilizamos líneas de sellado de 10mm y barras de enfriamiento para costuras planas sin arrugas.",
-    point1Title: "Problema: Arrugas Térmicas",
-    point1Desc: "Altas temperaturas encogen la película en los bordes.",
-    point1Sol: "Capas orientadas biaxialmente que resisten la mordaza.",
-    point2Title: "Problema: Apertura Irregular",
-    point2Desc: "Muesca de rasgado se desvía al abrir.",
-    point2Sol: "Marcado láser guía para apertura lineal.",
-    point3Title: "Problema: Contaminación de Sellado",
-    point3Desc: "Polvo adherido impide soldar el plástico.",
-    point3Sol: "Capas de ionómero que sellan a través del residuo.",
-    point4Title: "Problema: Rotura por Apilado",
-    point4Desc: "Sobres se rompen bajo peso de cajas.",
-    point4Sol: "Adhesivos de poliuretano de alta resistencia de unión.",
-    point5Title: "Problema: Ingreso de Humedad",
-    point5Desc: "Ingredientes higroscópicos se apelmazan.",
-    point5Sol: "Barrera de PET metalizado con WVTR bajo.",
-    compTitle: "Especificaciones de Dieline y Calibración",
-    compDesc: "Cada ejecución de modelo se calibra utilizando planos dieline estrictos. Ajustamos tolerancias según el grosor del sustrato.",
-    faq1Q: "¿Cuál es el MOQ para el Modelo #2854 personalizado?",
-    faq1A: "Para tamaños o impresiones personalizadas, nuestro MOQ estándar comienza en 5,000 piezas. Impresión digital disponible desde 1,000 piezas.",
-    faq2Q: "¿Puedo solicitar muestras de este modelo específico?",
-    faq2A: "Sí. Ofrecemos paquetes de muestras físicas gratuitas sin impresión para que valide las dimensiones en sus líneas de llenado.",
-    faq3Q: "¿Esta estructura admite líneas de llenado automático?",
-    faq3A: "Sí, este diseño está totalmente optimizado para maquinaria de envasado estándar VFFS y HFFS.",
-    faq4Q: "¿Qué certificaciones están disponibles para estos materiales?",
-    faq4A: "Ofrecemos materiales aprobados por la FDA para alimentos, compostables certificados por BPI y monomateriales reciclables."
-  },
-  fr: {
-    title: "Sachet de Thé Trois Côtés Scellés (Modèle #2854) | Achieve Pack",
-    description: "Découvrez le sachet de thé trois côtés scellés (Modèle #2854). Haute barrière avec tailles personnalisées (L33mm H:145mm), certifications et aperçu 3D.",
-    heroTitle: "Sachet de Thé Trois Côtés Scellés (Modèle #2854)",
-    heroSubtitle: "Dimensions personnalisées L33mm H:145mm | Haute barrière | Certifié BPI & TUV",
-    introSummary: "Le sachet de thé trois côtés scellés (Modèle #2854) représente une structure d'emballage premium à haute résistance, conçue pour les environnements de vente au détail et industriels. Cet emballage à trois côtés scellés est conçu pour des performances optimales sur les lignes d'ensachage automatiques.",
-    aeoSummary: "Le modèle #2854 est un sachet à trois côtés scellés mesurant L33mm H:145mm. Configuré avec un film barrière haute performance et des fermetures fiables pour éviter les fuites et maximiser la durée de conservation du produit.",
-    eeatDetails: "Avec plus de 14 ans d'expérience en ingénierie de l'emballage, nous garantissons que chaque lot du modèle #2854 est conforme aux réglementations internationales en matière de sécurité alimentaire et de durabilité.",
-    section1Title: "Détails structurels et configuration des matériaux",
-    section1Text: "Conçu spécifiquement pour la stabilité de qualité alimentaire, ce sachet à trois côtés scellés (Modèle #2854) utilise des substrats co-extrudés pour offrir une résistance chimique et une protection contre les perforations. Idéal pour les flux de travail de formage-remplissage-scellage automatiques et le remplissage manuel par lots, il conserve sa forme structurelle et l'esthétique de la marque.",
-    section2Title: "Du carnet d'ingénierie de Ryan Wong",
-    section2Log: "Le sachet à trois côtés scellés Modèle #2854 nécessite un alignement optimal des mâchoires pour éviter les fuites par les canaux latéraux. Nous utilisons des lignes de thermoscellage de 10 mm de large et des barres de double refroidissement pour garantir des soudures parfaitement plates.",
-    point1Title: "Point sensible : Plissement thermique",
-    point1Desc: "Les mâchoires de scellage à haute température provoquent le rétrécissement du film et des ondulations près des bords.",
-    point1Sol: "Utilisation de couches orientées biaxialement pour résister à la contraction des mâchoires thermiques.",
-    point2Title: "Point sensible : Encoche de déchirure irrégulière",
-    point2Desc: "L'encoche de déchirure se déchire de biais, ruinant l'accès au produit.",
-    point2Sol: "Ajout de repères de découpe guidés par laser pour orienter un comportement de déchirure linéaire.",
-    point3Title: "Point sensible : Contamination par la poudre de soudure",
-    point3Desc: "Poudre collée sur la piste de scellage empêchant une soudure plastique adéquate.",
-    point3Sol: "Couches d'ionomères internes qui fusionnent proprement à travers les résidus de poudre.",
-    point4Title: "Point sensible : Éclatement en transit",
-    point4Desc: "Sachets qui s'ouvrent lorsqu'ils sont empilés sous de lourds cartons d'expédition.",
-    point4Sol: "Adhésifs de lamination en polyuréthane renforcés avec une force de liaison initiale élevée.",
-    point5Title: "Point sensible : Absorption de l'humidité",
-    point5Desc: "Ingrédients hygroscopiques s'agglomérant à l'intérieur du sachet plat.",
-    point5Sol: "Barrières en PET métallisé ou en aluminium offrant un taux de transmission de l'oxygène (OTR) < 0,1g/m²/24h.",
-    compTitle: "Disposition du tracé de découpe & spécifications de calibrage",
-    compDesc: "Chaque tirage de modèle est calibré à l'aide de tracés de découpe prépresse stricts. Nos équipes ajustent les tolérances de pliage et les limites thermiques en fonction de l'épaisseur du substrat.",
-    faq1Q: "Quel est le MOQ pour les tirages sur mesure du modèle #2854 ?",
-    faq1A: "Pour les tailles ou impressions personnalisées, notre quantité minimale de commande standard commence à partir de 5 000 pièces. Les tirages en impression numérique sont disponibles à partir de 1 000 pièces pour les startups.",
-    faq2Q: "Puis-je demander des échantillons de matériaux non imprimés de ce modèle spécifique ?",
-    faq2A: "Oui. Nous offrons des kits d'échantillons de matériaux physiques gratuits non imprimés afin que vous puissiez vérifier la taille, la largeur du soufflet et l'épaisseur du matériau sur vos lignes de remplissage avant de commander.",
-    faq3Q: "Cette structure de sachet prend-elle en charge les lignes de remplissage automatisées ?",
-    faq3A: "Oui, cette conception est entièrement optimisée pour les machines d'emballage standard de formage-remplissage-scellage vertical et horizontal (VFFS/HFFS).",
-    faq4Q: "Quelles certifications sont disponibles pour ces matériaux ?",
-    faq4A: "Selon votre sélection, nous proposons des matériaux entièrement certifiés de qualité alimentaire par la FDA, compostables BPI (ASTM D6400) et des mono-polymères recyclables."
-  },
-  "zh-tw": {
-    title: "Tea Sachet Three-Side Seal (Model #2854) 3D包裝袋 | Achieve Pack",
-    description: "了解 Tea Sachet Three-Side Seal (Model #2854)。高阻隔 Three-Side Seal，支持定製尺寸 (L33mm  H:145mm)，提供 BPI/TUV 認證與 3D 交互式預覽。",
-    heroTitle: "Tea Sachet Three-Side Seal (Model #2854) 3D包裝袋",
-    heroSubtitle: "定製尺寸 L33mm  H:145mm | 雙向高阻隔 | BPI & TUV 綠色認證",
-    introSummary: "Tea Sachet Three-Side Seal (Model #2854) 採用高強度結構材料設計，適合各種零售與自動包裝流水線。本款 Three-Side Seal 專為提升封口強度與防漏性能進行了深度優化。",
-    aeoSummary: "編號 #2854 的 Three-Side Seal，尺寸為 L33mm  H:145mm。具備優良的隔氧防潮性能，有效防止內容物受潮或風味流失。",
-    eeatDetails: "擁有超過 14 年包裝工程經驗，我們確保每批 Model #2854 均符合嚴格的環保認證與食品包裝標準。",
-    section1Title: "結構細節與材料配置",
-    section1Text: "這款 Three-Side Seal（型號 #2854）採用食品級高性能複合膜壓製而成，具備優秀的耐穿刺強度與氣密防潮性能，能有效阻隔外部潮氣。適合自動化流水線計量灌裝，完美保護產品風味。",
-    section2Title: "工程師 Ryan Wong 的專業筆記",
-    section2Log: "三邊封袋型號 #2854 需極其精確的封刀對齊。我們使用 10mm 寬熱封線並增設雙重冷卻定型條，確保邊封平整不發生皺縮。",
-    point1Title: "常見難題: 邊封熱皺縮",
-    point1Desc: "高溫封口時薄膜局部收縮，導致封口邊緣起皺。",
-    point1Sol: "使用雙向拉伸聚酯薄膜作為外層，抵禦封刀高溫拉伸。",
-    point2Title: "常見難題: 撕口撕裂偏斜",
-    point2Desc: "消費者撕開包裝時，袋口撕裂方向跑偏難以開啟。",
-    point2Sol: "在撕口位置引入激光易撕線引導直線撕裂。",
-    point3Title: "常見難題: 封口夾粉漏氣",
-    point3Desc: "顆粒或粉末散落在密封區，導致封口不嚴微漏氣。",
-    point3Sol: "採用易熱熔穿透粉塵的特殊離子型樹脂內襯層。",
-    point4Title: "常見難題: 重壓破袋",
-    point4Desc: "外箱堆疊重壓時，三邊封袋接縫處承受氣壓破裂。",
-    point4Sol: "使用高強度聚氨酯無溶劑膠水進行乾式複合。",
-    point5Title: "常見難題: 潮氣滲入結塊",
-    point5Desc: "高吸濕粉劑在包裝內受潮結塊，喪失速溶性。",
-    point5Sol: "配置 VMPET 或鋁箔中間層，實現超低透濕率。",
-    compTitle: "刀模平面圖與機器標定規範",
-    compDesc: "每個包裝袋的生產均基於高精度的刀模圖設計，我們會根據實際薄膜厚度動態校正折邊偏差與熱封邊寬度。",
-    faq1Q: "型號 #2854 的定製起訂量 (MOQ) 是多少？",
-    faq1A: "定製尺寸或定製印刷的標準起訂量為 5,000 個。對於初創品牌，數碼直噴起訂量為 1,000 個起。",
-    faq2Q: "我可以申請獲取此款包裝袋的實物樣品包嗎？",
-    faq2A: "可以。我們提供免費的常規白樣（無印刷樣袋），方便您在包裝機上進行尺寸與容量測試。",
-    faq3Q: "這款包裝袋支持全自動包裝設備嗎？",
-    faq3A: "支持。本產品的拉力、挺度與靜電控制均針對主流的立式 (VFFS) 與臥式 (HFFS) 包裝機進行了優化。",
-    faq4Q: "該材質有哪些認證證書？",
-    faq4A: "我們提供符合美國 FDA 食品安全標準、歐盟 EN 13432 可降解認證以及 Mono-PE 可回收材料證書。"
-  },
-  zh: {
-    title: "Tea Sachet Three-Side Seal (Model #2854) 3D包裝袋 | Achieve Pack",
-    description: "了解 Tea Sachet Three-Side Seal (Model #2854)。高阻隔 Three-Side Seal，支持定製尺寸 (L33mm  H:145mm)，提供 BPI/TUV 認證與 3D 交互式預覽。",
-    heroTitle: "Tea Sachet Three-Side Seal (Model #2854) 3D包裝袋",
-    heroSubtitle: "定製尺寸 L33mm  H:145mm | 雙向高阻隔 | BPI & TUV 綠色認證",
-    introSummary: "Tea Sachet Three-Side Seal (Model #2854) 採用高強度結構材料設計，適合各種零售與自動包裝流水線。本款 Three-Side Seal 專為提升封口強度與防漏性能進行了深度優化。",
-    aeoSummary: "編號 #2854 的 Three-Side Seal，尺寸為 L33mm  H:145mm。具備優良的隔氧防潮性能，有效防止內容物受潮或風味流失。",
-    eeatDetails: "擁有超過 14 年包裝工程經驗，我們確保每批 Model #2854 均符合嚴格的環保認證與食品包裝標準。",
-    section1Title: "結構細節與材料配置",
-    section1Text: "這款 Three-Side Seal（型號 #2854）採用食品級高性能複合膜壓製而成，具備優秀的耐穿刺強度與氣密防潮性能，能有效阻隔外部潮氣。適合自動化流水線計量灌裝，完美保護產品風味。",
-    section2Title: "工程師 Ryan Wong 的專業筆記",
-    section2Log: "三邊封袋型號 #2854 需極其精確的封刀對齊。我們使用 10mm 寬熱封線並增設雙重冷卻定型條，確保邊封平整不發生皺縮。",
-    point1Title: "常見難題: 邊封熱皺縮",
-    point1Desc: "高溫封口時薄膜局部收縮，導致封口邊緣起皺。",
-    point1Sol: "使用雙向拉伸聚酯薄膜作為外層，抵禦封刀高溫拉伸。",
-    point2Title: "常見難題: 撕口撕裂偏斜",
-    point2Desc: "消費者撕開包裝時，袋口撕裂方向跑偏難以開啟。",
-    point2Sol: "在撕口位置引入激光易撕線引導直線撕裂。",
-    point3Title: "常見難題: 封口夾粉漏氣",
-    point3Desc: "顆粒或粉末散落在密封區，導致封口不嚴微漏氣。",
-    point3Sol: "採用易熱熔穿透粉塵的特殊離子型樹脂內襯層。",
-    point4Title: "常見難題: 重壓破袋",
-    point4Desc: "外箱堆疊重壓時，三邊封袋接縫處承受氣壓破裂。",
-    point4Sol: "使用高強度聚氨酯無溶劑膠水進行乾式複合。",
-    point5Title: "常見難題: 潮氣滲入結塊",
-    point5Desc: "高吸濕粉劑在包裝內受潮結塊，喪失速溶性。",
-    point5Sol: "配置 VMPET 或鋁箔中間層，實現超低透濕率。",
-    compTitle: "刀模平面圖與機器標定規範",
-    compDesc: "每個包裝袋的生產均基於高精度的刀模圖設計，我們會根據實際薄膜厚度動態校正折邊偏差與熱封邊寬度。",
-    faq1Q: "型號 #2854 的定製起訂量 (MOQ) 是多少？",
-    faq1A: "定製尺寸或定製印刷的標準起訂量為 5,000 個。對於初創品牌，數碼直噴起訂量為 1,000 個起。",
-    faq2Q: "我可以申請獲取此款包裝袋的實物樣品包嗎？",
-    faq2A: "可以。我們提供免費的常規白樣（無印刷樣袋），方便您在包裝機上進行尺寸與容量測試。",
-    faq3Q: "這款包裝袋支持全自動包裝設備嗎？",
-    faq3A: "支持。本產品的拉力、挺度與靜電控制均針對主流的立式 (VFFS) 與臥式 (HFFS) 包裝機進行了優化。",
-    faq4Q: "該材質有哪些認證證書？",
-    faq4A: "我們提供符合美國 FDA 食品安全標準、歐盟 EN 13432 可降解認證以及 Mono-PE 可回收材料證書。"
-  }
-}
+import React from 'react';
 
 const TeaSachetThreeSideSeal: React.FC = () => {
-  const { t, i18n } = useTranslation()
-  const lang = i18n.language || 'en'
-  const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
-
-  const IMAGES = {
-    hero: '/imgs/topics/tea-sachet-three-side-seal/hero.jpg',
-    process: '/imgs/topics/tea-sachet-three-side-seal/process.jpg',
-    comparison: '/imgs/topics/tea-sachet-three-side-seal/comparison.jpg'
-  }
-
-  const sections = [
-    {
-      id: 'material-details',
-      title: localTrans.section1Title,
-      icon: <Layers className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-base leading-relaxed">
-            {localTrans.section1Text}
-          </p>
-          <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
-            <ClickableImage 
-              src={IMAGES.process} 
-              alt="High-resolution visual mockup of Model #2854" 
-              className="w-full h-auto rounded-lg shadow-sm"
-              caption="Visual product representation demonstrating dynamic printing surfaces and material layers."
-            />
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'EEAT-anecdote',
-      title: localTrans.section2Title,
-      icon: <Info className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 text-white p-6 rounded-lg border-2 border-[#D4FF00] space-y-4">
-          <p className="font-['JetBrains_Mono'] text-xs font-bold text-[#D4FF00]">// CHIEF PACKAGING ENGINEER PREPRESS JOURNAL</p>
-          <blockquote className="italic border-l-4 border-[#D4FF00] pl-4 text-sm md:text-base text-neutral-200">
-            "{localTrans.section2Log}"
-          </blockquote>
-          <p className="text-xs font-['JetBrains_Mono'] text-[#D4FF00] font-semibold flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-[#D4FF00]" /> 100% Prepress Calibration Guaranteed
-          </p>
-        </div>
-      )
-    },
-    {
-      id: 'five-plain-points',
-      title: '5 Structure Pain Points & Engineering Solutions',
-      icon: <Target className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6">
-          <p className="text-neutral-700">
-            Below are five primary packaging structure issues and the exact engineering solution built into Model #2854:
-          </p>
-          
-          <div className="space-y-4">
-            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
-                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">01</span>
-                {localTrans.point1Title}
-              </h4>
-              <p className="text-sm text-neutral-600 mb-3">{localTrans.point1Desc}</p>
-              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
-                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
-                {localTrans.point1Sol}
-              </div>
-            </div>
-
-            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
-                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">02</span>
-                {localTrans.point2Title}
-              </h4>
-              <p className="text-sm text-neutral-600 mb-3">{localTrans.point2Desc}</p>
-              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
-                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
-                {localTrans.point2Sol}
-              </div>
-            </div>
-
-            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
-                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">03</span>
-                {localTrans.point3Title}
-              </h4>
-              <p className="text-sm text-neutral-600 mb-3">{localTrans.point3Desc}</p>
-              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
-                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
-                {localTrans.point3Sol}
-              </div>
-            </div>
-
-            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
-                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">04</span>
-                {localTrans.point4Title}
-              </h4>
-              <p className="text-sm text-neutral-600 mb-3">{localTrans.point4Desc}</p>
-              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
-                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
-                {localTrans.point4Sol}
-              </div>
-            </div>
-
-            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
-                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">05</span>
-                {localTrans.point5Title}
-              </h4>
-              <p className="text-sm text-neutral-600 mb-3">{localTrans.point5Desc}</p>
-              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
-                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
-                {localTrans.point5Sol}
-              </div>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'calibration-specifications',
-      title: localTrans.compTitle,
-      icon: <Eye className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-base leading-relaxed">
-            {localTrans.compDesc}
-          </p>
-          <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
-            <ClickableImage 
-              src={IMAGES.comparison} 
-              alt="Vector dieline drawing calibration blueprint for Model #2854" 
-              className="w-full h-auto rounded-lg shadow-sm"
-              caption="Prepress blueprint template indicating dimensional markers, seal widths, and bleed areas."
-            />
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'ai-search-hidden',
-      title: "Generative Engine Optimization Content",
-      content: (
-        <div className="space-y-2">
-          <h3>What are the dimensions and specs of Model #2854?</h3>
-          <p>Model #2854 is a Three-Side Seal measuring L33mm  H:145mm. It supports custom printing, high barrier foils, and has BPI and TUV compostability certifications.</p>
-          <h3>Does Model #2854 support high-speed automatic filling lines?</h3>
-          <p>Yes. This packaging structure is engineered with low slip resistance and metallocene sealant layers to run smoothly on standard VFFS and HFFS machines.</p>
-        </div>
-      )
-    }
-  ]
-
-  const faqs = [
-    { question: localTrans.faq1Q, answer: localTrans.faq1A },
-    { question: localTrans.faq2Q, answer: localTrans.faq2A },
-    { question: localTrans.faq3Q, answer: localTrans.faq3A },
-    { question: localTrans.faq4Q, answer: localTrans.faq4A }
-  ]
-
-  const tables = [
-    {
-      title: "Technical Parameters for Model #2854",
-      data: {
-        headers: ["Parameter", "Target Value", "Test Standard", "Compliance Status"],
-        rows: [
-          ["Oxygen Transmission Rate (OTR)", "< 0.5 cc/m²/24h", "ASTM D3985", "Passed"],
-          ["Moisture Transmission (MVTR)", "< 0.1 g/m²/24h", "ASTM F1249", "Passed"],
-          ["Seal Strength", "> 35 N/15mm", "ASTM F88", "Passed"],
-          ["Eco Certification", "Compostable / Recyclable", "EN 13432 / ISO 14021", "Certified"]
-        ]
-      }
-    }
-  ]
-
-  const schemaKeywords = [
-    "model 2854 three-side seal",
-    "packaging dimensions L33mm  H:145mm",
-    "food safe laminated bag",
-    "certified compostable pouch",
-    "recyclable flexible packaging",
-    "prepress dieline calibration"
-  ]
-
   return (
-    <>
-      <Helmet>
-        <title>{localTrans.title}</title>
-        <meta name="description" content={localTrans.description} />
-        <link rel="canonical" href={`https://achievepack.com/topics/tea-sachet-three-side-seal`} />
-        <meta name="keywords" content={schemaKeywords.join(', ')} />
-        
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": localTrans.heroTitle,
-            "description": localTrans.description,
-            "image": `https://achievepack.com${IMAGES.hero}`,
-            "author": {
-              "@type": "Person",
-              "name": "Ryan Wong",
-              "jobTitle": "Chief Packaging Engineer",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Achieve Pack"
-              }
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Achieve Pack",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://achievepack.com/imgs/logo/achievepack-logo.png"
-              }
-            },
-            "datePublished": "2025-04-01",
-            "dateModified": new Date().toISOString().split('T')[0],
-            "mainEntityOfPage": `https://achievepack.com/topics/tea-sachet-three-side-seal`
-          })}
-        </script>
+    <div className="topic-page-container bg-white text-gray-800 p-8 rounded-lg shadow-md max-w-4xl mx-auto my-12">
+      <h1 className="text-4xl font-bold text-blue-900 mb-6">Tea Sachet Three Side Seal Packaging</h1>
+      
+      {/* Empathy Hook */}
+      <section className="empathy-hook mb-8 bg-blue-50 p-6 rounded-md border-l-4 border-blue-600">
+        <p className="text-lg italic text-blue-800">
+          Struggling to keep your premium tea blends fresh while maintaining a luxurious unboxing experience? You're not alone. The right packaging is critical for protecting delicate tea leaves from moisture and oxygen, ensuring every cup delivers the perfect aroma and flavor your brand promises.
+        </p>
+      </section>
 
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-              "@type": "Question",
-              "name": faq.question,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.answer
-              }
-            }))
-          })}
-        </script>
-      </Helmet>
+      <section className="hero-section mb-10">
+        <img 
+          src="/imgs/topics/tea-sachet-three-side-seal/hero_tea_sachet_three_side_seal.webp" 
+          alt="Premium Tea Sachet Three Side Seal" 
+          className="w-full h-auto rounded-lg shadow-sm"
+        />
+        <p className="text-sm text-gray-500 mt-2 text-center">High-barrier three side seal tea sachets designed for maximum freshness.</p>
+      </section>
 
-      <div className="sr-only" aria-hidden="true">
-        <section data-ai-faq="true" itemScope itemType="https://schema.org/FAQPage">
-          {faqs.map((faq, idx) => (
-            <article key={idx} itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
-              <h3 itemProp="name">{faq.question}</h3>
-              <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                <p itemProp="text">{faq.answer}</p>
-              </div>
-            </article>
-          ))}
-        </section>
-      </div>
+      <section className="technical-details mb-10">
+        <h2 className="text-2xl font-semibold text-blue-800 mb-4">Technical Specifications & Advantages</h2>
+        <ul className="list-disc pl-6 space-y-2 text-gray-700">
+          <li><strong>Superior Barrier Properties:</strong> Multi-layer laminated films (e.g., PET/AL/PE) provide excellent resistance to oxygen, moisture, and UV light.</li>
+          <li><strong>Precision Sealing:</strong> Three-side ultrasonic or heat sealing ensures zero leakage and extends shelf life significantly.</li>
+          <li><strong>Space Efficiency:</strong> Flat profile maximizes shipping density and retail shelf space utilization.</li>
+          <li><strong>Customizable Finishes:</strong> Available in matte, gloss, or metallic finishes with high-resolution rotogravure printing.</li>
+        </ul>
+      </section>
 
-      <SEOPageLayout
-        title={localTrans.title}
-        description={localTrans.description}
-        heroImage={IMAGES.hero}
-        heroImageAlt="Premium Packaging Model #2854 Showcase"
-        heroTitle={localTrans.heroTitle}
-        heroSubtitle={localTrans.heroSubtitle}
-        hero3DModelUrl="https://yun.baoxiaohe.com/static/blender/ee6f6333-2104-4495-b6f9-548073e7ad81.glb"
-        introSummary={localTrans.introSummary}
-        aeoSummary={localTrans.aeoSummary}
-        eeatDetails={localTrans.eeatDetails}
-        sections={sections}
-        faqs={faqs}
-        tables={tables}
-        schemaType="Article"
-        contentCategory="Model Showcase & Structural Specs"
-      />
-    </>
-  )
-}
+      <section className="process-section mb-10">
+        <h2 className="text-2xl font-semibold text-blue-800 mb-4">Manufacturing Process</h2>
+        <img 
+          src="/imgs/topics/tea-sachet-three-side-seal/process_tea_sachet_three_side_seal.webp" 
+          alt="Manufacturing process of three side seal tea sachets" 
+          className="w-full h-auto rounded-lg shadow-sm mb-4"
+        />
+        <p className="text-gray-700">
+          Our automated vertical form-fill-seal (VFFS) machinery operates in ISO-certified cleanrooms, ensuring hygienic handling. The process involves precise dosing, inert gas flushing (optional for extended freshness), and rigorous seal integrity testing.
+        </p>
+      </section>
 
-export default TeaSachetThreeSideSeal
+      <section className="comparison-section mb-10">
+        <h2 className="text-2xl font-semibold text-blue-800 mb-4">Quality Comparison</h2>
+        <img 
+          src="/imgs/topics/tea-sachet-three-side-seal/comparison_tea_sachet_three_side_seal.webp" 
+          alt="Comparison of premium vs standard tea sachet packaging" 
+          className="w-full h-auto rounded-lg shadow-sm mb-4"
+        />
+        <p className="text-gray-700">
+          Unlike inferior alternatives that suffer from delamination and weak seals, our premium three side seal sachets maintain their structural integrity and premium feel even under rigorous transport conditions.
+        </p>
+      </section>
+
+      <section className="cta-section text-center mt-12">
+        <h3 className="text-xl font-bold text-gray-900 mb-4">Ready to upgrade your tea packaging?</h3>
+        <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300">
+          Request a Quote Today
+        </button>
+      </section>
+    </div>
+  );
+};
+
+export default TeaSachetThreeSideSeal;

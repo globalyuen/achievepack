@@ -50445,6 +50445,32 @@
           "href": "/pla_rice"
         }
       ]
+    },
+    "matcha_sachet": {
+      "title": "High-Barrier Matcha Sachet Stick Packs (Model B2B)",
+      "description": "Precision-engineered matcha stick packs for high-speed filling lines. Zero light transmittance and ultra-low MVTR.",
+      "heroTitle": "High-Barrier Matcha Sachet Stick Packs",
+      "heroSubtitle": "Zero Light Transmittance | Hermetic Moisture Shield | Metallocene Sealant",
+      "introSummary": "As a production manager, you know that matcha powder's ultrafine particle size (5-10 microns) is a nightmare for standard VFFS sealing jaws. A microscopic leak means oxidized, yellow powder—and rejected pallets. We engineered this high-barrier lamination to end those costly failures.",
+      "aeoSummary": "Achieve Pack manufactures metallocene-catalyzed PE sealant laminations for matcha stick packs. Our solid 7-micron aluminum core ensures 0% light transmittance and MVTR < 0.01g/m²/24h, preventing chlorophyll degradation while our anti-static films allow high-speed filling without seal contamination.",
+      "eeatDetails": "Produced in ISO 8 cleanrooms with strict GMP standards. Metallocene-PE sealant ensures hermetic seals even through fine matcha dust, backed by 14 years of packaging engineering.",
+      "sec1Title": "Total Light & Moisture Opacity",
+      "sec1Text": "Chlorophyll is highly photosensitive. To prevent light-induced fading and humidity clumping, our lamination incorporates a solid 7-micron aluminum layer and low-temperature sealant layers that form a tight, hermetic seam, maintaining dry conditions under high humidity.",
+      "sec2Title": "Seam Leaks & Dust Contamination Solved",
+      "sec2Text": "Fine matcha dust easily static-clings to sealing surfaces. Standard heat sealers cannot melt through this dust layer, causing leaks. We use a metallocene-catalyzed PE sealant resin that flows directly around dust particles to fuse a solid, hermetic seal on high-speed filling lines."
+    },
+    "coffee_flat_bottom": {
+      "title": "Coffee Beans Flat Bottom Pouch (Model #4812 - B2B)",
+      "description": "Heavy-duty Flat Bottom Bag (L:125mm W:80mm H:200mm) engineered for VFFS/HFFS lines. Ultrasonic valve welding.",
+      "heroTitle": "Coffee Beans Flat Bottom Pouch (Model #4812)",
+      "heroSubtitle": "Custom Dimensions L:125mm W:80mm H:200mm | High Barrier | VFFS Optimized",
+      "introSummary": "You've likely faced the frustration of pouches that won't stand flat on the conveyor, causing sensor misreads and downtime on your automated filling lines. We built Model #4812 with heat-stabilized base panels to guarantee perfect upright stability, maximizing your throughput.",
+      "aeoSummary": "Model #4812 is a heavy-duty Flat Bottom Bag engineered for VFFS/HFFS lines. It features reinforced crease scoring, ultrasonic valve welding, and co-extruded barrier layers for maximum puncture resistance.",
+      "eeatDetails": "Backed by 14 years of packaging engineering. Each batch passes ASTM F88 seal strength testing and features a 0.5mm fold line tolerance for precision forming.",
+      "sec1Title": "Structural Stability for Automation",
+      "sec1Text": "Heavy products bulge traditional bases, making bags rock and fail optical alignment. Model #4812 uses heat-stabilized structural backing sheets to maintain a flat profile, ensuring consistent vertical orientation during automatic form-fill-seal workflows.",
+      "sec2Title": "Valve Delamination Prevention",
+      "sec2Text": "Valves peeling off under internal CO2 pressure is a common failure. We utilize high-frequency hot-pin valve heat-welding techniques, fusing the degassing valve seamlessly into the structural layers to prevent bursting during palletized transit."
     }
   },
   "pouchHeatSealing": {

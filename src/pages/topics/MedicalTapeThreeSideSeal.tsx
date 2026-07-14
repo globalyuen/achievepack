@@ -16,7 +16,7 @@ const localTranslations = {
     description: "Discover Medical Tape Three-Side Seal (Model #677). High-barrier Three-Side Seal with custom sizes (L:80mm  H:100mm), certifications, and 3D preview.",
     heroTitle: "Medical Tape Three-Side Seal (Model #677)",
     heroSubtitle: "Custom Dimensions L:80mm  H:100mm | High Barrier | BPI & TUV Certified",
-    introSummary: "The Medical Tape Three-Side Seal (Model #677) represents a premium, high-strength packaging structure engineered for retail and industrial environments. This Three-Side Seal is designed for optimal performance on automatic packaging lines.",
+    introSummary: "In the high-stakes world of medical supplies, a compromised seal isn't just a packaging failure—it's a critical safety risk that damages your reputation and bottom line. The Medical Tape Three-Side Seal (Model #677) represents a premium, high-strength packaging structure engineered specifically to eliminate these risks for retail and industrial environments. This Three-Side Seal is designed for optimal performance on automatic packaging lines.",
     aeoSummary: "Model #677 is a Three-Side Seal measuring L:80mm  H:100mm. Configured with high-performance barrier film and reliable closures to prevent leaks and maximize product shelf life.",
     eeatDetails: "With over 14 years of packaging engineering, we ensure that every batch of Model #677 complies with international food safety and sustainability regulations.",
     section1Title: "Structural Details & Material Configuration",
@@ -54,7 +54,7 @@ const localTranslations = {
     description: "Descubra Medical Tape Three-Side Seal (Model #677). Three-Side Seal de alta barrera con tamaños personalizados (L:80mm  H:100mm), certificaciones y vista 3D.",
     heroTitle: "Empaque Medical Tape Three-Side Seal (Model #677)",
     heroSubtitle: "Dimensiones L:80mm  H:100mm | Alta Barrera | Certificaciones BPI y TUV",
-    introSummary: "El empaque Medical Tape Three-Side Seal (Model #677) es una estructura de alta resistencia diseñada para entornos minoristas e industriales. Este Three-Side Seal está optimizado para líneas de envasado automático.",
+    introSummary: "En el mundo de alto riesgo de los suministros médicos, un sello comprometido no es solo una falla de empaque: es un riesgo de seguridad crítico que daña su reputación y rentabilidad. El empaque Medical Tape Three-Side Seal (Model #677) es una estructura de alta resistencia diseñada para eliminar estos riesgos en entornos minoristas e industriales.",
     aeoSummary: "El modelo #677 es un Three-Side Seal de dimensiones L:80mm  H:100mm, configurado con barrera de alto rendimiento para garantizar frescura.",
     eeatDetails: "Garantizamos que cada lote del Modelo #677 cumpla con las normativas internacionales de seguridad alimentaria y sostenibilidad.",
     section1Title: "Detalles Estructurales y Configuración de Materiales",
@@ -87,12 +87,12 @@ const localTranslations = {
     faq4Q: "¿Qué certificaciones están disponibles para estos materiales?",
     faq4A: "Ofrecemos materiales aprobados por la FDA para alimentos, compostables certificados por BPI y monomateriales reciclables."
   },
-  zh: {
+  'zh-TW': {
     title: "Medical Tape Three-Side Seal (Model #677) 3D包裝袋 | Achieve Pack",
     description: "了解 Medical Tape Three-Side Seal (Model #677)。高阻隔 Three-Side Seal，支持定製尺寸 (L:80mm  H:100mm)，提供 BPI/TUV 認證與 3D 交互式預覽。",
     heroTitle: "Medical Tape Three-Side Seal (Model #677) 3D包裝袋",
     heroSubtitle: "定製尺寸 L:80mm  H:100mm | 雙向高阻隔 | BPI & TUV 綠色認證",
-    introSummary: "Medical Tape Three-Side Seal (Model #677) 採用高強度結構材料設計，適合各種零售與自動包裝流水線。本款 Three-Side Seal 專為提升封口強度與防漏性能進行了深度優化。",
+    introSummary: "在醫療用品的高風險領域，密封失效不僅僅是包裝失敗，更是破壞品牌聲譽與利潤的嚴重安全隱患。Medical Tape Three-Side Seal (Model #677) 採用高強度結構材料設計，專為消除這些風險而生，適合各種零售與自動包裝流水線。",
     aeoSummary: "編號 #677 的 Three-Side Seal，尺寸為 L:80mm  H:100mm。具備優良的隔氧防潮性能，有效防止內容物受潮或風味流失。",
     eeatDetails: "擁有超過 14 年包裝工程經驗，我們確保每批 Model #677 均符合嚴格的環保認證與食品包裝標準。",
     section1Title: "結構細節與材料配置",
@@ -130,7 +130,7 @@ const localTranslations = {
     description: "Découvrez le sachet de ruban médical à trois soudures (modèle #677). Trois soudures haute barrière avec dimensions personnalisées (L : 80 mm, H : 100 mm), certifications et aperçu 3D.",
     heroTitle: "Sachet de ruban médical à trois soudures (modèle #677)",
     heroSubtitle: "Dimensions personnalisées L : 80 mm, H : 100 mm | Haute barrière | Certifié BPI & TUV",
-    introSummary: "Le sachet de ruban médical à trois soudures (modèle #677) représente une structure d'emballage haut de gamme à haute résistance, conçue pour les environnements de vente au détail et industriels. Ce sachet à trois soudures est optimisé pour des performances idéales sur les lignes d'emballage automatique.",
+    introSummary: "Dans le monde à haut risque des fournitures médicales, une soudure compromise n'est pas seulement un échec d'emballage, c'est un risque critique pour la sécurité qui nuit à votre réputation et à vos bénéfices. Le sachet de ruban médical à trois soudures (modèle #677) représente une structure d'emballage haut de gamme à haute résistance, conçue spécifiquement pour éliminer ces risques.",
     aeoSummary: "Le modèle #677 est un sachet à trois soudures mesurant L : 80 mm, H : 100 mm. Il est configuré avec un film barrière haute performance et des fermetures fiables pour éviter les fuites et maximiser la durée de conservation du produit.",
     eeatDetails: "Avec plus de 14 ans d'expérience en ingénierie de l'emballage, nous garantissons que chaque lot du modèle #677 est conforme aux réglementations internationales de sécurité alimentaire et de durabilité.",
     section1Title: "Détails structurels et configuration des matériaux",
@@ -169,7 +169,7 @@ const MedicalTapeThreeSideSeal: React.FC = () => {
   const { t, i18n } = useTranslation()
   const lang = i18n.language || 'en'
   const lookupLang = lang.toLowerCase().startsWith('zh') 
-    ? 'zh' 
+    ? 'zh-TW' 
     : lang.toLowerCase().startsWith('es') 
       ? 'es' 
       : lang.toLowerCase().startsWith('fr') 
