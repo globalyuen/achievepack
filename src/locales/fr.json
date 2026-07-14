@@ -52280,5 +52280,95 @@
   "valve-coffee-bags": {
     "title": "Sachets de Café avec Valve",
     "description": "Sachets de café de qualité supérieure avec valves de dégazage unidirectionnelles pour une fraîcheur et une rétention d'arôme optimales."
+  },
+  "active-modified-atmosphere-packaging": {
+    "title": "Emballage Actif sous Atmosphère Modifiée",
+    "content": "Vous perdez des marges à cause de la détérioration avant même que votre produit n'atteigne les rayons. Et si votre emballage prolongeait activement la durée de conservation tout en maintenant une fraîcheur maximale ? L'Emballage Actif sous Atmosphère Modifiée (AMAP) utilise une technologie de balayage gazeux de précision, équilibrant dynamiquement les niveaux d'O2, de CO2 et de N2 pour inhiber la croissance microbienne et l'oxydation. Nos films multicouches à haute barrière sont conçus pour des taux de transmission optimaux. Contrairement à l'emballage standard, l'AMAP crée un microclimat qui peut doubler ou tripler la durée de conservation, réduisant considérablement le gaspillage dans la chaîne d'approvisionnement et améliorant vos résultats."
+  },
+  "ai-packaging-barcodes-bottom-fold": {
+    "title": "Codes-barres Intégrés à l'IA sur les Sachets à Fond Plat",
+    "content": "Les contrefaçons et les angles morts de la chaîne d'approvisionnement vous coûtent-ils la confiance et des revenus ? Imaginez une solution d'emballage qui se trace elle-même et interagit avec les consommateurs de manière fluide. Nous avons intégré une sérialisation scannable par IA directement dans l'intégrité structurelle de nos sachets à fond plat. Notre impression de précision garantit des taux de numérisation de 100 %, tirant parti des algorithmes d'apprentissage automatique pour lutter contre la fraude et fournir des analyses granulaires. Les codes-barres traditionnels sont statiques. Nos codes-barres IA transforment votre sachet à fond plat en un actif numérique dynamique, offrant à la fois un suivi logistique B2B robuste et un engagement B2C immersif."
+  },
+  "ai-packaging-bleed-dimensions": {
+    "title": "Comprendre les Dimensions de Fond Perdu pour l'Emballage IA",
+    "content": "Fatigué des rejets de prépresse pour des marges incorrectes ? Dans l'emballage flexible, un fond perdu de 3 à 5 mm garantit qu'il n'y ait pas de bords blancs lors de la coupe. Nos outils d'IA valident vos fichiers pour une exécution technique sans faille."
+  },
+  "ai-packaging-layered-assets": {
+    "title": "Optimisation des Fichiers Calques pour l'Emballage IA",
+    "content": "Les fichiers aplatis entraînent des retards coûteux. Les fichiers avec calques (CMJN, tons directs, blanc) sont essentiels pour la production B2B. En séparant les éléments, nous accélérons les modifications prépresse et les finitions spéciales."
+  },
+  "ai-packaging-resolution": {
+    "title": "Précision de l'IA dans la Résolution des Emballages",
+    "content": "La technologie d'IA analyse les fichiers de conception au niveau du pixel pour garantir une qualité d'impression irréprochable et prévenir les problèmes de résolution lors de la fabrication."
+  },
+  "ai-packaging-safe-margins": {
+    "title": "Marges de Sécurité Automatisées pour les Emballages",
+    "content": "Nos systèmes d'intelligence artificielle calculent automatiquement des marges de sécurité dynamiques pour éviter que le texte ou les graphiques ne soient coupés lors du processus de scellage."
+  },
+  "apparel-zipper": {
+    "title": "Pochettes à Vêtements avec Fermeture Premium",
+    "content": "Pochettes de vêtements givrées à haute barrière avec fermeture à glissière pour les marques de mode B2B et éco-responsables."
+  },
+  "beef-jerky-barrier": {
+    "title": "Sachets Haute Barrière pour Bœuf Séché",
+    "content": "Emballages techniques à haute barrière et éco-responsables pour garder le bœuf séché frais plus longtemps."
+  },
+  "beef-jerky-pillow-pouch": {
+    "title": "Sachet coussin pour viande séchée",
+    "content": "Optimisez l'emballage de vos en-cas à la viande avec des solutions rentables à haute barrière. Nos sachets coussins assurent la fraîcheur du produit grâce à une barrière EVOH qui empêche la perméabilité à l'oxygène. Ils bénéficient d'un processus de fabrication compatible avec la lyophilisation et l'emballage sous vide."
+  },
+  "beverage-soft-stand-up-pouch": {
+    "title": "Sachet tenant debout pour boissons",
+    "content": "Emballage flexible avancé pour les liquides, conçu pour la durabilité et l'efficacité logistique. Réduisez les frais d'expédition et les risques de casse par rapport au verre et aux bouteilles rigides. Nos sachets supportent un remplissage à haute pression et à haute température."
+  },
+  "candy-uv": {
+    "title": "Solutions d'Impression UV pour Bonbons | Achieve Pack",
+    "content": "Vous luttez contre des emballages de bonbons ternes en rayon ? Dans un espace de vente encombré, votre produit doit se démarquer. Notre impression UV avancée offre la brillance et la durabilité nécessaires pour attirer l'attention. Spécifications Techniques : Notre processus d'impression UV utilise la lumière ultraviolette pour durcir les encres instantanément, ce qui donne une finition vibrante et ultra-brillante qui résiste aux rayures et à la décoloration. Parfait pour les lignes d'emballage automatisées à grande vitesse."
+  },
+  "carbon-footprint-tracking-packaging": {
+    "title": "Emballage avec Suivi de l'Empreinte Carbone | Achieve Pack",
+    "content": "Vous subissez des pressions pour déclarer les émissions du Scope 3 ? La transparence de la chaîne d'approvisionnement n'est plus facultative. Notre emballage avec suivi de l'empreinte carbone fournit les données exactes dont vous avez besoin pour la conformité et les rapports ESG. Emballage Axé sur les Données : Nous intégrons les données d'analyse du cycle de vie (ACV) directement dans la chaîne d'approvisionnement de l'emballage. Grâce aux codes QR et aux bases de données centralisées, les clients grossistes peuvent accéder aux mesures d'émissions en temps réel."
+  },
+  "cereal-sachet-three-side-seal": {
+    "title": "Ingénierie de précision pour les essentiels du petit-déjeuner",
+    "content": "Sachets soudés sur 3 côtés : Optimisez votre ligne de production sans compromettre l'attrait en rayon. Vous luttez contre des taux de remplissage inefficaces ? Nos sachets sont conçus pour une usinabilité sans faille et une durée de conservation prolongée."
+  },
+  "cheese-pocket-zipper": {
+    "title": "Solutions refermables à haute barrière pour les produits laitiers",
+    "content": "Sachets à fermeture éclair intégrée : Technologie avancée de contrôle de l'humidité et de barrière à l'oxygène. Vous luttez contre la détérioration et les grumeaux ? Notre technologie garantit que votre produit reste frais de l'usine à la portion finale."
+  },
+  "child-resistant-mylar-bags": {
+    "title": "Sacs Mylar Sécurité Enfant",
+    "content": "Assurez la conformité réglementaire avec nos emballages..."
+  },
+  "cocktail-spout": {
+    "title": "Bec Verseur à Cocktail",
+    "content": "L'excellence du service avec notre bec verseur de précision..."
+  },
+  "coffee-sachet-three-side-seal": {
+    "title": "Sachet de Café Trois Soudures",
+    "content": "Optimisez votre production avec nos solutions de scellage industriel."
+  },
+  "collagen-high-barrier": {
+    "title": "Emballage Collagène Haute Barrière",
+    "content": "Préservez la pureté de votre collagène avec notre film barrière."
+  },
+  "bread-flat-bottom-bag": {
+    "title": "Sachet à Fond Plat pour Pain",
+    "content": "Découvrez nos sachets à fond plat haut de gamme, conçus pour garder votre pain artisanal frais, croustillant et parfaitement présenté en rayon. Nous proposons à la fois des options techniques à haute barrière et des alternatives écologiques et durables."
+  },
+  "cacao-stand-up": {
+    "title": "Sachet Tient-Debout pour Cacao",
+    "content": "Protégez les saveurs et les arômes complexes de votre poudre de cacao avec nos sachets tient-debout de qualité supérieure. Que ce soit avec des barrières de niveau industriel ou des matériaux compostables, nous garantissons une protection maximale."
+  },
+  "rice-flat-bottom-bag": {
+    "title": "Sacs à Fond Plat Premium pour le Riz",
+    "description": "Découvrez les sacs à fond plat d'Achieve Pack et Pouch Eco, conçus pour une stabilité et une fraîcheur maximales dans l'emballage du riz.",
+    "content": "Élevez vos Grains. Le riz et les grains sont difficiles à emballer efficacement. Nos sacs à fond plat sont conçus pour résoudre ce problème, offrant une stabilité exceptionnelle, un attrait maximal en rayon et une résistance supérieure aux perforations pour que votre produit se démarque dans les allées."
+  },
+  "reduce-waste-guide": {
+    "title": "Guide Complet de Réduction des Déchets",
+    "description": "Découvrez comment des stratégies de conception holistiques peuvent minimiser les déchets tout au long de votre chaîne d'approvisionnement avec notre guide.",
+    "content": "Le véritable coût de l'inefficacité. Le gaspillage n'est pas seulement un problème environnemental ; c'est une fuite massive dans vos résultats. Nous analysons l'ensemble du cycle de vie de votre produit pour identifier les zones cachées de gaspillage. De la résine que nous sélectionnons à la forme de la pochette finale, chaque décision est optimisée pour un impact environnemental minimal."
   }
 }

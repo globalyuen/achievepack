@@ -52294,5 +52294,95 @@
   "valve-coffee-bags": {
     "title": "Bolsas de Café con Válvula",
     "description": "Bolsas de café premium con válvulas desgasificadoras unidireccionales para una frescura óptima y retención del aroma."
+  },
+  "active-modified-atmosphere-packaging": {
+    "title": "Envasado Activo en Atmósfera Modificada",
+    "content": "Está perdiendo márgenes por deterioro antes de que su producto llegue a los estantes. ¿Qué pasaría si su embalaje extendiera activamente la vida útil manteniendo la máxima frescura? El Envasado Activo en Atmósfera Modificada (AMAP) emplea tecnología de purga de gas de precisión, equilibrando dinámicamente los niveles de O2, CO2 y N2 para inhibir el crecimiento microbiano y la oxidación. Nuestras películas multicapa de alta barrera están diseñadas para tasas de transmisión óptimas. A diferencia del envasado estándar, AMAP crea un microclima que puede duplicar o triplicar la vida útil, reduciendo drásticamente el desperdicio en la cadena de suministro y mejorando sus resultados."
+  },
+  "ai-packaging-barcodes-bottom-fold": {
+    "title": "Códigos de Barras Integrados con IA en Bolsas de Fondo Plegado",
+    "content": "¿Las falsificaciones y los puntos ciegos en la cadena de suministro le están costando confianza e ingresos? Imagine una solución de envasado que se rastrea a sí misma e interactúa con los consumidores sin problemas. Hemos integrado la serialización escaneable por IA directamente en la integridad estructural de nuestras bolsas de fondo plegado. Nuestra impresión de precisión garantiza tasas de escaneo del 100%, aprovechando algoritmos de aprendizaje automático para combatir el fraude y proporcionar análisis granulares. Los códigos de barras tradicionales son estáticos. Nuestros códigos de barras de IA convierten su bolsa de fondo plegado en un activo digital dinámico, ofreciendo tanto un sólido seguimiento logístico B2B como una participación inmersiva B2C."
+  },
+  "ai-packaging-bleed-dimensions": {
+    "title": "Comprender las Dimensiones de Sangrado de Empaques con IA para Precisión B2B",
+    "content": "¿Cansado de rechazos de preimpresión por márgenes de sangrado? En la industria del empaque flexible, un sangrado de 3-5 mm garantiza que no haya bordes blancos no impresos durante el corte automático. Nuestras herramientas de IA validan sus archivos para una ejecución técnica impecable."
+  },
+  "ai-packaging-layered-assets": {
+    "title": "Optimización de Activos en Capas de Empaques con IA",
+    "content": "Los archivos aplanados causan demoras y pérdida de márgenes. Los activos en capas (CMYK, tintas planas, blanco) son esenciales en la producción B2B. Al separar los elementos, agilizamos los cambios de preimpresión y los acabados especiales."
+  },
+  "ai-packaging-resolution": {
+    "title": "Precisión Impulsada por IA en la Resolución de Empaques",
+    "content": "La tecnología de IA analiza los archivos de diseño a nivel de píxel para garantizar una calidad de impresión perfecta y evitar problemas de resolución en la fabricación de envases."
+  },
+  "ai-packaging-safe-margins": {
+    "title": "Márgenes de Seguridad Automatizados para Empaques",
+    "content": "Nuestros sistemas de inteligencia artificial calculan automáticamente márgenes de seguridad dinámicos para evitar que el texto o los gráficos se corten durante el proceso de sellado."
+  },
+  "apparel-zipper": {
+    "title": "Bolsas de Ropa con Cierre Premium",
+    "content": "Bolsas de ropa esmeriladas de alta barrera con cierre para marcas de moda B2B y ecológicas."
+  },
+  "beef-jerky-barrier": {
+    "title": "Bolsas de Alta Barrera para Carne Seca",
+    "content": "Empaques técnicos de alta barrera y ecológicos para mantener la carne seca fresca por más tiempo."
+  },
+  "beef-jerky-pillow-pouch": {
+    "title": "Bolsa tipo almohada para carne seca",
+    "content": "Optimice el envasado de sus bocadillos de carne con soluciones rentables y de alta barrera. Nuestras bolsas tipo almohada garantizan la frescura del producto mediante una barrera de EVOH que evita la permeabilidad del oxígeno. Cuentan con un proceso de fabricación que admite liofilización y envasado al vacío."
+  },
+  "beverage-soft-stand-up-pouch": {
+    "title": "Bolsa de pie flexible para bebidas",
+    "content": "Envasado flexible avanzado para líquidos, diseñado para durabilidad y eficiencia logística. Reduzca los costos de envío y roturas en comparación con el vidrio y botellas rígidas. Nuestras bolsas soportan llenado de alta presión y altas temperaturas."
+  },
+  "candy-uv": {
+    "title": "Soluciones de Impresión UV para Dulces | Achieve Pack",
+    "content": "¿Luchando con envases de dulces opacos en el estante? En un espacio comercial abarrotado, su producto necesita resaltar. Nuestra avanzada impresión UV proporciona el brillo y la durabilidad necesarios para captar la atención. Especificaciones Técnicas: Nuestro proceso de impresión UV utiliza luz ultravioleta para curar las tintas al instante, resultando en un acabado vibrante y de alto brillo que resiste rayones y decoloración. Perfecto para líneas de envasado automatizadas de alta velocidad. El Proceso de Curado UV: Desde el diseño inicial hasta la rápida exposición UV, nuestro proceso de fabricación B2B garantiza precisión y escala."
+  },
+  "carbon-footprint-tracking-packaging": {
+    "title": "Embalaje con Seguimiento de Huella de Carbono | Achieve Pack",
+    "content": "¿Enfrentando presiones para informar sobre las emisiones de Alcance 3? La transparencia en la cadena de suministro ya no es opcional. Nuestro embalaje con seguimiento de la huella de carbono proporciona los datos exactos que necesita para el cumplimiento y los informes ESG. Embalaje Basado en Datos: Integramos datos de evaluación del ciclo de vida (LCA) directamente en la cadena de suministro del embalaje. A través de códigos QR y bases de datos centralizadas, los clientes mayoristas pueden acceder a métricas de emisiones en tiempo real."
+  },
+  "cereal-sachet-three-side-seal": {
+    "title": "Ingeniería de precisión para esenciales del desayuno",
+    "content": "Bolsas selladas por 3 lados: Optimice su línea de producción sin comprometer el atractivo en los estantes. ¿Luchando con tasas de llenado ineficientes? Nuestras bolsas están diseñadas para ofrecer un rendimiento impecable y extender la vida útil del producto."
+  },
+  "cheese-pocket-zipper": {
+    "title": "Soluciones resellables de alta barrera para lácteos",
+    "content": "Bolsas con cierre de bolsillo: Tecnología avanzada de control de humedad y barrera de oxígeno. ¿Combatiendo el deterioro y los grumos? Nuestra tecnología de cierre garantiza que su producto se mantenga fresco desde la fábrica hasta la porción final."
+  },
+  "child-resistant-mylar-bags": {
+    "title": "Bolsas Mylar a Prueba de Niños",
+    "content": "Proteja su negocio con estándares de seguridad certificados..."
+  },
+  "cocktail-spout": {
+    "title": "Vertedor de Cóctel Profesional",
+    "content": "Precisión y calidad para su barra comercial..."
+  },
+  "coffee-sachet-three-side-seal": {
+    "title": "Sachet de Café Sellado Tres Lados",
+    "content": "Optimice su cadena de suministro con sellado de alta precisión."
+  },
+  "collagen-high-barrier": {
+    "title": "Empaque de Colágeno de Alta Barrera",
+    "content": "Protección superior para la integridad de sus suplementos."
+  },
+  "bread-flat-bottom-bag": {
+    "title": "Bolsa de Fondo Plano para Pan",
+    "content": "Descubra nuestras bolsas de fondo plano premium, diseñadas para mantener su pan artesanal fresco, crujiente y con una presentación impecable en el estante. Ofrecemos tanto opciones de alta barrera técnica como alternativas ecológicas sostenibles."
+  },
+  "cacao-stand-up": {
+    "title": "Bolsa Stand-Up para Cacao",
+    "content": "Proteja los sabores y aromas complejos de su cacao en polvo con nuestras bolsas stand-up de primera calidad. Ya sea con barreras de nivel industrial o materiales compostables, garantizamos la máxima protección."
+  },
+  "rice-flat-bottom-bag": {
+    "title": "Bolsas de Fondo Plano Premium para Arroz",
+    "description": "Descubra las bolsas de fondo plano de Achieve Pack y Pouch Eco, diseñadas para lograr máxima estabilidad y frescura en el envasado de arroz.",
+    "content": "Eleve sus Granos. El arroz y los granos son difíciles de envasar de manera efectiva. Nuestras bolsas de fondo plano están diseñadas para resolver esto, ofreciendo una estabilidad excepcional, máximo atractivo en los estantes y una resistencia superior a las perforaciones para que su producto se destaque en el pasillo."
+  },
+  "reduce-waste-guide": {
+    "title": "Guía Integral para la Reducción de Residuos",
+    "description": "Descubra cómo las estrategias de diseño integral pueden minimizar el desperdicio en toda su cadena de suministro con nuestra guía.",
+    "content": "El verdadero costo de la ineficiencia. El desperdicio no es solo un problema ambiental; es una fuga masiva en sus resultados. Analizamos todo el ciclo de vida de su producto para identificar áreas ocultas de desperdicio. Desde la resina que seleccionamos hasta la forma de la bolsa final, cada decisión está optimizada para lograr un impacto ambiental mínimo."
   }
 }
