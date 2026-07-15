@@ -7,9 +7,9 @@ import { getDomain } from '../../utils/domain';
 
 const localTranslations = {
   en: {
-    title: "DigitalPrintingEcoPackaging Packaging | Achieve Pack",
+    title: "DriedFruitFlatBottomPouch Packaging | Achieve Pack",
     description: "Premium sustainable packaging solutions",
-    heroTitle: "High-Performance DigitalPrintingEcoPackaging Packaging",
+    heroTitle: "High-Performance DriedFruitFlatBottomPouch Packaging",
     empathyHook: "Engineered for maximum freshness and sustainability.",
     point1Title: "Point 1", point1Desc: "Desc 1", point1Sol: "Sol 1",
     point2Title: "Point 2", point2Desc: "Desc 2", point2Sol: "Sol 2",
@@ -24,7 +24,7 @@ const localTranslations = {
   'zh-tw': {}, 'zh-cn': {}, ko: {}, ja: {}, de: {}, es: {}, fr: {}, pt: {}, th: {}, vi: {}, ms: {}, ar: {}
 };
 
-export default function DigitalPrintingEcoPackagingPage() {
+export default function DriedFruitFlatBottomPouchPage() {
   const { i18n } = useTranslation();
   const currentLang = i18n.language || 'en';
   const tLocalRaw = localTranslations[currentLang as keyof typeof localTranslations];

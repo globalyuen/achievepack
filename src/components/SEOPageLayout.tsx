@@ -755,6 +755,7 @@ interface TableData {
 }
 
 interface SEOPageLayoutProps {
+  children?: React.ReactNode;
   // SEO Meta
   title: string
   description: string
@@ -848,6 +849,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   tables,
   schemaType = 'WebPage',
   contentCategory,
+  children,
   relatedLinks,
   ctaTitle = 'Ready to Get Started?',
   ctaDescription = 'Contact our packaging experts for a free consultation and quote.',
@@ -1836,30 +1838,33 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         <div className="max-w-7xl mx-auto px-4 py-12">
           <div className="grid lg:grid-cols-4 gap-8">
             {/* Sidebar Navigation */}
-            <aside className="hidden lg:block lg:col-span-1">
-              <div className="sticky top-24 max-h-[calc(100vh-120px)] overflow-y-auto bg-white rounded-xl shadow-sm border border-neutral-100 p-4">
-                <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-4">{t('seoPages.contents')}</h3>
-                <nav className="space-y-1">
-                  {sections.filter(section => section.id !== 'ai-search').map((section) => (
-                    <a
-                      key={section.id}
-                      href={`#${section.id}`}
-                      className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition"
-                    >
-                      {section.title}
-                    </a>
-                  ))}
-                  {faqs && faqs.length > 0 && (
-                    <a href="#faq" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">
-                      FAQ
-                    </a>
-                  )}
-                </nav>
-              </div>
-            </aside>
+            {((sections && sections.length > 0) || (faqs && faqs.length > 0)) && (
+              <aside className="hidden lg:block lg:col-span-1">
+                <div className="sticky top-24 max-h-[calc(100vh-120px)] overflow-y-auto bg-white rounded-xl shadow-sm border border-neutral-100 p-4">
+                  <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-4">{t('seoPages.contents')}</h3>
+                  <nav className="space-y-1">
+                    {sections.filter(section => section.id !== 'ai-search').map((section) => (
+                      <a
+                        key={section.id}
+                        href={`#${section.id}`}
+                        className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition"
+                      >
+                        {section.title}
+                      </a>
+                    ))}
+                    {faqs && faqs.length > 0 && (
+                      <a href="#faq" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">
+                        FAQ
+                      </a>
+                    )}
+                  </nav>
+                </div>
+              </aside>
+            )}
 
             {/* Main Content Area */}
-            <main className="lg:col-span-3 space-y-8 overflow-hidden">
+            <main className={`${((sections && sections.length > 0) || (faqs && faqs.length > 0)) ? 'lg:col-span-3' : 'lg:col-span-4'} space-y-8 overflow-hidden`}>
+              {children}
               {/* Content Sections */}
               {sections.map((section) => (
                 <section 

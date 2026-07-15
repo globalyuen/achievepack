@@ -129,6 +129,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
             </div>
 
             {[
+              { label: t('pouchLayout.studio', '3D STUDIO'), path: '/studio' },
               { label: t('pouchLayout.cert', 'CERT'), path: '/certifications' },
               { label: t('pouchLayout.testimonials', 'TESTIMONIALS'), path: '/testimonials' },
               { label: t('pouchLayout.blog', 'BLOG'), path: '/blog' }

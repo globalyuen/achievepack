@@ -881,6 +881,7 @@ import CookieConsent from './components/CookieConsent'
 const root = createRoot(document.getElementById('root')!)
 
 const initialLang = getLanguageFromPath()
+
 const routerBasename = '/'
 i18n.changeLanguage(initialLang)
 

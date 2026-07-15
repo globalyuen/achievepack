@@ -114,6 +114,9 @@ const LEARN_PAGES = {
     title: 'Knowledge Base',
     icon: <BookOpen className="h-4 w-4" />,
     pages: [
+      { name: 'Compostable Certification FAQ', link: '/topics/compostable-certification-faq', image: '/imgs/illustrated/a_corporate_sustainability_variation_1_1739210.webp' },
+      { name: 'Compostable Packaging Blog', link: '/topics/compostable-packaging-blog', image: '/imgs/illustrated/a_corporate_sustainability_variation_1_1739210.webp' },
+      { name: 'Compostable Spouted Pouches', link: '/topics/compostable-spouted-pouches', image: '/imgs/illustrated/a_corporate_sustainability_variation_1_1739210.webp' },
       { name: 'All Options', link: '/knowledge/all-options', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
       { name: 'Surface Option', link: '/features/surface-finish', image: '/imgs/illustrated/a_surface_finish_close_detail_b_2163248.webp' },
       { name: 'Reclosure Option', link: '/features/reclosure-options', image: '/imgs/illustrated/a_reclosure_options_close_detail_b_4502553.webp' },
