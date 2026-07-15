@@ -519,15 +519,8 @@ export default function SharedStudioPage() {
       ctx.translate(layer.pos.x, layer.pos.y);
       ctx.rotate((layer.rotation || 0) * (Math.PI / 180));
 
-      let sX = 1.0;
-      let sY = 1.0;
-      if (modelRef.current) {
-        sX = modelRef.current.scale.x;
-        sY = modelRef.current.scale.y;
-      }
-
-      const w = ((layer.width || layer.img.width) * (layer.scale || 1.0)) / sX;
-      const h = ((layer.height || layer.img.height) * (layer.scale || 1.0)) / sY;
+      const w = (layer.width || layer.img.width) * (layer.scale || 1.0);
+      const h = (layer.height || layer.img.height) * (layer.scale || 1.0);
 
       ctx.drawImage(layer.img, -w / 2, -h / 2, w, h);
       ctx.restore();

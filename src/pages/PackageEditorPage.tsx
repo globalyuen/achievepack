@@ -192,18 +192,7 @@ export default function PackageEditorPage() {
       let w = layer.width * layer.scale;
       let h = layer.height * layer.scale;
 
-      // Apply 3D-only scale correction for offscreen canvas (texture) to prevent 3D package stretching
-      // from distorting/scaling the artwork, while keeping the 2D canvas layout completely constant-sized.
-      if (!drawUIOverlay) {
-        let sX = 1.0;
-        let sY = 1.0;
-        if (modelRef.current) {
-          sX = modelRef.current.scale.x;
-          sY = modelRef.current.scale.y;
-        }
-        w /= sX;
-        h /= sY;
-      }
+
 
       cContext.drawImage(layer.img, -w / 2, -h / 2, w, h);
 
