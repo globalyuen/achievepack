@@ -1,13 +1,13 @@
 import React from 'react';
-import Head from 'next/head';
+import { Helmet } from 'react-helmet-async';
 
 const ReducePackagingWasteGuidePage: React.FC = () => {
   return (
     <>
-      <Head>
+      <Helmet>
         <title>The Guide to Reducing Packaging Waste | Achieve Pack</title>
         <meta name="description" content="A comprehensive B2B guide to optimizing packaging, reducing waste, and improving operational efficiency with Achieve Pack's sustainable solutions." />
-      </Head>
+      </Helmet>
       <div className="bg-white min-h-screen font-sans text-gray-900">
         {/* Hero Section */}
         <section className="relative w-full h-[60vh] flex items-center justify-center bg-gray-50 overflow-hidden">

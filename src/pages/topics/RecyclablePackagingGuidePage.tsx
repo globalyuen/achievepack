@@ -1,14 +1,14 @@
 import React from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
+import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 
 export default function RecyclablePackagingGuidePage() {
   return (
     <div className="bg-white min-h-screen">
-      <Head>
+      <Helmet>
         <title>Recyclable Packaging Guide | Achieve Pack</title>
         <meta name="description" content="Technical guidelines for adopting and optimizing fully recyclable packaging structures." />
-      </Head>
+      </Helmet>
       <main className="container mx-auto px-4 py-16">
         <h1 className="text-4xl font-bold mb-6 text-gray-900">Your Guide to Recyclable Packaging</h1>
         <p className="text-xl mb-8 text-gray-700">Navigating the complexities of recyclable packaging structures can be overwhelming. We take the confusion out of the process, providing certified mono-material films that perform on your production lines.</p>
@@ -28,7 +28,7 @@ export default function RecyclablePackagingGuidePage() {
           </div>
         </div>
         
-        <Link href="/contact" className="inline-block bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transition">Request a Quote</Link>
+        <Link to="/contact" className="inline-block bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transition">Request a Quote</Link>
       </main>
     </div>
   );

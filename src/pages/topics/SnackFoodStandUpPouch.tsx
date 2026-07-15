@@ -1,13 +1,13 @@
 import React from 'react';
-import Head from 'next/head';
+import { Helmet } from 'react-helmet-async';
 
 export default function SnackFoodStandUpPouch() {
   return (
     <div className="bg-white min-h-screen">
-      <Head>
+      <Helmet>
         <title>Snack Food Stand Up Pouch | Achieve Pack</title>
         <meta name="description" content="Technical excellence in snack food stand up pouch for B2B brands." />
-      </Head>
+      </Helmet>
       <main className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 mb-8">Snack Food Stand Up Pouch</h1>
         <p className="text-xl text-gray-500 mb-12">

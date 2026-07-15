@@ -182,8 +182,8 @@ const CompostableSpoutedPouchesPage: React.FC = () => {
 
   const faqs = [
     {
-      question: "Are your spouted pouches suitable for hot-fill pasteurization?",
-      answer: "Yes. Achieve Pack utilizes a specially modified PBS (Polybutylene Succinate) inner layer that is thermal-resistant up to 105°C, making it completely safe for standard hot-fill processes used in baby foods, purees, and organic sauces."
+      question: "Are your spouted pouches suitable for hot- pasteurization?",
+      answer: "Yes. Achieve Pack utilizes a specially modified PBS (Polybutylene Succinate) inner layer that is thermal-resistant up to 105°C, making it completely safe for standard hot- processes used in baby foods, purees, and organic sauces."
     },
     {
       question: "Is the rigid spout itself actually compostable?",

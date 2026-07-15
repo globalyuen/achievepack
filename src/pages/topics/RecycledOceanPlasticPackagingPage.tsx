@@ -1,13 +1,13 @@
 import React from 'react';
-import Head from 'next/head';
+import { Helmet } from 'react-helmet-async';
 
 const RecycledOceanPlasticPackagingPage: React.FC = () => {
   return (
     <>
-      <Head>
+      <Helmet>
         <title>Recycled Ocean Plastic Packaging Solutions | Achieve Pack</title>
         <meta name="description" content="Discover Achieve Pack's advanced B2B recycled ocean plastic packaging solutions. Superior sustainability meets high-performance material engineering." />
-      </Head>
+      </Helmet>
       <div className="bg-white min-h-screen font-sans text-gray-900">
         <section className="relative w-full h-[60vh] flex items-center justify-center bg-gray-50 overflow-hidden">
           <div className="absolute inset-0 z-0">

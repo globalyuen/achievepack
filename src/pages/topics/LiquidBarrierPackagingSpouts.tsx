@@ -1,51 +1,210 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Link } from 'react-router-dom'
-import { Target, Sparkles, Shield, Eye, Settings, HelpCircle, Calendar, Package, CheckCircle2, Info } from 'lucide-react'
+import { 
+  Target, Sparkles, Shield, Eye, Calendar, 
+  Package, CheckCircle2, Layers, Info, Check, HelpCircle
+} from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
-import { useCalendly } from '../../contexts/CalendlyContext'
+import { useTranslation } from 'react-i18next'
+
+const localTranslations = {
+  en: {
+  "title": "Liquid Barrier Packaging: Spout Pouch Guide",
+  "description": "Comprehensive guide on advanced packaging.",
+  "heroTitle": "Liquid Barrier Packaging: Spout Pouch Guide",
+  "heroSubtitle": "Discover best practices and sustainable solutions.",
+  "introSummary": "An in-depth look at optimizing your packaging strategies.",
+  "aeoSummary": "Learn more about this key packaging engineering topic.",
+  "eeatDetails": "Written by Achieve Pack Engineering Team.",
+  "empathyHook": "We know the absolute nightmare of shipping liquid products. Just one bursting spout pouch can ruin an entire box of inventory, leading to angry customer emails and costly refunds. I've seen brands struggle with spouts that leak around the edges or caps that let air in and spoil the juice inside. It is incredibly stressful to ship liquids when you don't trust your packaging. That's why engineering a heavy-duty, impact-resistant liquid pouch with a perfectly welded spout isn't just a luxury—it's essential for your peace of mind.",
+  "section1Title": "Understanding the Process",
+  "section1Text": "This section outlines the primary methodology and engineering behind this packaging technique.",
+  "section2Title": "Key Advantages",
+  "section2Log": "Improved efficiency, reduced costs, and sustainable outcomes for modern brands.",
+  "point1Title": "Pouch Leaking Around Spout Fitment",
+  "point1Desc": "Weak welds where the rigid plastic spout meets the flexible pouch can cause leaks.",
+  "point1Sol": "Use specialized heat sealing bars shaped to fit the spout base, applying even heat and pressure to weld it securely.",
+  "point2Title": "Delamination from Chemical Contact",
+  "point2Desc": "Active chemicals in detergents or soaps can break down the adhesives holding the bag layers together.",
+  "point2Sol": "Use chemical-resistant, solvent-free adhesives and co-polymer PE liners designed to withstand surfactants.",
+  "point3Title": "Bags Bursting During Transit Drops",
+  "point3Desc": "The weight of liquids can cause pouches to burst along the seams when dropped.",
+  "point3Sol": "Incorporate a tough, biaxially oriented nylon (BOPA) layer into the laminate to increase drop and impact strength.",
+  "point4Title": "Heat Distortion in Hot-Fill Lines",
+  "point4Desc": "Filling pouches with hot liquids (up to 85°C-90°C) can cause thin plastic films to warp or melt.",
+  "point4Sol": "Select heat-stabilized outer films (like PET or OPA) and heat-resistant PE sealing liners.",
+  "point5Title": "Oxygen Entering Through Spout Caps",
+  "point5Desc": "Poorly fitting caps can let oxygen into the pouch, causing juices or sauces to spoil.",
+  "point5Sol": "Use spouts with built-in oxygen barrier liners and secure screw caps with tamper-evident rings.",
+  "compTitle": "Rigid HDPE Bottles vs. High-Barrier Flexible Spout Pouches",
+  "compDesc": "Compare weight, shipping cost, and environmental impact metrics:",
+  "faq1Q": "Can spout pouches be filled with hot liquids?",
+  "faq1A": "Yes. Our hot-fill spout pouches are engineered to withstand temperatures up to 90°C during filling, perfect for juices and sauces.",
+  "faq2Q": "Are these pouches leak-proof?",
+  "faq2A": "Yes. We use high-strength nylon laminates and perform drop-testing to ensure our pouches remain secure during shipping.",
+  "faq3Q": "Can I use spout pouches for hand sanitizer or soap?",
+  "faq3A": "Yes. We use chemical-resistant liners and adhesives designed to store soaps, sanitizers, and household cleaners safely."
+},
+  es: {
+  "title": "Liquid Barrier Packaging: Spout Pouch Guide",
+  "description": "Comprehensive guide on advanced packaging.",
+  "heroTitle": "Liquid Barrier Packaging: Spout Pouch Guide",
+  "heroSubtitle": "Discover best practices and sustainable solutions.",
+  "introSummary": "An in-depth look at optimizing your packaging strategies.",
+  "aeoSummary": "Learn more about this key packaging engineering topic.",
+  "eeatDetails": "Written by Achieve Pack Engineering Team.",
+  "empathyHook": "We know the absolute nightmare of shipping liquid products. Just one bursting spout pouch can ruin an entire box of inventory, leading to angry customer emails and costly refunds. I've seen brands struggle with spouts that leak around the edges or caps that let air in and spoil the juice inside. It is incredibly stressful to ship liquids when you don't trust your packaging. That's why engineering a heavy-duty, impact-resistant liquid pouch with a perfectly welded spout isn't just a luxury—it's essential for your peace of mind.",
+  "section1Title": "Understanding the Process",
+  "section1Text": "This section outlines the primary methodology and engineering behind this packaging technique.",
+  "section2Title": "Key Advantages",
+  "section2Log": "Improved efficiency, reduced costs, and sustainable outcomes for modern brands.",
+  "point1Title": "Pouch Leaking Around Spout Fitment",
+  "point1Desc": "Weak welds where the rigid plastic spout meets the flexible pouch can cause leaks.",
+  "point1Sol": "Use specialized heat sealing bars shaped to fit the spout base, applying even heat and pressure to weld it securely.",
+  "point2Title": "Delamination from Chemical Contact",
+  "point2Desc": "Active chemicals in detergents or soaps can break down the adhesives holding the bag layers together.",
+  "point2Sol": "Use chemical-resistant, solvent-free adhesives and co-polymer PE liners designed to withstand surfactants.",
+  "point3Title": "Bags Bursting During Transit Drops",
+  "point3Desc": "The weight of liquids can cause pouches to burst along the seams when dropped.",
+  "point3Sol": "Incorporate a tough, biaxially oriented nylon (BOPA) layer into the laminate to increase drop and impact strength.",
+  "point4Title": "Heat Distortion in Hot-Fill Lines",
+  "point4Desc": "Filling pouches with hot liquids (up to 85°C-90°C) can cause thin plastic films to warp or melt.",
+  "point4Sol": "Select heat-stabilized outer films (like PET or OPA) and heat-resistant PE sealing liners.",
+  "point5Title": "Oxygen Entering Through Spout Caps",
+  "point5Desc": "Poorly fitting caps can let oxygen into the pouch, causing juices or sauces to spoil.",
+  "point5Sol": "Use spouts with built-in oxygen barrier liners and secure screw caps with tamper-evident rings.",
+  "compTitle": "Rigid HDPE Bottles vs. High-Barrier Flexible Spout Pouches",
+  "compDesc": "Compare weight, shipping cost, and environmental impact metrics:",
+  "faq1Q": "Can spout pouches be filled with hot liquids?",
+  "faq1A": "Yes. Our hot-fill spout pouches are engineered to withstand temperatures up to 90°C during filling, perfect for juices and sauces.",
+  "faq2Q": "Are these pouches leak-proof?",
+  "faq2A": "Yes. We use high-strength nylon laminates and perform drop-testing to ensure our pouches remain secure during shipping.",
+  "faq3Q": "Can I use spout pouches for hand sanitizer or soap?",
+  "faq3A": "Yes. We use chemical-resistant liners and adhesives designed to store soaps, sanitizers, and household cleaners safely."
+},
+  fr: {
+  "title": "Liquid Barrier Packaging: Spout Pouch Guide",
+  "description": "Comprehensive guide on advanced packaging.",
+  "heroTitle": "Liquid Barrier Packaging: Spout Pouch Guide",
+  "heroSubtitle": "Discover best practices and sustainable solutions.",
+  "introSummary": "An in-depth look at optimizing your packaging strategies.",
+  "aeoSummary": "Learn more about this key packaging engineering topic.",
+  "eeatDetails": "Written by Achieve Pack Engineering Team.",
+  "empathyHook": "We know the absolute nightmare of shipping liquid products. Just one bursting spout pouch can ruin an entire box of inventory, leading to angry customer emails and costly refunds. I've seen brands struggle with spouts that leak around the edges or caps that let air in and spoil the juice inside. It is incredibly stressful to ship liquids when you don't trust your packaging. That's why engineering a heavy-duty, impact-resistant liquid pouch with a perfectly welded spout isn't just a luxury—it's essential for your peace of mind.",
+  "section1Title": "Understanding the Process",
+  "section1Text": "This section outlines the primary methodology and engineering behind this packaging technique.",
+  "section2Title": "Key Advantages",
+  "section2Log": "Improved efficiency, reduced costs, and sustainable outcomes for modern brands.",
+  "point1Title": "Pouch Leaking Around Spout Fitment",
+  "point1Desc": "Weak welds where the rigid plastic spout meets the flexible pouch can cause leaks.",
+  "point1Sol": "Use specialized heat sealing bars shaped to fit the spout base, applying even heat and pressure to weld it securely.",
+  "point2Title": "Delamination from Chemical Contact",
+  "point2Desc": "Active chemicals in detergents or soaps can break down the adhesives holding the bag layers together.",
+  "point2Sol": "Use chemical-resistant, solvent-free adhesives and co-polymer PE liners designed to withstand surfactants.",
+  "point3Title": "Bags Bursting During Transit Drops",
+  "point3Desc": "The weight of liquids can cause pouches to burst along the seams when dropped.",
+  "point3Sol": "Incorporate a tough, biaxially oriented nylon (BOPA) layer into the laminate to increase drop and impact strength.",
+  "point4Title": "Heat Distortion in Hot-Fill Lines",
+  "point4Desc": "Filling pouches with hot liquids (up to 85°C-90°C) can cause thin plastic films to warp or melt.",
+  "point4Sol": "Select heat-stabilized outer films (like PET or OPA) and heat-resistant PE sealing liners.",
+  "point5Title": "Oxygen Entering Through Spout Caps",
+  "point5Desc": "Poorly fitting caps can let oxygen into the pouch, causing juices or sauces to spoil.",
+  "point5Sol": "Use spouts with built-in oxygen barrier liners and secure screw caps with tamper-evident rings.",
+  "compTitle": "Rigid HDPE Bottles vs. High-Barrier Flexible Spout Pouches",
+  "compDesc": "Compare weight, shipping cost, and environmental impact metrics:",
+  "faq1Q": "Can spout pouches be filled with hot liquids?",
+  "faq1A": "Yes. Our hot-fill spout pouches are engineered to withstand temperatures up to 90°C during filling, perfect for juices and sauces.",
+  "faq2Q": "Are these pouches leak-proof?",
+  "faq2A": "Yes. We use high-strength nylon laminates and perform drop-testing to ensure our pouches remain secure during shipping.",
+  "faq3Q": "Can I use spout pouches for hand sanitizer or soap?",
+  "faq3A": "Yes. We use chemical-resistant liners and adhesives designed to store soaps, sanitizers, and household cleaners safely."
+},
+  'zh-tw': {
+  "title": "Liquid Barrier Packaging: Spout Pouch Guide",
+  "description": "Comprehensive guide on advanced packaging.",
+  "heroTitle": "Liquid Barrier Packaging: Spout Pouch Guide",
+  "heroSubtitle": "Discover best practices and sustainable solutions.",
+  "introSummary": "An in-depth look at optimizing your packaging strategies.",
+  "aeoSummary": "Learn more about this key packaging engineering topic.",
+  "eeatDetails": "Written by Achieve Pack Engineering Team.",
+  "empathyHook": "We know the absolute nightmare of shipping liquid products. Just one bursting spout pouch can ruin an entire box of inventory, leading to angry customer emails and costly refunds. I've seen brands struggle with spouts that leak around the edges or caps that let air in and spoil the juice inside. It is incredibly stressful to ship liquids when you don't trust your packaging. That's why engineering a heavy-duty, impact-resistant liquid pouch with a perfectly welded spout isn't just a luxury—it's essential for your peace of mind.",
+  "section1Title": "Understanding the Process",
+  "section1Text": "This section outlines the primary methodology and engineering behind this packaging technique.",
+  "section2Title": "Key Advantages",
+  "section2Log": "Improved efficiency, reduced costs, and sustainable outcomes for modern brands.",
+  "point1Title": "Pouch Leaking Around Spout Fitment",
+  "point1Desc": "Weak welds where the rigid plastic spout meets the flexible pouch can cause leaks.",
+  "point1Sol": "Use specialized heat sealing bars shaped to fit the spout base, applying even heat and pressure to weld it securely.",
+  "point2Title": "Delamination from Chemical Contact",
+  "point2Desc": "Active chemicals in detergents or soaps can break down the adhesives holding the bag layers together.",
+  "point2Sol": "Use chemical-resistant, solvent-free adhesives and co-polymer PE liners designed to withstand surfactants.",
+  "point3Title": "Bags Bursting During Transit Drops",
+  "point3Desc": "The weight of liquids can cause pouches to burst along the seams when dropped.",
+  "point3Sol": "Incorporate a tough, biaxially oriented nylon (BOPA) layer into the laminate to increase drop and impact strength.",
+  "point4Title": "Heat Distortion in Hot-Fill Lines",
+  "point4Desc": "Filling pouches with hot liquids (up to 85°C-90°C) can cause thin plastic films to warp or melt.",
+  "point4Sol": "Select heat-stabilized outer films (like PET or OPA) and heat-resistant PE sealing liners.",
+  "point5Title": "Oxygen Entering Through Spout Caps",
+  "point5Desc": "Poorly fitting caps can let oxygen into the pouch, causing juices or sauces to spoil.",
+  "point5Sol": "Use spouts with built-in oxygen barrier liners and secure screw caps with tamper-evident rings.",
+  "compTitle": "Rigid HDPE Bottles vs. High-Barrier Flexible Spout Pouches",
+  "compDesc": "Compare weight, shipping cost, and environmental impact metrics:",
+  "faq1Q": "Can spout pouches be filled with hot liquids?",
+  "faq1A": "Yes. Our hot-fill spout pouches are engineered to withstand temperatures up to 90°C during filling, perfect for juices and sauces.",
+  "faq2Q": "Are these pouches leak-proof?",
+  "faq2A": "Yes. We use high-strength nylon laminates and perform drop-testing to ensure our pouches remain secure during shipping.",
+  "faq3Q": "Can I use spout pouches for hand sanitizer or soap?",
+  "faq3A": "Yes. We use chemical-resistant liners and adhesives designed to store soaps, sanitizers, and household cleaners safely."
+}
+}
 
 const LiquidBarrierPackagingSpouts: React.FC = () => {
-  const { openCalendly } = useCalendly()
+  const { t, i18n } = useTranslation()
+  const lang = i18n.language || 'en'
+  const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
 
   const IMAGES = {
-    hero: '/imgs/topics/liquid-barrier-packaging-spouts/hero.jpg',
-    process: '/imgs/topics/liquid-barrier-packaging-spouts/process.jpg',
-    comparison: '/imgs/topics/liquid-barrier-packaging-spouts/comparison.jpg'
+    hero: '/imgs/knowledge/liquid-spout-pouches-guide.jpg',
+    process: '/imgs/knowledge/liquid-spout-pouches-process.jpg',
+    comparison: '/imgs/knowledge/liquid-spout-pouches-comparison.jpg'
   }
 
   const sections = [
     {
       id: 'empathy-hook',
-      title: 'The Hidden Cost of Liquid Barrier Packaging Spouts Failures',
-      icon: <Target className="h-5 w-5 text-primary-600" />,
+      title: 'The Reality of the Challenge',
+      icon: <CheckCircle2 className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="space-y-4 text-neutral-700">
-          <p className="text-lg font-medium text-neutral-900 leading-relaxed">
-            You've spent months perfecting your product, but standard packaging often fails to meet technical requirements during high-stress transit or shelf-life. This leads to compromised barrier integrity and damaged brand reputation.
+        <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg space-y-4 mb-8">
+          <p className="text-lg text-neutral-800 italic leading-relaxed">
+            "{localTrans.empathyHook}"
           </p>
-          <p className="text-base">
-            We understand the frustration. That's why our <strong>Liquid Barrier Packaging Spouts</strong> is engineered to deliver unmatched reliability, featuring advanced multi-layer laminates and precision manufacturing to eliminate these risks entirely.
-          </p>
+          <div className="flex items-center gap-3 mt-4 pt-4 border-t border-amber-200">
+            <img src="/imgs/ryan-wong-avatar.jpg" alt="Ryan Wong" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Ryan+Wong&background=000&color=fff' }} />
+            <div>
+              <p className="text-sm font-bold text-neutral-900">Ryan Wong</p>
+              <p className="text-xs text-neutral-600">Chief Packaging Engineer, Achieve Pack</p>
+            </div>
+          </div>
         </div>
       )
     },
     {
-      id: 'technology',
-      title: 'What makes our Liquid Barrier Packaging Spouts Superior?',
-      icon: <Sparkles className="h-5 w-5 text-primary-600" />,
+      id: 'detailed-explanation',
+      title: localTrans.section1Title,
+      icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="text-base leading-relaxed">
-            Our Liquid Barrier Packaging Spouts utilizes proprietary extrusion processes and high-grade materials to ensure maximum protection against oxygen, moisture, and UV light degradation.
+            {localTrans.section1Text}
           </p>
-          <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-6">
+          <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
             <ClickableImage 
               src={IMAGES.process} 
-              alt="Liquid Barrier Packaging Spouts manufacturing process" 
+              alt="High resolution product lamination process closeup" 
               className="w-full h-auto rounded-lg shadow-sm"
-              caption="Precision engineering for Liquid Barrier Packaging Spouts"
+              caption="High-resolution visual demonstration showing material and structural features of the package."
             />
           </div>
         </div>
@@ -53,35 +212,110 @@ const LiquidBarrierPackagingSpouts: React.FC = () => {
     },
     {
       id: 'EEAT-anecdote',
-      title: 'From Ryan Wong’s Engineering Notebook',
+      title: localTrans.section2Title,
       icon: <Info className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 text-white p-6 rounded-lg border-2 border-[#D4FF00] space-y-4">
-          <p className="font-['JetBrains_Mono'] text-xs font-bold text-[#D4FF00]">// CHIEF PACKAGING ENGINEER AUDIT NOTEBOOK</p>
+          <p className="font-['JetBrains_Mono'] text-xs font-bold text-[#D4FF00]">// CHIEF PACKAGING ENGINEER JOURNAL entry</p>
           <blockquote className="italic border-l-4 border-[#D4FF00] pl-4 text-sm md:text-base text-neutral-200">
-            "When analyzing Liquid Barrier Packaging Spouts, many suppliers overlook the critical stress points. By integrating a highly durable intermediate layer, we have achieved a 300% increase in tensile strength, ensuring FDA and EU food contact compliance without sacrificing structural integrity."
+            "{localTrans.section2Log}"
           </blockquote>
           <p className="text-xs font-['JetBrains_Mono'] text-[#D4FF00] font-semibold flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-[#D4FF00]" /> BRCGS, FDA & EU Food Contact Standard Compliance
+            <CheckCircle2 className="w-4 h-4 text-[#D4FF00]" /> 100% Prepress Calibration Guaranteed
           </p>
         </div>
       )
     },
     {
-      id: 'comparison',
-      title: 'Standard vs Premium Liquid Barrier Packaging Spouts',
+      id: 'five-plain-points',
+      title: "5 Core Challenges & Engineering Solutions",
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6">
+          <div className="space-y-4">
+            {/* Point 1 */}
+            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
+                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">01</span>
+                {localTrans.point1Title}
+              </h4>
+              <p className="text-sm text-neutral-600 mb-3">{localTrans.point1Desc}</p>
+              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
+                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
+                {localTrans.point1Sol}
+              </div>
+            </div>
+
+            {/* Point 2 */}
+            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
+                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">02</span>
+                {localTrans.point2Title}
+              </h4>
+              <p className="text-sm text-neutral-600 mb-3">{localTrans.point2Desc}</p>
+              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
+                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
+                {localTrans.point2Sol}
+              </div>
+            </div>
+
+            {/* Point 3 */}
+            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
+                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">03</span>
+                {localTrans.point3Title}
+              </h4>
+              <p className="text-sm text-neutral-600 mb-3">{localTrans.point3Desc}</p>
+              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
+                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
+                {localTrans.point3Sol}
+              </div>
+            </div>
+
+            {/* Point 4 */}
+            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
+                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">04</span>
+                {localTrans.point4Title}
+              </h4>
+              <p className="text-sm text-neutral-600 mb-3">{localTrans.point4Desc}</p>
+              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
+                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
+                {localTrans.point4Sol}
+              </div>
+            </div>
+
+            {/* Point 5 */}
+            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
+                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">05</span>
+                {localTrans.point5Title}
+              </h4>
+              <p className="text-sm text-neutral-600 mb-3">{localTrans.point5Desc}</p>
+              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
+                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
+                {localTrans.point5Sol}
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'resolution-comparison-section',
+      title: localTrans.compTitle,
       icon: <Eye className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="text-base leading-relaxed">
-            Unlike conventional options, our solution minimizes material fatigue and enhances presentation.
+            {localTrans.compDesc}
           </p>
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
             <ClickableImage 
               src={IMAGES.comparison} 
-              alt="Comparison of Liquid Barrier Packaging Spouts" 
+              alt="Microscopic or detailed physical properties comparison" 
               className="w-full h-auto rounded-lg shadow-sm"
-              caption="Visual comparison showcasing our superior Liquid Barrier Packaging Spouts quality."
+              caption="Visual packaging engineering representation comparing materials, barriers, or sealing methods."
             />
           </div>
         </div>
@@ -91,37 +325,122 @@ const LiquidBarrierPackagingSpouts: React.FC = () => {
 
   const faqs = [
     {
-      question: "Is the Liquid Barrier Packaging Spouts compliant with global food safety standards?",
-      answer: "Yes, our manufacturing process and materials are fully certified under BRCGS, FDA, and EU regulations."
+      question: localTrans.faq1Q,
+      answer: localTrans.faq1A
     },
     {
-      question: "Can we customize the dimensions and finish?",
-      answer: "Absolutely. We offer fully custom dimensions, advanced closures, and matte/gloss finishes tailored to your product specifications."
+      question: localTrans.faq2Q,
+      answer: localTrans.faq2A
+    },
+    {
+      question: localTrans.faq3Q,
+      answer: localTrans.faq3A
     }
+  ]
+
+  const tables = [
+    {
+      title: "Packaging Performance Comparison Matrix",
+      data: {
+        headers: ["Parameter", "Standard Specifications", "Eco-Engineered Specifications"],
+        rows: [
+          ["Material Barrier Thickness", "80 Microns (Mixed laminates)", "120 Microns (Mono PE / Plant-Based)"],
+          ["Oxygen Transmission Rate (OTR)", "1.5 cc/m²/24hr (Standard)", "Near Zero (<0.05 cc/m²/24hr)"],
+          ["EPR Modulated Tax Level", "Maximum tier surcharges", "Lowest modulated tax brackets"]
+        ]
+      }
+    }
+  ]
+
+  const schemaKeywords = [
+    "custom packaging design",
+    "sustainable barrier films",
+    "epr tax compliance",
+    "flexible pouches",
+    "packaging engineer"
   ]
 
   return (
     <>
       <Helmet>
-        <title>Liquid Barrier Packaging Spouts | B2B Technical Packaging</title>
-        <meta name="description" content="Technical engineering guide for Liquid Barrier Packaging Spouts. B2B sustainable packaging solutions with low MOQs and FDA compliance." />
-        <link rel="canonical" href={`https://achievepack.com/topics/liquid-barrier-packaging-spouts`} />
+        <title>{localTrans.title} | Achieve Pack</title>
+        <meta name="description" content={localTrans.description} />
+        <link rel="canonical" href="https://achievepack.com/topics/liquid-barrier-packaging-spouts" />
+        <meta name="keywords" content={schemaKeywords.join(', ')} />
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": localTrans.title,
+            "description": localTrans.description,
+            "image": `https://achievepack.com${IMAGES.hero}`,
+            "author": {
+              "@type": "Person",
+              "name": "Ryan Wong",
+              "jobTitle": "Chief Packaging Engineer",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Achieve Pack"
+              }
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Achieve Pack",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://achievepack.com/imgs/logo/achievepack-logo.png"
+              }
+            },
+            "datePublished": "2025-04-01",
+            "dateModified": new Date().toISOString().split('T')[0],
+            "mainEntityOfPage": "https://achievepack.com/topics/liquid-barrier-packaging-spouts"
+          })}
+        </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+              }
+            }))
+          })}
+        </script>
       </Helmet>
 
+      <div className="sr-only" aria-hidden="true">
+        <section data-ai-faq="true" itemScope itemType="https://schema.org/FAQPage">
+          {faqs.map((faq, idx) => (
+            <article key={idx} itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
+              <h3 itemProp="name">{faq.question}</h3>
+              <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
+                <p itemProp="text">{faq.answer}</p>
+              </div>
+            </article>
+          ))}
+        </section>
+      </div>
+
       <SEOPageLayout
-        title="Liquid Barrier Packaging Spouts"
-        description="Engineered technical solutions for your packaging needs."
+        title={localTrans.title}
+        description={localTrans.description}
         heroImage={IMAGES.hero}
-        heroImageAlt="Liquid Barrier Packaging Spouts Hero Showcase"
-        heroTitle="High-Performance Liquid Barrier Packaging Spouts"
-        heroSubtitle="Precision Engineered | BRCGS Certified | Custom Dimensions"
-        introSummary="Achieve Pack delivers industrial-grade Liquid Barrier Packaging Spouts engineered for maximum durability, barrier protection, and production line efficiency."
-        aeoSummary="Our Liquid Barrier Packaging Spouts represents the pinnacle of flexible packaging technology, combining advanced laminates with robust seal integrity to protect against oxygen and moisture."
-        eeatDetails="Manufactured in BRCGS-certified facilities ensuring global compliance for direct food contact."
+        heroTitle={localTrans.heroTitle}
+        heroSubtitle={localTrans.heroSubtitle}
+        introSummary={localTrans.introSummary}
+        aeoSummary={localTrans.aeoSummary}
+        eeatDetails={localTrans.eeatDetails}
         sections={sections}
         faqs={faqs}
+        tables={tables}
         schemaType="Article"
-        contentCategory="Technical Packaging"
+        contentCategory="Packaging Engineering & Material Science"
       />
     </>
   )

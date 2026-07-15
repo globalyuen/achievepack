@@ -89,8 +89,8 @@ export default function Footer() {
     <footer className="bg-neutral-900 text-white pt-12 pb-8 mt-8 border-t border-neutral-850">
       <div className="max-w-7xl mx-auto px-4">
         
-        {/* Row 1: Core Navigation (5 Columns) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-8 pb-8 border-b border-neutral-800">
+        {/* Row 1: Core Navigation (4 Columns) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8 pb-8 border-b border-neutral-800">
           
           {/* Column 1: Company & Support */}
           <div className="space-y-4">
@@ -142,63 +142,47 @@ export default function Footer() {
                 <li><Link to="/company/about" className="hover:text-primary-400">{t('pouchEcoFooter.aboutUs', 'About Us')}</Link></li>
                 <li><Link to="/team/ryan-wong" className="hover:text-primary-400">{t('pouchEcoFooter.ryanWong', 'Meet Ryan Wong')}</Link></li>
                 <li><Link to="/support/faqs" className="hover:text-primary-400">{t('pouchEcoFooter.faqs', 'FAQs')}</Link></li>
-                <li><Link to="/support/lead-time" className="hover:text-primary-400">{t('pouchEcoFooter.leadTime', 'Lead Time')}</Link></li>
-                <li><Link to="/company/certificates" className="hover:text-primary-400">{t('pouchEcoFooter.certificates', 'Certificates')}</Link></li>
-                <li><a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="hover:text-primary-400">{t('pouchEcoFooter.bookMeeting', 'Book a Meeting')}</a></li>
+                <li><a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="hover:text-primary-400">{t('pouchEcoFooter.bookMeeting', 'Book a Consultation')}</a></li>
               </ul>
             </div>
           </div>
 
-          {/* Column 2: Shop by Pouch Shape */}
+          {/* Column 2: Packaging Solutions */}
           <div>
-            <h4 className="font-semibold text-sm mb-3 text-neutral-200">{t('pouchEcoFooter.shopByShape', 'Shop by Pouch Shape')}</h4>
+            <h4 className="font-semibold text-sm mb-3 text-neutral-200">{t('pouchEcoFooter.packagingSolutions', 'Packaging Solutions')}</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
+              <li><Link to="/quotes/rollstock" className="hover:text-primary-400">{t('pouchEcoFooter.rollstockFilm', 'Rollstock Film')}</Link></li>
+              <li><Link to="/topics/packaging-line-automation" className="hover:text-primary-400">{t('pouchEcoFooter.automatedIntegration', 'Automated Line Integration')}</Link></li>
+              <li><Link to="/packaging/custom-boxes" className="hover:text-primary-400">{t('pouchEcoFooter.customBoxes', 'High-Volume Custom Packaging')}</Link></li>
               <li><Link to="/packaging/stand-up-pouches" className="hover:text-primary-400">{t('pouchEcoFooter.standUpPouches', 'Stand Up Pouches')}</Link></li>
               <li><Link to="/packaging/flat-bottom-bags" className="hover:text-primary-400">{t('pouchEcoFooter.flatBottomBags', 'Flat Bottom Bags')}</Link></li>
               <li><Link to="/packaging/spout-pouches" className="hover:text-primary-400">{t('pouchEcoFooter.spoutPouches', 'Spout Pouches')}</Link></li>
-              <li><Link to="/packaging/side-gusset-bags" className="hover:text-primary-400">{t('pouchEcoFooter.sideGussetBags', 'Side Gusset Bags')}</Link></li>
-              <li><Link to="/packaging/flat-pouches" className="hover:text-primary-400">{t('pouchEcoFooter.flatPouches', 'Flat Pouches')}</Link></li>
-              <li><Link to="/quotes/rollstock" className="hover:text-primary-400">{t('pouchEcoFooter.rollstock', 'Rollstock')}</Link></li>
-              <li><Link to="/packaging/custom-boxes" className="hover:text-primary-400">{t('pouchEcoFooter.customBoxes', 'Custom Boxes')}</Link></li>
-              <li><Link to="/packaging/shrink-sleeves" className="hover:text-primary-400">{t('pouchEcoFooter.shrinkSleeves', 'Shrink Sleeves')}</Link></li>
             </ul>
           </div>
 
-          {/* Column 3: Shop by Eco-Material */}
+          {/* Column 3: Technical Specs */}
           <div>
-            <h4 className="font-semibold text-sm mb-3 text-neutral-200">{t('pouchEcoFooter.shopByEcoMaterial', 'Shop by Eco-Material')}</h4>
+            <h4 className="font-semibold text-sm mb-3 text-neutral-200">{t('pouchEcoFooter.technicalSpecs', 'Technical Specs')}</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
-              <li><Link to="/products/compostable-stand-up-pouches" className="hover:text-primary-400">{t('pouchEcoFooter.compostablePackaging', 'Compostable Packaging')}</Link></li>
-              <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-400">{t('pouchEcoFooter.recyclableMonoMaterial', 'Recyclable Mono-Material')}</Link></li>
-              <li><Link to="/pcr/pcr-plastic-guide" className="hover:text-primary-400">{t('pouchEcoFooter.pcrPlastic', 'PCR Plastic')}</Link></li>
-              <li><Link to="/materials/bio-pe" className="hover:text-primary-400">{t('pouchEcoFooter.bioPeMaterials', 'Bio-PE')}</Link></li>
-              <li><Link to="/materials/plastic-free-kraft" className="hover:text-primary-400">{t('pouchEcoFooter.plasticFreeKraft', 'Plastic-Free Kraft')}</Link></li>
-            </ul>
-          </div>
-
-          {/* Column 4: Shop by Industry */}
-          <div>
-            <h4 className="font-semibold text-sm mb-3 text-neutral-200">{t('pouchEcoFooter.shopByIndustry', 'Shop by Industry')}</h4>
-            <ul className="space-y-1 text-xs text-neutral-400">
-              <li><Link to="/industry/coffee-tea" className="hover:text-primary-400">{t('pouchEcoFooter.coffeeTea', 'Coffee & Tea')}</Link></li>
-              <li><Link to="/industry/snacks-food" className="hover:text-primary-400">{t('pouchEcoFooter.snacksFood', 'Snacks & Food')}</Link></li>
-              <li><Link to="/industry/pet-food" className="hover:text-primary-400">{t('pouchEcoFooter.petFood', 'Pet Food')}</Link></li>
-              <li><Link to="/industry/supplements-powders" className="hover:text-primary-400">{t('pouchEcoFooter.supplements', 'Supplements')}</Link></li>
-              <li><Link to="/industry/baby-food" className="hover:text-primary-400">{t('pouchEcoFooter.babyFood', 'Baby Food')}</Link></li>
-              <li><Link to="/solutions/citrus-oil-packaging" className="hover:text-primary-400">{t('pouchEcoFooter.cosmeticsLiquids', 'Cosmetics & Liquids')}</Link></li>
-            </ul>
-          </div>
-
-          {/* Column 5: Premium Features & Finishes */}
-          <div>
-            <h4 className="font-semibold text-sm mb-3 text-neutral-200">{t('pouchEcoFooter.featuresAndFinishes', 'Premium Features & Finishes')}</h4>
-            <ul className="space-y-1 text-xs text-neutral-400">
+              <li><Link to="/materials/data-sheet" className="hover:text-primary-400">{t('pouchEcoFooter.materialDataSheets', 'Material Data Sheets')}</Link></li>
+              <li><Link to="/topics/plant-based-barrier-coatings" className="hover:text-primary-400">{t('pouchEcoFooter.barrierCoatings', 'Barrier Coatings')}</Link></li>
+              <li><Link to="/topics/iso-sustainable" className="hover:text-primary-400">{t('pouchEcoFooter.complianceIso', 'Compliance & ISO')}</Link></li>
               <li><Link to="/options/smart-degassing-sticker" className="hover:text-primary-400">{t('pouchEcoFooter.degassingValves', 'Degassing Valves')}</Link></li>
               <li><Link to="/function/child-resistant-bags" className="hover:text-primary-400">{t('pouchEcoFooter.childResistantZippers', 'Child-Resistant Zippers')}</Link></li>
               <li><Link to="/function/microwave-steam-bags" className="hover:text-primary-400">{t('pouchEcoFooter.microwaveSteamBags', 'Microwave Steam Bags')}</Link></li>
-              <li><Link to="/function/spout-pouches-juice" className="hover:text-primary-400">{t('pouchEcoFooter.spouts', 'Spouts')}</Link></li>
-              <li><Link to="/topics/hologram-hot-stamping" className="hover:text-primary-400">{t('pouchEcoFooter.hologramHotStamping', 'Hologram Hot Stamping')}</Link></li>
-              <li><Link to="/function/carbon-neutral-bags" className="hover:text-primary-400">{t('pouchEcoFooter.carbonNeutral', 'Carbon Neutral')}</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 4: By Industry */}
+          <div>
+            <h4 className="font-semibold text-sm mb-3 text-neutral-200">{t('pouchEcoFooter.shopByIndustry', 'By Industry')}</h4>
+            <ul className="space-y-1 text-xs text-neutral-400">
+              <li><Link to="/industry/coffee-tea" className="hover:text-primary-400">{t('pouchEcoFooter.coffeeRoasters', 'Coffee Roasters')}</Link></li>
+              <li><Link to="/industry/pet-food" className="hover:text-primary-400">{t('pouchEcoFooter.petFoodManufacturers', 'Pet Food Manufacturers')}</Link></li>
+              <li><Link to="/solutions/citrus-oil-packaging" className="hover:text-primary-400">{t('pouchEcoFooter.cosmeticsLiquids', 'Cosmetics & Liquids')}</Link></li>
+              <li><Link to="/industry/snacks-food" className="hover:text-primary-400">{t('pouchEcoFooter.snacksFood', 'Snacks & Food')}</Link></li>
+              <li><Link to="/industry/supplements-powders" className="hover:text-primary-400">{t('pouchEcoFooter.supplements', 'Supplements')}</Link></li>
+              <li><Link to="/industry/baby-food" className="hover:text-primary-400">{t('pouchEcoFooter.babyFood', 'Baby Food')}</Link></li>
             </ul>
           </div>
         </div>
@@ -296,12 +280,12 @@ export default function Footer() {
               <Leaf className="h-4.5 w-4.5 text-emerald-500" />
               <span className="text-xs font-bold uppercase tracking-wider">{t('pouchEcoFooter.trendingTopics', 'Trending Topics')}</span>
             </div>
-            <Link to="/topic-directory" className="text-xs font-semibold text-primary-400 hover:text-primary-300 transition-colors flex items-center gap-1">
+            <Link to="/learn" className="text-xs font-semibold text-primary-400 hover:text-primary-300 transition-colors flex items-center gap-1">
               {t('pouchEcoFooter.viewAllTopics', 'View All Packaging Topics')} &rarr;
             </Link>
           </div>
           
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 text-xs text-neutral-400 mt-2 pt-4 border-t border-neutral-800/40">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 text-xs text-neutral-400 mt-2 pt-4 border-t border-neutral-800/40">
             <ul className="space-y-1">
               <li><Link to="/topics/matcha-sachet" className="hover:text-primary-400">{t('seo_topics.matcha_sachet.title', 'Matcha Sachet')}</Link></li>
               <li><Link to="/topics/cacao-stand-up" className="hover:text-primary-400">{t('seo_topics.cacao_stand_up.title', 'Cacao Stand Up')}</Link></li>
@@ -326,6 +310,20 @@ export default function Footer() {
               <li><Link to="/recyclable/what-is-recyclable" className="hover:text-primary-400">{t('pouchEcoFooter.whatIsRecyclable', 'What Is 100% Recyclable?')}</Link></li>
               <li><Link to="/topics/eu-ppwr-compliance" className="hover:text-primary-400">{t('pouchEcoFooter.euPpwr', 'EU PPWR Compliance')}</Link></li>
               <li><Link to="/pcr/7-checklist" className="hover:text-primary-400">{t('pouchEcoFooter.pcrChecklist', 'PCR 7-Point Checklist')}</Link></li>
+            </ul>
+            <ul className="space-y-1">
+              <li><Link to="/topics/ai-packaging-resolution" className="hover:text-primary-400 text-white font-medium">AI Packaging Resolution <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase text-primary-400">New</span></Link></li>
+              <li><Link to="/topics/ai-packaging-bleed-dimensions" className="hover:text-primary-400 text-white font-medium">Bleed Dimensions Guide <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase text-primary-400">New</span></Link></li>
+              <li><Link to="/topics/ai-packaging-safe-margins" className="hover:text-primary-400 text-white font-medium">Safe Margins Standard <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase text-primary-400">New</span></Link></li>
+              <li><Link to="/topics/ai-packaging-layered-assets" className="hover:text-primary-400">Layered Assets Prep</Link></li>
+              <li><Link to="/topics/ai-packaging-barcodes-bottom-fold" className="hover:text-primary-400">AI Barcodes Bottom Fold</Link></li>
+            </ul>
+            <ul className="space-y-1">
+              <li><Link to="/topics/beverage-soft-stand-up-pouch" className="hover:text-primary-400 text-white font-medium">Beverage Soft Pouch <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase text-primary-400">New</span></Link></li>
+              <li><Link to="/topics/bread-flat-bottom-bag" className="hover:text-primary-400">Bread Flat Bottom</Link></li>
+              <li><Link to="/topics/beef-jerky-pillow-pouch" className="hover:text-primary-400 text-white font-medium">Jerky Pillow Pouch <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase text-primary-400">New</span></Link></li>
+              <li><Link to="/topics/apparel-zipper" className="hover:text-primary-400">Apparel Zipper Bags</Link></li>
+              <li><Link to="/topics/beef-jerky-barrier" className="hover:text-primary-400">Beef Jerky Barriers</Link></li>
             </ul>
           </div>
         </div>

@@ -1396,6 +1396,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/blog/compostable-vs-recyclable" element={<CompostableVsRecyclablePage />} />
                   <Route path="/blog/eco-packaging-mistakes" element={<EcoPackagingMistakesPage />} />
                   <Route path="/learn" element={<LearnSearchPage />} />
+                  <Route path="/topic-directory" element={<Navigate to="/learn" replace />} />
 
                   {/* Printing, Features & Lab Pages */}
                   <Route path="/printing/digital-printing" element={<DigitalPrintingPage />} />
@@ -1742,6 +1743,7 @@ if (getDomain() === 'pouch') {
 
                         {/* Learn Center */}
                         <Route path="/learn" element={<LearnSearchPage />} />
+                        <Route path="/topic-directory" element={<Navigate to="/learn" replace />} />
 
                         {/* USA Pages */}
                         <Route path="/usa/compostable-packaging" element={<USACompostableHubPage />} />

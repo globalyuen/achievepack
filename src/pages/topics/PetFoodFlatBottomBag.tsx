@@ -1,13 +1,13 @@
 import React from 'react';
-import Head from 'next/head';
+import { Helmet } from 'react-helmet-async';
 
 const PetFoodFlatBottomBag: React.FC = () => {
   return (
     <>
-      <Head>
+      <Helmet>
         <title>Flat Bottom Bags for Pet Food | Premium Branding & Stability</title>
         <meta name="description" content="Discover premium flat bottom bags for pet food. Five panels of printable space, exceptional stability, and superior barrier properties for your top-tier pet food products." />
-      </Head>
+      </Helmet>
       <div className="bg-gray-50 text-gray-900 min-h-screen font-sans">
         {/* Hero Section */}
         <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center bg-white shadow-sm">

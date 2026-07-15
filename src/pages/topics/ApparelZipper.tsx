@@ -1,95 +1,416 @@
-import React from 'react';
-import Head from 'next/head';
-import Image from 'next/image';
+import React from 'react'
+import { Helmet } from 'react-helmet-async'
+import { 
+  Target, Sparkles, Shield, Eye, Calendar, 
+  Package, CheckCircle2, Layers, Info, Check, HelpCircle
+} from 'lucide-react'
+import SEOPageLayout from '../../components/SEOPageLayout'
+import ClickableImage from '../../components/ClickableImage'
+import { useTranslation } from 'react-i18next'
+
+const localTranslations = {
+  en: {
+  "title": "Apparel Zipper",
+  "description": "Premium flexible packaging engineering and solutions.",
+  "heroTitle": "Apparel Zipper",
+  "heroSubtitle": "Advanced Packaging Solutions",
+  "introSummary": "Discover the engineering behind this packaging format.",
+  "aeoSummary": "Learn more about optimal packaging methodologies.",
+  "eeatDetails": "Engineered by Achieve Pack.",
+  "empathyHook": "Selling high-end apparel in a cheap, crinkly poly-mailer instantly devalues the garment inside. You want your customer to feel the luxury the moment they touch the package. We know the disappointment of seeing a beautiful silk shirt arrive in a torn, static-cling bag with a broken seal. I've worked with boutique fashion brands who revolutionized their customer retention simply by upgrading to a frosted, soft-touch EVA pouch with a buttery-smooth slider zipper. The packaging shouldn't just hold the clothes; it should feel like part of the wardrobe.",
+  "section1Title": "Understanding the Process",
+  "section1Text": "A comprehensive look at the structural and material science involved.",
+  "section2Title": "Key Advantages",
+  "section2Log": "Optimized for maximum efficiency and brand impact.",
+  "point1Title": "Static Cling and Dust Attraction",
+  "point1Desc": "Cheap BOPP plastic generates static electricity, attracting dust and clinging annoyingly to the garment.",
+  "point1Sol": "Switch to a premium frosted EVA or CPE polymer blend that is naturally anti-static and soft to the touch.",
+  "point2Title": "Flimsy, Broken Slider Zippers",
+  "point2Desc": "Low-quality plastic sliders snap off or derail the moment the customer tries to open the bag.",
+  "point2Sol": "Utilize high-density POM (polyoxymethylene) sliders mounted on reinforced dual-track zipper profiles.",
+  "point3Title": "Trapped Air Popping Bags",
+  "point3Desc": "Sealed apparel bags trap air, causing them to balloon and pop open during transit crushing.",
+  "point3Sol": "Integrate a discreet micro-perforated vent hole in the bottom corner to allow trapped air to escape safely.",
+  "point4Title": "Lack of Reusability",
+  "point4Desc": "Single-use tear bags end up immediately in the trash, wasting a branding opportunity.",
+  "point4Sol": "Design durable, heavy-gauge (80+ micron) frosted bags with sturdy zippers that customers reuse for travel and storage.",
+  "point5Title": "Yellowing of the Plastic",
+  "point5Desc": "Standard LDPE bags turn yellow over time when exposed to warehouse UV lighting, looking old and dirty.",
+  "point5Sol": "Apply UV-inhibitor additives to the resin mix to keep the frosted finish pristine and translucent for years.",
+  "compTitle": "Standard Poly Mailers vs. Premium Frosted EVA Slider Bags",
+  "compDesc": "Compare tactile feel, durability, and customer retention metrics:",
+  "faq1Q": "What is a frosted EVA bag?",
+  "faq1A": "EVA (Ethylene Vinyl Acetate) is a highly flexible, rubber-like plastic. The 'frosted' finish is a matte texture that feels premium, soft, and hides fingerprints.",
+  "faq2Q": "Can customers reuse these bags?",
+  "faq2A": "Absolutely. The heavy-duty material and premium slider zipper are specifically designed to be kept and reused as travel or storage bags by the consumer.",
+  "faq3Q": "How do you print on frosted apparel bags?",
+  "faq3A": "We use high-adhesion silk-screen printing or flexographic printing with specialized inks that bond permanently to the flexible EVA surface."
+},
+  es: {
+  "title": "Apparel Zipper",
+  "description": "Premium flexible packaging engineering and solutions.",
+  "heroTitle": "Apparel Zipper",
+  "heroSubtitle": "Advanced Packaging Solutions",
+  "introSummary": "Discover the engineering behind this packaging format.",
+  "aeoSummary": "Learn more about optimal packaging methodologies.",
+  "eeatDetails": "Engineered by Achieve Pack.",
+  "empathyHook": "Selling high-end apparel in a cheap, crinkly poly-mailer instantly devalues the garment inside. You want your customer to feel the luxury the moment they touch the package. We know the disappointment of seeing a beautiful silk shirt arrive in a torn, static-cling bag with a broken seal. I've worked with boutique fashion brands who revolutionized their customer retention simply by upgrading to a frosted, soft-touch EVA pouch with a buttery-smooth slider zipper. The packaging shouldn't just hold the clothes; it should feel like part of the wardrobe.",
+  "section1Title": "Understanding the Process",
+  "section1Text": "A comprehensive look at the structural and material science involved.",
+  "section2Title": "Key Advantages",
+  "section2Log": "Optimized for maximum efficiency and brand impact.",
+  "point1Title": "Static Cling and Dust Attraction",
+  "point1Desc": "Cheap BOPP plastic generates static electricity, attracting dust and clinging annoyingly to the garment.",
+  "point1Sol": "Switch to a premium frosted EVA or CPE polymer blend that is naturally anti-static and soft to the touch.",
+  "point2Title": "Flimsy, Broken Slider Zippers",
+  "point2Desc": "Low-quality plastic sliders snap off or derail the moment the customer tries to open the bag.",
+  "point2Sol": "Utilize high-density POM (polyoxymethylene) sliders mounted on reinforced dual-track zipper profiles.",
+  "point3Title": "Trapped Air Popping Bags",
+  "point3Desc": "Sealed apparel bags trap air, causing them to balloon and pop open during transit crushing.",
+  "point3Sol": "Integrate a discreet micro-perforated vent hole in the bottom corner to allow trapped air to escape safely.",
+  "point4Title": "Lack of Reusability",
+  "point4Desc": "Single-use tear bags end up immediately in the trash, wasting a branding opportunity.",
+  "point4Sol": "Design durable, heavy-gauge (80+ micron) frosted bags with sturdy zippers that customers reuse for travel and storage.",
+  "point5Title": "Yellowing of the Plastic",
+  "point5Desc": "Standard LDPE bags turn yellow over time when exposed to warehouse UV lighting, looking old and dirty.",
+  "point5Sol": "Apply UV-inhibitor additives to the resin mix to keep the frosted finish pristine and translucent for years.",
+  "compTitle": "Standard Poly Mailers vs. Premium Frosted EVA Slider Bags",
+  "compDesc": "Compare tactile feel, durability, and customer retention metrics:",
+  "faq1Q": "What is a frosted EVA bag?",
+  "faq1A": "EVA (Ethylene Vinyl Acetate) is a highly flexible, rubber-like plastic. The 'frosted' finish is a matte texture that feels premium, soft, and hides fingerprints.",
+  "faq2Q": "Can customers reuse these bags?",
+  "faq2A": "Absolutely. The heavy-duty material and premium slider zipper are specifically designed to be kept and reused as travel or storage bags by the consumer.",
+  "faq3Q": "How do you print on frosted apparel bags?",
+  "faq3A": "We use high-adhesion silk-screen printing or flexographic printing with specialized inks that bond permanently to the flexible EVA surface."
+},
+  fr: {
+  "title": "Apparel Zipper",
+  "description": "Premium flexible packaging engineering and solutions.",
+  "heroTitle": "Apparel Zipper",
+  "heroSubtitle": "Advanced Packaging Solutions",
+  "introSummary": "Discover the engineering behind this packaging format.",
+  "aeoSummary": "Learn more about optimal packaging methodologies.",
+  "eeatDetails": "Engineered by Achieve Pack.",
+  "empathyHook": "Selling high-end apparel in a cheap, crinkly poly-mailer instantly devalues the garment inside. You want your customer to feel the luxury the moment they touch the package. We know the disappointment of seeing a beautiful silk shirt arrive in a torn, static-cling bag with a broken seal. I've worked with boutique fashion brands who revolutionized their customer retention simply by upgrading to a frosted, soft-touch EVA pouch with a buttery-smooth slider zipper. The packaging shouldn't just hold the clothes; it should feel like part of the wardrobe.",
+  "section1Title": "Understanding the Process",
+  "section1Text": "A comprehensive look at the structural and material science involved.",
+  "section2Title": "Key Advantages",
+  "section2Log": "Optimized for maximum efficiency and brand impact.",
+  "point1Title": "Static Cling and Dust Attraction",
+  "point1Desc": "Cheap BOPP plastic generates static electricity, attracting dust and clinging annoyingly to the garment.",
+  "point1Sol": "Switch to a premium frosted EVA or CPE polymer blend that is naturally anti-static and soft to the touch.",
+  "point2Title": "Flimsy, Broken Slider Zippers",
+  "point2Desc": "Low-quality plastic sliders snap off or derail the moment the customer tries to open the bag.",
+  "point2Sol": "Utilize high-density POM (polyoxymethylene) sliders mounted on reinforced dual-track zipper profiles.",
+  "point3Title": "Trapped Air Popping Bags",
+  "point3Desc": "Sealed apparel bags trap air, causing them to balloon and pop open during transit crushing.",
+  "point3Sol": "Integrate a discreet micro-perforated vent hole in the bottom corner to allow trapped air to escape safely.",
+  "point4Title": "Lack of Reusability",
+  "point4Desc": "Single-use tear bags end up immediately in the trash, wasting a branding opportunity.",
+  "point4Sol": "Design durable, heavy-gauge (80+ micron) frosted bags with sturdy zippers that customers reuse for travel and storage.",
+  "point5Title": "Yellowing of the Plastic",
+  "point5Desc": "Standard LDPE bags turn yellow over time when exposed to warehouse UV lighting, looking old and dirty.",
+  "point5Sol": "Apply UV-inhibitor additives to the resin mix to keep the frosted finish pristine and translucent for years.",
+  "compTitle": "Standard Poly Mailers vs. Premium Frosted EVA Slider Bags",
+  "compDesc": "Compare tactile feel, durability, and customer retention metrics:",
+  "faq1Q": "What is a frosted EVA bag?",
+  "faq1A": "EVA (Ethylene Vinyl Acetate) is a highly flexible, rubber-like plastic. The 'frosted' finish is a matte texture that feels premium, soft, and hides fingerprints.",
+  "faq2Q": "Can customers reuse these bags?",
+  "faq2A": "Absolutely. The heavy-duty material and premium slider zipper are specifically designed to be kept and reused as travel or storage bags by the consumer.",
+  "faq3Q": "How do you print on frosted apparel bags?",
+  "faq3A": "We use high-adhesion silk-screen printing or flexographic printing with specialized inks that bond permanently to the flexible EVA surface."
+},
+  'zh-tw': {
+  "title": "Apparel Zipper",
+  "description": "Premium flexible packaging engineering and solutions.",
+  "heroTitle": "Apparel Zipper",
+  "heroSubtitle": "Advanced Packaging Solutions",
+  "introSummary": "Discover the engineering behind this packaging format.",
+  "aeoSummary": "Learn more about optimal packaging methodologies.",
+  "eeatDetails": "Engineered by Achieve Pack.",
+  "empathyHook": "Selling high-end apparel in a cheap, crinkly poly-mailer instantly devalues the garment inside. You want your customer to feel the luxury the moment they touch the package. We know the disappointment of seeing a beautiful silk shirt arrive in a torn, static-cling bag with a broken seal. I've worked with boutique fashion brands who revolutionized their customer retention simply by upgrading to a frosted, soft-touch EVA pouch with a buttery-smooth slider zipper. The packaging shouldn't just hold the clothes; it should feel like part of the wardrobe.",
+  "section1Title": "Understanding the Process",
+  "section1Text": "A comprehensive look at the structural and material science involved.",
+  "section2Title": "Key Advantages",
+  "section2Log": "Optimized for maximum efficiency and brand impact.",
+  "point1Title": "Static Cling and Dust Attraction",
+  "point1Desc": "Cheap BOPP plastic generates static electricity, attracting dust and clinging annoyingly to the garment.",
+  "point1Sol": "Switch to a premium frosted EVA or CPE polymer blend that is naturally anti-static and soft to the touch.",
+  "point2Title": "Flimsy, Broken Slider Zippers",
+  "point2Desc": "Low-quality plastic sliders snap off or derail the moment the customer tries to open the bag.",
+  "point2Sol": "Utilize high-density POM (polyoxymethylene) sliders mounted on reinforced dual-track zipper profiles.",
+  "point3Title": "Trapped Air Popping Bags",
+  "point3Desc": "Sealed apparel bags trap air, causing them to balloon and pop open during transit crushing.",
+  "point3Sol": "Integrate a discreet micro-perforated vent hole in the bottom corner to allow trapped air to escape safely.",
+  "point4Title": "Lack of Reusability",
+  "point4Desc": "Single-use tear bags end up immediately in the trash, wasting a branding opportunity.",
+  "point4Sol": "Design durable, heavy-gauge (80+ micron) frosted bags with sturdy zippers that customers reuse for travel and storage.",
+  "point5Title": "Yellowing of the Plastic",
+  "point5Desc": "Standard LDPE bags turn yellow over time when exposed to warehouse UV lighting, looking old and dirty.",
+  "point5Sol": "Apply UV-inhibitor additives to the resin mix to keep the frosted finish pristine and translucent for years.",
+  "compTitle": "Standard Poly Mailers vs. Premium Frosted EVA Slider Bags",
+  "compDesc": "Compare tactile feel, durability, and customer retention metrics:",
+  "faq1Q": "What is a frosted EVA bag?",
+  "faq1A": "EVA (Ethylene Vinyl Acetate) is a highly flexible, rubber-like plastic. The 'frosted' finish is a matte texture that feels premium, soft, and hides fingerprints.",
+  "faq2Q": "Can customers reuse these bags?",
+  "faq2A": "Absolutely. The heavy-duty material and premium slider zipper are specifically designed to be kept and reused as travel or storage bags by the consumer.",
+  "faq3Q": "How do you print on frosted apparel bags?",
+  "faq3A": "We use high-adhesion silk-screen printing or flexographic printing with specialized inks that bond permanently to the flexible EVA surface."
+}
+}
 
 const ApparelZipper: React.FC = () => {
-  return (
-    <>
-      <Head>
-        <title>Premium Apparel Zipper Pouches | Achieve Pack</title>
-        <meta name="description" content="Technical, high-barrier frosted apparel zipper packaging for B2B clothing brands." />
-      </Head>
-      <main className="bg-gray-50 min-h-screen font-sans text-gray-900">
-        {/* Hero Section */}
-        <section className="relative w-full h-[600px] flex items-center justify-center bg-gray-900 overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <Image
-              src="/imgs/topics/apparel-zipper/hero.png"
-              alt="Premium Apparel Zipper Pouch"
-              layout="fill"
-              objectFit="cover"
-              className="opacity-60"
+  const { t, i18n } = useTranslation()
+  const lang = i18n.language || 'en'
+  const localTrans = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en
+
+  const IMAGES = {
+    hero: '/imgs/knowledge/ocean-bound-plastic-guide.jpg',
+    process: '/imgs/knowledge/ocean-bound-plastic-process.jpg',
+    comparison: '/imgs/knowledge/ocean-bound-plastic-comparison.jpg'
+  }
+
+  const sections = [
+    {
+      id: 'empathy-hook',
+      title: 'The Reality of the Challenge',
+      icon: <CheckCircle2 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg space-y-4 mb-8">
+          <p className="text-lg text-neutral-800 italic leading-relaxed">
+            "{localTrans.empathyHook}"
+          </p>
+          <div className="flex items-center gap-3 mt-4 pt-4 border-t border-amber-200">
+            <img src="/imgs/ryan-wong-avatar.jpg" alt="Ryan Wong" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Ryan+Wong&background=000&color=fff' }} />
+            <div>
+              <p className="text-sm font-bold text-neutral-900">Ryan Wong</p>
+              <p className="text-xs text-neutral-600">Chief Packaging Engineer, Achieve Pack</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'detailed-explanation',
+      title: localTrans.section1Title,
+      icon: <Layers className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-base leading-relaxed">
+            {localTrans.section1Text}
+          </p>
+          <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
+            <ClickableImage 
+              src={IMAGES.process} 
+              alt="High resolution product lamination process closeup" 
+              className="w-full h-auto rounded-lg shadow-sm"
+              caption="High-resolution visual demonstration showing material and structural features of the package."
             />
           </div>
-          <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
-              Engineering the Perfect First Impression
-            </h1>
-            <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-              You've obsessed over every stitch, fabric blend, and seam. Shouldn't your packaging reflect that same level of uncompromising quality?
-            </p>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300">
-              Request Samples
-            </button>
-          </div>
-        </section>
-
-        {/* Empathy Hook */}
-        <section className="py-20 px-4 md:px-8 max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6 text-gray-800">The Cheap Packaging Paradox</h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            Many premium apparel brands lose their customer at the exact moment of unboxing. When a high-end garment arrives in a thin, crinkled polybag with a flimsy seal, the perceived value plummets instantly. Our frosted zipper pouches are designed to solve this exact problem, bridging the gap between your garment's quality and the unboxing experience.
+        </div>
+      )
+    },
+    {
+      id: 'EEAT-anecdote',
+      title: localTrans.section2Title,
+      icon: <Info className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 text-white p-6 rounded-lg border-2 border-[#D4FF00] space-y-4">
+          <p className="font-['JetBrains_Mono'] text-xs font-bold text-[#D4FF00]">// CHIEF PACKAGING ENGINEER JOURNAL entry</p>
+          <blockquote className="italic border-l-4 border-[#D4FF00] pl-4 text-sm md:text-base text-neutral-200">
+            "{localTrans.section2Log}"
+          </blockquote>
+          <p className="text-xs font-['JetBrains_Mono'] text-[#D4FF00] font-semibold flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4 text-[#D4FF00]" /> 100% Prepress Calibration Guaranteed
           </p>
-        </section>
-
-        {/* Technical Specs & Process */}
-        <section className="py-20 bg-white px-4 md:px-8">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div>
-              <h3 className="text-3xl font-bold mb-6 text-gray-800">Precision Manufacturing</h3>
-              <ul className="space-y-4 text-gray-600">
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-3 font-bold">✓</span>
-                  <span><strong>Multi-Layer Frosted EVA/PE:</strong> Formulated for superior tear resistance and a luxurious matte tactile feel.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-3 font-bold">✓</span>
-                  <span><strong>Heavy-Duty Slider Zipper:</strong> Tested for 500+ actuations, ensuring a smooth, snag-free zip every time.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-3 font-bold">✓</span>
-                  <span><strong>Ultrasonic Edge Sealing:</strong> Preventing edge splitting under tension, even for bulky garments.</span>
-                </li>
-              </ul>
+        </div>
+      )
+    },
+    {
+      id: 'five-plain-points',
+      title: "5 Core Challenges & Engineering Solutions",
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6">
+          <div className="space-y-4">
+            {/* Point 1 */}
+            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
+                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">01</span>
+                {localTrans.point1Title}
+              </h4>
+              <p className="text-sm text-neutral-600 mb-3">{localTrans.point1Desc}</p>
+              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
+                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
+                {localTrans.point1Sol}
+              </div>
             </div>
-            <div className="relative h-[400px] rounded-xl overflow-hidden shadow-2xl">
-              <Image
-                src="/imgs/topics/apparel-zipper/process.png"
-                alt="Apparel Packaging Manufacturing Process"
-                layout="fill"
-                objectFit="cover"
-              />
+
+            {/* Point 2 */}
+            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
+                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">02</span>
+                {localTrans.point2Title}
+              </h4>
+              <p className="text-sm text-neutral-600 mb-3">{localTrans.point2Desc}</p>
+              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
+                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
+                {localTrans.point2Sol}
+              </div>
+            </div>
+
+            {/* Point 3 */}
+            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
+                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">03</span>
+                {localTrans.point3Title}
+              </h4>
+              <p className="text-sm text-neutral-600 mb-3">{localTrans.point3Desc}</p>
+              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
+                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
+                {localTrans.point3Sol}
+              </div>
+            </div>
+
+            {/* Point 4 */}
+            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
+                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">04</span>
+                {localTrans.point4Title}
+              </h4>
+              <p className="text-sm text-neutral-600 mb-3">{localTrans.point4Desc}</p>
+              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
+                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
+                {localTrans.point4Sol}
+              </div>
+            </div>
+
+            {/* Point 5 */}
+            <div className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
+                <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">05</span>
+                {localTrans.point5Title}
+              </h4>
+              <p className="text-sm text-neutral-600 mb-3">{localTrans.point5Desc}</p>
+              <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
+                <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
+                {localTrans.point5Sol}
+              </div>
             </div>
           </div>
-        </section>
-
-        {/* Comparison Section */}
-        <section className="py-20 bg-gray-50 px-4 md:px-8">
-          <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-12 text-gray-800">The Achieve Pack Difference</h2>
-            <div className="relative h-[500px] w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl">
-              <Image
-                src="/imgs/topics/apparel-zipper/comparison.png"
-                alt="Premium vs Standard Pouch Comparison"
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
+        </div>
+      )
+    },
+    {
+      id: 'resolution-comparison-section',
+      title: localTrans.compTitle,
+      icon: <Eye className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-base leading-relaxed">
+            {localTrans.compDesc}
+          </p>
+          <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
+            <ClickableImage 
+              src={IMAGES.comparison} 
+              alt="Microscopic or detailed physical properties comparison" 
+              className="w-full h-auto rounded-lg shadow-sm"
+              caption="Visual packaging engineering representation comparing materials, barriers, or sealing methods."
+            />
           </div>
-        </section>
-      </main>
+        </div>
+      )
+    }
+  ]
+
+  const faqs = [
+    {
+      question: localTrans.faq1Q,
+      answer: localTrans.faq1A
+    },
+    {
+      question: localTrans.faq2Q,
+      answer: localTrans.faq2A
+    },
+    {
+      question: localTrans.faq3Q,
+      answer: localTrans.faq3A
+    }
+  ]
+
+  const tables = [
+    {
+      title: "Packaging Performance Comparison Matrix",
+      data: {
+        headers: ["Parameter", "Standard Specifications", "Eco-Engineered Specifications"],
+        rows: [
+          ["Material Barrier Thickness", "80 Microns (Mixed laminates)", "120 Microns (Mono PE / Plant-Based)"],
+          ["Oxygen Transmission Rate (OTR)", "1.5 cc/m²/24hr (Standard)", "Near Zero (<0.05 cc/m²/24hr)"],
+          ["EPR Modulated Tax Level", "Maximum tier surcharges", "Lowest modulated tax brackets"]
+        ]
+      }
+    }
+  ]
+
+  const schemaKeywords = [
+    "custom packaging design",
+    "sustainable barrier films",
+    "epr tax compliance",
+    "flexible pouches",
+    "packaging engineer"
+  ]
+
+  return (
+    <>
+      <Helmet>
+        <title>{localTrans.title} | Achieve Pack</title>
+        <meta name="description" content={localTrans.description} />
+        <link rel="canonical" href={`https://achievepack.com/topics/apparel-zipper`} />
+        <meta name="keywords" content={schemaKeywords.join(', ')} />
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": localTrans.title,
+            "description": localTrans.description,
+            "image": `https://achievepack.com${IMAGES.hero}`,
+            "author": {
+              "@type": "Person",
+              "name": "Ryan Wong",
+              "jobTitle": "Chief Packaging Engineer"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Achieve Pack",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://achievepack.com/logo.png"
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `https://achievepack.com/topics/apparel-zipper`
+            }
+          })}
+        </script>
+      </Helmet>
+
+      <SEOPageLayout
+        title={localTrans.title}
+        description={localTrans.description}
+        heroTitle={localTrans.heroTitle}
+        heroSubtitle={localTrans.heroSubtitle}
+        heroImage={IMAGES.hero}
+        introSummary={localTrans.introSummary}
+        aeoSummary={localTrans.aeoSummary}
+        eeatDetails={localTrans.eeatDetails}
+        sections={sections}
+        faqs={faqs}
+        tables={tables}
+      />
     </>
-  );
-};
+  )
+}
 
-export default ApparelZipper;
+export default ApparelZipper

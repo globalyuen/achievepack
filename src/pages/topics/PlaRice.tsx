@@ -1,22 +1,22 @@
 import React from 'react';
-import Head from 'next/head';
-import Image from 'next/image';
+import { Helmet } from 'react-helmet-async';
+
 
 const PlaRice: React.FC = () => {
   return (
     <>
-      <Head>
+      <Helmet>
         <title>Heavy-Duty PLA Biodegradable Rice Bags | Achieve Pack</title>
         <meta name="description" content="Industrial-grade PLA biodegradable packaging engineered for bulk rice and grains." />
-      </Head>
+      </Helmet>
       <main className="bg-gray-50 min-h-screen font-sans text-gray-900">
         {/* Hero Section */}
         <section className="relative w-full h-[600px] flex items-center justify-center bg-gray-900 overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <Image
+            <img
               src="/imgs/topics/pla-rice/hero.jpg"
               alt="Pla Rice Hero"
-              fill
+              
               style={{ objectFit: 'cover' }}
               className="opacity-60"
             />
@@ -63,10 +63,10 @@ const PlaRice: React.FC = () => {
               </ul>
             </div>
             <div className="relative h-[400px] rounded-xl overflow-hidden shadow-2xl">
-              <Image
+              <img
                 src="/imgs/topics/pla-rice/process.jpg"
                 alt="Pla Rice Process"
-                fill
+                
                 style={{ objectFit: 'cover' }}
               />
             </div>
@@ -78,10 +78,10 @@ const PlaRice: React.FC = () => {
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-12 text-gray-800">The Achieve Pack Difference</h2>
             <div className="relative h-[500px] w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl">
-              <Image
+              <img
                 src="/imgs/topics/pla-rice/comparison.jpg"
                 alt="Pla Rice Comparison"
-                fill
+                
                 style={{ objectFit: 'cover' }}
               />
             </div>

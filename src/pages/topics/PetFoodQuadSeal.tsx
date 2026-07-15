@@ -1,13 +1,13 @@
 import React from 'react';
-import Head from 'next/head';
+import { Helmet } from 'react-helmet-async';
 
 const PetFoodQuadSeal: React.FC = () => {
   return (
     <>
-      <Head>
+      <Helmet>
         <title>Quad Seal Pet Food Bags | Heavy Duty & Reliable</title>
         <meta name="description" content="Discover our quad seal pet food bags, engineered for heavy volumes. Superior structural integrity, reinforced edges, and maximum brand visibility." />
-      </Head>
+      </Helmet>
       <div className="bg-gray-50 text-gray-900 min-h-screen font-sans">
         {/* Hero Section */}
         <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center bg-white shadow-sm">

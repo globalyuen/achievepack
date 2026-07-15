@@ -1,14 +1,14 @@
 import React from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
+import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 
 export default function RealWorldSustainabilityPage() {
   return (
     <div className="bg-white min-h-screen">
-      <Head>
+      <Helmet>
         <title>Real-World Sustainability Packaging | Achieve Pack</title>
         <meta name="description" content="Transition your brand to sustainable packaging with confidence. Technical and reliable eco-friendly material solutions." />
-      </Head>
+      </Helmet>
       <main className="container mx-auto px-4 py-16">
         <h1 className="text-4xl font-bold mb-6 text-gray-900">Real-World Sustainability Packaging Solutions</h1>
         <p className="text-xl mb-8 text-gray-700">Transitioning to sustainable packaging is daunting. You shouldn't have to compromise on shelf life or performance just to be eco-friendly. We engineer solutions that deliver both green credentials and robust protection.</p>
@@ -28,7 +28,7 @@ export default function RealWorldSustainabilityPage() {
           </div>
         </div>
         
-        <Link href="/contact" className="inline-block bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transition">Request a Quote</Link>
+        <Link to="/contact" className="inline-block bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transition">Request a Quote</Link>
       </main>
     </div>
   );

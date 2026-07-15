@@ -1,13 +1,13 @@
 import React from 'react';
-import Head from 'next/head';
+import { Helmet } from 'react-helmet-async';
 
 const CandyUv: React.FC = () => {
   return (
     <>
-      <Head>
+      <Helmet>
         <title>Candy UV Printing Solutions | Achieve Pack</title>
         <meta name="description" content="Premium UV printing technology for candy packaging. High-gloss finish and protection for B2B wholesale manufacturers." />
-      </Head>
+      </Helmet>
       <div className="topic-container">
         {/* Empathy Hook */}
         <section className="empathy-hook bg-gray-100 p-8 text-center">

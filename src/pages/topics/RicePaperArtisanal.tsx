@@ -1,13 +1,13 @@
 import React from 'react';
-import Head from 'next/head';
+import { Helmet } from 'react-helmet-async';
 
 export default function RicePaperArtisanal() {
   return (
     <div className="bg-white min-h-screen">
-      <Head>
+      <Helmet>
         <title>Artisanal Rice Paper Pouches | Achieve Pack</title>
         <meta name="description" content="Technical excellence in artisanal rice paper pouches for B2B brands." />
-      </Head>
+      </Helmet>
       <main className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 mb-8">Artisanal Rice Paper Pouches</h1>
         <p className="text-xl text-gray-500 mb-12">

@@ -1,13 +1,13 @@
 import React from 'react';
-import Head from 'next/head';
+import { Helmet } from 'react-helmet-async';
 
 const PetTreatStandUpZipperPouch: React.FC = () => {
   return (
     <>
-      <Head>
+      <Helmet>
         <title>Stand Up Zipper Pouches for Pet Treats | Resealable Freshness</title>
         <meta name="description" content="Premium stand-up zipper pouches for pet treats. Ensure maximum freshness with high-quality resealable closures and excellent barrier properties." />
-      </Head>
+      </Helmet>
       <div className="bg-gray-50 text-gray-900 min-h-screen font-sans">
         {/* Hero Section */}
         <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center bg-white shadow-sm">

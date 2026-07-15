@@ -301,6 +301,18 @@ const LEARN_PAGES = {
       { name: 'Household Back Seal Bag', link: '/topics/household-back-seal-bag', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
       { name: 'Beef Jerky Pillow Pouch', link: '/topics/beef-jerky-pillow-pouch', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
       { name: 'Grains Back Seal Pouch', link: '/topics/grains-back-seal-pouch', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
+      { name: 'AI Packaging Barcodes Bottom Fold', link: '/topics/ai-packaging-barcodes-bottom-fold', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
+      { name: 'AI Packaging Bleed Dimensions', link: '/topics/ai-packaging-bleed-dimensions', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
+      { name: 'AI Packaging Safe Margins', link: '/topics/ai-packaging-safe-margins', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
+      { name: 'AI Packaging Layered Assets', link: '/topics/ai-packaging-layered-assets', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
+      { name: 'AI Packaging Resolution', link: '/topics/ai-packaging-resolution', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
+      { name: 'Apparel Zipper', link: '/topics/apparel-zipper', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
+      { name: 'Beef Jerky Barrier', link: '/topics/beef-jerky-barrier', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
+      { name: 'Beverage Soft Stand Up Pouch', link: '/topics/beverage-soft-stand-up-pouch', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
+      { name: 'Cheese Pocket Zipper', link: '/topics/cheese-pocket-zipper', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
+      { name: 'Cocktail Spout', link: '/topics/cocktail-spout', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
+      { name: 'Collagen High Barrier', link: '/topics/collagen-high-barrier', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
+      { name: 'Cacao Stand Up', link: '/topics/cacao-stand-up', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' }
     ]
   },
   caseStudies: {

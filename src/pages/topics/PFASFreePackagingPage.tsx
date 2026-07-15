@@ -1,13 +1,13 @@
 import React from 'react';
-import Head from 'next/head';
+import { Helmet } from 'react-helmet-async';
 
 const PFASFreePackagingPage: React.FC = () => {
   return (
     <>
-      <Head>
+      <Helmet>
         <title>PFAS-Free Packaging | Secure & Sustainable Barrier Pouches</title>
-        <meta name="description" content="Discover premium PFAS-free packaging solutions for your brand. Maintain ultimate barrier properties without harmful "forever chemicals". B2B sustainable packaging at its finest." />
-      </Head>
+        <meta name="description" content="Discover premium PFAS-free packaging solutions for your brand. Maintain ultimate barrier properties without harmful &quot;forever chemicals&quot;. B2B sustainable packaging at its finest." />
+      </Helmet>
       <div className="bg-gray-50 text-gray-900 min-h-screen font-sans">
         {/* Hero Section */}
         <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center bg-white shadow-sm">

@@ -521,18 +521,12 @@ export default function SharedStudioPage() {
 
       let sX = 1.0;
       let sY = 1.0;
-      let sZ = 1.0;
       if (modelRef.current) {
         sX = modelRef.current.scale.x;
         sY = modelRef.current.scale.y;
-        sZ = modelRef.current.scale.z;
       }
 
-      const angle = (2 * Math.PI * layer.pos.x) / 1000;
-      const t = Math.pow(Math.cos(angle), 2);
-      const sX_effective = (1 - t) * sX + t * sZ;
-
-      const w = ((layer.width || layer.img.width) * (layer.scale || 1.0)) / sX_effective;
+      const w = ((layer.width || layer.img.width) * (layer.scale || 1.0)) / sX;
       const h = ((layer.height || layer.img.height) * (layer.scale || 1.0)) / sY;
 
       ctx.drawImage(layer.img, -w / 2, -h / 2, w, h);

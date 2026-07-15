@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-14",
-  "total_images": 5227,
-  "total_categories": 242,
+  "generated": "2026-07-15",
+  "total_images": 5493,
+  "total_categories": 288,
   "extensions": {
-    ".webp": 1313,
-    ".png": 3027,
-    ".jpg": 883,
+    ".webp": 1355,
+    ".png": 3160,
+    ".jpg": 974,
     ".svg": 4
   },
   "categories": {
@@ -12753,187 +12753,283 @@
       ]
     },
     "knowledge": {
-      "count": 289,
+      "count": 305,
       "images": [
+        {
+          "filename": "beef-jerky-pillow-pouch-comparison.jpg",
+          "path": "/imgs/knowledge/beef-jerky-pillow-pouch-comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-15T03:49:22.131Z"
+        },
+        {
+          "filename": "bread-flat-bottom-bag-comparison.jpg",
+          "path": "/imgs/knowledge/bread-flat-bottom-bag-comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-15T03:49:19.865Z"
+        },
+        {
+          "filename": "bread-flat-bottom-bag-process.jpg",
+          "path": "/imgs/knowledge/bread-flat-bottom-bag-process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-15T03:49:19.862Z"
+        },
+        {
+          "filename": "bread-flat-bottom-bag-hero.jpg",
+          "path": "/imgs/knowledge/bread-flat-bottom-bag-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-15T03:49:19.857Z"
+        },
+        {
+          "filename": "ai-packaging-resolution-comparison.jpg",
+          "path": "/imgs/knowledge/ai-packaging-resolution-comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-15T03:49:15.878Z"
+        },
+        {
+          "filename": "ai-packaging-resolution-process.jpg",
+          "path": "/imgs/knowledge/ai-packaging-resolution-process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-15T03:49:15.876Z"
+        },
+        {
+          "filename": "ai-packaging-resolution-hero.jpg",
+          "path": "/imgs/knowledge/ai-packaging-resolution-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-15T03:49:15.874Z"
+        },
+        {
+          "filename": "beverage-soft-stand-up-pouch-comparison.jpg",
+          "path": "/imgs/knowledge/beverage-soft-stand-up-pouch-comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-15T03:48:49.469Z"
+        },
+        {
+          "filename": "beverage-soft-stand-up-pouch-process.jpg",
+          "path": "/imgs/knowledge/beverage-soft-stand-up-pouch-process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-15T03:48:49.467Z"
+        },
+        {
+          "filename": "beverage-soft-stand-up-pouch-hero.jpg",
+          "path": "/imgs/knowledge/beverage-soft-stand-up-pouch-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-15T03:48:49.465Z"
+        },
+        {
+          "filename": "ai-packaging-layered-assets-comparison.jpg",
+          "path": "/imgs/knowledge/ai-packaging-layered-assets-comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-15T03:48:41.314Z"
+        },
+        {
+          "filename": "ai-packaging-layered-assets-process.jpg",
+          "path": "/imgs/knowledge/ai-packaging-layered-assets-process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-15T03:48:41.290Z"
+        },
+        {
+          "filename": "ai-packaging-layered-assets-hero.jpg",
+          "path": "/imgs/knowledge/ai-packaging-layered-assets-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-15T03:48:28.822Z"
+        },
+        {
+          "filename": "beef-jerky-pillow-pouch-process.jpg",
+          "path": "/imgs/knowledge/beef-jerky-pillow-pouch-process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-15T03:48:03.877Z"
+        },
+        {
+          "filename": "beef-jerky-pillow-pouch-hero.jpg",
+          "path": "/imgs/knowledge/beef-jerky-pillow-pouch-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-15T03:48:03.875Z"
+        },
+        {
+          "filename": "apparel-zipper-hero.jpg",
+          "path": "/imgs/knowledge/apparel-zipper-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-15T03:47:43.773Z"
+        },
         {
           "filename": "carbon-footprint-packaging-comparison.jpg",
           "path": "/imgs/knowledge/carbon-footprint-packaging-comparison.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.717Z"
-        },
-        {
-          "filename": "carbon-footprint-packaging-guide.jpg",
-          "path": "/imgs/knowledge/carbon-footprint-packaging-guide.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.716Z"
+          "modified": "2026-07-15T02:42:54.625Z"
         },
         {
           "filename": "carbon-footprint-packaging-process.jpg",
           "path": "/imgs/knowledge/carbon-footprint-packaging-process.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.716Z"
+          "modified": "2026-07-15T02:42:54.623Z"
+        },
+        {
+          "filename": "carbon-footprint-packaging-guide.jpg",
+          "path": "/imgs/knowledge/carbon-footprint-packaging-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-15T02:42:54.621Z"
         },
         {
           "filename": "liquid-spout-pouches-comparison.jpg",
           "path": "/imgs/knowledge/liquid-spout-pouches-comparison.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.715Z"
-        },
-        {
-          "filename": "liquid-spout-pouches-guide.jpg",
-          "path": "/imgs/knowledge/liquid-spout-pouches-guide.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.714Z"
+          "modified": "2026-07-15T02:42:54.614Z"
         },
         {
           "filename": "liquid-spout-pouches-process.jpg",
           "path": "/imgs/knowledge/liquid-spout-pouches-process.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.714Z"
+          "modified": "2026-07-15T02:42:54.610Z"
+        },
+        {
+          "filename": "liquid-spout-pouches-guide.jpg",
+          "path": "/imgs/knowledge/liquid-spout-pouches-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-15T02:42:54.608Z"
         },
         {
           "filename": "tamper-evident-sealing-comparison.jpg",
           "path": "/imgs/knowledge/tamper-evident-sealing-comparison.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.713Z"
-        },
-        {
-          "filename": "tamper-evident-sealing-guide.jpg",
-          "path": "/imgs/knowledge/tamper-evident-sealing-guide.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.712Z"
+          "modified": "2026-07-15T02:42:54.605Z"
         },
         {
           "filename": "tamper-evident-sealing-process.jpg",
           "path": "/imgs/knowledge/tamper-evident-sealing-process.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.712Z"
+          "modified": "2026-07-15T02:42:54.597Z"
+        },
+        {
+          "filename": "tamper-evident-sealing-guide.jpg",
+          "path": "/imgs/knowledge/tamper-evident-sealing-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-15T02:42:54.585Z"
         },
         {
           "filename": "modified-atmosphere-packaging-comparison.jpg",
           "path": "/imgs/knowledge/modified-atmosphere-packaging-comparison.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.710Z"
+          "modified": "2026-07-15T02:42:54.583Z"
         },
         {
           "filename": "modified-atmosphere-packaging-process.jpg",
           "path": "/imgs/knowledge/modified-atmosphere-packaging-process.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.710Z"
+          "modified": "2026-07-15T02:42:54.581Z"
         },
         {
           "filename": "modified-atmosphere-packaging-guide.jpg",
           "path": "/imgs/knowledge/modified-atmosphere-packaging-guide.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.709Z"
+          "modified": "2026-07-15T02:42:54.579Z"
         },
         {
           "filename": "ocean-bound-plastic-comparison.jpg",
           "path": "/imgs/knowledge/ocean-bound-plastic-comparison.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.708Z"
+          "modified": "2026-07-15T02:42:54.576Z"
         },
         {
           "filename": "ocean-bound-plastic-process.jpg",
           "path": "/imgs/knowledge/ocean-bound-plastic-process.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.708Z"
+          "modified": "2026-07-15T02:42:54.573Z"
         },
         {
           "filename": "ocean-bound-plastic-guide.jpg",
           "path": "/imgs/knowledge/ocean-bound-plastic-guide.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.707Z"
+          "modified": "2026-07-15T02:42:54.571Z"
         },
         {
           "filename": "compostable-barrier-coatings-comparison.jpg",
           "path": "/imgs/knowledge/compostable-barrier-coatings-comparison.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.706Z"
-        },
-        {
-          "filename": "compostable-barrier-coatings-guide.jpg",
-          "path": "/imgs/knowledge/compostable-barrier-coatings-guide.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.705Z"
+          "modified": "2026-07-15T02:42:54.569Z"
         },
         {
           "filename": "compostable-barrier-coatings-process.jpg",
           "path": "/imgs/knowledge/compostable-barrier-coatings-process.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.705Z"
+          "modified": "2026-07-15T02:42:54.565Z"
         },
         {
-          "filename": "ultrasonic-pouch-sealing-guide.jpg",
-          "path": "/imgs/knowledge/ultrasonic-pouch-sealing-guide.jpg",
+          "filename": "compostable-barrier-coatings-guide.jpg",
+          "path": "/imgs/knowledge/compostable-barrier-coatings-guide.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.703Z"
+          "modified": "2026-07-15T02:42:54.564Z"
         },
         {
           "filename": "ultrasonic-vs-heat-sealing-comparison.jpg",
           "path": "/imgs/knowledge/ultrasonic-vs-heat-sealing-comparison.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.703Z"
+          "modified": "2026-07-15T02:42:54.561Z"
         },
         {
           "filename": "ultrasonic-vs-heat-sealing-process.jpg",
           "path": "/imgs/knowledge/ultrasonic-vs-heat-sealing-process.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.703Z"
+          "modified": "2026-07-15T02:42:54.559Z"
+        },
+        {
+          "filename": "ultrasonic-pouch-sealing-guide.jpg",
+          "path": "/imgs/knowledge/ultrasonic-pouch-sealing-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-15T02:42:54.557Z"
         },
         {
           "filename": "epr-tax-minimization-comparison.jpg",
           "path": "/imgs/knowledge/epr-tax-minimization-comparison.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.701Z"
-        },
-        {
-          "filename": "epr-tax-minimization-guide.jpg",
-          "path": "/imgs/knowledge/epr-tax-minimization-guide.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.701Z"
+          "modified": "2026-07-15T02:42:54.553Z"
         },
         {
           "filename": "epr-tax-minimization-process.jpg",
           "path": "/imgs/knowledge/epr-tax-minimization-process.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.701Z"
+          "modified": "2026-07-15T02:42:54.552Z"
+        },
+        {
+          "filename": "epr-tax-minimization-guide.jpg",
+          "path": "/imgs/knowledge/epr-tax-minimization-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-15T02:42:54.549Z"
         },
         {
           "filename": "sensory-unboxing-comparison.jpg",
           "path": "/imgs/knowledge/sensory-unboxing-comparison.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.700Z"
-        },
-        {
-          "filename": "sensory-unboxing-pouch-guide.jpg",
-          "path": "/imgs/knowledge/sensory-unboxing-pouch-guide.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.699Z"
+          "modified": "2026-07-15T02:42:54.547Z"
         },
         {
           "filename": "sensory-unboxing-process.jpg",
           "path": "/imgs/knowledge/sensory-unboxing-process.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.699Z"
+          "modified": "2026-07-15T02:42:54.544Z"
+        },
+        {
+          "filename": "sensory-unboxing-pouch-guide.jpg",
+          "path": "/imgs/knowledge/sensory-unboxing-pouch-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-15T02:42:54.542Z"
         },
         {
           "filename": "digital-product-passport-comparison.jpg",
           "path": "/imgs/knowledge/digital-product-passport-comparison.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.697Z"
+          "modified": "2026-07-15T02:42:54.541Z"
         },
         {
           "filename": "digital-product-passport-process.jpg",
           "path": "/imgs/knowledge/digital-product-passport-process.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.697Z"
+          "modified": "2026-07-15T02:42:54.537Z"
         },
         {
           "filename": "digital-product-passport-guide.jpg",
           "path": "/imgs/knowledge/digital-product-passport-guide.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-14T02:44:50.696Z"
+          "modified": "2026-07-15T02:42:54.534Z"
         },
         {
           "filename": "sustainable-custom-pouches-pain-points.jpg",
@@ -31057,9 +31153,50 @@
         }
       ]
     },
-    "topics/ai-packaging-barcodes-bottom-fold": {
+    "topics/active-modified-atmosphere-packaging": {
       "count": 3,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/active-modified-atmosphere-packaging/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:23.187Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/active-modified-atmosphere-packaging/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:23.185Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/active-modified-atmosphere-packaging/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:23.182Z"
+        }
+      ]
+    },
+    "topics/ai-packaging-barcodes-bottom-fold": {
+      "count": 6,
+      "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/ai-packaging-barcodes-bottom-fold/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:52.061Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/ai-packaging-barcodes-bottom-fold/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:52.055Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/ai-packaging-barcodes-bottom-fold/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:52.050Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/ai-packaging-barcodes-bottom-fold/comparison.jpg",
@@ -31081,8 +31218,26 @@
       ]
     },
     "topics/ai-packaging-bleed-dimensions": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/ai-packaging-bleed-dimensions/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:37.654Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/ai-packaging-bleed-dimensions/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:37.652Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/ai-packaging-bleed-dimensions/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:08.751Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/ai-packaging-bleed-dimensions/comparison.jpg",
@@ -31104,8 +31259,26 @@
       ]
     },
     "topics/ai-packaging-layered-assets": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/ai-packaging-layered-assets/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:37.667Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/ai-packaging-layered-assets/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:37.664Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/ai-packaging-layered-assets/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:37.662Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/ai-packaging-layered-assets/comparison.jpg",
@@ -31127,8 +31300,26 @@
       ]
     },
     "topics/ai-packaging-resolution": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/ai-packaging-resolution/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:43.936Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/ai-packaging-resolution/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:43.934Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/ai-packaging-resolution/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:43.932Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/ai-packaging-resolution/comparison.jpg",
@@ -31150,8 +31341,26 @@
       ]
     },
     "topics/ai-packaging-safe-margins": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/ai-packaging-safe-margins/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:56.959Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/ai-packaging-safe-margins/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:56.957Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/ai-packaging-safe-margins/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:56.955Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/ai-packaging-safe-margins/comparison.jpg",
@@ -31173,8 +31382,26 @@
       ]
     },
     "topics/apparel-zipper": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/apparel-zipper/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:14.363Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/apparel-zipper/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:14.358Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/apparel-zipper/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:14.354Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/apparel-zipper/comparison.jpg",
@@ -31196,8 +31423,26 @@
       ]
     },
     "topics/beef-jerky-barrier": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/beef-jerky-barrier/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:14.376Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/beef-jerky-barrier/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:14.371Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/beef-jerky-barrier/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:14.367Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/beef-jerky-barrier/comparison.jpg",
@@ -31219,8 +31464,26 @@
       ]
     },
     "topics/beef-jerky-pillow-pouch": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/beef-jerky-pillow-pouch/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:41.053Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/beef-jerky-pillow-pouch/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:41.043Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/beef-jerky-pillow-pouch/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:41.029Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/beef-jerky-pillow-pouch/comparison.jpg",
@@ -31242,8 +31505,26 @@
       ]
     },
     "topics/beverage-soft-stand-up-pouch": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/beverage-soft-stand-up-pouch/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:41.013Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/beverage-soft-stand-up-pouch/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:41.006Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/beverage-soft-stand-up-pouch/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:41.000Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/beverage-soft-stand-up-pouch/comparison.jpg",
@@ -31265,8 +31546,26 @@
       ]
     },
     "topics/bread-flat-bottom-bag": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/bread-flat-bottom-bag/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:12.315Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/bread-flat-bottom-bag/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:36.331Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/bread-flat-bottom-bag/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:34:32.753Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/bread-flat-bottom-bag/comparison.jpg",
@@ -31288,8 +31587,26 @@
       ]
     },
     "topics/cacao-stand-up": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/cacao-stand-up/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:41.051Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/cacao-stand-up/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:41.047Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/cacao-stand-up/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:41.042Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/cacao-stand-up/comparison.jpg",
@@ -31311,8 +31628,26 @@
       ]
     },
     "topics/candy-uv": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/candy-uv/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.799Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/candy-uv/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.796Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/candy-uv/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.790Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/candy-uv/comparison.jpg",
@@ -31333,9 +31668,50 @@
         }
       ]
     },
-    "topics/cereal-sachet-three-side-seal": {
+    "topics/carbon-footprint-tracking-packaging": {
       "count": 3,
       "images": [
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/carbon-footprint-tracking-packaging/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.811Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/carbon-footprint-tracking-packaging/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.810Z"
+        },
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/carbon-footprint-tracking-packaging/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.808Z"
+        }
+      ]
+    },
+    "topics/cereal-sachet-three-side-seal": {
+      "count": 6,
+      "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/cereal-sachet-three-side-seal/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:18.104Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/cereal-sachet-three-side-seal/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:18.098Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/cereal-sachet-three-side-seal/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:18.089Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/cereal-sachet-three-side-seal/comparison.jpg",
@@ -31357,8 +31733,26 @@
       ]
     },
     "topics/cheese-pocket-zipper": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/cheese-pocket-zipper/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:18.118Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/cheese-pocket-zipper/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:18.116Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/cheese-pocket-zipper/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:18.114Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/cheese-pocket-zipper/comparison.jpg",
@@ -31379,9 +31773,50 @@
         }
       ]
     },
-    "topics/cocktail-spout": {
+    "topics/child-resistant-mylar-bags": {
       "count": 3,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/child-resistant-mylar-bags/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.745Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/child-resistant-mylar-bags/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.742Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/child-resistant-mylar-bags/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:06.973Z"
+        }
+      ]
+    },
+    "topics/cocktail-spout": {
+      "count": 6,
+      "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/cocktail-spout/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.765Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/cocktail-spout/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.762Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/cocktail-spout/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.758Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/cocktail-spout/comparison.jpg",
@@ -31406,28 +31841,46 @@
       "count": 3,
       "images": [
         {
-          "filename": "comparison.jpg",
-          "path": "/imgs/topics/coffee-beans-flat-bottom-pouch/comparison.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-10T10:51:14.708Z"
-        },
-        {
           "filename": "process.jpg",
           "path": "/imgs/topics/coffee-beans-flat-bottom-pouch/process.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-10T10:51:14.705Z"
+          "modified": "2026-07-14T04:03:14.999Z"
         },
         {
           "filename": "hero.jpg",
           "path": "/imgs/topics/coffee-beans-flat-bottom-pouch/hero.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-10T10:51:14.703Z"
+          "modified": "2026-07-14T04:03:14.998Z"
+        },
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/coffee-beans-flat-bottom-pouch/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:03:14.996Z"
         }
       ]
     },
     "topics/coffee-sachet-three-side-seal": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/coffee-sachet-three-side-seal/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:17.187Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/coffee-sachet-three-side-seal/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:17.183Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/coffee-sachet-three-side-seal/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:17.180Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/coffee-sachet-three-side-seal/comparison.jpg",
@@ -31449,8 +31902,26 @@
       ]
     },
     "topics/collagen-high-barrier": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/collagen-high-barrier/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:17.197Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/collagen-high-barrier/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:17.194Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/collagen-high-barrier/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:17.190Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/collagen-high-barrier/comparison.jpg",
@@ -31468,6 +31939,45 @@
           "path": "/imgs/topics/collagen-high-barrier/hero.jpg",
           "extension": ".jpg",
           "modified": "2026-07-03T07:23:54.913Z"
+        }
+      ]
+    },
+    "topics/compostable-baby-food-bags": {
+      "count": 2,
+      "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/compostable-baby-food-bags/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:42.936Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/compostable-baby-food-bags/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:42.932Z"
+        }
+      ]
+    },
+    "topics/compostable-spouted-pouches": {
+      "count": 1,
+      "images": [
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/compostable-spouted-pouches/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:28.434Z"
+        }
+      ]
+    },
+    "topics/compostable-zipper-durability": {
+      "count": 1,
+      "images": [
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/compostable-zipper-durability/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:28.438Z"
         }
       ]
     },
@@ -31609,6 +32119,98 @@
         }
       ]
     },
+    "topics/custom-brand-packaging": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/custom-brand-packaging/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:41.217Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/custom-brand-packaging/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:41.215Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/custom-brand-packaging/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:41.213Z"
+        }
+      ]
+    },
+    "topics/custom-brand-packaging-service": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/custom-brand-packaging-service/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:41.231Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/custom-brand-packaging-service/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:41.229Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/custom-brand-packaging-service/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:41.227Z"
+        }
+      ]
+    },
+    "topics/custom-compostable-pouch-suppliers": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/custom-compostable-pouch-suppliers/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:41.244Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/custom-compostable-pouch-suppliers/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:41.242Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/custom-compostable-pouch-suppliers/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:41.241Z"
+        }
+      ]
+    },
+    "topics/custom-printed-sustainable-pouches": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/custom-printed-sustainable-pouches/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:41.257Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/custom-printed-sustainable-pouches/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:41.255Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/custom-printed-sustainable-pouches/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:41.254Z"
+        }
+      ]
+    },
     "topics/ddp-packaging": {
       "count": 3,
       "images": [
@@ -31655,9 +32257,73 @@
         }
       ]
     },
-    "topics/dried-fruit-flat-bottom-pouch": {
+    "topics/digital-printing-eco-packaging": {
       "count": 3,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/digital-printing-eco-packaging/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.740Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/digital-printing-eco-packaging/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.739Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/digital-printing-eco-packaging/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.737Z"
+        }
+      ]
+    },
+    "topics/digital-product-passport-packaging": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/digital-product-passport-packaging/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.746Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/digital-product-passport-packaging/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.744Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/digital-product-passport-packaging/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.742Z"
+        }
+      ]
+    },
+    "topics/dried-fruit-flat-bottom-pouch": {
+      "count": 6,
+      "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/dried-fruit-flat-bottom-pouch/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.752Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/dried-fruit-flat-bottom-pouch/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.750Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/dried-fruit-flat-bottom-pouch/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.748Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/dried-fruit-flat-bottom-pouch/comparison.jpg",
@@ -31679,8 +32345,26 @@
       ]
     },
     "topics/dried-fruit-hanging-zipper-pouch": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/dried-fruit-hanging-zipper-pouch/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.758Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/dried-fruit-hanging-zipper-pouch/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.756Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/dried-fruit-hanging-zipper-pouch/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.755Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/dried-fruit-hanging-zipper-pouch/comparison.jpg",
@@ -31702,8 +32386,26 @@
       ]
     },
     "topics/dried-fruits-tear-notch": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/dried-fruits-tear-notch/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.763Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/dried-fruits-tear-notch/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.761Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/dried-fruits-tear-notch/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:02.761Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/dried-fruits-tear-notch/comparison.jpg",
@@ -31724,9 +32426,119 @@
         }
       ]
     },
-    "topics/electronics-anti-static": {
+    "topics/eco-friendly-food-packaging": {
       "count": 3,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/eco-friendly-food-packaging/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:59.246Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/eco-friendly-food-packaging/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:59.244Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/eco-friendly-food-packaging/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:59.242Z"
+        }
+      ]
+    },
+    "topics/eco-friendly-supplier-service": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/eco-friendly-supplier-service/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:59.260Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/eco-friendly-supplier-service/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:59.258Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/eco-friendly-supplier-service/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:59.256Z"
+        }
+      ]
+    },
+    "topics/eco-friendly-supplier-verification": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/eco-friendly-supplier-verification/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:59.276Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/eco-friendly-supplier-verification/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:59.274Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/eco-friendly-supplier-verification/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:59.271Z"
+        }
+      ]
+    },
+    "topics/eco-packaging-regulations": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/eco-packaging-regulations/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:59.291Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/eco-packaging-regulations/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:59.289Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/eco-packaging-regulations/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:59.287Z"
+        }
+      ]
+    },
+    "topics/electronics-anti-static": {
+      "count": 6,
+      "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/electronics-anti-static/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:14.536Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/electronics-anti-static/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:14.532Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/electronics-anti-static/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:14.528Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/electronics-anti-static/comparison.jpg",
@@ -31747,9 +32559,73 @@
         }
       ]
     },
-    "topics/euro-hole-hang": {
+    "topics/epr-tax-minimization-strategies": {
       "count": 3,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/epr-tax-minimization-strategies/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:14.551Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/epr-tax-minimization-strategies/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:14.547Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/epr-tax-minimization-strategies/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:14.543Z"
+        }
+      ]
+    },
+    "topics/eu-ppwr-compliance": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/eu-ppwr-compliance/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:59.230Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/eu-ppwr-compliance/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:59.228Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/eu-ppwr-compliance/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:59.226Z"
+        }
+      ]
+    },
+    "topics/euro-hole-hang": {
+      "count": 6,
+      "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/euro-hole-hang/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:14.566Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/euro-hole-hang/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:14.562Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/euro-hole-hang/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:14.557Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/euro-hole-hang/comparison.jpg",
@@ -31771,8 +32647,26 @@
       ]
     },
     "topics/evoh-retort": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/evoh-retort/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:14.582Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/evoh-retort/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:14.577Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/evoh-retort/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:14.573Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/evoh-retort/comparison.jpg",
@@ -31794,8 +32688,26 @@
       ]
     },
     "topics/fast-air-freight": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison.png",
+          "path": "/imgs/topics/fast-air-freight/comparison.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:14.596Z"
+        },
+        {
+          "filename": "process.png",
+          "path": "/imgs/topics/fast-air-freight/process.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:14.592Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/topics/fast-air-freight/hero.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:14.588Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/fast-air-freight/comparison.jpg",
@@ -31817,8 +32729,26 @@
       ]
     },
     "topics/fda-brc-certified": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison.webp",
+          "path": "/imgs/topics/fda-brc-certified/comparison.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:37:38.914Z"
+        },
+        {
+          "filename": "process.webp",
+          "path": "/imgs/topics/fda-brc-certified/process.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:37:38.912Z"
+        },
+        {
+          "filename": "hero.webp",
+          "path": "/imgs/topics/fda-brc-certified/hero.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:37:38.909Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/fda-brc-certified/comparison.jpg",
@@ -31839,9 +32769,73 @@
         }
       ]
     },
-    "topics/frozen-vacuum": {
+    "topics/food-packaging-supplier": {
       "count": 3,
       "images": [
+        {
+          "filename": "comparison.webp",
+          "path": "/imgs/topics/food-packaging-supplier/comparison.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:37:38.923Z"
+        },
+        {
+          "filename": "process.webp",
+          "path": "/imgs/topics/food-packaging-supplier/process.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:37:38.920Z"
+        },
+        {
+          "filename": "hero.webp",
+          "path": "/imgs/topics/food-packaging-supplier/hero.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:37:38.917Z"
+        }
+      ]
+    },
+    "topics/food-packaging-supplier-service": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.webp",
+          "path": "/imgs/topics/food-packaging-supplier-service/comparison.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:37:38.932Z"
+        },
+        {
+          "filename": "process.webp",
+          "path": "/imgs/topics/food-packaging-supplier-service/process.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:37:38.930Z"
+        },
+        {
+          "filename": "hero.webp",
+          "path": "/imgs/topics/food-packaging-supplier-service/hero.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:37:38.926Z"
+        }
+      ]
+    },
+    "topics/frozen-vacuum": {
+      "count": 6,
+      "images": [
+        {
+          "filename": "comparison.webp",
+          "path": "/imgs/topics/frozen-vacuum/comparison.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:37:38.941Z"
+        },
+        {
+          "filename": "process.webp",
+          "path": "/imgs/topics/frozen-vacuum/process.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:37:38.938Z"
+        },
+        {
+          "filename": "hero.webp",
+          "path": "/imgs/topics/frozen-vacuum/hero.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:37:38.935Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/frozen-vacuum/comparison.jpg",
@@ -31863,8 +32857,26 @@
       ]
     },
     "topics/grains-back-seal-pouch": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison.webp",
+          "path": "/imgs/topics/grains-back-seal-pouch/comparison.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:37:38.950Z"
+        },
+        {
+          "filename": "process.webp",
+          "path": "/imgs/topics/grains-back-seal-pouch/process.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:37:38.947Z"
+        },
+        {
+          "filename": "hero.webp",
+          "path": "/imgs/topics/grains-back-seal-pouch/hero.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:37:38.944Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/grains-back-seal-pouch/comparison.jpg",
@@ -31889,22 +32901,62 @@
       "count": 3,
       "images": [
         {
-          "filename": "comparison.jpg",
-          "path": "/imgs/topics/granola-soft-touch/comparison.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-03T23:50:42.271Z"
-        },
-        {
           "filename": "process.jpg",
           "path": "/imgs/topics/granola-soft-touch/process.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-03T23:50:42.269Z"
+          "modified": "2026-07-14T04:37:31.990Z"
         },
         {
           "filename": "hero.jpg",
           "path": "/imgs/topics/granola-soft-touch/hero.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-03T23:50:42.267Z"
+          "modified": "2026-07-14T04:37:31.980Z"
+        },
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/granola-soft-touch/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-03T23:50:42.271Z"
+        }
+      ]
+    },
+    "topics/green-coffee-materials": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/green-coffee-materials/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T05:59:45.712Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/green-coffee-materials/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T05:59:45.712Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/green-coffee-materials/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T05:59:45.711Z"
+        }
+      ]
+    },
+    "topics/green-coffee-materials-page": {
+      "count": 2,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/green-coffee-materials-page/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:32.016Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/green-coffee-materials-page/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:32.009Z"
         }
       ]
     },
@@ -31931,6 +32983,29 @@
         }
       ]
     },
+    "topics/home-compostable-coffee-bags": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/home-compostable-coffee-bags/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T05:59:45.714Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/home-compostable-coffee-bags/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T05:59:45.714Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/home-compostable-coffee-bags/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T05:59:45.714Z"
+        }
+      ]
+    },
     "topics/home-vs-industrial-compostable": {
       "count": 3,
       "images": [
@@ -31938,19 +33013,19 @@
           "filename": "comparison.jpg",
           "path": "/imgs/topics/home-vs-industrial-compostable/comparison.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-03T23:53:24.240Z"
+          "modified": "2026-07-14T04:36:59.214Z"
         },
         {
           "filename": "process.jpg",
           "path": "/imgs/topics/home-vs-industrial-compostable/process.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-03T23:53:24.238Z"
+          "modified": "2026-07-14T04:36:59.214Z"
         },
         {
           "filename": "hero.jpg",
           "path": "/imgs/topics/home-vs-industrial-compostable/hero.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-03T23:53:24.235Z"
+          "modified": "2026-07-14T04:36:59.213Z"
         }
       ]
     },
@@ -31961,19 +33036,19 @@
           "filename": "comparison.jpg",
           "path": "/imgs/topics/household-back-seal-bag/comparison.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-10T10:55:02.374Z"
-        },
-        {
-          "filename": "process.jpg",
-          "path": "/imgs/topics/household-back-seal-bag/process.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-10T10:55:02.369Z"
+          "modified": "2026-07-14T04:36:59.218Z"
         },
         {
           "filename": "hero.jpg",
           "path": "/imgs/topics/household-back-seal-bag/hero.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-10T10:55:02.367Z"
+          "modified": "2026-07-14T04:36:59.217Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/household-back-seal-bag/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:36:59.217Z"
         }
       ]
     },
@@ -31984,19 +33059,19 @@
           "filename": "comparison.jpg",
           "path": "/imgs/topics/household-jam-three-side-seal/comparison.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-10T10:55:02.392Z"
-        },
-        {
-          "filename": "process.jpg",
-          "path": "/imgs/topics/household-jam-three-side-seal/process.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-10T10:55:02.386Z"
+          "modified": "2026-07-14T04:36:59.221Z"
         },
         {
           "filename": "hero.jpg",
           "path": "/imgs/topics/household-jam-three-side-seal/hero.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-10T10:55:02.379Z"
+          "modified": "2026-07-14T04:36:59.220Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/household-jam-three-side-seal/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:36:59.220Z"
         }
       ]
     },
@@ -32007,19 +33082,19 @@
           "filename": "comparison.jpg",
           "path": "/imgs/topics/iso-sustainable/comparison.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-03T23:55:13.505Z"
+          "modified": "2026-07-14T04:36:59.224Z"
         },
         {
           "filename": "process.jpg",
           "path": "/imgs/topics/iso-sustainable/process.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-03T23:55:13.503Z"
+          "modified": "2026-07-14T04:36:59.224Z"
         },
         {
           "filename": "hero.jpg",
           "path": "/imgs/topics/iso-sustainable/hero.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-03T23:55:13.501Z"
+          "modified": "2026-07-14T04:36:59.223Z"
         }
       ]
     },
@@ -32053,19 +33128,88 @@
           "filename": "comparison.jpg",
           "path": "/imgs/topics/kraft-paper-shopping-bag/comparison.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-10T10:55:02.408Z"
+          "modified": "2026-07-14T04:36:55.215Z"
         },
         {
           "filename": "process.jpg",
           "path": "/imgs/topics/kraft-paper-shopping-bag/process.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-10T10:55:02.405Z"
+          "modified": "2026-07-14T04:36:55.214Z"
         },
         {
           "filename": "hero.jpg",
           "path": "/imgs/topics/kraft-paper-shopping-bag/hero.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-10T10:55:02.401Z"
+          "modified": "2026-07-14T04:36:55.213Z"
+        }
+      ]
+    },
+    "topics/liquid-barrier-packaging-spouts": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/liquid-barrier-packaging-spouts/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:36:55.217Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/liquid-barrier-packaging-spouts/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:36:55.217Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/liquid-barrier-packaging-spouts/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:36:55.216Z"
+        }
+      ]
+    },
+    "topics/low-moq-startup-packaging": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/low-moq-startup-packaging/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T05:59:45.718Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/low-moq-startup-packaging/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T05:59:45.718Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/low-moq-startup-packaging/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T05:59:45.718Z"
+        }
+      ]
+    },
+    "topics/low-moq-startup-packaging-page": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/low-moq-startup-packaging-page/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:36:55.219Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/low-moq-startup-packaging-page/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:36:55.218Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/low-moq-startup-packaging-page/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:36:55.218Z"
         }
       ]
     },
@@ -32073,22 +33217,22 @@
       "count": 3,
       "images": [
         {
-          "filename": "comparison.jpg",
-          "path": "/imgs/topics/matcha-sachet/comparison.jpg",
-          "extension": ".jpg",
-          "modified": "2026-07-03T06:57:52.952Z"
-        },
-        {
           "filename": "process.jpg",
           "path": "/imgs/topics/matcha-sachet/process.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-03T06:57:52.951Z"
+          "modified": "2026-07-14T04:03:14.992Z"
         },
         {
           "filename": "hero.jpg",
           "path": "/imgs/topics/matcha-sachet/hero.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-03T06:57:52.949Z"
+          "modified": "2026-07-14T04:03:14.991Z"
+        },
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/matcha-sachet/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:03:14.990Z"
         }
       ]
     },
@@ -32099,19 +33243,157 @@
           "filename": "comparison.jpg",
           "path": "/imgs/topics/medical-tape-three-side-seal/comparison.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-10T10:39:32.518Z"
+          "modified": "2026-07-14T04:37:05.813Z"
         },
         {
           "filename": "process.jpg",
           "path": "/imgs/topics/medical-tape-three-side-seal/process.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-10T10:39:32.516Z"
+          "modified": "2026-07-14T04:37:05.806Z"
         },
         {
           "filename": "hero.jpg",
           "path": "/imgs/topics/medical-tape-three-side-seal/hero.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-10T10:39:32.514Z"
+          "modified": "2026-07-14T04:37:05.796Z"
+        }
+      ]
+    },
+    "topics/minimalist-d2-c-packaging": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/minimalist-d2-c-packaging/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T05:59:45.720Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/minimalist-d2-c-packaging/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T05:59:45.719Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/minimalist-d2-c-packaging/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T05:59:45.719Z"
+        }
+      ]
+    },
+    "topics/minimalist-d2c-packaging-page": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/minimalist-d2c-packaging-page/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:40:15.297Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/minimalist-d2c-packaging-page/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:40:15.293Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/minimalist-d2c-packaging-page/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:40:15.288Z"
+        }
+      ]
+    },
+    "topics/mono-material-solution": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/mono-material-solution/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T05:59:45.721Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/mono-material-solution/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T05:59:45.721Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/mono-material-solution/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T05:59:45.721Z"
+        }
+      ]
+    },
+    "topics/mono-material-solution-page": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/mono-material-solution-page/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:40:15.304Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/mono-material-solution-page/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:40:15.301Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/mono-material-solution-page/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:05.820Z"
+        }
+      ]
+    },
+    "topics/mono-pe-pouches": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/mono-pe-pouches/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T05:59:45.722Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/mono-pe-pouches/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T05:59:45.722Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/mono-pe-pouches/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T05:59:45.722Z"
+        }
+      ]
+    },
+    "topics/mono-pe-pouches-page": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/mono-pe-pouches-page/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:40:15.315Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/mono-pe-pouches-page/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:40:15.311Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/mono-pe-pouches-page/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:40:15.308Z"
         }
       ]
     },
@@ -32122,19 +33404,19 @@
           "filename": "comparison.jpg",
           "path": "/imgs/topics/nuts-flat-bottom-pouch/comparison.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-10T10:40:55.992Z"
+          "modified": "2026-07-14T04:37:38.773Z"
         },
         {
           "filename": "process.jpg",
           "path": "/imgs/topics/nuts-flat-bottom-pouch/process.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-10T10:40:55.988Z"
+          "modified": "2026-07-14T04:37:38.771Z"
         },
         {
           "filename": "hero.jpg",
           "path": "/imgs/topics/nuts-flat-bottom-pouch/hero.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-10T10:40:55.986Z"
+          "modified": "2026-07-14T04:37:38.768Z"
         }
       ]
     },
@@ -32145,25 +33427,112 @@
           "filename": "comparison.jpg",
           "path": "/imgs/topics/oatmeal-cereal-stand-up-pouch/comparison.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-10T10:45:34.395Z"
+          "modified": "2026-07-14T04:37:38.788Z"
         },
         {
           "filename": "process.jpg",
           "path": "/imgs/topics/oatmeal-cereal-stand-up-pouch/process.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-10T10:45:34.394Z"
+          "modified": "2026-07-14T04:37:38.786Z"
         },
         {
           "filename": "hero.jpg",
           "path": "/imgs/topics/oatmeal-cereal-stand-up-pouch/hero.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-10T10:45:34.392Z"
+          "modified": "2026-07-14T04:37:38.784Z"
+        }
+      ]
+    },
+    "topics/ocean-bound-plastic-packaging": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/ocean-bound-plastic-packaging/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:38.801Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/ocean-bound-plastic-packaging/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:38.799Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/ocean-bound-plastic-packaging/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:38.797Z"
+        }
+      ]
+    },
+    "topics/pcr-packaging-guide": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/pcr-packaging-guide/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T05:59:45.724Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/pcr-packaging-guide/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T05:59:45.724Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/pcr-packaging-guide/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T05:59:45.724Z"
+        }
+      ]
+    },
+    "topics/pcr-packaging-guide-page": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/pcr-packaging-guide-page/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:38.813Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/pcr-packaging-guide-page/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:38.811Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/pcr-packaging-guide-page/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:38.809Z"
         }
       ]
     },
     "topics/pet-food-flat-bottom-bag": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "pet_food_flat_bottom_bag_comp.jpg",
+          "path": "/imgs/topics/pet-food-flat-bottom-bag/pet_food_flat_bottom_bag_comp.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:49.216Z"
+        },
+        {
+          "filename": "pet_food_flat_bottom_bag_process.jpg",
+          "path": "/imgs/topics/pet-food-flat-bottom-bag/pet_food_flat_bottom_bag_process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:49.216Z"
+        },
+        {
+          "filename": "pet_food_flat_bottom_bag_hero.jpg",
+          "path": "/imgs/topics/pet-food-flat-bottom-bag/pet_food_flat_bottom_bag_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:49.215Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/pet-food-flat-bottom-bag/comparison.jpg",
@@ -32185,8 +33554,26 @@
       ]
     },
     "topics/pet-food-quad-seal": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "pet_food_quad_seal_comp.jpg",
+          "path": "/imgs/topics/pet-food-quad-seal/pet_food_quad_seal_comp.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:49.218Z"
+        },
+        {
+          "filename": "pet_food_quad_seal_hero.jpg",
+          "path": "/imgs/topics/pet-food-quad-seal/pet_food_quad_seal_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:49.217Z"
+        },
+        {
+          "filename": "pet_food_quad_seal_process.jpg",
+          "path": "/imgs/topics/pet-food-quad-seal/pet_food_quad_seal_process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:49.217Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/pet-food-quad-seal/comparison.jpg",
@@ -32208,8 +33595,26 @@
       ]
     },
     "topics/pet-treat-stand-up-zipper-pouch": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "pet_treat_stand_up_zipper_pouch_comp.jpg",
+          "path": "/imgs/topics/pet-treat-stand-up-zipper-pouch/pet_treat_stand_up_zipper_pouch_comp.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:49.220Z"
+        },
+        {
+          "filename": "pet_treat_stand_up_zipper_pouch_hero.jpg",
+          "path": "/imgs/topics/pet-treat-stand-up-zipper-pouch/pet_treat_stand_up_zipper_pouch_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:49.220Z"
+        },
+        {
+          "filename": "pet_treat_stand_up_zipper_pouch_process.jpg",
+          "path": "/imgs/topics/pet-treat-stand-up-zipper-pouch/pet_treat_stand_up_zipper_pouch_process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:49.220Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/pet-treat-stand-up-zipper-pouch/comparison.jpg",
@@ -32230,6 +33635,29 @@
         }
       ]
     },
+    "topics/pfas-free-packaging": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "pfas_free_packaging_comp.jpg",
+          "path": "/imgs/topics/pfas-free-packaging/pfas_free_packaging_comp.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:49.214Z"
+        },
+        {
+          "filename": "pfas_free_packaging_process.jpg",
+          "path": "/imgs/topics/pfas-free-packaging/pfas_free_packaging_process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:49.214Z"
+        },
+        {
+          "filename": "pfas_free_packaging_hero.jpg",
+          "path": "/imgs/topics/pfas-free-packaging/pfas_free_packaging_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:49.213Z"
+        }
+      ]
+    },
     "topics/pharma-velcro": {
       "count": 3,
       "images": [
@@ -32237,19 +33665,19 @@
           "filename": "comparison.jpg",
           "path": "/imgs/topics/pharma-velcro/comparison.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-03T06:54:55.859Z"
+          "modified": "2026-07-14T04:37:23.428Z"
         },
         {
           "filename": "process.jpg",
           "path": "/imgs/topics/pharma-velcro/process.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-03T06:54:55.858Z"
+          "modified": "2026-07-14T04:37:23.426Z"
         },
         {
           "filename": "hero.jpg",
           "path": "/imgs/topics/pharma-velcro/hero.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-03T06:54:55.856Z"
+          "modified": "2026-07-14T04:37:23.423Z"
         }
       ]
     },
@@ -32260,19 +33688,19 @@
           "filename": "comparison.jpg",
           "path": "/imgs/topics/pillow-pack-snack-bag/comparison.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-10T11:02:29.151Z"
+          "modified": "2026-07-14T04:37:23.442Z"
         },
         {
           "filename": "process.jpg",
           "path": "/imgs/topics/pillow-pack-snack-bag/process.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-10T11:02:29.149Z"
+          "modified": "2026-07-14T04:37:23.440Z"
         },
         {
           "filename": "hero.jpg",
           "path": "/imgs/topics/pillow-pack-snack-bag/hero.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-10T11:02:29.146Z"
+          "modified": "2026-07-14T04:37:23.437Z"
         }
       ]
     },
@@ -32283,25 +33711,66 @@
           "filename": "comparison.jpg",
           "path": "/imgs/topics/pla-rice/comparison.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-04T00:10:56.271Z"
+          "modified": "2026-07-14T04:37:23.455Z"
         },
         {
           "filename": "process.jpg",
           "path": "/imgs/topics/pla-rice/process.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-04T00:10:56.269Z"
+          "modified": "2026-07-14T04:37:23.453Z"
         },
         {
           "filename": "hero.jpg",
           "path": "/imgs/topics/pla-rice/hero.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-04T00:10:56.267Z"
+          "modified": "2026-07-14T04:37:23.451Z"
+        }
+      ]
+    },
+    "topics/plant-based-barrier-coatings": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison.jpg",
+          "path": "/imgs/topics/plant-based-barrier-coatings/comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:23.469Z"
+        },
+        {
+          "filename": "process.jpg",
+          "path": "/imgs/topics/plant-based-barrier-coatings/process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:23.467Z"
+        },
+        {
+          "filename": "hero.jpg",
+          "path": "/imgs/topics/plant-based-barrier-coatings/hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:23.465Z"
         }
       ]
     },
     "topics/premium-tea": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "premium-tea_comparison.webp",
+          "path": "/imgs/topics/premium-tea/premium-tea_comparison.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:35:36.322Z"
+        },
+        {
+          "filename": "premium-tea_process.webp",
+          "path": "/imgs/topics/premium-tea/premium-tea_process.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:35:36.322Z"
+        },
+        {
+          "filename": "premium-tea_hero.webp",
+          "path": "/imgs/topics/premium-tea/premium-tea_hero.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:35:36.321Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/premium-tea/comparison.jpg",
@@ -32319,6 +33788,109 @@
           "path": "/imgs/topics/premium-tea/hero.jpg",
           "extension": ".jpg",
           "modified": "2026-07-04T00:11:59.781Z"
+        }
+      ]
+    },
+    "topics/real-world-sustainability": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "real-world-sustainability_comparison.webp",
+          "path": "/imgs/topics/real-world-sustainability/real-world-sustainability_comparison.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:35:41.205Z"
+        },
+        {
+          "filename": "real-world-sustainability_hero.webp",
+          "path": "/imgs/topics/real-world-sustainability/real-world-sustainability_hero.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:35:41.205Z"
+        },
+        {
+          "filename": "real-world-sustainability_process.webp",
+          "path": "/imgs/topics/real-world-sustainability/real-world-sustainability_process.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:35:41.205Z"
+        }
+      ]
+    },
+    "topics/recyclable-packaging-guide": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "recyclable-packaging-guide_comparison.webp",
+          "path": "/imgs/topics/recyclable-packaging-guide/recyclable-packaging-guide_comparison.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:35:46.042Z"
+        },
+        {
+          "filename": "recyclable-packaging-guide_hero.webp",
+          "path": "/imgs/topics/recyclable-packaging-guide/recyclable-packaging-guide_hero.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:35:46.042Z"
+        },
+        {
+          "filename": "recyclable-packaging-guide_process.webp",
+          "path": "/imgs/topics/recyclable-packaging-guide/recyclable-packaging-guide_process.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:35:46.042Z"
+        }
+      ]
+    },
+    "topics/recyclable-snack-packaging": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "recyclable-snack-packaging_comparison.webp",
+          "path": "/imgs/topics/recyclable-snack-packaging/recyclable-snack-packaging_comparison.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:35:50.799Z"
+        },
+        {
+          "filename": "recyclable-snack-packaging_hero.webp",
+          "path": "/imgs/topics/recyclable-snack-packaging/recyclable-snack-packaging_hero.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:35:50.799Z"
+        },
+        {
+          "filename": "recyclable-snack-packaging_process.webp",
+          "path": "/imgs/topics/recyclable-snack-packaging/recyclable-snack-packaging_process.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:35:50.799Z"
+        }
+      ]
+    },
+    "topics/recycled-ocean-plastic-packaging": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "recycled_ocean_plastic_packaging_comparison.jpg",
+          "path": "/imgs/topics/recycled-ocean-plastic-packaging/recycled_ocean_plastic_packaging_comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:49.225Z"
+        },
+        {
+          "filename": "recycled_ocean_plastic_packaging_process.jpg",
+          "path": "/imgs/topics/recycled-ocean-plastic-packaging/recycled_ocean_plastic_packaging_process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:49.219Z"
+        },
+        {
+          "filename": "recycled_ocean_plastic_packaging_hero.jpg",
+          "path": "/imgs/topics/recycled-ocean-plastic-packaging/recycled_ocean_plastic_packaging_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:49.216Z"
+        }
+      ]
+    },
+    "topics/reduce-packaging-waste-guide": {
+      "count": 1,
+      "images": [
+        {
+          "filename": "reduce_packaging_waste_guide_hero.jpg",
+          "path": "/imgs/topics/reduce-packaging-waste-guide/reduce_packaging_waste_guide_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:49.239Z"
         }
       ]
     },
@@ -32346,8 +33918,26 @@
       ]
     },
     "topics/rice-paper-artisanal": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "rice-paper-artisanal_comparison.jpg",
+          "path": "/imgs/topics/rice-paper-artisanal/rice-paper-artisanal_comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:24.671Z"
+        },
+        {
+          "filename": "rice-paper-artisanal_process.jpg",
+          "path": "/imgs/topics/rice-paper-artisanal/rice-paper-artisanal_process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:24.668Z"
+        },
+        {
+          "filename": "rice-paper-artisanal_hero.jpg",
+          "path": "/imgs/topics/rice-paper-artisanal/rice-paper-artisanal_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:24.664Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/rice-paper-artisanal/comparison.jpg",
@@ -32368,9 +33958,50 @@
         }
       ]
     },
-    "topics/snack-food-stand-up-pouch": {
+    "topics/sensory-unboxing-experience": {
       "count": 3,
       "images": [
+        {
+          "filename": "sensory-unboxing-experience_comparison.jpg",
+          "path": "/imgs/topics/sensory-unboxing-experience/sensory-unboxing-experience_comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:24.680Z"
+        },
+        {
+          "filename": "sensory-unboxing-experience_process.jpg",
+          "path": "/imgs/topics/sensory-unboxing-experience/sensory-unboxing-experience_process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:24.678Z"
+        },
+        {
+          "filename": "sensory-unboxing-experience_hero.jpg",
+          "path": "/imgs/topics/sensory-unboxing-experience/sensory-unboxing-experience_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:24.675Z"
+        }
+      ]
+    },
+    "topics/snack-food-stand-up-pouch": {
+      "count": 6,
+      "images": [
+        {
+          "filename": "snack-food-stand-up-pouch_comparison.jpg",
+          "path": "/imgs/topics/snack-food-stand-up-pouch/snack-food-stand-up-pouch_comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:24.692Z"
+        },
+        {
+          "filename": "snack-food-stand-up-pouch_process.jpg",
+          "path": "/imgs/topics/snack-food-stand-up-pouch/snack-food-stand-up-pouch_process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:24.689Z"
+        },
+        {
+          "filename": "snack-food-stand-up-pouch_hero.jpg",
+          "path": "/imgs/topics/snack-food-stand-up-pouch/snack-food-stand-up-pouch_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:24.686Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/snack-food-stand-up-pouch/comparison.jpg",
@@ -32392,8 +34023,26 @@
       ]
     },
     "topics/snack-sachet-three-side-seal": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "snack-sachet-three-side-seal_comparison.jpg",
+          "path": "/imgs/topics/snack-sachet-three-side-seal/snack-sachet-three-side-seal_comparison.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:24.700Z"
+        },
+        {
+          "filename": "snack-sachet-three-side-seal_process.jpg",
+          "path": "/imgs/topics/snack-sachet-three-side-seal/snack-sachet-three-side-seal_process.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:24.698Z"
+        },
+        {
+          "filename": "snack-sachet-three-side-seal_hero.jpg",
+          "path": "/imgs/topics/snack-sachet-three-side-seal/snack-sachet-three-side-seal_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-14T04:37:24.695Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/snack-sachet-three-side-seal/comparison.jpg",
@@ -32415,8 +34064,26 @@
       ]
     },
     "topics/snack-stand-up-pouch-large": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison_snack_stand_up_pouch_large.webp",
+          "path": "/imgs/topics/snack-stand-up-pouch-large/comparison_snack_stand_up_pouch_large.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:36:38.281Z"
+        },
+        {
+          "filename": "process_snack_stand_up_pouch_large.webp",
+          "path": "/imgs/topics/snack-stand-up-pouch-large/process_snack_stand_up_pouch_large.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:36:38.279Z"
+        },
+        {
+          "filename": "hero_snack_stand_up_pouch_large.webp",
+          "path": "/imgs/topics/snack-stand-up-pouch-large/hero_snack_stand_up_pouch_large.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:36:38.277Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/snack-stand-up-pouch-large/comparison.jpg",
@@ -32438,8 +34105,26 @@
       ]
     },
     "topics/spices-moisture-proof": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison_spices_moisture_proof.png",
+          "path": "/imgs/topics/spices-moisture-proof/comparison_spices_moisture_proof.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:48.366Z"
+        },
+        {
+          "filename": "process_spices_moisture_proof.png",
+          "path": "/imgs/topics/spices-moisture-proof/process_spices_moisture_proof.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:48.362Z"
+        },
+        {
+          "filename": "hero_spices_moisture_proof.png",
+          "path": "/imgs/topics/spices-moisture-proof/hero_spices_moisture_proof.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:48.355Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/spices-moisture-proof/comparison.jpg",
@@ -32460,9 +34145,73 @@
         }
       ]
     },
-    "topics/tea-sachet-three-side-seal": {
+    "topics/sustainable-packaging-pillar-page": {
       "count": 3,
       "images": [
+        {
+          "filename": "comparison_sustainable_packaging_pillar_page.webp",
+          "path": "/imgs/topics/sustainable-packaging-pillar-page/comparison_sustainable_packaging_pillar_page.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:36:46.514Z"
+        },
+        {
+          "filename": "process_sustainable_packaging_pillar_page.webp",
+          "path": "/imgs/topics/sustainable-packaging-pillar-page/process_sustainable_packaging_pillar_page.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:36:46.510Z"
+        },
+        {
+          "filename": "hero_sustainable_packaging_pillar_page.webp",
+          "path": "/imgs/topics/sustainable-packaging-pillar-page/hero_sustainable_packaging_pillar_page.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:36:46.506Z"
+        }
+      ]
+    },
+    "topics/tamper-evident-sealing-standards": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "comparison_tamper_evident_sealing_standards.png",
+          "path": "/imgs/topics/tamper-evident-sealing-standards/comparison_tamper_evident_sealing_standards.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:45.883Z"
+        },
+        {
+          "filename": "process_tamper_evident_sealing_standards.png",
+          "path": "/imgs/topics/tamper-evident-sealing-standards/process_tamper_evident_sealing_standards.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:45.881Z"
+        },
+        {
+          "filename": "hero_tamper_evident_sealing_standards.png",
+          "path": "/imgs/topics/tamper-evident-sealing-standards/hero_tamper_evident_sealing_standards.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:45.879Z"
+        }
+      ]
+    },
+    "topics/tea-sachet-three-side-seal": {
+      "count": 6,
+      "images": [
+        {
+          "filename": "comparison_tea_sachet_three_side_seal.webp",
+          "path": "/imgs/topics/tea-sachet-three-side-seal/comparison_tea_sachet_three_side_seal.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:36:50.950Z"
+        },
+        {
+          "filename": "hero_tea_sachet_three_side_seal.webp",
+          "path": "/imgs/topics/tea-sachet-three-side-seal/hero_tea_sachet_three_side_seal.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:36:50.950Z"
+        },
+        {
+          "filename": "process_tea_sachet_three_side_seal.webp",
+          "path": "/imgs/topics/tea-sachet-three-side-seal/process_tea_sachet_three_side_seal.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:36:50.950Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/tea-sachet-three-side-seal/comparison.jpg",
@@ -32484,8 +34233,26 @@
       ]
     },
     "topics/tea-stand-up-zipper-pouch": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison_tea_stand_up_zipper_pouch.webp",
+          "path": "/imgs/topics/tea-stand-up-zipper-pouch/comparison_tea_stand_up_zipper_pouch.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:35:55.908Z"
+        },
+        {
+          "filename": "process_tea_stand_up_zipper_pouch.webp",
+          "path": "/imgs/topics/tea-stand-up-zipper-pouch/process_tea_stand_up_zipper_pouch.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:35:55.903Z"
+        },
+        {
+          "filename": "hero_tea_stand_up_zipper_pouch.webp",
+          "path": "/imgs/topics/tea-stand-up-zipper-pouch/hero_tea_stand_up_zipper_pouch.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:35:55.898Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/tea-stand-up-zipper-pouch/comparison.jpg",
@@ -32506,9 +34273,50 @@
         }
       ]
     },
-    "topics/urgent-orders": {
+    "topics/ultrasonic-vs-heat-sealing": {
       "count": 3,
       "images": [
+        {
+          "filename": "comparison_ultrasonic_vs_heat_sealing.png",
+          "path": "/imgs/topics/ultrasonic-vs-heat-sealing/comparison_ultrasonic_vs_heat_sealing.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:36:53.458Z"
+        },
+        {
+          "filename": "process_ultrasonic_vs_heat_sealing.png",
+          "path": "/imgs/topics/ultrasonic-vs-heat-sealing/process_ultrasonic_vs_heat_sealing.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:52.960Z"
+        },
+        {
+          "filename": "hero_ultrasonic_vs_heat_sealing.png",
+          "path": "/imgs/topics/ultrasonic-vs-heat-sealing/hero_ultrasonic_vs_heat_sealing.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:35:36.792Z"
+        }
+      ]
+    },
+    "topics/urgent-orders": {
+      "count": 6,
+      "images": [
+        {
+          "filename": "comparison_urgent_orders.webp",
+          "path": "/imgs/topics/urgent-orders/comparison_urgent_orders.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:36:53.497Z"
+        },
+        {
+          "filename": "process_urgent_orders.webp",
+          "path": "/imgs/topics/urgent-orders/process_urgent_orders.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:36:53.495Z"
+        },
+        {
+          "filename": "hero_urgent_orders.webp",
+          "path": "/imgs/topics/urgent-orders/hero_urgent_orders.webp",
+          "extension": ".webp",
+          "modified": "2026-07-14T04:36:53.493Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/urgent-orders/comparison.jpg",
@@ -32530,8 +34338,26 @@
       ]
     },
     "topics/valve-coffee-bags": {
-      "count": 3,
+      "count": 6,
       "images": [
+        {
+          "filename": "comparison_valve_coffee_bags.png",
+          "path": "/imgs/topics/valve-coffee-bags/comparison_valve_coffee_bags.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:21.153Z"
+        },
+        {
+          "filename": "hero_valve_coffee_bags.png",
+          "path": "/imgs/topics/valve-coffee-bags/hero_valve_coffee_bags.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:21.148Z"
+        },
+        {
+          "filename": "process_valve_coffee_bags.png",
+          "path": "/imgs/topics/valve-coffee-bags/process_valve_coffee_bags.png",
+          "extension": ".png",
+          "modified": "2026-07-14T04:37:21.144Z"
+        },
         {
           "filename": "comparison.jpg",
           "path": "/imgs/topics/valve-coffee-bags/comparison.jpg",

@@ -7,16 +7,16 @@ export default function CompostableZipperDurabilityPage() {
       <section className="hero">
         <h1>CompostableZipperDurabilityPage</h1>
         <p>We understand the logistical and technical hurdles of sourcing reliable packaging. Our CompostableZipperDurabilityPage solutions offer uncompromising quality and engineering precision.</p>
-        <img src={`/imgs/topics/${slug}/hero.png`} alt="Hero" />
+        <img src={`/imgs/topics/compostable-zipper-durability/hero.png`} alt="Hero" />
       </section>
       <section className="process">
         <h2>Manufacturing Process</h2>
-        <img src={`/imgs/topics/${slug}/process.png`} alt="Process" />
+        <img src={`/imgs/topics/compostable-zipper-durability/process.png`} alt="Process" />
         <p>Advanced co-extrusion and rigorous QA testing.</p>
       </section>
       <section className="comparison">
         <h2>Technical Comparison</h2>
-        <img src={`/imgs/topics/${slug}/comparison.png`} alt="Comparison" />
+        <img src={`/imgs/topics/compostable-zipper-durability/comparison.png`} alt="Comparison" />
         <p>Superior barrier properties compared to standard films.</p>
       </section>
     </div>

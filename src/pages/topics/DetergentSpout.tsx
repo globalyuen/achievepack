@@ -201,7 +201,7 @@ const DetergentSpout: React.FC = () => {
       answer: "Absolutely! We offer Mono-PE recyclable spouted pouches and bio-based compostable film options. Our materials are fully compliant with circular economy standards to reduce plastic footprint."
     },
     {
-      question: "How do you fill spouted pouches in a production line?",
+      question: "How do you  spouted pouches in a production line?",
       answer: "We support two methods: filling directly through the open spout utilizing specialized liquid injection nozzles, or filling from a top-open pouch structure and then heat-sealing the film edge afterwards. We can advise based on your machinery."
     },
     {

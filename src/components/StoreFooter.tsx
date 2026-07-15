@@ -97,6 +97,11 @@ export default function StoreFooter() {
               <li><Link to="/materials/plastic-free-kraft" className="hover:text-primary-400">Plastic-Free Kraft</Link></li>
               <li><Link to="/materials/data-sheet" className="hover:text-primary-400 font-medium text-white">Material Data Sheets</Link></li>
               <li><Link to="/features/material-barrier-properties" className="hover:text-primary-400">Barrier Properties</Link></li>
+              <li><Link to="/topics/ai-packaging-resolution" className="hover:text-primary-400 font-medium text-emerald-450">AI Packaging Resolution</Link></li>
+              <li><Link to="/topics/ai-packaging-bleed-dimensions" className="hover:text-primary-400">Bleed Dimensions Guide</Link></li>
+              <li><Link to="/topics/ai-packaging-safe-margins" className="hover:text-primary-400">Safe Margins Standard</Link></li>
+              <li><Link to="/topics/ai-packaging-layered-assets" className="hover:text-primary-400">Layered Assets Prep</Link></li>
+              <li><Link to="/topics/ai-packaging-barcodes-bottom-fold" className="hover:text-primary-400">AI Barcodes Bottom Fold</Link></li>
             </ul>
           </div>
 
@@ -114,6 +119,11 @@ export default function StoreFooter() {
               <li><Link to="/industry/euro-hole-hang-bags" className="hover:text-primary-400">Euro Hole Hang Bags</Link></li>
               <li><Link to="/industry/custom-spout-pouches" className="hover:text-primary-400">Custom Spout Pouches</Link></li>
               <li><Link to="/industry/child-resistant-cbd" className="hover:text-primary-400">Child Resistant Pouches</Link></li>
+              <li><Link to="/topics/beverage-soft-stand-up-pouch" className="hover:text-primary-400 font-medium text-emerald-450">Beverage Soft Pouch</Link></li>
+              <li><Link to="/topics/bread-flat-bottom-bag" className="hover:text-primary-400">Bread Flat Bottom</Link></li>
+              <li><Link to="/topics/beef-jerky-pillow-pouch" className="hover:text-primary-400">Jerky Pillow Pouch</Link></li>
+              <li><Link to="/topics/apparel-zipper" className="hover:text-primary-400">Apparel Zipper Bags</Link></li>
+              <li><Link to="/topics/beef-jerky-barrier" className="hover:text-primary-400">Beef Jerky Barriers</Link></li>
             </ul>
           </div>
 

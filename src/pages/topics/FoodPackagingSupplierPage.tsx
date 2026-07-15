@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 const FoodPackagingSupplierPage = () => {
   return (
@@ -24,7 +24,7 @@ const FoodPackagingSupplierPage = () => {
             <p className="mb-4">Achieve Pack operates state-of-the-art facilities capable of handling massive volumes without sacrificing precision. From custom laminations to high-definition rotogravure printing, we are the backbone of your supply chain.</p>
             <ul className="list-disc pl-6 mb-4">
               <li>High-capacity production lines</li>
-              <li>Strict color consistency (Delta E < 2)</li>
+              <li>Strict color consistency (Delta E {'<'} 2)</li>
               <li>On-time delivery guarantee</li>
             </ul>
           </div>
