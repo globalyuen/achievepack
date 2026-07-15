@@ -152,6 +152,7 @@ export default function SharedStudioPage() {
   const originalSizeRef = useRef<THREE.Vector3>(new THREE.Vector3());
   const originalBoxRef = useRef<THREE.Box3>(new THREE.Box3());
   const scaleFactorRef = useRef<number>(1);
+  const modelScaleRef = useRef<{ x: number; y: number }>({ x: 1.0, y: 1.0 });
 
   // Fetch custom design data by slug
   useEffect(() => {
@@ -381,6 +382,7 @@ export default function SharedStudioPage() {
           const scaleY = (designH / size.y) * (scaleFactorRef.current === 1000 ? 1000 : 1);
           const scaleZ = (designD / size.z) * (scaleFactorRef.current === 1000 ? 1000 : 1);
           model.scale.set(scaleX, scaleY, scaleZ);
+          modelScaleRef.current = { x: scaleX, y: scaleY };
 
           originalBoxRef.current.setFromObject(model);
           originalBoxRef.current.getSize(originalSizeRef.current);
@@ -519,8 +521,14 @@ export default function SharedStudioPage() {
       ctx.translate(layer.pos.x, layer.pos.y);
       ctx.rotate((layer.rotation || 0) * (Math.PI / 180));
 
-      const w = (layer.width || layer.img.width) * (layer.scale || 1.0);
-      const h = (layer.height || layer.img.height) * (layer.scale || 1.0);
+      const sX = modelScaleRef.current.x / (scaleFactorRef.current === 1000 ? 1000 : 1);
+      const sY = modelScaleRef.current.y / (scaleFactorRef.current === 1000 ? 1000 : 1);
+
+      let w = (layer.width || layer.img.width) * (layer.scale || 1.0);
+      let h = (layer.height || layer.img.height) * (layer.scale || 1.0);
+
+      w /= sX;
+      h /= sY;
 
       ctx.drawImage(layer.img, -w / 2, -h / 2, w, h);
       ctx.restore();

@@ -186,13 +186,43 @@ export default function PackageEditorPage() {
 
     const drawSingleLayer = (cContext: CanvasRenderingContext2D, layer: Layer, drawUIOverlay: boolean) => {
       cContext.save();
-      cContext.translate(layer.pos.x, layer.pos.y);
+
+      // Compute physical scales relative to original model
+      let sX = 1.0;
+      let sY = 1.0;
+      if (originalSizeRef.current.x && originalSizeRef.current.y) {
+        let targetW = width;
+        let targetH = height;
+        if (unit === 'inch') {
+          targetW *= 25.4;
+          targetH *= 25.4;
+        }
+        sX = targetW / originalSizeRef.current.x;
+        sY = targetH / originalSizeRef.current.y;
+      }
+
+      if (drawUIOverlay) {
+        // 2D View Canvas: Position is scaled and centered
+        const cx = 500;
+        const cy = 309.5;
+        const posX_2d = cx + (layer.pos.x - cx) * sX;
+        const posY_2d = cy + (layer.pos.y - cy) * sY;
+        cContext.translate(posX_2d, posY_2d);
+      } else {
+        // Offscreen texture for 3D View: Position is drawn at its absolute 1x coordinate
+        cContext.translate(layer.pos.x, layer.pos.y);
+      }
+      
       cContext.rotate(layer.rotation * (Math.PI / 180));
 
       let w = layer.width * layer.scale;
       let h = layer.height * layer.scale;
 
-
+      if (!drawUIOverlay) {
+        // Offscreen texture for 3D View: Counteract Three.js geometry scaling
+        w /= sX;
+        h /= sY;
+      }
 
       cContext.drawImage(layer.img, -w / 2, -h / 2, w, h);
 
@@ -281,7 +311,27 @@ export default function PackageEditorPage() {
     ctx.fillRect(0, 0, 1000, 619);
 
     if (dielineImgRef.current) {
-      ctx.drawImage(dielineImgRef.current, 0, 0, 1000, 619);
+      let sX = 1.0;
+      let sY = 1.0;
+      if (originalSizeRef.current.x && originalSizeRef.current.y) {
+        let targetW = width;
+        let targetH = height;
+        if (unit === 'inch') {
+          targetW *= 25.4;
+          targetH *= 25.4;
+        }
+        sX = targetW / originalSizeRef.current.x;
+        sY = targetH / originalSizeRef.current.y;
+      }
+
+      const cx = 500;
+      const cy = 309.5;
+      const dieline_w = 1000 * sX;
+      const dieline_h = 619 * sY;
+      const dx = cx - dieline_w / 2;
+      const dy = cy - dieline_h / 2;
+
+      ctx.drawImage(dielineImgRef.current, dx, dy, dieline_w, dieline_h);
     }
 
     // Draw repeating pattern of AP Logo on 2D view
@@ -318,7 +368,7 @@ export default function PackageEditorPage() {
   // Sync canvas drawings on state changes
   useEffect(() => {
     updateEditor();
-  }, [layers, selectedLayer, showDieline, isPremiumUnlocked, passwordInput]);
+  }, [layers, selectedLayer, showDieline, isPremiumUnlocked, passwordInput, width, height, unit]);
 
   // Handle Dimensions Scaling
   const updateModelScale = () => {
@@ -1169,6 +1219,21 @@ export default function PackageEditorPage() {
     const clickX = ((e.clientX - rect.left) / rect.width) * 1000;
     const clickY = ((e.clientY - rect.top) / rect.height) * 619;
 
+    const cx = 500;
+    const cy = 309.5;
+    let sX = 1.0;
+    let sY = 1.0;
+    if (originalSizeRef.current.x && originalSizeRef.current.y) {
+      let targetW = width;
+      let targetH = height;
+      if (unit === 'inch') {
+        targetW *= 25.4;
+        targetH *= 25.4;
+      }
+      sX = targetW / originalSizeRef.current.x;
+      sY = targetH / originalSizeRef.current.y;
+    }
+
     let found = false;
     for (let i = layers.length - 1; i >= 0; i--) {
       const layer = layers[i];
@@ -1176,11 +1241,14 @@ export default function PackageEditorPage() {
       const drawnW = layer.width * layer.scale;
       const drawnH = layer.height * layer.scale;
 
-      if (clickX >= layer.pos.x - drawnW / 2 && clickX <= layer.pos.x + drawnW / 2 &&
-          clickY >= layer.pos.y - drawnH / 2 && clickY <= layer.pos.y + drawnH / 2) {
+      const posX_2d = cx + (layer.pos.x - cx) * sX;
+      const posY_2d = cy + (layer.pos.y - cy) * sY;
+
+      if (clickX >= posX_2d - drawnW / 2 && clickX <= posX_2d + drawnW / 2 &&
+          clickY >= posY_2d - drawnH / 2 && clickY <= posY_2d + drawnH / 2) {
         setSelectedLayer(layer);
         isDraggingRef.current = true;
-        dragOffsetRef.current = { x: clickX - layer.pos.x, y: clickY - layer.pos.y };
+        dragOffsetRef.current = { x: clickX - posX_2d, y: clickY - posY_2d };
         found = true;
         break;
       }
@@ -1198,16 +1266,34 @@ export default function PackageEditorPage() {
     const mouseX = ((e.clientX - rect.left) / rect.width) * 1000;
     const mouseY = ((e.clientY - rect.top) / rect.height) * 619;
 
+    const cx = 500;
+    const cy = 309.5;
+    let sX = 1.0;
+    let sY = 1.0;
+    if (originalSizeRef.current.x && originalSizeRef.current.y) {
+      let targetW = width;
+      let targetH = height;
+      if (unit === 'inch') {
+        targetW *= 25.4;
+        targetH *= 25.4;
+      }
+      sX = targetW / originalSizeRef.current.x;
+      sY = targetH / originalSizeRef.current.y;
+    }
+
+    const targetPosX_2d = mouseX - dragOffsetRef.current.x;
+    const targetPosY_2d = mouseY - dragOffsetRef.current.y;
+
     const updatedPos = {
-      x: mouseX - dragOffsetRef.current.x,
-      y: mouseY - dragOffsetRef.current.y
+      x: cx + (targetPosX_2d - cx) / sX,
+      y: cy + (targetPosY_2d - cy) / sY
     };
 
     const drawnW = selectedLayer.width * selectedLayer.scale;
     const drawnH = selectedLayer.height * selectedLayer.scale;
 
-    const limitX = drawnW / 2;
-    const limitY = drawnH / 2;
+    const limitX = (drawnW / 2) / sX;
+    const limitY = (drawnH / 2) / sY;
     updatedPos.x = Math.max(-limitX, Math.min(1000 + limitX, updatedPos.x));
     updatedPos.y = Math.max(-limitY, Math.min(619 + limitY, updatedPos.y));
 
