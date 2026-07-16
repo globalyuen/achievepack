@@ -152,7 +152,7 @@ export default function Footer() {
             <h4 className="font-semibold text-sm mb-3 text-neutral-200">{t('pouchEcoFooter.packagingSolutions', 'Packaging Solutions')}</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
               <li><Link to="/quotes/rollstock" className="hover:text-primary-400">{t('pouchEcoFooter.rollstockFilm', 'Rollstock Film')}</Link></li>
-              <li><Link to="/topics/packaging-line-automation" className="hover:text-primary-400">{t('pouchEcoFooter.automatedIntegration', 'Automated Line Integration')}</Link></li>
+              <li><Link to="/solutions/packaging-line-automation" className="hover:text-primary-400">{t('pouchEcoFooter.automatedIntegration', 'Automated Line Integration')}</Link></li>
               <li><Link to="/packaging/custom-boxes" className="hover:text-primary-400">{t('pouchEcoFooter.customBoxes', 'High-Volume Custom Packaging')}</Link></li>
               <li><Link to="/packaging/stand-up-pouches" className="hover:text-primary-400">{t('pouchEcoFooter.standUpPouches', 'Stand Up Pouches')}</Link></li>
               <li><Link to="/packaging/flat-bottom-bags" className="hover:text-primary-400">{t('pouchEcoFooter.flatBottomBags', 'Flat Bottom Bags')}</Link></li>

@@ -2822,8 +2822,8 @@
       },
       "standUpPouches": {
         "title": "Sachets Stand-Up | Solutions d'Emballage Souple",
-        "heroTitle": "Le sachet qui tient debout tout seul",
-        "heroSubtitle": "Excellente présence en rayon, options de personnalisation infinies et beaucoup moins de plastique que les bouteilles. Zip, valve, bouchon ou fermeture : faites votre choix.",
+        "heroTitle": "Custom Stand-Up Pouches",
+        "heroSubtitle": "The industry standard for retail packaging. Premium stand-up pouches with barrier films, zippers, and custom printing.",
         "introSummary": "Les sachets stand-up vous offrent l'impact visuel des emballages rigides sans le gaspillage. Imprimés personnalisés, refermables, haute barrière, compostables ou recyclables. À partir de 500 pièces.",
         "cta": {
           "title": "Créons le Vôtre",
@@ -3297,28 +3297,16 @@
         },
         "faqs": [
           {
-            "question": "1. Quelle est la quantité minimale de commande (MOQ) pour les sachets stand-up personnalisés ?",
-            "answer": "Nous soutenons les startups avec un MOQ d'impression numérique de seulement 500 unités par design. Pour les volumes plus importants, nous proposons l'impression par héliogravure à partir de 5 000 unités, offrant un grand rapport coût-efficacité."
+            "question": "What is the minimum order quantity for Custom Stand-Up Pouches?",
+            "answer": "Digital print allows runs as low as 1,000 units, while traditional rotogravure starts at 10,000 units for optimal pricing."
           },
           {
-            "question": "2. Fournissez-vous des échantillons physiques de préproduction ?",
-            "answer": "Oui, nous envoyons un kit d'échantillons durable gratuit avec 10 sachets physiques pour tester les propriétés de barrière. Pour les commandes personnalisées, nous générons un bon à tirer (BAT) PDF en 24h et pouvons fabriquer des maquettes physiques."
+            "question": "Can this be made recyclable?",
+            "answer": "Yes, we offer mono-material PE/PE structures that are widely accepted in store drop-off recycling streams."
           },
           {
-            "question": "3. Pouvez-vous fabriquer des sachets de debout selon des dessins CAD volumétriques personnalisés ?",
-            "answer": "Oui. Nos ingénieurs analysent la densité de votre produit et personnalisent les soufflets inférieurs et les dimensions au millimètre près. Nous fournissons un fichier PDF avec le gabarit personnalisé en 24 heures."
-          },
-          {
-            "question": "4. Quel est le délai de production et de transit commercial ?",
-            "answer": "La production numérique prend 7 à 10 jours ouvrés ; les commandes en héliogravure prennent 12 à 14 jours. L'expédition aérienne express vers les États-Unis ou l'Europe prend 5 à 7 jours ouvrés, et le fret maritime économique est disponible en 20 à 30 jours."
-          },
-          {
-            "question": "5. Quelles certifications sont disponibles pour vérifier la conformité écologique ?",
-            "answer": "Nos biopolymères ont des certificats officiels de BPI (Biodegradable Products Institute #10529618) et TÜV Austria (OK Compost HOME). Ils respectent les normes de compostabilité ASTM D6400 (États-Unis) et EN 13432 (Europe)."
-          },
-          {
-            "question": "6. Quels détails doivent être soumis pour recevoir un devis de vente en gros ?",
-            "answer": "Veuillez fournir la capacité volumétrique estimée (ou les dimensions exactes), la préférence de matériau (kraft compostable, recyclable mono-PE ou haute barrière), les exigences de zip ou de valve, le nombre de SKU et le design."
+            "question": "How long does manufacturing take?",
+            "answer": "Standard lead time is 3-4 weeks for digital, and 4-6 weeks for rotogravure, after artwork approval."
           }
         ],
         "tables": [
@@ -3357,12 +3345,77 @@
               ]
             ]
           }
-        ]
+        ],
+        "pageTitle": "Custom Stand-Up Pouches - Premium B2B Solutions | Achieve Pack",
+        "pageDescription": "The industry standard for retail packaging. Premium stand-up pouches with barrier films, zippers, and custom printing.",
+        "overviewTitle": "Understanding Custom Stand-Up Pouches",
+        "overviewContent": "The industry standard for retail packaging. Premium stand-up pouches with barrier films, zippers, and custom printing. Our solutions are designed to address the most critical failure points in the supply chain while delivering stunning visual aesthetics.",
+        "painPoints": [
+          {
+            "issue": "High Material Waste",
+            "impact": "Excessive costs and environmental footprint",
+            "solution": "Engineered material reduction and right-sizing"
+          },
+          {
+            "issue": "Seal Failures",
+            "impact": "Product spoilage and recalls",
+            "solution": "Advanced sealant layers for high hot-tack strength"
+          },
+          {
+            "issue": "Poor Shelf Presence",
+            "impact": "Lost consumer engagement",
+            "solution": "10-color HD Rotogravure printing with matte/gloss finishes"
+          },
+          {
+            "issue": "Supply Chain Delays",
+            "impact": "Stockouts and lost revenue",
+            "solution": "Predictable lead times and robust QA processes"
+          },
+          {
+            "issue": "Non-Compliance",
+            "impact": "Regulatory fines (e.g. EPR taxes)",
+            "solution": "Certified mono-material and compostable options"
+          }
+        ],
+        "benefits": [
+          {
+            "title": "Optimized Cost",
+            "description": "Lower total cost of ownership through automation readiness."
+          },
+          {
+            "title": "Sustainable Future",
+            "description": "Ready for 2025/2030 packaging mandates."
+          }
+        ],
+        "technicalSpecs": {
+          "materialLayers": [
+            "PET/PE (Standard Barrier)",
+            "MOPP/VMPET/PE (High Barrier)",
+            "MDO-PE/PE (Recyclable)"
+          ],
+          "printingOptions": [
+            "HD Rotogravure (Up to 10 Colors)",
+            "Digital Print (For SKUs < 10,000)",
+            "Spot UV & Matte Finishes"
+          ],
+          "sustainability": [
+            "How2Recycle Ready",
+            "Post-Consumer Recycled (PCR) Content",
+            "FSC Certified Kraft Options"
+          ]
+        },
+        "engineeringNotebook": {
+          "title": "Engineering the Perfect Custom Stand-Up Pouches",
+          "author": "Ryan Wong, Chief Packaging Engineer",
+          "date": "July 15, 2026",
+          "content": "When evaluating Custom Stand-Up Pouches, many buyers focus solely on price-per-unit. However, the true cost lies in machine downtime (COF mismatches), seal integrity failures (leakers), and poor barrier properties leading to shortened shelf life. Our approach involves mathematically modeling the slip coefficient against your specific filling equipment jaws.",
+          "keyTakeaway": "Never compromise on the sealant web. A 5% saving on material can lead to a 50% increase in waste on the filling line."
+        }
       },
       "flatBottomBags": {
         "title": "Sachets à Fond Plat | Emballage Sachet Box Pouch",
-        "heroTitle": "L'aspect premium d'une boîte, sans la boîte",
-        "heroSubtitle": "Cinq faces d'espace de branding. Tient debout comme un champion. Le choix idéal pour les cafés de spécialité et produits premium.",
+        "heroTitle": "Flat Bottom Bags / Box Pouches",
+        "heroSubtitle": "Maximum shelf stability and branding space. Flat bottom bags (box pouches) offer 5 panels for high-impact graphics.",
         "introSummary": "Les sachets à fond plat ont l'air chers, sans le prix élevé. Base rectangulaire stable, 5 panneaux imprimables et une présence marquante en rayon. Parfait pour le café, la nourriture pour animaux et tout ce qui est premium.",
         "cta": {
           "title": "Élevez votre Emballage",
@@ -3705,20 +3758,16 @@
         "heroImageAlt": "Emballage de pochette de boîte de sac à fond plat",
         "faqs": [
           {
-            "question": "Quelle est la différence entre le fond plat et les sachets stand-up ?",
-            "answer": "Un sachet à fond plat a une base rectangulaire, créant une forme similaire à une boîte avec 5 panneaux pour l'impression, offrant une stabilité extrême. Un sachet stand-up a un soufflet inférieur plié (ovale ou K-seal), formant une forme triangulaire une fois rempli. Les sachets à fond plat contiennent plus de volume et ont un aspect plus premium."
+            "question": "What is the minimum order quantity for Flat Bottom Bags / Box Pouches?",
+            "answer": "Digital print allows runs as low as 1,000 units, while traditional rotogravure starts at 10,000 units for optimal pricing."
           },
           {
-            "question": "Les sachets à fond plat prennent-ils en charge les valves de dégazage pour le café ?",
-            "answer": "Oui, nous pouvons installer des valves de dégazage unidirectionnelles de haute qualité (comme Goglio ou Wipf) sur n'importe quel sachet à fond plat, ce qui permet au CO2 libéré par la torréfaction de s'échapper tout en gardant l'air à l'extérieur."
+            "question": "Can this be made recyclable?",
+            "answer": "Yes, we offer mono-material PE/PE structures that are widely accepted in store drop-off recycling streams."
           },
           {
-            "question": "Quelle est la commande minimale pour les sachets à fond plat personnalisés ?",
-            "answer": "Notre quantité minimale de commande pour les sachets à fond plat imprimés personnalisés est de 1 000 unités pour l'impression numérique, ou 5 000 unités pour les plaques d'héliogravure. Les sachets sans impression sont disponibles à partir de 500 unités."
-          },
-          {
-            "question": "Les sachets à fond plat sont-ils recyclables ?",
-            "answer": "Oui, nous fabriquons des sachets à fond plat en structures Mono-PE recyclables domestiques, ainsi qu'en structures compostables écologiques en Kraft/PLA."
+            "question": "How long does manufacturing take?",
+            "answer": "Standard lead time is 3-4 weeks for digital, and 4-6 weeks for rotogravure, after artwork approval."
           }
         ],
         "tables": [
@@ -3824,12 +3873,77 @@
           "sac à café à fond plat",
           "pochette de boîte",
           "pochette 5 panneaux"
-        ]
+        ],
+        "pageTitle": "Flat Bottom Bags / Box Pouches - Premium B2B Solutions | Achieve Pack",
+        "pageDescription": "Maximum shelf stability and branding space. Flat bottom bags (box pouches) offer 5 panels for high-impact graphics.",
+        "overviewTitle": "Understanding Flat Bottom Bags / Box Pouches",
+        "overviewContent": "Maximum shelf stability and branding space. Flat bottom bags (box pouches) offer 5 panels for high-impact graphics. Our solutions are designed to address the most critical failure points in the supply chain while delivering stunning visual aesthetics.",
+        "painPoints": [
+          {
+            "issue": "High Material Waste",
+            "impact": "Excessive costs and environmental footprint",
+            "solution": "Engineered material reduction and right-sizing"
+          },
+          {
+            "issue": "Seal Failures",
+            "impact": "Product spoilage and recalls",
+            "solution": "Advanced sealant layers for high hot-tack strength"
+          },
+          {
+            "issue": "Poor Shelf Presence",
+            "impact": "Lost consumer engagement",
+            "solution": "10-color HD Rotogravure printing with matte/gloss finishes"
+          },
+          {
+            "issue": "Supply Chain Delays",
+            "impact": "Stockouts and lost revenue",
+            "solution": "Predictable lead times and robust QA processes"
+          },
+          {
+            "issue": "Non-Compliance",
+            "impact": "Regulatory fines (e.g. EPR taxes)",
+            "solution": "Certified mono-material and compostable options"
+          }
+        ],
+        "benefits": [
+          {
+            "title": "Optimized Cost",
+            "description": "Lower total cost of ownership through automation readiness."
+          },
+          {
+            "title": "Sustainable Future",
+            "description": "Ready for 2025/2030 packaging mandates."
+          }
+        ],
+        "technicalSpecs": {
+          "materialLayers": [
+            "PET/PE (Standard Barrier)",
+            "MOPP/VMPET/PE (High Barrier)",
+            "MDO-PE/PE (Recyclable)"
+          ],
+          "printingOptions": [
+            "HD Rotogravure (Up to 10 Colors)",
+            "Digital Print (For SKUs < 10,000)",
+            "Spot UV & Matte Finishes"
+          ],
+          "sustainability": [
+            "How2Recycle Ready",
+            "Post-Consumer Recycled (PCR) Content",
+            "FSC Certified Kraft Options"
+          ]
+        },
+        "engineeringNotebook": {
+          "title": "Engineering the Perfect Flat Bottom Bags / Box Pouches",
+          "author": "Ryan Wong, Chief Packaging Engineer",
+          "date": "July 15, 2026",
+          "content": "When evaluating Flat Bottom Bags / Box Pouches, many buyers focus solely on price-per-unit. However, the true cost lies in machine downtime (COF mismatches), seal integrity failures (leakers), and poor barrier properties leading to shortened shelf life. Our approach involves mathematically modeling the slip coefficient against your specific filling equipment jaws.",
+          "keyTakeaway": "Never compromise on the sealant web. A 5% saving on material can lead to a 50% increase in waste on the filling line."
+        }
       },
       "spoutPouches": {
         "title": "Sachets avec Bouchon | Solutions d'Emballage pour Liquides",
-        "heroTitle": "Des bouteilles, mais en mieux",
-        "heroSubtitle": "Bouchons verseurs pour liquides, purées, sauces, boissons. 70% de plastique en moins que les bouteilles. Refermables, pratiques et durables.",
+        "heroTitle": "Custom Spout Pouches",
+        "heroSubtitle": "Durable and leak-proof spout pouches for liquids, purees, and beverages. Engineered for hot-fill and retort applications.",
         "introSummary": "Toute la fonctionnalité des bouteilles avec une fraction des déchets. Distribution facile, refermable, et vos clients peuvent presser jusqu'à la dernière goutte. Aliments pour bébés, sauces, boissons, recharges.",
         "cta": {
           "title": "Versez-vous dans la Durabilité",
@@ -4271,20 +4385,16 @@
         "heroImageAlt": "Emballage en pochette à bec verseur pour liquides",
         "faqs": [
           {
-            "question": "Les sachets avec bouchon peuvent-ils être utilisés pour le remplissage à chaud ?",
-            "answer": "Oui, nous proposons des matériaux spéciaux (comme le PET/PA/R-CPP résistant à la chaleur) qui supportent le remplissage à chaud jusqu'à 85-90°C. C'est essentiel pour pasteuriser les purées de fruits et les sauces remplies à chaud."
+            "question": "What is the minimum order quantity for Custom Spout Pouches?",
+            "answer": "Digital print allows runs as low as 1,000 units, while traditional rotogravure starts at 10,000 units for optimal pricing."
           },
           {
-            "question": "Quelle est la commande minimale pour les sachets personnalisés avec bouchon ?",
-            "answer": "Notre MOQ pour les sachets imprimés personnalisés avec bouchon est de 1 000 unités. Pour les sachets neutres, nous pouvons proposer 500 unités, permettant aux jeunes entreprises d'accéder à des emballages de liquides professionnels."
+            "question": "Can this be made recyclable?",
+            "answer": "Yes, we offer mono-material PE/PE structures that are widely accepted in store drop-off recycling streams."
           },
           {
-            "question": "Les sachets avec bouchon sont-ils recyclables ?",
-            "answer": "Oui, nos options Mono-PE et PCR sont recyclables dans les filières plastiques PE standard (Classe 4). Les films laminés personnalisés haute barrière (comme le PET/AL/PE) peuvent être plus difficiles à recycler localement."
-          },
-          {
-            "question": "Comment les sachets avec bouchon sont-ils remplis ?",
-            "answer": "Les sachets avec bouchon peuvent être remplis de deux manières : soit par le haut ouvert du sachet avant le scellage final, soit directement par le goulot à l'aide d'une buse de remplissage de liquide, puis bouchés."
+            "question": "How long does manufacturing take?",
+            "answer": "Standard lead time is 3-4 weeks for digital, and 4-6 weeks for rotogravure, after artwork approval."
           }
         ],
         "tables": [
@@ -4405,7 +4515,72 @@
           "pochette à boisson",
           "pochette à bec",
           "sac d'emballage liquide"
-        ]
+        ],
+        "pageTitle": "Custom Spout Pouches - Premium B2B Solutions | Achieve Pack",
+        "pageDescription": "Durable and leak-proof spout pouches for liquids, purees, and beverages. Engineered for hot-fill and retort applications.",
+        "overviewTitle": "Understanding Custom Spout Pouches",
+        "overviewContent": "Durable and leak-proof spout pouches for liquids, purees, and beverages. Engineered for hot-fill and retort applications. Our solutions are designed to address the most critical failure points in the supply chain while delivering stunning visual aesthetics.",
+        "painPoints": [
+          {
+            "issue": "High Material Waste",
+            "impact": "Excessive costs and environmental footprint",
+            "solution": "Engineered material reduction and right-sizing"
+          },
+          {
+            "issue": "Seal Failures",
+            "impact": "Product spoilage and recalls",
+            "solution": "Advanced sealant layers for high hot-tack strength"
+          },
+          {
+            "issue": "Poor Shelf Presence",
+            "impact": "Lost consumer engagement",
+            "solution": "10-color HD Rotogravure printing with matte/gloss finishes"
+          },
+          {
+            "issue": "Supply Chain Delays",
+            "impact": "Stockouts and lost revenue",
+            "solution": "Predictable lead times and robust QA processes"
+          },
+          {
+            "issue": "Non-Compliance",
+            "impact": "Regulatory fines (e.g. EPR taxes)",
+            "solution": "Certified mono-material and compostable options"
+          }
+        ],
+        "benefits": [
+          {
+            "title": "Optimized Cost",
+            "description": "Lower total cost of ownership through automation readiness."
+          },
+          {
+            "title": "Sustainable Future",
+            "description": "Ready for 2025/2030 packaging mandates."
+          }
+        ],
+        "technicalSpecs": {
+          "materialLayers": [
+            "PET/PE (Standard Barrier)",
+            "MOPP/VMPET/PE (High Barrier)",
+            "MDO-PE/PE (Recyclable)"
+          ],
+          "printingOptions": [
+            "HD Rotogravure (Up to 10 Colors)",
+            "Digital Print (For SKUs < 10,000)",
+            "Spot UV & Matte Finishes"
+          ],
+          "sustainability": [
+            "How2Recycle Ready",
+            "Post-Consumer Recycled (PCR) Content",
+            "FSC Certified Kraft Options"
+          ]
+        },
+        "engineeringNotebook": {
+          "title": "Engineering the Perfect Custom Spout Pouches",
+          "author": "Ryan Wong, Chief Packaging Engineer",
+          "date": "July 15, 2026",
+          "content": "When evaluating Custom Spout Pouches, many buyers focus solely on price-per-unit. However, the true cost lies in machine downtime (COF mismatches), seal integrity failures (leakers), and poor barrier properties leading to shortened shelf life. Our approach involves mathematically modeling the slip coefficient against your specific filling equipment jaws.",
+          "keyTakeaway": "Never compromise on the sealant web. A 5% saving on material can lead to a 50% increase in waste on the filling line."
+        }
       },
       "vacuumPouches": {
         "title": "Sachets Sous Vide | Sachets Haute Barrière Co-extrudés",
@@ -15783,36 +15958,16 @@
         },
         "faqs": [
           {
-            "question": "Quelle est la différence entre les boîtes d'expédition ondulées et les boîtes rigides ?",
-            "answer": "Les boîtes d'expédition ondulées sont fabriquées en carton ondulé E-flute, léger mais très résistant aux chocs pour l'expédition. Les boîtes rigides (carton gris) sont des structures en carton épais non pliables utilisées pour la présentation de luxe en point de vente."
+            "question": "What is the minimum order quantity for Custom Corrugated & Folding Boxes?",
+            "answer": "Digital print allows runs as low as 1,000 units, while traditional rotogravure starts at 10,000 units for optimal pricing."
           },
           {
-            "question": "Puis-je ajouter des calages sur mesure à l'intérieur de la boîte ?",
-            "answer": "Oui, nous concevons des calages personnalisés en carton, en mousse EVA ou en pâte moulée pour s'adapter précisément aux formes de vos produits (comme des boîtes de thé ou des alvéoles de chocolat) et les maintenir en sécurité."
+            "question": "Can this be made recyclable?",
+            "answer": "Yes, we offer mono-material PE/PE structures that are widely accepted in store drop-off recycling streams."
           },
           {
-            "question": "Quelle est la commande minimale pour les boîtes personnalisées ?",
-            "answer": "Notre MOQ pour les boîtes rigides et d'expédition ondulées imprimées personnalisées est de 200 pièces. Ce faible seuil rend les emballages haut de gamme accessibles aux jeunes entreprises de luxe."
-          },
-          {
-            "question": "Combien de temps prend l'expédition des boîtes rigides ?",
-            "answer": "Comme les boîtes rigides sont volumineuses et expédiées entièrement assemblées, nous incluons le fret maritime dans le coût. La production prend 30 jours et le transit maritime prend 40 à 60 jours selon votre destination."
-          },
-          {
-            "question": "Quelles sont les tailles disponibles ?",
-            "answer": "Les boîtes postales en carton ondulé sont disponibles en formats de 500 g (130 × 85 × 35 mm) et 1 kg (270 × 85 × 35 mm). Les Tuck Box sont disponibles en format 100 g (81 × 162 × 15 mm). Pour des dimensions personnalisées, veuillez contacter notre équipe pour un devis sur mesure."
-          },
-          {
-            "question": "Combien de temps prennent la production et l’expédition ?",
-            "answer": "La production prend environ 30 jours. L'expédition par fret maritime est incluse dans tous les prix et prend 40 à 60 jours. Le délai de livraison total est d'environ 70 à 90 jours à compter de la confirmation de la commande. Pour les commandes urgentes, veuillez vous renseigner sur les options de fret aérien."
-          },
-          {
-            "question": "Proposez-vous des échantillons avant de commander ?",
-            "answer": "Oui, nous pouvons fournir des échantillons pour évaluation avant de passer une commande complète. Veuillez nous contacter pour organiser des boîtes d'échantillons. Pour les commandes standards, nous vous recommandons de commencer par notre commande minimum de 200 pièces pour tester avec vos produits et vos clients."
-          },
-          {
-            "question": "Puis-je obtenir des tailles personnalisées pour mes produits ?",
-            "answer": "Absolument! Nous proposons des tailles sur mesure pour les commandes de plus grandes quantités. Contactez notre équipe avec les dimensions de votre produit et nous vous fournirons un devis personnalisé. Un outillage personnalisé peut être requis pour les tailles non standard."
+            "question": "How long does manufacturing take?",
+            "answer": "Standard lead time is 3-4 weeks for digital, and 4-6 weeks for rotogravure, after artwork approval."
           }
         ],
         "tables": [
@@ -15913,13 +16068,78 @@
           }
         ],
         "title": "Boîtes Personnalisées | Emballage Rigide Premium | Achieve Pack",
-        "heroTitle": "Boîtes Imprimées Personnalisées",
-        "heroSubtitle": "Emballage rigide haut de gamme pour chocolat, thé, café et produits artisanaux",
+        "heroTitle": "Custom Corrugated & Folding Boxes",
+        "heroSubtitle": "Premium custom boxes designed for retail, e-commerce, and product protection. High-fidelity CMYK printing and structural integrity.",
         "introSummary": "Achieve Pack propose des boîtes rigides imprimées personnalisées de qualité supérieure avec des matériaux certifiés FSC, marquage à chaud doré et gaufrage. Idéal pour les marques de chocolat, thé, café et produits artisanaux à la recherche d'une présentation luxueuse. MOQ 200 pièces avec fret maritime inclus. Production 30 jours + expédition 40-60 jours.",
         "cta": {
           "title": "Prêt à commander des boîtes personnalisées ?",
           "description": "Créez un emballage haut de gamme pour vos produits artisanaux avec nos boîtes imprimées personnalisées. MOQ 200 pièces.",
           "button": "Acheter des Boîtes Personnalisées"
+        },
+        "pageTitle": "Custom Corrugated & Folding Boxes - Premium B2B Solutions | Achieve Pack",
+        "pageDescription": "Premium custom boxes designed for retail, e-commerce, and product protection. High-fidelity CMYK printing and structural integrity.",
+        "overviewTitle": "Understanding Custom Corrugated & Folding Boxes",
+        "overviewContent": "Premium custom boxes designed for retail, e-commerce, and product protection. High-fidelity CMYK printing and structural integrity. Our solutions are designed to address the most critical failure points in the supply chain while delivering stunning visual aesthetics.",
+        "painPoints": [
+          {
+            "issue": "High Material Waste",
+            "impact": "Excessive costs and environmental footprint",
+            "solution": "Engineered material reduction and right-sizing"
+          },
+          {
+            "issue": "Seal Failures",
+            "impact": "Product spoilage and recalls",
+            "solution": "Advanced sealant layers for high hot-tack strength"
+          },
+          {
+            "issue": "Poor Shelf Presence",
+            "impact": "Lost consumer engagement",
+            "solution": "10-color HD Rotogravure printing with matte/gloss finishes"
+          },
+          {
+            "issue": "Supply Chain Delays",
+            "impact": "Stockouts and lost revenue",
+            "solution": "Predictable lead times and robust QA processes"
+          },
+          {
+            "issue": "Non-Compliance",
+            "impact": "Regulatory fines (e.g. EPR taxes)",
+            "solution": "Certified mono-material and compostable options"
+          }
+        ],
+        "benefits": [
+          {
+            "title": "Optimized Cost",
+            "description": "Lower total cost of ownership through automation readiness."
+          },
+          {
+            "title": "Sustainable Future",
+            "description": "Ready for 2025/2030 packaging mandates."
+          }
+        ],
+        "technicalSpecs": {
+          "materialLayers": [
+            "PET/PE (Standard Barrier)",
+            "MOPP/VMPET/PE (High Barrier)",
+            "MDO-PE/PE (Recyclable)"
+          ],
+          "printingOptions": [
+            "HD Rotogravure (Up to 10 Colors)",
+            "Digital Print (For SKUs < 10,000)",
+            "Spot UV & Matte Finishes"
+          ],
+          "sustainability": [
+            "How2Recycle Ready",
+            "Post-Consumer Recycled (PCR) Content",
+            "FSC Certified Kraft Options"
+          ]
+        },
+        "engineeringNotebook": {
+          "title": "Engineering the Perfect Custom Corrugated & Folding Boxes",
+          "author": "Ryan Wong, Chief Packaging Engineer",
+          "date": "July 15, 2026",
+          "content": "When evaluating Custom Corrugated & Folding Boxes, many buyers focus solely on price-per-unit. However, the true cost lies in machine downtime (COF mismatches), seal integrity failures (leakers), and poor barrier properties leading to shortened shelf life. Our approach involves mathematically modeling the slip coefficient against your specific filling equipment jaws.",
+          "keyTakeaway": "Never compromise on the sealant web. A 5% saving on material can lead to a 50% increase in waste on the filling line."
         }
       },
       "usaCoffee": {
@@ -38650,7 +38870,88 @@
           "heroTitle": "Automatisation de la ligne d'emballage",
           "heroSubtitle": "Évoluez efficacement. Réduisez le coût par unité. Élimine les défauts. Le guide complet des machines VFFS, de l'emballage robotisé et du codage en ligne pour les sachets flexibles.",
           "introSummary": "L’automatisation des lignes de conditionnement transforme les opérations manuelles d’emballage de sachets en une fabrication de précision à grande vitesse. Ce guide couvre la sélection des machines VFFS et HFFS, l'intégration des peseuses multi-têtes, le codage de date TTO, les systèmes d'inspection par vision et les cinq modes de défaillance d'automatisation les plus courants avec des solutions de qualité technique pour les marques d'aliments, de compléments alimentaires et d'aliments pour animaux utilisant des emballages flexibles."
-        }
+        },
+        "pageTitle": "Packaging Line Automation - Premium B2B Solutions | Achieve Pack",
+        "pageDescription": "Seamlessly integrate your packaging materials with automated filling lines. Optimize speed, reduce friction (COF), and eliminate downtime.",
+        "heroTitle": "Packaging Line Automation",
+        "heroSubtitle": "Seamlessly integrate your packaging materials with automated filling lines. Optimize speed, reduce friction (COF), and eliminate downtime.",
+        "overviewTitle": "Understanding Packaging Line Automation",
+        "overviewContent": "Seamlessly integrate your packaging materials with automated filling lines. Optimize speed, reduce friction (COF), and eliminate downtime. Our solutions are designed to address the most critical failure points in the supply chain while delivering stunning visual aesthetics.",
+        "painPoints": [
+          {
+            "issue": "High Material Waste",
+            "impact": "Excessive costs and environmental footprint",
+            "solution": "Engineered material reduction and right-sizing"
+          },
+          {
+            "issue": "Seal Failures",
+            "impact": "Product spoilage and recalls",
+            "solution": "Advanced sealant layers for high hot-tack strength"
+          },
+          {
+            "issue": "Poor Shelf Presence",
+            "impact": "Lost consumer engagement",
+            "solution": "10-color HD Rotogravure printing with matte/gloss finishes"
+          },
+          {
+            "issue": "Supply Chain Delays",
+            "impact": "Stockouts and lost revenue",
+            "solution": "Predictable lead times and robust QA processes"
+          },
+          {
+            "issue": "Non-Compliance",
+            "impact": "Regulatory fines (e.g. EPR taxes)",
+            "solution": "Certified mono-material and compostable options"
+          }
+        ],
+        "benefits": [
+          {
+            "title": "Optimized Cost",
+            "description": "Lower total cost of ownership through automation readiness."
+          },
+          {
+            "title": "Sustainable Future",
+            "description": "Ready for 2025/2030 packaging mandates."
+          }
+        ],
+        "technicalSpecs": {
+          "materialLayers": [
+            "PET/PE (Standard Barrier)",
+            "MOPP/VMPET/PE (High Barrier)",
+            "MDO-PE/PE (Recyclable)"
+          ],
+          "printingOptions": [
+            "HD Rotogravure (Up to 10 Colors)",
+            "Digital Print (For SKUs < 10,000)",
+            "Spot UV & Matte Finishes"
+          ],
+          "sustainability": [
+            "How2Recycle Ready",
+            "Post-Consumer Recycled (PCR) Content",
+            "FSC Certified Kraft Options"
+          ]
+        },
+        "engineeringNotebook": {
+          "title": "Engineering the Perfect Packaging Line Automation",
+          "author": "Ryan Wong, Chief Packaging Engineer",
+          "date": "July 15, 2026",
+          "content": "When evaluating Packaging Line Automation, many buyers focus solely on price-per-unit. However, the true cost lies in machine downtime (COF mismatches), seal integrity failures (leakers), and poor barrier properties leading to shortened shelf life. Our approach involves mathematically modeling the slip coefficient against your specific filling equipment jaws.",
+          "keyTakeaway": "Never compromise on the sealant web. A 5% saving on material can lead to a 50% increase in waste on the filling line."
+        },
+        "faqs": [
+          {
+            "question": "What is the minimum order quantity for Packaging Line Automation?",
+            "answer": "Digital print allows runs as low as 1,000 units, while traditional rotogravure starts at 10,000 units for optimal pricing."
+          },
+          {
+            "question": "Can this be made recyclable?",
+            "answer": "Yes, we offer mono-material PE/PE structures that are widely accepted in store drop-off recycling streams."
+          },
+          {
+            "question": "How long does manufacturing take?",
+            "answer": "Standard lead time is 3-4 weeks for digital, and 4-6 weeks for rotogravure, after artwork approval."
+          }
+        ]
       },
       "ecoPackagingCoding": {
         "faq": {
@@ -39046,6 +39347,89 @@
         "faq4Q": "Peut-on imprimer des logos directement sur la pulpe moulée ?",
         "faq4A": "Bien que l'impression directe soit difficile sur des surfaces texturées, nous utilisons la gravure laser sur l'outillage pour embosser ou débosseler votre logo. Pour une marque multicolore, nous recommandons un manchon en papier imprimé.",
         "tableTitle": "Comparaison des types de pulpe"
+      },
+      "rollstockFilm": {
+        "pageTitle": "Rollstock Film Packaging - Premium B2B Solutions | Achieve Pack",
+        "pageDescription": "High-efficiency rollstock film designed for automated VFFS and HFFS packaging lines. Engineered for speed, barrier protection, and custom branding.",
+        "heroTitle": "Rollstock Film Packaging",
+        "heroSubtitle": "High-efficiency rollstock film designed for automated VFFS and HFFS packaging lines. Engineered for speed, barrier protection, and custom branding.",
+        "overviewTitle": "Understanding Rollstock Film Packaging",
+        "overviewContent": "High-efficiency rollstock film designed for automated VFFS and HFFS packaging lines. Engineered for speed, barrier protection, and custom branding. Our solutions are designed to address the most critical failure points in the supply chain while delivering stunning visual aesthetics.",
+        "painPoints": [
+          {
+            "issue": "High Material Waste",
+            "impact": "Excessive costs and environmental footprint",
+            "solution": "Engineered material reduction and right-sizing"
+          },
+          {
+            "issue": "Seal Failures",
+            "impact": "Product spoilage and recalls",
+            "solution": "Advanced sealant layers for high hot-tack strength"
+          },
+          {
+            "issue": "Poor Shelf Presence",
+            "impact": "Lost consumer engagement",
+            "solution": "10-color HD Rotogravure printing with matte/gloss finishes"
+          },
+          {
+            "issue": "Supply Chain Delays",
+            "impact": "Stockouts and lost revenue",
+            "solution": "Predictable lead times and robust QA processes"
+          },
+          {
+            "issue": "Non-Compliance",
+            "impact": "Regulatory fines (e.g. EPR taxes)",
+            "solution": "Certified mono-material and compostable options"
+          }
+        ],
+        "benefits": [
+          {
+            "title": "Optimized Cost",
+            "description": "Lower total cost of ownership through automation readiness."
+          },
+          {
+            "title": "Sustainable Future",
+            "description": "Ready for 2025/2030 packaging mandates."
+          }
+        ],
+        "technicalSpecs": {
+          "materialLayers": [
+            "PET/PE (Standard Barrier)",
+            "MOPP/VMPET/PE (High Barrier)",
+            "MDO-PE/PE (Recyclable)"
+          ],
+          "printingOptions": [
+            "HD Rotogravure (Up to 10 Colors)",
+            "Digital Print (For SKUs < 10,000)",
+            "Spot UV & Matte Finishes"
+          ],
+          "sustainability": [
+            "How2Recycle Ready",
+            "Post-Consumer Recycled (PCR) Content",
+            "FSC Certified Kraft Options"
+          ]
+        },
+        "engineeringNotebook": {
+          "title": "Engineering the Perfect Rollstock Film Packaging",
+          "author": "Ryan Wong, Chief Packaging Engineer",
+          "date": "July 15, 2026",
+          "content": "When evaluating Rollstock Film Packaging, many buyers focus solely on price-per-unit. However, the true cost lies in machine downtime (COF mismatches), seal integrity failures (leakers), and poor barrier properties leading to shortened shelf life. Our approach involves mathematically modeling the slip coefficient against your specific filling equipment jaws.",
+          "keyTakeaway": "Never compromise on the sealant web. A 5% saving on material can lead to a 50% increase in waste on the filling line."
+        },
+        "faqs": [
+          {
+            "question": "What is the minimum order quantity for Rollstock Film Packaging?",
+            "answer": "Digital print allows runs as low as 1,000 units, while traditional rotogravure starts at 10,000 units for optimal pricing."
+          },
+          {
+            "question": "Can this be made recyclable?",
+            "answer": "Yes, we offer mono-material PE/PE structures that are widely accepted in store drop-off recycling streams."
+          },
+          {
+            "question": "How long does manufacturing take?",
+            "answer": "Standard lead time is 3-4 weeks for digital, and 4-6 weeks for rotogravure, after artwork approval."
+          }
+        ]
       }
     },
     "compostableStandUpPouches": {
