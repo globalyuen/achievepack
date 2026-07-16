@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-16",
-  "total_images": 5494,
+  "total_images": 5495,
   "total_categories": 288,
   "extensions": {
     ".webp": 1355,
     ".png": 3160,
-    ".jpg": 975,
+    ".jpg": 976,
     ".svg": 4
   },
   "categories": {
@@ -12753,8 +12753,14 @@
       ]
     },
     "knowledge": {
-      "count": 305,
+      "count": 306,
       "images": [
+        {
+          "filename": "composting-anatomy-diagram.jpg",
+          "path": "/imgs/knowledge/composting-anatomy-diagram.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T02:24:38.104Z"
+        },
         {
           "filename": "beef-jerky-pillow-pouch-comparison.jpg",
           "path": "/imgs/knowledge/beef-jerky-pillow-pouch-comparison.jpg",

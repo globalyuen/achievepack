@@ -187,6 +187,99 @@ const ALL_PAGES = Object.entries(LEARN_PAGES).flatMap(([key, category]) =>
   }))
 )
 
+const HOTSPOTS = [
+  {
+    id: 'outer-kraft',
+    name: 'Outer Kraft Paper Layer',
+    desc: 'High-quality printable natural kraft paper, certified compostable and biodegradable.',
+    link: '/topics/compostable-packaging',
+    x: 39,
+    y: 31,
+    placement: 'right'
+  },
+  {
+    id: 'zipper',
+    name: 'Compostable Zip-Lock',
+    desc: 'Biodegradable resin seal structure that maintains freshness and prevents moisture ingress.',
+    link: '/topics/compostable-zipper-durability',
+    x: 55,
+    y: 19,
+    placement: 'bottom'
+  },
+  {
+    id: 'barrier',
+    name: 'Plant-Based Barrier Film',
+    desc: 'Cellulose-based oxygen and vapor barrier, matching conventional plastic performance.',
+    link: '/topics/plant-based-barrier-coatings',
+    x: 47,
+    y: 48,
+    placement: 'left'
+  },
+  {
+    id: 'sealant',
+    name: 'Inner Sealant Layer',
+    desc: 'Heat-sealable compostable biopolymer designed for high seal strength and food safety.',
+    link: '/topics/compostable-pouch-suppliers',
+    x: 47,
+    y: 67,
+    placement: 'left'
+  },
+  {
+    id: 'gusset',
+    name: 'Stand-Up Gusset',
+    desc: 'Reinforced flexible base layer enabling structural integrity for shelf displays.',
+    link: '/topics/compostable-packaging-blog',
+    x: 60,
+    y: 77,
+    placement: 'top'
+  },
+  {
+    id: 'cycle-use',
+    name: 'Phase 1: Product Use',
+    desc: 'Certified compostable stand-up pouches and mailers ideal for DTC brands.',
+    link: '/topics/home-compostable-coffee-bags',
+    x: 82,
+    y: 35,
+    placement: 'left'
+  },
+  {
+    id: 'cycle-dispose',
+    name: 'Phase 2: Proper Disposal',
+    desc: 'Zero-waste disposal guidelines for organic home and industrial facilities.',
+    link: '/topics/home-vs-industrial-compostable',
+    x: 74,
+    y: 48,
+    placement: 'right'
+  },
+  {
+    id: 'cycle-biodegrade',
+    name: 'Phase 3: Biodegradation',
+    desc: 'Natural breakdown by soil microbes under EN 13432 compost specifications.',
+    link: '/topics/compostable-certification',
+    x: 90,
+    y: 48,
+    placement: 'left'
+  },
+  {
+    id: 'cycle-nutrients',
+    name: 'Phase 4: Nutrient Rich Soil',
+    desc: 'Returning clean compost back to farms to nurture plant growth.',
+    link: '/topics/compostable-certification-faq',
+    x: 78,
+    y: 63,
+    placement: 'right'
+  },
+  {
+    id: 'cycle-growth',
+    name: 'Phase 5: Agricultural Growth',
+    desc: 'Regenerating crops like organic coffee beans in healthy soil.',
+    link: '/topics/compostable-humidity-control',
+    x: 87,
+    y: 63,
+    placement: 'left'
+  }
+]
+
 export default function LearnSearchPage() {
   const { t, i18n } = useTranslation()
   const p = 'seoPages.pages.learnSearch'
@@ -200,6 +293,7 @@ export default function LearnSearchPage() {
   
   const [searchQuery, setSearchQuery] = useState(initialQuery)
   const [selectedCategory, setSelectedCategory] = useState(initialCategory)
+  const [activeHotspot, setActiveHotspot] = useState<string | null>(null)
   
   // Sync with URL params
   useEffect(() => {
@@ -290,6 +384,122 @@ export default function LearnSearchPage() {
                 {t(`${p}.hero.desc`, "Everything you need to know about sustainable packaging materials, shapes, and solutions")}
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* Interactive Composting Explorer Section */}
+        <section className="py-16 bg-neutral-950 text-white border-b-4 border-black relative">
+          <style>{`
+            @keyframes custom-ping {
+              0% { transform: scale(1); opacity: 1; }
+              70%, 100% { transform: scale(2.5); opacity: 0; }
+            }
+            .animate-custom-ping {
+              animation: custom-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+            }
+          `}</style>
+          
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <span className="inline-block bg-[#D4FF00] text-black px-4 py-1.5 font-['JetBrains_Mono'] font-extrabold text-xs uppercase tracking-wider transform -rotate-1 border-2 border-black shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] mb-4">
+                ⚡ VISUAL INTERACTIVE EXPLORER
+              </span>
+              <h2 className="text-3xl md:text-5xl font-black uppercase text-white leading-none tracking-tight">
+                Interactive Compostable Packaging Anatomy & Lifecycle
+              </h2>
+              <p className="text-lg text-gray-400 mt-4 max-w-3xl mx-auto font-['Space_Grotesk']">
+                Hover or tap the glowing hotspots to explore structural specs, barrier layers, and proper circular compost workflows.
+              </p>
+            </div>
+
+            {/* Diagram Container */}
+            <div className="relative w-full aspect-[16/9] bg-black border-4 border-black rounded-2xl overflow-hidden shadow-[20px_20px_0px_0px_rgba(16,185,129,0.15)]">
+              <img
+                src="/imgs/knowledge/composting-anatomy-diagram.jpg"
+                alt="Interactive Composting Anatomy Diagram"
+                className="w-full h-full object-cover select-none pointer-events-none"
+              />
+              
+              {/* Overlay Hotspots */}
+              {HOTSPOTS.map((hotspot) => {
+                const isActive = activeHotspot === hotspot.id;
+                
+                // Placement classes for tooltips
+                let tooltipClass = "";
+                if (hotspot.placement === 'left') {
+                  tooltipClass = "right-full mr-4 top-1/2 -translate-y-1/2";
+                } else if (hotspot.placement === 'right') {
+                  tooltipClass = "left-full ml-4 top-1/2 -translate-y-1/2";
+                } else if (hotspot.placement === 'top') {
+                  tooltipClass = "bottom-full mb-4 left-1/2 -translate-x-1/2";
+                } else if (hotspot.placement === 'bottom') {
+                  tooltipClass = "top-full mt-4 left-1/2 -translate-x-1/2";
+                }
+
+                return (
+                  <div
+                    key={hotspot.id}
+                    className="absolute z-20"
+                    style={{ left: `${hotspot.x}%`, top: `${hotspot.y}%` }}
+                    onMouseEnter={() => setActiveHotspot(hotspot.id)}
+                    onMouseLeave={() => setActiveHotspot(null)}
+                  >
+                    {/* Glowing outer ring */}
+                    <div className="absolute -left-3 -top-3 w-7 h-7 bg-emerald-500 rounded-full animate-custom-ping pointer-events-none" />
+                    
+                    {/* Central Button */}
+                    <button
+                      onClick={() => navigate(hotspot.link)}
+                      className={`relative w-4 h-4 rounded-full border-2 border-black transition-transform duration-200 cursor-pointer ${
+                        isActive ? 'bg-[#D4FF00] scale-125' : 'bg-emerald-400 hover:bg-[#D4FF00]'
+                      }`}
+                      aria-label={hotspot.name}
+                    />
+
+                    {/* Desktop Tooltip Card */}
+                    {isActive && (
+                      <div className={`absolute w-64 bg-black/90 backdrop-blur-md border border-white/20 p-4 rounded-xl shadow-xl transition-all duration-200 pointer-events-auto hidden md:block ${tooltipClass}`}>
+                        <h4 className="font-extrabold text-[#D4FF00] text-sm uppercase tracking-wide mb-1">{hotspot.name}</h4>
+                        <p className="text-white/85 text-[11px] mb-3 leading-normal font-['Space_Grotesk']">{hotspot.desc}</p>
+                        <Link 
+                          to={hotspot.link} 
+                          className="inline-flex items-center gap-1 text-[11px] text-emerald-400 font-bold hover:underline"
+                        >
+                          Read Structural Spec &rarr;
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Mobile / Responsive Detail Card */}
+            <div className="mt-8 md:hidden bg-neutral-900 border-2 border-neutral-800 p-6 rounded-xl text-center">
+              {activeHotspot ? (
+                (() => {
+                  const hotspot = HOTSPOTS.find(h => h.id === activeHotspot);
+                  if (!hotspot) return null;
+                  return (
+                    <div className="space-y-3">
+                      <h4 className="font-black text-[#D4FF00] text-base uppercase tracking-wider">{hotspot.name}</h4>
+                      <p className="text-gray-300 text-sm leading-relaxed font-['Space_Grotesk']">{hotspot.desc}</p>
+                      <Link
+                        to={hotspot.link}
+                        className="inline-block bg-[#10b981] hover:bg-[#D4FF00] text-black px-5 py-2 rounded-lg font-black text-xs uppercase tracking-wider transition-colors"
+                      >
+                        Read Structural Spec &rarr;
+                      </Link>
+                    </div>
+                  );
+                })()
+              ) : (
+                <div className="py-2 text-gray-500 font-medium text-xs font-['JetBrains_Mono']">
+                  💡 Tap on any glowing point on the diagram above to inspect specs and browse corresponding guides.
+                </div>
+              )}
+            </div>
+            
           </div>
         </section>
 
