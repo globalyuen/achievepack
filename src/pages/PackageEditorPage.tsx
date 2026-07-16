@@ -864,6 +864,7 @@ export default function PackageEditorPage() {
                 }
 
                 if (shouldMap) {
+                  node.scale.multiplyScalar(1.0015);
                   materialsRef.current.push(node);
                   const mats = Array.isArray(node.material) ? node.material : [node.material];
                   mats.forEach(mat => {
@@ -876,6 +877,13 @@ export default function PackageEditorPage() {
                     if ('aoMap' in mat) mat.aoMap = null;
                     if ('emissiveMap' in mat) mat.emissiveMap = null;
                     if ('lightMap' in mat) mat.lightMap = null;
+                    mat.needsUpdate = true;
+                  });
+                } else {
+                  const mats = Array.isArray(node.material) ? node.material : [node.material];
+                  mats.forEach(mat => {
+                    mat.side = THREE.DoubleSide;
+                    if ('map' in mat) mat.map = null;
                     mat.needsUpdate = true;
                   });
                 }
@@ -1222,6 +1230,7 @@ export default function PackageEditorPage() {
               }
 
               if (shouldMap) {
+                node.scale.multiplyScalar(1.0015);
                 materialsRef.current.push(node);
                 const mats = Array.isArray(node.material) ? node.material : [node.material];
                 mats.forEach(mat => {
@@ -1234,6 +1243,13 @@ export default function PackageEditorPage() {
                   if ('aoMap' in mat) mat.aoMap = null;
                   if ('emissiveMap' in mat) mat.emissiveMap = null;
                   if ('lightMap' in mat) mat.lightMap = null;
+                  mat.needsUpdate = true;
+                });
+              } else {
+                const mats = Array.isArray(node.material) ? node.material : [node.material];
+                mats.forEach(mat => {
+                  mat.side = THREE.DoubleSide;
+                  if ('map' in mat) mat.map = null;
                   mat.needsUpdate = true;
                 });
               }

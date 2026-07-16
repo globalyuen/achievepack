@@ -713,7 +713,7 @@
         "image": "/imgs/biope/epr/a_biope_epr_hero_image_8632332.webp"
       },
       {
-        "name": "Inside I'm green™ Bio-PE",
+        "name": "Inside I'm green\u2122 Bio-PE",
         "link": "/biope/inside-im-green-bio-pe",
         "image": "/imgs/biope/inside/hero.webp"
       }
@@ -1211,6 +1211,31 @@
         "name": "Cacao Stand Up",
         "link": "/topics/cacao-stand-up",
         "image": "/imgs/illustrated/a_all_options_card_v3_3800862.webp"
+      },
+      {
+        "name": "Sustainable Flexible Packaging For Powders",
+        "link": "/topics/sustainable-flexible-packaging-for-powders",
+        "image": "/imgs/blog/heros/sustainable-flexible-packaging-for-powders-hero.png"
+      },
+      {
+        "name": "Custom Printed Kraft Paper Sachets For Herbs",
+        "link": "/topics/custom-printed-kraft-paper-sachets-for-herbs",
+        "image": "/imgs/blog/heros/custom-printed-kraft-paper-sachets-for-herbs-hero.png"
+      },
+      {
+        "name": "Freezer Safe Vacuum Packaging",
+        "link": "/topics/freezer-safe-vacuum-packaging",
+        "image": "/imgs/seo/freezer_safe_vacuum_packaging_infographic_5.png"
+      },
+      {
+        "name": "Sustainable Pouch Sizes For Coffee Beans",
+        "link": "/topics/sustainable-pouch-sizes-for-coffee-beans",
+        "image": "/imgs/blog/heros/sustainable-pouch-sizes-for-coffee-beans-hero.png"
+      },
+      {
+        "name": "Digital Print Flexible Packaging For Pharmaceuticals",
+        "link": "/topics/digital-print-flexible-packaging-for-pharmaceuticals",
+        "image": "/imgs/blog/heros/digital-print-flexible-packaging-for-pharmaceuticals-hero.png"
       }
     ]
   },

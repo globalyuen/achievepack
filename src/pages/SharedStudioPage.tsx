@@ -690,6 +690,7 @@ export default function SharedStudioPage() {
                 }
 
                 if (shouldMap) {
+                  node.scale.multiplyScalar(1.0015);
                   const mats = Array.isArray(node.material) ? node.material : [node.material];
                   mats.forEach(mat => {
                     mat.side = THREE.DoubleSide;

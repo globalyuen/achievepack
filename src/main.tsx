@@ -874,6 +874,11 @@ const SharedQuotePage = lazyWithRetry(() => import('./pages/SharedQuotePage'))
 const SharedPackingPage = lazyWithRetry(() => import('./pages/SharedPackingPage'))
 const DocumentTemplatesPage = lazyWithRetry(() => import('./pages/admin/DocumentTemplatesPage'))
 const SharedStudioPage = lazyWithRetry(() => import('./pages/SharedStudioPage'))
+const SustainableFlexiblePackagingForPowdersPage = lazyWithRetry(() => import('./pages/seo/SustainableFlexiblePackagingForPowdersPage'));
+const CustomPrintedKraftPaperSachetsForHerbsPage = lazyWithRetry(() => import('./pages/seo/CustomPrintedKraftPaperSachetsForHerbsPage'));
+const FreezerSafeVacuumPackagingPage = lazyWithRetry(() => import('./pages/seo/FreezerSafeVacuumPackagingPage'));
+const SustainablePouchSizesForCoffeeBeansPage = lazyWithRetry(() => import('./pages/seo/SustainablePouchSizesForCoffeeBeansPage'));
+const DigitalPrintFlexiblePackagingForPharmaceuticalsPage = lazyWithRetry(() => import('./pages/seo/DigitalPrintFlexiblePackagingForPharmaceuticalsPage'));
 
 import AdminProtectedRoute from './components/admin/AdminProtectedRoute'
 // Cookie Consent Component
@@ -2073,6 +2078,11 @@ if (getDomain() === 'pouch') {
 
                         {/* 404 - Catch All Route */}
                         <Route path="/:slug" element={<SharedStudioPage />} />
+                                                <Route path="/topics/sustainable-flexible-packaging-for-powders" element={<SustainableFlexiblePackagingForPowdersPage />} />
+                        <Route path="/topics/custom-printed-kraft-paper-sachets-for-herbs" element={<CustomPrintedKraftPaperSachetsForHerbsPage />} />
+                        <Route path="/topics/freezer-safe-vacuum-packaging" element={<FreezerSafeVacuumPackagingPage />} />
+                        <Route path="/topics/sustainable-pouch-sizes-for-coffee-beans" element={<SustainablePouchSizesForCoffeeBeansPage />} />
+                        <Route path="/topics/digital-print-flexible-packaging-for-pharmaceuticals" element={<DigitalPrintFlexiblePackagingForPharmaceuticalsPage />} />
                         <Route path="*" element={<NotFoundPage />} />
                       </MultilingualRoutes>
                     </Suspense>
