@@ -694,6 +694,9 @@ export default function SharedStudioPage() {
                   mats.forEach(mat => {
                     mat.side = THREE.DoubleSide;
                     mat.map = canvasTexture;
+                    mat.polygonOffset = true;
+                    mat.polygonOffsetFactor = -1.0;
+                    mat.polygonOffsetUnits = -1.0;
                     if ('color' in mat && mat.color && typeof mat.color.setHex === 'function') {
                       mat.color.setHex(0xffffff);
                     }
@@ -706,6 +709,13 @@ export default function SharedStudioPage() {
                     if ('lightMap' in mat) mat.lightMap = null;
                     if ('roughness' in mat) (mat as any).roughness = design.roughness ?? 0.5;
                     if ('metalness' in mat) (mat as any).metalness = design.metalness ?? 0.1;
+                    mat.needsUpdate = true;
+                  });
+                } else {
+                  const mats = Array.isArray(node.material) ? node.material : [node.material];
+                  mats.forEach(mat => {
+                    mat.side = THREE.DoubleSide;
+                    if ('map' in mat) mat.map = null;
                     mat.needsUpdate = true;
                   });
                 }
@@ -882,6 +892,17 @@ export default function SharedStudioPage() {
               mats.forEach(mat => {
                 if (mat && 'map' in mat) {
                   (mat as any).map = newTexture;
+                  (mat as any).polygonOffset = true;
+                  (mat as any).polygonOffsetFactor = -1.0;
+                  (mat as any).polygonOffsetUnits = -1.0;
+                  (mat as any).needsUpdate = true;
+                }
+              });
+            } else {
+              const mats = Array.isArray(node.material) ? node.material : [node.material];
+              mats.forEach(mat => {
+                if (mat && 'map' in mat) {
+                  (mat as any).map = null;
                   (mat as any).needsUpdate = true;
                 }
               });
