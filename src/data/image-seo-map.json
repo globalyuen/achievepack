@@ -527,6 +527,10 @@
     {
       "title": "/reviews",
       "url": "/reviews"
+    },
+    {
+      "title": "Morlife",
+      "url": "/topics/morlife"
     }
   ],
   "/imgs/illustrated/a_coffee_roaster_variation_1_6758424.webp": [
@@ -12905,6 +12909,168 @@
     {
       "title": "/topics/retro-horizontal-kraft-food-handle-bag-thumbnail-9",
       "url": "/topics/retro-horizontal-kraft-food-handle-bag-thumbnail-9"
+    }
+  ],
+  "/imgs/testimonials/brand-logo/a_emu_elixir_logo_7729355.webp": [
+    {
+      "title": "A Emu Elixir Logo 7729355",
+      "url": "/topics/a-emu-elixir-logo-7729355"
+    }
+  ],
+  "/imgs/testimonials/brand-logo/a_wise_angler_logo_8090229.webp": [
+    {
+      "title": "A Wise Angler Logo 8090229",
+      "url": "/topics/a-wise-angler-logo-8090229"
+    }
+  ],
+  "/imgs/testimonials/brand-logo/a_dancing_lion_chocolate_logo_9125312.webp": [
+    {
+      "title": "A Dancing Lion Chocolate Logo 9125312",
+      "url": "/topics/a-dancing-lion-chocolate-logo-9125312"
+    }
+  ],
+  "/imgs/testimonials/brand-logo/a_plantpowders_company_logo_3847855.webp": [
+    {
+      "title": "A Plantpowders Company Logo 3847855",
+      "url": "/topics/a-plantpowders-company-logo-3847855"
+    }
+  ],
+  "/imgs/testimonials/brand-logo/a_just_be_kind_logo_9956961.webp": [
+    {
+      "title": "A Just Be Kind Logo 9956961",
+      "url": "/topics/a-just-be-kind-logo-9956961"
+    }
+  ],
+  "/imgs/testimonials/brand-logo/a_morlife_logo_7487286.webp": [
+    {
+      "title": "A Morlife Logo 7487286",
+      "url": "/topics/a-morlife-logo-7487286"
+    }
+  ],
+  "/imgs/testimonials/brand-logo/a_hike_again_remedies_logo_3308658.webp": [
+    {
+      "title": "A Hike Again Remedies Logo 3308658",
+      "url": "/topics/a-hike-again-remedies-logo-3308658"
+    }
+  ],
+  "/imgs/testimonials/brand-logo/a_mylk_made_logo_6762912.webp": [
+    {
+      "title": "A Mylk Made Logo 6762912",
+      "url": "/topics/a-mylk-made-logo-6762912"
+    }
+  ],
+  "/imgs/testimonials/owner/david.png": [
+    {
+      "title": "David",
+      "url": "/topics/david-a7ffbd"
+    }
+  ],
+  "/imgs/testimonials/owner/nicole.png": [
+    {
+      "title": "Nicole",
+      "url": "/topics/nicole-3d79b6"
+    }
+  ],
+  "/imgs/testimonials/owner/a_professional_portrait_enhanced_6830169.webp": [
+    {
+      "title": "A Professional Portrait Enhanced 6830169",
+      "url": "/topics/a-professional-portrait-enhanced-6830169"
+    }
+  ],
+  "/imgs/testimonials/owner/Paul.webp": [
+    {
+      "title": "Paul",
+      "url": "/topics/paul-11d985"
+    }
+  ],
+  "/imgs/testimonials/owner/ruby.png": [
+    {
+      "title": "Ruby",
+      "url": "/topics/ruby-63d5b1"
+    }
+  ],
+  "/imgs/testimonials/owner/cheryl.webp": [
+    {
+      "title": "Cheryl",
+      "url": "/topics/cheryl"
+    }
+  ],
+  "/imgs/testimonials/owner/jemma.png": [
+    {
+      "title": "Jemma",
+      "url": "/topics/jemma-cd3fe7"
+    }
+  ],
+  "/imgs/testimonials/owner/leo.png": [
+    {
+      "title": "Leo",
+      "url": "/topics/leo-bfa697"
+    }
+  ],
+  "/imgs/testimonials/owner/Richard.webp": [
+    {
+      "title": "Richard",
+      "url": "/topics/richard-498cc2"
+    }
+  ],
+  "/imgs/testimonials/owner/nicole.webp": [
+    {
+      "title": "Nicole",
+      "url": "/topics/nicole-21e1ff"
+    }
+  ],
+  "/imgs/testimonials/owner/michelle.webp": [
+    {
+      "title": "Michelle",
+      "url": "/topics/michelle-b4c207"
+    }
+  ],
+  "/imgs/testimonials/owner/Paul.png": [
+    {
+      "title": "Paul",
+      "url": "/topics/paul-8f1216"
+    }
+  ],
+  "/imgs/testimonials/owner/remi.png": [
+    {
+      "title": "Remi",
+      "url": "/topics/remi-eeb5ae"
+    }
+  ],
+  "/imgs/testimonials/owner/arielle.png": [
+    {
+      "title": "Arielle",
+      "url": "/topics/arielle-41119a"
+    }
+  ],
+  "/imgs/testimonials/owner/arielle.webp": [
+    {
+      "title": "Arielle",
+      "url": "/topics/arielle-40af85"
+    }
+  ],
+  "/imgs/testimonials/owner/michelle.png": [
+    {
+      "title": "Michelle",
+      "url": "/topics/michelle-294743"
+    }
+  ],
+  "/imgs/testimonials/owner/Richard.png": [
+    {
+      "title": "Richard",
+      "url": "/topics/richard-a2c72c"
+    }
+  ],
+  "/imgs/testimonials/owner/ruby.webp": [
+    {
+      "title": "Ruby",
+      "url": "/topics/ruby-67bc0a"
+    }
+  ],
+  "/imgs/testimonials/owner/Steph.webp": [
+    {
+      "title": "Steph",
+      "url": "/topics/steph-5897c2"
     }
   ]
 }

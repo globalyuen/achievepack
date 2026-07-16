@@ -336,6 +336,29 @@ export default function PouchEcoHomePage() {
                 </NeoButton>
               </motion.div>
 
+              {/* Product Hunt Feature Badge */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.35 }}
+                className="flex justify-start pt-2"
+              >
+                <a 
+                  href="https://www.producthunt.com/products/achieve-pack-free-3d-studio?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-achieve-pack-free-3d-studio" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block hover:opacity-90 transition-opacity border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-white"
+                >
+                  <img 
+                    alt="Achieve Pack Free 3D Studio - Design & visualize 3D pouches instantly in your browser. | Product Hunt" 
+                    width="250" 
+                    height="54" 
+                    src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1198264&theme=light&t=1784212056282" 
+                    style={{ width: '250px', height: '54px' }}
+                  />
+                </a>
+              </motion.div>
+
               {/* Social Proof with group.png background */}
               <motion.div 
                 initial={{ opacity: 0 }}

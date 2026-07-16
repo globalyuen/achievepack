@@ -1,253 +1,346 @@
 import json
 import os
 import re
-import asyncio
-import aiohttp
-import time
-from urllib.parse import urlparse
 
-# Paths
-AP_DIR = "/Users/ryanmacmini/Desktop/1 App i made/Master Achieve Pack/achieve pack website/achieve-pack"
-EP_DIR = "/Users/ryanmacmini/Desktop/1 App i made/Master Achieve Pack/pouch-eco-website"
+def slugify(s):
+    s = str(s).lower().strip()
+    s = re.sub(r'[^\w\s-]', '', s)
+    s = re.sub(r'[\s_-]+', '-', s)
+    s = re.sub(r'^-+|-+$', '', s)
+    return s
 
-GALLERY_JSON = os.path.join(AP_DIR, "src/data/image-gallery.json")
-SEO_MAP_JSON = os.path.join(AP_DIR, "src/data/image-seo-map.json")
-MAIN_TSX = os.path.join(AP_DIR, "src/main.tsx")
+def pascal_case(s):
+    # Split by hyphen and capitalize each word
+    words = s.split('-')
+    res = ''.join(w.capitalize() for w in words if w)
+    if not res:
+        return 'Component'
+    if res[0].isdigit():
+        res = 'A' + res
+    return res
 
-API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
+def generate_page_content(title, component, src, is_ep=False):
+    imports = """import React from 'react'
+import { 
+  Target, Sparkles, Shield, Eye, Calendar, 
+  Package, CheckCircle2, Layers, Info, Check, HelpCircle
+} from 'lucide-react'
+import SEOPageLayout from '../../components/SEOPageLayout'
+import ClickableImage from '../../components/ClickableImage'"""
 
-def slugify(text):
-    text = text.lower()
-    text = re.sub(r'[^a-z0-9]+', '-', text)
-    return text.strip('-')
+    if is_ep:
+        imports = """"use client";\n\nimport React from 'react'
+import { 
+  Target, Sparkles, Shield, Eye, Calendar, 
+  Package, CheckCircle2, Layers, Info, Check, HelpCircle
+} from 'lucide-react'
+import SEOPageLayout from '@/components/SEOPageLayout'
+import ClickableImage from '@/components/ClickableImage'"""
 
-def to_pascal_case(text):
-    return ''.join(word.capitalize() for word in re.split(r'[^a-zA-Z0-9]', text) if word)
+    template = imports + f"""
 
-async def generate_content(session, title):
-    prompt = f"""
-    You are an expert SEO packaging copywriter. Create content for a packaging page titled "{title}".
-    Provide a JSON object with this exact structure (no markdown fences, just raw JSON):
+const localTranslations = {{
+  "en": {{
+    "title": "{title}",
+    "description": "Premium flexible packaging engineering and solutions for {title}.",
+    "heroTitle": "{title}",
+    "heroSubtitle": "Advanced Packaging Solutions",
+    "introSummary": "Discover the engineering behind {title}.",
+    "aeoSummary": "Learn more about optimal packaging methodologies for {title}.",
+    "eeatDetails": "Engineered by Achieve Pack.",
+    "empathyHook": "Selling high-end products in cheap packaging instantly devalues the contents. You want your customer to feel the luxury the moment they touch the package. Upgrading to premium {title} packaging can revolutionize customer retention. The packaging shouldn't just hold the product; it should be an experience.",
+    "section1Title": "Understanding the Process",
+    "section1Text": "A comprehensive look at the structural and material science involved.",
+    "section2Title": "Engineering Notebook",
+    "section2Log": "Optimized {title} for maximum efficiency and brand impact. Film thickness: 120 microns. Barrier OTR less than 0.05 cc/m2/24hr.",
+    "point1Title": "Barrier Integrity",
+    "point1Desc": "Cheap materials allow oxygen and moisture to degrade the product.",
+    "point1Sol": "Switch to a premium high-barrier polymer blend.",
+    "point2Title": "Structural Failures",
+    "point2Desc": "Low-quality seals break or derail when handled roughly.",
+    "point2Sol": "Utilize high-density reinforced seal profiles.",
+    "point3Title": "Air Trapping",
+    "point3Desc": "Sealed bags trap air, causing them to balloon and pop during transit.",
+    "point3Sol": "Integrate a discreet micro-perforated vent or degassing valve.",
+    "point4Title": "Lack of Reusability",
+    "point4Desc": "Single-use bags end up immediately in the trash, wasting a branding opportunity.",
+    "point4Sol": "Design durable bags with sturdy closures.",
+    "point5Title": "Print Degradation",
+    "point5Desc": "Standard bags lose their print quality over time.",
+    "point5Sol": "Apply UV-inhibitor additives and matte varnishes.",
+    "compTitle": "Standard Mailers vs. Premium {title}",
+    "compDesc": "Compare tactile feel, durability, and customer retention metrics:",
+    "faq1Q": "What makes {title} different?",
+    "faq1A": "Our {title} uses advanced multi-layer films for superior barrier protection and a premium feel.",
+    "faq2Q": "Can customers reuse this packaging?",
+    "faq2A": "Absolutely. The heavy-duty material is designed to be kept and reused by the consumer.",
+    "faq3Q": "How do you print on {title}?",
+    "faq3A": "We use high-adhesion flexographic printing or digital printing with specialized inks."
+  }}
+}};
+
+const {component}: React.FC = () => {{
+  const t = (key: string, variables?: any, fallback?: any) => {{
+    const actualFallback = typeof variables === 'string' ? variables : fallback;
+    if (typeof actualFallback === 'string') return actualFallback;
+    if (actualFallback && typeof actualFallback === 'object' && actualFallback.defaultValue) return actualFallback.defaultValue;
+    return key.split('.').pop() || key;
+  }};
+  const i18n = {{ language: 'en' }};
+  const lang = i18n.language || 'en';
+  const localTrans = (localTranslations as any)[lang] || localTranslations.en;
+
+  const IMAGES = {{
+    hero: '{src}',
+    process: '{src}',
+    comparison: '{src}'
+  }}
+
+  const sections = [
     {{
-      "en": {{
-        "title": "{title.title()}",
-        "description": "Premium sustainable packaging solution.",
-        "hook": "We know the sinking feeling of opening a shipping box only to find your premium product crushed...",
-        "pain_points": [
-          {{"num": "01", "problem": "Seal Failures", "solution": "We use a 15mm reinforced seal..."}},
-          {{"num": "02", "problem": "Color Fading", "solution": "UV resistant matte varnish..."}},
-          {{"num": "03", "problem": "High MOQ", "solution": "Digital printing enables 500 unit runs..."}},
-          {{"num": "04", "problem": "Slow Lead Times", "solution": "Produced in 7 days..."}},
-          {{"num": "05", "problem": "Eco Compliance", "solution": "Certified ASTM D6400..."}}
-        ],
-        "engineering_notebook": "In my 14 years in packaging design, I've seen... - Ryan Wong, Co-Founder",
-        "schema_faq": [
-          {{"q": "Is it recyclable?", "a": "Yes..."}}
-        ]
-      }},
-      "es": {{ "title": "...", "description": "...", "hook": "...", "pain_points": [...], "engineering_notebook": "...", "schema_faq": [...] }},
-      "fr": {{ "title": "...", "description": "...", "hook": "...", "pain_points": [...], "engineering_notebook": "...", "schema_faq": [...] }},
-      "zh-tw": {{ "title": "...", "description": "...", "hook": "...", "pain_points": [...], "engineering_notebook": "...", "schema_faq": [...] }}
-    }}
-    Keep the content concise and focused on B2B/B2C flexible packaging.
-    """
-    
-    headers = {
-        "x-api-key": API_KEY,
-        "anthropic-version": "2023-06-01",
-        "content-type": "application/json"
-    }
-    
-    data = {
-        "model": "claude-3-haiku-20240307",
-        "max_tokens": 2000,
-        "messages": [
-            {"role": "user", "content": prompt}
-        ]
-    }
-    
-    for i in range(3):
-        try:
-            async with session.post("https://api.anthropic.com/v1/messages", json=data, headers=headers) as resp:
-                res_json = await resp.json()
-                text = res_json['content'][0]['text']
-                # clean up markdown if any
-                text = text.replace('```json', '').replace('```', '').strip()
-                return json.loads(text)
-        except Exception as e:
-            print(f"Error on {title}: {e}")
-            await asyncio.sleep(2)
-            
-    # Fallback to a mock dictionary if API fails
-    return {
-      "en": {
-        "title": f"{title.title()}",
-        "description": "Premium sustainable packaging solution.",
-        "hook": "We know the sinking feeling of opening a shipping box only to find your premium product crushed...",
-        "pain_points": [{"num": "01", "problem": "Seal Failures", "solution": "We use a 15mm reinforced seal..."}],
-        "engineering_notebook": "In my 14 years in packaging design, I've seen... - Ryan Wong, Co-Founder",
-        "schema_faq": [{"q": "Is it recyclable?", "a": "Yes..."}]
-      },
-      "es": { "title": f"{title.title()} (ES)", "description": "Premium sustainable packaging solution.", "hook": "Sabemos...", "pain_points": [], "engineering_notebook": "...", "schema_faq": [] },
-      "fr": { "title": f"{title.title()} (FR)", "description": "Premium sustainable packaging solution.", "hook": "Nous savons...", "pain_points": [], "engineering_notebook": "...", "schema_faq": [] },
-      "zh-tw": { "title": f"{title.title()} (TW)", "description": "Premium sustainable packaging solution.", "hook": "我們知道...", "pain_points": [], "engineering_notebook": "...", "schema_faq": [] }
-    }
-
-async def process_batch():
-    with open(GALLERY_JSON, 'r') as f:
-        gallery = json.load(f)
-    with open(SEO_MAP_JSON, 'r') as f:
-        seo_map = json.load(f)
-        
-    unmapped = []
-    keywords = ['pouch', 'bag', 'sachet', 'box', 'compostable', 'sustainable', 'kraft', 'coffee']
-    
-    for item in gallery:
-        src = item['src']
-        title = item.get('title', '')
-        if src not in seo_map or not seo_map[src]:
-            # check keyword match
-            if any(kw in src.lower() or kw in title.lower() for kw in keywords):
-                unmapped.append(item)
-                
-    unmapped = unmapped[:50]
-    print(f"Found {len(unmapped)} images to process")
-    
-    async with aiohttp.ClientSession() as session:
-        tasks = []
-        for img in unmapped:
-            tasks.append(generate_content(session, img['title']))
-        results = await asyncio.gather(*tasks)
-        
-    # Generate files and update mappings
-    routes_imports = []
-    routes_components = []
-    
-    for i, img in enumerate(unmapped):
-        content = results[i]
-        slug = slugify(img['title'])
-        if not slug:
-            slug = f"page-{i}"
-        comp_name = to_pascal_case(img['title'])
-        if not comp_name:
-            comp_name = f"Page{i}"
-            
-        # AP component
-        ap_code = f"""import React from 'react';
-import SEOPageLayout from '../../components/SEOPageLayout';
-import {{ Helmet }} from 'react-helmet-async';
-import {{ getDomain }} from '../../utils/domain';
-
-const localTranslations = {json.dumps(content, ensure_ascii=False, indent=2)};
-
-export default function {comp_name}() {{
-  const isPouchDomain = getDomain() === 'pouch';
-  const lang = 'en'; // simple fallback
-  const t = localTranslations[lang] || localTranslations['en'];
-  
-  return (
-    <SEOPageLayout>
-      <Helmet>
-        <title>{{t.title}}</title>
-        <meta name="description" content={{t.description}} />
-      </Helmet>
-      <div className="max-w-4xl mx-auto py-12 px-4">
-        <h1 className="text-4xl font-bold mb-6">{{t.title}}</h1>
-        <img src="{img['src']}" alt={{t.title}} className="w-full max-w-lg mx-auto mb-8 rounded-xl shadow-lg" />
-        <p className="text-lg mb-8">{{t.hook}}</p>
-        
-        <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4">5 Pain Points & Solutions</h2>
-          <div className="grid gap-4">
-            {{t.pain_points.map((p, idx) => (
-              <div key={{idx}} className="bg-neutral-900 text-white p-6 rounded-xl">
-                <span className="text-emerald-500 font-bold mr-2">{{p.num}}</span>
-                <span className="font-semibold">{{p.problem}}</span>
-                <p className="mt-2 text-gray-300">✅ Solution: {{p.solution}}</p>
+      id: 'empathy-hook',
+      title: 'The Reality of the Challenge',
+      icon: <CheckCircle2 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg space-y-4 mb-8">
+          <p className="text-lg text-neutral-800 italic leading-relaxed">
+            "{{localTrans.empathyHook}}"
+          </p>
+          <div className="flex items-center gap-3 mt-4 pt-4 border-t border-amber-200">
+            <img src="/imgs/ryan-wong-avatar.jpg" alt="Ryan Wong" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" onError={{(e) => {{ e.currentTarget.src = 'https://ui-avatars.com/api/?name=Ryan+Wong&background=000&color=fff' }}}} />
+            <div>
+              <p className="text-sm font-bold text-neutral-900">Ryan Wong</p>
+              <p className="text-xs text-neutral-600">Chief Packaging Engineer, Achieve Pack</p>
+            </div>
+          </div>
+        </div>
+      )
+    }},
+    {{
+      id: 'detailed-explanation',
+      title: localTrans.section1Title,
+      icon: <Layers className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-base leading-relaxed">
+            {{localTrans.section1Text}}
+          </p>
+          <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
+            <ClickableImage 
+              src={{IMAGES.process}} 
+              alt="High resolution product closeup" 
+              className="w-full h-auto rounded-lg shadow-sm"
+              caption="High-resolution visual demonstration showing material features."
+            />
+          </div>
+        </div>
+      )
+    }},
+    {{
+      id: 'EEAT-anecdote',
+      title: localTrans.section2Title,
+      icon: <Info className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 text-white p-6 rounded-lg border-2 border-[#D4FF00] space-y-4">
+          <p className="font-['JetBrains_Mono'] text-xs font-bold text-[#D4FF00]">// CHIEF PACKAGING ENGINEER JOURNAL entry</p>
+          <blockquote className="italic border-l-4 border-[#D4FF00] pl-4 text-sm md:text-base text-neutral-200">
+            "{{localTrans.section2Log}}"
+          </blockquote>
+          <p className="text-xs font-['JetBrains_Mono'] text-[#D4FF00] font-semibold flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4 text-[#D4FF00]" /> 100% Prepress Calibration Guaranteed
+          </p>
+        </div>
+      )
+    }},
+    {{
+      id: 'five-plain-points',
+      title: "Pain Points & Engineering Solutions",
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6">
+          <div className="space-y-4">
+            {{[1, 2, 3, 4, 5].map((num) => (
+              <div key={{num}} className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
+                  <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">0{{num}}</span>
+                  {{localTrans[`point${{num}}Title` as keyof typeof localTrans]}}
+                </h4>
+                <p className="text-sm text-neutral-600 mb-3">{{localTrans[`point${{num}}Desc` as keyof typeof localTrans]}}</p>
+                <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
+                  <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
+                  {{localTrans[`point${{num}}Sol` as keyof typeof localTrans]}}
+                </div>
               </div>
             ))}}
           </div>
         </div>
-        
-        <div className="bg-amber-50 border border-amber-200 p-6 rounded-xl mb-12">
-          <h4 className="font-bold text-amber-900 mb-2">🔬 From Ryan Wong's Engineering Notebook</h4>
-          <p className="italic text-amber-800">"{{t.engineering_notebook}}"</p>
+      )
+    }},
+    {{
+      id: 'resolution-comparison-section',
+      title: localTrans.compTitle,
+      icon: <Eye className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-base leading-relaxed">
+            {{localTrans.compDesc}}
+          </p>
+          <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
+            <ClickableImage 
+              src={{IMAGES.comparison}} 
+              alt="Comparison" 
+              className="w-full h-auto rounded-lg shadow-sm"
+              caption="Visual comparison matrix"
+            />
+          </div>
         </div>
-      </div>
-    </SEOPageLayout>
-  );
-}}
-"""
-        # Save AP component
-        ap_file_path = os.path.join(AP_DIR, f"src/pages/topics/{comp_name}.tsx")
-        with open(ap_file_path, "w", encoding="utf-8") as f:
-            f.write(ap_code)
-            
-        # EP component
-        ep_dir = os.path.join(EP_DIR, f"src/app/topics/{slug}")
-        os.makedirs(ep_dir, exist_ok=True)
-        ep_code = f"""import React from 'react';
-import Image from 'next/image';
+      )
+    }}
+  ]
 
-const content = {json.dumps(content['en'], ensure_ascii=False, indent=2)};
+  const faqs = [
+    {{ question: localTrans.faq1Q, answer: localTrans.faq1A }},
+    {{ question: localTrans.faq2Q, answer: localTrans.faq2A }},
+    {{ question: localTrans.faq3Q, answer: localTrans.faq3A }}
+  ]
+
+  const tables = [
+    {{
+      title: "Packaging Performance Comparison Matrix (Schemas & Metrics)",
+      data: {{
+        headers: ["Parameter", "Standard Specifications", "Eco-Engineered Specifications"],
+        rows: [
+          ["Material Barrier Thickness", "80 Microns", "120 Microns"],
+          ["Oxygen Transmission Rate (OTR)", "1.5 cc/m²/24hr", "less than 0.05 cc/m²/24hr"],
+          ["EPR Modulated Tax Level", "Maximum tier", "Lowest brackets"]
+        ]
+      }}
+    }}
+  ]
+
+  return (
+    <>
+      <SEOPageLayout
+        title={{localTrans.title}}
+        description={{localTrans.description}}
+        heroTitle={{localTrans.heroTitle}}
+        heroSubtitle={{localTrans.heroSubtitle}}
+        heroImage={{IMAGES.hero}}
+        introSummary={{localTrans.introSummary}}
+        aeoSummary={{localTrans.aeoSummary}}
+        eeatDetails={{localTrans.eeatDetails}}
+        sections={{sections}}
+        faqs={{faqs}}
+        tables={{tables}}
+      />
+    </>
+  )
+}}
+
+export default {component};
+"""
+    return template
+
+def generate_ep_page(title):
+    return f"""import {{ Metadata }} from 'next';
+import ClientPage from './client';
+
+export const metadata: Metadata = {{
+  title: "{title} | pouch.eco Sustainable Flexible Packaging",
+  description: "Premium flexible packaging engineering and solutions.",
+  keywords: "{title} packaging"
+}};
 
 export default function Page() {{
-  return (
-    <main className="max-w-4xl mx-auto py-12 px-4">
-      <h1 className="text-4xl font-bold mb-6">{{content.title}}</h1>
-      <p className="text-lg mb-8">{{content.hook}}</p>
-      
-      <div className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">5 Pain Points & Solutions</h2>
-        <div className="grid gap-4">
-          {{content.pain_points.map((p, idx) => (
-            <div key={{idx}} className="bg-neutral-900 text-white p-6 rounded-xl">
-              <span className="text-lime-400 font-bold mr-2">{{p.num}}</span>
-              <span className="font-semibold">{{p.problem}}</span>
-              <p className="mt-2 text-gray-300">✅ Solution: {{p.solution}}</p>
-            </div>
-          ))}}
-        </div>
-      </div>
-      
-      <div className="bg-amber-50 border border-amber-200 p-6 rounded-xl mb-12">
-        <h4 className="font-bold text-amber-900 mb-2">🔬 From Ryan Wong's Engineering Notebook</h4>
-        <p className="italic text-amber-800">"{{content.engineering_notebook}}"</p>
-      </div>
-    </main>
-  );
+  return <ClientPage />;
 }}
 """
-        ep_file_path = os.path.join(ep_dir, "page.tsx")
-        with open(ep_file_path, "w", encoding="utf-8") as f:
-            f.write(ep_code)
-            
-        routes_imports.append(f"const {comp_name} = lazyWithRetry(() => import('./pages/topics/{comp_name}'))")
-        routes_components.append(f'<Route path="/topics/{slug}" element={{<{comp_name} />}} />')
-        
-        # update seo map
-        seo_map[img['src']] = [{"title": content['en']['title'], "url": f"/topics/{slug}"}]
 
+def main():
+    ap_topics_dir = "src/pages/topics"
+    ep_topics_dir = "../../pouch-eco-website/src/app/topics"
+    
+    with open("selected_50.json", "r") as f:
+        selected = json.load(f)
+        
+    with open("src/data/image-seo-map.json", "r") as f:
+        seo_map = json.load(f)
+        
+    generated_components = []
+    generated_slugs = []
+    
+    for item in selected:
+        title = item.get("title", "Packaging Solution").replace('"', '')
+        src = item.get("src", "")
+        slug = slugify(title)
+        
+        # Ensure uniqueness
+        if slug in generated_slugs:
+            slug = slug + "-" + item.get("id", "")[:6]
+            
+        component = pascal_case(slug)
+        
+        # AP
+        ap_file = os.path.join(ap_topics_dir, f"{component}.tsx")
+        with open(ap_file, "w") as f:
+            f.write(generate_page_content(title, component, src, is_ep=False))
+            
+        # EP
+        ep_topic_folder = os.path.join(ep_topics_dir, slug)
+        os.makedirs(ep_topic_folder, exist_ok=True)
+        with open(os.path.join(ep_topic_folder, "page.tsx"), "w") as f:
+            f.write(generate_ep_page(title))
+        with open(os.path.join(ep_topic_folder, "client.tsx"), "w") as f:
+            f.write(generate_page_content(title, component, src, is_ep=True))
+            
+        # SEO map update
+        if src not in seo_map:
+            seo_map[src] = []
+        # check if it already exists
+        exists = False
+        for entry in seo_map[src]:
+            if entry.get("url") == f"/topics/{slug}":
+                exists = True
+                break
+        if not exists:
+            seo_map[src].append({"title": title, "url": f"/topics/{slug}"})
+            
+        generated_components.append({"component": component, "slug": slug})
+        generated_slugs.append(slug)
+        
+    # write back seo map
+    with open("src/data/image-seo-map.json", "w") as f:
+        json.dump(seo_map, f, indent=2)
+        
     # Update main.tsx
-    with open(MAIN_TSX, 'r', encoding="utf-8") as f:
+    main_tsx_path = "src/main.tsx"
+    with open(main_tsx_path, "r") as f:
         main_content = f.read()
         
-    # insert lazy imports
-    imports_str = "\\n".join(routes_imports)
-    main_content = main_content.replace("// 9 New SEO Pages", f"// 9 New SEO Pages\\n{imports_str}")
-    
-    # insert routes inside <Routes>
-    routes_str = "\\n              ".join(routes_components)
-    main_content = main_content.replace("<Routes>", f"<Routes>\\n              {routes_str}")
-    
-    with open(MAIN_TSX, 'w', encoding="utf-8") as f:
+    # Inject routes
+    # Find <Routes>
+    routes_insertion_point = main_content.find("<Routes>")
+    if routes_insertion_point != -1:
+        routes_insertion_point += len("<Routes>")
+        routes_str = "\n"
+        for item in generated_components:
+            routes_str += f'              <Route path="/topics/{item["slug"]}" element={{<{item["component"]} />}} />\n'
+        main_content = main_content[:routes_insertion_point] + routes_str + main_content[routes_insertion_point:]
+        
+    # Inject imports
+    # Find the end of lazy imports blocks.
+    # Look for a known import, e.g. "const BookkeepingPage = lazyWithRetry(() => import('./pages/admin/BookkeepingPage'))"
+    import_insertion_point = main_content.find("const BookkeepingPage =")
+    if import_insertion_point != -1:
+        # Find newline after it
+        import_insertion_point = main_content.find("\n", import_insertion_point) + 1
+        imports_str = "\n"
+        for item in generated_components:
+            imports_str += f'const {item["component"]} = lazyWithRetry(() => import(\'./pages/topics/{item["component"]}\'))\n'
+        main_content = main_content[:import_insertion_point] + imports_str + main_content[import_insertion_point:]
+        
+    with open(main_tsx_path, "w") as f:
         f.write(main_content)
         
-    # Update seo map json
-    with open(SEO_MAP_JSON, 'w', encoding="utf-8") as f:
-        json.dump(seo_map, f, indent=2)
-
-    print("Finished generation and updates.")
-
 if __name__ == "__main__":
-    asyncio.run(process_batch())
+    main()

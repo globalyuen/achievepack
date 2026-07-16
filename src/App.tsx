@@ -1279,7 +1279,7 @@ function App() {
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-start mb-12">
+              <div className="flex flex-col sm:flex-row gap-4 justify-start mb-6">
                 <Link
                   to="/store"
                   className="flex items-center justify-center space-x-2 bg-primary-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-600 transition-all duration-200 hover:shadow-hover hover:-translate-y-0.5"
@@ -1290,6 +1290,24 @@ function App() {
                 <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center space-x-2 border-2 border-neutral-200 text-neutral-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-neutral-50 transition-colors">
                   <Calendar className="h-5 w-5" />
                   <span>{t('hero.bookConsultation')}</span>
+                </a>
+              </div>
+
+              {/* Product Hunt Feature Badge */}
+              <div className="mb-12 flex justify-start">
+                <a 
+                  href="https://www.producthunt.com/products/achieve-pack-free-3d-studio?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-achieve-pack-free-3d-studio" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block hover:opacity-90 transition-opacity"
+                >
+                  <img 
+                    alt="Achieve Pack Free 3D Studio - Design & visualize 3D pouches instantly in your browser. | Product Hunt" 
+                    width="250" 
+                    height="54" 
+                    src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1198264&theme=light&t=1784212056282" 
+                    style={{ width: '250px', height: '54px' }}
+                  />
                 </a>
               </div>
 

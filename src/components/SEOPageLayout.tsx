@@ -757,8 +757,8 @@ interface TableData {
 interface SEOPageLayoutProps {
   children?: React.ReactNode;
   // SEO Meta
-  title: string
-  description: string
+  title?: string
+  description?: string
   keywords?: string[] | string
   canonicalUrl?: string
   ogImage?: string
@@ -829,8 +829,8 @@ interface SEOPageLayoutProps {
 }
 
 const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
-  title,
-  description,
+  title = '',
+  description = '',
   keywords = [],
   canonicalUrl,
   ogImage = '/imgs/og-image.webp',
