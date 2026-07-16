@@ -5,6 +5,9 @@ import { SizingFinderIcon, MaterialSpecFinderIcon } from './AppIcons'
 import { useEffect, useState, useMemo } from 'react'
 import { isAchievePack } from '../utils/domain'
 import galleryData from '../data/image-gallery.json'
+import imageSeoMapRaw from '../data/image-seo-map.json'
+
+const imageSeoMap = imageSeoMapRaw as Record<string, Array<{title: string, url: string}>>;
 
 export default function Footer() {
   const { t } = useTranslation()
@@ -12,7 +15,9 @@ export default function Footer() {
 
   // Get 4 random images for the gallery thumbnail
   const randomGalleryImages = useMemo(() => {
-    const shuffled = [...galleryData].sort(() => 0.5 - Math.random());
+    // Only pick images that have a mapped SEO page to maximize clicks
+    const mappedImages = galleryData.filter(img => imageSeoMap[img.src] && imageSeoMap[img.src].length > 0);
+    const shuffled = [...mappedImages].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, 4);
   }, []);
 
@@ -203,7 +208,7 @@ export default function Footer() {
             </Link>
             <div className="grid grid-cols-2 gap-2 mb-4">
               {randomGalleryImages.map((img, idx) => (
-                <Link key={idx} to="/gallery" className="rounded overflow-hidden border border-neutral-700 hover:border-[#D4FF00] transition group bg-neutral-800">
+                <Link key={idx} to={imageSeoMap[img.src][0].url} className="rounded overflow-hidden border border-neutral-700 hover:border-[#D4FF00] transition group bg-neutral-800" title={img.title}>
                   <img src={img.src} alt={img.title || "Gallery preview"} className="w-full h-16 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
                 </Link>
               ))}

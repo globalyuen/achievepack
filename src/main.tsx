@@ -879,6 +879,16 @@ const CustomPrintedKraftPaperSachetsForHerbsPage = lazyWithRetry(() => import('.
 const FreezerSafeVacuumPackagingPage = lazyWithRetry(() => import('./pages/seo/FreezerSafeVacuumPackagingPage'));
 const SustainablePouchSizesForCoffeeBeansPage = lazyWithRetry(() => import('./pages/seo/SustainablePouchSizesForCoffeeBeansPage'));
 const DigitalPrintFlexiblePackagingForPharmaceuticalsPage = lazyWithRetry(() => import('./pages/seo/DigitalPrintFlexiblePackagingForPharmaceuticalsPage'));
+const CompostableBarrierPackagingForNutsPage = lazyWithRetry(() => import('./pages/seo/CompostableBarrierPackagingForNutsPage'));
+const CustomShapedSachetsForSpicesPage = lazyWithRetry(() => import('./pages/seo/CustomShapedSachetsForSpicesPage'));
+const OrganicComplianceSupportGuidePage = lazyWithRetry(() => import('./pages/seo/OrganicComplianceSupportGuidePage'));
+const FlexibleSachetSourcingForPowdersPage = lazyWithRetry(() => import('./pages/seo/FlexibleSachetSourcingForPowdersPage'));
+const DigitalPrintedStandUpPouchesForPetFoodPage = lazyWithRetry(() => import('./pages/seo/DigitalPrintedStandUpPouchesForPetFoodPage'));
+const EcoFriendlyDupontPaperBagsPage = lazyWithRetry(() => import('./pages/seo/EcoFriendlyDupontPaperBagsPage'));
+const FlatBottomPouchPeEvohPe140MicronsPage = lazyWithRetry(() => import('./pages/seo/FlatBottomPouchPeEvohPe140MicronsPage'));
+const DigitalPrintedBarrierPouchesSmallBatchPage = lazyWithRetry(() => import('./pages/seo/DigitalPrintedBarrierPouchesSmallBatchPage'));
+const SmallSachetSilkPage = lazyWithRetry(() => import('./pages/seo/SmallSachetSilkPage'));
+const MiddleSealGussetBagWhiteKraftPaperPlaAluminizedPage = lazyWithRetry(() => import('./pages/seo/MiddleSealGussetBagWhiteKraftPaperPlaAluminizedPage'));
 
 import AdminProtectedRoute from './components/admin/AdminProtectedRoute'
 // Cookie Consent Component
@@ -1455,10 +1465,26 @@ if (getDomain() === 'pouch') {
                   <Route path="/wooden-gift-boxes-sustainability" element={<WoodenGiftBoxesSustainability />} />
                   <Route path="/balsa-soft-wood-packaging" element={<BalsaSoftWoodPackaging />} />
 
+                  <Route path="/topics/sustainable-flexible-packaging-for-powders" element={<SustainableFlexiblePackagingForPowdersPage />} />
+                  <Route path="/topics/custom-printed-kraft-paper-sachets-for-herbs" element={<CustomPrintedKraftPaperSachetsForHerbsPage />} />
+                  <Route path="/topics/freezer-safe-vacuum-packaging" element={<FreezerSafeVacuumPackagingPage />} />
+                  <Route path="/topics/sustainable-pouch-sizes-for-coffee-beans" element={<SustainablePouchSizesForCoffeeBeansPage />} />
+                  <Route path="/topics/digital-print-flexible-packaging-for-pharmaceuticals" element={<DigitalPrintFlexiblePackagingForPharmaceuticalsPage />} />
+
                   {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
                   <Route path="/:slug" element={<SharedStudioPage />} />
                   <Route path="*" element={<PouchHomePage />} />
-                </MultilingualRoutes>
+                                        <Route path="/topics/compostable-barrier-packaging-for-nuts" element={<CompostableBarrierPackagingForNutsPage />} />
+                        <Route path="/topics/custom-shaped-sachets-for-spices" element={<CustomShapedSachetsForSpicesPage />} />
+                        <Route path="/topics/organic-compliance-support-guide" element={<OrganicComplianceSupportGuidePage />} />
+                        <Route path="/topics/flexible-sachet-sourcing-for-powders" element={<FlexibleSachetSourcingForPowdersPage />} />
+                        <Route path="/topics/digital-printed-stand-up-pouches-for-pet-food" element={<DigitalPrintedStandUpPouchesForPetFoodPage />} />
+                        <Route path="/topics/eco-friendly-dupont-paper-bags" element={<EcoFriendlyDupontPaperBagsPage />} />
+                        <Route path="/topics/flat-bottom-pouch-pe-evoh-pe-140-microns" element={<FlatBottomPouchPeEvohPe140MicronsPage />} />
+                        <Route path="/topics/digital-printed-barrier-pouches-small-batch" element={<DigitalPrintedBarrierPouchesSmallBatchPage />} />
+                        <Route path="/topics/small-sachet-silk" element={<SmallSachetSilkPage />} />
+                        <Route path="/topics/middle-seal-gusset-bag-white-kraft-paper-pla-aluminized" element={<MiddleSealGussetBagWhiteKraftPaperPlaAluminizedPage />} />
+                      </MultilingualRoutes>
               </Suspense>
             </CustomQuoteProvider>
           </CalendlyProvider>
@@ -2084,6 +2110,16 @@ if (getDomain() === 'pouch') {
                         <Route path="/topics/sustainable-pouch-sizes-for-coffee-beans" element={<SustainablePouchSizesForCoffeeBeansPage />} />
                         <Route path="/topics/digital-print-flexible-packaging-for-pharmaceuticals" element={<DigitalPrintFlexiblePackagingForPharmaceuticalsPage />} />
                         <Route path="*" element={<NotFoundPage />} />
+                                              <Route path="/topics/compostable-barrier-packaging-for-nuts" element={<CompostableBarrierPackagingForNutsPage />} />
+                        <Route path="/topics/custom-shaped-sachets-for-spices" element={<CustomShapedSachetsForSpicesPage />} />
+                        <Route path="/topics/organic-compliance-support-guide" element={<OrganicComplianceSupportGuidePage />} />
+                        <Route path="/topics/flexible-sachet-sourcing-for-powders" element={<FlexibleSachetSourcingForPowdersPage />} />
+                        <Route path="/topics/digital-printed-stand-up-pouches-for-pet-food" element={<DigitalPrintedStandUpPouchesForPetFoodPage />} />
+                        <Route path="/topics/eco-friendly-dupont-paper-bags" element={<EcoFriendlyDupontPaperBagsPage />} />
+                        <Route path="/topics/flat-bottom-pouch-pe-evoh-pe-140-microns" element={<FlatBottomPouchPeEvohPe140MicronsPage />} />
+                        <Route path="/topics/digital-printed-barrier-pouches-small-batch" element={<DigitalPrintedBarrierPouchesSmallBatchPage />} />
+                        <Route path="/topics/small-sachet-silk" element={<SmallSachetSilkPage />} />
+                        <Route path="/topics/middle-seal-gusset-bag-white-kraft-paper-pla-aluminized" element={<MiddleSealGussetBagWhiteKraftPaperPlaAluminizedPage />} />
                       </MultilingualRoutes>
                     </Suspense>
                     {/* Global Floating Buttons - WhatsApp & Meeting */}

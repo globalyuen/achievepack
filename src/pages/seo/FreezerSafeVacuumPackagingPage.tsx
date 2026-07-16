@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { ShieldCheck, Factory, Building2, Leaf } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
+import PouchLayout from '../../components/pouch/PouchLayout';
 import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate';
 import { getDomain } from '../../utils/domain';
 
@@ -85,7 +86,9 @@ export default function FreezerSafeVacuumPackagingPage() {
 
   if (isPouchDomain) {
     return (
-      <div className="bg-[#FAF9F6] min-h-screen font-mono">
+      <PouchLayout>
+        <div className="bg-[#FAF9F6] min-h-screen font-mono">
+
         <Helmet>
           <title>{tLocal.title.replace('Achieve Pack', 'Pouch.eco')}</title>
           <meta name="description" content={tLocal.description} />
@@ -103,7 +106,8 @@ export default function FreezerSafeVacuumPackagingPage() {
           </div>
           {content}
         </div>
-      </div>
+              </div>
+      </PouchLayout>
     );
   }
 

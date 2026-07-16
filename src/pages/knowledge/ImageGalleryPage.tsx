@@ -115,27 +115,39 @@ export default function ImageGalleryPage() {
           </div>
         ) : (
           <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
-            {filteredImages.slice(0, displayLimit).map((img, idx) => (
-              <div 
-                key={img.id} 
-                className="break-inside-avoid group cursor-pointer relative rounded-xl overflow-hidden bg-neutral-200 border border-neutral-200 hover:border-black transition-colors"
-                onClick={() => setSelectedImage(img)}
-              >
-                <img 
-                  src={img.src} 
-                  alt={img.title}
-                  loading={idx < 12 ? 'eager' : 'lazy'}
-                  className="w-full h-auto object-cover"
-                />
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
-                  <span className="bg-[#D4FF00] text-black text-[10px] font-black uppercase px-2 py-0.5 rounded-sm inline-block mb-1 w-max">
-                    {img.category}
-                  </span>
-                  <p className="text-white font-bold text-sm truncate">{img.title}</p>
-                  <Maximize2 className="absolute top-4 right-4 text-white h-5 w-5 opacity-70" />
-                </div>
-              </div>
-            ))}
+            {filteredImages.slice(0, displayLimit).map((img, idx) => {
+                const isMapped = imageSeoMap[img.src] && imageSeoMap[img.src].length > 0;
+                const Wrapper = isMapped ? Link : 'div';
+                const wrapperProps: any = isMapped ? { to: imageSeoMap[img.src][0].url } : { onClick: () => setSelectedImage(img) };
+                
+                return (
+                  <Wrapper 
+                    key={img.id} 
+                    {...wrapperProps}
+                    className="break-inside-avoid group cursor-pointer block relative rounded-xl overflow-hidden bg-neutral-200 border border-neutral-200 hover:border-black transition-colors"
+                    title={isMapped ? `View ${img.title} SEO Page` : img.title}
+                  >
+                    <img 
+                      src={img.src} 
+                      alt={img.title}
+                      loading={idx < 12 ? 'eager' : 'lazy'}
+                      className="w-full h-auto object-cover"
+                      onContextMenu={(e) => e.preventDefault()}
+                    />
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                      <span className="bg-[#D4FF00] text-black text-[10px] font-black uppercase px-2 py-0.5 rounded-sm inline-block mb-1 w-max">
+                        {img.category}
+                      </span>
+                      <p className="text-white font-bold text-sm truncate">{img.title}</p>
+                      {isMapped ? (
+                         <LinkIcon className="absolute top-4 right-4 text-white h-5 w-5 opacity-70" />
+                      ) : (
+                         <Maximize2 className="absolute top-4 right-4 text-white h-5 w-5 opacity-70" />
+                      )}
+                    </div>
+                  </Wrapper>
+                )
+              })}
           </div>
         )}
         
@@ -170,6 +182,7 @@ export default function ImageGalleryPage() {
               src={selectedImage.src} 
               alt={selectedImage.title}
               className="max-w-full max-h-[75vh] object-contain rounded-lg shadow-2xl"
+              onContextMenu={(e) => e.preventDefault()}
             />
             
             <div className="mt-6 w-full flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-neutral-900/80 backdrop-blur p-4 rounded-xl border border-neutral-800">

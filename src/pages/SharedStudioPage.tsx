@@ -661,12 +661,37 @@ export default function SharedStudioPage() {
  
           // Check if model contains any explicit artwork nodes first
           let hasArtworkNode = false;
+          let artworkMesh: THREE.Mesh | null = null;
+          let bodyMesh: THREE.Mesh | null = null;
           model.traverse((node) => {
             const name = (node.name || '').toLowerCase();
             if (name.includes('贴图') || name.includes('tietu') || name.includes('artwork')) {
               hasArtworkNode = true;
+              if (node instanceof THREE.Mesh) artworkMesh = node;
+            } else if (name.includes('主体') || name.includes('zhuti') || name.includes('body')) {
+              if (node instanceof THREE.Mesh) bodyMesh = node;
             }
           });
+
+          if (artworkMesh && bodyMesh) {
+            const artGeo = (artworkMesh as THREE.Mesh).geometry;
+            const bodyGeo = (bodyMesh as THREE.Mesh).geometry;
+            artGeo.computeBoundingBox();
+            bodyGeo.computeBoundingBox();
+            const artBox = artGeo.boundingBox;
+            const bodyBox = bodyGeo.boundingBox;
+            if (artBox && bodyBox) {
+              const artSize = new THREE.Vector3();
+              const bodySize = new THREE.Vector3();
+              artBox.getSize(artSize);
+              bodyBox.getSize(bodySize);
+              const wDiff = Math.abs(artSize.x - bodySize.x) / (artSize.x || 1);
+              const hDiff = Math.abs(artSize.y - bodySize.y) / (artSize.y || 1);
+              if (wDiff < 0.15 && hDiff < 0.15) {
+                (bodyMesh as THREE.Mesh).visible = false;
+              }
+            }
+          }
 
           // Map canvas texture to model material
           model.traverse((node) => {
