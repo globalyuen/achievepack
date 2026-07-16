@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import SEOPageLayout from '../../../components/seo/SEOPageLayout';
-import PouchLayout from '../PouchLayout';
+import FooterSEOPageTemplate from '../../../components/seo/FooterSEOPageTemplate';
+import PouchLayout from '../../../components/pouch/PouchLayout';
 
 const PouchFlatBottomBagsPage: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -16,7 +16,7 @@ const PouchFlatBottomBagsPage: React.FC = () => {
 
   return (
     <PouchLayout>
-      <SEOPageLayout
+      <FooterSEOPageTemplate
         pageTitle={t(`${baseKey}.pageTitle`) as string}
         pageDescription={t(`${baseKey}.pageDescription`) as string}
         heroImage="/imgs/products/flat-bottom-bags-hero.jpg"

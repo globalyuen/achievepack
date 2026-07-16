@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import SEOPageLayout from '../../components/seo/SEOPageLayout';
-import { isPouch } from '../../utils/domainHelper';
-import PouchLayout from '../pouch/PouchLayout';
+import FooterSEOPageTemplate from '../../components/seo/FooterSEOPageTemplate';
+import { getDomain } from '../../utils/domain';
+import PouchLayout from '../../components/pouch/PouchLayout';
 
 const PackagingLineAutomationPage: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -15,10 +15,10 @@ const PackagingLineAutomationPage: React.FC = () => {
     return Array.isArray(val) ? val : [];
   };
 
-  if (isPouch()) { return <PouchLayout><div className="p-12 text-center text-xl font-bold">Redirecting...</div></PouchLayout>; }
+  if (getDomain() === 'pouch') { return <PouchLayout><div className="p-12 text-center text-xl font-bold">Redirecting...</div></PouchLayout>; }
 
   return (
-    <SEOPageLayout
+    <FooterSEOPageTemplate
       pageTitle={t(`${baseKey}.pageTitle`) as string}
       pageDescription={t(`${baseKey}.pageDescription`) as string}
       heroImage="/imgs/hero/packaging-automation-hero.jpg"

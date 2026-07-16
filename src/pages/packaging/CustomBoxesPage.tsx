@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import SEOPageLayout from '../../components/seo/SEOPageLayout';
+import FooterSEOPageTemplate from '../../components/seo/FooterSEOPageTemplate';
 
 
 const CustomBoxesPage: React.FC = () => {
@@ -17,7 +17,7 @@ const CustomBoxesPage: React.FC = () => {
   
 
   return (
-    <SEOPageLayout
+    <FooterSEOPageTemplate
       pageTitle={t(`${baseKey}.pageTitle`) as string}
       pageDescription={t(`${baseKey}.pageDescription`) as string}
       heroImage="/imgs/products/custom-boxes-hero.jpg"

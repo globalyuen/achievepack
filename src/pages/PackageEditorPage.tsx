@@ -283,13 +283,36 @@ export default function PackageEditorPage() {
     const targetH = Math.round(naturalH * sY);
 
     // Update canvas sizes dynamically
-    if (canvas.width !== targetW || canvas.height !== targetH) {
+    if (canvas.width !== targetW || canvas.height !== targetH || offscreenCanvas.width !== targetW || offscreenCanvas.height !== targetH) {
       canvas.width = targetW;
       canvas.height = targetH;
-    }
-    if (offscreenCanvas.width !== targetW || offscreenCanvas.height !== targetH) {
       offscreenCanvas.width = targetW;
       offscreenCanvas.height = targetH;
+
+      // Dispose of old texture to prevent WebGL size mismatch freeze
+      if (canvasTextureRef.current) {
+        canvasTextureRef.current.dispose();
+      }
+      
+      const newTexture = new THREE.CanvasTexture(offscreenCanvas);
+      newTexture.colorSpace = THREE.SRGBColorSpace;
+      newTexture.wrapS = THREE.ClampToEdgeWrapping;
+      newTexture.wrapT = THREE.ClampToEdgeWrapping;
+      newTexture.flipY = false;
+      canvasTextureRef.current = newTexture;
+
+      // Re-assign new texture to all loaded materials
+      materialsRef.current.forEach(node => {
+        if (node.material) {
+          const mats = Array.isArray(node.material) ? node.material : [node.material];
+          mats.forEach(mat => {
+            if (mat && 'map' in mat) {
+              (mat as any).map = newTexture;
+              (mat as any).needsUpdate = true;
+            }
+          });
+        }
+      });
     }
 
     const ctx = canvas.getContext('2d');
