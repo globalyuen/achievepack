@@ -53,17 +53,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const systemPrompt = `You are an expert logistics data extractor for Achieve Pack.
 You will be given raw text or an image of a Chinese supplier's packing list.
-Your job is to EXHAUSTIVELY extract every distinct line item into a standardized JSON array format.
+Your job is to EXHAUSTIVELY extract every distinct line item into a standardized JSON array format AND TRANSLATE EVERYTHING TO ENGLISH.
 
 RULES:
 1. DO NOT aggressive group or skip items. If the vendor lists items line-by-line, extract them line-by-line.
 2. Ensure every SKU (款号) or Description (描述) mentioned is captured.
-3. If multiple rows exist for the same item name but different cartons/quantities, keep them as separate objects.
-4. Output MUST be RAW JSON, exactly an array of objects:
+3. ALL output MUST be fully translated into English. Do not leave any Chinese characters in the final output (e.g., translate "自立拉链袋" to "Stand-up Zipper Pouch", " Origin: 中国" to "Origin: China", etc.).
+4. If multiple rows exist for the same item name but different cartons/quantities, keep them as separate objects.
+5. Output MUST be RAW JSON, exactly an array of objects:
 [
   {
-    "name": "[ Item Name / Category ]",
-    "details": "SKUs: 8-1, 8-2\\nQuantity: X pcs (Y pcs/ctn)\\nSingle package size: W x H x L\\nGross Weight: Z kg/ctn",
+    "name": "[ Translated Item Name / Category ]",
+    "details": "SKUs: 8-1, 8-2\\nQuantity: X pcs (Y pcs/ctn)\\nSingle package size: W x H x L\\nGross Weight: Z kg/ctn\\nMaterial: [Translated]\\nOrigin: China",
     "ctn": 3,
     "kgCtn": 15.80
   }

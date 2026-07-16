@@ -6,7 +6,7 @@ import {
   Edit3, Trash2, Check, X, Sparkles, Save, CheckCircle,
   FileText, ImageIcon, UploadCloud, Link as LinkIcon, FileIcon, FileCheck,
   ClipboardList, Hash, History, ScrollText, RotateCcw,
-  ChevronUp, ChevronDown, ArrowRight, Share, Download, ShieldCheck, Users, DollarSign
+  ChevronUp, ChevronDown, ArrowRight, Share, Download, ShieldCheck, Users, DollarSign, Languages
 } from 'lucide-react';
 import { supabase, DailyReport, WebhookLog } from '../../lib/supabase';
 import PackingListTab from '../../components/admin/PackingListTab';
@@ -22,6 +22,7 @@ import UnifiedInbox from '../../components/admin/UnifiedInbox';
 import CalendarView from '../../components/admin/CalendarView';
 import PouchEcoGPTKPage from '../pouch/PouchEcoGPTKPage';
 import SelfMediaDashboard from '../../components/admin/SelfMediaDashboard';
+import DocumentTranslatorTab from '../../components/admin/DocumentTranslatorTab';
 import * as XLSX from 'xlsx';
 import { useTranslation, Trans } from "react-i18next";
 
@@ -110,7 +111,7 @@ export default function DailyReportsPage() {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   
-  const [activeTab, setActiveTab] = useState<'calendly'|'whatsapp'|'reports'|'calendar'|'logs'|'rfq'|'quote'|'packing'|'spec'|'seo'|'self-media'|'compliance'|'coa'|'family'|'pricing'>('reports');
+  const [activeTab, setActiveTab] = useState<'calendly'|'whatsapp'|'reports'|'calendar'|'logs'|'rfq'|'quote'|'packing'|'spec'|'seo'|'self-media'|'compliance'|'coa'|'family'|'pricing'|'translate'>('reports');
   const [seoSubTab, setSeoSubTab] = useState<'migration' | 'ranking'>('migration');
 
   const [reports, setReports] = useState<DailyReport[]>([]);
@@ -1413,8 +1414,12 @@ export default function DailyReportsPage() {
             <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 ml-1 flex items-center gap-1.5"><Users className="w-4 h-4" /> Other</h3>
             <div className="flex flex-wrap gap-2 p-2 bg-gray-100/80 rounded-2xl shadow-inner border border-gray-200/50">
               <button onClick={() => setActiveTab('family')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'family' ? 'bg-purple-600 text-white shadow-md shadow-purple-600/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
-                <Users className="w-4 h-4"/>
-                <span>Family Resume</span>
+                <div className={`p-1 sm:p-1.5 rounded-lg ${activeTab === 'family' ? 'bg-white/20' : 'bg-gray-100'}`}><Users className="w-3 h-3 sm:w-3.5 sm:h-3.5" /></div>
+                Family Account
+              </button>
+              <button onClick={() => setActiveTab('translate')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'translate' ? 'bg-blue-600 text-white shadow-md shadow-blue-600/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
+                <div className={`p-1 sm:p-1.5 rounded-lg ${activeTab === 'translate' ? 'bg-white/20' : 'bg-gray-100'}`}><Languages className="w-3 h-3 sm:w-3.5 sm:h-3.5" /></div>
+                Translator
               </button>
             </div>
           </div>
@@ -1509,6 +1514,12 @@ export default function DailyReportsPage() {
         )}
 
         {/* Tab Content: Self-Media Traffic Booster */}
+        {activeTab === 'translate' && (
+          <div className="mb-8">
+            <DocumentTranslatorTab />
+          </div>
+        )}
+
         {activeTab === 'self-media' && (
           <SelfMediaDashboard reports={reports} logs={logs} onRefresh={fetchData} />
         )}

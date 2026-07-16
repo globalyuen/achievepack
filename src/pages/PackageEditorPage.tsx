@@ -118,7 +118,7 @@ export default function PackageEditorPage() {
     // Upward arrow
     const arrowUp = new THREE.ArrowHelper(
       new THREE.Vector3(0, 1, 0),
-      new THREE.Vector3(-45, 62, 0),
+      new THREE.Vector3(45, 62, 0),
       62,
       arrowColor,
       8,
@@ -127,7 +127,7 @@ export default function PackageEditorPage() {
     // Downward arrow
     const arrowDown = new THREE.ArrowHelper(
       new THREE.Vector3(0, -1, 0),
-      new THREE.Vector3(-45, 62, 0),
+      new THREE.Vector3(45, 62, 0),
       62,
       arrowColor,
       8,
@@ -138,8 +138,8 @@ export default function PackageEditorPage() {
     
     // Height Dimension line backer
     const lineGeom = new THREE.BufferGeometry().setFromPoints([
-      new THREE.Vector3(-45, 0, 0),
-      new THREE.Vector3(-45, 124, 0)
+      new THREE.Vector3(45, 0, 0),
+      new THREE.Vector3(45, 124, 0)
     ]);
     const lineMat = new THREE.LineBasicMaterial({ color: arrowColor, transparent: true, opacity: 0.8 });
     const heightLine = new THREE.Line(lineGeom, lineMat);
@@ -183,12 +183,12 @@ export default function PackageEditorPage() {
       const texture = new THREE.CanvasTexture(canvas);
       const spriteMat = new THREE.SpriteMaterial({ map: texture, transparent: true });
       const sprite = new THREE.Sprite(spriteMat);
-      sprite.scale.set(40, 10, 1);
+      sprite.scale.set(80, 20, 1);
       return sprite;
     };
 
     const heightLabelSprite = createTextSprite('122mm (4.8")');
-    heightLabelSprite.position.set(-75, 62, 0);
+    heightLabelSprite.position.set(75, 62, 0);
     heightArrowGroup.add(heightLabelSprite);
     group.add(heightArrowGroup);
 
@@ -225,7 +225,7 @@ export default function PackageEditorPage() {
     diaArrowGroup.add(diaLine);
 
     const diaLabelSprite = createTextSprite('66mm (2.6")');
-    diaLabelSprite.position.set(0, 20, 45);
+    diaLabelSprite.position.set(0, 25, 45);
     diaArrowGroup.add(diaLabelSprite);
     group.add(diaArrowGroup);
 

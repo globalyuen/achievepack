@@ -114,7 +114,7 @@ export default function PackingListTab() {
     }
   ]);
 
-  const addRow = () => setItems([...items, { id: Date.now(), name: '[ New Item ]', details: '', ctn: 1, kgCtn: 10, cbm: 0 }]);
+  const addRow = () => setItems([...items, { id: Date.now() + Math.random(), name: '[ New Item ]', details: '', ctn: 1, kgCtn: 10, cbm: 0 }]);
   const removeRow = (id: number) => setItems(items.filter(i => i.id !== id));
 
   const updateItem = (id: number, field: string, value: any) => {
@@ -393,6 +393,7 @@ export default function PackingListTab() {
               className="border border-neutral-300 rounded-lg px-3 py-2 text-sm w-36"
             />
             <button
+              type="button"
               onClick={handleSendLink}
               disabled={linkLoading}
               className="bg-blue-600 hover:bg-blue-700 disabled:opacity-60 text-white px-4 py-2 rounded-lg flex items-center gap-2 font-medium transition shadow-sm text-sm"
@@ -400,10 +401,10 @@ export default function PackingListTab() {
               {linkLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
               Send Link to Supplier
             </button>
-            <button onClick={exportExcel} className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 font-medium transition shadow-sm text-sm">
+            <button type="button" onClick={exportExcel} className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 font-medium transition shadow-sm text-sm">
               <FileSpreadsheet className="w-4 h-4" /> Export Excel
             </button>
-            <button onClick={handlePrint} className="bg-neutral-700 hover:bg-neutral-800 text-white px-4 py-2 rounded-lg flex items-center gap-2 font-medium transition shadow-sm text-sm">
+            <button type="button" onClick={handlePrint} className="bg-neutral-700 hover:bg-neutral-800 text-white px-4 py-2 rounded-lg flex items-center gap-2 font-medium transition shadow-sm text-sm">
               <Download className="w-4 h-4" /> Export PDF
             </button>
           </div>
@@ -426,12 +427,14 @@ export default function PackingListTab() {
                 className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-xs font-mono bg-white text-gray-700 focus:outline-none"
               />
               <button
+                type="button"
                 onClick={handleCopyLink}
                 className="bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 px-3 py-2 rounded-lg flex items-center gap-1.5 text-xs font-medium transition"
               >
                 {linkCopied ? <><CheckCircle className="w-3.5 h-3.5 text-green-500" /> Copied!</> : <><Copy className="w-3.5 h-3.5" /> Copy Link</>}
               </button>
               <button
+                type="button"
                 onClick={handleRefresh}
                 disabled={refreshLoading}
                 className="bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 px-3 py-2 rounded-lg flex items-center gap-1.5 text-xs font-medium transition"
@@ -484,7 +487,7 @@ export default function PackingListTab() {
             <h3 className="text-lg font-bold">Items List</h3>
             <p className="text-xs text-gray-400 mt-0.5">Total: <strong>{totalGross.toFixed(2)} KG</strong> · <strong>{totalCBM > 0 ? totalCBM.toFixed(3) : '---'} CBM</strong></p>
           </div>
-          <button onClick={addRow} className="bg-neutral-800 text-white px-3 py-1.5 rounded-md flex items-center gap-1 text-sm">
+          <button type="button" onClick={addRow} className="bg-neutral-800 text-white px-3 py-1.5 rounded-md flex items-center gap-1 text-sm">
             <Plus className="w-4 h-4" /> Add Item
           </button>
         </div>
@@ -516,7 +519,7 @@ export default function PackingListTab() {
                   <td className="p-3"><input type="number" step="0.001" value={item.cbm} onChange={e => updateItem(item.id, 'cbm', parseFloat(e.target.value) || 0)} className="w-full border p-2 rounded text-right" placeholder="0.000" /></td>
                   <td className="p-3 text-right font-medium text-neutral-700 bg-neutral-50">{(item.ctn * item.kgCtn).toFixed(2)}</td>
                   <td className="p-3 text-right font-medium text-neutral-700 bg-neutral-50">{item.cbm ? (item.ctn * item.cbm).toFixed(3) : '---'}</td>
-                  <td className="p-3 text-center"><button onClick={() => removeRow(item.id)} className="text-red-400 hover:text-red-600"><Trash2 className="w-4 h-4 mx-auto" /></button></td>
+                  <td className="p-3 text-center"><button type="button" onClick={() => removeRow(item.id)} className="text-red-400 hover:text-red-600"><Trash2 className="w-4 h-4 mx-auto" /></button></td>
                 </tr>
               ))}
             </tbody>
@@ -586,8 +589,8 @@ export default function PackingListTab() {
 
       {/* Actual PDF Layout (Hidden on Screen, block on Print) */}
       <div className="hidden print:block bg-white text-black min-h-screen" style={{
-        width: '297mm',
-        padding: '10mm',
+        width: '100%',
+        padding: '0',
         WebkitPrintColorAdjust: 'exact',
         printColorAdjust: 'exact',
         fontFamily: 'Arial, sans-serif'

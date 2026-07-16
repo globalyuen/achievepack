@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-16",
-  "total_images": 5503,
+  "total_images": 5528,
   "total_categories": 288,
   "extensions": {
     ".webp": 1355,
     ".png": 3160,
-    ".jpg": 984,
+    ".jpg": 1009,
     ".svg": 4
   },
   "categories": {
@@ -12753,61 +12753,211 @@
       ]
     },
     "knowledge": {
-      "count": 314,
+      "count": 339,
       "images": [
         {
-          "filename": "explorer_recyclable_1784171781810.jpg",
-          "path": "/imgs/knowledge/explorer_recyclable_1784171781810.jpg",
+          "filename": "explorer_sizing_infographic.jpg",
+          "path": "/imgs/knowledge/explorer_sizing_infographic.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-16T03:17:15.037Z"
+          "modified": "2026-07-16T05:51:26.025Z"
         },
         {
-          "filename": "explorer_pouch_1784171805375.jpg",
-          "path": "/imgs/knowledge/explorer_pouch_1784171805375.jpg",
+          "filename": "explorer_tech_infographic.jpg",
+          "path": "/imgs/knowledge/explorer_tech_infographic.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-16T03:17:15.036Z"
+          "modified": "2026-07-16T05:51:26.023Z"
         },
         {
-          "filename": "explorer_pcr_1784171798162.jpg",
-          "path": "/imgs/knowledge/explorer_pcr_1784171798162.jpg",
+          "filename": "explorer_sealing_infographic.jpg",
+          "path": "/imgs/knowledge/explorer_sealing_infographic.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-16T03:17:15.035Z"
+          "modified": "2026-07-16T05:51:26.020Z"
         },
         {
-          "filename": "explorer_industry_1784171820644.jpg",
-          "path": "/imgs/knowledge/explorer_industry_1784171820644.jpg",
+          "filename": "explorer_printing_infographic.jpg",
+          "path": "/imgs/knowledge/explorer_printing_infographic.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-16T03:17:15.034Z"
+          "modified": "2026-07-16T05:51:26.018Z"
         },
         {
-          "filename": "explorer_compost_1784171771409.jpg",
-          "path": "/imgs/knowledge/explorer_compost_1784171771409.jpg",
+          "filename": "explorer_industry_infographic.jpg",
+          "path": "/imgs/knowledge/explorer_industry_infographic.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-16T03:17:15.032Z"
+          "modified": "2026-07-16T05:51:26.015Z"
         },
         {
-          "filename": "explorer_box_1784171812789.jpg",
-          "path": "/imgs/knowledge/explorer_box_1784171812789.jpg",
+          "filename": "explorer_box_infographic.jpg",
+          "path": "/imgs/knowledge/explorer_box_infographic.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-16T03:17:15.031Z"
+          "modified": "2026-07-16T05:51:26.013Z"
         },
         {
-          "filename": "explorer_biope_1784171790236.jpg",
-          "path": "/imgs/knowledge/explorer_biope_1784171790236.jpg",
+          "filename": "explorer_pouch_infographic.jpg",
+          "path": "/imgs/knowledge/explorer_pouch_infographic.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-16T03:17:15.029Z"
+          "modified": "2026-07-16T05:51:26.011Z"
+        },
+        {
+          "filename": "explorer_pcr_infographic.jpg",
+          "path": "/imgs/knowledge/explorer_pcr_infographic.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T05:51:26.009Z"
+        },
+        {
+          "filename": "explorer_biope_infographic.jpg",
+          "path": "/imgs/knowledge/explorer_biope_infographic.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T05:51:26.007Z"
+        },
+        {
+          "filename": "explorer_recyclable_infographic.jpg",
+          "path": "/imgs/knowledge/explorer_recyclable_infographic.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T05:51:26.003Z"
         },
         {
           "filename": "composting-circular-lifecycle.jpg",
           "path": "/imgs/knowledge/composting-circular-lifecycle.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-16T02:50:30.150Z"
+          "modified": "2026-07-16T05:51:26.001Z"
         },
         {
           "filename": "composting-anatomy-diagram.jpg",
           "path": "/imgs/knowledge/composting-anatomy-diagram.jpg",
           "extension": ".jpg",
-          "modified": "2026-07-16T02:24:38.104Z"
+          "modified": "2026-07-16T05:51:25.998Z"
+        },
+        {
+          "filename": "explorer_tech_1_1784176883999.jpg",
+          "path": "/imgs/knowledge/explorer_tech_1_1784176883999.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T04:41:53.510Z"
+        },
+        {
+          "filename": "explorer_sizing_1_1784176890660.jpg",
+          "path": "/imgs/knowledge/explorer_sizing_1_1784176890660.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T04:41:53.506Z"
+        },
+        {
+          "filename": "explorer_recyclable_1_1784176090594.jpg",
+          "path": "/imgs/knowledge/explorer_recyclable_1_1784176090594.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T04:41:53.505Z"
+        },
+        {
+          "filename": "explorer_recyclable_2_1784176098268.jpg",
+          "path": "/imgs/knowledge/explorer_recyclable_2_1784176098268.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T04:41:53.505Z"
+        },
+        {
+          "filename": "explorer_sealing_1_1784176875532.jpg",
+          "path": "/imgs/knowledge/explorer_sealing_1_1784176875532.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T04:41:53.505Z"
+        },
+        {
+          "filename": "explorer_recyclable_1784171781810.jpg",
+          "path": "/imgs/knowledge/explorer_recyclable_1784171781810.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T04:41:53.503Z"
+        },
+        {
+          "filename": "explorer_printing_1_1784176867772.jpg",
+          "path": "/imgs/knowledge/explorer_printing_1_1784176867772.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T04:41:53.502Z"
+        },
+        {
+          "filename": "explorer_pouch_2_fixed_1784176405643.jpg",
+          "path": "/imgs/knowledge/explorer_pouch_2_fixed_1784176405643.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T04:41:53.498Z"
+        },
+        {
+          "filename": "explorer_pouch_1_1784176121449.jpg",
+          "path": "/imgs/knowledge/explorer_pouch_1_1784176121449.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T04:41:53.496Z"
+        },
+        {
+          "filename": "explorer_pouch_2_1784176130515.jpg",
+          "path": "/imgs/knowledge/explorer_pouch_2_1784176130515.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T04:41:53.496Z"
+        },
+        {
+          "filename": "explorer_pouch_1784171805375.jpg",
+          "path": "/imgs/knowledge/explorer_pouch_1784171805375.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T04:41:53.495Z"
+        },
+        {
+          "filename": "explorer_pcr_1784171798162.jpg",
+          "path": "/imgs/knowledge/explorer_pcr_1784171798162.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T04:41:53.494Z"
+        },
+        {
+          "filename": "explorer_pcr_1_1784176113858.jpg",
+          "path": "/imgs/knowledge/explorer_pcr_1_1784176113858.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T04:41:53.494Z"
+        },
+        {
+          "filename": "explorer_industry_1_1784176146986.jpg",
+          "path": "/imgs/knowledge/explorer_industry_1_1784176146986.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T04:41:53.493Z"
+        },
+        {
+          "filename": "explorer_industry_1784171820644.jpg",
+          "path": "/imgs/knowledge/explorer_industry_1784171820644.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T04:41:53.492Z"
+        },
+        {
+          "filename": "explorer_compost_2_1784176082121.jpg",
+          "path": "/imgs/knowledge/explorer_compost_2_1784176082121.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T04:41:53.491Z"
+        },
+        {
+          "filename": "explorer_compost_1_1784176074039.jpg",
+          "path": "/imgs/knowledge/explorer_compost_1_1784176074039.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T04:41:53.490Z"
+        },
+        {
+          "filename": "explorer_compost_1784171771409.jpg",
+          "path": "/imgs/knowledge/explorer_compost_1784171771409.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T04:41:53.489Z"
+        },
+        {
+          "filename": "explorer_box_1_1784176139115.jpg",
+          "path": "/imgs/knowledge/explorer_box_1_1784176139115.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T04:41:53.487Z"
+        },
+        {
+          "filename": "explorer_box_1784171812789.jpg",
+          "path": "/imgs/knowledge/explorer_box_1784171812789.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T04:41:53.486Z"
+        },
+        {
+          "filename": "explorer_biope_1_1784176106246.jpg",
+          "path": "/imgs/knowledge/explorer_biope_1_1784176106246.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T04:41:53.484Z"
+        },
+        {
+          "filename": "explorer_biope_1784171790236.jpg",
+          "path": "/imgs/knowledge/explorer_biope_1784171790236.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T04:41:53.482Z"
         },
         {
           "filename": "beef-jerky-pillow-pouch-comparison.jpg",
