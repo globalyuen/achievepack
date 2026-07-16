@@ -4,7 +4,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js';
-import { Layers, Box, Database, Tag, Grid, Droplet, Grid3X3, Coffee, ShoppingBag, Shirt } from 'lucide-react';
+import { Layers, Box, Database, Tag, Grid, Droplet, Grid3X3, Coffee, ShoppingBag, Shirt, Zap, CheckCircle, Truck } from 'lucide-react';
 import Footer from '../components/Footer';
 import SiteHeader from '../components/SiteHeader';
 
@@ -2235,10 +2235,77 @@ export default function PackageEditorPage() {
           }
         `}</style>
         <div className="flex-1 px-4 py-8 md:px-12 max-w-[1400px] mx-auto w-full">
+          {/* New 3D Studio Intro / Landing Section */}
+          <div className="mb-16 mt-4 p-8 md:p-12 rounded-3xl bg-gradient-to-br from-[rgba(16,20,28,0.8)] to-[rgba(8,9,12,0.8)] border border-[rgba(255,255,255,0.05)] relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            {/* Ambient Background Glows */}
+            <div className="absolute top-0 right-0 w-80 h-80 bg-[#64ffda] opacity-[0.03] blur-[80px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-500 opacity-[0.02] blur-[80px] rounded-full pointer-events-none" />
+            
+            <div className="max-w-[850px] relative z-10">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[rgba(100,255,218,0.1)] text-[#64ffda] border border-[rgba(100,255,218,0.2)] mb-6 tracking-wide uppercase">
+                <Zap className="w-3.5 h-3.5 text-[#64ffda] animate-pulse" />
+                Free Production-Ready 3D Studio
+              </span>
+              <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#f3f4f6] leading-[1.15]">
+                From Concept to Shelf, <br />
+                <span className="bg-gradient-to-r from-[#64ffda] via-[#00FFFF] to-purple-400 bg-clip-text text-transparent">
+                  100% Error-Free.
+                </span>
+              </h2>
+              <p className="mt-6 text-[#9ca3af] text-lg leading-relaxed">
+                Stop guessing how your flat packaging layouts will turn out. Achieve Pack's 3D Studio is built on real manufacturing specs. Visualize materials, gussets, and seal areas dynamically, and transition to production without costly prepress alignment errors.
+              </p>
+            </div>
+
+            {/* Grid of 4 Key Benefits */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 relative z-10">
+              {[
+                {
+                  title: "Production-Grade Mockups",
+                  desc: "Preview real-world flexible materials, texture finishes, and barrier layers (ASTM D6400 / EN 13432) in photorealistic detail.",
+                  icon: <Layers className="w-5 h-5 text-[#64ffda]" />
+                },
+                {
+                  title: "Eliminate Design Errors",
+                  desc: "Instantly check how your graphics align across real pouch folds, bottom gussets, and seal lines before ordering.",
+                  icon: <CheckCircle className="w-5 h-5 text-[#64ffda]" />
+                },
+                {
+                  title: "Low MOQ Optimization",
+                  desc: "Tailored for growing brands to run packaging tests and launch new designs with low minimums starting from 100 pcs.",
+                  icon: <Zap className="w-5 h-5 text-[#64ffda]" />
+                },
+                {
+                  title: "Direct-to-Factory Handoff",
+                  desc: "No rework required. Hand off your completed 3D mockup to our manufacturing pipeline and global logistics stack.",
+                  icon: <Truck className="w-5 h-5 text-[#64ffda]" />
+                }
+              ].map((benefit, i) => (
+                <div 
+                  key={i} 
+                  className="p-6 rounded-2xl bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] hover:bg-[rgba(255,255,255,0.04)] hover:border-[rgba(100,255,218,0.2)] transition-all duration-300 group"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-[rgba(100,255,218,0.05)] border border-[rgba(100,255,218,0.15)] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    {benefit.icon}
+                  </div>
+                  <h3 className="text-base font-bold text-[#f3f4f6] group-hover:text-[#64ffda] transition-colors duration-200">
+                    {benefit.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-[#9ca3af] leading-relaxed">
+                    {benefit.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Section Divider */}
+          <div className="h-px bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.08)] to-transparent mb-16" />
+
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 gap-4">
             <div>
               <h1 className="text-3xl font-bold tracking-tight text-[#f3f4f6]">3D Model Store</h1>
-              <p className="text-[#9ca3af] mt-2 text-sm">Select a base packaging model to start editing in 3D.</p>
+              <p className="text-[#9ca3af] mt-2 text-sm">Select a base packaging model below to start custom editing in 3D.</p>
             </div>
             <div className="flex flex-wrap items-center bg-[rgba(16,20,28,0.7)] border border-[rgba(255,255,255,0.08)] rounded-xl p-1 gap-1">
               {[
