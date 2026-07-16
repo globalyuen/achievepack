@@ -89,8 +89,8 @@ export default function Footer() {
     <footer className="bg-neutral-900 text-white pt-12 pb-8 mt-8 border-t border-neutral-850">
       <div className="max-w-7xl mx-auto px-4">
         
-        {/* Row 1: Core Navigation (4 Columns) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8 pb-8 border-b border-neutral-800">
+        {/* Row 1: Core Navigation (5 Columns) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-8 pb-8 border-b border-neutral-800">
           
           {/* Column 1: Company & Support */}
           <div className="space-y-4">
@@ -183,6 +183,23 @@ export default function Footer() {
               <li><Link to="/industry/snacks-food" className="hover:text-primary-400">{t('pouchEcoFooter.snacksFood', 'Snacks & Food')}</Link></li>
               <li><Link to="/industry/supplements-powders" className="hover:text-primary-400">{t('pouchEcoFooter.supplements', 'Supplements')}</Link></li>
               <li><Link to="/industry/baby-food" className="hover:text-primary-400">{t('pouchEcoFooter.babyFood', 'Baby Food')}</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 5: What's Popular */}
+          <div>
+            <h4 className="font-semibold text-sm mb-3 text-neutral-200">What's Popular</h4>
+            <ul className="space-y-1 text-xs text-neutral-400">
+              <li><Link to="/knowledge/size-guide" className="hover:text-primary-400 font-medium text-primary-400">Packaging Size Guide</Link></li>
+              <li><Link to="/knowledge/pouch-sizing" className="hover:text-primary-400">Pouch Sizing Finder</Link></li>
+              <li><Link to="/products/low-moq-packaging" className="hover:text-primary-400">Low MOQ Packaging</Link></li>
+              <li><Link to="/" className="hover:text-primary-400">Sustainable Home</Link></li>
+              <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-400">Recyclable Mono-PE</Link></li>
+              <li><Link to="/packaging/spout-pouches" className="hover:text-primary-400">Spout Pouches</Link></li>
+              <li><Link to="/knowledge/flat-bottom-vs-gusset" className="hover:text-primary-400">Flat Bottom vs Gusset</Link></li>
+              <li><Link to="/packaging/flat-pouches" className="hover:text-primary-400">Flat Pouches</Link></li>
+              <li><Link to="/knowledge/k-seal-stand-up-pouches" className="hover:text-primary-400">K-Seal Stand Up Pouches</Link></li>
+              <li><Link to="/knowledge/fin-seal-lap-seal" className="hover:text-primary-400">Fin Seal & Lap Seal</Link></li>
             </ul>
           </div>
         </div>

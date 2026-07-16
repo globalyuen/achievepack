@@ -34,6 +34,83 @@ export default function PackageEditorPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const editorCanvasRef = useRef<HTMLCanvasElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const canRef = useRef<THREE.Group | null>(null);
+  const [showReferenceCan, setShowReferenceCan] = useState<boolean>(true);
+
+  // Helper to construct a white 355ml cola can (radius 33mm, height 122mm) dynamically
+  const createColaCanModel = () => {
+    const group = new THREE.Group();
+    group.name = 'cola-can-reference';
+
+    const radius = 33;
+    const height = 122;
+
+    // 1. Can Body (Matte White)
+    const bodyGeo = new THREE.CylinderGeometry(radius, radius, 110, 32);
+    const bodyMat = new THREE.MeshStandardMaterial({
+      color: 0xf9fafb, // clean white
+      roughness: 0.35,
+      metalness: 0.1,
+    });
+    const bodyMesh = new THREE.Mesh(bodyGeo, bodyMat);
+    bodyMesh.position.y = 55;
+    bodyMesh.castShadow = true;
+    bodyMesh.receiveShadow = true;
+    group.add(bodyMesh);
+
+    // 2. Neck Taper (Silver Metal)
+    const neckGeo = new THREE.CylinderGeometry(radius - 3, radius, 6, 32);
+    const metalMat = new THREE.MeshStandardMaterial({
+      color: 0xd1d5db, // silver aluminum
+      roughness: 0.25,
+      metalness: 0.85,
+    });
+    const neckMesh = new THREE.Mesh(neckGeo, metalMat);
+    neckMesh.position.y = 113;
+    neckMesh.castShadow = true;
+    group.add(neckMesh);
+
+    // 3. Top Rim & Lid (Silver Metal)
+    const topRimGeo = new THREE.CylinderGeometry(radius - 3, radius - 3, 2, 32);
+    const topRimMesh = new THREE.Mesh(topRimGeo, metalMat);
+    topRimMesh.position.y = 117;
+    topRimMesh.castShadow = true;
+    group.add(topRimMesh);
+
+    const lidGeo = new THREE.CylinderGeometry(radius - 4, radius - 4, 0.5, 32);
+    const lidMesh = new THREE.Mesh(lidGeo, metalMat);
+    lidMesh.position.y = 118;
+    group.add(lidMesh);
+
+    // 4. Bottom Taper (Silver Metal)
+    const baseGeo = new THREE.CylinderGeometry(radius, radius - 3, 4, 32);
+    const baseMesh = new THREE.Mesh(baseGeo, metalMat);
+    baseMesh.position.y = -2;
+    baseMesh.castShadow = true;
+    group.add(baseMesh);
+    
+    const bottomRimGeo = new THREE.CylinderGeometry(radius - 3, radius - 3, 2, 32);
+    const bottomRimMesh = new THREE.Mesh(bottomRimGeo, metalMat);
+    bottomRimMesh.position.y = -5;
+    bottomRimMesh.castShadow = true;
+    group.add(bottomRimMesh);
+
+    // Adjust Y coordinates so Y=0 is exactly the bottom rim base
+    bodyMesh.position.y += 6;
+    neckMesh.position.y += 6;
+    topRimMesh.position.y += 6;
+    lidMesh.position.y += 6;
+    baseMesh.position.y += 6;
+    bottomRimMesh.position.y += 6;
+
+    // Pop Tab
+    const tabGeo = new THREE.BoxGeometry(8, 1, 16);
+    const tabMesh = new THREE.Mesh(tabGeo, metalMat);
+    tabMesh.position.set(0, 118 + 6, -6);
+    group.add(tabMesh);
+
+    return group;
+  };
 
   const searchParams = new URLSearchParams(window.location.search);
   const initialViewMode = (searchParams.get('shape') || searchParams.get('slug') || searchParams.get('code')) ? 'editor' : 'catalog';
@@ -393,12 +470,23 @@ export default function PackageEditorPage() {
       cameraRef.current.position.set(cameraRef.current.position.x, targetH * 0.8, cameraZ);
     }
 
+    if (canRef.current) {
+      canRef.current.position.x = (targetW / 2) + 50;
+      canRef.current.visible = showReferenceCan;
+    }
+
     updateEditor();
   };
 
   useEffect(() => {
+    if (canRef.current) {
+      canRef.current.visible = showReferenceCan;
+    }
+  }, [showReferenceCan]);
+
+  useEffect(() => {
     updateModelScale();
-  }, [width, height, depth, unit]);
+  }, [width, height, depth, unit, showReferenceCan]);
 
   // Initialize ThreeJS on mount
   useEffect(() => {
@@ -469,6 +557,11 @@ export default function PackageEditorPage() {
     grid.position.y = 0.001;
     scene.add(grid);
     gridRef.current = grid;
+
+    // Add 355ml Cola Can Reference Model
+    const canGroup = createColaCanModel();
+    scene.add(canGroup);
+    canRef.current = canGroup;
 
     // 6. Create Canvas Texture
     const offscreenCanvas = document.createElement('canvas');
@@ -934,7 +1027,7 @@ export default function PackageEditorPage() {
           // Double check and remove any other old model groups to prevent overlap
           const toRemove: THREE.Object3D[] = [];
           sceneRef.current.traverse((child) => {
-            if (child !== model && child !== sceneRef.current && child instanceof THREE.Group && child.name !== 'lights-group') {
+            if (child !== model && child !== sceneRef.current && child instanceof THREE.Group && child.name !== 'lights-group' && child.name !== 'cola-can-reference') {
               toRemove.push(child);
             }
           });
@@ -2288,17 +2381,34 @@ export default function PackageEditorPage() {
             </div>
 
             {/* Checkbox Options */}
-            <div className="flex items-center gap-2 mt-1">
-              <input 
-                type="checkbox" 
-                id="show-dieline-in-3d" 
-                checked={showDieline}
-                onChange={(e) => setShowDieline(e.target.checked)}
-                className="accent-[#64ffda] cursor-pointer"
-              />
-              <label htmlFor="show-dieline-in-3d" className="text-xs text-[#9ca3af] cursor-pointer select-none">
-                Render 2D dielines on the 3D model surface
-              </label>
+            <div className="flex flex-col gap-2 mt-1">
+              <div className="flex items-center gap-2">
+                <input 
+                  type="checkbox" 
+                  id="show-dieline-in-3d" 
+                  checked={showDieline}
+                  onChange={(e) => setShowDieline(e.target.checked)}
+                  className="accent-[#64ffda] cursor-pointer"
+                />
+                <label htmlFor="show-dieline-in-3d" className="text-xs text-[#9ca3af] cursor-pointer select-none">
+                  Render 2D dielines on the 3D model surface
+                </label>
+              </div>
+
+              {is3dSupported && (
+                <div className="flex items-center gap-2">
+                  <input 
+                    type="checkbox" 
+                    id="show-reference-can" 
+                    checked={showReferenceCan}
+                    onChange={(e) => setShowReferenceCan(e.target.checked)}
+                    className="accent-[#64ffda] cursor-pointer"
+                  />
+                  <label htmlFor="show-reference-can" className="text-xs text-[#9ca3af] cursor-pointer select-none">
+                    Show 355ml Reference Can (易開罐比例對比)
+                  </label>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -2485,6 +2595,25 @@ export default function PackageEditorPage() {
                   <input type="range" min="0" max="1" step="0.01" value={metalness} onChange={handleMetalnessInput} className="w-full accent-[#64ffda]" />
                 </div>
               </div>
+
+              {/* Viewport Reference Can */}
+              {is3dSupported && (
+                <div className="flex flex-col gap-3 border-b border-[rgba(255,255,255,0.08)] pb-4">
+                  <div className="text-[11px] font-semibold text-[#64ffda] tracking-wide uppercase">Viewport Reference</div>
+                  <div className="flex items-center gap-2">
+                    <input 
+                      type="checkbox" 
+                      id="mobile-show-reference-can" 
+                      checked={showReferenceCan}
+                      onChange={(e) => setShowReferenceCan(e.target.checked)}
+                      className="accent-[#64ffda] cursor-pointer"
+                    />
+                    <label htmlFor="mobile-show-reference-can" className="text-xs text-[#9ca3af] cursor-pointer select-none">
+                      Show 355ml Reference Can (易開罐比例對比)
+                    </label>
+                  </div>
+                </div>
+              )}
 
               {/* Actions */}
               <div className="flex flex-col gap-2 mt-auto">
