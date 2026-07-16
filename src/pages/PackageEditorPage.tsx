@@ -835,25 +835,50 @@ export default function PackageEditorPage() {
           model.position.z = -center.z;
           model.position.y = -originalBoxRef.current.min.y;
 
+          let hasArtworkNode = false;
+          model.traverse((node) => {
+            const name = (node.name || '').toLowerCase();
+            if (name.includes('贴图') || name.includes('tietu') || name.includes('artwork')) {
+              hasArtworkNode = true;
+            }
+          });
+
           model.traverse((node) => {
             if (node instanceof THREE.Mesh) {
               node.castShadow = true;
               node.receiveShadow = true;
               if (node.material) {
-                materialsRef.current.push(node);
-                const mats = Array.isArray(node.material) ? node.material : [node.material];
-                mats.forEach(mat => {
-                  mat.side = THREE.DoubleSide;
-                  mat.map = canvasTexture;
-                  if ('normalMap' in mat) mat.normalMap = null;
-                  if ('bumpMap' in mat) mat.bumpMap = null;
-                  if ('roughnessMap' in mat) mat.roughnessMap = null;
-                  if ('metalnessMap' in mat) mat.metalnessMap = null;
-                  if ('aoMap' in mat) mat.aoMap = null;
-                  if ('emissiveMap' in mat) mat.emissiveMap = null;
-                  if ('lightMap' in mat) mat.lightMap = null;
-                  mat.needsUpdate = true;
-                });
+                let shouldMap = true;
+                if (hasArtworkNode) {
+                  let isArt = false;
+                  let current: THREE.Object3D | null = node;
+                  while (current) {
+                    const name = (current.name || '').toLowerCase();
+                    if (name.includes('贴图') || name.includes('tietu') || name.includes('artwork')) {
+                      isArt = true;
+                      break;
+                    }
+                    current = current.parent;
+                  }
+                  shouldMap = isArt;
+                }
+
+                if (shouldMap) {
+                  materialsRef.current.push(node);
+                  const mats = Array.isArray(node.material) ? node.material : [node.material];
+                  mats.forEach(mat => {
+                    mat.side = THREE.DoubleSide;
+                    mat.map = canvasTexture;
+                    if ('normalMap' in mat) mat.normalMap = null;
+                    if ('bumpMap' in mat) mat.bumpMap = null;
+                    if ('roughnessMap' in mat) mat.roughnessMap = null;
+                    if ('metalnessMap' in mat) mat.metalnessMap = null;
+                    if ('aoMap' in mat) mat.aoMap = null;
+                    if ('emissiveMap' in mat) mat.emissiveMap = null;
+                    if ('lightMap' in mat) mat.lightMap = null;
+                    mat.needsUpdate = true;
+                  });
+                }
               }
             }
           });
@@ -1168,25 +1193,50 @@ export default function PackageEditorPage() {
         model.position.z = -center.z;
         model.position.y = -originalBoxRef.current.min.y;
 
+        let hasArtworkNode = false;
+        model.traverse((node) => {
+          const name = (node.name || '').toLowerCase();
+          if (name.includes('贴图') || name.includes('tietu') || name.includes('artwork')) {
+            hasArtworkNode = true;
+          }
+        });
+
         model.traverse((node) => {
           if (node instanceof THREE.Mesh) {
             node.castShadow = true;
             node.receiveShadow = true;
             if (node.material) {
-              materialsRef.current.push(node);
-              const mats = Array.isArray(node.material) ? node.material : [node.material];
-              mats.forEach(mat => {
-                mat.side = THREE.DoubleSide;
-                mat.map = canvasTextureRef.current;
-                if ('normalMap' in mat) mat.normalMap = null;
-                if ('bumpMap' in mat) mat.bumpMap = null;
-                if ('roughnessMap' in mat) mat.roughnessMap = null;
-                if ('metalnessMap' in mat) mat.metalnessMap = null;
-                if ('aoMap' in mat) mat.aoMap = null;
-                if ('emissiveMap' in mat) mat.emissiveMap = null;
-                if ('lightMap' in mat) mat.lightMap = null;
-                mat.needsUpdate = true;
-              });
+              let shouldMap = true;
+              if (hasArtworkNode) {
+                let isArt = false;
+                let current: THREE.Object3D | null = node;
+                while (current) {
+                  const name = (current.name || '').toLowerCase();
+                  if (name.includes('贴图') || name.includes('tietu') || name.includes('artwork')) {
+                    isArt = true;
+                    break;
+                  }
+                  current = current.parent;
+                }
+                shouldMap = isArt;
+              }
+
+              if (shouldMap) {
+                materialsRef.current.push(node);
+                const mats = Array.isArray(node.material) ? node.material : [node.material];
+                mats.forEach(mat => {
+                  mat.side = THREE.DoubleSide;
+                  mat.map = canvasTextureRef.current;
+                  if ('normalMap' in mat) mat.normalMap = null;
+                  if ('bumpMap' in mat) mat.bumpMap = null;
+                  if ('roughnessMap' in mat) mat.roughnessMap = null;
+                  if ('metalnessMap' in mat) mat.metalnessMap = null;
+                  if ('aoMap' in mat) mat.aoMap = null;
+                  if ('emissiveMap' in mat) mat.emissiveMap = null;
+                  if ('lightMap' in mat) mat.lightMap = null;
+                  mat.needsUpdate = true;
+                });
+              }
             }
           }
         });
@@ -2035,22 +2085,47 @@ export default function PackageEditorPage() {
       model.position.z = -center.z;
       model.position.y = -originalBoxRef.current.min.y;
 
+      let hasArtworkNode = false;
+      model.traverse((node) => {
+        const name = (node.name || '').toLowerCase();
+        if (name.includes('贴图') || name.includes('tietu') || name.includes('artwork')) {
+          hasArtworkNode = true;
+        }
+      });
+
       model.traverse((node) => {
         if (node instanceof THREE.Mesh) {
           if (node.material) {
-            const mats = Array.isArray(node.material) ? node.material : [node.material];
-            mats.forEach(mat => {
-              mat.side = THREE.DoubleSide;
-              mat.map = canvasTextureRef.current;
-              if ('normalMap' in mat) mat.normalMap = null;
-              if ('bumpMap' in mat) mat.bumpMap = null;
-              if ('roughnessMap' in mat) mat.roughnessMap = null;
-              if ('metalnessMap' in mat) mat.metalnessMap = null;
-              if ('aoMap' in mat) mat.aoMap = null;
-              if ('emissiveMap' in mat) mat.emissiveMap = null;
-              if ('lightMap' in mat) mat.lightMap = null;
-              mat.needsUpdate = true;
-            });
+            let shouldMap = true;
+            if (hasArtworkNode) {
+              let isArt = false;
+              let current: THREE.Object3D | null = node;
+              while (current) {
+                const name = (current.name || '').toLowerCase();
+                if (name.includes('贴图') || name.includes('tietu') || name.includes('artwork')) {
+                  isArt = true;
+                  break;
+                }
+                current = current.parent;
+              }
+              shouldMap = isArt;
+            }
+
+            if (shouldMap) {
+              const mats = Array.isArray(node.material) ? node.material : [node.material];
+              mats.forEach(mat => {
+                mat.side = THREE.DoubleSide;
+                mat.map = canvasTextureRef.current;
+                if ('normalMap' in mat) mat.normalMap = null;
+                if ('bumpMap' in mat) mat.bumpMap = null;
+                if ('roughnessMap' in mat) mat.roughnessMap = null;
+                if ('metalnessMap' in mat) mat.metalnessMap = null;
+                if ('aoMap' in mat) mat.aoMap = null;
+                if ('emissiveMap' in mat) mat.emissiveMap = null;
+                if ('lightMap' in mat) mat.lightMap = null;
+                mat.needsUpdate = true;
+              });
+            }
           }
         }
       });

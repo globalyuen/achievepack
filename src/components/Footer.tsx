@@ -2,12 +2,19 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Leaf, Mail, Phone, Calendar, FileText, ShieldCheck, Zap, Box } from 'lucide-react'
 import { SizingFinderIcon, MaterialSpecFinderIcon } from './AppIcons'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import { isAchievePack } from '../utils/domain'
+import galleryData from '../data/image-gallery.json'
 
 export default function Footer() {
   const { t } = useTranslation()
   const [footerShapes, setFooterShapes] = useState<any[]>([])
+
+  // Get 4 random images for the gallery thumbnail
+  const randomGalleryImages = useMemo(() => {
+    const shuffled = [...galleryData].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, 4);
+  }, []);
 
   const getLanguageFromPath = (pathStr: string) => {
     const parts = pathStr.split('/').filter(Boolean);
@@ -186,20 +193,25 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 5: What's Popular */}
+          {/* Column 5: Image Gallery */}
           <div>
-            <h4 className="font-semibold text-sm mb-3 text-neutral-200">What's Popular</h4>
+            <Link to="/gallery" className="group flex items-center justify-between mb-3">
+              <h4 className="font-semibold text-sm text-neutral-200 group-hover:text-[#D4FF00] transition-colors flex items-center gap-2">
+                <Box className="h-4 w-4" /> Visual Gallery
+              </h4>
+              <span className="text-xs text-neutral-500 group-hover:text-[#D4FF00] transition-colors">See all &rarr;</span>
+            </Link>
+            <div className="grid grid-cols-2 gap-2 mb-4">
+              {randomGalleryImages.map((img, idx) => (
+                <Link key={idx} to="/gallery" className="rounded overflow-hidden border border-neutral-700 hover:border-[#D4FF00] transition group bg-neutral-800">
+                  <img src={img.src} alt={img.title || "Gallery preview"} className="w-full h-16 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
+                </Link>
+              ))}
+            </div>
             <ul className="space-y-1 text-xs text-neutral-400">
-              <li><Link to="/knowledge/size-guide" className="hover:text-primary-400 font-medium text-primary-400">Packaging Size Guide</Link></li>
-              <li><Link to="/knowledge/pouch-sizing" className="hover:text-primary-400">Pouch Sizing Finder</Link></li>
-              <li><Link to="/products/low-moq-packaging" className="hover:text-primary-400">Low MOQ Packaging</Link></li>
-              <li><Link to="/" className="hover:text-primary-400">Sustainable Home</Link></li>
-              <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-400">Recyclable Mono-PE</Link></li>
-              <li><Link to="/packaging/spout-pouches" className="hover:text-primary-400">Spout Pouches</Link></li>
-              <li><Link to="/knowledge/flat-bottom-vs-gusset" className="hover:text-primary-400">Flat Bottom vs Gusset</Link></li>
-              <li><Link to="/packaging/flat-pouches" className="hover:text-primary-400">Flat Pouches</Link></li>
-              <li><Link to="/knowledge/k-seal-stand-up-pouches" className="hover:text-primary-400">K-Seal Stand Up Pouches</Link></li>
-              <li><Link to="/knowledge/fin-seal-lap-seal" className="hover:text-primary-400">Fin Seal & Lap Seal</Link></li>
+              <li><Link to="/gallery" className="hover:text-primary-400">Packaging Size Guide</Link></li>
+              <li><Link to="/gallery" className="hover:text-primary-400">Material Infographics</Link></li>
+              <li><Link to="/gallery" className="hover:text-primary-400">3D Product Mockups</Link></li>
             </ul>
           </div>
         </div>

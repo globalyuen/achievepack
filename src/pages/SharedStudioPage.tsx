@@ -659,30 +659,56 @@ export default function SharedStudioPage() {
           dirLight1.shadow.camera.near = 0.1;
           dirLight1.shadow.camera.far = maxDim * 8;
  
+          // Check if model contains any explicit artwork nodes first
+          let hasArtworkNode = false;
+          model.traverse((node) => {
+            const name = (node.name || '').toLowerCase();
+            if (name.includes('贴图') || name.includes('tietu') || name.includes('artwork')) {
+              hasArtworkNode = true;
+            }
+          });
+
           // Map canvas texture to model material
           model.traverse((node) => {
             if (node instanceof THREE.Mesh) {
               node.castShadow = true;
               node.receiveShadow = true;
               if (node.material) {
-                const mats = Array.isArray(node.material) ? node.material : [node.material];
-                mats.forEach(mat => {
-                  mat.side = THREE.DoubleSide;
-                  mat.map = canvasTexture;
-                  if ('color' in mat && mat.color && typeof mat.color.setHex === 'function') {
-                    mat.color.setHex(0xffffff);
+                let shouldMap = true;
+                if (hasArtworkNode) {
+                  let isArt = false;
+                  let current: THREE.Object3D | null = node;
+                  while (current) {
+                    const name = (current.name || '').toLowerCase();
+                    if (name.includes('贴图') || name.includes('tietu') || name.includes('artwork')) {
+                      isArt = true;
+                      break;
+                    }
+                    current = current.parent;
                   }
-                  if ('normalMap' in mat) mat.normalMap = null;
-                  if ('bumpMap' in mat) mat.bumpMap = null;
-                  if ('roughnessMap' in mat) mat.roughnessMap = null;
-                  if ('metalnessMap' in mat) mat.metalnessMap = null;
-                  if ('aoMap' in mat) mat.aoMap = null;
-                  if ('emissiveMap' in mat) mat.emissiveMap = null;
-                  if ('lightMap' in mat) mat.lightMap = null;
-                  if ('roughness' in mat) (mat as any).roughness = design.roughness ?? 0.5;
-                  if ('metalness' in mat) (mat as any).metalness = design.metalness ?? 0.1;
-                  mat.needsUpdate = true;
-                });
+                  shouldMap = isArt;
+                }
+
+                if (shouldMap) {
+                  const mats = Array.isArray(node.material) ? node.material : [node.material];
+                  mats.forEach(mat => {
+                    mat.side = THREE.DoubleSide;
+                    mat.map = canvasTexture;
+                    if ('color' in mat && mat.color && typeof mat.color.setHex === 'function') {
+                      mat.color.setHex(0xffffff);
+                    }
+                    if ('normalMap' in mat) mat.normalMap = null;
+                    if ('bumpMap' in mat) mat.bumpMap = null;
+                    if ('roughnessMap' in mat) mat.roughnessMap = null;
+                    if ('metalnessMap' in mat) mat.metalnessMap = null;
+                    if ('aoMap' in mat) mat.aoMap = null;
+                    if ('emissiveMap' in mat) mat.emissiveMap = null;
+                    if ('lightMap' in mat) mat.lightMap = null;
+                    if ('roughness' in mat) (mat as any).roughness = design.roughness ?? 0.5;
+                    if ('metalness' in mat) (mat as any).metalness = design.metalness ?? 0.1;
+                    mat.needsUpdate = true;
+                  });
+                }
               }
             }
           });
@@ -824,17 +850,42 @@ export default function SharedStudioPage() {
       newTexture.flipY = false;
       canvasTextureRef.current = newTexture;
 
-      // Re-assign new texture to all loaded materials
+      // Re-assign new texture to all loaded materials (only target artwork meshes)
       if (modelRef.current) {
+        let hasArtworkNode = false;
+        modelRef.current.traverse((node) => {
+          const name = (node.name || '').toLowerCase();
+          if (name.includes('贴图') || name.includes('tietu') || name.includes('artwork')) {
+            hasArtworkNode = true;
+          }
+        });
+
         modelRef.current.traverse((node) => {
           if (node instanceof THREE.Mesh && node.material) {
-            const mats = Array.isArray(node.material) ? node.material : [node.material];
-            mats.forEach(mat => {
-              if (mat && 'map' in mat) {
-                (mat as any).map = newTexture;
-                (mat as any).needsUpdate = true;
+            let shouldMap = true;
+            if (hasArtworkNode) {
+              let isArt = false;
+              let current: THREE.Object3D | null = node;
+              while (current) {
+                const name = (current.name || '').toLowerCase();
+                if (name.includes('贴图') || name.includes('tietu') || name.includes('artwork')) {
+                  isArt = true;
+                  break;
+                }
+                current = current.parent;
               }
-            });
+              shouldMap = isArt;
+            }
+
+            if (shouldMap) {
+              const mats = Array.isArray(node.material) ? node.material : [node.material];
+              mats.forEach(mat => {
+                if (mat && 'map' in mat) {
+                  (mat as any).map = newTexture;
+                  (mat as any).needsUpdate = true;
+                }
+              });
+            }
           }
         });
       }

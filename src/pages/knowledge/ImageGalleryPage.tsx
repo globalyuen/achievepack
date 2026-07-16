@@ -1,8 +1,14 @@
 import React, { useState, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Search, X, Filter, Maximize2, Download } from 'lucide-react';
+import { Search, X, Filter, Maximize2, Link as LinkIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import galleryData from '../../data/image-gallery.json';
+import imageSeoMapRaw from '../../data/image-seo-map.json';
+import SiteHeader from '../../components/SiteHeader';
+import Footer from '../../components/Footer';
+
+const imageSeoMap = imageSeoMapRaw as Record<string, Array<{title: string, url: string}>>;
 
 interface GalleryImage {
   id: string;
@@ -16,6 +22,7 @@ export default function ImageGalleryPage() {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
+  const [displayLimit, setDisplayLimit] = useState(100);
 
   const images: GalleryImage[] = galleryData;
   const categories = ['All', ...Array.from(new Set(images.map(img => img.category))).sort()];
@@ -29,8 +36,12 @@ export default function ImageGalleryPage() {
     });
   }, [images, activeCategory, searchQuery]);
 
+  // Reset limit when filter changes
+  useMemo(() => setDisplayLimit(100), [activeCategory, searchQuery]);
+
   return (
-    <div className="bg-neutral-50 min-h-screen pb-20">
+    <div className="bg-neutral-50 min-h-screen">
+      <SiteHeader />
       <Helmet>
         <title>Achieve Pack Image Gallery - Packaging Inspiration & Resources</title>
         <meta name="description" content="Explore thousands of packaging images, from hero mockups and 3D designs to engineering infographics and product structures." />
@@ -57,18 +68,27 @@ export default function ImageGalleryPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
+              {searchQuery && (
+                <button 
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-white"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
             </div>
             
             {/* Categories */}
-            <div className="flex overflow-x-auto w-full gap-2 pb-2 md:pb-0 scrollbar-hide">
+            <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 hide-scrollbar">
+              <Filter className="text-neutral-500 h-5 w-5 mr-2 flex-shrink-0" />
               {categories.map(cat => (
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`px-4 py-2 rounded-full font-bold text-sm whitespace-nowrap transition-colors ${
+                  className={`px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap transition-colors ${
                     activeCategory === cat 
                       ? 'bg-[#D4FF00] text-black' 
-                      : 'bg-neutral-800 text-neutral-400 hover:bg-neutral-700 hover:text-white'
+                      : 'bg-neutral-800 text-neutral-300 hover:bg-neutral-700 hover:text-white'
                   }`}
                 >
                   {cat}
@@ -79,13 +99,13 @@ export default function ImageGalleryPage() {
         </div>
       </div>
 
-      {/* Grid */}
-      <div className="max-w-7xl mx-auto px-4">
+      {/* Main Grid */}
+      <div className="max-w-7xl mx-auto px-4 min-h-[50vh] pb-20">
         {filteredImages.length === 0 ? (
           <div className="text-center py-20">
-            <Filter className="h-12 w-12 text-neutral-300 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-neutral-900 mb-2">No images found</h3>
-            <p className="text-neutral-500">Try adjusting your search or category filter.</p>
+            <div className="text-6xl mb-4">🔍</div>
+            <h2 className="text-2xl font-bold text-neutral-800 mb-2">No images found</h2>
+            <p className="text-neutral-500">We couldn't find any matches for "{searchQuery}" in {activeCategory}.</p>
             <button 
               onClick={() => { setSearchQuery(''); setActiveCategory('All'); }}
               className="mt-6 font-bold text-blue-600 hover:underline"
@@ -95,7 +115,7 @@ export default function ImageGalleryPage() {
           </div>
         ) : (
           <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
-            {filteredImages.slice(0, 100).map((img, idx) => (
+            {filteredImages.slice(0, displayLimit).map((img, idx) => (
               <div 
                 key={img.id} 
                 className="break-inside-avoid group cursor-pointer relative rounded-xl overflow-hidden bg-neutral-200 border border-neutral-200 hover:border-black transition-colors"
@@ -119,10 +139,15 @@ export default function ImageGalleryPage() {
           </div>
         )}
         
-        {filteredImages.length > 100 && (
+        {filteredImages.length > displayLimit && (
           <div className="text-center py-10">
-            <p className="text-neutral-500 mb-4">Showing 100 of {filteredImages.length} images</p>
-            <p className="text-sm text-neutral-400">Refine your search to see more specific results.</p>
+            <p className="text-neutral-500 mb-4">Showing {displayLimit} of {filteredImages.length} images</p>
+            <button 
+              onClick={() => setDisplayLimit(prev => prev + 100)}
+              className="px-8 py-3 bg-black text-white rounded-lg font-bold hover:bg-neutral-800 transition shadow-[4px_4px_0px_0px_rgba(212,255,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(212,255,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]"
+            >
+              Load More Images
+            </button>
           </div>
         )}
       </div>
@@ -137,30 +162,49 @@ export default function ImageGalleryPage() {
             <X className="h-6 w-6" />
           </button>
           
-          <div className="max-w-5xl w-full flex flex-col items-center" onClick={e => e.stopPropagation()}>
+          <div 
+            className="relative max-w-5xl w-full max-h-[85vh] flex flex-col items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
             <img 
               src={selectedImage.src} 
-              alt={selectedImage.title} 
-              className="max-h-[80vh] w-auto object-contain rounded-lg shadow-2xl"
+              alt={selectedImage.title}
+              className="max-w-full max-h-[75vh] object-contain rounded-lg shadow-2xl"
             />
-            <div className="mt-6 text-center">
-              <h3 className="text-2xl font-bold text-white mb-2">{selectedImage.title}</h3>
-              <div className="flex items-center justify-center gap-4">
-                <span className="text-[#D4FF00] font-mono text-sm uppercase">{selectedImage.category}</span>
-                <a 
-                  href={selectedImage.src} 
-                  download 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="flex items-center gap-1 text-neutral-400 hover:text-white text-sm"
-                >
-                  <Download className="h-4 w-4" /> Open Original
-                </a>
+            
+            <div className="mt-6 w-full flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-neutral-900/80 backdrop-blur p-4 rounded-xl border border-neutral-800">
+              <div>
+                <span className="bg-[#D4FF00] text-black text-xs font-black uppercase px-2 py-1 rounded-sm inline-block mb-2">
+                  {selectedImage.category}
+                </span>
+                <h3 className="text-xl font-bold text-white">{selectedImage.title}</h3>
+                <p className="text-neutral-400 text-sm mt-1">{selectedImage.src}</p>
+              </div>
+              
+              <div className="flex flex-col gap-2 min-w-[200px]">
+                {imageSeoMap[selectedImage.src] && imageSeoMap[selectedImage.src].length > 0 ? (
+                  <>
+                    <span className="text-neutral-400 text-xs font-bold uppercase tracking-wider mb-1">Related Pages:</span>
+                    {imageSeoMap[selectedImage.src].map((page, idx) => (
+                      <Link 
+                        key={idx}
+                        to={page.url}
+                        className="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-lg font-bold hover:bg-[#D4FF00] transition"
+                      >
+                        <LinkIcon className="h-4 w-4" /> {page.title}
+                      </Link>
+                    ))}
+                  </>
+                ) : (
+                  <span className="text-neutral-500 text-sm italic border border-neutral-700 px-4 py-2 rounded-lg">No related pages found</span>
+                )}
               </div>
             </div>
           </div>
         </div>
       )}
+      
+      <Footer />
     </div>
   );
 }
