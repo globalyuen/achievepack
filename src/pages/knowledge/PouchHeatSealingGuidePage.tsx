@@ -77,6 +77,9 @@ export default function PouchHeatSealingGuidePage() {
       icon: <Settings className="h-6 w-6" />,
       content: (
         <div className="space-y-6">
+          <div className="mb-8 w-full rounded-2xl overflow-hidden border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <img src="/imgs/knowledge/explorer_sealing_infographic.jpg" alt="Pouch Heat Sealing Guide" className="w-full h-auto" />
+          </div>
           <div className="bg-primary-50 p-6 border-l-4 border-primary-500 font-['Space_Grotesk'] text-neutral-800 text-lg leading-relaxed shadow-sm">
             <p className="font-bold text-primary-900 mb-2 font-sans text-sm uppercase tracking-wider">{t('pouchHeatSealing.sections.engineersLog.badge', 'Expert Engineering Insight')}</p>
             <p>

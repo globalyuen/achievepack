@@ -433,39 +433,10 @@ export default function LearnSearchPage() {
 
         {/* Category Sub-Menu & Interactive Explorer */}
         <section className="bg-neutral-950 text-white relative border-b-4 border-black">
-          {/* Sub-menu bar */}
-          <div className="border-b border-white/10 bg-neutral-900 sticky top-[72px] z-40 shadow-xl">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex overflow-x-auto no-scrollbar py-4 gap-2 items-center">
-                <span className="text-gray-400 text-xs font-black uppercase tracking-wider mr-4 shrink-0 font-['JetBrains_Mono'] hidden md:block">Explore Topic:</span>
-                {['All', 'Compost', 'Recyclable', 'BioPE', 'PCR', 'Pouch', 'Box', 'Industry'].map(cat => (
-                  <button
-                    key={cat}
-                    onClick={() => handleCategoryChange(cat)}
-                    className={`shrink-0 px-5 py-2 rounded-full font-black text-sm uppercase tracking-wider transition-all border-2 ${
-                      selectedCategory === cat 
-                        ? 'bg-[#D4FF00] text-black border-[#D4FF00] shadow-[0_0_15px_rgba(212,255,0,0.4)]' 
-                        : 'bg-black text-white border-white/20 hover:border-white/50'
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                ))}
-              </div>
-            </div>
+          {/* Module Display (All categories aggregated) */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+            <InteractiveExplorerModule category="all" />
           </div>
-          
-          {/* Module Display */}
-          {selectedCategory !== 'All' && (
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-              <div className="text-center mb-10">
-                <span className="inline-block bg-emerald-500 text-black px-4 py-1.5 font-['JetBrains_Mono'] font-extrabold text-xs uppercase tracking-wider transform -rotate-1 border-2 border-black shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] mb-4">
-                  ⚡ VISUAL INTERACTIVE EXPLORER
-                </span>
-              </div>
-              <InteractiveExplorerModule category={selectedCategory} />
-            </div>
-          )}
         </section>
 
         {/* Filters Section */}

@@ -41,7 +41,7 @@
     "dimensions": "产品尺寸：L:123mm  W:57mm  H:284mm  ",
     "description": "Taille du plan d'emballage : L : 123 mm H : 217 mm Couramment utilisé dans les arrosoirs, stockage des arrosoirs Marque/produit de référence : arrosoir Capacité recommandée :",
     "slug": "stand-up-pouch-1055",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1057",
@@ -63,7 +63,7 @@
     "dimensions": "产品尺寸：L:46mm  W:46mm  H:12mm",
     "description": "Taille du plan d'emballage : L : 46 mm L : 46 mm Couramment utilisé dans le stockage de masques faciaux et de cosmétiques Marque/produit de référence : Masque facial Capacité recommandée : 5 g",
     "slug": "plastic-cosmetic-cosmetic-box-1065",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1066",
@@ -140,7 +140,7 @@
     "dimensions": "产品尺寸：H:85mm  D:180mm L:147mm",
     "description": "Taille du plan de conditionnement : L : 173 mm H : 117 mm Couramment utilisé dans le stockage du riz auto-chauffant et des marmites auto-chauffantes Référence marque/produit : Riz auto-chauffant Chef Du's Capacité recommandée : 360g",
     "slug": "plastic-food-beverage-1142",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1144",
@@ -151,7 +151,7 @@
     "dimensions": "产品尺寸：H:111mm  D:220mm L:233mm",
     "description": "Taille de la carte d'emballage : L : 200 mm H : 200 mm Couramment utilisé dans les marmites auto-chauffantes et le stockage de riz auto-chauffant Marque/produit de référence : Marmite auto-chauffante Kaixiaozao Capacité recommandée : 350 g",
     "slug": "plastic-food-beverage-1144",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1152",
@@ -162,7 +162,7 @@
     "dimensions": "产品尺寸：L:90mm  H:153mm",
     "description": "Taille du plan d'emballage : L : 89 mm H : 129 mm Couramment utilisé dans le stockage de gelées et de yaourts Marque/produit de référence : Boisson au yaourt Bolele Capacité recommandée : 100 ml",
     "slug": "plastic-food-food-pouch-1152",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "1190",
@@ -173,7 +173,7 @@
     "dimensions": "产品尺寸：H:75mm  W:25mm L:52mm",
     "description": "Taille du plan d'emballage : L : 154 mm H : 75 mm Couramment utilisé dans le stockage des essuie-tout et des lingettes humides Référence marque/produit : Papier mouchoir naturel Capacité recommandée : 13,5 g",
     "slug": "plastic-cleaning-pouch-1190",
-    "category": "Pouch"
+    "category": "Box"
   },
   {
     "id": "1191",
@@ -294,7 +294,7 @@
     "dimensions": "产品尺寸：H:115mm  D:185mm L:155mm",
     "description": "Taille du plan de conditionnement : L : 138 mm H : 138 mm Couramment utilisé dans le stockage du riz auto-chauffant et des marmites auto-chauffantes Référence marque/produit : Marmite auto-chauffante riz auto-chauffant Capacité recommandée : 260g",
     "slug": "plastic-food-beverage-1208",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1209",
@@ -316,7 +316,7 @@
     "dimensions": "产品尺寸：L:170mm  W:170mm  H:90mm",
     "description": "Taille de la carte d'emballage : L : 160 mm L : 160 mm Couramment utilisé dans les boîtes en plastique jetables et le stockage des pâtes Marque/produit de référence : Mo Xiaoxian Célébrité Internet auto-chauffante marmite de riz en argile Capacité recommandée : 245 g",
     "slug": "plastic-food-beverage-box-1210",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1212",
@@ -360,7 +360,7 @@
     "dimensions": "产品尺寸：L:230mm  W:70mm  H:230mm",
     "description": "Taille de la carte d'emballage : L : 230 mm L : 230 mm Couramment utilisé dans le stockage de détergent à lessive, d'assouplissant et de désinfectant. Référence marque/produit : lessive Contenance recommandée : 700ml",
     "slug": "plastic-stand-up-cleaning-pouch-cap-1271",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "1274",
@@ -382,7 +382,7 @@
     "dimensions": "产品尺寸：H:80mm  D:141mm L:149mm",
     "description": "Taille de la carte d'emballage : L : 141 mm H : 149 mm Couramment utilisé dans le stockage des nouilles instantanées Marque/produit de référence : Ramen à saveur de kimchi de bœuf de marque Nongshim Capacité recommandée : 82 g",
     "slug": "plastic-food-beverage-1277",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1279",
@@ -525,7 +525,7 @@
     "dimensions": "产品尺寸：L:90mm  H:135mm ",
     "description": "Taille de la carte d'emballage : L : 90 mm H : 104 mm Couramment utilisé dans le stockage de gelées Marque/produit de référence : Gelée d'aspiration de fruits et légumes carottes Golden Delicious Capacité recommandée : 80 g",
     "slug": "plastic-food-food-pouch-1297",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "1298",
@@ -536,7 +536,7 @@
     "dimensions": "产品尺寸：L:68mm  W:78mm H:40mm ",
     "description": "Taille de la carte d'emballage : L : 68 mm H : 78 mm Couramment utilisé dans le stockage de la gelée et du yaourt. Référence marque/produit : Gelée à sucer saveur yaourt vieux Heki Contenance recommandée : 250g",
     "slug": "plastic-food-beverage-1298",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1306",
@@ -569,7 +569,7 @@
     "dimensions": "产品尺寸：L:77mm  H:133mm",
     "description": "Taille de la carte d'emballage : L : 77 mm H : 108 mm Couramment utilisé dans le stockage de gelées Marque/produit de référence : Gelée à sucer à la pêche Bolele coréenne Capacité recommandée : 120 ml",
     "slug": "plastic-food-food-pouch-1309",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "1310",
@@ -591,7 +591,7 @@
     "dimensions": "产品尺寸：L:130mm  H:206mm",
     "description": "Taille de la carte d'emballage : L : 130 mm H : 206 mm Couramment utilisé dans le stockage de gelée, de thé au lait, d'aliments et de boissons Marque/produit de référence : Thé au lait Baoshaoxi Capacité recommandée : 46 g",
     "slug": "plastic-food-food-pouch-1311",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "1312",
@@ -613,7 +613,7 @@
     "dimensions": "产品尺寸：L:110mm  H:195mm",
     "description": "Taille de la carte d'emballage : L : 220 mm H : 195 mm Couramment utilisé dans le stockage du lait de soja, du lait de soja, du lait et des boissons préparées. Référence marque/produit : Boisson au lait de soja Zuming Contenance recommandée : 250ml",
     "slug": "plastic-food-beverage-pouch-1313",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "1457",
@@ -657,7 +657,7 @@
     "dimensions": "产品尺寸：L:90mm   H:150mm ",
     "description": "Taille de la carte d'emballage : L : 180 mm H : 150 mm Couramment utilisé dans le stockage des boissons et des gelées Marque/produit de référence : boisson Capacité recommandée : 150 ml",
     "slug": "plastic-food-food-pouch-1467",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "1471",
@@ -679,7 +679,7 @@
     "dimensions": "产品尺寸：L:95mm H:110mm ",
     "description": "Taille de la carte d'emballage : L : 38 mm H : 55 mm Couramment utilisé dans le stockage des milkshakes et des yaourts. Marque/produit de référence : yaourt Capacité recommandée : 500ml",
     "slug": "plastic-food-beverage-box-1472",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1473",
@@ -690,7 +690,7 @@
     "dimensions": "产品尺寸：L:120mm H:50mm ",
     "description": "Taille du plan d'emballage : L : 348 mm H : 40 mm Couramment utilisé dans le stockage des nouilles instantanées et des nouilles aux escargots Marque/produit de référence : nouilles instantanées Capacité recommandée :",
     "slug": "plastic-food-beverage-1473",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1474",
@@ -701,7 +701,7 @@
     "dimensions": "产品尺寸：L:178mm H:95mm ",
     "description": "Taille de la carte d'emballage : L : 521 mm H : 48 mm Couramment utilisé dans le stockage des nouilles d'escargots et des nouilles instantanées Marque/produit de référence : nouilles d'escargots Capacité recommandée : 1250 ml",
     "slug": "plastic-food-beverage-1474",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1476",
@@ -712,7 +712,7 @@
     "dimensions": "产品尺寸：L:72mm H:76mm ",
     "description": "Taille de la carte d'emballage : L : 198 mm H : 60 mm Couramment utilisé dans le stockage de la gelée et du yaourt. Référence marque/produit : gelée Contenance recommandée : 120ml",
     "slug": "plastic-food-beverage-box-1476",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1483",
@@ -723,7 +723,7 @@
     "dimensions": "产品尺寸：L:90mm H:115mm ",
     "description": "Taille du plan d'emballage : L : 254 mm H : 96 mm Couramment utilisé dans le stockage du thé au lait et du yaourt Marque/produit de référence : thé au lait Capacité recommandée : 520 ml",
     "slug": "plastic-food-beverage-box-1483",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1484",
@@ -756,7 +756,7 @@
     "dimensions": "产品尺寸：L:123mm H:125mm ",
     "description": "Taille du plan d'emballage : L : 364 mm H : 111 mm Couramment utilisé dans le stockage du yaourt et du lait Marque/produit de référence : yaourt Capacité recommandée : 180 ml",
     "slug": "plastic-food-beverage-box-1490",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1491",
@@ -767,7 +767,7 @@
     "dimensions": "产品尺寸：L:103mm  W:95mm H:60mm ",
     "description": "Taille du plan d'emballage : L : 280 mm H : 40 mm Couramment utilisé dans le stockage des yaourts et des glaces Marque/produit de référence : yaourt Capacité recommandée :",
     "slug": "plastic-food-beverage-box-1491",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1493",
@@ -778,7 +778,7 @@
     "dimensions": "产品尺寸：L:145mm  W:98mm H:52mm ",
     "description": "Taille de la carte d'emballage : L : 111 mm H : 80 mm Couramment utilisé dans le stockage du beurre et du yaourt. Marque/produit de référence : beurre Capacité recommandée :",
     "slug": "plastic-food-beverage-box-1493",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1494",
@@ -789,7 +789,7 @@
     "dimensions": "产品尺寸：D:120mm  H:73mm ",
     "description": "Taille du plan d'emballage : L : 76 mm H : 76 mm Couramment utilisé dans le stockage de yaourts, de puddings, d'aliments et de boissons Marque/produit de référence : yaourt Capacité recommandée : 300 ml",
     "slug": "plastic-food-beverage-box-1494",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1497",
@@ -800,7 +800,7 @@
     "dimensions": "产品尺寸：L:74mm  W:72mm H:49mm ",
     "description": "Taille de la carte d'emballage : L : 68 mm H : 66 mm Couramment utilisé dans le stockage de la sauce chili fraîche et du beurre. Référence marque/produit : sauce chili fraîche Contenance recommandée : 130ml",
     "slug": "plastic-food-box-1497",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1504",
@@ -811,7 +811,7 @@
     "dimensions": "产品尺寸：L:154mm  W:94mm  H:69mm",
     "description": "Taille de la carte d'emballage : L : 100 mm H : 54 mm Couramment utilisé dans le stockage de produits instantanés, de riz chauffé, de perles à lessive et de sauce chili. Marque/produit de référence : produits instantanés Contenance recommandée : 275g",
     "slug": "plastic-food-beverage-box-1504",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1506",
@@ -822,7 +822,7 @@
     "dimensions": "产品尺寸：D:72mm  H:117mm ",
     "description": "Taille de la carte d'emballage : L : 201 mm H : 102 mm Couramment utilisé dans le stockage des milkshakes et des yaourts. Marque/produit de référence : Condorido Pure Alcohol Milkshake Capacité recommandée : 200ml",
     "slug": "plastic-food-beverage-box-1506",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1516",
@@ -833,7 +833,7 @@
     "dimensions": "产品尺寸：D:92mm  H:117mm ",
     "description": "Taille du plan d'emballage : L : 198 mm H : 65 mm Couramment utilisé dans le stockage du thé au lait et du yaourt Marque/produit de référence : thé au lait Capacité recommandée :",
     "slug": "plastic-food-beverage-box-1516",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1517",
@@ -844,7 +844,7 @@
     "dimensions": "产品尺寸：L:190mm  W:130mm  H:82mm",
     "description": "Taille de la carte d'emballage : L : 175 mm H : 115 mm Couramment utilisé dans le stockage de bonbons, biscuits et collations Marque/produit de référence : Nougat de qualité supérieure Capacité recommandée : 256 g",
     "slug": "food-beverage-1517",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1518",
@@ -855,7 +855,7 @@
     "dimensions": "产品尺寸：D:78mm  H:47mm ",
     "description": "Taille du plan d'emballage : L : 216 mm H : 31 mm Couramment utilisé dans le stockage du pudding et du yaourt Marque/produit de référence : Bagilford pudding Capacité recommandée : 56 g",
     "slug": "plastic-food-beverage-box-1518",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1523",
@@ -866,7 +866,7 @@
     "dimensions": "产品尺寸：L:110mm  H:160mm",
     "description": "Taille du plan d'emballage : L : 110 mm H : 160 mm Couramment utilisé dans le stockage des détergents à lessive et des assouplissants Marque/produit de référence : Détergent à lessive Salt White Capacité recommandée : 200 ml",
     "slug": "plastic-stand-up-cleaning-pouch-cap-1523",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "1525",
@@ -921,7 +921,7 @@
     "dimensions": "产品尺寸：L:164mm  W:90mm H:50mm",
     "description": "Taille du plan d'emballage : L : 39 mm H : 173 mm Couramment utilisé pour la conservation des tartelettes et gâteaux aux œufs Marque/produit de référence : tartelettes aux œufs Capacité recommandée :",
     "slug": "plastic-food-beverage-box-1545",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1554",
@@ -932,7 +932,7 @@
     "dimensions": "产品尺寸：L:106mm  H:192mm",
     "description": "Taille de la carte d'emballage : L : 106 mm H : 160 mm Couramment utilisé dans le stockage du lait de soja, du lait de soja, du lait et des boissons préparées. Marque/produit de référence : Yipin Fresh Soy Milk Capacité recommandée : 248ml",
     "slug": "plastic-food-beverage-pouch-1554",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "1555",
@@ -1108,7 +1108,7 @@
     "dimensions": "产品尺寸：L:114mm W:28mm H:195mm",
     "description": "Taille de la carte d'emballage : L : 114 mm H : 165 mm Couramment utilisé dans le stockage du lait de soja, du lait de soja, du lait et des boissons préparées. Marque/produit de référence : lait Contenance recommandée : 500ml",
     "slug": "plastic-food-beverage-pouch-1745",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "1746",
@@ -1119,7 +1119,7 @@
     "dimensions": "产品尺寸：L:70mm  H:90mm",
     "description": "Taille du plan d'emballage : L : 70 mm H : 90 mm Couramment utilisé dans le stockage de masques faciaux et de nettoyants pour le visage Marque/produit de référence : Masque facial Capacité recommandée :",
     "slug": "stand-up-pouch-plastic-cosmetic-cosmetic-pouch-1746",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "1753",
@@ -1130,7 +1130,7 @@
     "dimensions": "产品尺寸：L:105mm  W:50mm  H:128mm",
     "description": "Taille de la carte d'emballage : L : 105 mm L : 50 mm H : 105 mm Couramment utilisé dans le stockage des nettoyants pour le visage, des shampoings et des masques faciaux Marque/produit de référence : nettoyant pour le visage Capacité recommandée :",
     "slug": "stand-up-pouch-plastic-cosmetic-cosmetic-pouch-1753",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "1757",
@@ -1141,7 +1141,7 @@
     "dimensions": "产品尺寸：L:88mm  W:30mm H:160mm",
     "description": "Taille du plan d'emballage : L : 87 mm H : 130 mm Couramment utilisé dans le stockage d'essences et de crèmes Marque/produit de référence : Essence Capacité recommandée : 100 ml",
     "slug": "stand-up-pouch-plastic-cosmetic-cosmetic-pouch-1757",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "1758",
@@ -1152,7 +1152,7 @@
     "dimensions": "产品尺寸：L:108mm W:45mm H:210mm",
     "description": "Taille du plan d'emballage : L : 108 mm H : 156 mm Couramment utilisé dans le stockage de désinfectants et de détergents Marque/produit de référence : désinfectant Capacité recommandée :",
     "slug": "plastic-stand-up-cleaning-pouch-cap-1758",
-    "category": "Pouch"
+    "category": "Bottle"
   },
   {
     "id": "1759",
@@ -1163,7 +1163,7 @@
     "dimensions": "产品尺寸：L:88mm W:30mm H:133mm",
     "description": "Taille de la carte d'emballage : L : 87 mm H : 127 mm Couramment utilisé dans le stockage du lait de soja, du lait de soja, du lait et des boissons Marque/produit de référence : boissons Capacité recommandée : 100 ml",
     "slug": "plastic-food-beverage-pouch-1759",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "1760",
@@ -1174,7 +1174,7 @@
     "dimensions": "产品尺寸：L:180mm W:120mm H:35mm",
     "description": "Taille du plan d'emballage : L : 180 mm H : 120 mm Couramment utilisé dans la conservation des aliments braisés et des aliments cuits Marque/produit de référence : aliments braisés Capacité recommandée : 560 ml",
     "slug": "plastic-food-1760",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "1820",
@@ -1262,7 +1262,7 @@
     "dimensions": "产品尺寸：D:264mm  H:60mm",
     "description": "Taille du plan d'emballage : L : 250 mm H : 250 mm Couramment utilisé dans le stockage de snacks, biscuits et pâtisseries, produits secs et graines et noix grillées Marque/produit de référence : gâteaux et pâtisseries Capacité recommandée :",
     "slug": "food-box-1936",
-    "category": "Pouch"
+    "category": "Box"
   },
   {
     "id": "1945",
@@ -1361,7 +1361,7 @@
     "dimensions": "产品尺寸：L:203mm  W:143mm  H:50mm ",
     "description": "Taille du plan d'emballage : L : 203 mm H : 143 mm Couramment utilisé dans le stockage des nouilles d'escargots et des nouilles instantanées Marque/produit de référence : nouilles instantanées Capacité recommandée :",
     "slug": "plastic-food-beverage-2052",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "2221",
@@ -1405,7 +1405,7 @@
     "dimensions": "产品尺寸：L:82mm  H:152mm ",
     "description": "Taille de la carte d'emballage : L : 232 mm H : 113 mm Couramment utilisé dans le stockage du thé au lait et du yaourt Marque/produit de référence : Thé au lait Xiangpiaopiaozhen Capacité recommandée : 340 ml",
     "slug": "plastic-tea-food-beverage-box-2296",
-    "category": "Pouch"
+    "category": "Cup"
   },
   {
     "id": "2303",
@@ -1449,7 +1449,7 @@
     "dimensions": "产品尺寸：H:350mm  D:245mm",
     "description": "Taille de la carte d'emballage : L : 766 mm H : 350 mm Couramment utilisé dans le stockage des mouchoirs et des serviettes pour le visage Marque/produit de référence : serviettes rondes Capacité recommandée :",
     "slug": "plastic-cleaning-pouch-2403",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "2410",
@@ -1460,7 +1460,7 @@
     "dimensions": "产品尺寸：H:350mm  D:245mm",
     "description": "Taille de la carte d'emballage : L : 766 mm H : 350 mm Couramment utilisé dans le stockage des mouchoirs et des serviettes pour le visage Marque/produit de référence : serviettes rondes Capacité recommandée :",
     "slug": "plastic-cleaning-pouch-2410",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "2436",
@@ -1482,7 +1482,7 @@
     "dimensions": "产品尺寸：D:90mm H:200mm",
     "description": "Taille de la carte d'emballage : L : 540 mm H : 174 mm Couramment utilisé dans le rangement des vêtements, des chaussettes et des nécessités quotidiennes Marque/produit de référence : vêtements Capacité recommandée :",
     "slug": "box-2698",
-    "category": "Pouch"
+    "category": "Cup"
   },
   {
     "id": "2744",
@@ -1548,7 +1548,7 @@
     "dimensions": "产品尺寸：L:155mm  H:296mm ",
     "description": "Taille de la carte d'emballage : L : 155 mm H : 270 mm Couramment utilisé dans le stockage de crèmes colorantes et de masques capillaires. Référence marque/produit : crème colorante Contenance recommandée : 900ml",
     "slug": "plastic-cosmetic-cosmetic-pouch-2881",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "2897",
@@ -1570,7 +1570,7 @@
     "dimensions": "产品尺寸：L:360mm  W:120mm  H:326mm",
     "description": "Taille de la carte d'emballage : L : 360 mm H : 249 mm Couramment utilisé dans le stockage des aliments et des nécessités quotidiennes Marque/produit de référence : sac de courses pour les nécessités quotidiennes Capacité recommandée :",
     "slug": "handle-pouch-2906",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "2921",
@@ -1625,7 +1625,7 @@
     "dimensions": "产品尺寸：L:154mm  W:94mm  H:69mm",
     "description": "Taille de la carte d'emballage : L : 93 mm H : 390 mm Couramment utilisé dans le stockage de produits instantanés, de riz chauffé, de perles à lessive et de sauce chili. Marque/produit de référence : produits instantanés Contenance recommandée : 275g",
     "slug": "plastic-food-beverage-box-2942",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "2948",
@@ -1647,7 +1647,7 @@
     "dimensions": "产品尺寸：L:115mm  W:110mm  H:372mm",
     "description": "Taille de la carte d'emballage : L : 115 mm L : 110 mm H : 315 mm Couramment utilisé dans les aliments, les produits de première nécessité et le stockage à emporter Marque/produit de référence : sac à emporter Capacité recommandée :",
     "slug": "handle-pouch-2949",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "2956",
@@ -1658,7 +1658,7 @@
     "dimensions": "产品尺寸：L:230mm W:130mm H:52mm ",
     "description": "Taille du plan d'emballage : L : 80 mm H : 323 mm Couramment utilisé pour le stockage de salades et de plats à emporter Marque/produit de référence : boîte à emporter Capacité recommandée : 850 ml",
     "slug": "plastic-food-beverage-2956",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "2958",
@@ -1669,7 +1669,7 @@
     "dimensions": "产品尺寸：L:80mm W:80mm H:35mm ",
     "description": "Taille du plan de conditionnement : L : 68 mm H : 235 mm Couramment utilisé pour le stockage des gâteaux et desserts Référence marque/produit : Boîte à gâteaux Capacité recommandée : 150 ml",
     "slug": "plastic-food-beverage-2958",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "2987",
@@ -1680,7 +1680,7 @@
     "dimensions": "产品尺寸：L:230mm W:130mm H:52mm ",
     "description": "Taille du plan d'emballage : L : 80 mm H : 323 mm Couramment utilisé pour le stockage de salades et de plats à emporter Marque/produit de référence : boîte à emporter Capacité recommandée : 850 ml",
     "slug": "plastic-food-beverage-2987",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "2989",
@@ -1691,7 +1691,7 @@
     "dimensions": "产品尺寸：L:350mm  W:100mm  H:250mm",
     "description": "Taille de la carte d'emballage : L : 350 mm H : 300 mm Couramment utilisé pour les plats à emporter et le stockage des nécessités quotidiennes Marque/produit de référence : sac à cordon Capacité recommandée : 3L",
     "slug": "plastic-handle-pouch-2989",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "2994",
@@ -1746,7 +1746,7 @@
     "dimensions": "产品尺寸：D:70mm H:71mm ",
     "description": "Taille du plan d'emballage : L : 192 mm H : 49 mm Couramment utilisé dans le stockage du lait et du yaourt Marque/produit de référence : yaourt Capacité recommandée : 200 ml",
     "slug": "plastic-food-beverage-box-3006",
-    "category": "Pouch"
+    "category": "Cup"
   },
   {
     "id": "3008",
@@ -1768,7 +1768,7 @@
     "dimensions": "产品尺寸：D:68mm H:71mm ",
     "description": "Taille de la carte d'emballage : L : 207 mm H : 42 mm Couramment utilisé dans le stockage du lait, du yaourt et du pudding Marque/produit de référence : pudding Capacité recommandée :",
     "slug": "plastic-food-beverage-box-3020",
-    "category": "Pouch"
+    "category": "Cup"
   },
   {
     "id": "3025",
@@ -1790,7 +1790,7 @@
     "dimensions": "产品尺寸：L:240mm  W:120mm  H:303mm",
     "description": "Taille de la carte d'emballage : L : 240 mm L : 120 mm H : 200 mm Couramment utilisé dans le stockage de desserts, de collations et de nécessités quotidiennes. Référence marque/produit : Sac papier dessert Contenance recommandée :",
     "slug": "food-beverage-pouch-3069",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "3070",
@@ -1812,7 +1812,7 @@
     "dimensions": "产品尺寸：L:80mm  W:60mm  H:90mm",
     "description": "Taille du plan d'emballage : L : 60 mm H : 260 mm Couramment utilisé dans le stockage du thé et du thé parfumé Marque/produit de référence : thé Capacité recommandée :",
     "slug": "plastic-tea-food-beverage-pouch-3076",
-    "category": "Pouch"
+    "category": "Box"
   },
   {
     "id": "3078",
@@ -1823,7 +1823,7 @@
     "dimensions": "产品尺寸：L:320mm  W:130mm  H:186mm",
     "description": "Taille de la carte d'emballage : L : 320 mm L : 130 mm H : 145 mm Couramment utilisé pour le stockage de collations, de cadeaux et de produits de première nécessité Marque/produit de référence : sac en papier cadeau Capacité recommandée :",
     "slug": "food-beverage-pouch-3078",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "3183",
@@ -1878,7 +1878,7 @@
     "dimensions": "产品尺寸：L:210mm  W:116mm  H:509mm",
     "description": "Taille de la carte d'emballage : L : 210 mm L : 115 mm H : 432 mm Couramment utilisé pour les plats à emporter et le stockage des nécessités quotidiennes Marque/produit de référence : sac en plastique Capacité recommandée :",
     "slug": "plastic-handle-pouch-3216",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "3218",
@@ -1889,7 +1889,7 @@
     "dimensions": "产品尺寸：L:330mm  W:120mm  H:666mm",
     "description": "Taille de la carte d'emballage : L : 330 mm L : 120 mm H : 495 mm Couramment utilisé pour les plats à emporter et le stockage des nécessités quotidiennes Marque/produit de référence : sac en plastique Capacité recommandée :",
     "slug": "plastic-handle-pouch-3218",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "3219",
@@ -1966,7 +1966,7 @@
     "dimensions": "产品尺寸：L:190mm  W:65mm  H:280mm",
     "description": "Taille de la carte d'emballage : L : 190 mm H : 690 mm Couramment utilisé dans le stockage de collations, de gâteaux de lune et de cadeaux. Référence marque/produit : carton mooncake Capacité recommandée :",
     "slug": "food-beverage-pouch-3251",
-    "category": "Pouch"
+    "category": "Box"
   },
   {
     "id": "3264",
@@ -1977,7 +1977,7 @@
     "dimensions": "产品尺寸：D:77mm  H:86mm  ",
     "description": "Taille de la carte d'emballage : L : 230 mm H : 72 mm Couramment utilisé dans le stockage du café, du thé au lait et des boissons Marque/produit de référence : gobelet en papier Capacité recommandée : 8 oz",
     "slug": "packaging-3264",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "3265",
@@ -2032,7 +2032,7 @@
     "dimensions": "产品尺寸：L:205mm W:105mm H:60mm ",
     "description": "Taille du plan d'emballage : L : 270 mm H : 40 mm Couramment utilisé dans le stockage d'aliments et de boissons, de gâteaux, de desserts, de pain et de beignets Marque/produit de référence : Sandwich au steak de poulet Capacité recommandée : 160 g",
     "slug": "plastic-food-box-3342",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "3353",
@@ -2098,7 +2098,7 @@
     "dimensions": "产品尺寸：L:54mm  W:44mm  H:20mm",
     "description": "Taille du plan de conditionnement : L : 54 mm H : 44 mm Couramment utilisé dans le stockage de condiments, ketchup, sauce aigre-douce Marque/produit de référence : sauce aigre-douce Contenance recommandée : 20g",
     "slug": "plastic-food-box-3428",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "3459",
@@ -2109,7 +2109,7 @@
     "dimensions": "产品尺寸：L:175mm  W:135mm  H:70mm",
     "description": "Taille du plan d'emballage : L : 90 mm H : 60 mm Couramment utilisé pour conserver les fruits, légumes, gâteaux, pâtisseries, snacks Marque/produit de référence : fruit Capacité recommandée :",
     "slug": "plastic-food-beverage-box-3459",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "3460",
@@ -2120,7 +2120,7 @@
     "dimensions": "产品尺寸：L:225mm  W:185mm  H:55mm",
     "description": "Taille du plan d'emballage : L : 120 mm H : 90 mm Couramment utilisé pour conserver les fruits, légumes, gâteaux, pâtisseries, snacks Référence marque/produit : pâtisseries Capacité recommandée :",
     "slug": "plastic-food-beverage-box-3460",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "3462",
@@ -2131,7 +2131,7 @@
     "dimensions": "产品尺寸：L:210mm  W:210mm  H:50mm",
     "description": "Taille du plan d'emballage : L : 80 mm H : 120 mm Couramment utilisé pour conserver les fruits, légumes, gâteaux, pâtisseries, snacks Marque/produit de référence : fruit Capacité recommandée :",
     "slug": "plastic-food-beverage-box-3462",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "3467",
@@ -2219,7 +2219,7 @@
     "dimensions": "产品尺寸：L:90mm W:25mm H:60mm ",
     "description": "Taille de la carte d'emballage : L : 115 mm H : 130 mm Couramment utilisé pour le stockage de collations et de nécessités quotidiennes Marque/produit de référence : boîte à oreillers Capacité recommandée :",
     "slug": "food-beverage-box-3587",
-    "category": "Pouch"
+    "category": "Cup"
   },
   {
     "id": "3588",
@@ -2230,7 +2230,7 @@
     "dimensions": "产品尺寸：D:250mm  H:115mm",
     "description": "Taille du plan d'emballage : L : 250 L : 26 mm H : 87 mm Couramment utilisé dans le stockage de snacks, biscuits et pâtisseries, produits secs, graines et noix grillées Marque/produit de référence : gâteaux et pâtisseries Capacité recommandée :",
     "slug": "box-3588",
-    "category": "Pouch"
+    "category": "Cup"
   },
   {
     "id": "3589",
@@ -2274,7 +2274,7 @@
     "dimensions": "产品尺寸：L:89mm W:30mm H:97mm ",
     "description": "Taille du plan d'emballage : L : 85 mm H : 97 mm Couramment utilisé dans le stockage de snacks et de frites Marque/produit de référence : Boîte de frites McDonald's Capacité recommandée :",
     "slug": "food-beverage-box-3614",
-    "category": "Pouch"
+    "category": "Cup"
   },
   {
     "id": "3661",
@@ -2439,7 +2439,7 @@
     "dimensions": "产品尺寸：L:100mm  W: 55mm  H:172mm",
     "description": "Taille du plan d'emballage : L : 100 mm L : 100 mm H : 100 mm Couramment utilisé dans le stockage de frites et de snacks Référence marque/produit : Boîte de frites Capacité recommandée :",
     "slug": "food-box-3889",
-    "category": "Pouch"
+    "category": "Cup"
   },
   {
     "id": "3890",
@@ -2450,7 +2450,7 @@
     "dimensions": "产品尺寸：L:100mm  W: 50mm  H:119mm",
     "description": "Taille du plan d'emballage : L : 100 mm L : 100 mm H : 100 mm Couramment utilisé dans le stockage de frites et de snacks Référence marque/produit : Boîte de frites Capacité recommandée :",
     "slug": "food-box-3890",
-    "category": "Pouch"
+    "category": "Cup"
   },
   {
     "id": "3899",
@@ -2549,7 +2549,7 @@
     "dimensions": "产品尺寸：L:135mm  W:40mm  H:235mm",
     "description": "Taille du plan d'emballage : L : 135 mm H : 235 mm Couramment utilisé dans le stockage des boissons et du lait Marque/produit de référence : sac alimentaire Capacité recommandée :",
     "slug": "plastic-food-food-pouch-3947",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "3950",
@@ -2560,7 +2560,7 @@
     "dimensions": "产品尺寸：L:135mm  W:40mm  H:235mm",
     "description": "Taille du plan d'emballage : L : 135 mm H : 235 mm Couramment utilisé dans le stockage des boissons et du lait Marque/produit de référence : sac alimentaire Capacité recommandée :",
     "slug": "plastic-food-food-pouch-3950",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "399",
@@ -2604,7 +2604,7 @@
     "dimensions": "产品尺寸：L:135mm  W:100mm  H:65mm",
     "description": "Taille de la carte d'emballage : L : 135 mm L : 100 mm H : 65 mm Couramment utilisé dans les serviettes en papier et les essuie-tout. Marque/produit de référence : serviettes en papier Qingfeng. Capacité recommandée : 110 essuie-tout.",
     "slug": "plastic-cleaning-pouch-402",
-    "category": "Pouch"
+    "category": "Box"
   },
   {
     "id": "4023",
@@ -2626,7 +2626,7 @@
     "dimensions": "产品尺寸：H:200mm D:152mm",
     "description": "Taille de la carte d'emballage : L : 477 mm H : 105 mm Couramment utilisé dans le stockage des mouchoirs, des serviettes pour le visage, des lingettes humides et du papier de cuisine Marque/produit de référence : serviette ronde Capacité recommandée : 100 feuilles",
     "slug": "plastic-cleaning-pouch-403",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "4035",
@@ -2659,7 +2659,7 @@
     "dimensions": "产品尺寸：L:90mm  W:90mm H:90mm",
     "description": "Taille de la carte d'emballage : L : 90 mm L : 90 mm H : 90 mm Couramment utilisé dans le stockage du thé, des sachets de thé, des aliments et des boissons, ainsi que des boissons préparées Marque/produit de référence : thé noir Capacité recommandée :",
     "slug": "tea-food-beverage-box-4044",
-    "category": "Pouch"
+    "category": "Box"
   },
   {
     "id": "4056",
@@ -2670,7 +2670,7 @@
     "dimensions": "产品尺寸：L:58mm  W:20mm  H:165mm",
     "description": "Taille de la carte d'emballage : L : 58 mm H : 165 mm Couramment utilisé dans les nécessités quotidiennes, les aliments et boissons, les sauces, le stockage de colle Marque/produit de référence : Capacité recommandée :",
     "slug": "plastic-food-beverage-pouch-4056",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "406",
@@ -2725,7 +2725,7 @@
     "dimensions": "产品尺寸：L:91mm  W:131mm  H:136mm",
     "description": "Taille de la carte d'emballage : L : 88 mm H : 132 mm Couramment utilisé dans le stockage de boissons, de lait et de gelées Marques/produits de référence : Capacité recommandée :",
     "slug": "plastic-food-food-pouch-4101",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "4107",
@@ -2813,7 +2813,7 @@
     "dimensions": "产品尺寸：L:83mm  H:138mm",
     "description": "Taille de la carte d'emballage : L : 83 mm H : 115 mm Couramment utilisé dans le stockage du ketchup, de la vinaigrette, de la vinaigrette Mille-Îles, de la sauce barbecue, de la sauce teriyaki Marque/produit de référence : ketchup Heinz Capacité recommandée : 120g",
     "slug": "plastic-stand-up-food-beverage-pouch-428",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "4299",
@@ -2857,7 +2857,7 @@
     "dimensions": "产品尺寸：L:330mm  w:100mm  H:250mm",
     "description": "Taille de la carte d'emballage : L : 330 mm L : 100 mm H : 250 mm Couramment utilisé pour le stockage de cadeaux, de vêtements et de nourriture Marque/produit de référence : sac de courses Capacité recommandée :",
     "slug": "handle-pouch-4316",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "433",
@@ -2868,7 +2868,7 @@
     "dimensions": "产品尺寸：L:100mmH:180mm",
     "description": "Taille de la carte d'emballage : L : 100 mm H : 180 mm Couramment utilisé dans le stockage du ketchup, de la vinaigrette, de la vinaigrette Mille-Îles, de la sauce barbecue, de la sauce teriyaki Marque/produit de référence : Sauce tomate Heinz Capacité recommandée : 320g",
     "slug": "plastic-stand-up-food-beverage-pouch-433",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "436",
@@ -2901,7 +2901,7 @@
     "dimensions": "产品尺寸：L:72mmW:43mmH:4mm",
     "description": "Taille du plan de conditionnement : L : 43 mm H : 72 mm Couramment utilisé dans le stockage de médicaments Marque/produit de référence : médicaments ronds Capacité recommandée : 12 comprimés",
     "slug": "plastic-pharma-442",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "443",
@@ -2912,7 +2912,7 @@
     "dimensions": "产品尺寸：L:100mmW:65mmH:5mm",
     "description": "Taille du plan d'emballage : L : 65 mm H : 100 mm Couramment utilisé dans les médicaments et le stockage des capsules Marque/produit de référence : médicaments en capsules Capacité recommandée : 10 comprimés",
     "slug": "plastic-pharma-443",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "444",
@@ -2923,7 +2923,7 @@
     "dimensions": "产品尺寸：L:90mmW:33mmH:7.8mm",
     "description": "Taille du plan d'emballage : L : 90 mm H : 33 mm Couramment utilisé dans le stockage de médicaments et de pilules Marque/produit de référence : pilules Capacité recommandée : 20 comprimés",
     "slug": "plastic-pharma-444",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "4455",
@@ -2956,7 +2956,7 @@
     "dimensions": "产品尺寸：L:130mm  W:30mm  H:155mm",
     "description": "Taille du plan d'emballage : L : 110 mm H : 155 mm Couramment utilisé dans le stockage du yaourt et du lait Marque/produit de référence : yaourt Capacité recommandée : 180 ml",
     "slug": "plastic-stand-up-food-beverage-pouch-cap-450",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "4511",
@@ -2967,7 +2967,7 @@
     "dimensions": "产品尺寸： L:400mm  W:400mm  H:420mm",
     "description": "Taille de la carte d'emballage : L : 1600 mm H : 420 mm Couramment utilisé pour le stockage de produits de première nécessité, de colis express, de boîtes à emporter et de boîtes isothermes Marques/produits de référence : Capacité recommandée : 2,5 kg",
     "slug": "food-box-4511",
-    "category": "Pouch"
+    "category": "Box"
   },
   {
     "id": "4512",
@@ -2978,7 +2978,7 @@
     "dimensions": "产品尺寸： L:400mm  W:400mm  H:420mm",
     "description": "Taille de la carte d'emballage : L : 1600 mm H : 420 mm Couramment utilisé pour le stockage de produits de première nécessité, de colis express, de boîtes à emporter et de boîtes isothermes Marques/produits de référence : Capacité recommandée : 2,5 kg",
     "slug": "food-box-4512",
-    "category": "Pouch"
+    "category": "Box"
   },
   {
     "id": "4519",
@@ -2989,7 +2989,7 @@
     "dimensions": "产品尺寸： L:350mm  W:350mm  H:120mm",
     "description": "Taille de la carte d'emballage : L : 470 mm L : 350 mm H : 240 mm Couramment utilisé pour le stockage des nécessités quotidiennes, des colis express, des boîtes à emporter et des boîtes isothermes Marques/produits de référence : Capacité recommandée : 15 L",
     "slug": "food-box-4519",
-    "category": "Pouch"
+    "category": "Box"
   },
   {
     "id": "4529",
@@ -3022,7 +3022,7 @@
     "dimensions": "产品尺寸：H:100mmD:95mm",
     "description": "Taille de la carte d'emballage : L : 298 mm H : 100 mm Couramment utilisé dans le stockage du papier en rouleau Marque/produit de référence : papier en rouleau Capacité recommandée : 130 g",
     "slug": "plastic-cleaning-pouch-460",
-    "category": "Pouch"
+    "category": "Box"
   },
   {
     "id": "4672",
@@ -3099,7 +3099,7 @@
     "dimensions": "产品尺寸：L:305mm  W:508mm",
     "description": "Taille de la carte d'emballage : L : 425 mm H : 508 mm Couramment utilisé dans les déchets ménagers et le stockage des nécessités quotidiennes. Marque/produit de référence : Capacité recommandée :",
     "slug": "plastic-cleaning-pouch-4732",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "4733",
@@ -3121,7 +3121,7 @@
     "dimensions": "产品尺寸：L:292mm  W:559mm",
     "description": "Taille du plan d'emballage : L : 432 mm H : 559 mm On le trouve couramment dans les ordures ménagères et le stockage des produits de première nécessité. Référence marque/produit : Capacité recommandée :",
     "slug": "plastic-cleaning-pouch-4735",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "477",
@@ -3132,7 +3132,7 @@
     "dimensions": "产品尺寸：L:52mm  D:37mm  H:135mm",
     "description": "Taille du plan d'emballage : L : 22 mm H : 62 mm Couramment utilisé dans le stockage de crème pour les mains Marque/produit de référence : crème pour les mains Capacité recommandée : 45 g",
     "slug": "plastic-cosmetic-cosmetic-477",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "4772",
@@ -3242,7 +3242,7 @@
     "dimensions": "产品尺寸：L:260mm  W:33mm  H:310mm",
     "description": "Taille de la carte d'emballage : L : 260 mm H : 310 mm Couramment utilisé pour le stockage de vêtements, de chaussures et de nécessités quotidiennes Marque/produit de référence : sac de courses pour nécessités quotidiennes Capacité recommandée :",
     "slug": "handle-pouch-492",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "493",
@@ -3253,7 +3253,7 @@
     "dimensions": "产品尺寸：L:350mm  W:220mm  H:430mm",
     "description": "Taille de la carte d'emballage : L : 350 mm H : 430 mm Couramment utilisé dans le stockage du riz, du sorgho, du soja et du mil Marque/produit de référence : riz Capacité recommandée : 5 kg",
     "slug": "food-beverage-pouch-493",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "4955",
@@ -3264,7 +3264,7 @@
     "dimensions": "产品尺寸：L:200mm  W:40mm  H:270mm",
     "description": "Taille de la carte d'emballage : L : 200 mm H : 270 mm Couramment utilisé dans le stockage d'assaisonnements alimentaires, de collations, de sauces et de bandes pour chats Marques/produits de référence : Capacité recommandée :",
     "slug": "stand-up-pouch-plastic-food-4955",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "4961",
@@ -3308,7 +3308,7 @@
     "dimensions": "产品尺寸：L:200mm  W:40mm  H:270mm",
     "description": "Taille de la carte d'emballage : L : 200 mm L : 100 mm H : 270 mm Couramment utilisé dans le stockage d'assaisonnements alimentaires, de collations, de sauces et de lanières pour chats Marques/produits de référence : Capacité recommandée :",
     "slug": "stand-up-pouch-plastic-food-5034",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "5048",
@@ -3319,7 +3319,7 @@
     "dimensions": "产品尺寸：L:56mm  W:57mm  H:110mm",
     "description": "Taille de la carte d'emballage : L : 56 mm L : 57 mm H : 110 mm Couramment utilisé pour le stockage des nécessités quotidiennes, des produits de beauté, des cosmétiques et des produits de soins de la peau Marque/produit de référence : Capacité recommandée :",
     "slug": "cosmetic-cosmetic-cosmetic-box-5048",
-    "category": "Pouch"
+    "category": "Box"
   },
   {
     "id": "5073",
@@ -3330,7 +3330,7 @@
     "dimensions": "产品尺寸：L:508mm    H:737mm",
     "description": "Taille de la carte d'emballage : L : 300 mm H : 400 mm L : 100 mm H : 90 mm Couramment utilisé dans le stockage de vêtements, de T-shirts, de vêtements et de vêtements. Marque/produit de référence : Capacité recommandée :",
     "slug": "packaging-5073",
-    "category": "Pouch"
+    "category": "T-shirt"
   },
   {
     "id": "5074",
@@ -3341,7 +3341,7 @@
     "dimensions": "产品尺寸：L:508mm    H:737mm",
     "description": "Taille de la carte d'emballage : L : 300 mm H : 400 mm L : 100 mm H : 90 mm Couramment utilisé dans le stockage de vêtements, de T-shirts, de vêtements et de vêtements. Marque/produit de référence : Capacité recommandée :",
     "slug": "packaging-5074",
-    "category": "Pouch"
+    "category": "T-shirt"
   },
   {
     "id": "5075",
@@ -3352,7 +3352,7 @@
     "dimensions": "产品尺寸：L:508mm    H:737mm",
     "description": "Taille de la carte d'emballage : L : 300 mm H : 400 mm L : 100 mm H : 90 mm Couramment utilisé dans le stockage de vêtements, de T-shirts, de vêtements et de vêtements. Marque/produit de référence : Capacité recommandée :",
     "slug": "packaging-5075",
-    "category": "Pouch"
+    "category": "T-shirt"
   },
   {
     "id": "5076",
@@ -3363,7 +3363,7 @@
     "dimensions": "产品尺寸：L:508mm    H:737mm",
     "description": "Taille de la carte d'emballage : L : 300 mm H : 400 mm L : 100 mm H : 90 mm Couramment utilisé dans le stockage de vêtements, de T-shirts, de vêtements et de vêtements. Marque/produit de référence : Capacité recommandée :",
     "slug": "packaging-5076",
-    "category": "Pouch"
+    "category": "T-shirt"
   },
   {
     "id": "5080",
@@ -3374,7 +3374,7 @@
     "dimensions": "产品尺寸：L:550mm    H:730mm",
     "description": "Taille de la carte d'emballage : L : 300 mm H : 400 mm L : 100 mm H : 90 mm Couramment utilisé dans le stockage de vêtements, de T-shirts, de vêtements et de vêtements. Marque/produit de référence : Capacité recommandée :",
     "slug": "packaging-5080",
-    "category": "Pouch"
+    "category": "T-shirt"
   },
   {
     "id": "5081",
@@ -3385,7 +3385,7 @@
     "dimensions": "产品尺寸：L:560mm    H:756mm",
     "description": "Taille de la carte d'emballage : L : 300 mm H : 400 mm Couramment utilisé dans le stockage de vêtements, T-shirts, vêtements et vêtements Marques/produits de référence : Capacité recommandée :",
     "slug": "packaging-5081",
-    "category": "Pouch"
+    "category": "T-shirt"
   },
   {
     "id": "5089",
@@ -3396,7 +3396,7 @@
     "dimensions": "产品尺寸：L:115mm  W:110mm  H:372mm",
     "description": "Taille de la carte d'emballage : L : 115 mm L : 110 mm H : 315 mm Couramment utilisé dans les aliments, les produits de première nécessité et le stockage à emporter Marque/produit de référence : sac à emporter Capacité recommandée :",
     "slug": "pouch-5089",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "5091",
@@ -3407,7 +3407,7 @@
     "dimensions": "产品尺寸：L:43mm  W:33mm  H:120mm",
     "description": "Taille de la carte d'emballage : L : 43 mm L : 33 mm H : 120 mm Couramment utilisé dans le stockage de collations décontractées, de gelées à fumer et de collations. Marque/produit de référence : Capacité recommandée :",
     "slug": "plastic-food-food-beverage-5091",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "5095",
@@ -3418,7 +3418,7 @@
     "dimensions": "产品尺寸：L:60mm  W:30mm  H:135mm",
     "description": "Taille de la carte d'emballage : L : 60 mm L : 30 mm H : 135 mm Couramment utilisé dans le stockage d'aliments, de collations, de gelées et d'aliments à fumer. Marque/produit de référence : Capacité recommandée :",
     "slug": "plastic-food-food-beverage-pouch-5095",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "5111",
@@ -3429,7 +3429,7 @@
     "dimensions": "产品尺寸：H:161mm  D:38mm",
     "description": "Taille de la carte d'emballage : L : 50 mm H : 128 mm Couramment utilisé dans le stockage de crèmes pour les yeux, de cosmétiques et de produits de beauté Marques/produits de référence : Capacité recommandée :",
     "slug": "cosmetic-cosmetic-cosmetic-tube-5111",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "5113",
@@ -3440,7 +3440,7 @@
     "dimensions": "产品尺寸：L:60mm  W:32mm  H:150mm",
     "description": "Taille de la carte d'emballage : L : 60 mm L : 32 mm H : 150 mm Couramment utilisé dans le stockage d'aliments, de collations, de gelées et d'aliments à fumer. Marque/produit de référence : Capacité recommandée :",
     "slug": "plastic-food-food-beverage-pouch-5113",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "5114",
@@ -3495,7 +3495,7 @@
     "dimensions": "产品尺寸：L:560mm   H:756mm",
     "description": "Taille de la carte d'emballage : L:mm H:mm Couramment utilisé dans le stockage de vêtements, de T-shirts, de vêtements et de vêtements. Marque/produit de référence : Capacité recommandée :",
     "slug": "packaging-5248",
-    "category": "Pouch"
+    "category": "T-shirt"
   },
   {
     "id": "5249",
@@ -3506,7 +3506,7 @@
     "dimensions": ".",
     "description": ".",
     "slug": "packaging-5249",
-    "category": "Pouch"
+    "category": "T-shirt"
   },
   {
     "id": "5296",
@@ -3550,7 +3550,7 @@
     "dimensions": "产品尺寸：L:205mm  w:113mm  H:270mm",
     "description": "Taille de la carte d'emballage : L : 636 mm H : 270 mm Couramment utilisé dans les plats à emporter et le stockage des aliments Marque/produit de référence : à emporter Capacité recommandée :",
     "slug": "handle-pouch-531",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "534",
@@ -3605,7 +3605,7 @@
     "dimensions": "产品尺寸：D:45mm  H:110mm",
     "description": "Taille de la carte d'emballage : L : 90 mm L : 84 mm H : 26 mm Couramment utilisé dans le stockage de produits de beauté, de produits de soins de la peau et d'essences Marque/produit de référence : Capacité recommandée :",
     "slug": "cosmetic-cosmetic-cosmetic-5421",
-    "category": "Pouch"
+    "category": "Box"
   },
   {
     "id": "545",
@@ -3627,7 +3627,7 @@
     "dimensions": "产品尺寸：L:70mm  H:140mm",
     "description": "Taille de la carte d'emballage : L : 120 mm H : 70 mm Couramment utilisé dans le stockage de gelées Marque/produit de référence : Gelée à sucer Xizhilang Capacité recommandée : 57 g",
     "slug": "plastic-food-food-pouch-546",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "5487",
@@ -3638,7 +3638,7 @@
     "dimensions": "产品尺寸：L:mm  W:mm  H:mm",
     "description": "Taille de la carte d'emballage : L : 400 mm H : 800 mm Couramment utilisé dans le stockage d'essences, de cosmétiques et de produits de soins de la peau. Marque/produit de référence : Capacité recommandée :",
     "slug": "shopping-bag-5487",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "5489",
@@ -3748,7 +3748,7 @@
     "dimensions": "产品尺寸：L:210mm W:110mm H:260mm",
     "description": "Taille de la carte d'emballage : L : 210 mm L : 110 mm H : 260 mm On le trouve couramment dans les emballages à emporter Marque/produit de référence : Sac d'emballage extérieur Capacité recommandée :",
     "slug": "handle-pouch-5806",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "581",
@@ -3770,7 +3770,7 @@
     "dimensions": "产品尺寸：L:410mm W:120mm H:290mm",
     "description": "Taille de la carte d'emballage : L : 410 mm L : 120 mm H : 290 mm Courant dans les sacs d'emballage tissés Marque/produit de référence : sacs d'emballage en sac tissé Capacité recommandée :",
     "slug": "handle-pouch-5810",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "5821",
@@ -3781,7 +3781,7 @@
     "dimensions": "产品尺寸：L:560mm W:140mm H:390mm",
     "description": "Taille de la carte d'emballage : L : 560 mm L : 140 mm H : 390 mm On le trouve couramment dans les sacs d'emballage tissés Marque/produit de référence : sacs d'emballage en sac tissé Capacité recommandée :",
     "slug": "handle-pouch-5821",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "5826",
@@ -3792,7 +3792,7 @@
     "dimensions": "产品尺寸：L:240mm W:150mm H:240mm",
     "description": "Taille de la carte d'emballage : L : 240 mm L : 150 mm H : 240 mm On le trouve couramment dans les emballages à emporter Marque/produit de référence : Sac d'emballage extérieur Capacité recommandée :",
     "slug": "handle-pouch-5826",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "5827",
@@ -3803,7 +3803,7 @@
     "dimensions": "产品尺寸：L:260mm W:170mm H:260mm",
     "description": "Taille du plan d'emballage : L : 260 mm L : 170 mm H : 260 mm On le trouve couramment dans les emballages à emporter Marque/produit de référence : Sac d'emballage extérieur Capacité recommandée :",
     "slug": "handle-pouch-5827",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "5828",
@@ -3814,7 +3814,7 @@
     "dimensions": "产品尺寸：L:120mm W:100mm H:280mm",
     "description": "Taille du plan d'emballage : L : 120 mm L : 100 mm H : 280 mm On le trouve couramment dans les emballages à emporter Marque/produit de référence : Sac d'emballage extérieur Capacité recommandée :",
     "slug": "handle-pouch-5828",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "5829",
@@ -3825,7 +3825,7 @@
     "dimensions": "产品尺寸：L:300mm W:200mm H:300mm",
     "description": "Taille du plan d'emballage : L : 300 mm L : 200 mm H : 300 mm Courant dans les emballages à emporter Marque/produit de référence : Sac d'emballage extérieur Capacité recommandée :",
     "slug": "handle-pouch-5829",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "5830",
@@ -3836,7 +3836,7 @@
     "dimensions": "产品尺寸：L:300mm W:260mm H:350mm",
     "description": "Taille du plan d'emballage : L : 300 mm L : 260 mm H : 350 mm On le trouve couramment dans les emballages à emporter Marque/produit de référence : Sac d'emballage extérieur Capacité recommandée :",
     "slug": "handle-pouch-5830",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "585",
@@ -3891,7 +3891,7 @@
     "dimensions": "产品尺寸：H:240mm  D:70mm",
     "description": "Taille de la carte d'emballage : L : 220 mm H : 219 mm Couramment utilisé dans le stockage des nouilles séchées Marque/produit de référence : Nouilles séchées Zhongyu Capacité recommandée : 1 kg",
     "slug": "food-beverage-pouch-593",
-    "category": "Pouch"
+    "category": "Box"
   },
   {
     "id": "595",
@@ -4056,7 +4056,7 @@
     "dimensions": "产品尺寸：L:240mm  H:285mm",
     "description": "Taille de la carte d'emballage : L : 240 mm H : 285 mm Couramment utilisé dans le stockage de détergent à lessive, de nettoyant pour cols, d'adoucissant et de désinfectant pour vêtements. Marque/produit de référence : Super Lessive Capacité recommandée : 1,8kg",
     "slug": "plastic-stand-up-cleaning-pouch-cap-630",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "632",
@@ -4298,7 +4298,7 @@
     "dimensions": "产品尺寸：H:35mm  D:42mm",
     "description": "Taille du plan d'emballage : L : 45 mm L : 42 mm Couramment utilisé dans le stockage de gelée, de pudding et de chocolat Marque/produit de référence : Planet Cup Capacité recommandée : 20 g",
     "slug": "plastic-food-beverage-783",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "785",
@@ -4309,7 +4309,7 @@
     "dimensions": "产品尺寸：H:30mm  D:45mm",
     "description": "Taille de la carte d'emballage : L : 45 mm L : 49 mm Couramment utilisé dans le stockage de gelées, de puddings et de préparation de café Marque/produit de référence : Capsules de café Starbucks Capacité recommandée : 23 g",
     "slug": "plastic-food-beverage-785",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "786",
@@ -4331,7 +4331,7 @@
     "dimensions": "产品尺寸：L:330mm  w:100mm  H:250mm",
     "description": "Taille de la carte d'emballage : L : 860 mm H : 250 mm Couramment utilisé pour le stockage de cadeaux, de vêtements et de nourriture Marque/produit de référence : sac de courses Capacité recommandée :",
     "slug": "handle-pouch-800",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "801",
@@ -4342,7 +4342,7 @@
     "dimensions": "产品尺寸：L:220mm  w:80mm  H:280mm",
     "description": "Taille de la carte d'emballage : L : 600 mm H : 280 mm Couramment utilisé pour le stockage de cadeaux, de vêtements et de nourriture Marque/produit de référence : sac de courses Capacité recommandée :",
     "slug": "handle-pouch-801",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "802",
@@ -4353,7 +4353,7 @@
     "dimensions": "产品尺寸：L:330mm  w:100mm  H:250mm",
     "description": "Taille de la carte d'emballage : L : 860 mm H : 250 mm Couramment utilisé pour le stockage de cadeaux, de vêtements et de nourriture Marque/produit de référence : sac de courses Capacité recommandée :",
     "slug": "handle-pouch-802",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "803",
@@ -4364,7 +4364,7 @@
     "dimensions": "产品尺寸：L:220mm  w:80mm  H:280mm",
     "description": "Taille de la carte d'emballage : L : 600 mm H : 280 mm Couramment utilisé pour le stockage de cadeaux, de vêtements et de nourriture Marque/produit de référence : sac de courses Capacité recommandée :",
     "slug": "handle-pouch-803",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "808",
@@ -4375,7 +4375,7 @@
     "dimensions": "产品尺寸：L:220mm  w:80mm  H:280mm",
     "description": "Taille de la carte d'emballage : L : 600 mm H : 280 mm Couramment utilisé pour le stockage de cadeaux, de vêtements et de nourriture Marque/produit de référence : sac de courses Capacité recommandée :",
     "slug": "handle-pouch-808",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "809",
@@ -4386,7 +4386,7 @@
     "dimensions": "产品尺寸：L:330mm  w:100mm  H:250mm",
     "description": "Taille de la carte d'emballage : L : 530 mm H : 250 mm Couramment utilisé pour le stockage de cadeaux, de vêtements et de nourriture Marque/produit de référence : sac de courses Capacité recommandée :",
     "slug": "handle-pouch-809",
-    "category": "Pouch"
+    "category": "Bag"
   },
   {
     "id": "850",
@@ -4496,7 +4496,7 @@
     "dimensions": "产品尺寸：L:68mm  H:40mm",
     "description": "Taille de la carte d'emballage : L : 52 mm H : 24 mm Couramment utilisé dans le stockage de pudding et de gelée Marque/produit de référence : Pudding à la mangue et à la noix de coco Capacité recommandée :",
     "slug": "plastic-food-beverage-box-888",
-    "category": "Pouch"
+    "category": "Tray"
   },
   {
     "id": "921",
@@ -4694,7 +4694,7 @@
     "dimensions": "产品尺寸：L:98mm  H:180mm",
     "description": "Taille de la carte d'emballage : L : 206 mm H : 155 mm Couramment utilisé dans le stockage de masques faciaux, masques de boue, masques nettoyants, masques à tartiner, ketchup, vinaigrette, vinaigrette Mille-Îles, sauce barbecue, sauce teriyaki Marque/produit de référence : masque japonais à base de lies de saké pdc Capacité recommandée : 170 g",
     "slug": "stand-up-pouch-plastic-cosmetic-cosmetic-pouch-975",
-    "category": "Pouch"
+    "category": "Spouted Pouch"
   },
   {
     "id": "976",
@@ -6520,7 +6520,7 @@
     "dimensions": "产品尺寸：L:68mm  H:40mm",
     "description": "Emballage贴图尺寸：L:52mm  H:24mm\n常见于布丁，果冻的收纳\n参考品牌/产品：椰香芒果布丁\n建议容量：",
     "slug": "box-packaging-888",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-1065",
@@ -6531,7 +6531,7 @@
     "dimensions": "产品尺寸：L:46mm  W:46mm  H:12mm",
     "description": "Emballage贴图尺寸：L:46mm  W:46mm\n常见于面膜、化妆品的收纳\n参考品牌/产品：面膜\n建议容量：5g",
     "slug": "box-packaging-1065",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-1119",
@@ -6575,7 +6575,7 @@
     "dimensions": "产品尺寸：H:85mm  D:180mm L:147mm",
     "description": "Emballage贴图尺寸：L:173mm  H:117mm\n常见于自热饭、自嗨锅的收纳\n参考品牌/产品：杜大厨自热饭\n建议容量：360g",
     "slug": "box-packaging-1142",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-1143",
@@ -6597,7 +6597,7 @@
     "dimensions": "产品尺寸：H:111mm  D:220mm L:233mm",
     "description": "Emballage贴图尺寸：L:200mm  H:200mm\n常见于自热火锅，自热饭的收纳\n参考品牌/产品：开小灶自热火锅\n建议容量：350g",
     "slug": "box-packaging-1144",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-1197",
@@ -6641,7 +6641,7 @@
     "dimensions": "产品尺寸：H:115mm  D:185mm L:155mm",
     "description": "Emballage贴图尺寸：L:138mm  H:138mm\n常见于自热饭、自嗨锅的收纳\n参考品牌/产品：自嗨锅自热米饭\n建议容量：260g",
     "slug": "box-packaging-1208",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-1210",
@@ -6652,7 +6652,7 @@
     "dimensions": "产品尺寸：L:170mm  W:170mm  H:90mm",
     "description": "Emballage贴图尺寸：L:160mm  W:160mm\n常见于一次性Plastic Box、面食类的收纳\n参考品牌/产品：莫小仙网红自热火锅煲仔饭\n建议容量：245g",
     "slug": "box-packaging-1210",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-1211",
@@ -6685,7 +6685,7 @@
     "dimensions": "产品尺寸：H:80mm  D:141mm L:149mm",
     "description": "Emballage贴图尺寸：L:141mm  H:149mm\n常见于泡面的收纳\n参考品牌/产品：农心牌牛肉泡菜味拉面\n建议容量：82g",
     "slug": "box-packaging-1277",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-1284",
@@ -6718,7 +6718,7 @@
     "dimensions": "产品尺寸：L:95mm H:110mm ",
     "description": "Emballage贴图尺寸：L:38mm  H:55mm\n常见于奶昔、Yaourt的收纳\n参考品牌/产品：Yaourt\n建议容量：500ml",
     "slug": "box-packaging-1472",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-1476",
@@ -6729,7 +6729,7 @@
     "dimensions": "产品尺寸：L:72mm H:76mm ",
     "description": "Emballage贴图尺寸：L:198mm  H:60mm\n常见于果冻、Yaourt的收纳\n参考品牌/产品：果冻\n建议容量：120ml",
     "slug": "box-packaging-1476",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-1483",
@@ -6740,7 +6740,7 @@
     "dimensions": "产品尺寸：L:90mm H:115mm ",
     "description": "Emballage贴图尺寸：L:254mm  H:96mm\n常见于Thé au Lait、Yaourt的收纳\n参考品牌/产品：Thé au Lait\n建议容量：520ml",
     "slug": "box-packaging-1483",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-1484",
@@ -6773,7 +6773,7 @@
     "dimensions": "产品尺寸：L:123mm H:125mm ",
     "description": "Emballage贴图尺寸：L:364mm  H:111mm\n常见于Yaourt、牛奶的收纳\n参考品牌/产品：Yaourt\n建议容量：180ml",
     "slug": "box-packaging-1490",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-1491",
@@ -6784,7 +6784,7 @@
     "dimensions": "产品尺寸：L:103mm  W:95mm H:60mm ",
     "description": "Emballage贴图尺寸：L:280mm  H:40mm\n常见于Yaourt、雪糕的收纳\n参考品牌/产品：Yaourt\n建议容量：",
     "slug": "box-packaging-1491",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-1493",
@@ -6795,7 +6795,7 @@
     "dimensions": "产品尺寸：L:145mm  W:98mm H:52mm ",
     "description": "Emballage贴图尺寸：L:111mm  H:80mm\n常见于黄油、Yaourt的收纳\n参考品牌/产品：黄油\n建议容量：",
     "slug": "box-packaging-1493",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-1494",
@@ -6806,7 +6806,7 @@
     "dimensions": "产品尺寸：D:120mm  H:73mm ",
     "description": "Emballage贴图尺寸：L:76mm  H:76mm\n常见于Yaourt、布丁、AlimentationBoisson的收纳\n参考品牌/产品：Yaourt\n建议容量：300ml",
     "slug": "box-packaging-1494",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-1497",
@@ -6817,7 +6817,7 @@
     "dimensions": "产品尺寸：L:74mm  W:72mm H:49mm ",
     "description": "Emballage贴图尺寸：L:68mm  H:66mm\n常见于鲜辣酱、黄油的收纳\n参考品牌/产品：鲜辣酱\n建议容量：130ml",
     "slug": "box-packaging-1497",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-1504",
@@ -6828,7 +6828,7 @@
     "dimensions": "产品尺寸：L:154mm  W:94mm  H:69mm",
     "description": "Emballage贴图尺寸：L:100mm  H:54mm\n常见于速食产品、加热米饭、洗衣凝珠、辣椒酱的收纳\n参考品牌/产品：速食产品\n建议容量：275g",
     "slug": "box-packaging-1504",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-1506",
@@ -6839,7 +6839,7 @@
     "dimensions": "产品尺寸：D:72mm  H:117mm ",
     "description": "Emballage贴图尺寸：L:201mm  H:102mm\n常见于奶昔，Yaourt的收纳\n参考品牌/产品：孔多里多纯醇奶昔\n建议容量：200ml",
     "slug": "box-packaging-1506",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-1516",
@@ -6850,7 +6850,7 @@
     "dimensions": "产品尺寸：D:92mm  H:117mm ",
     "description": "Emballage贴图尺寸：L:198mm  H:65mm\n常见于Thé au Lait，Yaourt的收纳\n参考品牌/产品：Thé au Lait\n建议容量：",
     "slug": "box-packaging-1516",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-1517",
@@ -6861,7 +6861,7 @@
     "dimensions": "产品尺寸：L:190mm  W:130mm  H:82mm",
     "description": "Emballage贴图尺寸：L:175mm  H:115mm\n常见于Bonbon类、饼干类、零食类的收纳\n参考品牌/产品：上品牛轧糖\n建议容量：256g",
     "slug": "box-packaging-1517",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-1518",
@@ -6872,7 +6872,7 @@
     "dimensions": "产品尺寸：D:78mm  H:47mm ",
     "description": "Emballage贴图尺寸：L:216mm  H:31mm\n常见于布丁，Yaourt的收纳\n参考品牌/产品：百吉福布丁\n建议容量：56g",
     "slug": "box-packaging-1518",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-1545",
@@ -6883,7 +6883,7 @@
     "dimensions": "产品尺寸：L:164mm  W:90mm H:50mm",
     "description": "Emballage贴图尺寸：L:39mm  H:173mm\n常见于蛋挞、蛋糕的收纳\n参考品牌/产品：蛋挞\n建议容量：",
     "slug": "box-packaging-1545",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-1922",
@@ -6916,7 +6916,7 @@
     "dimensions": "产品尺寸：L:203mm  W:143mm  H:50mm ",
     "description": "Emballage贴图尺寸：L:203mm  H:143mm\n常见于螺蛳粉、泡面的收纳\n参考品牌/产品：泡面\n建议容量：",
     "slug": "box-packaging-2052",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-2208",
@@ -6949,7 +6949,7 @@
     "dimensions": "产品尺寸：L:82mm  H:152mm ",
     "description": "Emballage贴图尺寸：L:232mm  H:113mm\n常见于Thé au Lait，Yaourt的收纳\n参考品牌/产品：香飘飘臻乳茶\n建议容量：340ml",
     "slug": "box-packaging-2296",
-    "category": "Box"
+    "category": "Cup"
   },
   {
     "id": "BX-2698",
@@ -6960,7 +6960,7 @@
     "dimensions": "产品尺寸：D:90mm H:200mm",
     "description": "Emballage贴图尺寸：L:540mm  H:174mm\n常见于衣服、袜子、生活用品的收纳\n参考品牌/产品：衣服\n建议容量：",
     "slug": "box-packaging-2698",
-    "category": "Box"
+    "category": "Cup"
   },
   {
     "id": "BX-2756",
@@ -6982,7 +6982,7 @@
     "dimensions": "产品尺寸：L:154mm  W:94mm  H:69mm",
     "description": "Emballage贴图尺寸：L:93mm  H:390mm\n常见于速食产品、加热米饭、洗衣凝珠、辣椒酱的收纳\n参考品牌/产品：速食产品\n建议容量：275g",
     "slug": "box-packaging-2942",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-2956",
@@ -6993,7 +6993,7 @@
     "dimensions": "产品尺寸：L:230mm W:130mm H:52mm ",
     "description": "Emballage贴图尺寸：L:80mm  H:323mm\n常见于沙拉、外卖的收纳\n参考品牌/产品：外卖盒\n建议容量：850ml",
     "slug": "box-packaging-2956",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-2958",
@@ -7004,7 +7004,7 @@
     "dimensions": "产品尺寸：L:80mm W:80mm H:35mm ",
     "description": "Emballage贴图尺寸：L:68mm  H:235mm\n常见于蛋糕、甜品的收纳\n参考品牌/产品：蛋糕盒\n建议容量：150ml",
     "slug": "box-packaging-2958",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-2987",
@@ -7015,7 +7015,7 @@
     "dimensions": "产品尺寸：L:230mm W:130mm H:52mm ",
     "description": "Emballage贴图尺寸：L:80mm  H:323mm\n常见于沙拉、外卖的收纳\n参考品牌/产品：外卖盒\n建议容量：850ml",
     "slug": "box-packaging-2987",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-3006",
@@ -7026,7 +7026,7 @@
     "dimensions": "产品尺寸：D:70mm H:71mm ",
     "description": "Emballage贴图尺寸：L:192mm  H:49mm\n常见于牛奶、Yaourt的收纳\n参考品牌/产品：Yaourt\n建议容量：200ml",
     "slug": "box-packaging-3006",
-    "category": "Box"
+    "category": "Cup"
   },
   {
     "id": "BX-3020",
@@ -7037,7 +7037,7 @@
     "dimensions": "产品尺寸：D:68mm H:71mm ",
     "description": "Emballage贴图尺寸：L:207mm  H:42mm\n常见于牛奶、Yaourt、布丁的收纳\n参考品牌/产品：布丁\n建议容量：",
     "slug": "box-packaging-3020",
-    "category": "Box"
+    "category": "Cup"
   },
   {
     "id": "BX-3069",
@@ -7048,7 +7048,7 @@
     "dimensions": "产品尺寸：L:240mm  W:120mm  H:303mm",
     "description": "Emballage贴图尺寸：L:240mm  W:120mm  H:200mm\n常见于甜品，零食，日用品的收纳\n参考品牌/产品：甜品Sac en Papier\n建议容量：",
     "slug": "box-packaging-3069",
-    "category": "Box"
+    "category": "Bag"
   },
   {
     "id": "BX-3251",
@@ -7081,7 +7081,7 @@
     "dimensions": "产品尺寸：L:205mm W:105mm H:60mm ",
     "description": "Emballage贴图尺寸：L:270mm  H:40mm\n常见于AlimentationBoisson、Boîte de Gâteau de Dessert、面包、甜甜圈的收纳\n参考品牌/产品：鸡排三明治\n建议容量：160g",
     "slug": "box-packaging-3342",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-3413",
@@ -7103,7 +7103,7 @@
     "dimensions": "产品尺寸：L:54mm  W:44mm  H:20mm",
     "description": "Emballage贴图尺寸：L:54mm  H:44mm\n常见于Condiment、番茄酱、Pot de Sauce Aigre-Douce的收纳\n参考品牌/产品：Pot de Sauce Aigre-Douce\n建议容量：20g",
     "slug": "box-packaging-3428",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-3459",
@@ -7114,7 +7114,7 @@
     "dimensions": "产品尺寸：L:175mm  W:135mm  H:70mm",
     "description": "Emballage贴图尺寸：L:90mm  H:60mm\n常见于的收纳水果，Légume，蛋糕，糕点，零食\n参考品牌/产品：水果\n建议容量：",
     "slug": "box-packaging-3459",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-3460",
@@ -7125,7 +7125,7 @@
     "dimensions": "产品尺寸：L:225mm  W:185mm  H:55mm",
     "description": "Emballage贴图尺寸：L:120mm  H:90mm\n常见于的收纳水果，Légume，蛋糕，糕点，零食\n参考品牌/产品：糕点\n建议容量：",
     "slug": "box-packaging-3460",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-3462",
@@ -7136,7 +7136,7 @@
     "dimensions": "产品尺寸：L:210mm  W:210mm  H:50mm",
     "description": "Emballage贴图尺寸：L:80mm  H:120mm\n常见于的收纳水果，Légume，蛋糕，糕点，零食\n参考品牌/产品：水果\n建议容量：",
     "slug": "box-packaging-3462",
-    "category": "Box"
+    "category": "Tray"
   },
   {
     "id": "BX-3587",
@@ -7147,7 +7147,7 @@
     "dimensions": "产品尺寸：L:90mm W:25mm H:60mm ",
     "description": "Emballage贴图尺寸：L:115mm  H:130mm\n常见于零食、日用品的收纳\n参考品牌/产品：枕头盒\n建议容量：",
     "slug": "box-packaging-3587",
-    "category": "Box"
+    "category": "Cup"
   },
   {
     "id": "BX-3588",
@@ -7158,7 +7158,7 @@
     "dimensions": "产品尺寸：D:250mm  H:115mm",
     "description": "Emballage贴图尺寸：L:250  W:26mm  H:87mm\n常见于CollationAlimentation、Boîte pour Biscuits et Pâtisserie、干货、炒货的收纳\n参考品牌/产品：蛋糕糕点\n建议容量：",
     "slug": "box-packaging-3588",
-    "category": "Box"
+    "category": "Cup"
   },
   {
     "id": "BX-3612",
@@ -7180,7 +7180,7 @@
     "dimensions": "产品尺寸：L:89mm W:30mm H:97mm ",
     "description": "Emballage贴图尺寸：L:85mm  H:97mm\n常见于零食、Frites的收纳\n参考品牌/产品：麦当劳Frites盒\n建议容量：",
     "slug": "box-packaging-3614",
-    "category": "Box"
+    "category": "Cup"
   },
   {
     "id": "BX-3721",
@@ -7213,7 +7213,7 @@
     "dimensions": "产品尺寸：L:100mm  W: 55mm  H:172mm",
     "description": "Emballage贴图尺寸：L:100mm  W: 100mm  H:100mm\n常见于Frites，零食的收纳\n参考品牌/产品：Frites盒\n建议容量：",
     "slug": "box-packaging-3889",
-    "category": "Box"
+    "category": "Cup"
   },
   {
     "id": "BX-3890",
@@ -7224,7 +7224,7 @@
     "dimensions": "产品尺寸：L:100mm  W: 50mm  H:119mm",
     "description": "Emballage贴图尺寸：L:100mm  W: 100mm  H:100mm\n常见于Frites，零食的收纳\n参考品牌/产品：Frites盒\n建议容量：",
     "slug": "box-packaging-3890",
-    "category": "Box"
+    "category": "Cup"
   },
   {
     "id": "BX-4044",

@@ -27,6 +27,7 @@ const CustomBoxesPage: React.FC = () => {
       secondaryKeywords={["custom printed boxes", "corrugated mailers", "folding cartons"]}
       schemaType="Product"
       language={lang}
+      infographicSrc="/imgs/knowledge/explorer_box_infographic.jpg"
       
       overviewTitle={t(`${baseKey}.overviewTitle`) as string}
       overviewContent={t(`${baseKey}.overviewContent`) as string}

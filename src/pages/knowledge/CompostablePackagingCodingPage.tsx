@@ -181,13 +181,18 @@ export default function CompostablePackagingCodingPage() {
       title: t.ryanTitle,
       icon: <Leaf className="h-6 w-6 text-emerald-600" />,
       content: (
-        <div className="bg-emerald-950 text-emerald-100 p-6 rounded-2xl border border-emerald-800 text-left">
+        <div className="space-y-6">
+          <div className="w-full rounded-2xl overflow-hidden border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <img src="/imgs/knowledge/explorer_tech_infographic.jpg" alt="Packaging Tech Guide" className="w-full h-auto" />
+          </div>
+          <div className="bg-emerald-950 text-emerald-100 p-6 rounded-2xl border border-emerald-800 text-left">
           <p className="text-emerald-400 text-xs font-semibold mb-2 uppercase tracking-wide">
             {langKey === 'zh' ? '環保包裝打碼工程筆記' : 'Eco Engineering Memo'}
           </p>
           <p className="text-emerald-100 text-xs leading-relaxed italic">
             "{t.ryanLog}"
           </p>
+        </div>
         </div>
       )
     },

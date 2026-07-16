@@ -27,16 +27,7 @@
         meta.setAttribute('content', content);
       };
 
-      // Fix canonical to always be absolute
-      let canonical = document.querySelector('link[rel="canonical"]');
-      if (!canonical) {
-        canonical = document.createElement('link');
-        canonical.rel = 'canonical';
-        document.head.appendChild(canonical);
-      }
-      canonical.href = fullUrl;
-      updateMeta('og:url', fullUrl, true);
-      updateMeta('twitter:url', fullUrl, false);
+      // Canonical, og:url, and twitter:url are managed by react-helmet-async
 
       if (isPouch) {
         document.title = 'Pouch.eco - Eco Packaging for Startups';
@@ -111,7 +102,6 @@
   <meta name="ChatGPT" content="index" />
   <meta name="perplexity-bot" content="index" />
   <meta name="claude-bot" content="index" />
-  <link rel="canonical" href="https://achievepack.com/" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />

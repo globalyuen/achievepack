@@ -4,7 +4,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js';
-import { Layers, Box, Database, Tag, Grid } from 'lucide-react';
+import { Layers, Box, Database, Tag, Grid, Droplet, Grid3X3, Coffee, ShoppingBag, Shirt } from 'lucide-react';
 import Footer from '../components/Footer';
 import SiteHeader from '../components/SiteHeader';
 
@@ -238,7 +238,7 @@ export default function PackageEditorPage() {
 
   const [shapes, setShapes] = useState<Shape[]>([]);
   const [selectedShapeId, setSelectedShapeId] = useState<string>('');
-  const [activeCategory, setActiveCategory] = useState<'pouch' | 'box' | 'bottle' | 'label' | 'other'>('pouch');
+  const [activeCategory, setActiveCategory] = useState<string>('pouch');
   const [layers, setLayers] = useState<Layer[]>([]);
   const [selectedLayer, setSelectedLayer] = useState<Layer | null>(null);
   const [width, setWidth] = useState<number>(6.69);
@@ -354,19 +354,25 @@ export default function PackageEditorPage() {
     const isBox = cat === 'Box';
     const isBottle = cat === 'Bottle';
     const isLabel = cat === 'Label';
-    return { isPouch, isBox, isBottle, isLabel };
+    const isSpoutedPouch = cat === 'Spouted Pouch';
+    const isTray = cat === 'Tray';
+    const isCup = cat === 'Cup';
+    const isBag = cat === 'Bag';
+    const isTshirt = cat === 'T-shirt';
+    return { isPouch, isBox, isBottle, isLabel, isSpoutedPouch, isTray, isCup, isBag, isTshirt };
   };
 
   // Filter shapes based on the active tab category
   const filteredShapes = React.useMemo(() => {
     return shapes.filter((shape) => {
-      const { isPouch, isBox, isBottle, isLabel } = detectCategory(shape);
-      if (activeCategory === 'box') return isBox;
-      if (activeCategory === 'pouch') return isPouch;
-      if (activeCategory === 'bottle') return isBottle;
-      if (activeCategory === 'label') return isLabel;
-      if (activeCategory === 'other') return !isBox && !isPouch && !isBottle && !isLabel;
-      return true;
+      const cat = (shape.category || 'Other').toLowerCase();
+      if (activeCategory === cat) return true;
+      
+      const knownCategories = ['pouch', 'spouted pouch', 'box', 'bottle', 'tray', 'cup', 'bag', 't-shirt', 'label'];
+      if (activeCategory === 'other') {
+        return !knownCategories.includes(cat);
+      }
+      return false;
     });
   }, [shapes, activeCategory]);
 
@@ -1360,13 +1366,14 @@ export default function PackageEditorPage() {
               setSelectedShapeId(shape.id);
               setViewMode('editor');
               loadShape(shape, d.width, d.height, d.layers, d.unit);
-              // Switch active category (using shared detectCategory helper)
-              const { isPouch, isBox, isBottle, isLabel } = detectCategory(shape);
-              if (isPouch) setActiveCategory('pouch');
-              else if (isBox) setActiveCategory('box');
-              else if (isBottle) setActiveCategory('bottle');
-              else if (isLabel) setActiveCategory('label');
-              else setActiveCategory('other');
+              // Switch active category
+              const cat = (shape.category || 'Other').toLowerCase();
+              const knownCategories = ['pouch', 'spouted pouch', 'box', 'bottle', 'tray', 'cup', 'bag', 't-shirt', 'label'];
+              if (knownCategories.includes(cat)) {
+                setActiveCategory(cat);
+              } else {
+                setActiveCategory('other');
+              }
             } else {
               // Load default model template with saved custom sizes & layers
               setSelectedShapeId('');
@@ -1391,13 +1398,14 @@ export default function PackageEditorPage() {
 
           loadShape(shape, presetW, presetH, presetArt, unitParam || 'inch');
 
-          // Automatically switch active tab category (using shared detectCategory helper)
-          const { isPouch, isBox, isBottle, isLabel } = detectCategory(shape);
-          if (isPouch) setActiveCategory('pouch');
-          else if (isBox) setActiveCategory('box');
-          else if (isBottle) setActiveCategory('bottle');
-          else if (isLabel) setActiveCategory('label');
-          else setActiveCategory('other');
+          // Automatically switch active tab category
+          const cat = (shape.category || 'Other').toLowerCase();
+          const knownCategories = ['pouch', 'spouted pouch', 'box', 'bottle', 'tray', 'cup', 'bag', 't-shirt', 'label'];
+          if (knownCategories.includes(cat)) {
+            setActiveCategory(cat);
+          } else {
+            setActiveCategory('other');
+          }
         }
       } else {
         // 3. Absolute default: load default blank model
@@ -2094,8 +2102,13 @@ export default function PackageEditorPage() {
             <div className="flex flex-wrap items-center bg-[rgba(16,20,28,0.7)] border border-[rgba(255,255,255,0.08)] rounded-xl p-1 gap-1">
               {[
                 { id: 'pouch', label: 'Pouch', icon: <Layers className="w-4 h-4" /> },
+                { id: 'spouted pouch', label: 'Spouted Pouch', icon: <Droplet className="w-4 h-4" /> },
                 { id: 'box', label: 'Box', icon: <Box className="w-4 h-4" /> },
                 { id: 'bottle', label: 'Bottle', icon: <Database className="w-4 h-4" /> },
+                { id: 'tray', label: 'Tray', icon: <Grid3X3 className="w-4 h-4" /> },
+                { id: 'cup', label: 'Cup', icon: <Coffee className="w-4 h-4" /> },
+                { id: 'bag', label: 'Bag', icon: <ShoppingBag className="w-4 h-4" /> },
+                { id: 't-shirt', label: 'T-shirt', icon: <Shirt className="w-4 h-4" /> },
                 { id: 'label', label: 'Label', icon: <Tag className="w-4 h-4" /> },
                 { id: 'other', label: 'Other', icon: <Grid className="w-4 h-4" /> }
               ].map(tab => (

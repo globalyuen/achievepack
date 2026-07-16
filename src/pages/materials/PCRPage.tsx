@@ -122,6 +122,9 @@ const PCRPage: React.FC = () => {
       icon: <Recycle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
+          <div className="mb-8 w-full rounded-2xl overflow-hidden border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <img src="/imgs/knowledge/explorer_pcr_infographic.jpg" alt="PCR Packaging Guide" className="w-full h-auto" />
+          </div>
           <p>
             <strong>{t(`${p}.sections.overview.intro`)}</strong>
           </p>

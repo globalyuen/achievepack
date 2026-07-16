@@ -12,6 +12,7 @@ const DigitalPrintingPage: React.FC = () => {
       icon: <Palette className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
+          <img src="/imgs/knowledge/explorer_printing_infographic.jpg" alt="Digital Printing Technical Breakdown" className="w-full rounded-2xl shadow-lg border border-neutral-200 mb-6" />
           <p>
             <strong>Achieve Pack's digital printing technology enables unlimited colors, photographic quality, and variable data printing on sustainable packaging.</strong> Perfect for small batches, seasonal designs, and brands that need flexibility without minimum order commitments.
           </p>

@@ -252,6 +252,9 @@ const WhatIsRecyclablePage: React.FC = () => {
           <section className="py-16 bg-white">
             <div className="max-w-4xl mx-auto px-4">
               <div className="prose prose-lg max-w-none">
+                <div className="mb-8 w-full rounded-2xl overflow-hidden border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                  <img src="/imgs/knowledge/explorer_recyclable_infographic.jpg" alt="Recyclable Packaging Guide" className="w-full h-auto" />
+                </div>
                 <p className="text-xl text-neutral-700 leading-relaxed mb-6">
                   {t('seoPages.pages.whatIsRecyclable.intro.p1')}
                 </p>

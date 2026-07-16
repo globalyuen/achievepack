@@ -32,6 +32,7 @@ export interface FooterSEOPageProps {
   targetUrl: string
   language?: string
   schemaType?: 'Article' | 'Product' | 'FAQPage' | 'WebPage' | 'Service'
+  infographicSrc?: string
 }
 
 const FooterSEOPageTemplate: React.FC<FooterSEOPageProps> = (props) => {
@@ -74,6 +75,11 @@ const FooterSEOPageTemplate: React.FC<FooterSEOPageProps> = (props) => {
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
            <h2 className={`text-3xl md:text-5xl font-black mb-8 ${isPouch ? 'uppercase tracking-tighter' : ''}`}>{props.overviewTitle}</h2>
+           {props.infographicSrc && (
+             <div className="mb-10 w-full rounded-2xl overflow-hidden border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+               <img src={props.infographicSrc} alt={props.overviewTitle} className="w-full h-auto" />
+             </div>
+           )}
            <p className={`text-lg md:text-xl text-neutral-700 leading-relaxed ${isPouch ? 'font-mono' : ''}`}>{props.overviewContent}</p>
         </div>
       </section>

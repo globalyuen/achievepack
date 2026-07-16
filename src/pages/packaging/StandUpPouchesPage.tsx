@@ -27,6 +27,7 @@ const StandUpPouchesPage: React.FC = () => {
       secondaryKeywords={["Doypack pouches", "stand up bags", "custom printed pouches"]}
       schemaType="Product"
       language={lang}
+      infographicSrc="/imgs/knowledge/explorer_pouch_infographic.jpg"
       
       overviewTitle={t(`${baseKey}.overviewTitle`) as string}
       overviewContent={t(`${baseKey}.overviewContent`) as string}

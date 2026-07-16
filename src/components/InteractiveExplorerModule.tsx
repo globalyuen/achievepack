@@ -15,7 +15,12 @@ export default function InteractiveExplorerModule({ category }: InteractiveExplo
   
   // Normalize category or fallback to empty
   const catKey = category.toLowerCase();
-  const images = EXPLORER_DATA[catKey] || [];
+  let images = [];
+  if (catKey === 'all') {
+    images = Object.values(EXPLORER_DATA).flat();
+  } else {
+    images = EXPLORER_DATA[catKey] || [];
+  }
 
   // Reset index when category changes
   useEffect(() => {

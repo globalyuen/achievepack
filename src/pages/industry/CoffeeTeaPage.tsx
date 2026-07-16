@@ -19,6 +19,9 @@ const CoffeeTeaPage: React.FC = () => {
       icon: <Beaker className="h-5 w-5 text-amber-700" />,
       content: (
         <div className="space-y-4 text-neutral-700 leading-relaxed">
+          <div className="mb-8 w-full rounded-2xl overflow-hidden border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <img src="/imgs/knowledge/explorer_industry_infographic.jpg" alt="Coffee and Tea Packaging Guide" className="w-full h-auto" />
+          </div>
           <p className="text-lg">
             Specialty coffee beans and fine loose-leaf teas are highly sensitive agricultural products. Immediately after roasting, coffee beans release large volumes of carbon dioxide (CO2), which can swell or rupture a sealed pouch. At the same time, oxygen exposure destroys delicate roasted coffee oils and tea terpenes within days, turning vibrant aromatics flat and stale.
           </p>

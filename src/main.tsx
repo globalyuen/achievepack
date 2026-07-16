@@ -837,6 +837,7 @@ const MonoMaterialFoundationPage = lazyWithRetry(() => import('./pages/recyclabl
 // 404 Page - Lazy loaded
 const TopicDirectoryPage = lazyWithRetry(() => import('./pages/TopicDirectoryPage'))
 const NotFoundPage = lazyWithRetry(() => import('./pages/NotFoundPage'))
+const ImageGalleryPage = lazyWithRetry(() => import('./pages/knowledge/ImageGalleryPage'))
 
 // Reviews Page - Lazy loaded
 const ReviewsPage = lazyWithRetry(() => import('./pages/ReviewsPage'))
@@ -930,6 +931,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/knowledge/size-guide" element={<PouchKnowledgeSizeGuidePage />} />
                   <Route path="/knowledge/pouch-sizing" element={<PouchPouchSizingPage />} />
                   <Route path="/knowledge/printing-types" element={<PouchPrintingTypesPage />} />
+                  <Route path="/gallery" element={<ImageGalleryPage />} />
                   <Route path="/knowledge/workflow" element={<PouchWorkflowPage />} />
                   <Route path="/knowledge/k-seal-stand-up-pouches" element={<PouchKSealStandUpPouchesPage />} />
                   <Route path="/knowledge/white-ink-underprint" element={<PouchWhiteInkUnderprintPage />} />
@@ -1691,6 +1693,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/knowledge/size-guide" element={<SizeGuidePage />} />
                         <Route path="/knowledge/pouch-sizing" element={<PouchSizingPage />} />
                         <Route path="/knowledge/printing-types" element={<PrintingTypesPage />} />
+                        <Route path="/gallery" element={<ImageGalleryPage />} />
                         <Route path="/knowledge/workflow" element={<WorkflowPage />} />
                         <Route path="/knowledge/k-seal-stand-up-pouches" element={<KSealStandUpPouchesPage />} />
                         <Route path="/knowledge/white-ink-underprint" element={<WhiteInkUnderprintPage />} />
