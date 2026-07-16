@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-16",
-  "total_images": 5495,
+  "total_images": 5496,
   "total_categories": 288,
   "extensions": {
     ".webp": 1355,
     ".png": 3160,
-    ".jpg": 976,
+    ".jpg": 977,
     ".svg": 4
   },
   "categories": {
@@ -12753,8 +12753,14 @@
       ]
     },
     "knowledge": {
-      "count": 306,
+      "count": 307,
       "images": [
+        {
+          "filename": "composting-circular-lifecycle.jpg",
+          "path": "/imgs/knowledge/composting-circular-lifecycle.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T02:50:30.150Z"
+        },
         {
           "filename": "composting-anatomy-diagram.jpg",
           "path": "/imgs/knowledge/composting-anatomy-diagram.jpg",

@@ -187,7 +187,7 @@ const ALL_PAGES = Object.entries(LEARN_PAGES).flatMap(([key, category]) =>
   }))
 )
 
-const HOTSPOTS = [
+const ANATOMY_HOTSPOTS = [
   {
     id: 'outer-kraft',
     name: 'Outer Kraft Paper Layer',
@@ -278,7 +278,64 @@ const HOTSPOTS = [
     y: 63,
     placement: 'left'
   }
-]
+];
+
+const LIFECYCLE_HOTSPOTS = [
+  {
+    id: 'raw-materials',
+    name: '1. Plant-Based Raw Materials',
+    desc: 'Polylactic acid (PLA) derived from cornstarch, sugarcane pulp, and natural cellulose wood fibers.',
+    link: '/materials/compostable',
+    x: 21,
+    y: 35,
+    placement: 'bottom'
+  },
+  {
+    id: 'manufacturing',
+    name: '2. Sustainable Manufacturing',
+    desc: 'Eco-friendly pouch fabrication, technical lamination, and precision TIJ inkjet date coding.',
+    link: '/industry/compostable-laminated-film',
+    x: 50,
+    y: 35,
+    placement: 'bottom'
+  },
+  {
+    id: 'retail-use',
+    name: '3. Branding & Retail Use',
+    desc: 'High-barrier custom compostable stand-up coffee pouches, side gussets, and sugarcane boxes ready for shelf.',
+    link: '/products/compostable-coffee-bags',
+    x: 76,
+    y: 35,
+    placement: 'left'
+  },
+  {
+    id: 'disposal',
+    name: '4. Disposal Options',
+    desc: 'Sorting and waste collection for local home composting bins or industrial organic processing facilities.',
+    link: '/composting/home-vs-industrial-compostable',
+    x: 82,
+    y: 72,
+    placement: 'left'
+  },
+  {
+    id: 'biodegradation',
+    name: '5. Microbe Biodegradation',
+    desc: 'Natural enzymatic activity breaking down biopolymers under ASTM D6400 / EN 13432 compost certification standards.',
+    link: '/topics/compostable-certification',
+    x: 50,
+    y: 72,
+    placement: 'top'
+  },
+  {
+    id: 'soil-return',
+    name: '6. Nutrient Soil Return',
+    desc: 'Soil enrichment and agricultural plant nutrient uptake, completing the zero-waste circular pipeline.',
+    link: '/composting/composting-benefits',
+    x: 21,
+    y: 72,
+    placement: 'right'
+  }
+];
 
 export default function LearnSearchPage() {
   const { t, i18n } = useTranslation()
@@ -294,6 +351,9 @@ export default function LearnSearchPage() {
   const [searchQuery, setSearchQuery] = useState(initialQuery)
   const [selectedCategory, setSelectedCategory] = useState(initialCategory)
   const [activeHotspot, setActiveHotspot] = useState<string | null>(null)
+  const [activeDiagram, setActiveDiagram] = useState<'anatomy' | 'lifecycle'>('anatomy')
+  
+  const activeHotspotsList = activeDiagram === 'anatomy' ? ANATOMY_HOTSPOTS : LIFECYCLE_HOTSPOTS;
   
   // Sync with URL params
   useEffect(() => {
@@ -405,23 +465,51 @@ export default function LearnSearchPage() {
                 ⚡ VISUAL INTERACTIVE EXPLORER
               </span>
               <h2 className="text-3xl md:text-5xl font-black uppercase text-white leading-none tracking-tight">
-                Interactive Compostable Packaging Anatomy & Lifecycle
+                {activeDiagram === 'anatomy' 
+                  ? 'Interactive Compostable Packaging Anatomy'
+                  : 'Circular Composting Packaging Lifecycle'}
               </h2>
               <p className="text-lg text-gray-400 mt-4 max-w-3xl mx-auto font-['Space_Grotesk']">
-                Hover or tap the glowing hotspots to explore structural specs, barrier layers, and proper circular compost workflows.
+                {activeDiagram === 'anatomy'
+                  ? 'Hover or tap the glowing hotspots to explore structural specs and individual barrier layers.'
+                  : 'Explore the six-stage circular lifecycle of sustainable packaging from plant-based raw materials to nutrient-rich soil return.'}
               </p>
+            </div>
+
+            {/* Slider / Tab Selectors */}
+            <div className="flex justify-center gap-4 mb-8">
+              <button
+                onClick={() => { setActiveDiagram('anatomy'); setActiveHotspot(null); }}
+                className={`px-5 py-2.5 rounded-xl font-black text-xs uppercase tracking-wider transition-all duration-200 border-2 border-black ${
+                  activeDiagram === 'anatomy'
+                    ? 'bg-[#D4FF00] text-black translate-x-[-2px] translate-y-[-2px] shadow-[4px_4px_0px_0px_rgba(16,185,129,0.8)]'
+                    : 'bg-neutral-900 text-white hover:bg-neutral-800'
+                }`}
+              >
+                🔍 Pouch Structural Anatomy
+              </button>
+              <button
+                onClick={() => { setActiveDiagram('lifecycle'); setActiveHotspot(null); }}
+                className={`px-5 py-2.5 rounded-xl font-black text-xs uppercase tracking-wider transition-all duration-200 border-2 border-black ${
+                  activeDiagram === 'lifecycle'
+                    ? 'bg-[#D4FF00] text-black translate-x-[-2px] translate-y-[-2px] shadow-[4px_4px_0px_0px_rgba(16,185,129,0.8)]'
+                    : 'bg-neutral-900 text-white hover:bg-neutral-800'
+                }`}
+              >
+                🔄 Circular Composting Lifecycle
+              </button>
             </div>
 
             {/* Diagram Container */}
             <div className="relative w-full aspect-[16/9] bg-black border-4 border-black rounded-2xl overflow-hidden shadow-[20px_20px_0px_0px_rgba(16,185,129,0.15)]">
               <img
-                src="/imgs/knowledge/composting-anatomy-diagram.jpg"
-                alt="Interactive Composting Anatomy Diagram"
+                src={activeDiagram === 'anatomy' ? '/imgs/knowledge/composting-anatomy-diagram.jpg' : '/imgs/knowledge/composting-circular-lifecycle.jpg'}
+                alt={activeDiagram === 'anatomy' ? 'Interactive Composting Anatomy Diagram' : 'Circular Composting Packaging Lifecycle'}
                 className="w-full h-full object-cover select-none pointer-events-none"
               />
               
               {/* Overlay Hotspots */}
-              {HOTSPOTS.map((hotspot) => {
+              {activeHotspotsList.map((hotspot) => {
                 const isActive = activeHotspot === hotspot.id;
                 
                 // Placement classes for tooltips
@@ -478,7 +566,7 @@ export default function LearnSearchPage() {
             <div className="mt-8 md:hidden bg-neutral-900 border-2 border-neutral-800 p-6 rounded-xl text-center">
               {activeHotspot ? (
                 (() => {
-                  const hotspot = HOTSPOTS.find(h => h.id === activeHotspot);
+                  const hotspot = activeHotspotsList.find(h => h.id === activeHotspot);
                   if (!hotspot) return null;
                   return (
                     <div className="space-y-3">
