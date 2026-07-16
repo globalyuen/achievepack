@@ -384,6 +384,16 @@ export default function SharedStudioPage() {
           model.scale.set(scaleX, scaleY, scaleZ);
           modelScaleRef.current = { x: scaleX, y: scaleY };
 
+          // Resize offscreen canvas to match natural dieline image dimensions scaled by sX/sY
+          const naturalW = dielineImg.naturalWidth || 1000;
+          const naturalH = dielineImg.naturalHeight || 619;
+          const sX = scaleX / (scaleFactorRef.current === 1000 ? 1000 : 1);
+          const sY = scaleY / (scaleFactorRef.current === 1000 ? 1000 : 1);
+          if (offscreenCanvasRef.current) {
+            offscreenCanvasRef.current.width = Math.round(naturalW * sX);
+            offscreenCanvasRef.current.height = Math.round(naturalH * sY);
+          }
+
           originalBoxRef.current.setFromObject(model);
           originalBoxRef.current.getSize(originalSizeRef.current);
           const newSize = originalSizeRef.current;
@@ -518,17 +528,14 @@ export default function SharedStudioPage() {
     loadedLayers.forEach(layer => {
       if (!layer || !layer.img) return;
       ctx.save();
-      ctx.translate(layer.pos.x, layer.pos.y);
-      ctx.rotate((layer.rotation || 0) * (Math.PI / 180));
-
       const sX = modelScaleRef.current.x / (scaleFactorRef.current === 1000 ? 1000 : 1);
       const sY = modelScaleRef.current.y / (scaleFactorRef.current === 1000 ? 1000 : 1);
 
-      let w = (layer.width || layer.img.width) * (layer.scale || 1.0);
-      let h = (layer.height || layer.img.height) * (layer.scale || 1.0);
+      ctx.translate(layer.pos.x * sX, layer.pos.y * sY);
+      ctx.rotate((layer.rotation || 0) * (Math.PI / 180));
 
-      w /= sX;
-      h /= sY;
+      const w = (layer.width || layer.img.width) * (layer.scale || 1.0);
+      const h = (layer.height || layer.img.height) * (layer.scale || 1.0);
 
       ctx.drawImage(layer.img, -w / 2, -h / 2, w, h);
       ctx.restore();

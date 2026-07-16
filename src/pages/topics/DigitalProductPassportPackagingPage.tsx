@@ -64,13 +64,70 @@ const localTranslations = {
     "faq3Q": "我可以在包裝列印後更新資訊嗎？",
     "faq3A": "可以！代碼使用動態連結，這意味著您可以隨時透過儀表板更新目標網址和內容。"
 },
-  'zh-cn': {}, ko: {}, ja: {}, de: {}, es: {}, fr: {}, pt: {}, th: {}, vi: {}, ms: {}, ar: {}
+  'zh-cn': {}, ko: {}, ja: {}, de: {}, es: {
+    "title": "Embalaje con Pasaporte Digital de Producto | Rastreo Inteligente para Marcas Ecológicas",
+    "description": "Prepárese para el PPWR de la UE con nuestro embalaje con pasaporte digital de producto. Códigos QR integrados, etiquetas NFC y rastreo por cadena de bloques para total transparencia.",
+    "heroTitle": "Embalaje con Pasaporte Digital de Producto",
+    "empathyHook": "¿Tiene dificultades para mantenerse al día con el próximo Reglamento sobre envases y residuos de envases de la UE (PPWR)? Los consumidores y reguladores exigen un 100% de transparencia. Con nuestro embalaje de Pasaporte Digital de Producto (DPP), puede convertir el cumplimiento en una ventaja competitiva, demostrando sus afirmaciones de sostenibilidad con un simple escaneo.",
+    "point1Title": "Cumplimiento Automatizado",
+    "point1Desc": "Navegar por las normativas de reciclaje de la UE y EE. UU. es complejo.",
+    "point1Sol": "Los códigos QR integrados enlazan directamente a datos de materiales certificados e instrucciones de eliminación.",
+    "point2Title": "Prevención de Falsificaciones",
+    "point2Desc": "Los productos de alto valor suelen ser el objetivo de los falsificadores.",
+    "point2Sol": "Las etiquetas NFC o códigos QR serializados únicos verifican la autenticidad del producto al instante.",
+    "point3Title": "Transparencia de la Cadena de Suministro",
+    "point3Desc": "Los consumidores desconfían de las afirmaciones vagas de ser 'ecológico'.",
+    "point3Sol": "El rastreo respaldado por blockchain muestra el viaje desde la materia prima hasta la bolsa terminada.",
+    "point4Title": "Participación del Consumidor",
+    "point4Desc": "El embalaje estático limita su capacidad de interactuar con los compradores después de la compra.",
+    "point4Sol": "Las páginas de destino dinámicas le permiten actualizar el contenido de marketing, recetas o promociones sin cambiar el paquete físico.",
+    "point5Title": "Seguimiento del Ciclo de Vida",
+    "point5Desc": "Demostrar que se cumplen los objetivos de Responsabilidad Extendida del Productor (EPR) es difícil.",
+    "point5Sol": "La recolección de datos rastrea las tasas de reciclaje y la participación del consumidor para informar a los reguladores.",
+    "compTitle": "¿Por Qué Elegir Nuestra Integración DPP?",
+    "compDesc": "No solo imprimimos un código QR. Integramos un ecosistema digital completo directamente en su embalaje flexible sostenible.",
+    "faq1Q": "¿Qué es un Pasaporte Digital de Producto (DPP)?",
+    "faq1A": "Un DPP es un registro digital que proporciona información sobre el origen, materiales, impacto ambiental y eliminación al final de la vida útil de un producto, accesible a través de un código escaneable en el embalaje.",
+    "faq2Q": "¿Necesito equipo especial para escanear estos códigos?",
+    "faq2A": "No. Los códigos QR y las etiquetas NFC que integramos pueden ser escaneados nativamente por la cámara de cualquier teléfono inteligente moderno sin necesidad de una aplicación especial.",
+    "faq3Q": "¿Puedo actualizar la información después de que el empaque esté impreso?",
+    "faq3A": "¡Sí! Los códigos utilizan enlaces dinámicos, lo que significa que puede actualizar la URL de destino y el contenido en cualquier momento a través de su panel de control."
+}, fr: {
+    "title": "Emballage Passeport Produit Numérique | Suivi Intelligent pour Marques Éco-responsables",
+    "description": "Préparez-vous au PPWR de l'UE avec notre emballage Passeport Produit Numérique. Codes QR intégrés, étiquettes NFC et suivi blockchain pour une transparence totale.",
+    "heroTitle": "Emballage Passeport Produit Numérique",
+    "empathyHook": "Avez-vous du mal à suivre le futur Règlement européen sur les emballages et les déchets d'emballages (PPWR) ? Les consommateurs comme les régulateurs exigent 100% de transparence. Avec notre emballage Passeport Produit Numérique (DPP), vous pouvez transformer la conformité en un avantage concurrentiel, en prouvant vos allégations de durabilité d'un simple scan.",
+    "point1Title": "Conformité Automatisée",
+    "point1Desc": "Naviguer dans les réglementations de recyclage de l'UE et des États-Unis est complexe.",
+    "point1Sol": "Les codes QR intégrés renvoient directement aux données de matériaux certifiés et aux instructions d'élimination.",
+    "point2Title": "Prévention de la Contrefaçon",
+    "point2Desc": "Les produits de grande valeur sont souvent ciblés par les contrefacteurs.",
+    "point2Sol": "Les étiquettes NFC ou codes QR sérialisés uniques vérifient instantanément l'authenticité du produit.",
+    "point3Title": "Transparence de la Chaîne d'Approvisionnement",
+    "point3Desc": "Les consommateurs se méfient des vagues affirmations « écologiques ».",
+    "point3Sol": "Le suivi soutenu par la blockchain montre le parcours depuis la matière première jusqu'au sachet fini.",
+    "point4Title": "Engagement des Consommateurs",
+    "point4Desc": "L'emballage statique limite votre capacité à interagir avec les acheteurs après l'achat.",
+    "point4Sol": "Les pages de destination dynamiques vous permettent de mettre à jour le contenu marketing, les recettes ou les promotions sans changer l'emballage physique.",
+    "point5Title": "Suivi du Cycle de Vie",
+    "point5Desc": "Prouver que les objectifs de Responsabilité Élargie du Producteur (REP) sont atteints est difficile.",
+    "point5Sol": "La collecte de données suit les taux de recyclage et l'engagement des consommateurs pour faire rapport aux régulateurs.",
+    "compTitle": "Pourquoi Choisir Notre Intégration DPP ?",
+    "compDesc": "Nous ne nous contentons pas d'imprimer un code QR. Nous intégrons un écosystème numérique complet directement dans votre emballage flexible durable.",
+    "faq1Q": "Qu'est-ce qu'un Passeport Produit Numérique (DPP) ?",
+    "faq1A": "Un DPP est un dossier numérique qui fournit des informations sur l'origine d'un produit, ses matériaux, son impact environnemental et son élimination en fin de vie, accessible via un code scannable sur l'emballage.",
+    "faq2Q": "Ai-je besoin d'un équipement spécial pour scanner ces codes ?",
+    "faq2A": "Non. Les codes QR et les étiquettes NFC que nous intégrons peuvent être scannés nativement par n'importe quel appareil photo de smartphone moderne sans avoir besoin d'une application spéciale.",
+    "faq3Q": "Puis-je mettre à jour les informations après l'impression de l'emballage ?",
+    "faq3A": "Oui ! Les codes utilisent des liens dynamiques, ce qui signifie que vous pouvez mettre à jour l'URL de destination et le contenu à tout moment via votre tableau de bord."
+}, pt: {}, th: {}, vi: {}, ms: {}, ar: {}
 };
 
 export default function DigitalProductPassportPackagingPage() {
   const { i18n } = useTranslation();
   const currentLang = i18n.language || 'en';
-  const tLocalRaw = localTranslations[currentLang as keyof typeof localTranslations];
+  const currentLangLower = currentLang.toLowerCase();
+  const tLocalRaw = (localTranslations as any)[currentLangLower] || localTranslations['zh-tw']; // fallback just in case
   const tLocal: any = (tLocalRaw && Object.keys(tLocalRaw).length > 0) ? tLocalRaw : localTranslations.en;
   const isPouchDomain = getDomain() === 'pouch';
 

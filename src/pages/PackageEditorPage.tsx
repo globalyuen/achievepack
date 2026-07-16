@@ -178,51 +178,59 @@ export default function PackageEditorPage() {
     if (!dielineLoadedRef.current || !logoLoadedRef.current || !editorCanvasRef.current || !offscreenCanvasRef.current) return;
 
     const canvas = editorCanvasRef.current;
-    const ctx = canvas.getContext('2d');
     const offscreenCanvas = offscreenCanvasRef.current;
-    const offscreenCtx = offscreenCanvas.getContext('2d');
 
+    // Get natural dimensions of dieline template
+    let naturalW = 1000;
+    let naturalH = 619;
+    if (dielineImgRef.current && dielineImgRef.current.complete) {
+      naturalW = dielineImgRef.current.naturalWidth || 1000;
+      naturalH = dielineImgRef.current.naturalHeight || 619;
+    }
+
+    // Compute physical scales relative to original model
+    let sX = 1.0;
+    let sY = 1.0;
+    if (originalSizeRef.current.x && originalSizeRef.current.y) {
+      let targetW = width;
+      let targetH = height;
+      if (unit === 'inch') {
+        targetW *= 25.4;
+        targetH *= 25.4;
+      }
+      sX = targetW / originalSizeRef.current.x;
+      sY = targetH / originalSizeRef.current.y;
+    }
+
+    const targetW = Math.round(naturalW * sX);
+    const targetH = Math.round(naturalH * sY);
+
+    // Update canvas sizes dynamically
+    if (canvas.width !== targetW || canvas.height !== targetH) {
+      canvas.width = targetW;
+      canvas.height = targetH;
+    }
+    if (offscreenCanvas.width !== targetW || offscreenCanvas.height !== targetH) {
+      offscreenCanvas.width = targetW;
+      offscreenCanvas.height = targetH;
+    }
+
+    const ctx = canvas.getContext('2d');
+    const offscreenCtx = offscreenCanvas.getContext('2d');
     if (!ctx || !offscreenCtx) return;
 
     const drawSingleLayer = (cContext: CanvasRenderingContext2D, layer: Layer, drawUIOverlay: boolean) => {
       cContext.save();
 
-      // Compute physical scales relative to original model
-      let sX = 1.0;
-      let sY = 1.0;
-      if (originalSizeRef.current.x && originalSizeRef.current.y) {
-        let targetW = width;
-        let targetH = height;
-        if (unit === 'inch') {
-          targetW *= 25.4;
-          targetH *= 25.4;
-        }
-        sX = targetW / originalSizeRef.current.x;
-        sY = targetH / originalSizeRef.current.y;
-      }
-
-      if (drawUIOverlay) {
-        // 2D View Canvas: Position is scaled and centered
-        const cx = 500;
-        const cy = 309.5;
-        const posX_2d = cx + (layer.pos.x - cx) * sX;
-        const posY_2d = cy + (layer.pos.y - cy) * sY;
-        cContext.translate(posX_2d, posY_2d);
-      } else {
-        // Offscreen texture for 3D View: Position is drawn at its absolute 1x coordinate
-        cContext.translate(layer.pos.x, layer.pos.y);
-      }
+      // Position scales with canvas
+      const posX = layer.pos.x * sX;
+      const posY = layer.pos.y * sY;
+      cContext.translate(posX, posY);
       
       cContext.rotate(layer.rotation * (Math.PI / 180));
 
-      let w = layer.width * layer.scale;
-      let h = layer.height * layer.scale;
-
-      if (!drawUIOverlay) {
-        // Offscreen texture for 3D View: Counteract Three.js geometry scaling
-        w /= sX;
-        h /= sY;
-      }
+      const w = layer.width * layer.scale;
+      const h = layer.height * layer.scale;
 
       cContext.drawImage(layer.img, -w / 2, -h / 2, w, h);
 
@@ -252,8 +260,8 @@ export default function PackageEditorPage() {
       const stepX = 300;
       const stepY = 180;
 
-      for (let x = -100; x < 1200; x += stepX) {
-        for (let y = -100; y < 800; y += stepY) {
+      for (let x = -100; x < targetW + 200; x += stepX) {
+        for (let y = -100; y < targetH + 200; y += stepY) {
           cContext.save();
           cContext.translate(x, y);
           cContext.rotate(angle);
@@ -266,10 +274,10 @@ export default function PackageEditorPage() {
 
     // 1. Offscreen Canvas (Clean texture for 3D)
     offscreenCtx.fillStyle = '#ffffff';
-    offscreenCtx.fillRect(0, 0, 1000, 619);
+    offscreenCtx.fillRect(0, 0, targetW, targetH);
 
-    if (showDieline && dielineImgRef.current) {
-      offscreenCtx.drawImage(dielineImgRef.current, 0, 0, 1000, 619);
+    if (showDieline && dielineImgRef.current && dielineLoadedRef.current) {
+      offscreenCtx.drawImage(dielineImgRef.current, 0, 0, targetW, targetH);
     }
 
     // Draw repeating pattern of AP Logo on skin
@@ -287,7 +295,7 @@ export default function PackageEditorPage() {
           const pattern = offscreenCtx.createPattern(patCanvas, 'repeat');
           if (pattern) {
             offscreenCtx.fillStyle = pattern;
-            offscreenCtx.fillRect(0, 0, 1000, 619);
+            offscreenCtx.fillRect(0, 0, targetW, targetH);
           }
         }
         offscreenCtx.restore();
@@ -308,30 +316,10 @@ export default function PackageEditorPage() {
 
     // 2. Main View Canvas (Dielines + UI guidelines)
     ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, 1000, 619);
+    ctx.fillRect(0, 0, targetW, targetH);
 
-    if (dielineImgRef.current) {
-      let sX = 1.0;
-      let sY = 1.0;
-      if (originalSizeRef.current.x && originalSizeRef.current.y) {
-        let targetW = width;
-        let targetH = height;
-        if (unit === 'inch') {
-          targetW *= 25.4;
-          targetH *= 25.4;
-        }
-        sX = targetW / originalSizeRef.current.x;
-        sY = targetH / originalSizeRef.current.y;
-      }
-
-      const cx = 500;
-      const cy = 309.5;
-      const dieline_w = 1000 * sX;
-      const dieline_h = 619 * sY;
-      const dx = cx - dieline_w / 2;
-      const dy = cy - dieline_h / 2;
-
-      ctx.drawImage(dielineImgRef.current, dx, dy, dieline_w, dieline_h);
+    if (dielineImgRef.current && dielineLoadedRef.current) {
+      ctx.drawImage(dielineImgRef.current, 0, 0, targetW, targetH);
     }
 
     // Draw repeating pattern of AP Logo on 2D view
@@ -349,7 +337,7 @@ export default function PackageEditorPage() {
           const pattern = ctx.createPattern(patCanvas, 'repeat');
           if (pattern) {
             ctx.fillStyle = pattern;
-            ctx.fillRect(0, 0, 1000, 619);
+            ctx.fillRect(0, 0, targetW, targetH);
           }
         }
         ctx.restore();
@@ -518,7 +506,10 @@ export default function PackageEditorPage() {
           id: 'default-ap-logo',
           img: logoImg,
           name: 'AP Logo (默認)',
-          pos: { x: 500, y: 309 },
+          pos: {
+            x: Math.round((dielineImgRef.current?.naturalWidth || 1000) / 2),
+            y: Math.round((dielineImgRef.current?.naturalHeight || 619) / 2)
+          },
           scale: 0.5,
           rotation: 0.0,
           width: logoImg.width,
@@ -666,15 +657,20 @@ export default function PackageEditorPage() {
             const img = new Image();
             img.src = artworkParam;
             img.onload = () => {
+              const naturalW = dielineImgRef.current?.naturalWidth || 1000;
+              const naturalH = dielineImgRef.current?.naturalHeight || 619;
               const sharedLayer: Layer = {
                 id: 'shared-artwork',
                 img,
                 name: 'Shared Artwork',
-                pos: { x: 500, y: 309 },
+                pos: {
+                  x: Math.round(naturalW / 2),
+                  y: Math.round(naturalH / 2)
+                },
                 scale: 1.0,
                 rotation: 0,
-                width: 1000,
-                height: 619
+                width: naturalW,
+                height: naturalH
               };
               setLayers([sharedLayer]);
               setSelectedLayer(sharedLayer);
@@ -1026,7 +1022,10 @@ export default function PackageEditorPage() {
             id: 'default-ap-logo',
             img: logoImgRef.current,
             name: 'AP Logo (默認)',
-            pos: { x: 500, y: 309 },
+            pos: {
+              x: Math.round((dielineImgRef.current?.naturalWidth || 1000) / 2),
+              y: Math.round((dielineImgRef.current?.naturalHeight || 619) / 2)
+            },
             scale: 0.5,
             rotation: 0.0,
             width: logoImgRef.current.width,
@@ -1216,11 +1215,11 @@ export default function PackageEditorPage() {
   const handleCanvasMouseDown = (e: React.MouseEvent<HTMLCanvasElement>) => {
     if (!editorCanvasRef.current) return;
     const rect = editorCanvasRef.current.getBoundingClientRect();
-    const clickX = ((e.clientX - rect.left) / rect.width) * 1000;
-    const clickY = ((e.clientY - rect.top) / rect.height) * 619;
+    const canvasW = editorCanvasRef.current.width;
+    const canvasH = editorCanvasRef.current.height;
+    const clickX = ((e.clientX - rect.left) / rect.width) * canvasW;
+    const clickY = ((e.clientY - rect.top) / rect.height) * canvasH;
 
-    const cx = 500;
-    const cy = 309.5;
     let sX = 1.0;
     let sY = 1.0;
     if (originalSizeRef.current.x && originalSizeRef.current.y) {
@@ -1241,14 +1240,14 @@ export default function PackageEditorPage() {
       const drawnW = layer.width * layer.scale;
       const drawnH = layer.height * layer.scale;
 
-      const posX_2d = cx + (layer.pos.x - cx) * sX;
-      const posY_2d = cy + (layer.pos.y - cy) * sY;
+      const posX = layer.pos.x * sX;
+      const posY = layer.pos.y * sY;
 
-      if (clickX >= posX_2d - drawnW / 2 && clickX <= posX_2d + drawnW / 2 &&
-          clickY >= posY_2d - drawnH / 2 && clickY <= posY_2d + drawnH / 2) {
+      if (clickX >= posX - drawnW / 2 && clickX <= posX + drawnW / 2 &&
+          clickY >= posY - drawnH / 2 && clickY <= posY + drawnH / 2) {
         setSelectedLayer(layer);
         isDraggingRef.current = true;
-        dragOffsetRef.current = { x: clickX - posX_2d, y: clickY - posY_2d };
+        dragOffsetRef.current = { x: clickX - posX, y: clickY - posY };
         found = true;
         break;
       }
@@ -1263,11 +1262,11 @@ export default function PackageEditorPage() {
     if (!isDraggingRef.current || !selectedLayer || !editorCanvasRef.current) return;
 
     const rect = editorCanvasRef.current.getBoundingClientRect();
-    const mouseX = ((e.clientX - rect.left) / rect.width) * 1000;
-    const mouseY = ((e.clientY - rect.top) / rect.height) * 619;
+    const canvasW = editorCanvasRef.current.width;
+    const canvasH = editorCanvasRef.current.height;
+    const mouseX = ((e.clientX - rect.left) / rect.width) * canvasW;
+    const mouseY = ((e.clientY - rect.top) / rect.height) * canvasH;
 
-    const cx = 500;
-    const cy = 309.5;
     let sX = 1.0;
     let sY = 1.0;
     if (originalSizeRef.current.x && originalSizeRef.current.y) {
@@ -1281,12 +1280,12 @@ export default function PackageEditorPage() {
       sY = targetH / originalSizeRef.current.y;
     }
 
-    const targetPosX_2d = mouseX - dragOffsetRef.current.x;
-    const targetPosY_2d = mouseY - dragOffsetRef.current.y;
+    const targetPosX = mouseX - dragOffsetRef.current.x;
+    const targetPosY = mouseY - dragOffsetRef.current.y;
 
     const updatedPos = {
-      x: cx + (targetPosX_2d - cx) / sX,
-      y: cy + (targetPosY_2d - cy) / sY
+      x: targetPosX / sX,
+      y: targetPosY / sY
     };
 
     const drawnW = selectedLayer.width * selectedLayer.scale;
@@ -1294,8 +1293,16 @@ export default function PackageEditorPage() {
 
     const limitX = (drawnW / 2) / sX;
     const limitY = (drawnH / 2) / sY;
-    updatedPos.x = Math.max(-limitX, Math.min(1000 + limitX, updatedPos.x));
-    updatedPos.y = Math.max(-limitY, Math.min(619 + limitY, updatedPos.y));
+
+    let naturalW = 1000;
+    let naturalH = 619;
+    if (dielineImgRef.current && dielineImgRef.current.complete) {
+      naturalW = dielineImgRef.current.naturalWidth || 1000;
+      naturalH = dielineImgRef.current.naturalHeight || 619;
+    }
+
+    updatedPos.x = Math.max(-limitX, Math.min(naturalW + limitX, updatedPos.x));
+    updatedPos.y = Math.max(-limitY, Math.min(naturalH + limitY, updatedPos.y));
 
     setLayers(prev => prev.map(l => l.id === selectedLayer.id ? { ...l, pos: updatedPos } : l));
     setSelectedLayer(prev => prev ? { ...prev, pos: updatedPos } : null);
@@ -1357,7 +1364,10 @@ export default function PackageEditorPage() {
           id: Date.now().toString(),
           img,
           name: file.name.length > 22 ? file.name.substring(0, 20) + '...' : file.name,
-          pos: { x: 500, y: 309 },
+          pos: {
+            x: Math.round((dielineImgRef.current?.naturalWidth || 1000) / 2),
+            y: Math.round((dielineImgRef.current?.naturalHeight || 619) / 2)
+          },
           scale: 0.5,
           rotation: 0.0,
           width: img.width,
@@ -2185,7 +2195,7 @@ export default function PackageEditorPage() {
               onMouseMove={handleCanvasMouseMove}
               onMouseUp={handleCanvasMouseUp}
               onMouseLeave={handleCanvasMouseUp}
-              className="max-w-full max-h-full aspect-[1000/619] cursor-move object-contain shadow-2xl"
+              className="max-w-full max-h-full cursor-move object-contain shadow-2xl"
             />
           </div>
 
@@ -2369,7 +2379,7 @@ export default function PackageEditorPage() {
                 <h2 className="text-sm font-bold text-[#f3f4f6]">2D Dieline Editor</h2>
                 <p className="text-[10px] text-[#9ca3af] mt-0.5">Tap to select layer · Drag to reposition</p>
               </div>
-              <div className="border border-[rgba(255,255,255,0.08)] bg-[rgba(0,0,0,0.5)] rounded-xl overflow-hidden flex items-center justify-center" style={{ aspectRatio: '1000/619' }}>
+              <div className="border border-[rgba(255,255,255,0.08)] bg-[rgba(0,0,0,0.5)] rounded-xl overflow-hidden flex items-center justify-center">
                 <canvas
                   ref={editorCanvasRef}
                   width={1000}
