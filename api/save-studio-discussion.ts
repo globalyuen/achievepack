@@ -18,7 +18,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-    const { slug, discussion } = req.body || {};
+    const { slug, password, discussion } = req.body || {};
 
     if (!slug || typeof slug !== 'string') {
       return res.status(400).json({ error: 'Missing slug parameter.' });
@@ -50,10 +50,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }
     }
 
-    // 2. Update only the discussion array
+    // 2. Validate password (must match admin regex or custom customer password)
+    const isAdminPass = /^8888\d{4}$/.test(password || '');
+    const isCustomerPass = designData.customerPassword && password === designData.customerPassword;
+
+    if (!isAdminPass && !isCustomerPass) {
+      return res.status(401).json({ error: 'Unauthorized: Invalid passcode.' });
+    }
+
+    // 3. Update only the discussion array
     designData.discussion = discussion;
 
-    // 3. Update the record
+    // 4. Update the record
     const { error: updateError } = await supabase
       .from('custom_studios')
       .update({ design_data: designData })

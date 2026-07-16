@@ -193,6 +193,13 @@ export default function SharedStudioPage() {
   const [adminPassword, setAdminPassword] = useState<string>(() => {
     return sessionStorage.getItem(`shared_studio_pass_${slug}`) || '';
   });
+  const [isCustomer, setIsCustomer] = useState<boolean>(() => {
+    return sessionStorage.getItem(`shared_studio_customer_${slug}`) === 'true';
+  });
+  const [customerPassword, setCustomerPassword] = useState<string>(() => {
+    return sessionStorage.getItem(`shared_studio_customer_pass_${slug}`) || '';
+  });
+  const [customerPasswordInput, setCustomerPasswordInput] = useState('');
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [passwordInput, setPasswordInput] = useState('');
   const [loginError, setLoginError] = useState('');
@@ -264,6 +271,7 @@ export default function SharedStudioPage() {
           setRoughness(data.designData.roughness ?? 0.5);
           setMetalness(data.designData.metalness ?? 0.1);
           setDiscussion(data.designData.discussion || []);
+          setCustomerPasswordInput(data.designData.customerPassword || '');
           if (data.createdAt) {
             setCreatedDate(new Date(data.createdAt));
           }
@@ -722,7 +730,8 @@ export default function SharedStudioPage() {
         unit,
         roughness,
         metalness,
-        discussion
+        discussion,
+        customerPassword: customerPasswordInput
       };
 
       const res = await fetch('/api/update-custom-studio', {
@@ -755,6 +764,7 @@ export default function SharedStudioPage() {
 
   const saveDiscussionToDb = async (updatedDiscussion: any[]) => {
     try {
+      const activePassword = isAdmin ? adminPassword : customerPassword;
       const res = await fetch('/api/save-studio-discussion', {
         method: 'POST',
         headers: {
@@ -762,6 +772,7 @@ export default function SharedStudioPage() {
         },
         body: JSON.stringify({
           slug,
+          password: activePassword,
           discussion: updatedDiscussion
         })
       });
@@ -905,6 +916,8 @@ export default function SharedStudioPage() {
     });
   };
 
+  const isUnlocked = isAdmin || isCustomer;
+
   return (
     <div className="relative min-h-screen bg-[#0a0f1d] text-white flex flex-col font-sans select-none overflow-hidden">
       {/* Premium Header */}
@@ -922,28 +935,32 @@ export default function SharedStudioPage() {
         </div>
         
         <div className="flex items-center gap-3 pointer-events-auto">
-          {/* Admin Unlock Trigger */}
+          {/* Admin/Customer Unlock Trigger */}
           <button 
             onClick={() => {
-              if (isAdmin) {
+              if (isUnlocked) {
                 setIsAdmin(false);
+                setIsCustomer(false);
                 setAdminPassword('');
+                setCustomerPassword('');
                 sessionStorage.removeItem(`shared_studio_admin_${slug}`);
                 sessionStorage.removeItem(`shared_studio_pass_${slug}`);
+                sessionStorage.removeItem(`shared_studio_customer_${slug}`);
+                sessionStorage.removeItem(`shared_studio_customer_pass_${slug}`);
                 setActiveTab('preview');
-                alert('Admin logged out.');
+                alert('Logged out.');
               } else {
                 setIsLoginModalOpen(true);
               }
             }}
             className={`p-2 rounded-xl border transition-all ${
-              isAdmin 
+              isUnlocked 
                 ? 'bg-emerald-500/20 border-emerald-500/30 text-emerald-400' 
                 : 'bg-white/10 border-white/10 text-white/70 hover:text-white hover:bg-white/20'
             }`}
-            title={isAdmin ? "Lock Admin Panel" : "Enter Admin Password"}
+            title={isUnlocked ? "Lock Panel" : "Enter Passcode"}
           >
-            {isAdmin ? <Unlock className="w-4 h-4" /> : <Lock className="w-4 h-4" />}
+            {isUnlocked ? <Unlock className="w-4 h-4" /> : <Lock className="w-4 h-4" />}
           </button>
 
           {/* Language Selector Dropdown */}
@@ -972,14 +989,14 @@ export default function SharedStudioPage() {
         </div>
       </header>
 
-      {/* Admin Passcode Modal */}
+      {/* Passcode Authentication Modal */}
       {isLoginModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm p-4 pointer-events-auto">
           <div className="w-full max-w-sm bg-slate-900/90 border border-white/10 p-6 rounded-2xl shadow-2xl flex flex-col gap-4">
             <div className="flex items-center justify-between">
               <h3 className="font-bold text-white text-lg flex items-center gap-2">
                 <Lock className="w-5 h-5 text-emerald-400" />
-                Admin Authentication
+                Enter Passcode
               </h3>
               <button 
                 onClick={() => {
@@ -994,13 +1011,13 @@ export default function SharedStudioPage() {
             </div>
             
             <p className="text-white/60 text-xs leading-relaxed">
-              Please enter the 8-digit admin passcode (starting with 8888) to unlock advanced materials editing, specs calibration, and discussion remarks.
+              Please enter your passcode to unlock the panel.
             </p>
 
             <div className="flex flex-col gap-1.5">
               <input 
                 type="password"
-                placeholder="Passcode (e.g. 88881234)"
+                placeholder="Passcode"
                 value={passwordInput}
                 onChange={(e) => {
                   setPasswordInput(e.target.value);
@@ -1013,23 +1030,36 @@ export default function SharedStudioPage() {
 
             <button
               onClick={() => {
-                const passwordRegex = /^8888\d{4}$/;
-                if (!passwordRegex.test(passwordInput)) {
-                  setLoginError('Invalid passcode format. Must be 8 digits total, starting with 8888.');
-                  return;
+                const isPassAdmin = /^8888\d{4}$/.test(passwordInput);
+                const isPassCustomer = designData?.customerPassword && passwordInput === designData.customerPassword;
+
+                if (isPassAdmin) {
+                  setIsAdmin(true);
+                  setIsCustomer(true);
+                  setAdminPassword(passwordInput);
+                  sessionStorage.setItem(`shared_studio_admin_${slug}`, 'true');
+                  sessionStorage.setItem(`shared_studio_pass_${slug}`, passwordInput);
+                  setIsLoginModalOpen(false);
+                  setPasswordInput('');
+                  setActiveTab('edit');
+                  alert('Unlocked Admin Console');
+                } else if (isPassCustomer) {
+                  setIsCustomer(true);
+                  setIsAdmin(false);
+                  setCustomerPassword(passwordInput);
+                  sessionStorage.setItem(`shared_studio_customer_${slug}`, 'true');
+                  sessionStorage.setItem(`shared_studio_customer_pass_${slug}`, passwordInput);
+                  setIsLoginModalOpen(false);
+                  setPasswordInput('');
+                  setActiveTab('discussion');
+                  alert('Unlocked Discussion Thread');
+                } else {
+                  setLoginError('Invalid passcode.');
                 }
-                setIsAdmin(true);
-                setAdminPassword(passwordInput);
-                sessionStorage.setItem(`shared_studio_admin_${slug}`, 'true');
-                sessionStorage.setItem(`shared_studio_pass_${slug}`, passwordInput);
-                setIsLoginModalOpen(false);
-                setPasswordInput('');
-                setActiveTab('edit');
-                alert('Admin mode unlocked successfully!');
               }}
               className="w-full py-2.5 bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 text-slate-950 font-bold rounded-xl text-sm transition-all cursor-pointer"
             >
-              Unlock Console
+              Unlock
             </button>
           </div>
         </div>
@@ -1090,11 +1120,12 @@ export default function SharedStudioPage() {
                 }`}
               >
                 <span>Discussion (留言討論)</span>
-                {discussion.length > 0 && (
+                {isUnlocked && discussion.length > 0 && (
                   <span className="ml-1.5 px-1.5 py-0.5 bg-emerald-500/20 text-emerald-400 rounded-full text-[10px] font-extrabold">
                     {discussion.length}
                   </span>
                 )}
+                {!isUnlocked && <Lock className="w-3.5 h-3.5 ml-1.5 inline-block text-white/40" />}
               </button>
             </div>
 
@@ -1312,6 +1343,23 @@ export default function SharedStudioPage() {
                   </div>
                 </div>
 
+                {/* Customer Passcode configuration */}
+                <div className="flex flex-col gap-1.5 pt-2 border-t border-white/5">
+                  <label className="text-xs font-bold text-white/60 uppercase tracking-wider">
+                    Customer Passcode (客戶專屬密碼)
+                  </label>
+                  <input 
+                    type="text" 
+                    placeholder="Enter passcode for customer"
+                    value={customerPasswordInput}
+                    onChange={(e) => setCustomerPasswordInput(e.target.value)}
+                    className="w-full bg-white/[0.03] border border-white/10 rounded-xl text-white px-3 py-2 text-sm outline-none focus:border-emerald-400 font-mono"
+                  />
+                  <p className="text-[10px] text-white/45 leading-normal">
+                    Customers will enter this code to access discussion thread, remarks, and upload files.
+                  </p>
+                </div>
+
                 {/* Save settings Button */}
                 <button 
                   onClick={saveAdminChanges}
@@ -1326,96 +1374,115 @@ export default function SharedStudioPage() {
 
             {/* Tab 3: Discussion Chat */}
             {activeTab === 'discussion' && (
-              <div className="flex flex-col gap-4 animate-fadeIn">
-                {/* Chat Message List */}
-                <div className="max-h-[360px] overflow-y-auto space-y-3 pr-1 min-h-[120px] flex flex-col justify-end">
-                  {discussion.length === 0 ? (
-                    <div className="h-full flex flex-col items-center justify-center p-8 text-center text-white/30 text-xs">
-                      <MessageSquare className="w-8 h-8 mb-2 opacity-50" />
-                      <p>No remarks or comments yet.</p>
-                      <p className="mt-1 font-semibold">Start the discussion below!</p>
+              <>
+                {!isUnlocked ? (
+                  /* Lock state message when discussion is locked */
+                  <div className="flex flex-col items-center justify-center p-8 text-center text-white/50 gap-4 min-h-[250px] animate-fadeIn">
+                    <Lock className="w-10 h-10 text-white/40" />
+                    <div>
+                      <p className="text-sm font-bold text-white">Discussion Thread Locked</p>
+                      <p className="text-xs text-white/40 mt-1">Please enter the passcode to view comments and add remarks.</p>
                     </div>
-                  ) : (
-                    discussion.map((msg, idx) => {
-                      const isOwn = (isAdmin && msg.author === 'Admin') || (!isAdmin && msg.author === 'Client');
-                      const authorName = msg.author === 'Admin' ? 'Achieve Pack' : 'Client';
-                      const isAttachmentOnly = msg.message && msg.message.startsWith('Uploaded a');
+                    <button 
+                      onClick={() => setIsLoginModalOpen(true)}
+                      className="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold rounded-xl text-xs transition-all cursor-pointer"
+                    >
+                      Enter Passcode
+                    </button>
+                  </div>
+                ) : (
+                  /* Chat interface when unlocked */
+                  <div className="flex flex-col gap-4 animate-fadeIn">
+                    {/* Chat Message List */}
+                    <div className="max-h-[320px] overflow-y-auto space-y-3 pr-1 min-h-[120px] flex flex-col justify-end">
+                      {discussion.length === 0 ? (
+                        <div className="h-full flex flex-col items-center justify-center p-8 text-center text-white/30 text-xs">
+                          <MessageSquare className="w-8 h-8 mb-2 opacity-50" />
+                          <p>No remarks or comments yet.</p>
+                          <p className="mt-1 font-semibold">Start the discussion below!</p>
+                        </div>
+                      ) : (
+                        discussion.map((msg, idx) => {
+                          const isOwn = (isAdmin && msg.author === 'Admin') || (!isAdmin && msg.author === 'Client');
+                          const authorName = msg.author === 'Admin' ? 'Achieve Pack' : 'Client';
 
-                      return (
-                        <div key={idx} className={`flex flex-col ${isOwn ? 'items-end' : 'items-start'}`}>
-                          <div className={`px-3 py-2 rounded-2xl max-w-[85%] text-left shadow-sm ${
-                            isOwn 
-                              ? 'bg-emerald-500/10 border border-emerald-500/20 text-white rounded-tr-none'
-                              : 'bg-white/[0.04] border border-white/5 text-white/90 rounded-tl-none'
-                          }`}>
-                            <div className="flex items-center gap-1.5 mb-1 justify-between">
-                              <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-wide">
-                                {authorName}
-                              </span>
-                              <span className="text-[9px] text-white/30 font-medium">
-                                {msg.timestamp ? new Date(msg.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ''}
-                              </span>
-                            </div>
-                            
-                            <p className="text-sm leading-relaxed whitespace-pre-wrap">{msg.message}</p>
+                          return (
+                            <div key={idx} className={`flex flex-col ${isOwn ? 'items-end' : 'items-start'}`}>
+                              <div className={`px-3 py-2 rounded-2xl max-w-[85%] text-left shadow-sm ${
+                                isOwn 
+                                  ? 'bg-emerald-500/10 border border-emerald-500/20 text-white rounded-tr-none'
+                                  : 'bg-white/[0.04] border border-white/5 text-white/90 rounded-tl-none'
+                              }`}>
+                                <div className="flex items-center gap-1.5 mb-1 justify-between">
+                                  <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-wide">
+                                    {authorName}
+                                  </span>
+                                  <span className="text-[9px] text-white/30 font-medium">
+                                    {msg.timestamp ? new Date(msg.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ''}
+                                  </span>
+                                </div>
+                                
+                                <p className="text-sm leading-relaxed whitespace-pre-wrap">{msg.message}</p>
 
-                            {/* Render Attachment */}
-                            {msg.fileUrl && (
-                              <div className="mt-2 rounded-xl overflow-hidden border border-white/5 bg-slate-950/40 max-w-full">
-                                {msg.fileType === 'video' ? (
-                                  <video src={msg.fileUrl} controls className="max-h-40 w-full object-cover" />
-                                ) : (
-                                  <img 
-                                    src={msg.fileUrl} 
-                                    alt="Chat attachment" 
-                                    className="max-h-40 w-full object-cover cursor-pointer hover:opacity-90 transition-opacity" 
-                                    onClick={() => window.open(msg.fileUrl, '_blank')}
-                                  />
+                                {/* Render Attachment */}
+                                {msg.fileUrl && (
+                                  <div className="mt-2 rounded-xl overflow-hidden border border-white/5 bg-slate-950/40 max-w-full">
+                                    {msg.fileType === 'video' ? (
+                                      <video src={msg.fileUrl} controls className="max-h-40 w-full object-cover" />
+                                    ) : (
+                                      <img 
+                                        src={msg.fileUrl} 
+                                        alt="Chat attachment" 
+                                        className="max-h-40 w-full object-cover cursor-pointer hover:opacity-90 transition-opacity" 
+                                        onClick={() => window.open(msg.fileUrl, '_blank')}
+                                      />
+                                    )}
+                                  </div>
                                 )}
                               </div>
-                            )}
-                          </div>
-                        </div>
-                      );
-                    })
-                  )}
-                </div>
+                            </div>
+                          );
+                        })
+                      )}
+                    </div>
 
-                {/* Input Controls */}
-                <div className="flex items-center gap-2 pt-2 border-t border-white/5 mt-auto">
-                  <input 
-                    type="text" 
-                    placeholder={isAdmin ? "Type admin reply..." : "Type guest comment..."}
-                    value={chatMessage}
-                    onChange={(e) => setChatMessage(e.target.value)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter') sendChatMessage();
-                    }}
-                    className="flex-1 bg-white/[0.03] border border-white/10 rounded-xl text-white px-3.5 py-2 text-sm outline-none focus:border-emerald-400 font-medium"
-                  />
+                    {/* Input Controls */}
+                    <div className="flex items-center gap-2 pt-2 border-t border-white/5 mt-auto">
+                      <input 
+                        type="text" 
+                        placeholder={isAdmin ? "Type admin reply..." : "Type client message..."}
+                        value={chatMessage}
+                        onChange={(e) => setChatMessage(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') sendChatMessage();
+                        }}
+                        className="flex-1 bg-white/[0.03] border border-white/10 rounded-xl text-white px-3.5 py-2 text-sm outline-none focus:border-emerald-400 font-medium"
+                      />
 
-                  {/* Upload File button */}
-                  <label className="p-2 bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 text-white/70 hover:text-white rounded-xl cursor-pointer flex items-center justify-center transition-all disabled:opacity-50 h-9 w-9">
-                    {uploadingMedia ? <Loader2 className="w-4 h-4 animate-spin text-emerald-400" /> : <ImageIcon className="w-4 h-4" />}
-                    <input 
-                      type="file" 
-                      accept="image/*,video/*" 
-                      className="hidden" 
-                      onChange={handleFileUpload} 
-                      disabled={uploadingMedia} 
-                    />
-                  </label>
+                      {/* Upload File button */}
+                      <label className="p-2 bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 text-white/70 hover:text-white rounded-xl cursor-pointer flex items-center justify-center transition-all disabled:opacity-50 h-9 w-9">
+                        {uploadingMedia ? <Loader2 className="w-4 h-4 animate-spin text-emerald-400" /> : <ImageIcon className="w-4 h-4" />}
+                        <input 
+                          type="file" 
+                          accept="image/*,video/*" 
+                          className="hidden" 
+                          onChange={handleFileUpload} 
+                          disabled={uploadingMedia} 
+                        />
+                      </label>
 
-                  {/* Send chat message button */}
-                  <button 
-                    onClick={sendChatMessage}
-                    disabled={sendingMessage || !chatMessage.trim()}
-                    className="p-2.5 bg-emerald-500 hover:bg-emerald-600 disabled:bg-emerald-500/40 text-slate-950 rounded-xl flex items-center justify-center transition-all cursor-pointer h-9 w-9"
-                  >
-                    {sendingMessage ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
-                  </button>
-                </div>
-              </div>
+                      {/* Send chat message button */}
+                      <button 
+                        onClick={sendChatMessage}
+                        disabled={sendingMessage || !chatMessage.trim()}
+                        className="p-2.5 bg-emerald-500 hover:bg-emerald-600 disabled:bg-emerald-500/40 text-slate-950 rounded-xl flex items-center justify-center transition-all cursor-pointer h-9 w-9"
+                      >
+                        {sendingMessage ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </>
             )}
           </div>
 
