@@ -20,7 +20,7 @@ const CustomBoxesPage: React.FC = () => {
     <FooterSEOPageTemplate
       pageTitle={t(`${baseKey}.pageTitle`) as string}
       pageDescription={t(`${baseKey}.pageDescription`) as string}
-      heroImage="/imgs/store/products/custom-box-packaging-thumbnail-1.jpg"
+      heroImage="/imgs/knowledge/custom-boxes-pain-points.jpg"
       heroTitle={t(`${baseKey}.heroTitle`) as string}
       heroSubtitle={t(`${baseKey}.heroSubtitle`) as string}
       primaryKeyword="Custom Packaging Boxes"

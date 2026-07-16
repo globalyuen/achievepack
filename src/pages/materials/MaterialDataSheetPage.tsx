@@ -172,7 +172,7 @@ const MaterialDataSheetPage: React.FC = () => {
           </p>
           <div className="bg-white border border-neutral-200 p-8 rounded-2xl flex justify-center items-center shadow-sm hover:shadow-md transition-shadow duration-300">
             <img 
-              src="https://achievepack.com/imgs/store/barrier/2-paper.webp" 
+              src="/imgs/store/barrier/2-paper.webp" 
               alt={t('seoPages.pages.materialDataSheet.achievePack.sections.structure.imgAlt')} 
               className="max-w-full h-auto max-h-64 object-contain"
             />

@@ -19,7 +19,7 @@ const PouchFlatBottomBagsPage: React.FC = () => {
       <FooterSEOPageTemplate
         pageTitle={t(`${baseKey}.pageTitle`) as string}
         pageDescription={t(`${baseKey}.pageDescription`) as string}
-        heroImage="/imgs/products/flat-bottom-bags-hero.jpg"
+        heroImage="/imgs/blog/heros/eco-friendly-flat-bottom-pouches-for-coffee-hero.png"
         heroTitle={t(`${baseKey}.heroTitle`) as string}
         heroSubtitle={t(`${baseKey}.heroSubtitle`) as string}
         primaryKeyword="Flat Bottom Bags"

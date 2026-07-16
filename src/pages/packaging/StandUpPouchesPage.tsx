@@ -20,7 +20,7 @@ const StandUpPouchesPage: React.FC = () => {
     <FooterSEOPageTemplate
       pageTitle={t(`${baseKey}.pageTitle`) as string}
       pageDescription={t(`${baseKey}.pageDescription`) as string}
-      heroImage="/imgs/products/stand-up-pouches.webp"
+      heroImage="/imgs/blog/heros/compostable-stand-up-pouches-for-supplements-hero.png"
       heroTitle={t(`${baseKey}.heroTitle`) as string}
       heroSubtitle={t(`${baseKey}.heroSubtitle`) as string}
       primaryKeyword="Stand Up Pouches"

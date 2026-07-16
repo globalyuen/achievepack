@@ -418,100 +418,98 @@ export default function PouchEcoHomePage() {
       </section>
 
       {/* 3D Studio Promo Section */}
-      <section className="py-24 px-4 md:px-6 bg-[#D4FF00] border-b-4 border-black overflow-hidden relative">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <section className="py-24 px-4 md:px-6 bg-[#080d1a] border-b-4 border-black overflow-hidden relative">
+        {/* Neon blur background highlights */}
+        <div className="absolute top-1/4 -left-1/4 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-1/4 w-[500px] h-[500px] bg-lime-500/10 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
             {/* Left Column: Bold Text Info */}
-            <div className="lg:col-span-6 space-y-6 text-left">
-              <div className="inline-block bg-black text-white px-4 py-1.5 font-['Space_Grotesk'] font-black uppercase tracking-wider transform -rotate-1 border-2 border-black shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
-                ⚡ FREE 3D PACKAGING STUDIO
+            <div className="lg:col-span-5 space-y-8 text-left">
+              <div className="inline-block bg-[#D4FF00] text-black px-4 py-1.5 font-['JetBrains_Mono'] font-extrabold text-xs uppercase tracking-wider transform -rotate-1 border-2 border-black shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
+                ⚡ FREE ONLINE 3D PACKAGING STUDIO
               </div>
-              <h2 className="font-black text-5xl md:text-7xl uppercase text-black leading-tight">
-                DESIGN IN <span className="underline decoration-black decoration-8">REAL-TIME 3D</span> FOR FREE
+              <h2 className="font-black text-5xl md:text-7xl uppercase text-white leading-[1.05] tracking-tight">
+                Design in <br/>
+                <span className="text-[#D4FF00]">Real-Time 3D</span> <br/>
+                for Free
               </h2>
-              <p className="font-['Space_Grotesk'] text-lg font-bold text-black max-w-xl">
-                Choose from over 400+ custom packaging shapes (pouches, boxes, bottles, cans, labels) and upload your design files. Customize dimensions and textures instantly in your browser!
+              <p className="font-['Space_Grotesk'] text-lg font-medium text-white/70 max-w-xl leading-relaxed">
+                Skip the expensive prototyping. Choose from over 400+ custom eco-friendly packaging shapes (pouches, boxes, bottles, cans, labels), adjust dimensions, and visualize in high-fidelity instantly in your browser!
               </p>
               
-              <div className="space-y-3 pt-2">
+              <div className="space-y-4 pt-2">
                 <div className="flex items-center gap-3">
-                  <div className="w-7 h-7 bg-black text-[#D4FF00] border-2 border-black flex items-center justify-center font-bold text-xs">
+                  <div className="w-6 h-6 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center font-bold text-xs rounded-full">
                     ✓
                   </div>
-                  <span className="font-['Space_Grotesk'] text-sm font-black text-black">400+ FREE PACKAGING MODELS</span>
+                  <span className="font-['Space_Grotesk'] text-sm font-semibold text-white/90">400+ Free Packaging Models</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-7 h-7 bg-black text-[#D4FF00] border-2 border-black flex items-center justify-center font-bold text-xs">
+                  <div className="w-6 h-6 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center font-bold text-xs rounded-full">
                     ✓
                   </div>
-                  <span className="font-['Space_Grotesk'] text-sm font-black text-black">EMAIL VERIFICATION FOR WATERMARK-FREE GLB DOWNLOADS</span>
+                  <span className="font-['Space_Grotesk'] text-sm font-semibold text-white/90">BPI Certified Compostable Pouch Templates</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-7 h-7 bg-black text-[#D4FF00] border-2 border-black flex items-center justify-center font-bold text-xs">
+                  <div className="w-6 h-6 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center font-bold text-xs rounded-full">
                     ✓
                   </div>
-                  <span className="font-['Space_Grotesk'] text-sm font-black text-black">NO PLUGINS OR LOGINS NEEDED - OPEN IN BROWSER</span>
+                  <span className="font-['Space_Grotesk'] text-sm font-semibold text-white/90">Download watermark-free GLB models for 3D printing & mockup validation</span>
                 </div>
               </div>
 
               <div className="pt-4">
                 <Link
                   to="/studio"
-                  className="inline-block bg-black text-[#D4FF00] hover:bg-[#10b981] hover:text-black font-black text-lg px-10 py-5 border-4 border-black shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:shadow-none transition-all uppercase tracking-wide"
+                  className="inline-block bg-[#10b981] hover:bg-[#D4FF00] text-black font-black text-lg px-10 py-5 border-4 border-black shadow-[8px_8px_0px_0px_rgba(255,255,255,0.15)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all uppercase tracking-wider"
                 >
-                  START 3D STUDIO NOW &rarr;
+                  Start 3D Studio &rarr;
                 </Link>
               </div>
             </div>
 
-            {/* Right Column: Neo-Brutalist Shape Cards */}
-            <div className="lg:col-span-6 grid grid-cols-2 gap-6">
-              
-              {/* Card 1 */}
-              <Link to="/studio" className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
-                <div className="w-12 h-12 bg-[#10b981] border-3 border-black flex items-center justify-center mb-4 text-black font-black text-xl">
-                  👝
+            {/* Right Column: Stunning Interactive Device Mockup Frame */}
+            <div className="lg:col-span-7 relative">
+              <motion.div 
+                whileHover={{ rotateY: -6, rotateX: 6, scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 100, damping: 15 }}
+                className="relative bg-black border-4 border-black p-3 shadow-[20px_20px_0px_0px_rgba(16,185,129,0.15)] rounded-3xl overflow-hidden cursor-pointer"
+                style={{ perspective: 1000 }}
+              >
+                {/* Visual Glassmorphic controls container */}
+                <div className="absolute top-6 left-6 z-20 bg-black/60 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-2xl flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
+                  <span className="font-['JetBrains_Mono'] font-bold text-[10px] tracking-wide text-white">INTERACTIVE VIEWPORT v3.2</span>
                 </div>
-                <h3 className="font-black text-xl uppercase text-black">POUCH SHAPES</h3>
-                <p className="font-['Space_Grotesk'] text-[11px] text-gray-700 mt-2">Stand-up, side gusset, flat bottom, and vacuum pouches for coffee, food, and liquids.</p>
-                <div className="mt-4 font-['Space_Grotesk'] text-xs font-black text-[#10b981] underline">LAUNCH STUDIO</div>
-              </Link>
 
-              {/* Card 2 */}
-              <Link to="/studio" className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
-                <div className="w-12 h-12 bg-[#3b82f6] border-3 border-black flex items-center justify-center mb-4 text-black font-black text-xl">
-                  📦
+                <div className="absolute bottom-6 right-6 z-20 bg-black/60 backdrop-blur-md border border-white/10 px-4 py-3 rounded-2xl flex flex-col gap-1 text-right">
+                  <span className="font-['Space_Grotesk'] text-[10px] font-black text-[#D4FF00] uppercase tracking-wider">3D Calibration</span>
+                  <span className="font-['JetBrains_Mono'] text-xs font-bold text-white">Width: 155mm | Height: 240mm</span>
                 </div>
-                <h3 className="font-black text-xl uppercase text-black">BOX SHAPES</h3>
-                <p className="font-['Space_Grotesk'] text-[11px] text-gray-700 mt-2">Mailer boxes, tuck boxes, product cartons, and rigid gift boxes ready for custom textures.</p>
-                <div className="mt-4 font-['Space_Grotesk'] text-xs font-black text-[#3b82f6] underline">LAUNCH STUDIO</div>
-              </Link>
 
-              {/* Card 3 */}
-              <Link to="/studio" className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
-                <div className="w-12 h-12 bg-[#f59e0b] border-3 border-black flex items-center justify-center mb-4 text-black font-black text-xl">
-                  🧴
-                </div>
-                <h3 className="font-black text-xl uppercase text-black">BOTTLES & CANS</h3>
-                <p className="font-['Space_Grotesk'] text-[11px] text-gray-700 mt-2">Cosmetic bottles, plastic pump spray containers, jars, and aluminum drinks cans.</p>
-                <div className="mt-4 font-['Space_Grotesk'] text-xs font-black text-[#f59e0b] underline">LAUNCH STUDIO</div>
-              </Link>
+                {/* Main high fidelity generated image */}
+                <img 
+                  src="/imgs/pouch_3d_studio_promo.jpg" 
+                  alt="Pouch.eco 3D Packaging Design Studio"
+                  className="w-full h-auto rounded-2xl object-cover border-2 border-white/5"
+                />
 
-              {/* Card 4 */}
-              <div className="bg-black border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] relative flex flex-col justify-between text-left">
-                <div>
-                  <div className="text-[10px] font-['Space_Grotesk'] font-bold text-[#D4FF00] tracking-widest uppercase mb-1">WEBGL GRAPHICS</div>
-                  <h4 className="font-black text-white text-lg uppercase">HIGH DEFINITION RENDERS</h4>
-                  <p className="font-['Space_Grotesk'] text-[10px] text-gray-400 mt-2">Full orbit camera rotation, real-time lighting adjustments, material roughness sliders, and export snapshots.</p>
+                {/* Subtitle spec description banner */}
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 pt-16 flex justify-between items-end">
+                  <div className="flex gap-2">
+                    <span className="inline-block px-2.5 py-1 bg-white/10 border border-white/20 rounded-md text-[9px] font-bold text-white uppercase">WebGL 2.0</span>
+                    <span className="inline-block px-2.5 py-1 bg-white/10 border border-white/20 rounded-md text-[9px] font-bold text-white uppercase">Real-Time Lighting</span>
+                  </div>
                 </div>
-                <div className="mt-4 font-['Space_Grotesk'] text-[10px] font-bold text-[#10b981] flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#10b981] animate-ping" />
-                  No Sign Up Required
-                </div>
-              </div>
+              </motion.div>
 
+              {/* Decorative behind elements */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-emerald-500 to-lime-500 rounded-3xl opacity-20 blur-xl -z-10 animate-pulse" />
             </div>
+
           </div>
         </div>
       </section>

@@ -19,7 +19,7 @@ const PouchSpoutPouchesPage: React.FC = () => {
       <FooterSEOPageTemplate
         pageTitle={t(`${baseKey}.pageTitle`) as string}
         pageDescription={t(`${baseKey}.pageDescription`) as string}
-        heroImage="/imgs/products/spout-pouches-hero.jpg"
+        heroImage="/imgs/knowledge/spout-pouch-pain-points.jpg"
         heroTitle={t(`${baseKey}.heroTitle`) as string}
         heroSubtitle={t(`${baseKey}.heroSubtitle`) as string}
         primaryKeyword="Spout Pouches"

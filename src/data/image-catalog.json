@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-16",
-  "total_images": 5493,
+  "total_images": 5494,
   "total_categories": 288,
   "extensions": {
     ".webp": 1355,
     ".png": 3160,
-    ".jpg": 974,
+    ".jpg": 975,
     ".svg": 4
   },
   "categories": {
@@ -16553,8 +16553,14 @@
       ]
     },
     "root": {
-      "count": 39,
+      "count": 40,
       "images": [
+        {
+          "filename": "pouch_3d_studio_promo.jpg",
+          "path": "/imgs/pouch_3d_studio_promo.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T02:09:04.535Z"
+        },
         {
           "filename": "pattern-dots.svg",
           "path": "/imgs/pattern-dots.svg",

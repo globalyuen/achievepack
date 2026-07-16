@@ -21,7 +21,7 @@ const PackagingLineAutomationPage: React.FC = () => {
     <FooterSEOPageTemplate
       pageTitle={t(`${baseKey}.pageTitle`) as string}
       pageDescription={t(`${baseKey}.pageDescription`) as string}
-      heroImage="/imgs/hero/packaging-automation-hero.jpg"
+      heroImage="/imgs/knowledge/molded-pulp-packaging-automation-hero.jpg"
       heroTitle={t(`${baseKey}.heroTitle`) as string}
       heroSubtitle={t(`${baseKey}.heroSubtitle`) as string}
       primaryKeyword="Packaging Line Automation"

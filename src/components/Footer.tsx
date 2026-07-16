@@ -167,7 +167,7 @@ export default function Footer() {
               <li><Link to="/materials/data-sheet" className="hover:text-primary-400">{t('pouchEcoFooter.materialDataSheets', 'Material Data Sheets')}</Link></li>
               <li><Link to="/topics/plant-based-barrier-coatings" className="hover:text-primary-400">{t('pouchEcoFooter.barrierCoatings', 'Barrier Coatings')}</Link></li>
               <li><Link to="/topics/iso-sustainable" className="hover:text-primary-400">{t('pouchEcoFooter.complianceIso', 'Compliance & ISO')}</Link></li>
-              <li><Link to="/options/smart-degassing-sticker" className="hover:text-primary-400">{t('pouchEcoFooter.degassingValves', 'Degassing Valves')}</Link></li>
+              <li><Link to={isAchievePack() ? "/function/smart-degassing-sticker" : "/options/smart-degassing-sticker"} className="hover:text-primary-400">{t('pouchEcoFooter.degassingValves', 'Degassing Valves')}</Link></li>
               <li><Link to="/function/child-resistant-bags" className="hover:text-primary-400">{t('pouchEcoFooter.childResistantZippers', 'Child-Resistant Zippers')}</Link></li>
               <li><Link to="/function/microwave-steam-bags" className="hover:text-primary-400">{t('pouchEcoFooter.microwaveSteamBags', 'Microwave Steam Bags')}</Link></li>
             </ul>

@@ -20,7 +20,7 @@ const RollstockQuotePage: React.FC = () => {
     <FooterSEOPageTemplate
       pageTitle={t(`${baseKey}.pageTitle`) as string}
       pageDescription={t(`${baseKey}.pageDescription`) as string}
-      heroImage="/imgs/samples/home-compostable-rollstock.jpg"
+      heroImage="/imgs/pouch-shape/rollstock-film.jpg"
       heroTitle={t(`${baseKey}.heroTitle`) as string}
       heroSubtitle={t(`${baseKey}.heroSubtitle`) as string}
       primaryKeyword="Rollstock Film Packaging"
