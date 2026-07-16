@@ -1,11 +1,11 @@
 {
   "generated": "2026-07-16",
-  "total_images": 5496,
+  "total_images": 5503,
   "total_categories": 288,
   "extensions": {
     ".webp": 1355,
     ".png": 3160,
-    ".jpg": 977,
+    ".jpg": 984,
     ".svg": 4
   },
   "categories": {
@@ -12753,8 +12753,50 @@
       ]
     },
     "knowledge": {
-      "count": 307,
+      "count": 314,
       "images": [
+        {
+          "filename": "explorer_recyclable_1784171781810.jpg",
+          "path": "/imgs/knowledge/explorer_recyclable_1784171781810.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T03:17:15.037Z"
+        },
+        {
+          "filename": "explorer_pouch_1784171805375.jpg",
+          "path": "/imgs/knowledge/explorer_pouch_1784171805375.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T03:17:15.036Z"
+        },
+        {
+          "filename": "explorer_pcr_1784171798162.jpg",
+          "path": "/imgs/knowledge/explorer_pcr_1784171798162.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T03:17:15.035Z"
+        },
+        {
+          "filename": "explorer_industry_1784171820644.jpg",
+          "path": "/imgs/knowledge/explorer_industry_1784171820644.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T03:17:15.034Z"
+        },
+        {
+          "filename": "explorer_compost_1784171771409.jpg",
+          "path": "/imgs/knowledge/explorer_compost_1784171771409.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T03:17:15.032Z"
+        },
+        {
+          "filename": "explorer_box_1784171812789.jpg",
+          "path": "/imgs/knowledge/explorer_box_1784171812789.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T03:17:15.031Z"
+        },
+        {
+          "filename": "explorer_biope_1784171790236.jpg",
+          "path": "/imgs/knowledge/explorer_biope_1784171790236.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-16T03:17:15.029Z"
+        },
         {
           "filename": "composting-circular-lifecycle.jpg",
           "path": "/imgs/knowledge/composting-circular-lifecycle.jpg",

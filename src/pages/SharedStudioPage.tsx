@@ -168,6 +168,126 @@ const createColaCanModel = () => {
   tab.castShadow = true;
   canGroup.add(tab);
 
+  // ---- 3D Dimension Arrows & Labels ----
+  const arrowColor = 0x64ffda; // matching neon cyan theme
+
+  // 1. Height Arrow (Vertical)
+  const heightArrowGroup = new THREE.Group();
+  
+  // Upward arrow
+  const arrowUp = new THREE.ArrowHelper(
+    new THREE.Vector3(0, 1, 0),
+    new THREE.Vector3(-45, 61, 0),
+    61,
+    arrowColor,
+    8,
+    4
+  );
+  // Downward arrow
+  const arrowDown = new THREE.ArrowHelper(
+    new THREE.Vector3(0, -1, 0),
+    new THREE.Vector3(-45, 61, 0),
+    61,
+    arrowColor,
+    8,
+    4
+  );
+  heightArrowGroup.add(arrowUp);
+  heightArrowGroup.add(arrowDown);
+  
+  // Height Dimension line backer
+  const lineGeom = new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(-45, 0, 0),
+    new THREE.Vector3(-45, 122, 0)
+  ]);
+  const lineMat = new THREE.LineBasicMaterial({ color: arrowColor, transparent: true, opacity: 0.8 });
+  const heightLine = new THREE.Line(lineGeom, lineMat);
+  heightArrowGroup.add(heightLine);
+
+  // Helper to create text sprite label
+  const createTextSprite = (text: string) => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 256;
+    canvas.height = 64;
+    const ctx = canvas.getContext('2d');
+    if (ctx) {
+      ctx.clearRect(0, 0, 256, 64);
+      // Rounded background
+      ctx.fillStyle = 'rgba(10, 25, 47, 0.85)';
+      ctx.strokeStyle = '#64ffda';
+      ctx.lineWidth = 2;
+      const r = 8;
+      const w = 256;
+      const h = 64;
+      ctx.beginPath();
+      ctx.moveTo(r, 0);
+      ctx.lineTo(w - r, 0);
+      ctx.quadraticCurveTo(w, 0, w, r);
+      ctx.lineTo(w, h - r);
+      ctx.quadraticCurveTo(w, h, w - r, h);
+      ctx.lineTo(r, h);
+      ctx.quadraticCurveTo(0, h, 0, h - r);
+      ctx.lineTo(0, r);
+      ctx.quadraticCurveTo(0, 0, r, 0);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.font = 'bold 22px Outfit, Inter, sans-serif';
+      ctx.fillStyle = '#64ffda';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(text, 128, 32);
+    }
+    const texture = new THREE.CanvasTexture(canvas);
+    const spriteMat = new THREE.SpriteMaterial({ map: texture, transparent: true });
+    const sprite = new THREE.Sprite(spriteMat);
+    sprite.scale.set(40, 10, 1);
+    return sprite;
+  };
+
+  const heightLabelSprite = createTextSprite('122mm (4.8")');
+  heightLabelSprite.position.set(-75, 61, 0);
+  heightArrowGroup.add(heightLabelSprite);
+  canGroup.add(heightArrowGroup);
+
+  // 2. Diameter Arrow (Horizontal)
+  const diaArrowGroup = new THREE.Group();
+  
+  // Leftward arrow
+  const arrowLeft = new THREE.ArrowHelper(
+    new THREE.Vector3(-1, 0, 0),
+    new THREE.Vector3(0, 5, 45),
+    33,
+    arrowColor,
+    8,
+    4
+  );
+  // Rightward arrow
+  const arrowRight = new THREE.ArrowHelper(
+    new THREE.Vector3(1, 0, 0),
+    new THREE.Vector3(0, 5, 45),
+    33,
+    arrowColor,
+    8,
+    4
+  );
+  diaArrowGroup.add(arrowLeft);
+  diaArrowGroup.add(arrowRight);
+
+  // Diameter Dimension line backer
+  const diaLineGeom = new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(-33, 5, 45),
+    new THREE.Vector3(33, 5, 45)
+  ]);
+  const diaLine = new THREE.Line(diaLineGeom, lineMat);
+  diaArrowGroup.add(diaLine);
+
+  const diaLabelSprite = createTextSprite('66mm (2.6")');
+  diaLabelSprite.position.set(0, 20, 45);
+  diaArrowGroup.add(diaLabelSprite);
+  canGroup.add(diaArrowGroup);
+
   return canGroup;
 };
 
