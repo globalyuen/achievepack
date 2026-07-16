@@ -5,6 +5,7 @@ import { Search, ArrowRight, ShoppingCart, Leaf, Package, Factory, FileText, Use
 import { useStore } from '../store/StoreContext'
 import { LEARN_PAGES } from '../components/LearnNavigation'
 import { useTranslation } from 'react-i18next'
+import InteractiveExplorerModule from '../components/InteractiveExplorerModule'
 
 // Categories for filtering - dynamically include all categories from LEARN_PAGES
 const CATEGORY_MAPPING: Record<string, string> = {
@@ -430,212 +431,41 @@ export default function LearnSearchPage() {
 
         <div className="h-[72px]"></div>
 
-        {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-16 md:py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                {t(`${p}.hero.title`, "Packaging Knowledge Center")}
-              </h1>
-              <p className="text-xl text-primary-100 max-w-2xl mx-auto">
-                {t(`${p}.hero.desc`, "Everything you need to know about sustainable packaging materials, shapes, and solutions")}
-              </p>
+        {/* Category Sub-Menu & Interactive Explorer */}
+        <section className="bg-neutral-950 text-white relative border-b-4 border-black">
+          {/* Sub-menu bar */}
+          <div className="border-b border-white/10 bg-neutral-900 sticky top-[72px] z-40 shadow-xl">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex overflow-x-auto no-scrollbar py-4 gap-2 items-center">
+                <span className="text-gray-400 text-xs font-black uppercase tracking-wider mr-4 shrink-0 font-['JetBrains_Mono'] hidden md:block">Explore Topic:</span>
+                {['All', 'Compost', 'Recyclable', 'BioPE', 'PCR', 'Pouch', 'Box', 'Industry'].map(cat => (
+                  <button
+                    key={cat}
+                    onClick={() => handleCategoryChange(cat)}
+                    className={`shrink-0 px-5 py-2 rounded-full font-black text-sm uppercase tracking-wider transition-all border-2 ${
+                      selectedCategory === cat 
+                        ? 'bg-[#D4FF00] text-black border-[#D4FF00] shadow-[0_0_15px_rgba(212,255,0,0.4)]' 
+                        : 'bg-black text-white border-white/20 hover:border-white/50'
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
-        </section>
-
-        {/* Interactive Composting Explorer Section */}
-        <section className="py-16 bg-neutral-950 text-white border-b-4 border-black relative">
-          <style>{`
-            @keyframes custom-ping {
-              0% { transform: scale(1); opacity: 1; }
-              70%, 100% { transform: scale(2.5); opacity: 0; }
-            }
-            .animate-custom-ping {
-              animation: custom-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-            }
-          `}</style>
           
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <span className="inline-block bg-[#D4FF00] text-black px-4 py-1.5 font-['JetBrains_Mono'] font-extrabold text-xs uppercase tracking-wider transform -rotate-1 border-2 border-black shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] mb-4">
-                ⚡ VISUAL INTERACTIVE EXPLORER
-              </span>
-              <h2 className="text-3xl md:text-5xl font-black uppercase text-white leading-none tracking-tight">
-                Interactive Compostable Packaging Explorer
-              </h2>
-              <p className="text-lg text-gray-400 mt-4 max-w-3xl mx-auto font-['Space_Grotesk']">
-                Hover or tap the glowing hotspots to explore structural specs, barrier layers, and the complete circular lifecycle from plant-based materials to nutrient-rich soil.
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-12">
-              {/* Diagram 1: Anatomy */}
-              <div className="relative">
-                <h3 className="text-xl md:text-2xl font-black uppercase text-[#D4FF00] mb-4 tracking-wide">
-                  🔍 Pouch Structural Anatomy
-                </h3>
-                <div className="relative w-full aspect-[16/9] md:aspect-[21/9] lg:aspect-[2.5/1] bg-black border-4 border-black rounded-2xl overflow-hidden shadow-[20px_20px_0px_0px_rgba(16,185,129,0.15)] flex items-center justify-center">
-                  <div className="relative w-full aspect-[16/9] flex-shrink-0">
-                    <img
-                      src="/imgs/knowledge/composting-anatomy-diagram.jpg"
-                      alt="Interactive Composting Anatomy Diagram"
-                      className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
-                    />
-                    
-                    {/* Overlay Hotspots */}
-                    {ANATOMY_HOTSPOTS.map((hotspot) => {
-                      const isActive = activeHotspot === hotspot.id;
-                      
-                      // Placement classes for tooltips
-                      let tooltipClass = "";
-                      if (hotspot.placement === 'left') {
-                        tooltipClass = "right-full mr-4 top-1/2 -translate-y-1/2";
-                      } else if (hotspot.placement === 'right') {
-                        tooltipClass = "left-full ml-4 top-1/2 -translate-y-1/2";
-                      } else if (hotspot.placement === 'top') {
-                        tooltipClass = "bottom-full mb-4 left-1/2 -translate-x-1/2";
-                      } else if (hotspot.placement === 'bottom') {
-                        tooltipClass = "top-full mt-4 left-1/2 -translate-x-1/2";
-                      }
-
-                      return (
-                        <div
-                          key={hotspot.id}
-                          className="absolute z-20"
-                          style={{ left: `${hotspot.x}%`, top: `${hotspot.y}%` }}
-                          onMouseEnter={() => setActiveHotspot(hotspot.id)}
-                          onMouseLeave={() => setActiveHotspot(null)}
-                        >
-                          {/* Glowing outer ring */}
-                          <div className="absolute -left-3 -top-3 w-7 h-7 bg-emerald-500 rounded-full animate-custom-ping pointer-events-none" />
-                          
-                          {/* Central Button */}
-                          <button
-                            onClick={() => navigate(hotspot.link)}
-                            className={`relative w-4 h-4 rounded-full border-2 border-black transition-transform duration-200 cursor-pointer ${
-                              isActive ? 'bg-[#D4FF00] scale-125' : 'bg-emerald-400 hover:bg-[#D4FF00]'
-                            }`}
-                            aria-label={hotspot.name}
-                          />
-
-                          {/* Desktop Tooltip Card */}
-                          {isActive && (
-                            <div className={`absolute w-64 bg-black/90 backdrop-blur-md border border-white/20 p-4 rounded-xl shadow-xl transition-all duration-200 pointer-events-auto hidden md:block ${tooltipClass}`}>
-                              <h4 className="font-extrabold text-[#D4FF00] text-sm uppercase tracking-wide mb-1">{hotspot.name}</h4>
-                              <p className="text-white/85 text-[11px] mb-3 leading-normal font-['Space_Grotesk']">{hotspot.desc}</p>
-                              <Link 
-                                to={hotspot.link} 
-                                className="inline-flex items-center gap-1 text-[11px] text-emerald-400 font-bold hover:underline"
-                              >
-                                Read Structural Spec &rarr;
-                              </Link>
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
+          {/* Module Display */}
+          {selectedCategory !== 'All' && (
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+              <div className="text-center mb-10">
+                <span className="inline-block bg-emerald-500 text-black px-4 py-1.5 font-['JetBrains_Mono'] font-extrabold text-xs uppercase tracking-wider transform -rotate-1 border-2 border-black shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] mb-4">
+                  ⚡ VISUAL INTERACTIVE EXPLORER
+                </span>
               </div>
-
-              {/* Diagram 2: Lifecycle */}
-              <div className="relative">
-                <h3 className="text-xl md:text-2xl font-black uppercase text-[#D4FF00] mb-4 tracking-wide">
-                  🔄 Circular Composting Lifecycle
-                </h3>
-                <div className="relative w-full aspect-[16/9] md:aspect-[21/9] lg:aspect-[2.5/1] bg-black border-4 border-black rounded-2xl overflow-hidden shadow-[20px_20px_0px_0px_rgba(16,185,129,0.15)] flex items-center justify-center">
-                  <div className="relative w-full aspect-[16/9] flex-shrink-0">
-                    <img
-                      src="/imgs/knowledge/composting-circular-lifecycle.jpg"
-                      alt="Circular Composting Packaging Lifecycle"
-                      className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
-                    />
-                    
-                    {/* Overlay Hotspots */}
-                    {LIFECYCLE_HOTSPOTS.map((hotspot) => {
-                      const isActive = activeHotspot === hotspot.id;
-                      
-                      // Placement classes for tooltips
-                      let tooltipClass = "";
-                      if (hotspot.placement === 'left') {
-                        tooltipClass = "right-full mr-4 top-1/2 -translate-y-1/2";
-                      } else if (hotspot.placement === 'right') {
-                        tooltipClass = "left-full ml-4 top-1/2 -translate-y-1/2";
-                      } else if (hotspot.placement === 'top') {
-                        tooltipClass = "bottom-full mb-4 left-1/2 -translate-x-1/2";
-                      } else if (hotspot.placement === 'bottom') {
-                        tooltipClass = "top-full mt-4 left-1/2 -translate-x-1/2";
-                      }
-
-                      return (
-                        <div
-                          key={hotspot.id}
-                          className="absolute z-20"
-                          style={{ left: `${hotspot.x}%`, top: `${hotspot.y}%` }}
-                          onMouseEnter={() => setActiveHotspot(hotspot.id)}
-                          onMouseLeave={() => setActiveHotspot(null)}
-                        >
-                          {/* Glowing outer ring */}
-                          <div className="absolute -left-3 -top-3 w-7 h-7 bg-emerald-500 rounded-full animate-custom-ping pointer-events-none" />
-                          
-                          {/* Central Button */}
-                          <button
-                            onClick={() => navigate(hotspot.link)}
-                            className={`relative w-4 h-4 rounded-full border-2 border-black transition-transform duration-200 cursor-pointer ${
-                              isActive ? 'bg-[#D4FF00] scale-125' : 'bg-emerald-400 hover:bg-[#D4FF00]'
-                            }`}
-                            aria-label={hotspot.name}
-                          />
-
-                          {/* Desktop Tooltip Card */}
-                          {isActive && (
-                            <div className={`absolute w-64 bg-black/90 backdrop-blur-md border border-white/20 p-4 rounded-xl shadow-xl transition-all duration-200 pointer-events-auto hidden md:block ${tooltipClass}`}>
-                              <h4 className="font-extrabold text-[#D4FF00] text-sm uppercase tracking-wide mb-1">{hotspot.name}</h4>
-                              <p className="text-white/85 text-[11px] mb-3 leading-normal font-['Space_Grotesk']">{hotspot.desc}</p>
-                              <Link 
-                                to={hotspot.link} 
-                                className="inline-flex items-center gap-1 text-[11px] text-emerald-400 font-bold hover:underline"
-                              >
-                                Read Structural Spec &rarr;
-                              </Link>
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
+              <InteractiveExplorerModule category={selectedCategory} />
             </div>
-
-            {/* Mobile / Responsive Detail Card */}
-            <div className="mt-8 md:hidden bg-neutral-900 border-2 border-neutral-800 p-6 rounded-xl text-center">
-              {activeHotspot ? (
-                (() => {
-                  const hotspot = [...ANATOMY_HOTSPOTS, ...LIFECYCLE_HOTSPOTS].find(h => h.id === activeHotspot);
-                  if (!hotspot) return null;
-                  return (
-                    <div className="space-y-3">
-                      <h4 className="font-black text-[#D4FF00] text-base uppercase tracking-wider">{hotspot.name}</h4>
-                      <p className="text-gray-300 text-sm leading-relaxed font-['Space_Grotesk']">{hotspot.desc}</p>
-                      <Link
-                        to={hotspot.link}
-                        className="inline-block bg-[#10b981] hover:bg-[#D4FF00] text-black px-5 py-2 rounded-lg font-black text-xs uppercase tracking-wider transition-colors"
-                      >
-                        Read Structural Spec &rarr;
-                      </Link>
-                    </div>
-                  );
-                })()
-              ) : (
-                <div className="py-2 text-gray-500 font-medium text-xs font-['JetBrains_Mono']">
-                  💡 Tap on any glowing point on the diagrams above to inspect specs and browse corresponding guides.
-                </div>
-              )}
-            </div>
-            
-          </div>
+          )}
         </section>
 
         {/* Filters Section */}

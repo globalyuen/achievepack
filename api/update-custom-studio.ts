@@ -27,9 +27,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Clean slug
     const cleanSlug = slug.trim().toLowerCase();
 
-    // Check password matches 8888 + 4 digits
-    const passwordRegex = /^8888\d{4}$/;
-    if (!password || !passwordRegex.test(password)) {
+    // Validate admin passcode against literal string
+    if (!password || password !== '8888****') {
       return res.status(401).json({ error: 'Unauthorized: Invalid admin password.' });
     }
 

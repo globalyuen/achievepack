@@ -1036,7 +1036,7 @@ export default function SharedStudioPage() {
 
             <button
               onClick={() => {
-                const isPassAdmin = /^8888\d{4}$/.test(passwordInput);
+                const isPassAdmin = passwordInput === '8888****';
                 const isPassCustomer = designData?.customerPassword && passwordInput === designData.customerPassword;
 
                 if (isPassAdmin) {
