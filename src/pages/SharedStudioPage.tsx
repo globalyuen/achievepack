@@ -489,14 +489,14 @@ export default function SharedStudioPage() {
           model.scale.set(scaleX, scaleY, scaleZ);
           modelScaleRef.current = { x: scaleX, y: scaleY };
  
-          // Resize offscreen canvas to match natural dieline image dimensions scaled by sX/sY
+          // Keep offscreen canvas at natural dieline dimensions to prevent UV mapping distortion
           const naturalW = dielineImg.naturalWidth || 1000;
           const naturalH = dielineImg.naturalHeight || 619;
-          const sX = scaleX / (scaleFactorRef.current === 1000 ? 1000 : 1);
-          const sY = scaleY / (scaleFactorRef.current === 1000 ? 1000 : 1);
+          const sX = 1.0;
+          const sY = 1.0;
           if (offscreenCanvasRef.current) {
-            offscreenCanvasRef.current.width = Math.round(naturalW * sX);
-            offscreenCanvasRef.current.height = Math.round(naturalH * sY);
+            offscreenCanvasRef.current.width = naturalW;
+            offscreenCanvasRef.current.height = naturalH;
           }
  
           originalBoxRef.current.setFromObject(model);
@@ -672,14 +672,14 @@ export default function SharedStudioPage() {
       targetH *= 25.4;
     }
 
-    const sX = targetW / unscaledSizeRef.current.x;
-    const sY = targetH / unscaledSizeRef.current.y;
+    const sX = 1.0;
+    const sY = 1.0;
 
     const naturalW = dielineImgRef.current.naturalWidth || 1000;
     const naturalH = dielineImgRef.current.naturalHeight || 619;
 
-    const targetCanvasW = Math.round(naturalW * sX);
-    const targetCanvasH = Math.round(naturalH * sY);
+    const targetCanvasW = naturalW;
+    const targetCanvasH = naturalH;
 
     const offscreenCanvas = offscreenCanvasRef.current;
     if (offscreenCanvas.width !== targetCanvasW || offscreenCanvas.height !== targetCanvasH) {
@@ -874,8 +874,8 @@ export default function SharedStudioPage() {
     loadedLayers.forEach(layer => {
       if (!layer || !layer.img) return;
       ctx.save();
-      const sX = modelScaleRef.current.x / (scaleFactorRef.current === 1000 ? 1000 : 1);
-      const sY = modelScaleRef.current.y / (scaleFactorRef.current === 1000 ? 1000 : 1);
+      const sX = 1.0;
+      const sY = 1.0;
 
       ctx.translate(layer.pos.x * sX, layer.pos.y * sY);
       ctx.rotate((layer.rotation || 0) * (Math.PI / 180));
