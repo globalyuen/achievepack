@@ -265,11 +265,25 @@ export default function PackageEditorPage() {
       naturalH = dielineImgRef.current.naturalHeight || 619;
     }
 
-    // Lock texture canvas dimensions to original dieline template aspect ratio to prevent UV mapping distortion
-    const targetW = naturalW;
-    const targetH = naturalH;
-    const sX = 1.0;
-    const sY = 1.0;
+    const activeShape = shapes.find(s => String(s.id) === String(selectedShapeId));
+    const shapeCategory = activeShape ? detectCategory(activeShape) : { isPouch: true, isBox: false, isBottle: false, isLabel: false };
+    const shouldScaleCanvas = shapeCategory.isPouch || shapeCategory.isLabel;
+
+    let sX = 1.0;
+    let sY = 1.0;
+    if (shouldScaleCanvas && originalSizeRef.current.x && originalSizeRef.current.y) {
+      let targetW = width;
+      let targetH = height;
+      if (unit === 'inch') {
+        targetW *= 25.4;
+        targetH *= 25.4;
+      }
+      sX = targetW / originalSizeRef.current.x;
+      sY = targetH / originalSizeRef.current.y;
+    }
+
+    const targetW = Math.round(naturalW * sX);
+    const targetH = Math.round(naturalH * sY);
 
     // Update canvas sizes dynamically
     if (canvas.width !== targetW || canvas.height !== targetH || offscreenCanvas.width !== targetW || offscreenCanvas.height !== targetH) {
@@ -1342,8 +1356,22 @@ export default function PackageEditorPage() {
     const clickX = ((e.clientX - rect.left) / rect.width) * canvasW;
     const clickY = ((e.clientY - rect.top) / rect.height) * canvasH;
 
-    const sX = 1.0;
-    const sY = 1.0;
+    const activeShape = shapes.find(s => String(s.id) === String(selectedShapeId));
+    const shapeCategory = activeShape ? detectCategory(activeShape) : { isPouch: true, isBox: false, isBottle: false, isLabel: false };
+    const shouldScaleCanvas = shapeCategory.isPouch || shapeCategory.isLabel;
+
+    let sX = 1.0;
+    let sY = 1.0;
+    if (shouldScaleCanvas && originalSizeRef.current.x && originalSizeRef.current.y) {
+      let targetW = width;
+      let targetH = height;
+      if (unit === 'inch') {
+        targetW *= 25.4;
+        targetH *= 25.4;
+      }
+      sX = targetW / originalSizeRef.current.x;
+      sY = targetH / originalSizeRef.current.y;
+    }
 
     let found = false;
     for (let i = layers.length - 1; i >= 0; i--) {
@@ -1379,8 +1407,22 @@ export default function PackageEditorPage() {
     const mouseX = ((e.clientX - rect.left) / rect.width) * canvasW;
     const mouseY = ((e.clientY - rect.top) / rect.height) * canvasH;
 
-    const sX = 1.0;
-    const sY = 1.0;
+    const activeShape = shapes.find(s => String(s.id) === String(selectedShapeId));
+    const shapeCategory = activeShape ? detectCategory(activeShape) : { isPouch: true, isBox: false, isBottle: false, isLabel: false };
+    const shouldScaleCanvas = shapeCategory.isPouch || shapeCategory.isLabel;
+
+    let sX = 1.0;
+    let sY = 1.0;
+    if (shouldScaleCanvas && originalSizeRef.current.x && originalSizeRef.current.y) {
+      let targetW = width;
+      let targetH = height;
+      if (unit === 'inch') {
+        targetW *= 25.4;
+        targetH *= 25.4;
+      }
+      sX = targetW / originalSizeRef.current.x;
+      sY = targetH / originalSizeRef.current.y;
+    }
 
     const targetPosX = mouseX - dragOffsetRef.current.x;
     const targetPosY = mouseY - dragOffsetRef.current.y;

@@ -205,6 +205,7 @@ export default function SharedStudioPage() {
   const [loginError, setLoginError] = useState('');
   const [savingSettings, setSavingSettings] = useState(false);
   const [activeTab, setActiveTab] = useState<'preview' | 'edit' | 'discussion'>('preview');
+  const [isPouchOrLabel, setIsPouchOrLabel] = useState<boolean>(true);
 
   // Dimension & Material states
   const [width, setWidth] = useState<number>(170);
@@ -489,14 +490,19 @@ export default function SharedStudioPage() {
           model.scale.set(scaleX, scaleY, scaleZ);
           modelScaleRef.current = { x: scaleX, y: scaleY };
  
-          // Keep offscreen canvas at natural dieline dimensions to prevent UV mapping distortion
+          // Keep offscreen canvas at natural dieline dimensions, conditionally scaled for pouches/labels
+          const isPouch = currentShape ? currentShape.category === 'Pouch' : true;
+          const isLabel = currentShape ? currentShape.category === 'Label' : false;
+          const isFlat = isPouch || isLabel;
+          setIsPouchOrLabel(isFlat);
+
           const naturalW = dielineImg.naturalWidth || 1000;
           const naturalH = dielineImg.naturalHeight || 619;
-          const sX = 1.0;
-          const sY = 1.0;
+          const sX = isFlat ? scaleX / (scaleFactorRef.current === 1000 ? 1000 : 1) : 1.0;
+          const sY = isFlat ? scaleY / (scaleFactorRef.current === 1000 ? 1000 : 1) : 1.0;
           if (offscreenCanvasRef.current) {
-            offscreenCanvasRef.current.width = naturalW;
-            offscreenCanvasRef.current.height = naturalH;
+            offscreenCanvasRef.current.width = Math.round(naturalW * sX);
+            offscreenCanvasRef.current.height = Math.round(naturalH * sY);
           }
  
           originalBoxRef.current.setFromObject(model);
@@ -672,14 +678,14 @@ export default function SharedStudioPage() {
       targetH *= 25.4;
     }
 
-    const sX = 1.0;
-    const sY = 1.0;
+    const sX = isPouchOrLabel ? targetW / unscaledSizeRef.current.x : 1.0;
+    const sY = isPouchOrLabel ? targetH / unscaledSizeRef.current.y : 1.0;
 
     const naturalW = dielineImgRef.current.naturalWidth || 1000;
     const naturalH = dielineImgRef.current.naturalHeight || 619;
 
-    const targetCanvasW = naturalW;
-    const targetCanvasH = naturalH;
+    const targetCanvasW = Math.round(naturalW * sX);
+    const targetCanvasH = Math.round(naturalH * sY);
 
     const offscreenCanvas = offscreenCanvasRef.current;
     if (offscreenCanvas.width !== targetCanvasW || offscreenCanvas.height !== targetCanvasH) {
@@ -874,8 +880,8 @@ export default function SharedStudioPage() {
     loadedLayers.forEach(layer => {
       if (!layer || !layer.img) return;
       ctx.save();
-      const sX = 1.0;
-      const sY = 1.0;
+      const sX = isPouchOrLabel ? modelScaleRef.current.x / (scaleFactorRef.current === 1000 ? 1000 : 1) : 1.0;
+      const sY = isPouchOrLabel ? modelScaleRef.current.y / (scaleFactorRef.current === 1000 ? 1000 : 1) : 1.0;
 
       ctx.translate(layer.pos.x * sX, layer.pos.y * sY);
       ctx.rotate((layer.rotation || 0) * (Math.PI / 180));
