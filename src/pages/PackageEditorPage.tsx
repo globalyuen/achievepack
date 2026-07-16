@@ -121,10 +121,10 @@ export default function PackageEditorPage() {
   const [activeCategory, setActiveCategory] = useState<'pouch' | 'box' | 'bottle' | 'label' | 'other'>('pouch');
   const [layers, setLayers] = useState<Layer[]>([]);
   const [selectedLayer, setSelectedLayer] = useState<Layer | null>(null);
-  const [width, setWidth] = useState<number>(170);
-  const [height, setHeight] = useState<number>(210);
-  const [depth, setDepth] = useState<number>(36.4);
-  const [unit, setUnit] = useState<string>('mm');
+  const [width, setWidth] = useState<number>(6.69);
+  const [height, setHeight] = useState<number>(8.27);
+  const [depth, setDepth] = useState<number>(1.43);
+  const [unit, setUnit] = useState<string>('inch');
   const [roughness, setRoughness] = useState<number>(0.5);
   const [metalness, setMetalness] = useState<number>(0.1);
   const [showDieline, setShowDieline] = useState<boolean>(true);
@@ -900,7 +900,7 @@ export default function PackageEditorPage() {
   }, [mobileTab, viewMode]);
 
   // Shared function to load a packaging shape into the 3D studio scene
-  const loadShape = (shape: Shape | undefined, presetWidth?: number, presetHeight?: number, presetLayers?: any[]) => {
+  const loadShape = (shape: Shape | undefined, presetWidth?: number, presetHeight?: number, presetLayers?: any[], presetUnit?: string) => {
     setIsLoading(true);
     setLoadingText('正在下載並解析 3D 模型...');
 
@@ -1006,18 +1006,34 @@ export default function PackageEditorPage() {
         }
 
         // Set dimensions inputs (use preset values if loaded from share link)
-        setUnit('mm');
+        const activeUnit = presetUnit || 'inch';
+        setUnit(activeUnit);
+
+        const defaultW = Math.round(size.x);
+        const defaultH = Math.round(size.y);
+        const defaultD = parseFloat(size.z.toFixed(1));
+
         if (presetWidth) {
-          setWidth(presetWidth);
+          if (presetWidth > 25 && activeUnit === 'inch') {
+            setWidth(parseFloat((presetWidth / 25.4).toFixed(2)));
+            setHeight(parseFloat(((presetHeight || defaultH) / 25.4).toFixed(2)));
+            setDepth(parseFloat((defaultD / 25.4).toFixed(2)));
+          } else {
+            setWidth(presetWidth);
+            setHeight(presetHeight || defaultH);
+            setDepth(defaultD);
+          }
         } else {
-          setWidth(Math.round(size.x));
+          if (activeUnit === 'inch') {
+            setWidth(parseFloat((defaultW / 25.4).toFixed(2)));
+            setHeight(parseFloat((defaultH / 25.4).toFixed(2)));
+            setDepth(parseFloat((defaultD / 25.4).toFixed(2)));
+          } else {
+            setWidth(defaultW);
+            setHeight(defaultH);
+            setDepth(defaultD);
+          }
         }
-        if (presetHeight) {
-          setHeight(presetHeight);
-        } else {
-          setHeight(Math.round(size.y));
-        }
-        setDepth(parseFloat(size.z.toFixed(1)));
 
         model.position.x = -center.x;
         model.position.z = -center.z;
@@ -1198,6 +1214,7 @@ export default function PackageEditorPage() {
     }
 
     const loadInitialDesign = async () => {
+      const unitParam = searchParams.get('unit');
       const slugParam = searchParams.get('slug');
       // 1. Prioritize design code or slug loading
       if (codeParam || slugParam) {
@@ -1219,7 +1236,7 @@ export default function PackageEditorPage() {
             if (shape) {
               setSelectedShapeId(shape.id);
               setViewMode('editor');
-              loadShape(shape, d.width, d.height, d.layers);
+              loadShape(shape, d.width, d.height, d.layers, d.unit);
               // Switch active category (using shared detectCategory helper)
               const { isPouch, isBox, isBottle, isLabel } = detectCategory(shape);
               if (isPouch) setActiveCategory('pouch');
@@ -1231,7 +1248,7 @@ export default function PackageEditorPage() {
               // Load default model template with saved custom sizes & layers
               setSelectedShapeId('');
               setViewMode('editor');
-              loadShape(undefined, d.width, d.height, d.layers);
+              loadShape(undefined, d.width, d.height, d.layers, d.unit);
             }
             return;
           }
@@ -1249,7 +1266,7 @@ export default function PackageEditorPage() {
           const presetH = heightParam ? Number(heightParam) : undefined;
           const presetArt = artworkParam ? [{ id: 'shared-artwork', imgSrc: artworkParam, name: 'Shared Artwork', pos: { x: 500, y: 309 }, scale: 1.0, rotation: 0 }] : undefined;
 
-          loadShape(shape, presetW, presetH, presetArt);
+          loadShape(shape, presetW, presetH, presetArt, unitParam || 'inch');
 
           // Automatically switch active tab category (using shared detectCategory helper)
           const { isPouch, isBox, isBottle, isLabel } = detectCategory(shape);
@@ -1265,7 +1282,7 @@ export default function PackageEditorPage() {
         const presetH = heightParam ? Number(heightParam) : undefined;
         const presetArt = artworkParam ? [{ id: 'shared-artwork', imgSrc: artworkParam, name: 'Shared Artwork', pos: { x: 500, y: 309 }, scale: 1.0, rotation: 0 }] : undefined;
 
-        loadShape(undefined, presetW, presetH, presetArt);
+        loadShape(undefined, presetW, presetH, presetArt, unitParam || 'inch');
       }
     };
 
@@ -1807,10 +1824,10 @@ export default function PackageEditorPage() {
   };
 
   const resetAllValues = () => {
-    setUnit('mm');
-    setWidth(170);
-    setHeight(210);
-    setDepth(36.4);
+    setUnit('inch');
+    setWidth(6.69);
+    setHeight(8.27);
+    setDepth(1.43);
     setRoughness(0.5);
     setMetalness(0.1);
     setShowDieline(true);
@@ -2106,8 +2123,8 @@ export default function PackageEditorPage() {
                 onChange={handleUnitChange}
                 className="bg-[rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.08)] rounded-lg text-[#f3f4f6] px-3 py-2 text-[13px] outline-none cursor-pointer"
               >
-                <option value="mm">Millimeters (mm)</option>
                 <option value="inch">Inches (in)</option>
+                <option value="mm">Millimeters (mm)</option>
               </select>
             </div>
 
@@ -2427,9 +2444,14 @@ export default function PackageEditorPage() {
                     onChange={(e) => setShowReferenceCan(e.target.checked)}
                     className="accent-[#64ffda] cursor-pointer"
                   />
-                  <label htmlFor="show-reference-can" className="text-xs text-[#9ca3af] cursor-pointer select-none">
-                    Show 355ml Reference Can (易開罐比例對比)
-                  </label>
+                  <div className="flex flex-col gap-0.5">
+                    <label htmlFor="show-reference-can" className="text-xs text-[#9ca3af] cursor-pointer select-none">
+                      Show 355ml Reference Can (易開罐比例對比)
+                    </label>
+                    <span className="text-[10px] text-[#8e94a0]">
+                      Can ref: 2.6" x 4.8" (66mm x 122mm)
+                    </span>
+                  </div>
                 </div>
               )}
             </div>
@@ -2586,8 +2608,8 @@ export default function PackageEditorPage() {
               <div className="flex flex-col gap-3 border-b border-[rgba(255,255,255,0.08)] pb-4">
                 <div className="text-[11px] font-semibold text-[#64ffda] tracking-wide uppercase">Dimensions</div>
                 <select value={unit} onChange={handleUnitChange} className="bg-[rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.08)] rounded-lg text-[#f3f4f6] px-3 py-2 text-sm outline-none">
-                  <option value="mm">Millimeters (mm)</option>
                   <option value="inch">Inches (in)</option>
+                  <option value="mm">Millimeters (mm)</option>
                 </select>
                 <div className="grid grid-cols-3 gap-2">
                   {[{ label: 'Width', value: width, setter: (v: number) => { setWidth(v); updateModelScale(); } },
@@ -2631,9 +2653,14 @@ export default function PackageEditorPage() {
                       onChange={(e) => setShowReferenceCan(e.target.checked)}
                       className="accent-[#64ffda] cursor-pointer"
                     />
-                    <label htmlFor="mobile-show-reference-can" className="text-xs text-[#9ca3af] cursor-pointer select-none">
-                      Show 355ml Reference Can (易開罐比例對比)
-                    </label>
+                    <div className="flex flex-col gap-0.5">
+                      <label htmlFor="mobile-show-reference-can" className="text-xs text-[#9ca3af] cursor-pointer select-none">
+                        Show 355ml Reference Can (易開罐比例對比)
+                      </label>
+                      <span className="text-[10px] text-[#8e94a0]">
+                        Can ref: 2.6" x 4.8" (66mm x 122mm)
+                      </span>
+                    </div>
                   </div>
                 </div>
               )}

@@ -4,8 +4,12 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
-import { Sparkles, Edit3, ArrowRight, Package, Box, HelpCircle, Check, Loader2 } from 'lucide-react';
+import { 
+  Sparkles, Edit3, ArrowRight, Package, Box, HelpCircle, Check, Loader2,
+  Lock, Unlock, MessageSquare, Send, Image as ImageIcon, Trash2, Save, Play, Film
+} from 'lucide-react';
 import NotFoundPage from './NotFoundPage';
+import { supabase, uploadWithTus } from '../lib/supabase';
 
 interface Layer {
   id: string;
@@ -118,6 +122,55 @@ const translations = {
   }
 };
 
+const createColaCanModel = () => {
+  const canGroup = new THREE.Group();
+  canGroup.name = 'cola-can-reference';
+
+  // Standard 355ml can: 66mm diameter (33mm radius), 122mm height
+  const bodyGeom = new THREE.CylinderGeometry(33, 33, 122, 32);
+  const bodyMat = new THREE.MeshStandardMaterial({
+    color: 0xffffff,
+    roughness: 0.35,
+    metalness: 0.10,
+  });
+  const bodyMesh = new THREE.Mesh(bodyGeom, bodyMat);
+  bodyMesh.position.y = 61; // Half of height to rest on floor
+  bodyMesh.castShadow = true;
+  bodyMesh.receiveShadow = true;
+  canGroup.add(bodyMesh);
+
+  // Rims (Shiny aluminum)
+  const rimMat = new THREE.MeshStandardMaterial({
+    color: 0xcccccc,
+    roughness: 0.2,
+    metalness: 0.85,
+  });
+  
+  // Top Rim
+  const topRimGeom = new THREE.CylinderGeometry(33.5, 33, 4, 32);
+  const topRim = new THREE.Mesh(topRimGeom, rimMat);
+  topRim.position.y = 120;
+  topRim.castShadow = true;
+  canGroup.add(topRim);
+
+  // Bottom Rim
+  const bottomRimGeom = new THREE.CylinderGeometry(33, 33.5, 4, 32);
+  const bottomRim = new THREE.Mesh(bottomRimGeom, rimMat);
+  bottomRim.position.y = 2;
+  bottomRim.castShadow = true;
+  canGroup.add(bottomRim);
+
+  // Pull Tab
+  const tabGeom = new THREE.BoxGeometry(10, 2, 20);
+  const tab = new THREE.Mesh(tabGeom, rimMat);
+  tab.position.set(0, 122, 10);
+  tab.rotation.x = 0.05;
+  tab.castShadow = true;
+  canGroup.add(tab);
+
+  return canGroup;
+};
+
 export default function SharedStudioPage() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
@@ -132,6 +185,38 @@ export default function SharedStudioPage() {
   const [companyName, setCompanyName] = useState('');
   const [designData, setDesignData] = useState<any>(null);
   const [createdDate, setCreatedDate] = useState<Date | null>(null);
+  
+  // Admin & Editing states
+  const [isAdmin, setIsAdmin] = useState<boolean>(() => {
+    return sessionStorage.getItem(`shared_studio_admin_${slug}`) === 'true';
+  });
+  const [adminPassword, setAdminPassword] = useState<string>(() => {
+    return sessionStorage.getItem(`shared_studio_pass_${slug}`) || '';
+  });
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [passwordInput, setPasswordInput] = useState('');
+  const [loginError, setLoginError] = useState('');
+  const [savingSettings, setSavingSettings] = useState(false);
+  const [activeTab, setActiveTab] = useState<'preview' | 'edit' | 'discussion'>('preview');
+
+  // Dimension & Material states
+  const [width, setWidth] = useState<number>(170);
+  const [height, setHeight] = useState<number>(210);
+  const [depth, setDepth] = useState<number>(36.4);
+  const [unit, setUnit] = useState<string>('mm');
+  const [roughness, setRoughness] = useState<number>(0.5);
+  const [metalness, setMetalness] = useState<number>(0.1);
+
+  // Discussion & Chat states
+  const [discussion, setDiscussion] = useState<any[]>([]);
+  const [chatMessage, setChatMessage] = useState('');
+  const [sendingMessage, setSendingMessage] = useState(false);
+  const [uploadingMedia, setUploadingMedia] = useState(false);
+
+  // Reference can ref and show state
+  const [showReferenceCan, setShowReferenceCan] = useState<boolean>(true);
+  const canRef = useRef<THREE.Group | null>(null);
+  const unscaledSizeRef = useRef<THREE.Vector3>(new THREE.Vector3());
   
   // ThreeJS states
   const containerRef = useRef<HTMLDivElement>(null);
@@ -172,6 +257,13 @@ export default function SharedStudioPage() {
         if (data.success && data.designData) {
           setCompanyName(data.companyName || '');
           setDesignData(data.designData);
+          setWidth(data.designData.width || 170);
+          setHeight(data.designData.height || 210);
+          setDepth(data.designData.depth || 36.4);
+          setUnit(data.designData.unit || 'mm');
+          setRoughness(data.designData.roughness ?? 0.5);
+          setMetalness(data.designData.metalness ?? 0.1);
+          setDiscussion(data.designData.discussion || []);
           if (data.createdAt) {
             setCreatedDate(new Date(data.createdAt));
           }
@@ -360,7 +452,7 @@ export default function SharedStudioPage() {
           
           let size = originalSizeRef.current;
           let center = originalBoxRef.current.getCenter(new THREE.Vector3());
-
+ 
           // Handle micro-sized models (meters vs mm)
           if (size.x < 2.0 && size.y < 2.0) {
             model.scale.set(1000, 1000, 1000);
@@ -372,18 +464,23 @@ export default function SharedStudioPage() {
           } else {
             scaleFactorRef.current = 1;
           }
-
+          unscaledSizeRef.current.copy(size);
+ 
           // Scale model dimensions based on design data
           const designW = design.width || Math.round(size.x);
           const designH = design.height || Math.round(size.y);
           const designD = design.depth || Math.round(size.z);
-
-          const scaleX = (designW / size.x) * (scaleFactorRef.current === 1000 ? 1000 : 1);
-          const scaleY = (designH / size.y) * (scaleFactorRef.current === 1000 ? 1000 : 1);
-          const scaleZ = (designD / size.z) * (scaleFactorRef.current === 1000 ? 1000 : 1);
+          
+          const targetW_mm = (design.unit === 'inch') ? designW * 25.4 : designW;
+          const targetH_mm = (design.unit === 'inch') ? designH * 25.4 : designH;
+          const targetD_mm = (design.unit === 'inch') ? designD * 25.4 : designD;
+ 
+          const scaleX = (targetW_mm / size.x) * (scaleFactorRef.current === 1000 ? 1000 : 1);
+          const scaleY = (targetH_mm / size.y) * (scaleFactorRef.current === 1000 ? 1000 : 1);
+          const scaleZ = (targetD_mm / size.z) * (scaleFactorRef.current === 1000 ? 1000 : 1);
           model.scale.set(scaleX, scaleY, scaleZ);
           modelScaleRef.current = { x: scaleX, y: scaleY };
-
+ 
           // Resize offscreen canvas to match natural dieline image dimensions scaled by sX/sY
           const naturalW = dielineImg.naturalWidth || 1000;
           const naturalH = dielineImg.naturalHeight || 619;
@@ -393,16 +490,16 @@ export default function SharedStudioPage() {
             offscreenCanvasRef.current.width = Math.round(naturalW * sX);
             offscreenCanvasRef.current.height = Math.round(naturalH * sY);
           }
-
+ 
           originalBoxRef.current.setFromObject(model);
           originalBoxRef.current.getSize(originalSizeRef.current);
           const newSize = originalSizeRef.current;
           const newCenter = originalBoxRef.current.getCenter(new THREE.Vector3());
-
+ 
           model.position.x = -newCenter.x;
           model.position.z = -newCenter.z;
           model.position.y = -originalBoxRef.current.min.y;
-
+ 
           // Adjust camera & controls target
           const maxDim = Math.max(newSize.x, newSize.y, newSize.z);
           const fov = camera.fov * (Math.PI / 180);
@@ -410,24 +507,24 @@ export default function SharedStudioPage() {
           camera.far = maxDim * 15;
           camera.position.set(0, newSize.y * 0.8, cameraZ);
           camera.updateProjectionMatrix();
-
+ 
           controls.target.set(0, newSize.y / 2, 0);
           controls.maxDistance = maxDim * 6;
           controls.minDistance = maxDim * 0.1;
           controls.update();
-
+ 
           // Apply lights position relative to model dimensions
           dirLight1.position.set(maxDim * 1.2, maxDim * 2.0, maxDim * 1.2);
           dirLight2.position.set(-maxDim * 1.2, maxDim * 1.0, -maxDim * 1.2);
           rimLight.position.set(0, maxDim * 1.5, -maxDim * 1.5);
-
+ 
           dirLight1.shadow.camera.left = -maxDim * 2;
           dirLight1.shadow.camera.right = maxDim * 2;
           dirLight1.shadow.camera.top = maxDim * 2;
           dirLight1.shadow.camera.bottom = -maxDim * 2;
           dirLight1.shadow.camera.near = 0.1;
           dirLight1.shadow.camera.far = maxDim * 8;
-
+ 
           // Map canvas texture to model material
           model.traverse((node) => {
             if (node instanceof THREE.Mesh) {
@@ -448,6 +545,8 @@ export default function SharedStudioPage() {
                   if ('aoMap' in mat) mat.aoMap = null;
                   if ('emissiveMap' in mat) mat.emissiveMap = null;
                   if ('lightMap' in mat) mat.lightMap = null;
+                  if ('roughness' in mat) (mat as any).roughness = design.roughness ?? 0.5;
+                  if ('metalness' in mat) (mat as any).metalness = design.metalness ?? 0.1;
                   mat.needsUpdate = true;
                 });
               }
@@ -455,6 +554,13 @@ export default function SharedStudioPage() {
           });
 
           scene.add(model);
+
+          // Add standard 355ml reference can next to the model
+          const canModel = createColaCanModel();
+          canModel.position.set((targetW_mm / 2) + 50, 0, 0);
+          canModel.visible = showReferenceCan;
+          scene.add(canModel);
+          canRef.current = canModel;
 
           // Render layers onto offscreen canvas
           setLoadingKey('applying_artwork');
@@ -490,6 +596,235 @@ export default function SharedStudioPage() {
     } catch (err) {
       console.error('Failed to query shapes database:', err);
       setLoading(false);
+    }
+  };
+
+  // Update reference can visibility dynamically
+  useEffect(() => {
+    if (canRef.current) {
+      canRef.current.visible = showReferenceCan;
+    }
+  }, [showReferenceCan]);
+
+  const updateModelProperties = (w: number, h: number, d: number, u: string, r: number, m: number) => {
+    if (!modelRef.current || !unscaledSizeRef.current.x) return;
+
+    let targetW = w;
+    let targetH = h;
+    let targetD = d;
+
+    if (u === 'inch') {
+      targetW *= 25.4;
+      targetH *= 25.4;
+      targetD *= 25.4;
+    }
+
+    const scaleX = (targetW / unscaledSizeRef.current.x) * (scaleFactorRef.current === 1000 ? 1000 : 1);
+    const scaleY = (targetH / unscaledSizeRef.current.y) * (scaleFactorRef.current === 1000 ? 1000 : 1);
+    const scaleZ = (targetD / unscaledSizeRef.current.z) * (scaleFactorRef.current === 1000 ? 1000 : 1);
+
+    modelRef.current.scale.set(scaleX, scaleY, scaleZ);
+    modelScaleRef.current = { x: scaleX, y: scaleY };
+
+    // Update position so model sits on the floor grid
+    const relativeScaleY = targetH / unscaledSizeRef.current.y;
+    modelRef.current.position.y = -originalBoxRef.current.min.y * relativeScaleY;
+
+    // Update controls target to center of scaled model height
+    if (controlsRef.current) {
+      controlsRef.current.target.set(0, targetH / 2, 0);
+      controlsRef.current.update();
+    }
+
+    // Update materials roughness and metalness
+    modelRef.current.traverse((node) => {
+      if (node instanceof THREE.Mesh && node.material) {
+        const mats = Array.isArray(node.material) ? node.material : [node.material];
+        mats.forEach(mat => {
+          if ('roughness' in mat) (mat as any).roughness = r;
+          if ('metalness' in mat) (mat as any).metalness = m;
+          mat.needsUpdate = true;
+        });
+      }
+    });
+
+    // Update reference can position dynamically
+    if (canRef.current) {
+      canRef.current.position.x = (targetW / 2) + 50;
+    }
+  };
+
+  const updateTextureSizeAndRebuild = async (w: number, h: number, u: string) => {
+    if (!offscreenCanvasRef.current || !unscaledSizeRef.current.x || !dielineImgRef.current) return;
+
+    let targetW = w;
+    let targetH = h;
+    if (u === 'inch') {
+      targetW *= 25.4;
+      targetH *= 25.4;
+    }
+
+    const sX = targetW / unscaledSizeRef.current.x;
+    const sY = targetH / unscaledSizeRef.current.y;
+
+    const naturalW = dielineImgRef.current.naturalWidth || 1000;
+    const naturalH = dielineImgRef.current.naturalHeight || 619;
+
+    const targetCanvasW = Math.round(naturalW * sX);
+    const targetCanvasH = Math.round(naturalH * sY);
+
+    const offscreenCanvas = offscreenCanvasRef.current;
+    if (offscreenCanvas.width !== targetCanvasW || offscreenCanvas.height !== targetCanvasH) {
+      offscreenCanvas.width = targetCanvasW;
+      offscreenCanvas.height = targetCanvasH;
+
+      // Dispose of old texture to prevent WebGL context memory leaks
+      if (canvasTextureRef.current) {
+        canvasTextureRef.current.dispose();
+      }
+
+      const newTexture = new THREE.CanvasTexture(offscreenCanvas);
+      newTexture.colorSpace = THREE.SRGBColorSpace;
+      newTexture.wrapS = THREE.ClampToEdgeWrapping;
+      newTexture.wrapT = THREE.ClampToEdgeWrapping;
+      newTexture.flipY = false;
+      canvasTextureRef.current = newTexture;
+
+      // Re-assign new texture to all loaded materials
+      if (modelRef.current) {
+        modelRef.current.traverse((node) => {
+          if (node instanceof THREE.Mesh && node.material) {
+            const mats = Array.isArray(node.material) ? node.material : [node.material];
+            mats.forEach(mat => {
+              if (mat && 'map' in mat) {
+                (mat as any).map = newTexture;
+                (mat as any).needsUpdate = true;
+              }
+            });
+          }
+        });
+      }
+    }
+
+    // Re-draw layers onto offscreen canvas texture
+    await applyLayersToTexture(designData?.layers || []);
+  };
+
+  const saveAdminChanges = async () => {
+    if (!slug) return;
+    setSavingSettings(true);
+    try {
+      const updatedDesignData = {
+        ...designData,
+        width,
+        height,
+        depth,
+        unit,
+        roughness,
+        metalness,
+        discussion
+      };
+
+      const res = await fetch('/api/update-custom-studio', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          slug,
+          password: adminPassword,
+          companyName,
+          designData: updatedDesignData
+        })
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        setDesignData(updatedDesignData);
+        alert('Specification changes saved successfully!');
+      } else {
+        alert(data.error || 'Failed to save changes.');
+      }
+    } catch (err) {
+      console.error('Error saving admin changes:', err);
+      alert('Error saving changes. Please try again.');
+    } finally {
+      setSavingSettings(false);
+    }
+  };
+
+  const saveDiscussionToDb = async (updatedDiscussion: any[]) => {
+    try {
+      const res = await fetch('/api/save-studio-discussion', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          slug,
+          discussion: updatedDiscussion
+        })
+      });
+      const data = await res.json();
+      if (!data.success) {
+        console.error('Failed to auto-save discussion to database:', data.error);
+      }
+    } catch (err) {
+      console.error('Error saving discussion:', err);
+    }
+  };
+
+  const sendChatMessage = async () => {
+    if (!chatMessage.trim()) return;
+    setSendingMessage(true);
+    try {
+      const newMsg = {
+        author: isAdmin ? 'Admin' : 'Client',
+        message: chatMessage.trim(),
+        timestamp: new Date().toISOString()
+      };
+
+      const updatedDiscussion = [...discussion, newMsg];
+      setDiscussion(updatedDiscussion);
+      setChatMessage('');
+
+      await saveDiscussionToDb(updatedDiscussion);
+    } catch (err) {
+      console.error('Error sending message:', err);
+      alert('Error sending message.');
+    } finally {
+      setSendingMessage(false);
+    }
+  };
+
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploadingMedia(true);
+    try {
+      const filePath = `studios/${slug}/${Date.now()}_${file.name}`;
+      await uploadWithTus('artworks', filePath, file);
+      
+      const fileUrl = `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/artworks/${filePath}`;
+      const isVideo = file.type.startsWith('video/');
+
+      const newMsg = {
+        author: isAdmin ? 'Admin' : 'Client',
+        message: `Uploaded a ${isVideo ? 'video' : 'photo'} attachment: ${file.name}`,
+        timestamp: new Date().toISOString(),
+        fileUrl,
+        fileType: isVideo ? 'video' : 'image'
+      };
+
+      const updatedDiscussion = [...discussion, newMsg];
+      setDiscussion(updatedDiscussion);
+
+      await saveDiscussionToDb(updatedDiscussion);
+    } catch (err) {
+      console.error('File upload failed:', err);
+      alert('File upload failed. Please try again.');
+    } finally {
+      setUploadingMedia(false);
     }
   };
 
@@ -587,6 +922,30 @@ export default function SharedStudioPage() {
         </div>
         
         <div className="flex items-center gap-3 pointer-events-auto">
+          {/* Admin Unlock Trigger */}
+          <button 
+            onClick={() => {
+              if (isAdmin) {
+                setIsAdmin(false);
+                setAdminPassword('');
+                sessionStorage.removeItem(`shared_studio_admin_${slug}`);
+                sessionStorage.removeItem(`shared_studio_pass_${slug}`);
+                setActiveTab('preview');
+                alert('Admin logged out.');
+              } else {
+                setIsLoginModalOpen(true);
+              }
+            }}
+            className={`p-2 rounded-xl border transition-all ${
+              isAdmin 
+                ? 'bg-emerald-500/20 border-emerald-500/30 text-emerald-400' 
+                : 'bg-white/10 border-white/10 text-white/70 hover:text-white hover:bg-white/20'
+            }`}
+            title={isAdmin ? "Lock Admin Panel" : "Enter Admin Password"}
+          >
+            {isAdmin ? <Unlock className="w-4 h-4" /> : <Lock className="w-4 h-4" />}
+          </button>
+
           {/* Language Selector Dropdown */}
           <div className="relative">
             <select 
@@ -613,6 +972,69 @@ export default function SharedStudioPage() {
         </div>
       </header>
 
+      {/* Admin Passcode Modal */}
+      {isLoginModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm p-4 pointer-events-auto">
+          <div className="w-full max-w-sm bg-slate-900/90 border border-white/10 p-6 rounded-2xl shadow-2xl flex flex-col gap-4">
+            <div className="flex items-center justify-between">
+              <h3 className="font-bold text-white text-lg flex items-center gap-2">
+                <Lock className="w-5 h-5 text-emerald-400" />
+                Admin Authentication
+              </h3>
+              <button 
+                onClick={() => {
+                  setIsLoginModalOpen(false);
+                  setPasswordInput('');
+                  setLoginError('');
+                }}
+                className="text-white/40 hover:text-white text-sm cursor-pointer"
+              >
+                Cancel
+              </button>
+            </div>
+            
+            <p className="text-white/60 text-xs leading-relaxed">
+              Please enter the 8-digit admin passcode (starting with 8888) to unlock advanced materials editing, specs calibration, and discussion remarks.
+            </p>
+
+            <div className="flex flex-col gap-1.5">
+              <input 
+                type="password"
+                placeholder="Passcode (e.g. 88881234)"
+                value={passwordInput}
+                onChange={(e) => {
+                  setPasswordInput(e.target.value);
+                  setLoginError('');
+                }}
+                className="w-full bg-white/[0.05] border border-white/10 rounded-xl text-white px-3 py-2 text-sm outline-none text-center font-mono tracking-widest"
+              />
+              {loginError && <p className="text-red-400 text-xs font-semibold">{loginError}</p>}
+            </div>
+
+            <button
+              onClick={() => {
+                const passwordRegex = /^8888\d{4}$/;
+                if (!passwordRegex.test(passwordInput)) {
+                  setLoginError('Invalid passcode format. Must be 8 digits total, starting with 8888.');
+                  return;
+                }
+                setIsAdmin(true);
+                setAdminPassword(passwordInput);
+                sessionStorage.setItem(`shared_studio_admin_${slug}`, 'true');
+                sessionStorage.setItem(`shared_studio_pass_${slug}`, passwordInput);
+                setIsLoginModalOpen(false);
+                setPasswordInput('');
+                setActiveTab('edit');
+                alert('Admin mode unlocked successfully!');
+              }}
+              className="w-full py-2.5 bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 text-slate-950 font-bold rounded-xl text-sm transition-all cursor-pointer"
+            >
+              Unlock Console
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Loading Overlay */}
       {loading && (
         <div className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-[#0a0f1d] text-center gap-4">
@@ -631,7 +1053,7 @@ export default function SharedStudioPage() {
         {/* Right Side: Showcase Side Panel */}
         <div className="w-full md:w-[420px] bg-[#0c1224]/85 md:bg-[#0c1224]/75 backdrop-blur-xl border-t md:border-t-0 md:border-l border-white/5 flex flex-col p-8 justify-between relative z-10 overflow-y-auto">
           
-          <div className="space-y-8 mt-12 md:mt-20">
+          <div className="space-y-6 mt-12 md:mt-20">
             {/* Top metadata */}
             <div>
               <p className="text-emerald-400 font-bold uppercase tracking-wider text-xs mb-1">
@@ -647,13 +1069,38 @@ export default function SharedStudioPage() {
 
             <div className="h-px bg-white/5" />
 
-            {/* Spec Details Card */}
-            {designData && (
-              <div className="space-y-5">
-                <h3 className="text-sm font-bold text-white/80 uppercase tracking-widest">
-                  {translations[lang].spec_details}
-                </h3>
-                
+            {/* Sidebar Tab Swapper */}
+            <div className="flex border-b border-white/5 pb-0.5 mb-6">
+              <button 
+                onClick={() => setActiveTab(isAdmin ? 'edit' : 'preview')}
+                className={`flex-1 pb-3 text-sm font-bold text-center tracking-wide border-b-2 transition-all cursor-pointer ${
+                  activeTab === 'preview' || activeTab === 'edit'
+                    ? 'border-emerald-400 text-white'
+                    : 'border-transparent text-white/40 hover:text-white'
+                }`}
+              >
+                {isAdmin ? 'Edit Specs (修改規格)' : 'Specifications (規格詳情)'}
+              </button>
+              <button 
+                onClick={() => setActiveTab('discussion')}
+                className={`flex-1 pb-3 text-sm font-bold text-center tracking-wide border-b-2 transition-all relative cursor-pointer ${
+                  activeTab === 'discussion'
+                    ? 'border-emerald-400 text-white'
+                    : 'border-transparent text-white/40 hover:text-white'
+                }`}
+              >
+                <span>Discussion (留言討論)</span>
+                {discussion.length > 0 && (
+                  <span className="ml-1.5 px-1.5 py-0.5 bg-emerald-500/20 text-emerald-400 rounded-full text-[10px] font-extrabold">
+                    {discussion.length}
+                  </span>
+                )}
+              </button>
+            </div>
+
+            {/* Tab 1: Specs Preview (Customer mode) */}
+            {activeTab === 'preview' && designData && (
+              <div className="space-y-5 animate-fadeIn">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-4 bg-white/[0.02] border border-white/5 rounded-2xl flex flex-col">
                     <span className="text-white/40 text-xs font-semibold mb-1">{translations[lang].shape}</span>
@@ -666,14 +1113,14 @@ export default function SharedStudioPage() {
                   <div className="p-4 bg-white/[0.02] border border-white/5 rounded-2xl flex flex-col">
                     <span className="text-white/40 text-xs font-semibold mb-1">{translations[lang].dimensions}</span>
                     <span className="text-sm font-bold text-white">
-                      {designData.width} × {designData.height} {designData.unit || 'mm'}
+                      {width} × {height} {unit}
                     </span>
                   </div>
                   
                   <div className="p-4 bg-white/[0.02] border border-white/5 rounded-2xl flex flex-col">
                     <span className="text-white/40 text-xs font-semibold mb-1">{translations[lang].gusset}</span>
                     <span className="text-sm font-bold text-white">
-                      {designData.depth} {designData.unit || 'mm'}
+                      {depth} {unit}
                     </span>
                   </div>
 
@@ -681,6 +1128,25 @@ export default function SharedStudioPage() {
                     <span className="text-white/40 text-xs font-semibold mb-1">{translations[lang].material}</span>
                     <span className="text-sm font-bold text-emerald-400">
                       {translations[lang].compostable}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Show Reference Can Toggle for Client */}
+                <div className="flex items-center gap-3 p-4 bg-white/[0.02] border border-white/5 rounded-2xl">
+                  <input 
+                    type="checkbox" 
+                    id="client-show-reference-can" 
+                    checked={showReferenceCan}
+                    onChange={(e) => setShowReferenceCan(e.target.checked)}
+                    className="accent-emerald-400 cursor-pointer h-4 w-4"
+                  />
+                  <div className="flex flex-col gap-0.5">
+                    <label htmlFor="client-show-reference-can" className="text-xs text-white/80 font-bold cursor-pointer select-none">
+                      Show 355ml Reference Can (易開罐比例對比)
+                    </label>
+                    <span className="text-[10px] text-white/40">
+                      Can ref: 2.6" x 4.8" (66mm x 122mm)
                     </span>
                   </div>
                 </div>
@@ -699,6 +1165,255 @@ export default function SharedStudioPage() {
                     </div>
                     <span>{translations[lang].feature_moq}</span>
                   </div>
+                </div>
+              </div>
+            )}
+
+            {/* Tab 2: Edit Specs (Admin mode) */}
+            {activeTab === 'edit' && isAdmin && (
+              <div className="space-y-4 animate-fadeIn">
+                {/* Unit Selection */}
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs font-bold text-white/60 uppercase tracking-wider">Default Unit (預設單位)</label>
+                  <select 
+                    value={unit} 
+                    onChange={(e) => {
+                      const newUnit = e.target.value;
+                      const isInch = newUnit === 'inch';
+                      setUnit(newUnit);
+                      if (isInch) {
+                        setWidth(w => parseFloat((w / 25.4).toFixed(2)));
+                        setHeight(h => parseFloat((h / 25.4).toFixed(2)));
+                        setDepth(d => parseFloat((d / 25.4).toFixed(2)));
+                        updateModelProperties(width / 25.4, height / 25.4, depth / 25.4, 'inch', roughness, metalness);
+                        updateTextureSizeAndRebuild(width / 25.4, height / 25.4, 'inch');
+                      } else {
+                        setWidth(w => Math.round(w * 25.4));
+                        setHeight(h => Math.round(h * 25.4));
+                        setDepth(d => parseFloat((d * 25.4).toFixed(1)));
+                        updateModelProperties(width * 25.4, height * 25.4, depth * 25.4, 'mm', roughness, metalness);
+                        updateTextureSizeAndRebuild(width * 25.4, height * 25.4, 'mm');
+                      }
+                    }}
+                    className="w-full bg-white/[0.03] border border-white/10 rounded-xl text-white px-3 py-2 text-sm outline-none cursor-pointer"
+                  >
+                    <option value="inch" className="bg-slate-900 text-white">Inches (in)</option>
+                    <option value="mm" className="bg-slate-900 text-white">Millimeters (mm)</option>
+                  </select>
+                </div>
+
+                {/* Dimensions inputs */}
+                <div className="grid grid-cols-3 gap-2">
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-[10px] font-bold text-white/50 uppercase tracking-wider">Width</label>
+                    <input 
+                      type="number" 
+                      step="any"
+                      value={width} 
+                      onChange={(e) => {
+                        const val = parseFloat(e.target.value) || 0;
+                        setWidth(val);
+                        updateModelProperties(val, height, depth, unit, roughness, metalness);
+                        updateTextureSizeAndRebuild(val, height, unit);
+                      }}
+                      className="w-full bg-white/[0.03] border border-white/10 rounded-xl text-white px-2 py-1.5 text-center text-sm font-mono outline-none focus:border-emerald-400"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-[10px] font-bold text-white/50 uppercase tracking-wider">Height</label>
+                    <input 
+                      type="number" 
+                      step="any"
+                      value={height} 
+                      onChange={(e) => {
+                        const val = parseFloat(e.target.value) || 0;
+                        setHeight(val);
+                        updateModelProperties(width, val, depth, unit, roughness, metalness);
+                        updateTextureSizeAndRebuild(width, val, unit);
+                      }}
+                      className="w-full bg-white/[0.03] border border-white/10 rounded-xl text-white px-2 py-1.5 text-center text-sm font-mono outline-none focus:border-emerald-400"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-[10px] font-bold text-white/50 uppercase tracking-wider">Depth</label>
+                    <input 
+                      type="number" 
+                      step="any"
+                      value={depth} 
+                      onChange={(e) => {
+                        const val = parseFloat(e.target.value) || 0;
+                        setDepth(val);
+                        updateModelProperties(width, height, val, unit, roughness, metalness);
+                      }}
+                      className="w-full bg-white/[0.03] border border-white/10 rounded-xl text-white px-2 py-1.5 text-center text-sm font-mono outline-none focus:border-emerald-400"
+                    />
+                  </div>
+                </div>
+
+                {/* Shaders Roughness & Metalness */}
+                <div className="space-y-3 pt-2">
+                  <div className="flex flex-col gap-1">
+                    <div className="flex justify-between text-xs">
+                      <span className="text-white/60 font-medium">Roughness (材質粗糙度)</span>
+                      <span className="text-emerald-400 font-bold">{roughness.toFixed(2)}</span>
+                    </div>
+                    <input 
+                      type="range" 
+                      min="0" 
+                      max="1" 
+                      step="0.01" 
+                      value={roughness} 
+                      onChange={(e) => {
+                        const val = parseFloat(e.target.value);
+                        setRoughness(val);
+                        updateModelProperties(width, height, depth, unit, val, metalness);
+                      }}
+                      className="w-full accent-emerald-400 cursor-pointer"
+                    />
+                  </div>
+
+                  <div className="flex flex-col gap-1">
+                    <div className="flex justify-between text-xs">
+                      <span className="text-white/60 font-medium">Metalness (金屬質感)</span>
+                      <span className="text-emerald-400 font-bold">{metalness.toFixed(2)}</span>
+                    </div>
+                    <input 
+                      type="range" 
+                      min="0" 
+                      max="1" 
+                      step="0.01" 
+                      value={metalness} 
+                      onChange={(e) => {
+                        const val = parseFloat(e.target.value);
+                        setMetalness(val);
+                        updateModelProperties(width, height, depth, unit, roughness, val);
+                      }}
+                      className="w-full accent-emerald-400 cursor-pointer"
+                    />
+                  </div>
+                </div>
+
+                {/* Reference Can controls */}
+                <div className="flex items-center gap-3 pt-2">
+                  <input 
+                    type="checkbox" 
+                    id="show-reference-can" 
+                    checked={showReferenceCan}
+                    onChange={(e) => setShowReferenceCan(e.target.checked)}
+                    className="accent-emerald-400 cursor-pointer h-4 w-4"
+                  />
+                  <div className="flex flex-col gap-0.5">
+                    <label htmlFor="show-reference-can" className="text-xs text-white/80 font-bold cursor-pointer select-none">
+                      Show 355ml Reference Can (易開罐比例對比)
+                    </label>
+                    <span className="text-[10px] text-white/40">
+                      Can ref: 2.6" x 4.8" (66mm x 122mm)
+                    </span>
+                  </div>
+                </div>
+
+                {/* Save settings Button */}
+                <button 
+                  onClick={saveAdminChanges}
+                  disabled={savingSettings}
+                  className="w-full mt-4 py-3.5 px-4 bg-emerald-500 hover:bg-emerald-600 disabled:bg-emerald-500/50 active:bg-emerald-700 text-slate-950 font-bold rounded-xl flex items-center justify-center gap-2.5 transition-all shadow-lg shadow-emerald-500/10 hover:shadow-emerald-500/20 hover:scale-[1.02] cursor-pointer text-sm"
+                >
+                  {savingSettings ? <Loader2 className="w-4.5 h-4.5 animate-spin" /> : <Save className="w-4.5 h-4.5" />}
+                  <span>Save Spec Changes (儲存修改)</span>
+                </button>
+              </div>
+            )}
+
+            {/* Tab 3: Discussion Chat */}
+            {activeTab === 'discussion' && (
+              <div className="flex flex-col gap-4 animate-fadeIn">
+                {/* Chat Message List */}
+                <div className="max-h-[360px] overflow-y-auto space-y-3 pr-1 min-h-[120px] flex flex-col justify-end">
+                  {discussion.length === 0 ? (
+                    <div className="h-full flex flex-col items-center justify-center p-8 text-center text-white/30 text-xs">
+                      <MessageSquare className="w-8 h-8 mb-2 opacity-50" />
+                      <p>No remarks or comments yet.</p>
+                      <p className="mt-1 font-semibold">Start the discussion below!</p>
+                    </div>
+                  ) : (
+                    discussion.map((msg, idx) => {
+                      const isOwn = (isAdmin && msg.author === 'Admin') || (!isAdmin && msg.author === 'Client');
+                      const authorName = msg.author === 'Admin' ? 'Achieve Pack' : 'Client';
+                      const isAttachmentOnly = msg.message && msg.message.startsWith('Uploaded a');
+
+                      return (
+                        <div key={idx} className={`flex flex-col ${isOwn ? 'items-end' : 'items-start'}`}>
+                          <div className={`px-3 py-2 rounded-2xl max-w-[85%] text-left shadow-sm ${
+                            isOwn 
+                              ? 'bg-emerald-500/10 border border-emerald-500/20 text-white rounded-tr-none'
+                              : 'bg-white/[0.04] border border-white/5 text-white/90 rounded-tl-none'
+                          }`}>
+                            <div className="flex items-center gap-1.5 mb-1 justify-between">
+                              <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-wide">
+                                {authorName}
+                              </span>
+                              <span className="text-[9px] text-white/30 font-medium">
+                                {msg.timestamp ? new Date(msg.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ''}
+                              </span>
+                            </div>
+                            
+                            <p className="text-sm leading-relaxed whitespace-pre-wrap">{msg.message}</p>
+
+                            {/* Render Attachment */}
+                            {msg.fileUrl && (
+                              <div className="mt-2 rounded-xl overflow-hidden border border-white/5 bg-slate-950/40 max-w-full">
+                                {msg.fileType === 'video' ? (
+                                  <video src={msg.fileUrl} controls className="max-h-40 w-full object-cover" />
+                                ) : (
+                                  <img 
+                                    src={msg.fileUrl} 
+                                    alt="Chat attachment" 
+                                    className="max-h-40 w-full object-cover cursor-pointer hover:opacity-90 transition-opacity" 
+                                    onClick={() => window.open(msg.fileUrl, '_blank')}
+                                  />
+                                )}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })
+                  )}
+                </div>
+
+                {/* Input Controls */}
+                <div className="flex items-center gap-2 pt-2 border-t border-white/5 mt-auto">
+                  <input 
+                    type="text" 
+                    placeholder={isAdmin ? "Type admin reply..." : "Type guest comment..."}
+                    value={chatMessage}
+                    onChange={(e) => setChatMessage(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') sendChatMessage();
+                    }}
+                    className="flex-1 bg-white/[0.03] border border-white/10 rounded-xl text-white px-3.5 py-2 text-sm outline-none focus:border-emerald-400 font-medium"
+                  />
+
+                  {/* Upload File button */}
+                  <label className="p-2 bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 text-white/70 hover:text-white rounded-xl cursor-pointer flex items-center justify-center transition-all disabled:opacity-50 h-9 w-9">
+                    {uploadingMedia ? <Loader2 className="w-4 h-4 animate-spin text-emerald-400" /> : <ImageIcon className="w-4 h-4" />}
+                    <input 
+                      type="file" 
+                      accept="image/*,video/*" 
+                      className="hidden" 
+                      onChange={handleFileUpload} 
+                      disabled={uploadingMedia} 
+                    />
+                  </label>
+
+                  {/* Send chat message button */}
+                  <button 
+                    onClick={sendChatMessage}
+                    disabled={sendingMessage || !chatMessage.trim()}
+                    className="p-2.5 bg-emerald-500 hover:bg-emerald-600 disabled:bg-emerald-500/40 text-slate-950 rounded-xl flex items-center justify-center transition-all cursor-pointer h-9 w-9"
+                  >
+                    {sendingMessage ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+                  </button>
                 </div>
               </div>
             )}
