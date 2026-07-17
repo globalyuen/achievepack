@@ -13,7 +13,7 @@ const localTranslations = {
     hook: "We know the sinking feeling of opening a shipping box only to find your premium product crushed because the seal failed. You didn't spend months perfecting your recipe just to lose customers over cheap, unreliable packaging. Our Digital Printed Barrier Pouches Small Batch Infographic 3 is designed to prevent these exact disasters.",
     painPoints: "5 Packaging Pain Points & Engineering Solutions",
     notebook: "🔬 From Ryan Wong's Engineering Notebook",
-    notebookText: "Engineers often overlook the COF (Coefficient of Friction) on matte finishes. By precisely controlling the slip additive distribution, we eliminated film tracking issues on form-fill-seal lines, increasing client OEE by 18%. The multi-layer structure guarantees OTR &lt; 0.1 cc/m²/day."
+    notebookText: "Engineers often overlook the COF (Coefficient of Friction) on matte finishes. By precisely controlling the slip additive distribution, we eliminated film tracking issues on form-fill-seal lines, increasing client OEE by 18%. The multi-layer structure guarantees OTR under 0.1 cc/m²/day."
   },
   es: {
     title: "Digital Printed Barrier Pouches Small Batch Infographic 3 | Soluciones Avanzadas",

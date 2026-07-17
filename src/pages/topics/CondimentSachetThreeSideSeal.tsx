@@ -37,7 +37,7 @@ const localTranslations = {
     point4Sol: "Reinforced polyurethane laminating adhesives with high green bond strength.",
     point5Title: "Pain Point: Moisture Absorption",
     point5Desc: "Hygroscopic ingredients caking inside the flat bag.",
-    point5Sol: "Metalized PET or foil barriers providing OTR &lt; 0.1g/m²/24h.",
+    point5Sol: "Metalized PET or foil barriers providing OTR under 0.1g/m²/24h.",
     compTitle: "Dieline Layout & Calibration Specifications",
     compDesc: "Every model run is calibrated using strict prepress dielines. Our teams adjust fold tolerances and thermal boundaries based on substrate thickness.",
     faq1Q: "What is the MOQ for custom custom-sized runs of Model #767?",
@@ -113,7 +113,7 @@ const localTranslations = {
     point4Sol: "Adhesifs de laminage en polyuréthane renforcé avec une résistance élevée de cohésion initiale.",
     point5Title: "Problème : Absorption d'Humidité",
     point5Desc: "Les ingrédients hygroscopiques s'agglomèrent à l'intérieur du sachet plat.",
-    point5Sol: "Barrières en PET métallisé ou en aluminium fournissant un OTR < 0,1 g/m²/24h.",
+    point5Sol: "Barrières en PET métallisé ou en aluminium fournissant un OTR &lt; 0.1 g/m²/24h.",
     compTitle: "Tracé de Découpe et Spécifications de Calibrage",
     compDesc: "Chaque cycle de modèle est calibré à l'aide de tracés de découpe prépresse stricts. Nos équipes ajustent les tolérances de pliage et les limites thermiques en fonction de l'épaisseur du substrat.",
     faq1Q: "Quel est le MOQ pour les séries de tailles personnalisées du Modèle #767 ?",
@@ -335,7 +335,7 @@ const CondimentSachetThreeSideSeal: React.FC = () => {
         headers: ["Parameter", "Target Value", "Test Standard", "Compliance Status"],
         rows: [
           ["Oxygen Transmission Rate (OTR)", "< 0.5 cc/m²/24h", "ASTM D3985", "Passed"],
-          ["Moisture Transmission (MVTR)", "&lt; 0.1 g/m²/24h", "ASTM F1249", "Passed"],
+          ["Moisture Transmission (MVTR)", "under 0.1 g/m²/24h", "ASTM F1249", "Passed"],
           ["Seal Strength", "> 35 N/15mm", "ASTM F88", "Passed"],
           ["Eco Certification", "Compostable / Recyclable", "EN 13432 / ISO 14021", "Certified"]
         ]

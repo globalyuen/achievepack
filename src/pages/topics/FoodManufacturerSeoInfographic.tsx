@@ -24,7 +24,7 @@ const FoodManufacturerSeoInfographic: React.FC = () => {
           <h2 className="text-2xl font-semibold mb-4">Engineering Notebook</h2>
           <p>
             Our engineered multi-layer barrier films provide exceptional protection against oxygen and moisture. 
-            By utilizing specialized sealant layers and strict temperature-controlled heat sealing, we achieve a failure rate of {"< 0.1"}%. 
+            By utilizing specialized sealant layers and strict temperature-controlled heat sealing, we achieve a failure rate of under 0.1%. 
             This ensures extended shelf life and maximum structural integrity.
           </p>
         </section>

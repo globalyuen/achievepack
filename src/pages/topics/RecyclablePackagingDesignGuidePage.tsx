@@ -46,7 +46,7 @@ const RecyclablePackagingDesignGuidePage: React.FC = () => {
           content: (
             <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 font-mono text-sm">
               <p className="text-blue-700 mb-2"># TECH_SPEC: RECYCLABLE_GUIDE</p>
-              <p>Thickness Tolerance: &lt; 0.1mm</p>
+              <p>Thickness Tolerance: under 0.1mm</p>
               <p>Tensile Strength: &gt; 25 MPa</p>
               <p>Sealing Temp: 140-160°C</p>
               <p className="mt-4 text-gray-500">// Optimized for high-speed automated filling lines.</p>

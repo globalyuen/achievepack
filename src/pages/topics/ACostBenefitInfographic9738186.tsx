@@ -13,7 +13,7 @@ const localTranslations = {
     hook: "We know the sinking feeling of opening a shipping box only to find your premium product crushed because the seal failed. You didn't spend months perfecting your recipe just to lose customers over cheap, unreliable packaging. Our A Cost Benefit Infographic 9738186 is designed to prevent these exact disasters.",
     painPoints: "5 Packaging Pain Points & Engineering Solutions",
     notebook: "🔬 From Ryan Wong's Engineering Notebook",
-    notebookText: "A common pain point is zipper separation during drop tests. We implemented a reinforced flange seal using ultrasonic spot welding, which dramatically increased the burst strength to withstand a 2-meter drop test. MVTR is maintained at &lt; 0.1 g/m²/day."
+    notebookText: "A common pain point is zipper separation during drop tests. We implemented a reinforced flange seal using ultrasonic spot welding, which dramatically increased the burst strength to withstand a 2-meter drop test. MVTR is maintained at under 0.1 g/m²/day."
   },
   es: {
     title: "A Cost Benefit Infographic 9738186 | Soluciones Avanzadas",
@@ -54,11 +54,11 @@ export default function ACostBenefitInfographic9738186() {
   const domain = getDomain();
 
   const painPointsList = [
-    { num: "01", problem: "Oxygen Permeability", solution: "High barrier AL layer guarantees OTR &lt; 0.1 cc/m²/day, preserving freshness and aroma for coffee and delicate foods.", icon: <CheckCircle className="text-lime-500 w-6 h-6" /> },
+    { num: "01", problem: "Oxygen Permeability", solution: "High barrier AL layer guarantees OTR under 0.1 cc/m²/day, preserving freshness and aroma for coffee and delicate foods.", icon: <CheckCircle className="text-lime-500 w-6 h-6" /> },
     { num: "02", problem: "Shipping Weight Costs", solution: "Optimized material thickness (110 microns instead of standard 130) saves up to 15% in logistics costs while maintaining burst strength.", icon: <ShieldCheck className="text-lime-500 w-6 h-6" /> },
     { num: "03", problem: "Color Shift on Matte Varnishes", solution: "We provide free CMYK-to-PMS software calibration videos before production, avoiding costly physical proofing mistakes.", icon: <Zap className="text-lime-500 w-6 h-6" /> },
     { num: "04", problem: "Zipper Delamination", solution: "Ultrasonic welding techniques on the zipper flange eliminate delamination risks even under heavy load drops.", icon: <Factory className="text-lime-500 w-6 h-6" /> },
-    { num: "05", problem: "Moisture Ingress", solution: "Multi-layer EVOH/AL barrier lamination achieves an MVTR of &lt; 0.1 g/m²/day, extending shelf life by 40%.", icon: <Package className="text-lime-500 w-6 h-6" /> }
+    { num: "05", problem: "Moisture Ingress", solution: "Multi-layer EVOH/AL barrier lamination achieves an MVTR of under 0.1 g/m²/day, extending shelf life by 40%.", icon: <Package className="text-lime-500 w-6 h-6" /> }
   ];
 
   const jsonLd = {

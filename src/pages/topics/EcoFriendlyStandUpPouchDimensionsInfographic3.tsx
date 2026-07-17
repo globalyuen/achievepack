@@ -13,7 +13,7 @@ const localTranslations = {
     hook: "We know the sinking feeling of opening a shipping box only to find your premium product crushed because the seal failed. You didn't spend months perfecting your recipe just to lose customers over cheap, unreliable packaging. Our Eco Friendly Stand Up Pouch Dimensions Infographic 3 is designed to prevent these exact disasters.",
     painPoints: "5 Packaging Pain Points & Engineering Solutions",
     notebook: "🔬 From Ryan Wong's Engineering Notebook",
-    notebookText: "Engineers often overlook the COF (Coefficient of Friction) on matte finishes. By precisely controlling the slip additive distribution, we eliminated film tracking issues on form-fill-seal lines, increasing client OEE by 18%. The multi-layer structure guarantees OTR &lt; 0.1 cc/m²/day."
+    notebookText: "Engineers often overlook the COF (Coefficient of Friction) on matte finishes. By precisely controlling the slip additive distribution, we eliminated film tracking issues on form-fill-seal lines, increasing client OEE by 18%. The multi-layer structure guarantees OTR under 0.1 cc/m²/day."
   },
   es: {
     title: "Eco Friendly Stand Up Pouch Dimensions Infographic 3 | Soluciones Avanzadas",
@@ -66,8 +66,8 @@ export default function EcoFriendlyStandUpPouchDimensionsInfographic3() {
 
   const painPointsList = [
     { num: "01", problem: "VFFS Machine Jamming", solution: "Our slip additives are calibrated to a dynamic Coefficient of Friction (COF) of 0.2-0.3, ensuring smooth high-speed runs.", icon: <CheckCircle className="text-lime-500 w-6 h-6" /> },
-    { num: "02", problem: "Moisture Ingress", solution: "Multi-layer EVOH/AL barrier lamination achieves an MVTR of &lt; 0.1 g/m²/day, extending shelf life by 40%.", icon: <ShieldCheck className="text-lime-500 w-6 h-6" /> },
-    { num: "03", problem: "Oxygen Permeability", solution: "High barrier AL layer guarantees OTR &lt; 0.1 cc/m²/day, preserving freshness and aroma for coffee and delicate foods.", icon: <Zap className="text-lime-500 w-6 h-6" /> },
+    { num: "02", problem: "Moisture Ingress", solution: "Multi-layer EVOH/AL barrier lamination achieves an MVTR of under 0.1 g/m²/day, extending shelf life by 40%.", icon: <ShieldCheck className="text-lime-500 w-6 h-6" /> },
+    { num: "03", problem: "Oxygen Permeability", solution: "High barrier AL layer guarantees OTR under 0.1 cc/m²/day, preserving freshness and aroma for coffee and delicate foods.", icon: <Zap className="text-lime-500 w-6 h-6" /> },
     { num: "04", problem: "Color Shift on Matte Varnishes", solution: "We provide free CMYK-to-PMS software calibration videos before production, avoiding costly physical proofing mistakes.", icon: <Factory className="text-lime-500 w-6 h-6" /> },
     { num: "05", problem: "Zipper Delamination", solution: "Ultrasonic welding techniques on the zipper flange eliminate delamination risks even under heavy load drops.", icon: <Package className="text-lime-500 w-6 h-6" /> }
   ];

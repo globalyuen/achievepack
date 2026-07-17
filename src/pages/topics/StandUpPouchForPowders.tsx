@@ -27,7 +27,7 @@ const localTranslations = {
     "point1Sol": "We utilize specialized powder-proof zippers with a unique interlocking design that pushes powder out of the tracks.",
     "point2Title": "Moisture Clumping",
     "point2Desc": "Powders are highly hygroscopic and will clump if exposed to moisture.",
-    "point2Sol": "Integrating a high-barrier AL (Aluminum) or VMPET layer guarantees an MVTR (Moisture Vapor Transmission Rate) of &lt; 0.1 g/m\u00b2/24hr.",
+    "point2Sol": "Integrating a high-barrier AL (Aluminum) or VMPET layer guarantees an MVTR (Moisture Vapor Transmission Rate) of under 0.1 g/m\u00b2/24hr.",
     "point3Title": "Static Cling during Filling",
     "point3Desc": "Static electricity causes powders to stick to the bag walls during the filling process, interfering with heat sealing.",
     "point3Sol": "An anti-static PE inner sealant layer is applied to dissipate static charge during high-speed VFFS filling.",

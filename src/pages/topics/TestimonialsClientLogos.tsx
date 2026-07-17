@@ -13,7 +13,7 @@ const localTranslations = {
     hook: "We know the sinking feeling of opening a shipping box only to find your premium product crushed because the seal failed. You didn't spend months perfecting your recipe just to lose customers over cheap, unreliable packaging. Our Testimonials Client Logos is designed to prevent these exact disasters.",
     painPoints: "5 Packaging Pain Points & Engineering Solutions",
     notebook: "🔬 From Ryan Wong's Engineering Notebook",
-    notebookText: "A common pain point is zipper separation during drop tests. We implemented a reinforced flange seal using ultrasonic spot welding, which dramatically increased the burst strength to withstand a 2-meter drop test. MVTR is maintained at &lt; 0.1 g/m²/day."
+    notebookText: "A common pain point is zipper separation during drop tests. We implemented a reinforced flange seal using ultrasonic spot welding, which dramatically increased the burst strength to withstand a 2-meter drop test. MVTR is maintained at under 0.1 g/m²/day."
   },
   es: {
     title: "Testimonials Client Logos | Soluciones Avanzadas",
@@ -23,7 +23,7 @@ const localTranslations = {
     hook: "Conocemos la sensación de frustración al encontrar su producto premium dañado. Nuestro Testimonials Client Logos está diseñado para prevenir estos desastres exactos.",
     painPoints: "5 Puntos de Dolor y Soluciones",
     notebook: "🔬 Del Cuaderno de Ingeniería de Ryan Wong",
-    notebookText: "En mis 14 años de diseño de empaques, he visto innumerables fracasos. Controlamos meticulosamente los aditivos y garantizamos &lt; 0.1 cc/m²/día de OTR."
+    notebookText: "En mis 14 años de diseño de empaques, he visto innumerables fracasos. Controlamos meticulosamente los aditivos y garantizamos under 0.1 cc/m²/día de OTR."
   },
   fr: {
     title: "Testimonials Client Logos | Solutions d'Emballage Avancées",
@@ -33,7 +33,7 @@ const localTranslations = {
     hook: "Nous connaissons le sentiment de frustration lorsque vous trouvez votre produit premium endommagé.",
     painPoints: "5 points de douleur et solutions",
     notebook: "🔬 Du carnet d'ingénierie de Ryan Wong",
-    notebookText: "Après 14 ans dans la conception d'emballages, nous avons optimisé chaque paramètre, garantissant un OTR &lt; 0.1 cc/m²/jour."
+    notebookText: "Après 14 ans dans la conception d'emballages, nous avons optimisé chaque paramètre, garantissant un OTR under 0.1 cc/m²/jour."
   },
   "zh-tw": {
     title: "Testimonials Client Logos | 高級包裝解決方案",
@@ -43,7 +43,7 @@ const localTranslations = {
     hook: "我們知道打開運輸箱卻發現優質產品因密封失敗而破損的沮喪感。",
     painPoints: "5個包裝痛點及工程解決方案",
     notebook: "🔬 來自 Ryan Wong 的工程筆記",
-    notebookText: "在我的14年包裝設計經驗中，我們透過控制添加劑的分佈，有效提升客戶18%以上的OEE，確保透氧率 &lt; 0.1 cc/m²/day。"
+    notebookText: "在我的14年包裝設計經驗中，我們透過控制添加劑的分佈，有效提升客戶18%以上的OEE，確保透氧率 under 0.1 cc/m²/day。"
   }
 };
 
@@ -54,8 +54,8 @@ export default function TestimonialsClientLogos() {
   const domain = getDomain();
 
   const painPointsList = [
-    { num: "01", problem: "Moisture Ingress", solution: "Multi-layer EVOH/AL barrier lamination achieves an MVTR of &lt; 0.1 g/m²/day, extending shelf life by 40%.", icon: <CheckCircle className="text-lime-500 w-6 h-6" /> },
-    { num: "02", problem: "Oxygen Permeability", solution: "High barrier AL layer guarantees OTR &lt; 0.1 cc/m²/day, preserving freshness and aroma for coffee and delicate foods.", icon: <ShieldCheck className="text-lime-500 w-6 h-6" /> },
+    { num: "01", problem: "Moisture Ingress", solution: "Multi-layer EVOH/AL barrier lamination achieves an MVTR of under 0.1 g/m²/day, extending shelf life by 40%.", icon: <CheckCircle className="text-lime-500 w-6 h-6" /> },
+    { num: "02", problem: "Oxygen Permeability", solution: "High barrier AL layer guarantees OTR under 0.1 cc/m²/day, preserving freshness and aroma for coffee and delicate foods.", icon: <ShieldCheck className="text-lime-500 w-6 h-6" /> },
     { num: "03", problem: "VFFS Machine Jamming", solution: "Our slip additives are calibrated to a dynamic Coefficient of Friction (COF) of 0.2-0.3, ensuring smooth high-speed runs.", icon: <Zap className="text-lime-500 w-6 h-6" /> },
     { num: "04", problem: "Color Shift on Matte Varnishes", solution: "We provide free CMYK-to-PMS software calibration videos before production, avoiding costly physical proofing mistakes.", icon: <Factory className="text-lime-500 w-6 h-6" /> },
     { num: "05", problem: "Seal Failures Under Vacuum", solution: "We use high-temperature localized heat sealing (180°C) with a specific dwell time to ensure 45N/15mm seal strength.", icon: <Package className="text-lime-500 w-6 h-6" /> }

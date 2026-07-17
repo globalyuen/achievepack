@@ -13,7 +13,7 @@ const localTranslations = {
     hook: "We know the sinking feeling of opening a shipping box only to find your premium product crushed because the seal failed. You didn't spend months perfecting your recipe just to lose customers over cheap, unreliable packaging. Our Pcr Guide is designed to prevent these exact disasters.",
     painPoints: "5 Packaging Pain Points & Engineering Solutions",
     notebook: "🔬 From Ryan Wong's Engineering Notebook",
-    notebookText: "A common pain point is zipper separation during drop tests. We implemented a reinforced flange seal using ultrasonic spot welding, which dramatically increased the burst strength to withstand a 2-meter drop test. MVTR is maintained at &lt; 0.1 g/m²/day."
+    notebookText: "A common pain point is zipper separation during drop tests. We implemented a reinforced flange seal using ultrasonic spot welding, which dramatically increased the burst strength to withstand a 2-meter drop test. MVTR is maintained at under 0.1 g/m²/day."
   },
   es: {
     title: "Pcr Guide | Soluciones Avanzadas",

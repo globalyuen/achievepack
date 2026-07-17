@@ -6,7 +6,7 @@
   "description": "Achieve Pack & Pouch.eco dual-domain website with product carousel",
   "scripts": {
     "dev": "pnpm install --prefer-offline && node scripts/update-image-catalog.cjs && vite",
-    "build": "pnpm install && node scripts/update-image-catalog.cjs && npx tsx scripts/generate-product-feed.ts && rm -rf node_modules/.vite-temp && vite build",
+    "build": "export NODE_OPTIONS=--max_old_space_size=8192 && pnpm install && node scripts/update-image-catalog.cjs && npx tsx scripts/generate-product-feed.ts && rm -rf node_modules/.vite-temp && vite build",
     "build:prod": "pnpm install --prefer-offline && node scripts/update-image-catalog.cjs && npx tsx scripts/generate-product-feed.ts && rm -rf node_modules/.vite-temp && tsc -b && BUILD_MODE=prod vite build",
     "lint": "pnpm install --prefer-offline && eslint .",
     "preview": "pnpm install --prefer-offline && vite preview",

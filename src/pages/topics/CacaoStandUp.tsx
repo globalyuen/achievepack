@@ -42,7 +42,7 @@ const CacaoStandUp: React.FC = () => {
               Designed for high-speed automated filling lines and stringent food-safety standards.
             </p>
             <ul className="list-disc pl-6 text-lg text-gray-700 space-y-2">
-              <li><strong>Ultra-High Barrier Films:</strong> Constructed with PET/AL/PE or metallized layers (VMPET) to achieve an OTR of &lt; 0.1 cc/m2/24hr and MVTR of &lt; 0.1 g/m2/24hr.</li>
+              <li><strong>Ultra-High Barrier Films:</strong> Constructed with PET/AL/PE or metallized layers (VMPET) to achieve an OTR of under 0.1 cc/m2/24hr and MVTR of under 0.1 g/m2/24hr.</li>
               <li><strong>Powder-Resistant Zippers:</strong> Specialized press-to-close zippers designed to resist clogging from fine cacao powder, ensuring a reliable reseal every time.</li>
               <li><strong>Puncture Resistance:</strong> Heavy-duty laminations prevent punctures during transit, reducing product loss and returns.</li>
               <li><strong>Food-Grade Certification:</strong> Manufactured in ISO 22000 and BRC certified cleanrooms.</li>

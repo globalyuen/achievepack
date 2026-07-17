@@ -13,7 +13,7 @@ const localTranslations = {
     hook: "We know the sinking feeling of opening a shipping box only to find your premium product crushed because the seal failed. You didn't spend months perfecting your recipe just to lose customers over cheap, unreliable packaging. Our Spouted Foil Pouch Thumbnail 22 is designed to prevent these exact disasters.",
     painPoints: "5 Packaging Pain Points & Engineering Solutions",
     notebook: "🔬 From Ryan Wong's Engineering Notebook",
-    notebookText: "In my 14 years in packaging design, I've seen countless brands struggle with barrier failures. When designing the Spouted Foil Pouch Thumbnail 22, we specifically calibrated the MVTR (Moisture Vapor Transmission Rate) to &lt; 0.1 g/m²/day and ensured a minimum seal strength of 45N/15mm to guarantee structural integrity on automated VFFS lines. Real-world performance always beats theoretical specs."
+    notebookText: "In my 14 years in packaging design, I've seen countless brands struggle with barrier failures. When designing the Spouted Foil Pouch Thumbnail 22, we specifically calibrated the MVTR (Moisture Vapor Transmission Rate) to under 0.1 g/m²/day and ensured a minimum seal strength of 45N/15mm to guarantee structural integrity on automated VFFS lines. Real-world performance always beats theoretical specs."
   },
   es: {
     title: "Spouted Foil Pouch Thumbnail 22 | Soluciones Avanzadas",
@@ -55,7 +55,7 @@ export default function SpoutedFoilPouchThumbnail22() {
 
   const painPoints = [
     { num: '01', problem: 'Seal Failures Under Vacuum', solution: 'We use high-temperature localized heat sealing (180°C) with a specific dwell time to ensure 45N/15mm seal strength.', icon: <CheckCircle className="text-primary-500 w-6 h-6" /> },
-    { num: '02', problem: 'Moisture Ingress', solution: 'Multi-layer EVOH/AL barrier lamination achieves an MVTR of &lt; 0.1 g/m²/day, extending shelf life by 40%.', icon: <ShieldCheck className="text-primary-500 w-6 h-6" /> },
+    { num: '02', problem: 'Moisture Ingress', solution: 'Multi-layer EVOH/AL barrier lamination achieves an MVTR of under 0.1 g/m²/day, extending shelf life by 40%.', icon: <ShieldCheck className="text-primary-500 w-6 h-6" /> },
     { num: '03', problem: 'Color Shift on Matte Varnishes', solution: 'We provide free CMYK-to-PMS software calibration videos before production, avoiding costly physical proofing mistakes.', icon: <Zap className="text-primary-500 w-6 h-6" /> },
     { num: '04', problem: 'VFFS Machine Jamming', solution: 'Our slip additives are calibrated to a dynamic Coefficient of Friction (COF) of 0.2-0.3, ensuring smooth high-speed runs.', icon: <Factory className="text-primary-500 w-6 h-6" /> },
     { num: '05', problem: 'Shipping Weight Costs', solution: 'Optimized material thickness (110 microns instead of standard 130) saves up to 15% in logistics costs while maintaining burst strength.', icon: <Package className="text-primary-500 w-6 h-6" /> }

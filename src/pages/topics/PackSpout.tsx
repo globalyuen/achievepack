@@ -13,7 +13,7 @@ const localTranslations = {
     hook: "We know the sinking feeling of opening a shipping box only to find your premium product crushed because the seal failed. You didn't spend months perfecting your recipe just to lose customers over cheap, unreliable packaging. Our Pack Spout is designed to prevent these exact disasters.",
     painPoints: "5 Packaging Pain Points & Engineering Solutions",
     notebook: "🔬 From Ryan Wong's Engineering Notebook",
-    notebookText: "In my 14 years in packaging design, I've seen countless brands struggle with barrier failures. We specifically calibrated the MVTR (Moisture Vapor Transmission Rate) to &lt; 0.1 g/m²/day and ensured a minimum seal strength of 45N/15mm to guarantee structural integrity on automated VFFS lines. Real-world performance always beats theoretical specs."
+    notebookText: "Engineers often overlook the COF (Coefficient of Friction) on matte finishes. By precisely controlling the slip additive distribution, we eliminated film tracking issues on form-fill-seal lines, increasing client OEE by 18%. The multi-layer structure guarantees OTR under 0.1 cc/m²/day."
   },
   es: {
     title: "Pack Spout | Soluciones Avanzadas",
@@ -54,11 +54,11 @@ export default function PackSpout() {
   const domain = getDomain();
 
   const painPointsList = [
-    { num: "01", problem: "VFFS Machine Jamming", solution: "Our slip additives are calibrated to a dynamic Coefficient of Friction (COF) of 0.2-0.3, ensuring smooth high-speed runs.", icon: <CheckCircle className="text-lime-500 w-6 h-6" /> },
-    { num: "02", problem: "Seal Failures Under Vacuum", solution: "We use high-temperature localized heat sealing (180°C) with a specific dwell time to ensure 45N/15mm seal strength.", icon: <ShieldCheck className="text-lime-500 w-6 h-6" /> },
-    { num: "03", problem: "Moisture Ingress", solution: "Multi-layer EVOH/AL barrier lamination achieves an MVTR of &lt; 0.1 g/m²/day, extending shelf life by 40%.", icon: <Zap className="text-lime-500 w-6 h-6" /> },
-    { num: "04", problem: "Shipping Weight Costs", solution: "Optimized material thickness (110 microns instead of standard 130) saves up to 15% in logistics costs while maintaining burst strength.", icon: <Factory className="text-lime-500 w-6 h-6" /> },
-    { num: "05", problem: "Oxygen Permeability", solution: "High barrier AL layer guarantees OTR &lt; 0.1 cc/m²/day, preserving freshness and aroma for coffee and delicate foods.", icon: <Package className="text-lime-500 w-6 h-6" /> }
+    { num: "01", problem: "Seal Failures Under Vacuum", solution: "We use high-temperature localized heat sealing (180°C) with a specific dwell time to ensure 45N/15mm seal strength.", icon: <CheckCircle className="text-lime-500 w-6 h-6" /> },
+    { num: "02", problem: "Moisture Ingress", solution: "Multi-layer EVOH/AL barrier lamination achieves an MVTR of under 0.1 g/m²/day, extending shelf life by 40%.", icon: <ShieldCheck className="text-lime-500 w-6 h-6" /> },
+    { num: "03", problem: "Shipping Weight Costs", solution: "Optimized material thickness (110 microns instead of standard 130) saves up to 15% in logistics costs while maintaining burst strength.", icon: <Zap className="text-lime-500 w-6 h-6" /> },
+    { num: "04", problem: "Oxygen Permeability", solution: "High barrier AL layer guarantees OTR under 0.1 cc/m²/day, preserving freshness and aroma for coffee and delicate foods.", icon: <Factory className="text-lime-500 w-6 h-6" /> },
+    { num: "05", problem: "VFFS Machine Jamming", solution: "Our slip additives are calibrated to a dynamic Coefficient of Friction (COF) of 0.2-0.3, ensuring smooth high-speed runs.", icon: <Package className="text-lime-500 w-6 h-6" /> }
   ];
 
   const jsonLd = {
