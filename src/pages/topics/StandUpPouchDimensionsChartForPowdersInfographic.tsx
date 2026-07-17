@@ -17,7 +17,7 @@ const localTranslations = {
       {
         "num": "02",
         "problem": "Oxygen and Moisture Ingress",
-        "solution": "Integrated ALOX/SiOx high-barrier layers drop the OTR to < 0.1 cc/m2/day, preserving freshness."
+        "solution": "Integrated ALOX/SiOx high-barrier layers drop the OTR to &lt; 0.1 cc/m2/day, preserving freshness."
       },
       {
         "num": "03",

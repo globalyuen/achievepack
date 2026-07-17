@@ -12,7 +12,22 @@ const localTranslations = {
     description: "Premium sustainable flexible packaging solutions for powders, engineered for absolute moisture barriers, zero leakage, and environmental compliance.",
     heroTitle: "Sustainable Flexible Packaging For Powders",
     empathyHook: "We know the sinking feeling of opening a shipping box only to find your premium protein powder or supplement completely caked and ruined because the seal failed. You didn't spend months perfecting your formulation just to lose customers over cheap, unreliable packaging. Powder packaging demands absolute moisture barriers and zero leakage. Our sustainable pouches ensure your dry mixes stay free-flowing and fresh while reducing environmental impact.",
-  }
+  },
+  "es": {
+    title: "[ES] Sustainable Flexible Packaging For Powders | Achieve Pack",
+    description: "[ES] Premium sustainable flexible packaging solutions for powders, engineered for absolute moisture barriers, zero leakage, and environmental compliance.",
+    heroTitle: "[ES] Sustainable Flexible Packaging For Powders",
+    empathyHook: "[ES] We know the sinking feeling of opening a shipping box only to find your premium protein powder or supplement completely caked and ruined because the seal failed. You didn't spend months perfecting your formulation just to lose customers over cheap, unreliable packaging. Powder packaging demands absolute moisture barriers and zero leakage. Our sustainable pouches ensure your dry mixes stay free-flowing and fresh while reducing environmental impact.",},
+  "fr": {
+    title: "[FR] Sustainable Flexible Packaging For Powders | Achieve Pack",
+    description: "[FR] Premium sustainable flexible packaging solutions for powders, engineered for absolute moisture barriers, zero leakage, and environmental compliance.",
+    heroTitle: "[FR] Sustainable Flexible Packaging For Powders",
+    empathyHook: "[FR] We know the sinking feeling of opening a shipping box only to find your premium protein powder or supplement completely caked and ruined because the seal failed. You didn't spend months perfecting your formulation just to lose customers over cheap, unreliable packaging. Powder packaging demands absolute moisture barriers and zero leakage. Our sustainable pouches ensure your dry mixes stay free-flowing and fresh while reducing environmental impact.",},
+  "zh-tw": {
+    title: "[ZH-TW] Sustainable Flexible Packaging For Powders | Achieve Pack",
+    description: "[ZH-TW] Premium sustainable flexible packaging solutions for powders, engineered for absolute moisture barriers, zero leakage, and environmental compliance.",
+    heroTitle: "[ZH-TW] Sustainable Flexible Packaging For Powders",
+    empathyHook: "[ZH-TW] We know the sinking feeling of opening a shipping box only to find your premium protein powder or supplement completely caked and ruined because the seal failed. You didn't spend months perfecting your formulation just to lose customers over cheap, unreliable packaging. Powder packaging demands absolute moisture barriers and zero leakage. Our sustainable pouches ensure your dry mixes stay free-flowing and fresh while reducing environmental impact.",}
 };
 
 export default function SustainableFlexiblePackagingForPowdersPage() {
@@ -300,10 +315,8 @@ export default function SustainableFlexiblePackagingForPowdersPage() {
         <h2 className="text-3xl font-bold mb-8">Related Packaging Solutions</h2>
         <div className="grid md:grid-cols-3 gap-6">
           
-          <a href={`/store/product/stand-up-pouch-powders`} className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
-            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative">
-              <div className="absolute inset-0 flex items-center justify-center text-neutral-400 font-medium">Product Image Placeholder</div>
-            </div>
+          <a href="/spec/biope-pp-triplex-metalised" className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
+            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative"><img src="/imgs/store/products/compostable-oval-doypack-premium.png" className="w-full h-full object-cover" alt="Related Product" /></div>
             <div className="p-6">
               <h3 className="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">Stand-up Pouch for Powders</h3>
               <p className="text-neutral-600 text-sm">High barrier, powder-proof zipper pouch.</p>
@@ -311,10 +324,8 @@ export default function SustainableFlexiblePackagingForPowdersPage() {
           </a>
           
 
-          <a href={`/store/product/flat-bottom-protein`} className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
-            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative">
-              <div className="absolute inset-0 flex items-center justify-center text-neutral-400 font-medium">Product Image Placeholder</div>
-            </div>
+          <a href="/spec/biope-kraft-vmpet" className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
+            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative"><img src="/imgs/store/products/eco-boxbottom-premium.png" className="w-full h-full object-cover" alt="Related Product" /></div>
             <div className="p-6">
               <h3 className="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">Flat Bottom Protein Bag</h3>
               <p className="text-neutral-600 text-sm">Large capacity stable base for heavy supplements.</p>
@@ -322,10 +333,8 @@ export default function SustainableFlexiblePackagingForPowdersPage() {
           </a>
           
 
-          <a href={`/store/product/compostable-powder-sachet`} className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
-            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative">
-              <div className="absolute inset-0 flex items-center justify-center text-neutral-400 font-medium">Product Image Placeholder</div>
-            </div>
+          <a href="/spec/biope-pet-triplex-aluminum" className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
+            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative"><img src="/imgs/store/products/stand-up-pouch-full-matte-pe70-hero.jpg" className="w-full h-full object-cover" alt="Related Product" /></div>
             <div className="p-6">
               <h3 className="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">Compostable Powder Sachet</h3>
               <p className="text-neutral-600 text-sm">Single-serve eco-friendly stick packs.</p>

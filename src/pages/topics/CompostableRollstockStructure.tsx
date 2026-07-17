@@ -1,217 +1,51 @@
 import React from 'react';
 import SEOPageLayout from '../../components/SEOPageLayout';
-import { Helmet } from 'react-helmet-async';
-import { getDomain } from '../../utils/domain';
+import { useTranslation } from 'react-i18next';
 
-const localTranslations = {
-  "en": {
-    "title": "Compostable Rollstock Structure",
-    "description": "Explore our premium, sustainable Compostable Rollstock Structure solutions designed for modern flexible packaging lines and high barrier requirements.",
-    "hook": "We know the sinking feeling of opening a shipping box only to find your premium product crushed because the seal failed. When using standard Compostable Rollstock Structure, you didn't spend months perfecting your recipe just to lose customers over cheap, unreliable packaging.",
-    "pain_points": [
-      {
-        "num": "01",
-        "problem": "Seal Failures Under Pressure",
-        "solution": "We use a 15mm reinforced seal width and precise heat calibration at 180°C to guarantee leak-proof performance even under high-altitude vacuum shipping."
-      },
-      {
-        "num": "02",
-        "problem": "Oxygen and Moisture Ingress",
-        "solution": "Integrated ALOX/SiOx high-barrier layers drop the OTR to < 0.1 cc/m2/day, preserving freshness."
-      },
-      {
-        "num": "03",
-        "problem": "Slow VFFS Machine Speeds",
-        "solution": "Our low-friction outer matte varnish reduces drag by 30% on vertical form-fill-seal machines."
-      },
-      {
-        "num": "04",
-        "problem": "Color Shift in CMYK Printing",
-        "solution": "Advanced proofing algorithms ensure digital color matches PMS targets within Delta-E < 2.0."
-      },
-      {
-        "num": "05",
-        "problem": "Poor Shelf Display",
-        "solution": "Rigid bottom gusset engineering ensures a stable 90-degree upright posture."
-      }
-    ],
-    "engineering_notebook": "In my 14 years in packaging design, I've seen countless brands struggle with Compostable Rollstock Structure. By upgrading the lamination tension and employing a secondary curing phase, we've eliminated curling entirely. - Ryan Wong, Co-Founder",
-    "schema_faq": [
-      {
-        "q": "Is this Compostable Rollstock Structure eco-friendly?",
-        "a": "Yes, we offer both fully recyclable mono-PE versions and industrial compostable (EN 13432) structures."
-      },
-      {
-        "q": "What is the minimum order quantity?",
-        "a": "Our digital printing lines support an ultra-low MOQ starting from just 1,000 units."
-      }
-    ]
-  },
-  "es": {
-    "title": "Compostable Rollstock Structure (ES)",
-    "description": "Explore nuestras soluciones premium de Compostable Rollstock Structure.",
-    "hook": "Conocemos la terrible sensación de abrir una caja de envío...",
-    "pain_points": [
-      {
-        "num": "01",
-        "problem": "Fallas de Sello",
-        "solution": "Usamos un sello reforzado de 15mm..."
-      },
-      {
-        "num": "02",
-        "problem": "Ingreso de Oxígeno",
-        "solution": "Capas integradas de ALOX/SiOx..."
-      },
-      {
-        "num": "03",
-        "problem": "Velocidades Lentas VFFS",
-        "solution": "Reducción de fricción en un 30%..."
-      },
-      {
-        "num": "04",
-        "problem": "Cambio de Color CMYK",
-        "solution": "Algoritmos avanzados aseguran coincidencias PMS..."
-      },
-      {
-        "num": "05",
-        "problem": "Mala Exhibición",
-        "solution": "Ingeniería de fondo rígido..."
-      }
-    ],
-    "engineering_notebook": "En mis 14 años de diseño de empaques...",
-    "schema_faq": [
-      {
-        "q": "¿Es este Compostable Rollstock Structure ecológico?",
-        "a": "Sí, ofrecemos versiones reciclables."
-      },
-      {
-        "q": "¿Cuál es la cantidad mínima de pedido?",
-        "a": "Desde solo 1,000 unidades."
-      }
-    ]
-  },
-  "fr": {
-    "title": "Compostable Rollstock Structure (FR)",
-    "description": "Découvrez nos solutions premium de Compostable Rollstock Structure.",
-    "hook": "Nous connaissons ce sentiment de déception...",
-    "pain_points": [
-      {
-        "num": "01",
-        "problem": "Défaillances de Scellage",
-        "solution": "Scellage renforcé de 15mm..."
-      },
-      {
-        "num": "02",
-        "problem": "Pénétration d'Oxygène",
-        "solution": "Couches haute barrière ALOX/SiOx..."
-      },
-      {
-        "num": "03",
-        "problem": "Lenteur des Machines VFFS",
-        "solution": "Réduction des frottements de 30%..."
-      },
-      {
-        "num": "04",
-        "problem": "Décalage des Couleurs CMYK",
-        "solution": "Algorithmes avancés pour correspondre aux normes PMS..."
-      },
-      {
-        "num": "05",
-        "problem": "Mauvaise Présentation",
-        "solution": "Conception de fond rigide..."
-      }
-    ],
-    "engineering_notebook": "En 14 ans de conception d'emballages...",
-    "schema_faq": [
-      {
-        "q": "Ce Compostable Rollstock Structure est-il écologique?",
-        "a": "Oui, nous proposons des versions recyclables."
-      },
-      {
-        "q": "Quelle est la quantité minimum de commande?",
-        "a": "À partir de 1 000 unités."
-      }
-    ]
-  },
-  "zh-tw": {
-    "title": "Compostable Rollstock Structure (TW)",
-    "description": "探索我們為 Compostable Rollstock Structure 設計的高級解決方案。",
-    "hook": "我們深知打開包裝箱卻發現產品受損的沮喪感...",
-    "pain_points": [
-      {
-        "num": "01",
-        "problem": "封口失敗",
-        "solution": "我們使用15mm加固封口..."
-      },
-      {
-        "num": "02",
-        "problem": "氧氣和水分滲入",
-        "solution": "高阻隔 ALOX/SiOx 塗層..."
-      },
-      {
-        "num": "03",
-        "problem": "VFFS 機器速度慢",
-        "solution": "摩擦力減少30%..."
-      },
-      {
-        "num": "04",
-        "problem": "CMYK 色差",
-        "solution": "先進的校色算法..."
-      },
-      {
-        "num": "05",
-        "problem": "展示效果差",
-        "solution": "堅固的底部設計..."
-      }
-    ],
-    "engineering_notebook": "在我14年的包裝設計經驗中...",
-    "schema_faq": [
-      {
-        "q": "這個 Compostable Rollstock Structure 環保嗎?",
-        "a": "是的，我們提供可回收版本。"
-      },
-      {
-        "q": "最低訂購量是多少?",
-        "a": "僅需1,000件起。"
-      }
-    ]
-  }
-};
-
-export default function CompostableRollstockStructure() {
-  const isPouchDomain = getDomain() === 'pouch';
-  const lang = 'en'; 
-  const t = localTranslations[lang] || localTranslations['en'];
-  
+const CompostableRollstockStructure: React.FC = () => {
+  const { t } = useTranslation();
   return (
-    <SEOPageLayout title={t.title} description={t.description}>
-      <Helmet>
-        <title>{t.title}</title>
-        <meta name="description" content={t.description} />
-      </Helmet>
-      <div className="max-w-4xl mx-auto py-12 px-4">
-        <h1 className="text-4xl font-bold mb-6">{t.title}</h1>
-        <img src="/imgs/spec/compostable-rollstock-structure.png" alt={t.title} className="w-full max-w-lg mx-auto mb-8 rounded-xl shadow-lg" />
-        <p className="text-lg mb-8">{t.hook}</p>
+    <SEOPageLayout
+      title="Compostable Rollstock Structure Packaging Solutions | Achieve Pack"
+      description="Discover high-quality Compostable Rollstock Structure packaging for your brand."
+    >
+      <div className="container mx-auto px-4 py-12">
+        <h1 className="text-4xl font-bold mb-6">Compostable Rollstock Structure Solutions</h1>
         
-        <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4">5 Pain Points & Solutions</h2>
-          <div className="grid gap-4">
-            {t.pain_points.map((p, idx) => (
-              <div key={idx} className="bg-neutral-900 text-white p-6 rounded-xl">
-                <span className="text-emerald-500 font-bold mr-2">{p.num}</span>
-                <span className="font-semibold">{p.problem}</span>
-                <p className="mt-2 text-gray-300">✅ Solution: {p.solution}</p>
-              </div>
-            ))}
+        <section className="mb-12">
+          <h2 className="text-2xl font-semibold mb-4">Pain Points</h2>
+          <p>
+            Brands often struggle with preserving freshness, ensuring durability during shipping, and standing out on retail shelves. 
+            Standard packaging can suffer from punctures, moisture ingress, and poor sealing, leading to product spoilage and customer dissatisfaction.
+          </p>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="text-2xl font-semibold mb-4">Engineering Notebook</h2>
+          <p>
+            Our engineered multi-layer barrier films provide exceptional protection against oxygen and moisture. 
+            By utilizing specialized sealant layers and strict temperature-controlled heat sealing, we achieve a failure rate of {"< 0.1"}%. 
+            This ensures extended shelf life and maximum structural integrity.
+          </p>
+        </section>
+
+        <section className="mb-12 bg-gray-50 p-6 rounded-lg shadow-sm">
+          <h2 className="text-xl font-semibold mb-4">Global Reach (Translations)</h2>
+          <div className="space-y-4 text-sm text-gray-700">
+            <div>
+              <strong>ES:</strong> Soluciones de embalaje premium para Compostable Rollstock Structure. Superamos los desafíos de frescura y durabilidad con películas de barrera multicapa de alta ingeniería.
+            </div>
+            <div>
+              <strong>FR:</strong> Solutions d'emballage premium pour Compostable Rollstock Structure. Nous surmontons les défis de fraîcheur et de durabilité avec des films barrières multicouches de haute technologie.
+            </div>
+            <div>
+              <strong>ZH:</strong> Compostable Rollstock Structure 的优质包装解决方案。我们采用高度工程化的多层阻隔膜，克服了保鲜和耐用性方面的挑战。
+            </div>
           </div>
-        </div>
-        
-        <div className="bg-amber-50 border border-amber-200 p-6 rounded-xl mb-12">
-          <h4 className="font-bold text-amber-900 mb-2">🔬 From Ryan Wong's Engineering Notebook</h4>
-          <p className="italic text-amber-800">"{t.engineering_notebook}"</p>
-        </div>
+        </section>
       </div>
     </SEOPageLayout>
   );
-}
+};
+
+export default CompostableRollstockStructure;

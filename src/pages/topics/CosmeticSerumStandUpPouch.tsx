@@ -342,7 +342,7 @@ const CosmeticSerumStandUpPouch: React.FC = () => {
         headers: ["Parameter", "Target Value", "Test Standard", "Compliance Status"],
         rows: [
           ["Oxygen Transmission Rate (OTR)", "< 0.5 cc/m²/24h", "ASTM D3985", "Passed"],
-          ["Moisture Transmission (MVTR)", "< 0.1 g/m²/24h", "ASTM F1249", "Passed"],
+          ["Moisture Transmission (MVTR)", "&lt; 0.1 g/m²/24h", "ASTM F1249", "Passed"],
           ["Seal Strength", "> 35 N/15mm", "ASTM F88", "Passed"],
           ["Eco Certification", "Compostable / Recyclable", "EN 13432 / ISO 14021", "Certified"]
         ]

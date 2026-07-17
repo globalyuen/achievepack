@@ -1,215 +1,116 @@
 import React from 'react';
 import SEOPageLayout from '../../components/SEOPageLayout';
-import { Helmet } from 'react-helmet-async';
+import { CheckCircle, ShieldCheck, Zap, Factory, Package } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { getDomain } from '../../utils/domain';
 
 const localTranslations = {
-  "en": {
-    "title": "A Eco Digital Advantage Photo 6226161",
-    "description": "Explore our premium, sustainable A Eco Digital Advantage Photo 6226161 solutions designed for modern flexible packaging lines and high barrier requirements.",
-    "hook": "We know the sinking feeling of opening a shipping box only to find your premium product crushed because the seal failed. When using standard A Eco Digital Advantage Photo 6226161, you didn't spend months perfecting your recipe just to lose customers over cheap, unreliable packaging.",
-    "pain_points": [
-      {
-        "num": "01",
-        "problem": "Seal Failures Under Pressure",
-        "solution": "We use a 15mm reinforced seal width and precise heat calibration at 180°C to guarantee leak-proof performance even under high-altitude vacuum shipping."
-      },
-      {
-        "num": "02",
-        "problem": "Oxygen and Moisture Ingress",
-        "solution": "Integrated ALOX/SiOx high-barrier layers drop the OTR to < 0.1 cc/m2/day, preserving freshness."
-      },
-      {
-        "num": "03",
-        "problem": "Slow VFFS Machine Speeds",
-        "solution": "Our low-friction outer matte varnish reduces drag by 30% on vertical form-fill-seal machines."
-      },
-      {
-        "num": "04",
-        "problem": "Color Shift in CMYK Printing",
-        "solution": "Advanced proofing algorithms ensure digital color matches PMS targets within Delta-E < 2.0."
-      },
-      {
-        "num": "05",
-        "problem": "Poor Shelf Display",
-        "solution": "Rigid bottom gusset engineering ensures a stable 90-degree upright posture."
-      }
-    ],
-    "engineering_notebook": "In my 14 years in packaging design, I've seen countless brands struggle with A Eco Digital Advantage Photo 6226161. By upgrading the lamination tension and employing a secondary curing phase, we've eliminated curling entirely. - Ryan Wong, Co-Founder",
-    "schema_faq": [
-      {
-        "q": "Is this A Eco Digital Advantage Photo 6226161 eco-friendly?",
-        "a": "Yes, we offer both fully recyclable mono-PE versions and industrial compostable (EN 13432) structures."
-      },
-      {
-        "q": "What is the minimum order quantity?",
-        "a": "Our digital printing lines support an ultra-low MOQ starting from just 1,000 units."
-      }
-    ]
+  en: {
+    title: "A Eco Digital Advantage Photo 6226161 | Advanced Packaging Solutions",
+    description: "Discover the engineering behind our premium A Eco Digital Advantage Photo 6226161. Learn how we solve common packaging challenges with cutting-edge materials and designs.",
+    heroTitle: "Engineered A Eco Digital Advantage Photo 6226161",
+    heroSubtitle: "Solving Your Top 5 Packaging Pain Points",
+    hook: "We know the sinking feeling of opening a shipping box only to find your premium product crushed because the seal failed. You didn't spend months perfecting your recipe just to lose customers over cheap, unreliable packaging. Our A Eco Digital Advantage Photo 6226161 is designed to prevent these exact disasters.",
+    painPoints: "5 Packaging Pain Points & Engineering Solutions",
+    notebook: "🔬 From Ryan Wong's Engineering Notebook",
+    notebookText: "A common pain point is zipper separation during drop tests. We implemented a reinforced flange seal using ultrasonic spot welding, which dramatically increased the burst strength to withstand a 2-meter drop test. MVTR is maintained at &lt; 0.1 g/m²/day."
   },
-  "es": {
-    "title": "A Eco Digital Advantage Photo 6226161 (ES)",
-    "description": "Explore nuestras soluciones premium de A Eco Digital Advantage Photo 6226161.",
-    "hook": "Conocemos la terrible sensación de abrir una caja de envío...",
-    "pain_points": [
-      {
-        "num": "01",
-        "problem": "Fallas de Sello",
-        "solution": "Usamos un sello reforzado de 15mm..."
-      },
-      {
-        "num": "02",
-        "problem": "Ingreso de Oxígeno",
-        "solution": "Capas integradas de ALOX/SiOx..."
-      },
-      {
-        "num": "03",
-        "problem": "Velocidades Lentas VFFS",
-        "solution": "Reducción de fricción en un 30%..."
-      },
-      {
-        "num": "04",
-        "problem": "Cambio de Color CMYK",
-        "solution": "Algoritmos avanzados aseguran coincidencias PMS..."
-      },
-      {
-        "num": "05",
-        "problem": "Mala Exhibición",
-        "solution": "Ingeniería de fondo rígido..."
-      }
-    ],
-    "engineering_notebook": "En mis 14 años de diseño de empaques...",
-    "schema_faq": [
-      {
-        "q": "¿Es este A Eco Digital Advantage Photo 6226161 ecológico?",
-        "a": "Sí, ofrecemos versiones reciclables."
-      },
-      {
-        "q": "¿Cuál es la cantidad mínima de pedido?",
-        "a": "Desde solo 1,000 unidades."
-      }
-    ]
+  es: {
+    title: "A Eco Digital Advantage Photo 6226161 | Soluciones Avanzadas",
+    description: "Descubra la ingeniería detrás de nuestro A Eco Digital Advantage Photo 6226161 premium.",
+    heroTitle: "A Eco Digital Advantage Photo 6226161 Diseñado",
+    heroSubtitle: "Resolviendo Sus 5 Principales Puntos Delor",
+    hook: "Conocemos la sensación de frustración al encontrar su producto premium dañado. Nuestro A Eco Digital Advantage Photo 6226161 está diseñado para prevenir estos desastres exactos.",
+    painPoints: "5 Puntos de Dolor y Soluciones",
+    notebook: "🔬 Del Cuaderno de Ingeniería de Ryan Wong",
+    notebookText: "En mis 14 años de diseño de empaques, he visto a innumerables marcas luchar con fallas de barrera..."
   },
-  "fr": {
-    "title": "A Eco Digital Advantage Photo 6226161 (FR)",
-    "description": "Découvrez nos solutions premium de A Eco Digital Advantage Photo 6226161.",
-    "hook": "Nous connaissons ce sentiment de déception...",
-    "pain_points": [
-      {
-        "num": "01",
-        "problem": "Défaillances de Scellage",
-        "solution": "Scellage renforcé de 15mm..."
-      },
-      {
-        "num": "02",
-        "problem": "Pénétration d'Oxygène",
-        "solution": "Couches haute barrière ALOX/SiOx..."
-      },
-      {
-        "num": "03",
-        "problem": "Lenteur des Machines VFFS",
-        "solution": "Réduction des frottements de 30%..."
-      },
-      {
-        "num": "04",
-        "problem": "Décalage des Couleurs CMYK",
-        "solution": "Algorithmes avancés pour correspondre aux normes PMS..."
-      },
-      {
-        "num": "05",
-        "problem": "Mauvaise Présentation",
-        "solution": "Conception de fond rigide..."
-      }
-    ],
-    "engineering_notebook": "En 14 ans de conception d'emballages...",
-    "schema_faq": [
-      {
-        "q": "Ce A Eco Digital Advantage Photo 6226161 est-il écologique?",
-        "a": "Oui, nous proposons des versions recyclables."
-      },
-      {
-        "q": "Quelle est la quantité minimum de commande?",
-        "a": "À partir de 1 000 unités."
-      }
-    ]
+  fr: {
+    title: "A Eco Digital Advantage Photo 6226161 | Solutions d'Emballage Avancées",
+    description: "Découvrez l'ingénierie derrière notre A Eco Digital Advantage Photo 6226161 premium.",
+    heroTitle: "A Eco Digital Advantage Photo 6226161 Conçu",
+    heroSubtitle: "Résolution de vos 5 principaux problèmes d'emballage",
+    hook: "Nous connaissons le sentiment de frustration lorsque vous trouvez votre produit premium endommagé.",
+    painPoints: "5 points de douleur et solutions",
+    notebook: "🔬 Du carnet d'ingénierie de Ryan Wong",
+    notebookText: "Dans mes 14 années de conception d'emballages, j'ai vu d'innombrables marques lutter contre des problèmes de barrière..."
   },
   "zh-tw": {
-    "title": "A Eco Digital Advantage Photo 6226161 (TW)",
-    "description": "探索我們為 A Eco Digital Advantage Photo 6226161 設計的高級解決方案。",
-    "hook": "我們深知打開包裝箱卻發現產品受損的沮喪感...",
-    "pain_points": [
-      {
-        "num": "01",
-        "problem": "封口失敗",
-        "solution": "我們使用15mm加固封口..."
-      },
-      {
-        "num": "02",
-        "problem": "氧氣和水分滲入",
-        "solution": "高阻隔 ALOX/SiOx 塗層..."
-      },
-      {
-        "num": "03",
-        "problem": "VFFS 機器速度慢",
-        "solution": "摩擦力減少30%..."
-      },
-      {
-        "num": "04",
-        "problem": "CMYK 色差",
-        "solution": "先進的校色算法..."
-      },
-      {
-        "num": "05",
-        "problem": "展示效果差",
-        "solution": "堅固的底部設計..."
-      }
-    ],
-    "engineering_notebook": "在我14年的包裝設計經驗中...",
-    "schema_faq": [
-      {
-        "q": "這個 A Eco Digital Advantage Photo 6226161 環保嗎?",
-        "a": "是的，我們提供可回收版本。"
-      },
-      {
-        "q": "最低訂購量是多少?",
-        "a": "僅需1,000件起。"
-      }
-    ]
+    title: "A Eco Digital Advantage Photo 6226161 | 高級包裝解決方案",
+    description: "探索我們高級 A Eco Digital Advantage Photo 6226161 背後的工程技術。",
+    heroTitle: "精心設計的 A Eco Digital Advantage Photo 6226161",
+    heroSubtitle: "解決您的前5大包裝痛點",
+    hook: "我們知道打開運輸箱卻發現優質產品因密封失敗而破損的沮喪感。",
+    painPoints: "5個包裝痛點及工程解決方案",
+    notebook: "🔬 來自 Ryan Wong 的工程筆記",
+    notebookText: "在我14年的包裝設計生涯中，我見過無數品牌在屏障失效問題上掙扎..."
   }
 };
 
 export default function AEcoDigitalAdvantagePhoto6226161() {
-  const isPouchDomain = getDomain() === 'pouch';
-  const lang = 'en'; 
-  const t = localTranslations[lang] || localTranslations['en'];
-  
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language as keyof typeof localTranslations || 'en';
+  const tLocal = localTranslations[lang] || localTranslations.en;
+  const domain = getDomain();
+
+  const painPointsList = [
+    { num: "01", problem: "Oxygen Permeability", solution: "High barrier AL layer guarantees OTR &lt; 0.1 cc/m²/day, preserving freshness and aroma for coffee and delicate foods.", icon: <CheckCircle className="text-lime-500 w-6 h-6" /> },
+    { num: "02", problem: "Seal Failures Under Vacuum", solution: "We use high-temperature localized heat sealing (180°C) with a specific dwell time to ensure 45N/15mm seal strength.", icon: <ShieldCheck className="text-lime-500 w-6 h-6" /> },
+    { num: "03", problem: "VFFS Machine Jamming", solution: "Our slip additives are calibrated to a dynamic Coefficient of Friction (COF) of 0.2-0.3, ensuring smooth high-speed runs.", icon: <Zap className="text-lime-500 w-6 h-6" /> },
+    { num: "04", problem: "Shipping Weight Costs", solution: "Optimized material thickness (110 microns instead of standard 130) saves up to 15% in logistics costs while maintaining burst strength.", icon: <Factory className="text-lime-500 w-6 h-6" /> },
+    { num: "05", problem: "Color Shift on Matte Varnishes", solution: "We provide free CMYK-to-PMS software calibration videos before production, avoiding costly physical proofing mistakes.", icon: <Package className="text-lime-500 w-6 h-6" /> }
+  ];
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does A Eco Digital Advantage Photo 6226161 improve my packaging?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "By offering superior barrier properties and optimized VFFS compatibility."
+        }
+      }
+    ]
+  };
+
   return (
-    <SEOPageLayout title={t.title} description={t.description}>
-      <Helmet>
-        <title>{t.title}</title>
-        <meta name="description" content={t.description} />
-      </Helmet>
-      <div className="max-w-4xl mx-auto py-12 px-4">
-        <h1 className="text-4xl font-bold mb-6">{t.title}</h1>
-        <img src="/imgs/pcr/vs/a_eco_digital_advantage_photo_6226161.webp" alt={t.title} className="w-full max-w-lg mx-auto mb-8 rounded-xl shadow-lg" />
-        <p className="text-lg mb-8">{t.hook}</p>
-        
-        <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4">5 Pain Points & Solutions</h2>
-          <div className="grid gap-4">
-            {t.pain_points.map((p, idx) => (
-              <div key={idx} className="bg-neutral-900 text-white p-6 rounded-xl">
-                <span className="text-emerald-500 font-bold mr-2">{p.num}</span>
-                <span className="font-semibold">{p.problem}</span>
-                <p className="mt-2 text-gray-300">✅ Solution: {p.solution}</p>
+    <SEOPageLayout
+      title={tLocal.title}
+      description={tLocal.description}
+      heroTitle={tLocal.heroTitle}
+      heroSubtitle={tLocal.heroSubtitle}
+      heroImage="/imgs/pcr/vs/a_eco_digital_advantage_photo_6226161.webp"
+    >
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <div className="max-w-4xl mx-auto px-4 py-12">
+        <p className="text-xl text-gray-700 leading-relaxed mb-12">
+          {tLocal.hook}
+        </p>
+
+        <h2 className="text-3xl font-bold text-gray-900 mb-8">{tLocal.painPoints}</h2>
+        <div className="space-y-6 mb-16">
+          {painPointsList.map((pt, i) => (
+            <div key={i} className="flex items-start gap-4 p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+              <div className="flex-shrink-0 mt-1">{pt.icon}</div>
+              <div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  <span className="text-lime-600 mr-2">{pt.num}.</span>
+                  {pt.problem}
+                </h3>
+                <p className="text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{__html: pt.solution}} />
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-        
-        <div className="bg-amber-50 border border-amber-200 p-6 rounded-xl mb-12">
-          <h4 className="font-bold text-amber-900 mb-2">🔬 From Ryan Wong's Engineering Notebook</h4>
-          <p className="italic text-amber-800">"{t.engineering_notebook}"</p>
+
+        <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+          <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+            {tLocal.notebook}
+          </h3>
+          <p className="text-gray-700 italic leading-relaxed" dangerouslySetInnerHTML={{__html: tLocal.notebookText}} />
         </div>
       </div>
     </SEOPageLayout>

@@ -11,7 +11,22 @@ const localTranslations = {
     description: "Premium Custom Shaped Sachets For Spices solutions designed for maximum performance and sustainability.",
     heroTitle: "Custom Shaped Sachets For Spices",
     empathyHook: "Spices need tight barriers to preserve volatile oils and aromas, but they also need to stand out on crowded shelves. Custom shaped sachets offer a unique silhouette that catches the eye while locking in robust flavors.",
-  }
+  },
+  "es": {
+    title: "[ES] Custom Shaped Sachets For Spices | Achieve Pack",
+    description: "[ES] Premium Custom Shaped Sachets For Spices solutions designed for maximum performance and sustainability.",
+    heroTitle: "[ES] Custom Shaped Sachets For Spices",
+    empathyHook: "[ES] Spices need tight barriers to preserve volatile oils and aromas, but they also need to stand out on crowded shelves. Custom shaped sachets offer a unique silhouette that catches the eye while locking in robust flavors.",},
+  "fr": {
+    title: "[FR] Custom Shaped Sachets For Spices | Achieve Pack",
+    description: "[FR] Premium Custom Shaped Sachets For Spices solutions designed for maximum performance and sustainability.",
+    heroTitle: "[FR] Custom Shaped Sachets For Spices",
+    empathyHook: "[FR] Spices need tight barriers to preserve volatile oils and aromas, but they also need to stand out on crowded shelves. Custom shaped sachets offer a unique silhouette that catches the eye while locking in robust flavors.",},
+  "zh-tw": {
+    title: "[ZH-TW] Custom Shaped Sachets For Spices | Achieve Pack",
+    description: "[ZH-TW] Premium Custom Shaped Sachets For Spices solutions designed for maximum performance and sustainability.",
+    heroTitle: "[ZH-TW] Custom Shaped Sachets For Spices",
+    empathyHook: "[ZH-TW] Spices need tight barriers to preserve volatile oils and aromas, but they also need to stand out on crowded shelves. Custom shaped sachets offer a unique silhouette that catches the eye while locking in robust flavors.",}
 };
 
 export default function CustomShapedSachetsForSpicesPage() {

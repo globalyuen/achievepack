@@ -12,7 +12,22 @@ const localTranslations = {
     description: "Artisanal, high-barrier custom printed Kraft paper sachets designed to preserve the delicate essential oils, aromas, and freshness of organic herbs.",
     heroTitle: "Custom Printed Kraft Paper Sachets For Herbs",
     empathyHook: "There is nothing more disappointing than opening a premium organic herbal tea blend only to find the aroma has completely vanished, leaving behind stale, lifeless leaves. Essential oils in herbs are highly volatile and degrade quickly when exposed to light, oxygen, and moisture. You pour your heart into sourcing the best botanicals; your packaging shouldn't let you down. Our custom printed Kraft paper sachets blend a rustic, organic aesthetic with high-tech invisible barriers, locking in freshness and projecting a premium brand image.",
-  }
+  },
+  "es": {
+    title: "[ES] Custom Printed Kraft Paper Sachets For Herbs | Achieve Pack",
+    description: "[ES] Artisanal, high-barrier custom printed Kraft paper sachets designed to preserve the delicate essential oils, aromas, and freshness of organic herbs.",
+    heroTitle: "[ES] Custom Printed Kraft Paper Sachets For Herbs",
+    empathyHook: "[ES] There is nothing more disappointing than opening a premium organic herbal tea blend only to find the aroma has completely vanished, leaving behind stale, lifeless leaves. Essential oils in herbs are highly volatile and degrade quickly when exposed to light, oxygen, and moisture. You pour your heart into sourcing the best botanicals; your packaging shouldn't let you down. Our custom printed Kraft paper sachets blend a rustic, organic aesthetic with high-tech invisible barriers, locking in freshness and projecting a premium brand image.",},
+  "fr": {
+    title: "[FR] Custom Printed Kraft Paper Sachets For Herbs | Achieve Pack",
+    description: "[FR] Artisanal, high-barrier custom printed Kraft paper sachets designed to preserve the delicate essential oils, aromas, and freshness of organic herbs.",
+    heroTitle: "[FR] Custom Printed Kraft Paper Sachets For Herbs",
+    empathyHook: "[FR] There is nothing more disappointing than opening a premium organic herbal tea blend only to find the aroma has completely vanished, leaving behind stale, lifeless leaves. Essential oils in herbs are highly volatile and degrade quickly when exposed to light, oxygen, and moisture. You pour your heart into sourcing the best botanicals; your packaging shouldn't let you down. Our custom printed Kraft paper sachets blend a rustic, organic aesthetic with high-tech invisible barriers, locking in freshness and projecting a premium brand image.",},
+  "zh-tw": {
+    title: "[ZH-TW] Custom Printed Kraft Paper Sachets For Herbs | Achieve Pack",
+    description: "[ZH-TW] Artisanal, high-barrier custom printed Kraft paper sachets designed to preserve the delicate essential oils, aromas, and freshness of organic herbs.",
+    heroTitle: "[ZH-TW] Custom Printed Kraft Paper Sachets For Herbs",
+    empathyHook: "[ZH-TW] There is nothing more disappointing than opening a premium organic herbal tea blend only to find the aroma has completely vanished, leaving behind stale, lifeless leaves. Essential oils in herbs are highly volatile and degrade quickly when exposed to light, oxygen, and moisture. You pour your heart into sourcing the best botanicals; your packaging shouldn't let you down. Our custom printed Kraft paper sachets blend a rustic, organic aesthetic with high-tech invisible barriers, locking in freshness and projecting a premium brand image.",}
 };
 
 export default function CustomPrintedKraftPaperSachetsForHerbsPage() {
@@ -300,10 +315,8 @@ export default function CustomPrintedKraftPaperSachetsForHerbsPage() {
         <h2 className="text-3xl font-bold mb-8">Related Packaging Solutions</h2>
         <div className="grid md:grid-cols-3 gap-6">
           
-          <a href={`/store/product/kraft-stand-up-pouch`} className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
-            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative">
-              <div className="absolute inset-0 flex items-center justify-center text-neutral-400 font-medium">Product Image Placeholder</div>
-            </div>
+          <a href="/spec/biope-pp-triplex-metalised" className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
+            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative"><img src="/imgs/store/products/compostable-oval-doypack-premium.png" className="w-full h-full object-cover" alt="Related Product" /></div>
             <div className="p-6">
               <h3 className="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">Kraft Stand-Up Pouch</h3>
               <p className="text-neutral-600 text-sm">Classic rustic look with high-barrier liner.</p>
@@ -311,10 +324,8 @@ export default function CustomPrintedKraftPaperSachetsForHerbsPage() {
           </a>
           
 
-          <a href={`/store/product/compostable-kraft-sachet`} className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
-            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative">
-              <div className="absolute inset-0 flex items-center justify-center text-neutral-400 font-medium">Product Image Placeholder</div>
-            </div>
+          <a href="/spec/biope-kraft-vmpet" className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
+            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative"><img src="/imgs/store/products/eco-boxbottom-premium.png" className="w-full h-full object-cover" alt="Related Product" /></div>
             <div className="p-6">
               <h3 className="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">Compostable Kraft Sachet</h3>
               <p className="text-neutral-600 text-sm">100% plant-based and home compostable.</p>
@@ -322,10 +333,8 @@ export default function CustomPrintedKraftPaperSachetsForHerbsPage() {
           </a>
           
 
-          <a href={`/store/product/window-herb-pouch`} className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
-            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative">
-              <div className="absolute inset-0 flex items-center justify-center text-neutral-400 font-medium">Product Image Placeholder</div>
-            </div>
+          <a href="/spec/biope-pet-triplex-aluminum" className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
+            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative"><img src="/imgs/store/products/stand-up-pouch-full-matte-pe70-hero.jpg" className="w-full h-full object-cover" alt="Related Product" /></div>
             <div className="p-6">
               <h3 className="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">Windowed Herb Pouch</h3>
               <p className="text-neutral-600 text-sm">Showcase your beautiful botanicals.</p>

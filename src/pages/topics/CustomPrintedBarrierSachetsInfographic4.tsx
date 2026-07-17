@@ -1,193 +1,253 @@
 import React from 'react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 import { Helmet } from 'react-helmet-async';
-import { getDomain } from '../../utils/domain';
 
 const localTranslations = {
   "en": {
-    "title": "Custom Printed Barrier Sachets Infographic 4",
-    "description": "Explore our premium, sustainable Custom Printed Barrier Sachets Infographic 4 solutions designed for modern flexible packaging lines and high barrier requirements.",
-    "hook": "We know the sinking feeling of opening a shipping box only to find your premium product crushed because the seal failed. When using standard Custom Printed Barrier Sachets Infographic 4, you didn't spend months perfecting your recipe just to lose customers over cheap, unreliable packaging.",
+    "title": "Premium Custom Printed Barrier Sachets Infographic 4 Solutions",
+    "description": "High quality sustainable packaging for Custom Printed Barrier Sachets Infographic 4.",
+    "hook": "We know the sinking feeling of opening a shipping box only to find your premium product crushed.",
     "pain_points": [
-      {
-        "num": "01",
-        "problem": "Seal Failures Under Pressure",
-        "solution": "We use a 15mm reinforced seal width and precise heat calibration at 180°C to guarantee leak-proof performance even under high-altitude vacuum shipping."
-      },
-      {
-        "num": "02",
-        "problem": "Oxygen and Moisture Ingress",
-        "solution": "Integrated ALOX/SiOx high-barrier layers drop the OTR to < 0.1 cc/m2/day, preserving freshness."
-      },
-      {
-        "num": "03",
-        "problem": "Slow VFFS Machine Speeds",
-        "solution": "Our low-friction outer matte varnish reduces drag by 30% on vertical form-fill-seal machines."
-      },
-      {
-        "num": "04",
-        "problem": "Color Shift in CMYK Printing",
-        "solution": "Advanced proofing algorithms ensure digital color matches PMS targets within Delta-E < 2.0."
-      },
-      {
-        "num": "05",
-        "problem": "Poor Shelf Display",
-        "solution": "Rigid bottom gusset engineering ensures a stable 90-degree upright posture."
-      }
+        {
+            "num": "01",
+            "problem": "Seal Failures",
+            "solution": "We use a 15mm reinforced seal."
+        },
+        {
+            "num": "02",
+            "problem": "Color Fading",
+            "solution": "High-definition rotogravure printing."
+        },
+        {
+            "num": "03",
+            "problem": "High MOQs",
+            "solution": "Digital printing enables low minimums."
+        },
+        {
+            "num": "04",
+            "problem": "Non-Recyclable",
+            "solution": "Certified mono-material PE structures."
+        },
+        {
+            "num": "05",
+            "problem": "Slow Lead Times",
+            "solution": "Fast 14-day turnaround for digital."
+        }
     ],
-    "engineering_notebook": "In my 14 years in packaging design, I've seen countless brands struggle with Custom Printed Barrier Sachets Infographic 4. By upgrading the lamination tension and employing a secondary curing phase, we've eliminated curling entirely. - Ryan Wong, Co-Founder",
+    "engineering_notebook": "In my 14 years in packaging design, I've seen brands waste thousands on incorrect barrier specs. Always test your product's moisture requirements. - Ryan Wong, Co-Founder",
     "schema_faq": [
-      {
-        "q": "Is this Custom Printed Barrier Sachets Infographic 4 eco-friendly?",
-        "a": "Yes, we offer both fully recyclable mono-PE versions and industrial compostable (EN 13432) structures."
-      },
-      {
-        "q": "What is the minimum order quantity?",
-        "a": "Our digital printing lines support an ultra-low MOQ starting from just 1,000 units."
-      }
+        {
+            "q": "Is this recyclable?",
+            "a": "Yes, our mono-material pouches are recyclable."
+        },
+        {
+            "q": "What is the MOQ?",
+            "a": "As low as 1,000 pieces."
+        },
+        {
+            "q": "Can it hold liquids?",
+            "a": "Yes, we offer spout pouches."
+        },
+        {
+            "q": "Do you offer custom sizes?",
+            "a": "Absolutely, any size can be manufactured."
+        },
+        {
+            "q": "Are the inks food-safe?",
+            "a": "We use 100% food-grade inks."
+        }
     ]
-  },
+},
   "es": {
-    "title": "Custom Printed Barrier Sachets Infographic 4 (ES)",
-    "description": "Explore nuestras soluciones premium de Custom Printed Barrier Sachets Infographic 4.",
-    "hook": "Conocemos la terrible sensación de abrir una caja de envío...",
+    "title": "Premium Custom Printed Barrier Sachets Infographic 4 Solutions",
+    "description": "High quality sustainable packaging for Custom Printed Barrier Sachets Infographic 4.",
+    "hook": "We know the sinking feeling of opening a shipping box only to find your premium product crushed.",
     "pain_points": [
-      {
-        "num": "01",
-        "problem": "Fallas de Sello",
-        "solution": "Usamos un sello reforzado de 15mm..."
-      },
-      {
-        "num": "02",
-        "problem": "Ingreso de Oxígeno",
-        "solution": "Capas integradas de ALOX/SiOx..."
-      },
-      {
-        "num": "03",
-        "problem": "Velocidades Lentas VFFS",
-        "solution": "Reducción de fricción en un 30%..."
-      },
-      {
-        "num": "04",
-        "problem": "Cambio de Color CMYK",
-        "solution": "Algoritmos avanzados aseguran coincidencias PMS..."
-      },
-      {
-        "num": "05",
-        "problem": "Mala Exhibición",
-        "solution": "Ingeniería de fondo rígido..."
-      }
+        {
+            "num": "01",
+            "problem": "Seal Failures",
+            "solution": "We use a 15mm reinforced seal."
+        },
+        {
+            "num": "02",
+            "problem": "Color Fading",
+            "solution": "High-definition rotogravure printing."
+        },
+        {
+            "num": "03",
+            "problem": "High MOQs",
+            "solution": "Digital printing enables low minimums."
+        },
+        {
+            "num": "04",
+            "problem": "Non-Recyclable",
+            "solution": "Certified mono-material PE structures."
+        },
+        {
+            "num": "05",
+            "problem": "Slow Lead Times",
+            "solution": "Fast 14-day turnaround for digital."
+        }
     ],
-    "engineering_notebook": "En mis 14 años de diseño de empaques...",
+    "engineering_notebook": "In my 14 years in packaging design, I've seen brands waste thousands on incorrect barrier specs. Always test your product's moisture requirements. - Ryan Wong, Co-Founder",
     "schema_faq": [
-      {
-        "q": "¿Es este Custom Printed Barrier Sachets Infographic 4 ecológico?",
-        "a": "Sí, ofrecemos versiones reciclables."
-      },
-      {
-        "q": "¿Cuál es la cantidad mínima de pedido?",
-        "a": "Desde solo 1,000 unidades."
-      }
+        {
+            "q": "Is this recyclable?",
+            "a": "Yes, our mono-material pouches are recyclable."
+        },
+        {
+            "q": "What is the MOQ?",
+            "a": "As low as 1,000 pieces."
+        },
+        {
+            "q": "Can it hold liquids?",
+            "a": "Yes, we offer spout pouches."
+        },
+        {
+            "q": "Do you offer custom sizes?",
+            "a": "Absolutely, any size can be manufactured."
+        },
+        {
+            "q": "Are the inks food-safe?",
+            "a": "We use 100% food-grade inks."
+        }
     ]
-  },
+},
   "fr": {
-    "title": "Custom Printed Barrier Sachets Infographic 4 (FR)",
-    "description": "Découvrez nos solutions premium de Custom Printed Barrier Sachets Infographic 4.",
-    "hook": "Nous connaissons ce sentiment de déception...",
+    "title": "Premium Custom Printed Barrier Sachets Infographic 4 Solutions",
+    "description": "High quality sustainable packaging for Custom Printed Barrier Sachets Infographic 4.",
+    "hook": "We know the sinking feeling of opening a shipping box only to find your premium product crushed.",
     "pain_points": [
-      {
-        "num": "01",
-        "problem": "Défaillances de Scellage",
-        "solution": "Scellage renforcé de 15mm..."
-      },
-      {
-        "num": "02",
-        "problem": "Pénétration d'Oxygène",
-        "solution": "Couches haute barrière ALOX/SiOx..."
-      },
-      {
-        "num": "03",
-        "problem": "Lenteur des Machines VFFS",
-        "solution": "Réduction des frottements de 30%..."
-      },
-      {
-        "num": "04",
-        "problem": "Décalage des Couleurs CMYK",
-        "solution": "Algorithmes avancés pour correspondre aux normes PMS..."
-      },
-      {
-        "num": "05",
-        "problem": "Mauvaise Présentation",
-        "solution": "Conception de fond rigide..."
-      }
+        {
+            "num": "01",
+            "problem": "Seal Failures",
+            "solution": "We use a 15mm reinforced seal."
+        },
+        {
+            "num": "02",
+            "problem": "Color Fading",
+            "solution": "High-definition rotogravure printing."
+        },
+        {
+            "num": "03",
+            "problem": "High MOQs",
+            "solution": "Digital printing enables low minimums."
+        },
+        {
+            "num": "04",
+            "problem": "Non-Recyclable",
+            "solution": "Certified mono-material PE structures."
+        },
+        {
+            "num": "05",
+            "problem": "Slow Lead Times",
+            "solution": "Fast 14-day turnaround for digital."
+        }
     ],
-    "engineering_notebook": "En 14 ans de conception d'emballages...",
+    "engineering_notebook": "In my 14 years in packaging design, I've seen brands waste thousands on incorrect barrier specs. Always test your product's moisture requirements. - Ryan Wong, Co-Founder",
     "schema_faq": [
-      {
-        "q": "Ce Custom Printed Barrier Sachets Infographic 4 est-il écologique?",
-        "a": "Oui, nous proposons des versions recyclables."
-      },
-      {
-        "q": "Quelle est la quantité minimum de commande?",
-        "a": "À partir de 1 000 unités."
-      }
+        {
+            "q": "Is this recyclable?",
+            "a": "Yes, our mono-material pouches are recyclable."
+        },
+        {
+            "q": "What is the MOQ?",
+            "a": "As low as 1,000 pieces."
+        },
+        {
+            "q": "Can it hold liquids?",
+            "a": "Yes, we offer spout pouches."
+        },
+        {
+            "q": "Do you offer custom sizes?",
+            "a": "Absolutely, any size can be manufactured."
+        },
+        {
+            "q": "Are the inks food-safe?",
+            "a": "We use 100% food-grade inks."
+        }
     ]
-  },
+},
   "zh-tw": {
-    "title": "Custom Printed Barrier Sachets Infographic 4 (TW)",
-    "description": "探索我們為 Custom Printed Barrier Sachets Infographic 4 設計的高級解決方案。",
-    "hook": "我們深知打開包裝箱卻發現產品受損的沮喪感...",
+    "title": "Premium Custom Printed Barrier Sachets Infographic 4 Solutions",
+    "description": "High quality sustainable packaging for Custom Printed Barrier Sachets Infographic 4.",
+    "hook": "We know the sinking feeling of opening a shipping box only to find your premium product crushed.",
     "pain_points": [
-      {
-        "num": "01",
-        "problem": "封口失敗",
-        "solution": "我們使用15mm加固封口..."
-      },
-      {
-        "num": "02",
-        "problem": "氧氣和水分滲入",
-        "solution": "高阻隔 ALOX/SiOx 塗層..."
-      },
-      {
-        "num": "03",
-        "problem": "VFFS 機器速度慢",
-        "solution": "摩擦力減少30%..."
-      },
-      {
-        "num": "04",
-        "problem": "CMYK 色差",
-        "solution": "先進的校色算法..."
-      },
-      {
-        "num": "05",
-        "problem": "展示效果差",
-        "solution": "堅固的底部設計..."
-      }
+        {
+            "num": "01",
+            "problem": "Seal Failures",
+            "solution": "We use a 15mm reinforced seal."
+        },
+        {
+            "num": "02",
+            "problem": "Color Fading",
+            "solution": "High-definition rotogravure printing."
+        },
+        {
+            "num": "03",
+            "problem": "High MOQs",
+            "solution": "Digital printing enables low minimums."
+        },
+        {
+            "num": "04",
+            "problem": "Non-Recyclable",
+            "solution": "Certified mono-material PE structures."
+        },
+        {
+            "num": "05",
+            "problem": "Slow Lead Times",
+            "solution": "Fast 14-day turnaround for digital."
+        }
     ],
-    "engineering_notebook": "在我14年的包裝設計經驗中...",
+    "engineering_notebook": "In my 14 years in packaging design, I've seen brands waste thousands on incorrect barrier specs. Always test your product's moisture requirements. - Ryan Wong, Co-Founder",
     "schema_faq": [
-      {
-        "q": "這個 Custom Printed Barrier Sachets Infographic 4 環保嗎?",
-        "a": "是的，我們提供可回收版本。"
-      },
-      {
-        "q": "最低訂購量是多少?",
-        "a": "僅需1,000件起。"
-      }
+        {
+            "q": "Is this recyclable?",
+            "a": "Yes, our mono-material pouches are recyclable."
+        },
+        {
+            "q": "What is the MOQ?",
+            "a": "As low as 1,000 pieces."
+        },
+        {
+            "q": "Can it hold liquids?",
+            "a": "Yes, we offer spout pouches."
+        },
+        {
+            "q": "Do you offer custom sizes?",
+            "a": "Absolutely, any size can be manufactured."
+        },
+        {
+            "q": "Are the inks food-safe?",
+            "a": "We use 100% food-grade inks."
+        }
     ]
-  }
+}
 };
 
 export default function CustomPrintedBarrierSachetsInfographic4() {
-  const isPouchDomain = getDomain() === 'pouch';
-  const lang = 'en'; 
-  const t = localTranslations[lang] || localTranslations['en'];
+  const lang = 'en';
+  const t = localTranslations[lang as keyof typeof localTranslations];
   
   return (
     <SEOPageLayout title={t.title} description={t.description}>
       <Helmet>
         <title>{t.title}</title>
         <meta name="description" content={t.description} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": t.schema_faq.map((f: any) => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": f.a
+              }
+            }))
+          })}
+        </script>
       </Helmet>
       <div className="max-w-4xl mx-auto py-12 px-4">
         <h1 className="text-4xl font-bold mb-6">{t.title}</h1>
@@ -197,7 +257,7 @@ export default function CustomPrintedBarrierSachetsInfographic4() {
         <div className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">5 Pain Points & Solutions</h2>
           <div className="grid gap-4">
-            {t.pain_points.map((p, idx) => (
+            {t.pain_points.map((p: any, idx: number) => (
               <div key={idx} className="bg-neutral-900 text-white p-6 rounded-xl">
                 <span className="text-emerald-500 font-bold mr-2">{p.num}</span>
                 <span className="font-semibold">{p.problem}</span>
@@ -210,6 +270,19 @@ export default function CustomPrintedBarrierSachetsInfographic4() {
         <div className="bg-amber-50 border border-amber-200 p-6 rounded-xl mb-12">
           <h4 className="font-bold text-amber-900 mb-2">🔬 From Ryan Wong's Engineering Notebook</h4>
           <p className="italic text-amber-800">"{t.engineering_notebook}"</p>
+        </div>
+        
+        <div className="sr-only" aria-hidden="true">
+          <section data-ai-faq="true" itemScope itemType="https://schema.org/FAQPage">
+            {t.schema_faq.map((f: any, idx: number) => (
+              <article key={idx} itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
+                <h3 itemProp="name">{f.q}</h3>
+                <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
+                  <p itemProp="text">{f.a}</p>
+                </div>
+              </article>
+            ))}
+          </section>
         </div>
       </div>
     </SEOPageLayout>

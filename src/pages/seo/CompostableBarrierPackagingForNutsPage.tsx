@@ -11,7 +11,22 @@ const localTranslations = {
     description: "Premium Compostable Barrier Packaging For Nuts solutions designed for maximum performance and sustainability.",
     heroTitle: "Compostable Barrier Packaging For Nuts",
     empathyHook: "Nuts are high in natural oils and easily go rancid if exposed to oxygen or moisture. Our compostable barrier packaging ensures your premium nuts stay crunchy and fresh without leaving a permanent plastic footprint.",
-  }
+  },
+  "es": {
+    title: "[ES] Compostable Barrier Packaging For Nuts | Achieve Pack",
+    description: "[ES] Premium Compostable Barrier Packaging For Nuts solutions designed for maximum performance and sustainability.",
+    heroTitle: "[ES] Compostable Barrier Packaging For Nuts",
+    empathyHook: "[ES] Nuts are high in natural oils and easily go rancid if exposed to oxygen or moisture. Our compostable barrier packaging ensures your premium nuts stay crunchy and fresh without leaving a permanent plastic footprint.",},
+  "fr": {
+    title: "[FR] Compostable Barrier Packaging For Nuts | Achieve Pack",
+    description: "[FR] Premium Compostable Barrier Packaging For Nuts solutions designed for maximum performance and sustainability.",
+    heroTitle: "[FR] Compostable Barrier Packaging For Nuts",
+    empathyHook: "[FR] Nuts are high in natural oils and easily go rancid if exposed to oxygen or moisture. Our compostable barrier packaging ensures your premium nuts stay crunchy and fresh without leaving a permanent plastic footprint.",},
+  "zh-tw": {
+    title: "[ZH-TW] Compostable Barrier Packaging For Nuts | Achieve Pack",
+    description: "[ZH-TW] Premium Compostable Barrier Packaging For Nuts solutions designed for maximum performance and sustainability.",
+    heroTitle: "[ZH-TW] Compostable Barrier Packaging For Nuts",
+    empathyHook: "[ZH-TW] Nuts are high in natural oils and easily go rancid if exposed to oxygen or moisture. Our compostable barrier packaging ensures your premium nuts stay crunchy and fresh without leaving a permanent plastic footprint.",}
 };
 
 export default function CompostableBarrierPackagingForNutsPage() {

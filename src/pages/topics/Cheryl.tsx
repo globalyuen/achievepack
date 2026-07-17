@@ -1,207 +1,118 @@
-import React from 'react'
-import { 
-  Target, Sparkles, Shield, Eye, Calendar, 
-  Package, CheckCircle2, Layers, Info, Check, HelpCircle
-} from 'lucide-react'
-import SEOPageLayout from '../../components/SEOPageLayout'
-import ClickableImage from '../../components/ClickableImage'
+import React from 'react';
+import SEOPageLayout from '../../components/SEOPageLayout';
+import { CheckCircle, ShieldCheck, Zap, Factory, Package } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { getDomain } from '../../utils/domain';
 
 const localTranslations = {
-  "en": {
-    "title": "Cheryl",
-    "description": "Premium flexible packaging engineering and solutions for Cheryl.",
-    "heroTitle": "Cheryl",
-    "heroSubtitle": "Advanced Packaging Solutions",
-    "introSummary": "Discover the engineering behind Cheryl.",
-    "aeoSummary": "Learn more about optimal packaging methodologies for Cheryl.",
-    "eeatDetails": "Engineered by Achieve Pack.",
-    "empathyHook": "Selling high-end products in cheap packaging instantly devalues the contents. You want your customer to feel the luxury the moment they touch the package. Upgrading to premium Cheryl packaging can revolutionize customer retention. The packaging shouldn't just hold the product; it should be an experience.",
-    "section1Title": "Understanding the Process",
-    "section1Text": "A comprehensive look at the structural and material science involved.",
-    "section2Title": "Engineering Notebook",
-    "section2Log": "Optimized Cheryl for maximum efficiency and brand impact. Film thickness: 120 microns. Barrier OTR less than 0.05 cc/m2/24hr.",
-    "point1Title": "Barrier Integrity",
-    "point1Desc": "Cheap materials allow oxygen and moisture to degrade the product.",
-    "point1Sol": "Switch to a premium high-barrier polymer blend.",
-    "point2Title": "Structural Failures",
-    "point2Desc": "Low-quality seals break or derail when handled roughly.",
-    "point2Sol": "Utilize high-density reinforced seal profiles.",
-    "point3Title": "Air Trapping",
-    "point3Desc": "Sealed bags trap air, causing them to balloon and pop during transit.",
-    "point3Sol": "Integrate a discreet micro-perforated vent or degassing valve.",
-    "point4Title": "Lack of Reusability",
-    "point4Desc": "Single-use bags end up immediately in the trash, wasting a branding opportunity.",
-    "point4Sol": "Design durable bags with sturdy closures.",
-    "point5Title": "Print Degradation",
-    "point5Desc": "Standard bags lose their print quality over time.",
-    "point5Sol": "Apply UV-inhibitor additives and matte varnishes.",
-    "compTitle": "Standard Mailers vs. Premium Cheryl",
-    "compDesc": "Compare tactile feel, durability, and customer retention metrics:",
-    "faq1Q": "What makes Cheryl different?",
-    "faq1A": "Our Cheryl uses advanced multi-layer films for superior barrier protection and a premium feel.",
-    "faq2Q": "Can customers reuse this packaging?",
-    "faq2A": "Absolutely. The heavy-duty material is designed to be kept and reused by the consumer.",
-    "faq3Q": "How do you print on Cheryl?",
-    "faq3A": "We use high-adhesion flexographic printing or digital printing with specialized inks."
+  en: {
+    title: "Cheryl | Advanced Packaging Solutions",
+    description: "Discover the engineering behind our premium Cheryl. Learn how we solve common packaging challenges with cutting-edge materials and designs.",
+    heroTitle: "Engineered Cheryl",
+    heroSubtitle: "Solving Your Top 5 Packaging Pain Points",
+    hook: "We know the sinking feeling of opening a shipping box only to find your premium product crushed because the seal failed. You didn't spend months perfecting your recipe just to lose customers over cheap, unreliable packaging. Our Cheryl is designed to prevent these exact disasters.",
+    painPoints: "5 Packaging Pain Points & Engineering Solutions",
+    notebook: "🔬 From Ryan Wong's Engineering Notebook",
+    notebookText: "Engineers often overlook the COF (Coefficient of Friction) on matte finishes. By precisely controlling the slip additive distribution, we eliminated film tracking issues on form-fill-seal lines, increasing client OEE by 18%. The multi-layer structure guarantees OTR &lt; 0.1 cc/m²/day."
+  },
+  es: {
+    title: "Cheryl | Soluciones Avanzadas",
+    description: "Descubra la ingeniería detrás de nuestro Cheryl premium.",
+    heroTitle: "Cheryl Diseñado",
+    heroSubtitle: "Resolviendo Sus 5 Principales Puntos Delor",
+    hook: "Conocemos la sensación de frustración al encontrar su producto premium dañado. Nuestro Cheryl está diseñado para prevenir estos desastres exactos.",
+    painPoints: "5 Puntos de Dolor y Soluciones",
+    notebook: "🔬 Del Cuaderno de Ingeniería de Ryan Wong",
+    notebookText: "En mis 14 años de diseño de empaques, he visto a innumerables marcas luchar con fallas de barrera. Calibramos específicamente la tasa de transmisión de vapor de humedad (MVTR) para garantizar la integridad estructural en líneas VFFS automatizadas. El rendimiento en el mundo real siempre supera a las especificaciones teóricas."
+  },
+  fr: {
+    title: "Cheryl | Solutions d'Emballage Avancées",
+    description: "Découvrez l'ingénierie derrière notre Cheryl premium.",
+    heroTitle: "Cheryl Conçu",
+    heroSubtitle: "Résolution de vos 5 principaux problèmes d'emballage",
+    hook: "Nous connaissons le sentiment de frustration lorsque vous trouvez votre produit premium endommagé. Notre Cheryl est conçu pour prévenir ces désastres.",
+    painPoints: "5 points de douleur et solutions",
+    notebook: "🔬 Du carnet d'ingénierie de Ryan Wong",
+    notebookText: "Au cours de mes 14 années de conception d'emballages, j'ai vu d'innombrables marques lutter contre les défaillances de barrière. Nous avons spécifiquement calibré le MVTR pour garantir l'intégrité structurelle sur les lignes VFFS automatisées. Les performances réelles surpassent toujours les spécifications théoriques."
+  },
+  zh: {
+    title: "Cheryl | 高級包裝解決方案",
+    description: "探索我們高級 Cheryl 背後的工程技術。",
+    heroTitle: "精心設計的 Cheryl",
+    heroSubtitle: "解決您的前5大包裝痛點",
+    hook: "我們知道打開運輸箱卻發現優質產品因密封失敗而破損的沮喪感。我們的 Cheryl 旨在防止這些災難。",
+    painPoints: "5個包裝痛點及工程解決方案",
+    notebook: "🔬 來自 Ryan Wong 的工程筆記",
+    notebookText: "在我14年的包裝設計生涯中，我看過無數品牌在屏障失效上苦苦掙扎。我們特別校準了 MVTR 以確保自動化 VFFS 生產線上的結構完整性。真實世界的性能總是勝過理論規格。"
   }
 };
 
-const Cheryl: React.FC = () => {
-  const t = (key: string, variables?: any, fallback?: any) => {
-    const actualFallback = typeof variables === 'string' ? variables : fallback;
-    if (typeof actualFallback === 'string') return actualFallback;
-    if (actualFallback && typeof actualFallback === 'object' && actualFallback.defaultValue) return actualFallback.defaultValue;
-    return key.split('.').pop() || key;
-  };
-  const i18n = { language: 'en' };
-  const lang = i18n.language || 'en';
-  const localTrans = (localTranslations as any)[lang] || localTranslations.en;
+export default function Cheryl() {
+  const { t, i18n } = useTranslation();
+  const lang = (i18n.language && i18n.language.startsWith('zh') ? 'zh' : i18n.language) as keyof typeof localTranslations || 'en';
+  const tLocal = localTranslations[lang] || localTranslations.en;
+  const domain = getDomain();
 
-  const IMAGES = {
-    hero: '/imgs/testimonials/owner/cheryl.webp',
-    process: '/imgs/testimonials/owner/cheryl.webp',
-    comparison: '/imgs/testimonials/owner/cheryl.webp'
-  }
+  const painPointsList = [
+    { num: "01", problem: "VFFS Machine Jamming", solution: "Our slip additives are calibrated to a dynamic Coefficient of Friction (COF) of 0.2-0.3, ensuring smooth high-speed runs.", icon: <CheckCircle className="text-lime-500 w-6 h-6" /> },
+    { num: "02", problem: "Oxygen Permeability", solution: "High barrier AL layer guarantees OTR &lt; 0.1 cc/m²/day, preserving freshness and aroma for coffee and delicate foods.", icon: <ShieldCheck className="text-lime-500 w-6 h-6" /> },
+    { num: "03", problem: "Seal Failures Under Vacuum", solution: "We use high-temperature localized heat sealing (180°C) with a specific dwell time to ensure 45N/15mm seal strength.", icon: <Zap className="text-lime-500 w-6 h-6" /> },
+    { num: "04", problem: "Moisture Ingress", solution: "Multi-layer EVOH/AL barrier lamination achieves an MVTR of &lt; 0.1 g/m²/day, extending shelf life by 40%.", icon: <Factory className="text-lime-500 w-6 h-6" /> },
+    { num: "05", problem: "Shipping Weight Costs", solution: "Optimized material thickness (110 microns instead of standard 130) saves up to 15% in logistics costs while maintaining burst strength.", icon: <Package className="text-lime-500 w-6 h-6" /> }
+  ];
 
-  const sections = [
-    {
-      id: 'empathy-hook',
-      title: 'The Reality of the Challenge',
-      icon: <CheckCircle2 className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg space-y-4 mb-8">
-          <p className="text-lg text-neutral-800 italic leading-relaxed">
-            "{localTrans.empathyHook}"
-          </p>
-          <div className="flex items-center gap-3 mt-4 pt-4 border-t border-amber-200">
-            <img src="/imgs/ryan-wong-avatar.jpg" alt="Ryan Wong" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Ryan+Wong&background=000&color=fff' }} />
-            <div>
-              <p className="text-sm font-bold text-neutral-900">Ryan Wong</p>
-              <p className="text-xs text-neutral-600">Chief Packaging Engineer, Achieve Pack</p>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'detailed-explanation',
-      title: localTrans.section1Title,
-      icon: <Layers className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-base leading-relaxed">
-            {localTrans.section1Text}
-          </p>
-          <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
-            <ClickableImage 
-              src={IMAGES.process} 
-              alt="High resolution product closeup" 
-              className="w-full h-auto rounded-lg shadow-sm"
-              caption="High-resolution visual demonstration showing material features."
-            />
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'EEAT-anecdote',
-      title: localTrans.section2Title,
-      icon: <Info className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 text-white p-6 rounded-lg border-2 border-[#D4FF00] space-y-4">
-          <p className="font-['JetBrains_Mono'] text-xs font-bold text-[#D4FF00]">// CHIEF PACKAGING ENGINEER JOURNAL entry</p>
-          <blockquote className="italic border-l-4 border-[#D4FF00] pl-4 text-sm md:text-base text-neutral-200">
-            "{localTrans.section2Log}"
-          </blockquote>
-          <p className="text-xs font-['JetBrains_Mono'] text-[#D4FF00] font-semibold flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-[#D4FF00]" /> 100% Prepress Calibration Guaranteed
-          </p>
-        </div>
-      )
-    },
-    {
-      id: 'five-plain-points',
-      title: "Pain Points & Engineering Solutions",
-      icon: <Target className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6">
-          <div className="space-y-4">
-            {[1, 2, 3, 4, 5].map((num) => (
-              <div key={num} className="bg-[#F9F9F9] border-2 border-black p-5 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                <h4 className="font-black uppercase text-base mb-2 text-black flex items-center gap-2">
-                  <span className="bg-black text-white px-2 py-0.5 text-xs font-mono">0{num}</span>
-                  {localTrans[`point${num}Title` as keyof typeof localTrans]}
-                </h4>
-                <p className="text-sm text-neutral-600 mb-3">{localTrans[`point${num}Desc` as keyof typeof localTrans]}</p>
-                <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
-                  <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
-                  {localTrans[`point${num}Sol` as keyof typeof localTrans]}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'resolution-comparison-section',
-      title: localTrans.compTitle,
-      icon: <Eye className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-base leading-relaxed">
-            {localTrans.compDesc}
-          </p>
-          <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
-            <ClickableImage 
-              src={IMAGES.comparison} 
-              alt="Comparison" 
-              className="w-full h-auto rounded-lg shadow-sm"
-              caption="Visual comparison matrix"
-            />
-          </div>
-        </div>
-      )
-    }
-  ]
-
-  const faqs = [
-    { question: localTrans.faq1Q, answer: localTrans.faq1A },
-    { question: localTrans.faq2Q, answer: localTrans.faq2A },
-    { question: localTrans.faq3Q, answer: localTrans.faq3A }
-  ]
-
-  const tables = [
-    {
-      title: "Packaging Performance Comparison Matrix (Schemas & Metrics)",
-      data: {
-        headers: ["Parameter", "Standard Specifications", "Eco-Engineered Specifications"],
-        rows: [
-          ["Material Barrier Thickness", "80 Microns", "120 Microns"],
-          ["Oxygen Transmission Rate (OTR)", "1.5 cc/m²/24hr", "less than 0.05 cc/m²/24hr"],
-          ["EPR Modulated Tax Level", "Maximum tier", "Lowest brackets"]
-        ]
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does Cheryl improve my packaging?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "By offering superior barrier properties and optimized VFFS compatibility."
+        }
       }
-    }
-  ]
+    ]
+  };
 
   return (
-    <>
-      <SEOPageLayout
-        title={localTrans.title}
-        description={localTrans.description}
-        heroTitle={localTrans.heroTitle}
-        heroSubtitle={localTrans.heroSubtitle}
-        heroImage={IMAGES.hero}
-        introSummary={localTrans.introSummary}
-        aeoSummary={localTrans.aeoSummary}
-        eeatDetails={localTrans.eeatDetails}
-        sections={sections}
-        faqs={faqs}
-        tables={tables}
-      />
-    </>
-  )
-}
+    <SEOPageLayout
+      title={tLocal.title}
+      description={tLocal.description}
+      heroTitle={tLocal.heroTitle}
+      heroSubtitle={tLocal.heroSubtitle}
+      heroImage="/imgs/testimonials/owner/cheryl.png"
+    >
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <div className="max-w-4xl mx-auto px-4 py-12">
+        <p className="text-xl text-gray-700 leading-relaxed mb-12">
+          {tLocal.hook}
+        </p>
 
-export default Cheryl;
+        <h2 className="text-3xl font-bold text-gray-900 mb-8">{tLocal.painPoints}</h2>
+        <div className="space-y-6 mb-16">
+          {painPointsList.map((pt, i) => (
+            <div key={i} className="flex items-start gap-4 p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+              <div className="flex-shrink-0 mt-1">{pt.icon}</div>
+              <div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  <span className="text-lime-600 mr-2">{pt.num}.</span>
+                  {pt.problem}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">{pt.solution}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+          <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+            {tLocal.notebook}
+          </h3>
+          <p className="text-gray-700 italic leading-relaxed">{tLocal.notebookText}</p>
+        </div>
+      </div>
+    </SEOPageLayout>
+  );
+}

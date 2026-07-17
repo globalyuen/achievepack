@@ -12,7 +12,22 @@ const localTranslations = {
     description: "High-precision digital print flexible packaging for pharmaceuticals, ensuring serialization compliance, child-resistant safety, and ultra-low MOQs for clinical trials.",
     heroTitle: "Digital Print Flexible Packaging For Pharmaceuticals",
     empathyHook: "We know the sinking feeling of a product recall because a packaging batch had a smudged lot number, or realizing you're forced to buy 100,000 units just to package a small clinical trial run. You didn't spend millions on pharmaceutical R&D to have your compliance compromised by outdated printing technology. Pharmaceutical packaging demands absolute precision, traceability, and uncompromising barriers. Our digital print flexible packaging offers pixel-perfect serialization, medical-grade barriers, and agile low-volume runs, ensuring your nutraceuticals and pharma products are safe, compliant, and market-ready.",
-  }
+  },
+  "es": {
+    title: "[ES] Digital Print Flexible Packaging For Pharmaceuticals | Achieve Pack",
+    description: "[ES] High-precision digital print flexible packaging for pharmaceuticals, ensuring serialization compliance, child-resistant safety, and ultra-low MOQs for clinical trials.",
+    heroTitle: "[ES] Digital Print Flexible Packaging For Pharmaceuticals",
+    empathyHook: "[ES] We know the sinking feeling of a product recall because a packaging batch had a smudged lot number, or realizing you're forced to buy 100,000 units just to package a small clinical trial run. You didn't spend millions on pharmaceutical R&D to have your compliance compromised by outdated printing technology. Pharmaceutical packaging demands absolute precision, traceability, and uncompromising barriers. Our digital print flexible packaging offers pixel-perfect serialization, medical-grade barriers, and agile low-volume runs, ensuring your nutraceuticals and pharma products are safe, compliant, and market-ready.",},
+  "fr": {
+    title: "[FR] Digital Print Flexible Packaging For Pharmaceuticals | Achieve Pack",
+    description: "[FR] High-precision digital print flexible packaging for pharmaceuticals, ensuring serialization compliance, child-resistant safety, and ultra-low MOQs for clinical trials.",
+    heroTitle: "[FR] Digital Print Flexible Packaging For Pharmaceuticals",
+    empathyHook: "[FR] We know the sinking feeling of a product recall because a packaging batch had a smudged lot number, or realizing you're forced to buy 100,000 units just to package a small clinical trial run. You didn't spend millions on pharmaceutical R&D to have your compliance compromised by outdated printing technology. Pharmaceutical packaging demands absolute precision, traceability, and uncompromising barriers. Our digital print flexible packaging offers pixel-perfect serialization, medical-grade barriers, and agile low-volume runs, ensuring your nutraceuticals and pharma products are safe, compliant, and market-ready.",},
+  "zh-tw": {
+    title: "[ZH-TW] Digital Print Flexible Packaging For Pharmaceuticals | Achieve Pack",
+    description: "[ZH-TW] High-precision digital print flexible packaging for pharmaceuticals, ensuring serialization compliance, child-resistant safety, and ultra-low MOQs for clinical trials.",
+    heroTitle: "[ZH-TW] Digital Print Flexible Packaging For Pharmaceuticals",
+    empathyHook: "[ZH-TW] We know the sinking feeling of a product recall because a packaging batch had a smudged lot number, or realizing you're forced to buy 100,000 units just to package a small clinical trial run. You didn't spend millions on pharmaceutical R&D to have your compliance compromised by outdated printing technology. Pharmaceutical packaging demands absolute precision, traceability, and uncompromising barriers. Our digital print flexible packaging offers pixel-perfect serialization, medical-grade barriers, and agile low-volume runs, ensuring your nutraceuticals and pharma products are safe, compliant, and market-ready.",}
 };
 
 export default function DigitalPrintFlexiblePackagingForPharmaceuticalsPage() {
@@ -300,10 +315,8 @@ export default function DigitalPrintFlexiblePackagingForPharmaceuticalsPage() {
         <h2 className="text-3xl font-bold mb-8">Related Packaging Solutions</h2>
         <div className="grid md:grid-cols-3 gap-6">
           
-          <a href={`/store/product/child-resistant-mylar`} className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
-            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative">
-              <div className="absolute inset-0 flex items-center justify-center text-neutral-400 font-medium">Product Image Placeholder</div>
-            </div>
+          <a href="/spec/biope-pp-triplex-metalised" className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
+            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative"><img src="/imgs/store/products/compostable-oval-doypack-premium.png" className="w-full h-full object-cover" alt="Related Product" /></div>
             <div className="p-6">
               <h3 className="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">Child-Resistant Mylar Bag</h3>
               <p className="text-neutral-600 text-sm">ASTM certified CR zipper pouch.</p>
@@ -311,10 +324,8 @@ export default function DigitalPrintFlexiblePackagingForPharmaceuticalsPage() {
           </a>
           
 
-          <a href={`/store/product/serialized-pharma-sachet`} className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
-            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative">
-              <div className="absolute inset-0 flex items-center justify-center text-neutral-400 font-medium">Product Image Placeholder</div>
-            </div>
+          <a href="/spec/biope-kraft-vmpet" className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
+            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative"><img src="/imgs/store/products/eco-boxbottom-premium.png" className="w-full h-full object-cover" alt="Related Product" /></div>
             <div className="p-6">
               <h3 className="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">Serialized Pharma Sachet</h3>
               <p className="text-neutral-600 text-sm">Single-dose with variable data printing.</p>
@@ -322,10 +333,8 @@ export default function DigitalPrintFlexiblePackagingForPharmaceuticalsPage() {
           </a>
           
 
-          <a href={`/store/product/high-barrier-nutraceutical`} className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
-            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative">
-              <div className="absolute inset-0 flex items-center justify-center text-neutral-400 font-medium">Product Image Placeholder</div>
-            </div>
+          <a href="/spec/biope-pet-triplex-aluminum" className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
+            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative"><img src="/imgs/store/products/stand-up-pouch-full-matte-pe70-hero.jpg" className="w-full h-full object-cover" alt="Related Product" /></div>
             <div className="p-6">
               <h3 className="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">High-Barrier Nutraceutical Pouch</h3>
               <p className="text-neutral-600 text-sm">Foil-lined for absolute freshness.</p>

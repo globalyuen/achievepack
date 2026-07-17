@@ -11,7 +11,22 @@ const localTranslations = {
     description: "Premium Organic Compliance Support Guide solutions designed for maximum performance and sustainability.",
     heroTitle: "Organic Compliance Support Guide",
     empathyHook: "Navigating organic packaging compliance can be a maze of regulations. We simplify the certification process with traceable, verified materials that seamlessly align with global organic standards.",
-  }
+  },
+  "es": {
+    title: "[ES] Organic Compliance Support Guide | Achieve Pack",
+    description: "[ES] Premium Organic Compliance Support Guide solutions designed for maximum performance and sustainability.",
+    heroTitle: "[ES] Organic Compliance Support Guide",
+    empathyHook: "[ES] Navigating organic packaging compliance can be a maze of regulations. We simplify the certification process with traceable, verified materials that seamlessly align with global organic standards.",},
+  "fr": {
+    title: "[FR] Organic Compliance Support Guide | Achieve Pack",
+    description: "[FR] Premium Organic Compliance Support Guide solutions designed for maximum performance and sustainability.",
+    heroTitle: "[FR] Organic Compliance Support Guide",
+    empathyHook: "[FR] Navigating organic packaging compliance can be a maze of regulations. We simplify the certification process with traceable, verified materials that seamlessly align with global organic standards.",},
+  "zh-tw": {
+    title: "[ZH-TW] Organic Compliance Support Guide | Achieve Pack",
+    description: "[ZH-TW] Premium Organic Compliance Support Guide solutions designed for maximum performance and sustainability.",
+    heroTitle: "[ZH-TW] Organic Compliance Support Guide",
+    empathyHook: "[ZH-TW] Navigating organic packaging compliance can be a maze of regulations. We simplify the certification process with traceable, verified materials that seamlessly align with global organic standards.",}
 };
 
 export default function OrganicComplianceSupportGuidePage() {

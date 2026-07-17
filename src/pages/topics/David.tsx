@@ -1,86 +1,116 @@
 import React from 'react';
 import SEOPageLayout from '../../components/SEOPageLayout';
-import { Helmet } from 'react-helmet-async';
+import { CheckCircle, ShieldCheck, Zap, Factory, Package } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { getDomain } from '../../utils/domain';
 
 const localTranslations = {
-  "en": {
-    "title": "David",
-    "description": "Premium sustainable packaging solution.",
-    "hook": "We know the sinking feeling of opening a shipping box only to find your premium product crushed...",
-    "pain_points": [
-      {
-        "num": "01",
-        "problem": "Seal Failures",
-        "solution": "We use a 15mm reinforced seal..."
-      }
-    ],
-    "engineering_notebook": "In my 14 years in packaging design, I've seen... - Ryan Wong, Co-Founder",
-    "schema_faq": [
-      {
-        "q": "Is it recyclable?",
-        "a": "Yes..."
-      }
-    ]
+  en: {
+    title: "David | Advanced Packaging Solutions",
+    description: "Discover the engineering behind our premium David. Learn how we solve common packaging challenges with cutting-edge materials and designs.",
+    heroTitle: "Engineered David",
+    heroSubtitle: "Solving Your Top 5 Packaging Pain Points",
+    hook: "We know the sinking feeling of opening a shipping box only to find your premium product crushed because the seal failed. You didn't spend months perfecting your recipe just to lose customers over cheap, unreliable packaging. Our David is designed to prevent these exact disasters.",
+    painPoints: "5 Packaging Pain Points & Engineering Solutions",
+    notebook: "🔬 From Ryan Wong's Engineering Notebook",
+    notebookText: "A common pain point is zipper separation during drop tests. We implemented a reinforced flange seal using ultrasonic spot welding, which dramatically increased the burst strength to withstand a 2-meter drop test. MVTR is maintained at &lt; 0.1 g/m²/day."
   },
-  "es": {
-    "title": "David (ES)",
-    "description": "Premium sustainable packaging solution.",
-    "hook": "Sabemos...",
-    "pain_points": [],
-    "engineering_notebook": "...",
-    "schema_faq": []
+  es: {
+    title: "David | Soluciones Avanzadas",
+    description: "Descubra la ingeniería detrás de nuestro David premium.",
+    heroTitle: "David Diseñado",
+    heroSubtitle: "Resolviendo Sus 5 Principales Puntos Delor",
+    hook: "Conocemos la sensación de frustración al encontrar su producto premium dañado. Nuestro David está diseñado para prevenir estos desastres exactos.",
+    painPoints: "5 Puntos de Dolor y Soluciones",
+    notebook: "🔬 Del Cuaderno de Ingeniería de Ryan Wong",
+    notebookText: "En mis 14 años de diseño de empaques, he visto a innumerables marcas luchar con fallas de barrera. Calibramos específicamente la tasa de transmisión de vapor de humedad (MVTR) para garantizar la integridad estructural en líneas VFFS automatizadas. El rendimiento en el mundo real siempre supera a las especificaciones teóricas."
   },
-  "fr": {
-    "title": "David (FR)",
-    "description": "Premium sustainable packaging solution.",
-    "hook": "Nous savons...",
-    "pain_points": [],
-    "engineering_notebook": "...",
-    "schema_faq": []
+  fr: {
+    title: "David | Solutions d'Emballage Avancées",
+    description: "Découvrez l'ingénierie derrière notre David premium.",
+    heroTitle: "David Conçu",
+    heroSubtitle: "Résolution de vos 5 principaux problèmes d'emballage",
+    hook: "Nous connaissons le sentiment de frustration lorsque vous trouvez votre produit premium endommagé. Notre David est conçu pour prévenir ces désastres.",
+    painPoints: "5 points de douleur et solutions",
+    notebook: "🔬 Du carnet d'ingénierie de Ryan Wong",
+    notebookText: "Au cours de mes 14 années de conception d'emballages, j'ai vu d'innombrables marques lutter contre les défaillances de barrière. Nous avons spécifiquement calibré le MVTR pour garantir l'intégrité structurelle sur les lignes VFFS automatisées. Les performances réelles surpassent toujours les spécifications théoriques."
   },
-  "zh-tw": {
-    "title": "David (TW)",
-    "description": "Premium sustainable packaging solution.",
-    "hook": "我們知道...",
-    "pain_points": [],
-    "engineering_notebook": "...",
-    "schema_faq": []
+  zh: {
+    title: "David | 高級包裝解決方案",
+    description: "探索我們高級 David 背後的工程技術。",
+    heroTitle: "精心設計的 David",
+    heroSubtitle: "解決您的前5大包裝痛點",
+    hook: "我們知道打開運輸箱卻發現優質產品因密封失敗而破損的沮喪感。我們的 David 旨在防止這些災難。",
+    painPoints: "5個包裝痛點及工程解決方案",
+    notebook: "🔬 來自 Ryan Wong 的工程筆記",
+    notebookText: "在我14年的包裝設計生涯中，我看過無數品牌在屏障失效上苦苦掙扎。我們特別校準了 MVTR 以確保自動化 VFFS 生產線上的結構完整性。真實世界的性能總是勝過理論規格。"
   }
 };
 
 export default function David() {
-  const isPouchDomain = getDomain() === 'pouch';
-  const lang = 'en'; // simple fallback
-  const t = localTranslations[lang] || localTranslations['en'];
-  
+  const { t, i18n } = useTranslation();
+  const lang = (i18n.language && i18n.language.startsWith('zh') ? 'zh' : i18n.language) as keyof typeof localTranslations || 'en';
+  const tLocal = localTranslations[lang] || localTranslations.en;
+  const domain = getDomain();
+
+  const painPointsList = [
+    { num: "01", problem: "Oxygen Permeability", solution: "High barrier AL layer guarantees OTR &lt; 0.1 cc/m²/day, preserving freshness and aroma for coffee and delicate foods.", icon: <CheckCircle className="text-lime-500 w-6 h-6" /> },
+    { num: "02", problem: "Seal Failures Under Vacuum", solution: "We use high-temperature localized heat sealing (180°C) with a specific dwell time to ensure 45N/15mm seal strength.", icon: <ShieldCheck className="text-lime-500 w-6 h-6" /> },
+    { num: "03", problem: "VFFS Machine Jamming", solution: "Our slip additives are calibrated to a dynamic Coefficient of Friction (COF) of 0.2-0.3, ensuring smooth high-speed runs.", icon: <Zap className="text-lime-500 w-6 h-6" /> },
+    { num: "04", problem: "Shipping Weight Costs", solution: "Optimized material thickness (110 microns instead of standard 130) saves up to 15% in logistics costs while maintaining burst strength.", icon: <Factory className="text-lime-500 w-6 h-6" /> },
+    { num: "05", problem: "Zipper Delamination", solution: "Ultrasonic welding techniques on the zipper flange eliminate delamination risks even under heavy load drops.", icon: <Package className="text-lime-500 w-6 h-6" /> }
+  ];
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does David improve my packaging?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "By offering superior barrier properties and optimized VFFS compatibility."
+        }
+      }
+    ]
+  };
+
   return (
-    <SEOPageLayout title={t.title} description={t.description}>
-      <Helmet>
-        <title>{t.title}</title>
-        <meta name="description" content={t.description} />
-      </Helmet>
-      <div className="max-w-4xl mx-auto py-12 px-4">
-        <h1 className="text-4xl font-bold mb-6">{t.title}</h1>
-        <img src="/imgs/testimonials/pouch-hover/David.webp" alt={t.title} className="w-full max-w-lg mx-auto mb-8 rounded-xl shadow-lg" />
-        <p className="text-lg mb-8">{t.hook}</p>
-        
-        <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4">5 Pain Points & Solutions</h2>
-          <div className="grid gap-4">
-            {t.pain_points.map((p, idx) => (
-              <div key={idx} className="bg-neutral-900 text-white p-6 rounded-xl">
-                <span className="text-emerald-500 font-bold mr-2">{p.num}</span>
-                <span className="font-semibold">{p.problem}</span>
-                <p className="mt-2 text-gray-300">✅ Solution: {p.solution}</p>
+    <SEOPageLayout
+      title={tLocal.title}
+      description={tLocal.description}
+      heroTitle={tLocal.heroTitle}
+      heroSubtitle={tLocal.heroSubtitle}
+      heroImage="/imgs/testimonials/owner/david.webp"
+    >
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <div className="max-w-4xl mx-auto px-4 py-12">
+        <p className="text-xl text-gray-700 leading-relaxed mb-12">
+          {tLocal.hook}
+        </p>
+
+        <h2 className="text-3xl font-bold text-gray-900 mb-8">{tLocal.painPoints}</h2>
+        <div className="space-y-6 mb-16">
+          {painPointsList.map((pt, i) => (
+            <div key={i} className="flex items-start gap-4 p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+              <div className="flex-shrink-0 mt-1">{pt.icon}</div>
+              <div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  <span className="text-lime-600 mr-2">{pt.num}.</span>
+                  {pt.problem}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">{pt.solution}</p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-        
-        <div className="bg-amber-50 border border-amber-200 p-6 rounded-xl mb-12">
-          <h4 className="font-bold text-amber-900 mb-2">🔬 From Ryan Wong's Engineering Notebook</h4>
-          <p className="italic text-amber-800">"{t.engineering_notebook}"</p>
+
+        <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+          <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+            {tLocal.notebook}
+          </h3>
+          <p className="text-gray-700 italic leading-relaxed">{tLocal.notebookText}</p>
         </div>
       </div>
     </SEOPageLayout>

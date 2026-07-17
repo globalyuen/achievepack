@@ -12,7 +12,22 @@ const localTranslations = {
     description: "Comprehensive guide to sustainable pouch sizes for coffee beans, ensuring optimal volume-to-weight ratios, outgassing valve integration, and eco-friendly freshness.",
     heroTitle: "Sustainable Pouch Sizes For Coffee Beans",
     empathyHook: "We know the sinking feeling of roasting a beautiful, nuanced single-origin coffee, only to have the bag burst in transit or the beans go stale because the packaging dimensions were wrong and the valve failed. You didn't spend hours perfecting your roast profile just to lose customers over an improperly sized, unsustainable bag. Coffee packaging is a science of volume, outgassing, and barrier protection. Our sustainable coffee pouches are precisely engineered for exact net weights (250g, 340g/12oz, 500g, 1kg), featuring eco-friendly degassing valves and high-barrier compostable or recyclable films.",
-  }
+  },
+  "es": {
+    title: "[ES] Sustainable Pouch Sizes For Coffee Beans | Achieve Pack",
+    description: "[ES] Comprehensive guide to sustainable pouch sizes for coffee beans, ensuring optimal volume-to-weight ratios, outgassing valve integration, and eco-friendly freshness.",
+    heroTitle: "[ES] Sustainable Pouch Sizes For Coffee Beans",
+    empathyHook: "[ES] We know the sinking feeling of roasting a beautiful, nuanced single-origin coffee, only to have the bag burst in transit or the beans go stale because the packaging dimensions were wrong and the valve failed. You didn't spend hours perfecting your roast profile just to lose customers over an improperly sized, unsustainable bag. Coffee packaging is a science of volume, outgassing, and barrier protection. Our sustainable coffee pouches are precisely engineered for exact net weights (250g, 340g/12oz, 500g, 1kg), featuring eco-friendly degassing valves and high-barrier compostable or recyclable films.",},
+  "fr": {
+    title: "[FR] Sustainable Pouch Sizes For Coffee Beans | Achieve Pack",
+    description: "[FR] Comprehensive guide to sustainable pouch sizes for coffee beans, ensuring optimal volume-to-weight ratios, outgassing valve integration, and eco-friendly freshness.",
+    heroTitle: "[FR] Sustainable Pouch Sizes For Coffee Beans",
+    empathyHook: "[FR] We know the sinking feeling of roasting a beautiful, nuanced single-origin coffee, only to have the bag burst in transit or the beans go stale because the packaging dimensions were wrong and the valve failed. You didn't spend hours perfecting your roast profile just to lose customers over an improperly sized, unsustainable bag. Coffee packaging is a science of volume, outgassing, and barrier protection. Our sustainable coffee pouches are precisely engineered for exact net weights (250g, 340g/12oz, 500g, 1kg), featuring eco-friendly degassing valves and high-barrier compostable or recyclable films.",},
+  "zh-tw": {
+    title: "[ZH-TW] Sustainable Pouch Sizes For Coffee Beans | Achieve Pack",
+    description: "[ZH-TW] Comprehensive guide to sustainable pouch sizes for coffee beans, ensuring optimal volume-to-weight ratios, outgassing valve integration, and eco-friendly freshness.",
+    heroTitle: "[ZH-TW] Sustainable Pouch Sizes For Coffee Beans",
+    empathyHook: "[ZH-TW] We know the sinking feeling of roasting a beautiful, nuanced single-origin coffee, only to have the bag burst in transit or the beans go stale because the packaging dimensions were wrong and the valve failed. You didn't spend hours perfecting your roast profile just to lose customers over an improperly sized, unsustainable bag. Coffee packaging is a science of volume, outgassing, and barrier protection. Our sustainable coffee pouches are precisely engineered for exact net weights (250g, 340g/12oz, 500g, 1kg), featuring eco-friendly degassing valves and high-barrier compostable or recyclable films.",}
 };
 
 export default function SustainablePouchSizesForCoffeeBeansPage() {
@@ -300,10 +315,8 @@ export default function SustainablePouchSizesForCoffeeBeansPage() {
         <h2 className="text-3xl font-bold mb-8">Related Packaging Solutions</h2>
         <div className="grid md:grid-cols-3 gap-6">
           
-          <a href={`/store/product/12oz-flat-bottom-coffee`} className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
-            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative">
-              <div className="absolute inset-0 flex items-center justify-center text-neutral-400 font-medium">Product Image Placeholder</div>
-            </div>
+          <a href="/spec/biope-pp-triplex-metalised" className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
+            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative"><img src="/imgs/store/products/compostable-oval-doypack-premium.png" className="w-full h-full object-cover" alt="Related Product" /></div>
             <div className="p-6">
               <h3 className="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">12oz Flat Bottom Coffee Bag</h3>
               <p className="text-neutral-600 text-sm">Perfect for standard retail specialty coffee.</p>
@@ -311,10 +324,8 @@ export default function SustainablePouchSizesForCoffeeBeansPage() {
           </a>
           
 
-          <a href={`/store/product/1kg-coffee-bag`} className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
-            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative">
-              <div className="absolute inset-0 flex items-center justify-center text-neutral-400 font-medium">Product Image Placeholder</div>
-            </div>
+          <a href="/spec/biope-kraft-vmpet" className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
+            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative"><img src="/imgs/store/products/eco-boxbottom-premium.png" className="w-full h-full object-cover" alt="Related Product" /></div>
             <div className="p-6">
               <h3 className="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">1kg Wholesale Gusset Bag</h3>
               <p className="text-neutral-600 text-sm">Large format for cafes and wholesale.</p>
@@ -322,10 +333,8 @@ export default function SustainablePouchSizesForCoffeeBeansPage() {
           </a>
           
 
-          <a href={`/store/product/compostable-coffee`} className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
-            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative">
-              <div className="absolute inset-0 flex items-center justify-center text-neutral-400 font-medium">Product Image Placeholder</div>
-            </div>
+          <a href="/spec/biope-pet-triplex-aluminum" className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
+            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative"><img src="/imgs/store/products/stand-up-pouch-full-matte-pe70-hero.jpg" className="w-full h-full object-cover" alt="Related Product" /></div>
             <div className="p-6">
               <h3 className="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">Compostable Coffee Pouch</h3>
               <p className="text-neutral-600 text-sm">100% home compostable with eco-valve.</p>

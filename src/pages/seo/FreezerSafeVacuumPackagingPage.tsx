@@ -12,7 +12,22 @@ const localTranslations = {
     description: "Industrial-grade freezer safe vacuum packaging designed to prevent freezer burn, withstand sub-zero temperatures, and maintain hermetic seals.",
     heroTitle: "Freezer Safe Vacuum Packaging",
     empathyHook: "We know the sinking feeling of pulling your premium frozen seafood or meat from cold storage, only to find the vacuum seal has failed, the packaging is brittle and cracked, and the product is ruined by freezer burn. You didn't invest in high-quality sourcing just to lose it to cheap, cracking plastics. Freezer environments are brutal on packaging materials. Our freezer-safe vacuum packaging is engineered with specialized cold-resistant polymers that remain flexible and hermetic down to -40°C, ensuring your product stays perfectly preserved from blast freezing to the consumer's kitchen.",
-  }
+  },
+  "es": {
+    title: "[ES] Freezer Safe Vacuum Packaging | Achieve Pack",
+    description: "[ES] Industrial-grade freezer safe vacuum packaging designed to prevent freezer burn, withstand sub-zero temperatures, and maintain hermetic seals.",
+    heroTitle: "[ES] Freezer Safe Vacuum Packaging",
+    empathyHook: "[ES] We know the sinking feeling of pulling your premium frozen seafood or meat from cold storage, only to find the vacuum seal has failed, the packaging is brittle and cracked, and the product is ruined by freezer burn. You didn't invest in high-quality sourcing just to lose it to cheap, cracking plastics. Freezer environments are brutal on packaging materials. Our freezer-safe vacuum packaging is engineered with specialized cold-resistant polymers that remain flexible and hermetic down to -40°C, ensuring your product stays perfectly preserved from blast freezing to the consumer's kitchen.",},
+  "fr": {
+    title: "[FR] Freezer Safe Vacuum Packaging | Achieve Pack",
+    description: "[FR] Industrial-grade freezer safe vacuum packaging designed to prevent freezer burn, withstand sub-zero temperatures, and maintain hermetic seals.",
+    heroTitle: "[FR] Freezer Safe Vacuum Packaging",
+    empathyHook: "[FR] We know the sinking feeling of pulling your premium frozen seafood or meat from cold storage, only to find the vacuum seal has failed, the packaging is brittle and cracked, and the product is ruined by freezer burn. You didn't invest in high-quality sourcing just to lose it to cheap, cracking plastics. Freezer environments are brutal on packaging materials. Our freezer-safe vacuum packaging is engineered with specialized cold-resistant polymers that remain flexible and hermetic down to -40°C, ensuring your product stays perfectly preserved from blast freezing to the consumer's kitchen.",},
+  "zh-tw": {
+    title: "[ZH-TW] Freezer Safe Vacuum Packaging | Achieve Pack",
+    description: "[ZH-TW] Industrial-grade freezer safe vacuum packaging designed to prevent freezer burn, withstand sub-zero temperatures, and maintain hermetic seals.",
+    heroTitle: "[ZH-TW] Freezer Safe Vacuum Packaging",
+    empathyHook: "[ZH-TW] We know the sinking feeling of pulling your premium frozen seafood or meat from cold storage, only to find the vacuum seal has failed, the packaging is brittle and cracked, and the product is ruined by freezer burn. You didn't invest in high-quality sourcing just to lose it to cheap, cracking plastics. Freezer environments are brutal on packaging materials. Our freezer-safe vacuum packaging is engineered with specialized cold-resistant polymers that remain flexible and hermetic down to -40°C, ensuring your product stays perfectly preserved from blast freezing to the consumer's kitchen.",}
 };
 
 export default function FreezerSafeVacuumPackagingPage() {
@@ -300,10 +315,8 @@ export default function FreezerSafeVacuumPackagingPage() {
         <h2 className="text-3xl font-bold mb-8">Related Packaging Solutions</h2>
         <div className="grid md:grid-cols-3 gap-6">
           
-          <a href={`/store/product/clear-vacuum-pouch`} className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
-            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative">
-              <div className="absolute inset-0 flex items-center justify-center text-neutral-400 font-medium">Product Image Placeholder</div>
-            </div>
+          <a href="/spec/biope-pp-triplex-metalised" className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
+            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative"><img src="/imgs/store/products/compostable-oval-doypack-premium.png" className="w-full h-full object-cover" alt="Related Product" /></div>
             <div className="p-6">
               <h3 className="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">Clear Vacuum Pouch</h3>
               <p className="text-neutral-600 text-sm">High clarity, heavy-duty freezer pouch.</p>
@@ -311,10 +324,8 @@ export default function FreezerSafeVacuumPackagingPage() {
           </a>
           
 
-          <a href={`/store/product/printed-vacuum-bag`} className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
-            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative">
-              <div className="absolute inset-0 flex items-center justify-center text-neutral-400 font-medium">Product Image Placeholder</div>
-            </div>
+          <a href="/spec/biope-kraft-vmpet" className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
+            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative"><img src="/imgs/store/products/eco-boxbottom-premium.png" className="w-full h-full object-cover" alt="Related Product" /></div>
             <div className="p-6">
               <h3 className="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">Printed Vacuum Bag</h3>
               <p className="text-neutral-600 text-sm">Custom branded freezer-safe packaging.</p>
@@ -322,10 +333,8 @@ export default function FreezerSafeVacuumPackagingPage() {
           </a>
           
 
-          <a href={`/store/product/sous-vide-bag`} className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
-            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative">
-              <div className="absolute inset-0 flex items-center justify-center text-neutral-400 font-medium">Product Image Placeholder</div>
-            </div>
+          <a href="/spec/biope-pet-triplex-aluminum" className="group block bg-white border border-neutral-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:border-primary-500">
+            <div className="aspect-[4/3] bg-neutral-100 overflow-hidden relative"><img src="/imgs/store/products/stand-up-pouch-full-matte-pe70-hero.jpg" className="w-full h-full object-cover" alt="Related Product" /></div>
             <div className="p-6">
               <h3 className="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">Sous-Vide Compatible Bag</h3>
               <p className="text-neutral-600 text-sm">From freezer to boiling water safely.</p>
