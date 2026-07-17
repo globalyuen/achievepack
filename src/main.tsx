@@ -1,3 +1,13 @@
+import RecyclableRollstockFilmPage from './pages/topics/RecyclableRollstockFilmPage'
+import HolographicRetortPouchPage from './pages/topics/HolographicRetortPouchPage'
+import WovenPolypropyleneSackPage from './pages/topics/WovenPolypropyleneSackPage'
+import ResealableMylarBagSnacksPage from './pages/topics/ResealableMylarBagSnacksPage'
+import CompostableVacuumSealBagPage from './pages/topics/CompostableVacuumSealBagPage'
+import ChildResistantExitBagPage from './pages/topics/ChildResistantExitBagPage'
+import TransparentSpoutPouchPage from './pages/topics/TransparentSpoutPouchPage'
+import MatteFoilCoffeeBagPage from './pages/topics/MatteFoilCoffeeBagPage'
+import KraftPaperFlatBottomBagPage from './pages/topics/KraftPaperFlatBottomBagPage'
+import CustomStandUpPouchPetFoodPage from './pages/topics/CustomStandUpPouchPetFoodPage'
 import React, { StrictMode, Suspense, lazy, ComponentType, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom'
@@ -35,8 +45,14 @@ const LanguageWrapper = ({ lang }: { lang: string }) => {
   return <Outlet />;
 };
 
-// Custom MultilingualRoutes component that dynamically wraps nested routes
 const Adancinglionchocolatelogo9125312 = lazyWithRetry(() => import('./pages/topics/ADancingLionChocolateLogo9125312'));
+const ABioPeCardV34603248 = lazyWithRetry(() => import('./pages/topics/ABioPeCardV34603248'));
+const ACorporateSustainabilityVariation21276624 = lazyWithRetry(() => import('./pages/topics/ACorporateSustainabilityVariation21276624'));
+const PackFlatBottom = lazyWithRetry(() => import('./pages/topics/PackFlatBottom'));
+const PackStandUp = lazyWithRetry(() => import('./pages/topics/PackStandUp'));
+const PackSpout = lazyWithRetry(() => import('./pages/topics/PackSpout'));
+const ACtaRevised7607342 = lazyWithRetry(() => import('./pages/topics/ACtaRevised7607342'));
+const AValveClosureDetail6401844 = lazyWithRetry(() => import('./pages/topics/AValveClosureDetail6401844'));
 const Aemuelixirlogo7729355 = lazyWithRetry(() => import('./pages/topics/AEmuElixirLogo7729355'));
 const Ahikeagainremedieslogo3308658 = lazyWithRetry(() => import('./pages/topics/AHikeAgainRemediesLogo3308658'));
 const Ajustbekindlogo9956961 = lazyWithRetry(() => import('./pages/topics/AJustBeKindLogo9956961'));
@@ -93,6 +109,16 @@ const CustomVsStandardPackaging = lazyWithRetry(() => import('./pages/topics/cus
 const DdpPackaging = lazyWithRetry(() => import('./pages/topics/ddp-packaging'));
 const DetergentSpout = lazyWithRetry(() => import('./pages/topics/detergent-spout'));
 const DtcSustainablePackaging = lazyWithRetry(() => import('./pages/topics/dtc-sustainable-packaging'));
+const EcommerceBrandPackagingSolutions = lazyWithRetry(() => import('./pages/topics/EcommerceBrandPackagingSolutions'));
+const PackagingBarrierOptionsPresentation = lazyWithRetry(() => import('./pages/topics/PackagingBarrierOptionsPresentation'));
+const BabyFoodPackagingV2 = lazyWithRetry(() => import('./pages/topics/BabyFoodPackagingV2'));
+const PackagingLabelingGuideV2 = lazyWithRetry(() => import('./pages/topics/PackagingLabelingGuideV2'));
+const SnackBrandVariation = lazyWithRetry(() => import('./pages/topics/SnackBrandVariation'));
+const PackagingSizeGuideCardV2 = lazyWithRetry(() => import('./pages/topics/PackagingSizeGuideCardV2'));
+const CompostablePackagingInsights = lazyWithRetry(() => import('./pages/topics/CompostablePackagingInsights'));
+const SustainableMaterialsGuide = lazyWithRetry(() => import('./pages/topics/SustainableMaterialsGuide'));
+const SurfaceFinishCloseDetail = lazyWithRetry(() => import('./pages/topics/SurfaceFinishCloseDetail'));
+const BabyFoodPackagingV3 = lazyWithRetry(() => import('./pages/topics/BabyFoodPackagingV3'));
 
 const AAchievePackClosureDecisionGuide8541101 = lazyWithRetry(() => import('./pages/topics/AAchievePackClosureDecisionGuide8541101'))
 const Img360 = lazyWithRetry(() => import('./pages/topics/Img360'))
@@ -133,11 +159,91 @@ const EducationalCrossSection = lazyWithRetry(() => import('./pages/topics/Educa
 const CommercialCompostingFacilityIllustration = lazyWithRetry(() => import('./pages/topics/CommercialCompostingFacilityIllustration'))
 const TestSlugSchemaInfographic6 = lazyWithRetry(() => import('./pages/topics/TestSlugSchemaInfographic6'))
 
+const APcrQualityComparisonPhoto2754953 = lazyWithRetry(() => import('./pages/topics/APcrQualityComparisonPhoto2754953'));
+const ASupplyChainDiversityInfographic0424873 = lazyWithRetry(() => import('./pages/topics/ASupplyChainDiversityInfographic0424873'));
+const AEnvironmentalImpactMetricsInfographic2859824 = lazyWithRetry(() => import('./pages/topics/AEnvironmentalImpactMetricsInfographic2859824'));
+const HeroPcr7 = lazyWithRetry(() => import('./pages/topics/HeroPcr7'));
+const ALandscapeComparisonPcrVirgin9079701 = lazyWithRetry(() => import('./pages/topics/ALandscapeComparisonPcrVirgin9079701'));
+const ALandscapeSupplyChainConfidence4178486 = lazyWithRetry(() => import('./pages/topics/ALandscapeSupplyChainConfidence4178486'));
+const AAchievepackSeaSaltVinegarChips1689612 = lazyWithRetry(() => import('./pages/topics/AAchievepackSeaSaltVinegarChips1689612'));
+const AchieveBabyPea1770342362697 = lazyWithRetry(() => import('./pages/topics/AchieveBabyPea1770342362697'));
+const AchieveBabyCarrot1770342349368 = lazyWithRetry(() => import('./pages/topics/AchieveBabyCarrot1770342349368'));
+const ACalculatorRigidPlastic9646528 = lazyWithRetry(() => import('./pages/topics/ACalculatorRigidPlastic9646528'));
+const ValveClosureDetail = lazyWithRetry(() => import('./pages/topics/ValveClosureDetail'));
+const SizingFinderHero = lazyWithRetry(() => import('./pages/topics/SizingFinderHero'));
+const InvestCalHero = lazyWithRetry(() => import('./pages/topics/InvestCalHero'));
+const CtaRevisedDesign = lazyWithRetry(() => import('./pages/topics/CtaRevisedDesign'));
+const SpoutPouchPackaging = lazyWithRetry(() => import('./pages/topics/SpoutPouchPackaging'));
+const StandUpPouchPackaging = lazyWithRetry(() => import('./pages/topics/StandUpPouchPackaging'));
+const FlatBottomPouchPackaging = lazyWithRetry(() => import('./pages/topics/FlatBottomPouchPackaging'));
+const CorporateSustainabilityVariation = lazyWithRetry(() => import('./pages/topics/CorporateSustainabilityVariation'));
+const IllustratedPouchDesignVariation = lazyWithRetry(() => import('./pages/topics/IllustratedPouchDesignVariation'));
+const BioPeCardSustainable = lazyWithRetry(() => import('./pages/topics/BioPeCardSustainable'));
+
+const BiodegradableStandUpPouchSuppliersPage = lazyWithRetry(() => import('./pages/topics/BiodegradableStandUpPouchSuppliersPage'));
+const CompostablePouchSizeChartForLiquidsPage = lazyWithRetry(() => import('./pages/topics/CompostablePouchSizeChartForLiquidsPage'));
+const WholesalePricesForCompostablePouchesPage = lazyWithRetry(() => import('./pages/topics/WholesalePricesForCompostablePouchesPage'));
+const DigitalPrintingFlexiblePackagingSmallRunsPage = lazyWithRetry(() => import('./pages/topics/DigitalPrintingFlexiblePackagingSmallRunsPage'));
+const CompostableTeaPouchWithZipperPage = lazyWithRetry(() => import('./pages/topics/CompostableTeaPouchWithZipperPage'));
+const CustomShapeDieCutPouchPage = lazyWithRetry(() => import('./pages/topics/CustomShapeDieCutPouchPage'));
+const StandUpPouchDimensionsChartForPowdersPage = lazyWithRetry(() => import('./pages/topics/StandUpPouchDimensionsChartForPowdersPage'));
+const CompostableHighBarrierFilmSuppliersPage = lazyWithRetry(() => import('./pages/topics/CompostableHighBarrierFilmSuppliersPage'));
+const PrintedCompostableRetortBagsPage = lazyWithRetry(() => import('./pages/topics/PrintedCompostableRetortBagsPage'));
+const CustomPrintedBarrierSachetsPage = lazyWithRetry(() => import('./pages/topics/CustomPrintedBarrierSachetsPage'));
+
+const EcommerceBrandVariation2 = lazyWithRetry(() => import('./pages/topics/EcommerceBrandVariation2'))
+const BarrierOptionsPresentationC = lazyWithRetry(() => import('./pages/topics/BarrierOptionsPresentationC'))
+const BabyFoodHeroV2 = lazyWithRetry(() => import('./pages/topics/BabyFoodHeroV2'))
+const LabelingGuideV2 = lazyWithRetry(() => import('./pages/topics/LabelingGuideV2'))
+const SnackBrandVariation2 = lazyWithRetry(() => import('./pages/topics/SnackBrandVariation2'))
+const SizeGuideCardV2 = lazyWithRetry(() => import('./pages/topics/SizeGuideCardV2'))
+const CustomPackagingDesign4AAC = lazyWithRetry(() => import('./pages/topics/CustomPackagingDesign4AAC'))
+const CustomPackagingDesign7D28 = lazyWithRetry(() => import('./pages/topics/CustomPackagingDesign7D28'))
+const SurfaceFinishCloseDetailB = lazyWithRetry(() => import('./pages/topics/SurfaceFinishCloseDetailB'))
+const BabyFoodHeroV3 = lazyWithRetry(() => import('./pages/topics/BabyFoodHeroV3'))
+
+const WasteReductionPackagingStrategiesPage = lazyWithRetry(() => import('./pages/topics/WasteReductionPackagingStrategiesPage'))
+const MonoMaterialRecyclablePackagingPage = lazyWithRetry(() => import('./pages/topics/MonoMaterialRecyclablePackagingPage'))
+const GrsCertifiedRecycledPackagingPage = lazyWithRetry(() => import('./pages/topics/GrsCertifiedRecycledPackagingPage'))
+const PackagingSustainabilityEcoAuditPage = lazyWithRetry(() => import('./pages/topics/PackagingSustainabilityEcoAuditPage'))
+const ProductCompostingTimelinePage = lazyWithRetry(() => import('./pages/topics/ProductCompostingTimelinePage'))
+const PremiumPackagingFinishesGuidePage = lazyWithRetry(() => import('./pages/topics/PremiumPackagingFinishesGuidePage'))
+const RecyclablePackagingDesignGuidePage = lazyWithRetry(() => import('./pages/topics/RecyclablePackagingDesignGuidePage'))
+const BpiCertifiedCompostablePouchesPage = lazyWithRetry(() => import('./pages/topics/BpiCertifiedCompostablePouchesPage'))
+const SustainablePackagingCertificationsFaqPage = lazyWithRetry(() => import('./pages/topics/SustainablePackagingCertificationsFaqPage'))
+const CustomPackagingDesignPatternsPage = lazyWithRetry(() => import('./pages/topics/CustomPackagingDesignPatternsPage'))
 export const MultilingualRoutes = ({ children }: { children: React.ReactNode }) => {
   const languages = ['fr', 'es', 'zh-tw'];
 
   return (
     <Routes>
+          <Route path="/topics/a-pcr-quality-comparison-photo-2754953" element={<APcrQualityComparisonPhoto2754953 />} />
+              <Route path="/topics/bio-pe-sustainable-material" element={<ABioPeCardV34603248 />} />
+              <Route path="/topics/corporate-sustainability-strategy" element={<ACorporateSustainabilityVariation21276624 />} />
+              <Route path="/topics/flat-bottom-pouch-packaging" element={<PackFlatBottom />} />
+              <Route path="/topics/stand-up-pouch-packaging" element={<PackStandUp />} />
+              <Route path="/topics/spouted-pouch-packaging" element={<PackSpout />} />
+              <Route path="/topics/custom-packaging-cta" element={<ACtaRevised7607342 />} />
+              <Route path="/topics/valve-closure-detail" element={<AValveClosureDetail6401844 />} />
+          <Route path="/topics/a-supply-chain-diversity-infographic-0424873" element={<ASupplyChainDiversityInfographic0424873 />} />
+          <Route path="/topics/a-environmental-impact-metrics-infographic-2859824" element={<AEnvironmentalImpactMetricsInfographic2859824 />} />
+          <Route path="/topics/hero-pcr-7" element={<HeroPcr7 />} />
+          <Route path="/topics/a-landscape-comparison-pcr-virgin-9079701" element={<ALandscapeComparisonPcrVirgin9079701 />} />
+          <Route path="/topics/a-landscape-supply-chain-confidence-4178486" element={<ALandscapeSupplyChainConfidence4178486 />} />
+          <Route path="/topics/a-achievepack-sea-salt-vinegar-chips-1689612" element={<AAchievepackSeaSaltVinegarChips1689612 />} />
+          <Route path="/topics/achieve-baby-pea-1770342362697" element={<AchieveBabyPea1770342362697 />} />
+          <Route path="/topics/achieve-baby-carrot-1770342349368" element={<AchieveBabyCarrot1770342349368 />} />
+          <Route path="/topics/a-calculator-rigid-plastic-9646528" element={<ACalculatorRigidPlastic9646528 />} />
+          <Route path="/topics/valve-closure-detail" element={<ValveClosureDetail />} />
+          <Route path="/topics/sizing-finder-hero" element={<SizingFinderHero />} />
+          <Route path="/topics/invest-cal-hero" element={<InvestCalHero />} />
+          <Route path="/topics/cta-revised-design" element={<CtaRevisedDesign />} />
+          <Route path="/topics/spout-pouch-packaging" element={<SpoutPouchPackaging />} />
+          <Route path="/topics/stand-up-pouch-packaging" element={<StandUpPouchPackaging />} />
+          <Route path="/topics/flat-bottom-pouch-packaging" element={<FlatBottomPouchPackaging />} />
+          <Route path="/topics/corporate-sustainability-variation" element={<CorporateSustainabilityVariation />} />
+          <Route path="/topics/illustrated-pouch-design-variation" element={<IllustratedPouchDesignVariation />} />
+          <Route path="/topics/bio-pe-card-sustainable" element={<BioPeCardSustainable />} />
               <Route path="/topics/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-7" element={<TexturedBurlapCorkPatternCoffeePouchWithValveThumbnail7 />} />
           <Route path="/topics/compostable-packaging-breakdown-timeline" element={<ProductCompostingTimelinePage />} />
           <Route path="/topics/custom-packaging-design-patterns" element={<CustomPackagingDesignPatternsPage />} />
@@ -248,6 +354,16 @@ export const MultilingualRoutes = ({ children }: { children: React.ReactNode }) 
               <Route path="/topics/custom-printed-sustainable-pouches-seo-infographic" element={<CustomPrintedSustainablePouchesSeoInfographic />} />
               <Route path="/topics/coffee-roaster-seo-infographic" element={<CoffeeRoasterSeoInfographic />} />
               <Route path="/topics/child-resistant-mylar-bags-seo-infographic" element={<ChildResistantMylarBagsSeoInfographic />} />
+                    <Route path="/topics/ecommerce-brand-packaging-solutions" element={<EcommerceBrandPackagingSolutions />} />
+              <Route path="/topics/barrier-options-presentation" element={<PackagingBarrierOptionsPresentation />} />
+              <Route path="/topics/baby-food-packaging-v2" element={<BabyFoodPackagingV2 />} />
+              <Route path="/topics/labeling-guide-v2" element={<PackagingLabelingGuideV2 />} />
+              <Route path="/topics/snack-brand-variation" element={<SnackBrandVariation />} />
+              <Route path="/topics/size-guide-card-v2" element={<PackagingSizeGuideCardV2 />} />
+              <Route path="/topics/compostable-packaging-insights" element={<CompostablePackagingInsights />} />
+              <Route path="/topics/sustainable-materials-guide" element={<SustainableMaterialsGuide />} />
+              <Route path="/topics/surface-finish-close-detail" element={<SurfaceFinishCloseDetail />} />
+              <Route path="/topics/baby-food-packaging-v3" element={<BabyFoodPackagingV3 />} />
       {/* English / Default route group */}
       <Route path="/" element={<LanguageWrapper lang="en" />}>
         {children}
@@ -355,6 +471,17 @@ export const MultilingualRoutes = ({ children }: { children: React.ReactNode }) 
               <Route path="/topics/sustainable-pouch-sizes-for-powders-hero-35425" element={<SustainablePouchSizesForPowdersHero35425 />} />
               <Route path="/topics/rice-paper-flat-bottom-flat-bottom-thumbnail-2-95655" element={<RicePaperFlatBottomFlatBottomThumbnail295655 />} />
               <Route path="/topics/spouted-foil-31-79874" element={<SpoutedFoil3179874 />} />
+              <Route path="/topics/ecommerce-brand-variation-2" element={<EcommerceBrandVariation2 />} />
+              <Route path="/topics/barrier-options-presentation-c" element={<BarrierOptionsPresentationC />} />
+              <Route path="/topics/baby-food-packaging-v2" element={<BabyFoodHeroV2 />} />
+              <Route path="/topics/labeling-guide-v2" element={<LabelingGuideV2 />} />
+              <Route path="/topics/snack-brand-variation-2" element={<SnackBrandVariation2 />} />
+              <Route path="/topics/size-guide-card-v2" element={<SizeGuideCardV2 />} />
+              <Route path="/topics/custom-packaging-design-4aac" element={<CustomPackagingDesign4AAC />} />
+              <Route path="/topics/custom-packaging-design-7d28" element={<CustomPackagingDesign7D28 />} />
+              <Route path="/topics/surface-finish-close-detail-b" element={<SurfaceFinishCloseDetailB />} />
+              <Route path="/topics/baby-food-packaging-v3" element={<BabyFoodHeroV3 />} />
+
               <Route path="/topics/bottle-shape-sachet-bag-thumbnail-4-22333" element={<BottleShapeSachetBagThumbnail422333 />} />
               <Route path="/topics/cheryl" element={<Cheryl />} />
               <Route path="/topics/michelle294743" element={<Michelle294743 />} />
@@ -368,9 +495,7 @@ export const MultilingualRoutes = ({ children }: { children: React.ReactNode }) 
               <Route path="/topics/ddp-packaging" element={<DdpPackaging />} />
               <Route path="/topics/detergent-spout" element={<DetergentSpout />} />
       <Route path="/topics/a-plate-printing-close-detail-b-8707945" element={<APlatePrintingCloseDetailB8707945 />} />
-      <Route path="/topics/72483034-7d2f-4d59-aae0-b6fbfa3a7897" element={<Topic724830347d2f4d59Aae0B6fbfa3a7897 />} />
       <Route path="/topics/a-digital-printing-close-detail-b-7761926" element={<ADigitalPrintingCloseDetailB7761926 />} />
-      <Route path="/topics/99eeb01c-fafb-40e6-9ac7-39051266ab5a" element={<Topic99eeb01cFafb40e69ac739051266ab5a />} />
       <Route path="/topics/a-startup-founder-variation-3-2900816" element={<AStartupFounderVariation32900816 />} />
       <Route path="/topics/a-recyclable-mono-pp-card-v2-2805205" element={<ARecyclableMonoPpCardV22805205 />} />
       <Route path="/topics/a-artisan-producer-variation-3-5916328" element={<AArtisanProducerVariation35916328 />} />
@@ -473,7 +598,37 @@ export const MultilingualRoutes = ({ children }: { children: React.ReactNode }) 
               <Route path="/topics/landing-hero" element={<LandingHero />} />
               <Route path="/topics/infographic-carbon-footprint" element={<InfographicCarbonFootprint />} />
               <Route path="/topics/solution-wellness" element={<SolutionWellness />} />
-    </Routes>
+            <Route path="/topics/custom-printed-stand-up-pouch-pet-food" element={<CustomStandUpPouchPetFoodPage />} />
+                <Route path="/topics/eco-friendly-kraft-paper-flat-bottom-bag" element={<KraftPaperFlatBottomBagPage />} />
+                <Route path="/topics/matte-aluminum-foil-coffee-bag-valve" element={<MatteFoilCoffeeBagPage />} />
+                <Route path="/topics/transparent-window-spout-pouch-beverages" element={<TransparentSpoutPouchPage />} />
+                <Route path="/topics/child-resistant-exit-bag-pharmaceuticals" element={<ChildResistantExitBagPage />} />
+                <Route path="/topics/compostable-vacuum-seal-bag-fresh-produce" element={<CompostableVacuumSealBagPage />} />
+                <Route path="/topics/resealable-ziplock-mylar-bag-snacks" element={<ResealableMylarBagSnacksPage />} />
+                <Route path="/topics/heavy-duty-woven-polypropylene-sack-agriculture" element={<WovenPolypropyleneSackPage />} />
+                <Route path="/topics/holographic-retort-pouch-ready-to-eat" element={<HolographicRetortPouchPage />} />
+                <Route path="/topics/recyclable-rollstock-film-automated-packaging" element={<RecyclableRollstockFilmPage />} />
+          <Route path="/topics/environmental-chart" element={<EnvironmentalChart />} />
+          <Route path="/topics/question-mark" element={<QuestionMark />} />
+          <Route path="/topics/shipping-illustration" element={<ShippingIllustration />} />
+          <Route path="/topics/glass-jar" element={<GlassJar />} />
+          <Route path="/topics/dimensions-guide" element={<DimensionsGuide />} />
+          <Route path="/topics/projection-graph" element={<ProjectionGraph />} />
+          <Route path="/topics/savings-chart" element={<SavingsChart />} />
+          <Route path="/topics/success-icon" element={<SuccessIcon />} />
+          <Route path="/topics/metal-can" element={<MetalCan />} />
+          <Route path="/topics/img" element={<Img />} />
+          <Route path="/topics/illustrated-sustainability-concept" element={<IllustratedPouchDesignVariation />} />\n          <Route path="/topics/biodegradable-stand-up-pouch-suppliers" element={<BiodegradableStandUpPouchSuppliersPage />} />
+          <Route path="/topics/compostable-pouch-size-chart-for-liquids" element={<CompostablePouchSizeChartForLiquidsPage />} />
+          <Route path="/topics/wholesale-prices-for-compostable-pouches" element={<WholesalePricesForCompostablePouchesPage />} />
+          <Route path="/topics/digital-printing-flexible-packaging-small-runs" element={<DigitalPrintingFlexiblePackagingSmallRunsPage />} />
+          <Route path="/topics/compostable-tea-pouch-with-zipper" element={<CompostableTeaPouchWithZipperPage />} />
+          <Route path="/topics/custom-shape-die-cut-pouch" element={<CustomShapeDieCutPouchPage />} />
+          <Route path="/topics/stand-up-pouch-dimensions-chart-for-powders" element={<StandUpPouchDimensionsChartForPowdersPage />} />
+          <Route path="/topics/compostable-high-barrier-film-suppliers" element={<CompostableHighBarrierFilmSuppliersPage />} />
+          <Route path="/topics/printed-compostable-retort-bags" element={<PrintedCompostableRetortBagsPage />} />
+          <Route path="/topics/custom-printed-barrier-sachets" element={<CustomPrintedBarrierSachetsPage />} />
+      </Routes>
   );
 };
 
@@ -488,6 +643,14 @@ import PcrPackagingHeroOverview from './pages/topics/PcrPackagingHeroOverview';
 import EcoDigitalPrintingAdvantage from './pages/topics/EcoDigitalPrintingAdvantage';
 import SmePackagingJourney from './pages/topics/SmePackagingJourney';
 import PcrCostBenefitInfographic from './pages/topics/PcrCostBenefitInfographic';
+import EcommerceBrandPackagingVariation2 from './pages/topics/EcommerceBrandPackagingVariation2';
+import BabyFoodHeroPackagingV2 from './pages/topics/BabyFoodHeroPackagingV2';
+
+import SnackBrandPackagingVariation2 from './pages/topics/SnackBrandPackagingVariation2';
+
+import CustomPouchDesign4aac2432 from './pages/topics/CustomPouchDesign4aac2432';
+import CustomPackagingDesign7d2800dc from './pages/topics/CustomPackagingDesign7d2800dc';
+import BabyFoodHeroPackagingV3 from './pages/topics/BabyFoodHeroPackagingV3';
 import App from './App.tsx'
 import CartSidebar from './components/store/CartSidebar'
 import FloatingButtons from './components/FloatingButtons'
@@ -1602,9 +1765,7 @@ const CompostableTeaPouchWithZipperInfographic5 = lazyWithRetry(() => import('./
 const CustomShapeDieCutPouchInfographic2 = lazyWithRetry(() => import('./pages/topics/CustomShapeDieCutPouchInfographic2'))
 const StandUpPouchDimensionsChartForPowdersInfographic = lazyWithRetry(() => import('./pages/topics/StandUpPouchDimensionsChartForPowdersInfographic'))
 const APlatePrintingCloseDetailB8707945 = lazyWithRetry(() => import('./pages/topics/APlatePrintingCloseDetailB8707945'));
-const Topic724830347d2f4d59Aae0B6fbfa3a7897 = lazyWithRetry(() => import('./pages/topics/Topic724830347d2f4d59Aae0B6fbfa3a7897'));
 const ADigitalPrintingCloseDetailB7761926 = lazyWithRetry(() => import('./pages/topics/ADigitalPrintingCloseDetailB7761926'));
-const Topic99eeb01cFafb40e69ac739051266ab5a = lazyWithRetry(() => import('./pages/topics/Topic99eeb01cFafb40e69ac739051266ab5a'));
 const AStartupFounderVariation32900816 = lazyWithRetry(() => import('./pages/topics/AStartupFounderVariation32900816'));
 const ARecyclableMonoPpCardV22805205 = lazyWithRetry(() => import('./pages/topics/ARecyclableMonoPpCardV22805205'));
 const AArtisanProducerVariation35916328 = lazyWithRetry(() => import('./pages/topics/AArtisanProducerVariation35916328'));
@@ -2264,6 +2425,16 @@ if (getDomain() === 'pouch') {
               <Route path="/topics/compostable-tea-pouch-with-zipper-infographic-5" element={<CompostableTeaPouchWithZipperInfographic5 />} />
               <Route path="/topics/custom-shape-die-cut-pouch-infographic-2" element={<CustomShapeDieCutPouchInfographic2 />} />
               <Route path="/topics/stand-up-pouch-dimensions-chart-for-powders-infographic" element={<StandUpPouchDimensionsChartForPowdersInfographic />} />
+              <Route path="/topics/custom-packaging-design-spotlight-8042" element={<CustomPackagingDesignSpotlight8042 />} />
+              <Route path="/topics/how-to-start-packaging-journey" element={<HowToStartPackagingJourney />} />
+              <Route path="/topics/remi-packaging-case-study" element={<RemiPackagingCaseStudy />} />
+              <Route path="/topics/holly-brand-packaging-success" element={<HollyBrandPackagingSuccess />} />
+              <Route path="/topics/jemma-sustainable-pouch-story" element={<JemmaSustainablePouchStory />} />
+              <Route path="/topics/steph-retail-packaging-showcase" element={<StephRetailPackagingShowcase />} />
+              <Route path="/topics/cheryl-eco-design-case" element={<CherylEcoDesignCase />} />
+              <Route path="/topics/leo-custom-bag-innovation" element={<LeoCustomBagInnovation />} />
+              <Route path="/topics/david-wholesale-pouch-experience" element={<DavidWholesalePouchExperience />} />
+              <Route path="/topics/coffee-valve-closure-technology" element={<CoffeeValveClosureTechnology />} />
                       </MultilingualRoutes>
                     </Suspense>
                     {/* Global Floating Buttons - WhatsApp & Meeting */}
@@ -2305,4 +2476,24 @@ const CertHomeCompost = lazyWithRetry(() => import('./pages/topics/CertHomeCompo
 const FeatureReclosureSolutions = lazyWithRetry(() => import('./pages/topics/FeatureReclosureSolutions'));
 const InfographicCarbonFootprint = lazyWithRetry(() => import('./pages/topics/InfographicCarbonFootprint'));
 const SolutionWellness = lazyWithRetry(() => import('./pages/topics/SolutionWellness'));
+const EnvironmentalChart = lazyWithRetry(() => import('./pages/topics/EnvironmentalChart'));
+const QuestionMark = lazyWithRetry(() => import('./pages/topics/QuestionMark'));
+const ShippingIllustration = lazyWithRetry(() => import('./pages/topics/ShippingIllustration'));
+const GlassJar = lazyWithRetry(() => import('./pages/topics/GlassJar'));
+const DimensionsGuide = lazyWithRetry(() => import('./pages/topics/DimensionsGuide'));
+const ProjectionGraph = lazyWithRetry(() => import('./pages/topics/ProjectionGraph'));
+const SavingsChart = lazyWithRetry(() => import('./pages/topics/SavingsChart'));
+const SuccessIcon = lazyWithRetry(() => import('./pages/topics/SuccessIcon'));
+const MetalCan = lazyWithRetry(() => import('./pages/topics/MetalCan'));
+const Img = lazyWithRetry(() => import('./pages/topics/Img'));
+const CustomPackagingDesignSpotlight8042 = lazyWithRetry(() => import('./pages/topics/CustomPackagingDesignSpotlight8042'));
+const HowToStartPackagingJourney = lazyWithRetry(() => import('./pages/topics/HowToStartPackagingJourney'));
+const RemiPackagingCaseStudy = lazyWithRetry(() => import('./pages/topics/RemiPackagingCaseStudy'));
+const HollyBrandPackagingSuccess = lazyWithRetry(() => import('./pages/topics/HollyBrandPackagingSuccess'));
+const JemmaSustainablePouchStory = lazyWithRetry(() => import('./pages/topics/JemmaSustainablePouchStory'));
+const StephRetailPackagingShowcase = lazyWithRetry(() => import('./pages/topics/StephRetailPackagingShowcase'));
+const CherylEcoDesignCase = lazyWithRetry(() => import('./pages/topics/CherylEcoDesignCase'));
+const LeoCustomBagInnovation = lazyWithRetry(() => import('./pages/topics/LeoCustomBagInnovation'));
+const DavidWholesalePouchExperience = lazyWithRetry(() => import('./pages/topics/DavidWholesalePouchExperience'));
+const CoffeeValveClosureTechnology = lazyWithRetry(() => import('./pages/topics/CoffeeValveClosureTechnology'));
 
