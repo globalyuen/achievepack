@@ -1721,7 +1721,7 @@ function App() {
                 <img src="/eco-logo/transparent-bkg/pcr.png" alt={t('appHome.string_16')} className="h-16 w-auto mb-2" />
                 <span className="text-sm font-semibold text-neutral-700 group-hover:text-primary-600">{t('appHome.string_16')}</span>
               </Link>
-              <Link to="/materials/biope" className="group flex flex-col items-center transition-transform hover:scale-105">
+              <Link to="/materials/bio-pe" className="group flex flex-col items-center transition-transform hover:scale-105">
                 <img src="/eco-logo/transparent-bkg/biope.png" alt={t('appHome.string_17')} className="h-16 w-auto mb-2" />
                 <span className="text-sm font-semibold text-neutral-700 group-hover:text-primary-600">{t('appHome.string_17')}</span>
               </Link>
