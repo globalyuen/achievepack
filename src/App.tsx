@@ -1293,23 +1293,7 @@ function App() {
                 </a>
               </div>
 
-              {/* Product Hunt Feature Badge */}
-              <div className="mb-12 flex justify-start">
-                <a 
-                  href="https://www.producthunt.com/products/achieve-pack-free-3d-studio?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-achieve-pack-free-3d-studio" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-block hover:opacity-90 transition-opacity"
-                >
-                  <img 
-                    alt="Achieve Pack Free 3D Studio - Design & visualize 3D pouches instantly in your browser. | Product Hunt" 
-                    width="250" 
-                    height="54" 
-                    src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1198264&theme=light&t=1784212056282" 
-                    style={{ width: '250px', height: '54px' }}
-                  />
-                </a>
-              </div>
+              {/* Product Hunt Feature Badge Moved to Header */}
 
             </div>
 

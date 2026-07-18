@@ -1,6 +1,6 @@
 import { useState, useMemo, useTransition, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { blogPosts } from '../../data/blogData';
 import { Calendar, Clock, ArrowRight, Search, Loader2 } from 'lucide-react';
@@ -17,16 +17,33 @@ export default function BlogPage() {
   const { t } = useTranslation()
   const p = 'seoPages.pages.blog'
 
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [selectedCategory, setSelectedCategory] = useState(() => searchParams.get('category') || 'All');
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
   const [, startTransition] = useTransition();
+
+  // Sync category selection to URL param
+  const handleCategoryChange = useCallback((category: string) => {
+    setSelectedCategory(category);
+    if (category === 'All') {
+      searchParams.delete('category');
+    } else {
+      searchParams.set('category', category);
+    }
+    setSearchParams(searchParams, { replace: true });
+  }, [searchParams, setSearchParams]);
 
   const [dynamicPosts, setDynamicPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchDynamicPosts() {
+      // 5-second timeout so a slow/unreachable Supabase never hangs the page
+      const timeout = setTimeout(() => {
+        setLoading(false);
+      }, 5000);
+
       try {
         const { data, error } = await supabase
           .from('pouch_seo_blog')
@@ -39,6 +56,7 @@ export default function BlogPage() {
       } catch (err) {
         console.error('Error fetching dynamic posts:', err);
       } finally {
+        clearTimeout(timeout);
         setLoading(false);
       }
     }
@@ -146,7 +164,7 @@ export default function BlogPage() {
                 {categories.map(category => (
                   <button
                     key={category}
-                    onClick={() => setSelectedCategory(category)}
+                    onClick={() => handleCategoryChange(category)}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                       selectedCategory === category
                         ? 'bg-green-600 text-white'

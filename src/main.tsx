@@ -1803,6 +1803,45 @@ import AdminProtectedRoute from './components/admin/AdminProtectedRoute'
 // Cookie Consent Component
 import CookieConsent from './components/CookieConsent'
 
+const PackagingBrandingOgImage = lazyWithRetry(() => import('./pages/topics/PackagingBrandingOgImage'));
+const SustainableClimatePackaging = lazyWithRetry(() => import('./pages/topics/SustainableClimatePackaging'));
+const BiopePlantBasedBarrierFilms = lazyWithRetry(() => import('./pages/topics/BiopePlantBasedBarrierFilms'));
+const FoodBeverageFlexiblePackaging = lazyWithRetry(() => import('./pages/topics/FoodBeverageFlexiblePackaging'));
+const PlantBasedPackagingInfographic = lazyWithRetry(() => import('./pages/topics/PlantBasedPackagingInfographic'));
+const PremiumBrandIdentityPackaging = lazyWithRetry(() => import('./pages/topics/PremiumBrandIdentityPackaging'));
+const ShippingStorageEfficiencyPackaging = lazyWithRetry(() => import('./pages/topics/ShippingStorageEfficiencyPackaging'));
+const FlexibleVsRigidPackagingComparison = lazyWithRetry(() => import('./pages/topics/FlexibleVsRigidPackagingComparison'));
+const FiveStepCustomPackagingProcess = lazyWithRetry(() => import('./pages/topics/FiveStepCustomPackagingProcess'));
+const CustomPackagingSolutionsConsultation = lazyWithRetry(() => import('./pages/topics/CustomPackagingSolutionsConsultation'));
+const BrcCert = lazyWithRetry(() => import('./pages/topics/BrcCert'));
+const LandingHero = lazyWithRetry(() => import('./pages/topics/LandingHero'));
+const TestimonialsClientLogos = lazyWithRetry(() => import('./pages/topics/TestimonialsClientLogos'));
+const SolutionPetProducts = lazyWithRetry(() => import('./pages/topics/SolutionPetProducts'));
+const SolutionCosmetics = lazyWithRetry(() => import('./pages/topics/SolutionCosmetics'));
+const CertHomeCompost = lazyWithRetry(() => import('./pages/topics/CertHomeCompost'));
+const FeatureReclosureSolutions = lazyWithRetry(() => import('./pages/topics/FeatureReclosureSolutions'));
+const InfographicCarbonFootprint = lazyWithRetry(() => import('./pages/topics/InfographicCarbonFootprint'));
+const SolutionWellness = lazyWithRetry(() => import('./pages/topics/SolutionWellness'));
+const EnvironmentalChart = lazyWithRetry(() => import('./pages/topics/EnvironmentalChart'));
+const QuestionMark = lazyWithRetry(() => import('./pages/topics/QuestionMark'));
+const ShippingIllustration = lazyWithRetry(() => import('./pages/topics/ShippingIllustration'));
+const GlassJar = lazyWithRetry(() => import('./pages/topics/GlassJar'));
+const DimensionsGuide = lazyWithRetry(() => import('./pages/topics/DimensionsGuide'));
+const ProjectionGraph = lazyWithRetry(() => import('./pages/topics/ProjectionGraph'));
+const SavingsChart = lazyWithRetry(() => import('./pages/topics/SavingsChart'));
+const SuccessIcon = lazyWithRetry(() => import('./pages/topics/SuccessIcon'));
+const MetalCan = lazyWithRetry(() => import('./pages/topics/MetalCan'));
+const Img = lazyWithRetry(() => import('./pages/topics/Img'));
+const CustomPackagingDesignSpotlight8042 = lazyWithRetry(() => import('./pages/topics/CustomPackagingDesignSpotlight8042'));
+const HowToStartPackagingJourney = lazyWithRetry(() => import('./pages/topics/HowToStartPackagingJourney'));
+const RemiPackagingCaseStudy = lazyWithRetry(() => import('./pages/topics/RemiPackagingCaseStudy'));
+const HollyBrandPackagingSuccess = lazyWithRetry(() => import('./pages/topics/HollyBrandPackagingSuccess'));
+const JemmaSustainablePouchStory = lazyWithRetry(() => import('./pages/topics/JemmaSustainablePouchStory'));
+const StephRetailPackagingShowcase = lazyWithRetry(() => import('./pages/topics/StephRetailPackagingShowcase'));
+const CherylEcoDesignCase = lazyWithRetry(() => import('./pages/topics/CherylEcoDesignCase'));
+const LeoCustomBagInnovation = lazyWithRetry(() => import('./pages/topics/LeoCustomBagInnovation'));
+const DavidWholesalePouchExperience = lazyWithRetry(() => import('./pages/topics/DavidWholesalePouchExperience'));
+const CoffeeValveClosureTechnology = lazyWithRetry(() => import('./pages/topics/CoffeeValveClosureTechnology'));
 const root = createRoot(document.getElementById('root')!)
 
 const initialLang = getLanguageFromPath()
@@ -1823,6 +1862,7 @@ if (getDomain() === 'pouch') {
                     <CartSidebar />
                     <Suspense fallback={<PageLoader />}>
                       <MultilingualRoutes>
+                        <Route path="/" element={<PouchHomePage />} />
                         <Route path="/shop" element={<PouchShopPage />} />
                         <Route path="/shop/:productId" element={<PouchProductDetailPage />} />
                         <Route path="/pricing" element={<PouchEcoGPTKPage />} />
@@ -2281,8 +2321,336 @@ if (getDomain() === 'pouch') {
                     <CartSidebar />
                     <Suspense fallback={<PageLoader />}>
                       <MultilingualRoutes>
+                        <Route path="/" element={<App />} />
+
+                        {/* Store Routes */}
+                        <Route path="/store" element={<StorePage />} />
+                        <Route path="/store/checkout" element={<CheckoutPage />} />
+                        <Route path="/store/order-confirmation" element={<OrderConfirmation />} />
+                        <Route path="/store/rfq-confirmation" element={<RfqConfirmation />} />
                         <Route path="/store/product/:productId" element={<ProductPage />} />
+
+                        {/* Blog Routes */}
+                        <Route path="/blog" element={<BlogPage />} />
+                        <Route path="/blog/:slug" element={<BlogPostPage />} />
+                        <Route path="/blog/packaging-cost-guide" element={<PackagingCostGuidePage />} />
+                        <Route path="/blog/compostable-vs-recyclable" element={<CompostableVsRecyclablePage />} />
+                        <Route path="/blog/eco-packaging-mistakes" element={<EcoPackagingMistakesPage />} />
+
+                        {/* Contact, Legal & Support */}
+                        <Route path="/contact" element={<ContactPage />} />
+                        <Route path="/privacy" element={<PrivacyPolicyPage />} />
+                        <Route path="/terms" element={<TermsPage />} />
+                        <Route path="/terms-of-use" element={<TermsOfUsePage />} />
+                        <Route path="/shipping" element={<ShippingPolicyPage />} />
+                        <Route path="/cookie-policy" element={<CookiePolicyPage />} />
+                        <Route path="/return-policy" element={<ReturnPolicyPage />} />
+                        <Route path="/support/faqs" element={<FAQsPage />} />
+                        <Route path="/support/lead-time" element={<LeadTimePage />} />
+                        <Route path="/support/sample-quote" element={<CustomPrintedSamplePage />} />
+                        <Route path="/support/unprinted-samples" element={<UnprintedSamplesPage />} />
+                        <Route path="/support/color-accuracy-digital-printing" element={<ColorAccuracyDigitalPrintingPage />} />
+                        <Route path="/unsubscribe" element={<UnsubscribePage />} />
+
+                        {/* Auth Routes */}
+                        <Route path="/signin" element={<SignInPage />} />
+                        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+                        <Route path="/reset-password" element={<ResetPasswordPage />} />
+                        <Route path="/auth/callback" element={<AuthCallbackPage />} />
+                        <Route path="/dashboard" element={<DashboardPage />} />
+
+                        {/* Learn / Studio / 3D */}
+                        <Route path="/learn" element={<LearnSearchPage />} />
+                        <Route path="/topic-directory" element={<Navigate to="/learn" replace />} />
+                        <Route path="/studio" element={<PackageEditorPage />} />
+                        <Route path="/3d-showcase" element={<Product3DShowcasePage />} />
+                        <Route path="/app" element={<Navigate to="/studio" replace />} />
+                        <Route path="/dieline-creator" element={<PouchDielineCreatorPage />} />
+                        <Route path="/dieline-finder" element={<PouchDielineFinderPage />} />
+                        <Route path="/image-catalog" element={<ImageCatalogPage />} />
+                        <Route path="/gallery" element={<ImageGalleryPage />} />
+                        <Route path="/reviews" element={<ReviewsPage />} />
+                        <Route path="/testimonials" element={<PouchTestimonialsPage />} />
+                        <Route path="/size-guide" element={<SizeGuidePage />} />
+
+                        {/* Knowledge Pages */}
+                        <Route path="/knowledge/workflow" element={<PouchWorkflowPage />} />
+                        <Route path="/knowledge/size-guide" element={<PouchKnowledgeSizeGuidePage />} />
+                        <Route path="/knowledge/pouch-sizing" element={<PouchPouchSizingPage />} />
+                        <Route path="/knowledge/printing-types" element={<PouchPrintingTypesPage />} />
+                        <Route path="/knowledge/k-seal-stand-up-pouches" element={<PouchKSealStandUpPouchesPage />} />
+                        <Route path="/knowledge/white-ink-underprint" element={<PouchWhiteInkUnderprintPage />} />
+                        <Route path="/knowledge/fin-seal-lap-seal" element={<PouchFinSealLapSealPage />} />
+                        <Route path="/knowledge/flat-bottom-vs-gusset" element={<PouchFlatBottomVsGussetPage />} />
+                        <Route path="/knowledge/eco-packaging-reality" element={<EcoPackagingRealityPage />} />
+                        <Route path="/knowledge/writable-stampable-pouches" element={<WritableStampablePouchesPage />} />
+                        <Route path="/knowledge/digital-printing-pantone-color-matching" element={<PouchColorMatchingPage />} />
+                        <Route path="/knowledge/pha-vs-pla" element={<PhaVsPla />} />
+                        <Route path="/knowledge/reusable-packaging" element={<ReusablePackagingPage />} />
+                        <Route path="/knowledge/bottle-printing-guide" element={<BottlePrintingGuidePage />} />
+                        <Route path="/knowledge/pouch-heat-sealing-temperature-guide" element={<PouchHeatSealingGuidePage />} />
+                        <Route path="/knowledge/hand-clamp-sealer" element={<HandClampSealerPage />} />
+                        <Route path="/knowledge/pouch-date-coding-guide" element={<PouchDateCodingGuidePage />} />
+                        <Route path="/knowledge/food-packaging-compliance-date-coding" element={<FoodPackagingCompliancePage />} />
+                        <Route path="/knowledge/packaging-line-automation-date-coding" element={<PackagingLineAutomationPage />} />
+                        <Route path="/knowledge/compostable-packaging-inkjet-coding" element={<CompostablePackagingCodingPage />} />
+                        <Route path="/knowledge/molded-pulp-packaging-benefits" element={<MoldedPulpPackagingBenefits />} />
+                        <Route path="/knowledge/molded-pulp-guide" element={<MoldedPulpGuide />} />
+                        <Route path="/knowledge/automating-pulp-packaging-lines" element={<AutomatingPulpLines />} />
+                        <Route path="/knowledge/all-options" element={<PouchAllOptionsPage />} />
+
+                        {/* Printing & Features */}
+                        <Route path="/printing/digital-printing" element={<DigitalPrintingPage />} />
+                        <Route path="/printing/plate-printing" element={<PlatePrintingPage />} />
+                        <Route path="/printing/digital" element={<PouchDigitalPrintingPage />} />
+                        <Route path="/features/reclosure-options" element={<ReclosureOptionsPage />} />
+                        <Route path="/features/surface-finish" element={<SurfaceFinishPage />} />
+                        <Route path="/features/barrier-options" element={<BarrierOptionsPage />} />
+                        <Route path="/features/low-barrier" element={<LowBarrierPage />} />
+                        <Route path="/features/medium-barrier" element={<MediumBarrierPage />} />
+                        <Route path="/features/high-barrier" element={<HighBarrierPage />} />
+                        <Route path="/features/material-barrier-properties" element={<MaterialBarrierPropertiesPage />} />
+
+                        {/* Packaging Types */}
+                        <Route path="/packaging/stand-up-pouches" element={<PouchStandUpPouchesPage />} />
+                        <Route path="/packaging/flat-bottom-bags" element={<PouchFlatBottomBagsPage />} />
+                        <Route path="/packaging/side-gusset-bags" element={<PouchSideGussetBagsPage />} />
+                        <Route path="/packaging/custom-boxes" element={<PouchCustomBoxesPage />} />
+                        <Route path="/packaging/spout-pouches" element={<PouchSpoutPouchesPage />} />
+                        <Route path="/packaging/flat-pouches" element={<PouchFlatPouchesPage />} />
+                        <Route path="/packaging/vacuum-pouches" element={<PouchVacuumPouchesPage />} />
+                        <Route path="/packaging/shrink-sleeves" element={<ShrinkSleevesPage />} />
+
+                        {/* Materials */}
+                        <Route path="/materials" element={<PouchMaterialsPage />} />
+                        <Route path="/materials/home-compostable" element={<PouchHomeCompostablePage />} />
+                        <Route path="/materials/industrial-compostable" element={<PouchIndustrialCompostablePage />} />
+                        <Route path="/materials/compostable" element={<PouchCompostablePage />} />
+                        <Route path="/materials/recyclable-mono-pe" element={<PouchRecyclableMonoPEPage />} />
+                        <Route path="/materials/recyclable-mono-pp" element={<RecyclableMonoPPPage />} />
+                        <Route path="/materials/recyclable" element={<PouchRecyclablePage />} />
+                        <Route path="/materials/bio-pe" element={<PouchBioPEPage />} />
+                        <Route path="/materials/pcr" element={<PouchPCRPage />} />
+                        <Route path="/materials/kraft-high-barrier" element={<PouchKraftHighBarrierPage />} />
+                        <Route path="/materials/kraft-low-barrier" element={<KraftLowBarrierPage />} />
+                        <Route path="/materials/kraft-medium-barrier" element={<KraftMediumBarrierPage />} />
+                        <Route path="/materials/plastic-free-kraft" element={<PouchPlasticFreeKraftPage />} />
+                        <Route path="/materials/cello-kraft-triplex" element={<PouchCelloKraftPage />} />
+                        <Route path="/materials/kraft-duplex" element={<PouchKraftDuplexPage />} />
+                        <Route path="/materials/data-sheet" element={<PouchMaterialDataSheetPage />} />
+                        <Route path="/materials/catalog" element={<PouchMaterialCatalogPage />} />
+                        <Route path="/materials/combustion-safety-test" element={<PouchCombustionSafetyTestPage />} />
+                        <Route path="/materials/conventional-printed-sachets" element={<ConventionalPrintedSachetsPage />} />
+
+                        {/* Industry Pages */}
+                        <Route path="/industry/coffee-tea" element={<CoffeeTeaPage />} />
+                        <Route path="/industry/snacks-food" element={<SnacksFoodPage />} />
+                        <Route path="/industry/pet-food" element={<PetFoodPage />} />
+                        <Route path="/industry/supplements-powders" element={<SupplementsPowdersPage />} />
+                        <Route path="/industry/baby-food" element={<BabyFoodPage />} />
+                        <Route path="/industry/frozen-food" element={<FrozenFoodPage />} />
+                        <Route path="/industry/sauces-condiments" element={<SaucesCondimentsPage />} />
+                        <Route path="/industry/fresh-produce" element={<FreshProducePage />} />
+
+                        {/* Case Studies */}
+                        <Route path="/case-studies/coffee-roastery" element={<CoffeeRoasteryCaseStudy />} />
+                        <Route path="/case-studies/tea-brand" element={<TeaBrandCaseStudy />} />
+                        <Route path="/case-studies/pet-treats" element={<PetTreatsCaseStudy />} />
+                        <Route path="/case-studies/chocolate-brand" element={<ChocolateBrandCaseStudy />} />
+                        <Route path="/case-studies/superfood-brand" element={<SuperfoodBrandCaseStudy />} />
+                        <Route path="/case-studies/wellness-brand" element={<WellnessBrandCaseStudy />} />
+
+                        {/* Company Pages */}
+                        <Route path="/company/about" element={<PouchAboutPage />} />
+                        <Route path="/company/factory-tour" element={<PouchFactoryTourPage />} />
+                        <Route path="/company/certificates" element={<CertificatesPage />} />
+                        <Route path="/company/b-corp" element={<BCorpPage />} />
+                        <Route path="/company/bpi-certified" element={<BPICertifiedPage />} />
+                        <Route path="/team/ryan-wong" element={<RyanWongPage />} />
+                        <Route path="/factory-tour" element={<PouchFactoryTourPage />} />
+                        <Route path="/certifications" element={<PouchCertificationsPage />} />
+
+                        {/* USA Hub Pages */}
+                        <Route path="/usa/coffee-packaging" element={<PouchUSACoffeePage />} />
+                        <Route path="/usa/compostable-packaging" element={<PouchUSACompostableHubPage />} />
+                        <Route path="/usa/labeling-guide" element={<PouchUSALabelingGuidePage />} />
+                        <Route path="/usa/snacks-packaging" element={<PouchUSASnacksPage />} />
+
+                        {/* Products */}
+                        <Route path="/products" element={<PouchProductsPage />} />
+                        <Route path="/products/compostable-coffee-bags" element={<CompostableCoffeeBagsPage />} />
+                        <Route path="/products/custom-labels" element={<CustomLabelsPage />} />
+                        <Route path="/products/custom-stickers" element={<CustomStickersPage />} />
+                        <Route path="/products/labels-and-stickers" element={<LabelsAndStickersPage />} />
+                        <Route path="/products/lab-bags" element={<LabBagsPage />} />
+                        <Route path="/products/recyclable-side-gusset-bags" element={<RecyclableSideGussetPage />} />
+                        <Route path="/products/eco-box-bottom-pouch" element={<EcoBoxBottomPouchPage />} />
+                        <Route path="/products/eco-flat-bottom-pouch" element={<EcoFlatBottomPouchPage />} />
+                        <Route path="/products/premium-eco-packaging-comparison" element={<PremiumEcoPackagingComparisonPage />} />
+                        <Route path="/products/custom-printed-corrugated-boxes" element={<CustomCorrugatedBoxesPage />} />
+                        <Route path="/products/custom-printed-tuck-boxes" element={<CustomTuckBoxesPage />} />
+                        <Route path="/products/premium-cotton-paper-foil-pouch" element={<CottonPaperFoilPouchPage />} />
+
+                        {/* Solutions Pages */}
+                        <Route path="/solutions" element={<PouchSolutionsPage />} />
+                        <Route path="/solutions/coffee-roaster" element={<CoffeeRoasterPage />} />
+                        <Route path="/solutions/ecommerce-brand" element={<EcommerceBrandPage />} />
+                        <Route path="/solutions/startup-founder" element={<StartupFounderPage />} />
+                        <Route path="/solutions/food-manufacturer" element={<FoodManufacturerPage />} />
+                        <Route path="/solutions/snack-brand-manager" element={<SnackBrandManagerPage />} />
+                        <Route path="/solutions/corporate-sustainability" element={<CorporateSustainabilityPage />} />
+                        <Route path="/solutions/artisan-producer" element={<ArtisanProducerPage />} />
+                        <Route path="/solutions/product-developer" element={<ProductDeveloperPage />} />
+                        <Route path="/solutions/catalog" element={<CatalogPage />} />
+                        <Route path="/solutions/citrus-oil-packaging" element={<PouchCitrusOilPackagingPage />} />
+                        <Route path="/solutions/shapes/:id" element={<ShapeDetailPage />} />
+
+                        {/* Free Services */}
+                        <Route path="/free-service" element={<FreeServicesPage />} />
+                        <Route path="/free-service/all" element={<FreeServicesHubPage />} />
+                        <Route path="/free-service/free-services-hub" element={<FreeServicesHubPage />} />
+                        <Route path="/free-service/pencil-demo" element={<PencilDemoPage />} />
+                        <Route path="/free-service/packaging-mockup" element={<FreeMockupPage />} />
+                        <Route path="/free-service/achieve-chocolate-demo" element={<AchieveChocolateDemoPage />} />
+                        <Route path="/free-service/achieve-supplement-demo" element={<AchieveSupplementDemoPage />} />
+                        <Route path="/free-service/achieve-tea-demo" element={<AchieveTeaDemoPage />} />
+                        <Route path="/free-service/achieve-energy-demo" element={<AchieveEnergyDemoPage />} />
+                        <Route path="/free-service/achieve-honey-demo" element={<AchieveHoneyDemoPage />} />
+                        <Route path="/free-service/achieve-superfood-demo" element={<AchieveSuperfoodDemoPage />} />
+                        <Route path="/free-service/achieve-cleaning-demo" element={<AchieveCleaningDemoPage />} />
+                        <Route path="/free-service/achieve-spreads-demo" element={<AchieveSpreadsDemoPage />} />
+                        <Route path="/free-service/achieve-muesli-demo" element={<AchieveMuesliDemoPage />} />
+                        <Route path="/free-service/achieve-bath-demo" element={<AchieveBathDemoPage />} />
+                        <Route path="/free-service/achieve-pet-demo" element={<AchievePetDemoPage />} />
+                        <Route path="/free-service/achieve-skin-demo" element={<AchieveSkinDemoPage />} />
+                        <Route path="/free-service/achieve-baby-demo" element={<AchieveBabyDemoPage />} />
+                        <Route path="/free-service/achieve-pouch-eco-demo" element={<AchievePouchEcoDemoPage />} />
+
+                        {/* Quotes & Shared Docs */}
+                        <Route path="/quote" element={<QuotationViewPage />} />
+                        <Route path="/quote/:id" element={<QuotationViewPage />} />
+                        <Route path="/view-quote/:id" element={<SharedQuotePage />} />
+                        <Route path="/packing-list/:id" element={<SharedPackingPage />} />
+                        <Route path="/artwork-review/:batchId" element={<ArtworkReviewPage />} />
+                        <Route path="/hub/:batchId" element={<SupplierHubPage />} />
+                        <Route path="/shipment/:batchId" element={<ShipmentTrackingPage />} />
+                        <Route path="/quotes/flat-bottom" element={<FlatBottomQuotePage />} />
+                        <Route path="/quotes/three-side-seal" element={<ThreeSideSealQuotePage />} />
+                        <Route path="/quotes/stand-up-pouch" element={<StandUpPouchQuotePage />} />
+                        <Route path="/quotes/spouted-pouch" element={<SpoutedPouchQuotePage />} />
+                        <Route path="/quotes/rollstock" element={<RollstockQuotePage />} />
+                        <Route path="/reports/state-of-packaging-2026" element={<PackagingReport2026 />} />
+                        <Route path="/workshop-register" element={<WorkshopRegisterPage />} />
+                        <Route path="/unprinted-samples" element={<PouchUnprintedSamplesPage />} />
+                        <Route path="/sample" element={<PouchCustomPrintedSamplePage />} />
+                        <Route path="/cert" element={<CertificateDownloadPage />} />
+                        <Route path="/tech-specs" element={<PouchTechSpecsPage />} />
+                        <Route path="/seo-guide" element={<PouchSEOPage />} />
+
+                        {/* Composting Pages */}
+                        <Route path="/composting/plastic-free" element={<PouchPlasticFreePage />} />
+                        <Route path="/composting/composting-benefits" element={<PouchCompostingBenefitsPage />} />
+                        <Route path="/composting/composting-services" element={<PouchCompostingServicesPage />} />
+
+                        {/* Bio-PE, PCR, Recyclable Pages */}
+                        <Route path="/biope/what-is-bio-pe" element={<WhatIsBioPEPage />} />
+                        <Route path="/biope/bio-pe-vs-compostable" element={<BioPEVsCompostablePage />} />
+                        <Route path="/biope/bio-pe-epr-regulations" element={<BioPEEPRPage />} />
+                        <Route path="/biope/inside-im-green-bio-pe" element={<InsideImGreenBioPEPage />} />
+                        <Route path="/pcr/pcr-plastic-guide" element={<PCRGuidePage />} />
+                        <Route path="/pcr/7-checklist" element={<PCR7ChecklistPage />} />
+                        <Route path="/pcr/realistic-pcr-content" element={<PCRRealisticPage />} />
+                        <Route path="/pcr/recyclable-vs-pcr-biobased" element={<RecyclableVsPCRPage />} />
+                        <Route path="/recyclable/what-is-recyclable" element={<WhatIsRecyclablePage />} />
+                        <Route path="/recyclable/roadmap-sme" element={<RecyclableRoadmapPage />} />
+                        <Route path="/recyclable/mono-material-foundation" element={<MonoMaterialFoundationPage />} />
+
+                        {/* Spec Pages */}
+                        <Route path="/spec/compostable-pouch-geo" element={<CompostablePouchGeoPage />} />
+                        <Route path="/spec/pcr-kraft-vmpet" element={<PcrKraftVmpetPage />} />
+                        <Route path="/spec/biope-kraft-vmpet" element={<BioPeKraftVmpetPage />} />
+                        <Route path="/spec/biope-pet-kraft-triplex-clear" element={<BioPePetKraftTriplexClearPage />} />
+                        <Route path="/spec/biope-pet-triplex-aluminum" element={<BioPePetTriplexAluminumPage />} />
+                        <Route path="/spec/mono-pe-duplex-clear" element={<MonoPeDuplexClearPage />} />
+                        <Route path="/spec/compostable-material-structure" element={<CompostableMaterialStructurePage />} />
+                        <Route path="/spec/pcr-pp-triplex-aluminum" element={<PcrPpTriplexAluminumPage />} />
+                        <Route path="/spec/biope-pp-triplex-metalised" element={<BioPePpTriplexMetalisedPage />} />
+                        <Route path="/spec/pcr-pet-triplex-metalised" element={<PcrPetTriplexMetalisedPage />} />
+                        <Route path="/spec/pcr-pp-duplex-clear" element={<PcrPpDuplexClearPage />} />
+                        <Route path="/spec/pcr-pet-triplex-aluminum" element={<PcrPetTriplexAluminumPage />} />
+                        <Route path="/spec/pcr-pet-kraft-triplex-clear" element={<PcrPetKraftTriplexClearPage />} />
+                        <Route path="/spec/pcr-pet-duplex-clear" element={<PcrPetDuplexClearPage />} />
+                        <Route path="/spec/pcr-kraft-duplex-low" element={<PcrKraftDuplexLowPage />} />
+                        <Route path="/spec/biope-pp-duplex-nowindow" element={<BioPePpDuplexNoWindowPage />} />
+                        <Route path="/spec/biope-pet-duplex-clear" element={<BioPePetDuplexClearPage />} />
+                        <Route path="/spec/biope-pp-duplex-clear" element={<BioPePpDuplexClearPage />} />
+                        <Route path="/spec/biope-pp-kraft-triplex-clear" element={<BioPePpKraftTriplexClearPage />} />
+                        <Route path="/spec/biope-pet-duplex-nowindow" element={<BioPePetDuplexNoWindowPage />} />
+                        <Route path="/spec/biope-pet-triplex-metalised" element={<BioPePetTriplexMetalisedPage />} />
+                        <Route path="/spec/pcr-pp-kraft-triplex-clear" element={<PcrPpKraftTriplexClearPage />} />
+                        <Route path="/spec/pcr-pet-duplex-nowindow" element={<PcrPetDuplexNoWindowPage />} />
+                        <Route path="/spec/pcr-pp-duplex-nowindow" element={<PcrPpDuplexNoWindowPage />} />
+                        <Route path="/spec/pcr-pp-triplex-metalised" element={<PcrPpTriplexMetalisedPage />} />
+                        <Route path="/spec/pcr-pet-kraft-quadlex-aluminum" element={<PcrPetKraftQuadlexAluminumPage />} />
+                        <Route path="/spec/pcr-pp-kraft-quadlex-aluminum" element={<PcrPpKraftQuadlexAluminumPage />} />
+                        <Route path="/spec/mono-pp-duplex-clear" element={<MonoPpDuplexClearPage />} />
+                        <Route path="/spec/mono-pe-duplex-nowindow" element={<MonoPeDuplexNoWindowPage />} />
+                        <Route path="/spec/mono-pp-duplex-nowindow" element={<MonoPpDuplexNoWindowPage />} />
+                        <Route path="/spec/bio-cello-triplex-highest" element={<BioCelloTriplexHighestPage />} />
+                        <Route path="/spec/bio-cello-triplex-metalised" element={<BioCelloTriplexMetalisedPage />} />
+                        <Route path="/spec/bio-kraft-vm-cello" element={<BioKraftVmCelloPage />} />
+                        <Route path="/spec/bio-kraft-pbat-low" element={<BioKraftPbatLowPage />} />
+
+                        {/* Function Pages */}
+                        <Route path="/function/heat-resistant-compostable-pouches" element={<HeatResistantCandlePackagingPage />} />
+                        <Route path="/function/child-resistant-bags" element={<ChildResistantBagsPage />} />
+                        <Route path="/function/microwave-steam-bags" element={<MicrowaveSteamBagsPage />} />
+                        <Route path="/function/carbon-neutral-bags" element={<CarbonNeutralBagsPage />} />
+                        <Route path="/function/spout-pouches-juice" element={<SpoutPouchesJuicePage />} />
+                        <Route path="/function/rice-paper-bags" element={<RicePaperBagsPage />} />
+                        <Route path="/function/pva-water-soluble-bags" element={<PVAWaterSolubleBagsPage />} />
+                        <Route path="/function/large-format-kraft-heavy-bags" element={<LargeFormatKraftHeavyBagPage />} />
+                        <Route path="/function/pre-zippered-rollstock" element={<PreZipperedRollstockPage />} />
+                        <Route path="/function/digital-printed-retort-bags" element={<DigitalPrintedRetortBagsPage />} />
+                        <Route path="/function/smart-degassing-sticker" element={<SmartDegassingStickerPageB2C />} />
+
+                        {/* Lab Pages */}
+                        <Route path="/lab/lateral-filter-bags" element={<LateralFilterBagsPage />} />
+                        <Route path="/lab/wire-closure-bags" element={<WireClosureBagsPage />} />
+                        <Route path="/lab/lab-blender-bags" element={<LabBlenderBagsPage />} />
+
+                        {/* Options Pages */}
+                        <Route path="/options/reclosure" element={<PouchReclosureOptionsPage />} />
+                        <Route path="/options/surface-finish" element={<PouchSurfaceFinishPage />} />
+                        <Route path="/options/surface-and-reclosure" element={<SurfaceAndReclosureOptionsPage />} />
+                        <Route path="/options/smart-degassing-sticker" element={<SmartDegassingStickerPageB2C />} />
+
+                        {/* Barriers */}
+                        <Route path="/barriers/overview" element={<PouchBarrierOverviewPage />} />
+                        <Route path="/barriers/material-properties" element={<PouchMaterialBarrierPropertiesPage />} />
+
+                        {/* Demo / Start */}
+                        <Route path="/demo" element={<PouchHomePage />} />
+                        <Route path="/start" element={<PouchHomePage />} />
+
                         
+                        {/* Admin Protected Routes in AP */}
+                        <Route path="/ctrl-x9k7m" element={<AdminProtectedRoute><AdminPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/management" element={<AdminProtectedRoute><OrderManagementPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/order-workflow" element={<AdminProtectedRoute><OrderWorkflowPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/customer-map" element={<AdminProtectedRoute><CustomerMapPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/artwork-hub" element={<AdminProtectedRoute><ArtworkHubPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/artwork-batches" element={<AdminProtectedRoute><ArtworkBatchesPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/quotations" element={<AdminProtectedRoute><QuotationBatchesPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/prospects" element={<AdminProtectedRoute><ProspectFinderPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/prospects/lists" element={<AdminProtectedRoute><ProspectListsPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/shipments" element={<AdminProtectedRoute><ShipmentHubPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/document-templates" element={<AdminProtectedRoute><DocumentTemplatesPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/daily-reports" element={<AdminProtectedRoute><DailyReportsPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/email-campaign" element={<AdminProtectedRoute><EmailCampaignPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/ai-image" element={<AdminProtectedRoute><ImageGeneratorPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/bookkeeping" element={<AdminProtectedRoute><BookkeepingPage /></AdminProtectedRoute>} />
+
                         {/* Prospect Finder Routes */}
 
                         {/* Shipment Document Hub Routes */}
@@ -2296,43 +2664,202 @@ if (getDomain() === 'pouch') {
                         <Route path="/view-quote/:id" element={<SharedQuotePage />} />
                         <Route path="/packing-list/:id" element={<SharedPackingPage />} />
 
-                        {/* Industry Pages */}
-
-                        {/* Packaging Pages */}
-
-                        {/* Materials Pages */}
-
-                        {/* Printing Pages */}
-
-                        {/* Feature Pages */}
-
-                        {/* Function Pages */}
-
-                        {/* Lab Pages */}
-
-                        {/* Legal Pages */}
-
-                        {/* Company Pages */}
-
-                        {/* Team Pages */}
+                        {/* USA Hub Pages */}
+                        <Route path="/usa/coffee-packaging" element={<PouchUSACoffeePage />} />
+                        <Route path="/usa/compostable-packaging" element={<PouchUSACompostableHubPage />} />
+                        <Route path="/usa/labeling-guide" element={<PouchUSALabelingGuidePage />} />
+                        <Route path="/usa/snacks-packaging" element={<PouchUSASnacksPage />} />
 
                         {/* Knowledge Pages */}
-
-                        {/* Support Pages */}
-
-                        {/* Case Studies Pages */}
-
-                        {/* Blog Pages */}
-
-                        {/* Learn Center */}
-
-                        {/* USA Pages */}
-
-                        {/* Products Pages - SEO Focused */}
-
-                        {/* Solutions Pages - Persona Based SEO */}
+                        <Route path="/knowledge/all-options" element={<PouchAllOptionsPage />} />
+                        <Route path="/knowledge/size-guide" element={<PouchKnowledgeSizeGuidePage />} />
+                        <Route path="/knowledge/pouch-sizing" element={<PouchPouchSizingPage />} />
+                        <Route path="/knowledge/printing-types" element={<PouchPrintingTypesPage />} />
+                        <Route path="/gallery" element={<ImageGalleryPage />} />
+                        <Route path="/knowledge/workflow" element={<PouchWorkflowPage />} />
+                        <Route path="/knowledge/k-seal-stand-up-pouches" element={<PouchKSealStandUpPouchesPage />} />
+                        <Route path="/knowledge/white-ink-underprint" element={<PouchWhiteInkUnderprintPage />} />
+                        <Route path="/knowledge/fin-seal-lap-seal" element={<PouchFinSealLapSealPage />} />
+                        <Route path="/knowledge/flat-bottom-vs-gusset" element={<PouchFlatBottomVsGussetPage />} />
+                        <Route path="/knowledge/eco-packaging-reality" element={<EcoPackagingRealityPage />} />
+                        <Route path="/knowledge/writable-stampable-pouches" element={<WritableStampablePouchesPage />} />
+                        <Route path="/knowledge/digital-printing-pantone-color-matching" element={<PouchColorMatchingPage />} />
+                        <Route path="/knowledge/pha-vs-pla" element={<PhaVsPla />} />
+                        <Route path="/knowledge/reusable-packaging" element={<ReusablePackagingPage />} />
+                        <Route path="/knowledge/bottle-printing-guide" element={<BottlePrintingGuidePage />} />
+                        <Route path="/knowledge/pouch-heat-sealing-temperature-guide" element={<PouchHeatSealingGuidePage />} />
+                        <Route path="/knowledge/hand-clamp-sealer" element={<HandClampSealerPage />} />
+                        <Route path="/knowledge/pouch-date-coding-guide" element={<PouchDateCodingGuidePage />} />
+                        <Route path="/knowledge/food-packaging-compliance-date-coding" element={<FoodPackagingCompliancePage />} />
+                        <Route path="/knowledge/packaging-line-automation-date-coding" element={<PackagingLineAutomationPage />} />
+                        <Route path="/knowledge/compostable-packaging-inkjet-coding" element={<CompostablePackagingCodingPage />} />
+                        <Route path="/knowledge/molded-pulp-packaging-benefits" element={<MoldedPulpPackagingBenefits />} />
+                        <Route path="/knowledge/molded-pulp-guide" element={<MoldedPulpGuide />} />
+                        <Route path="/knowledge/automating-pulp-packaging-lines" element={<AutomatingPulpLines />} />
+                        <Route path="/certifications" element={<PouchCertificationsPage />} />
+                        <Route path="/factory-tour" element={<PouchFactoryTourPage />} />
+                        <Route path="/company/factory-tour" element={<PouchFactoryTourPage />} />
+                        <Route path="/company/about" element={<PouchAboutPage />} />
+                        <Route path="/materials/cello-kraft-triplex" element={<PouchCelloKraftPage />} />
+                        <Route path="/materials/kraft-duplex" element={<PouchKraftDuplexPage />} />
+                        <Route path="/materials/data-sheet" element={<PouchMaterialDataSheetPage />} />
+                        <Route path="/materials/catalog" element={<PouchMaterialCatalogPage />} />
+                        <Route path="/options/reclosure" element={<PouchReclosureOptionsPage />} />
+                        <Route path="/options/surface-finish" element={<PouchSurfaceFinishPage />} />
+                        <Route path="/options/surface-and-reclosure" element={<SurfaceAndReclosureOptionsPage />} />
+                        <Route path="/options/smart-degassing-sticker" element={<SmartDegassingStickerPageB2C />} />
+                        <Route path="/function/smart-degassing-sticker" element={<SmartDegassingStickerPageB2C />} />
+                        <Route path="/barriers/overview" element={<PouchBarrierOverviewPage />} />
+                        <Route path="/barriers/material-properties" element={<PouchMaterialBarrierPropertiesPage />} />
+                        <Route path="/printing/digital" element={<PouchDigitalPrintingPage />} />
+                        <Route path="/products" element={<PouchProductsPage />} />
+                        <Route path="/materials" element={<PouchMaterialsPage />} />
+                        <Route path="/solutions/citrus-oil-packaging" element={<PouchCitrusOilPackagingPage />} />
+                        <Route path="/seo-guide" element={<PouchSEOPage />} />
                         
-                        {/* Topics Pages - AI Search Volume SEO */}
+                        {/* New SEO Pages */}
+                        <Route path="/function/heat-resistant-compostable-pouches" element={<HeatResistantCandlePackagingPage />} />
+                        <Route path="/function/child-resistant-bags" element={<ChildResistantBagsPage />} />
+                        <Route path="/function/microwave-steam-bags" element={<MicrowaveSteamBagsPage />} />
+                        <Route path="/function/carbon-neutral-bags" element={<CarbonNeutralBagsPage />} />
+                        <Route path="/function/spout-pouches-juice" element={<SpoutPouchesJuicePage />} />
+                        <Route path="/function/rice-paper-bags" element={<RicePaperBagsPage />} />
+                        <Route path="/function/pva-water-soluble-bags" element={<PVAWaterSolubleBagsPage />} />
+                        <Route path="/function/large-format-kraft-heavy-bags" element={<LargeFormatKraftHeavyBagPage />} />
+                        <Route path="/function/pre-zippered-rollstock" element={<PreZipperedRollstockPage />} />
+                        <Route path="/packaging/stand-up-pouches" element={<PouchStandUpPouchesPage />} />
+                        <Route path="/packaging/shrink-sleeves" element={<ShrinkSleevesPage />} />
+                        <Route path="/packaging/flat-bottom-bags" element={<PouchFlatBottomBagsPage />} />
+                        <Route path="/packaging/side-gusset-bags" element={<PouchSideGussetBagsPage />} />
+                        <Route path="/packaging/custom-boxes" element={<PouchCustomBoxesPage />} />
+                        <Route path="/materials/compostable" element={<PouchCompostablePage />} />
+                        <Route path="/materials/bio-pe" element={<PouchBioPEPage />} />
+                        <Route path="/materials/pcr" element={<PouchPCRPage />} />
+                        <Route path="/materials/home-compostable" element={<PouchHomeCompostablePage />} />
+                        <Route path="/materials/industrial-compostable" element={<PouchIndustrialCompostablePage />} />
+                        <Route path="/materials/kraft-low-barrier" element={<KraftLowBarrierPage />} />
+                        <Route path="/materials/kraft-medium-barrier" element={<KraftMediumBarrierPage />} />
+                        <Route path="/materials/kraft-high-barrier" element={<PouchKraftHighBarrierPage />} />
+                        <Route path="/materials/recyclable" element={<PouchRecyclablePage />} />
+                        <Route path="/materials/recyclable-mono-pe" element={<PouchRecyclableMonoPEPage />} />
+                        <Route path="/materials/recyclable-mono-pp" element={<RecyclableMonoPPPage />} />
+                        <Route path="/spec/compostable-pouch-geo" element={<CompostablePouchGeoPage />} />
+                        <Route path="/materials/plastic-free-kraft" element={<PouchPlasticFreeKraftPage />} />
+                        <Route path="/materials/combustion-safety-test" element={<PouchCombustionSafetyTestPage />} />
+                        <Route path="/materials/conventional-printed-sachets" element={<ConventionalPrintedSachetsPage />} />
+                        <Route path="/composting/plastic-free" element={<PouchPlasticFreePage />} />
+                        <Route path="/composting/composting-benefits" element={<PouchCompostingBenefitsPage />} />
+                        <Route path="/composting/composting-services" element={<PouchCompostingServicesPage />} />
+                        <Route path="/industry/baby-food" element={<PouchBabyFoodPage />} />
+                        <Route path="/packaging/spout-pouches" element={<PouchSpoutPouchesPage />} />
+                        <Route path="/packaging/flat-pouches" element={<PouchFlatPouchesPage />} />
+                        <Route path="/packaging/vacuum-pouches" element={<PouchVacuumPouchesPage />} />
+                        <Route path="/industry/frozen-food" element={<PouchFrozenFoodPage />} />
+                        <Route path="/industry/sauces-condiments" element={<PouchSaucesPage />} />
+                        <Route path="/industry/fresh-produce" element={<FreshProducePage />} />
+                        <Route path="/industry/premium-matte-pouches" element={<PremiummattepouchesPage />} />
+                        <Route path="/industry/wholesale-unprinted-pouches" element={<WholesaleunprintedpouchesPage />} />
+                        <Route path="/industry/high-barrier-food-pouches" element={<HighbarrierfoodpouchesPage />} />
+                        <Route path="/industry/australia-shipping-coo" element={<AustraliashippingcooPage />} />
+                        <Route path="/industry/premium-finishes" element={<PremiumfinishesPage />} />
+                        <Route path="/industry/high-barrier-retort" element={<HighbarrierretortPage />} />
+                        <Route path="/industry/custom-spout-pouches" element={<CustomspoutpouchesPage />} />
+                        <Route path="/industry/automatic-labeling-machine" element={<AutomaticLabelingMachinePage />} />
+                        <Route path="/industry/stock-bag-spouted-pouch" element={<StockbagspoutedpouchPage />} />
+                        <Route path="/industry/pet-food-quad-seal" element={<PetfoodquadsealPage />} />
+                        <Route path="/industry/kraft-window-pouch" element={<KraftwindowpouchPage />} />
+                        <Route path="/industry/matcha-supplement-sachets" element={<MatchasupplementsachetsPage />} />
+                        <Route path="/industry/low-moq-fast-turnaround" element={<LowmoqfastturnaroundPage />} />
+                        <Route path="/industry/premium-soft-touch" element={<PremiumsofttouchPage />} />
+                        <Route path="/industry/custom-die-cut-pouches" element={<CustomdiecutpouchesPage />} />
+                        <Route path="/industry/resealable-tin-tie-bags" element={<ResealabletintiebagsPage />} />
+                        <Route path="/industry/sustainable-kraft-solutions" element={<SustainablekraftsolutionsPage />} />
+                        <Route path="/industry/durable-reusable-pouches" element={<DurablereusablepouchesPage />} />
+                        <Route path="/industry/pla-compostable-packaging" element={<PlacompostablepackagingPage />} />
+                        <Route path="/industry/sustainable-healthcare-packaging" element={<SustainablehealthcarepackagingPage />} />
+                        <Route path="/industry/eco-friendly-tea-coffee" element={<EcofriendlyteacoffeePage />} />
+                        <Route path="/industry/compostable-laminated-film" element={<CompostablelaminatedfilmPage />} />
+                        <Route path="/industry/child-resistant-cbd" element={<ChildresistantcbdPage />} />
+                        <Route path="/industry/compostable-protein-bags" element={<CompostableproteinbagsPage />} />
+                        <Route path="/industry/clear-transparent-pouches" element={<CleartransparentpouchesPage />} />
+                        <Route path="/industry/recyclable-vacuum-bags" element={<RecyclablevacuumbagsPage />} />
+                        <Route path="/industry/eco-coffee-bags-valve" element={<EcocoffeebagsvalvePage />} />
+                        <Route path="/industry/pcr-packaging-pouches" element={<PcrpackagingpouchesPage />} />
+                        <Route path="/industry/euro-hole-hang-bags" element={<EuroholehangbagsPage />} />
+                        <Route path="/industry/sustainable-tea-sachets" element={<SustainableteasachetsPage />} />
+                        <Route path="/industry/meat-jerky-packaging" element={<MeatjerkypackagingPage />} />
+                        <Route path="/industry/brown-white-kraft" element={<BrownwhitekraftPage />} />
+                        <Route path="/industry/compostable-sugarcane-pulp-box" element={<SugarcaneboxPage />} />
+                        <Route path="/topics/digital-product-passport-packaging" element={<DigitalProductPassportPackagingPage />} />
+                        <Route path="/topics/dried-fruit-hanging-zipper-pouch" element={<DriedFruitHangingZipperPouchPage />} />
+                        <Route path="/topics/dried-fruit-flat-bottom-pouch" element={<DriedFruitFlatBottomPouchPage />} />
+                        <Route path="/topics/rice-flat-bottom-bag" element={<RiceFlatBottomBagPage />} />
+                        <Route path="/topics/dried-fruits-tear-notch" element={<DriedFruitsTearNotchPage />} />
+                        <Route path="/image-catalog" element={<ImageCatalogPage />} />
+                        <Route path="/quote/coffee-pouch-2025" element={<CoffeePouchQuotePage />} />
+                        <Route path="/return-policy" element={<ReturnPolicyPage />} />
+                        <Route path="/ryan" element={<RyanHologramPage />} />
+                        <Route path="/topics/eu-ppwr-compliance" element={<EUPPWRCompliancePage />} />
+                        <Route path="/topics/food-packaging-supplier-audit" element={<FoodPackagingSupplierPage />} />
+                        {/* Industry Solution Pages */}
+                        <Route path="/industry/coffee-tea" element={<PouchCoffeeTeaPage />} />
+                        <Route path="/industry/pet-food" element={<PouchPetFoodPage />} />
+                        <Route path="/industry/snacks" element={<PouchSnacksPage />} />
+                        <Route path="/industry/snacks-food" element={<PouchSnacksPage />} />
+                        <Route path="/industry/supplements" element={<PouchSupplementsPage />} />
+                        <Route path="/industry/supplements-powders" element={<PouchSupplementsPage />} />
+                        <Route path="/products/recyclable-mono-material-pouches" element={<RecyclableSnackPackagingGuide />} />
+                        <Route path="/products/coffee-bags-degassing-valve" element={<CoffeeDegassingValveGuide />} />
+                        <Route path="/products/low-moq-packaging" element={<LowMOQPackagingGuide />} />
+                        <Route path="/products/compostable-stand-up-pouches" element={<CompostableStandUpPouchesGuide />} />
+                        <Route path="/products/custom-compostable-labels" element={<CustomCompostableLabelsPage />} />
+                        <Route path="/products/compostable-side-gusset-bags" element={<CompostableSideGussetPage />} />
+                        <Route path="/products/eco-stand-up-pouch-guide" element={<EcoStandUpPouchGuidePage />} />
+                        <Route path="/products/eco-stand-up-coffee-pouch" element={<EcoStandUpCoffeePouchPage />} />
+                        <Route path="/products/eco-vs-conventional-pouch-comparison" element={<EcoVsConventionalPouchPage />} />
+                        <Route path="/products/eco-side-gusset-pouch-guide" element={<EcoSideGussetGuidePage />} />
+                        <Route path="/products/side-gusset-coffee-bag-packaging" element={<SideGussetCoffeeBagPage />} />
+                        <Route path="/products/recyclable-side-gusset-bags" element={<RecyclableSideGussetPage />} />
+                        <Route path="/products/eco-box-bottom-pouch" element={<EcoBoxBottomPouchPage />} />
+                        <Route path="/products/eco-flat-bottom-pouch" element={<EcoFlatBottomPouchPage />} />
+                        <Route path="/products/premium-eco-packaging-comparison" element={<PremiumEcoPackagingComparisonPage />} />
+                        <Route path="/products/custom-printed-corrugated-boxes" element={<CustomCorrugatedBoxesPage />} />
+                        <Route path="/products/custom-printed-tuck-boxes" element={<CustomTuckBoxesPage />} />
+                        <Route path="/products/premium-cotton-paper-foil-pouch" element={<CottonPaperFoilPouchPage />} />
+                        
+                        {/* Legacy pouch.eco routes recovery */}
+                        <Route path="/100-compostable-3-side-sealed-pouch-for-drink-liquid-alcohol-etc" element={<DrinkLiquidPouchPage />} />
+                        <Route path="/digital-print-conventional-zipper-stand-up-pouch-bag-with-moq-start-from-100pcs" element={<LowMOQStandUpPouchPage />} />
+                        <Route path="/eco-friendly-packaging-revolution-introducing-bio-based-spout-pouches-for-liquid" element={<BioBasedSpoutPouchesPage />} />
+                        <Route path="/understand-trapping-why-we-need-to-add-a-keyline" element={<TrappingKeylinePage />} />
+                        <Route path="/sustainable-packaging-revolution-glass-bottles-paired-with-compostable-refill-pouches-for-an-eco-friendly-lifestyle" element={<RefillPouchesPage />} />
+                        <Route path="/the-way-to-use-k-seal-bag-packing-heavy-content" element={<KSealHeavyContentPage />} />
+                        <Route path="/category/packaging-technical-data-sheet" element={<TechnicalDataSheetCategoryPage />} />
+                        
+                        <Route path="/tech-specs" element={<PouchTechSpecsPage />} />
+                        <Route path="/quotes/flat-bottom" element={<FlatBottomQuotePage />} />
+                        <Route path="/quotes/three-side-seal" element={<ThreeSideSealQuotePage />} />
+                        <Route path="/quotes/stand-up-pouch" element={<StandUpPouchQuotePage />} />
+                        <Route path="/quotes/spouted-pouch" element={<SpoutedPouchQuotePage />} />
+                        <Route path="/quotes/rollstock" element={<RollstockQuotePage />} />
+                        <Route path="/cert" element={<CertificateDownloadPage />} />
+                        <Route path="/sample" element={<PouchCustomPrintedSamplePage />} />
+                        <Route path="/unprinted-samples" element={<PouchUnprintedSamplesPage />} />
+                        <Route path="/support/color-accuracy-digital-printing" element={<PouchColorAccuracyPage />} />
+                        <Route path="/quote" element={<QuotationViewPage />} />
+                        <Route path="/quote/:id" element={<QuotationViewPage />} />
+                        <Route path="/artwork-review/:batchId" element={<ArtworkReviewPage />} />
+                        <Route path="/support/sample-quote" element={<CustomPrintedSamplePage />} />
+                        <Route path="/support/unprinted-samples" element={<UnprintedSamplesPage />} />
+                        <Route path="/reports/state-of-packaging-2026" element={<PackagingReport2026 />} />
+                        <Route path="/workshop-register" element={<WorkshopRegisterPage />} />
+
+                        {/* Batch 7 Spec Pages */}
+                        <Route path="/spec/pcr-kraft-vmpet" element={<PcrKraftVmpetPage />} />
+                        <Route path="/spec/biope-kraft-vmpet" element={<BioPeKraftVmpetPage />} />
+                        <Route path="/spec/biope-pet-kraft-triplex-clear" element={<BioPePetKraftTriplexClearPage />} />
+                        <Route path="/spec/biope-pet-triplex-aluminum" element={<BioPePetTriplexAluminumPage />} />
+                        <Route path="/spec/mono-pe-duplex-clear" element={<MonoPeDuplexClearPage />} />
 
                         
                         {/* New Knowledge Base Routes */}
@@ -2435,6 +2962,7 @@ if (getDomain() === 'pouch') {
               <Route path="/topics/leo-custom-bag-innovation" element={<LeoCustomBagInnovation />} />
               <Route path="/topics/david-wholesale-pouch-experience" element={<DavidWholesalePouchExperience />} />
               <Route path="/topics/coffee-valve-closure-technology" element={<CoffeeValveClosureTechnology />} />
+              <Route path="*" element={<App />} />
                       </MultilingualRoutes>
                     </Suspense>
                     {/* Global Floating Buttons - WhatsApp & Meeting */}
@@ -2457,43 +2985,4 @@ if (getDomain() === 'pouch') {
   )
 }
 
-const PackagingBrandingOgImage = lazyWithRetry(() => import('./pages/topics/PackagingBrandingOgImage'));
-const SustainableClimatePackaging = lazyWithRetry(() => import('./pages/topics/SustainableClimatePackaging'));
-const BiopePlantBasedBarrierFilms = lazyWithRetry(() => import('./pages/topics/BiopePlantBasedBarrierFilms'));
-const FoodBeverageFlexiblePackaging = lazyWithRetry(() => import('./pages/topics/FoodBeverageFlexiblePackaging'));
-const PlantBasedPackagingInfographic = lazyWithRetry(() => import('./pages/topics/PlantBasedPackagingInfographic'));
-const PremiumBrandIdentityPackaging = lazyWithRetry(() => import('./pages/topics/PremiumBrandIdentityPackaging'));
-const ShippingStorageEfficiencyPackaging = lazyWithRetry(() => import('./pages/topics/ShippingStorageEfficiencyPackaging'));
-const FlexibleVsRigidPackagingComparison = lazyWithRetry(() => import('./pages/topics/FlexibleVsRigidPackagingComparison'));
-const FiveStepCustomPackagingProcess = lazyWithRetry(() => import('./pages/topics/FiveStepCustomPackagingProcess'));
-const CustomPackagingSolutionsConsultation = lazyWithRetry(() => import('./pages/topics/CustomPackagingSolutionsConsultation'));
-const BrcCert = lazyWithRetry(() => import('./pages/topics/BrcCert'));
-const LandingHero = lazyWithRetry(() => import('./pages/topics/LandingHero'));
-const TestimonialsClientLogos = lazyWithRetry(() => import('./pages/topics/TestimonialsClientLogos'));
-const SolutionPetProducts = lazyWithRetry(() => import('./pages/topics/SolutionPetProducts'));
-const SolutionCosmetics = lazyWithRetry(() => import('./pages/topics/SolutionCosmetics'));
-const CertHomeCompost = lazyWithRetry(() => import('./pages/topics/CertHomeCompost'));
-const FeatureReclosureSolutions = lazyWithRetry(() => import('./pages/topics/FeatureReclosureSolutions'));
-const InfographicCarbonFootprint = lazyWithRetry(() => import('./pages/topics/InfographicCarbonFootprint'));
-const SolutionWellness = lazyWithRetry(() => import('./pages/topics/SolutionWellness'));
-const EnvironmentalChart = lazyWithRetry(() => import('./pages/topics/EnvironmentalChart'));
-const QuestionMark = lazyWithRetry(() => import('./pages/topics/QuestionMark'));
-const ShippingIllustration = lazyWithRetry(() => import('./pages/topics/ShippingIllustration'));
-const GlassJar = lazyWithRetry(() => import('./pages/topics/GlassJar'));
-const DimensionsGuide = lazyWithRetry(() => import('./pages/topics/DimensionsGuide'));
-const ProjectionGraph = lazyWithRetry(() => import('./pages/topics/ProjectionGraph'));
-const SavingsChart = lazyWithRetry(() => import('./pages/topics/SavingsChart'));
-const SuccessIcon = lazyWithRetry(() => import('./pages/topics/SuccessIcon'));
-const MetalCan = lazyWithRetry(() => import('./pages/topics/MetalCan'));
-const Img = lazyWithRetry(() => import('./pages/topics/Img'));
-const CustomPackagingDesignSpotlight8042 = lazyWithRetry(() => import('./pages/topics/CustomPackagingDesignSpotlight8042'));
-const HowToStartPackagingJourney = lazyWithRetry(() => import('./pages/topics/HowToStartPackagingJourney'));
-const RemiPackagingCaseStudy = lazyWithRetry(() => import('./pages/topics/RemiPackagingCaseStudy'));
-const HollyBrandPackagingSuccess = lazyWithRetry(() => import('./pages/topics/HollyBrandPackagingSuccess'));
-const JemmaSustainablePouchStory = lazyWithRetry(() => import('./pages/topics/JemmaSustainablePouchStory'));
-const StephRetailPackagingShowcase = lazyWithRetry(() => import('./pages/topics/StephRetailPackagingShowcase'));
-const CherylEcoDesignCase = lazyWithRetry(() => import('./pages/topics/CherylEcoDesignCase'));
-const LeoCustomBagInnovation = lazyWithRetry(() => import('./pages/topics/LeoCustomBagInnovation'));
-const DavidWholesalePouchExperience = lazyWithRetry(() => import('./pages/topics/DavidWholesalePouchExperience'));
-const CoffeeValveClosureTechnology = lazyWithRetry(() => import('./pages/topics/CoffeeValveClosureTechnology'));
 
