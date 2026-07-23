@@ -18,6 +18,7 @@ import { NeoButton, NeoCard, NeoBadge } from './pouch/PouchUI'
 import WorkCarousel from './WorkCarousel'
 import KnowHowCarousel from './KnowHowCarousel'
 import FactoryQCValidationBlock from './FactoryQCValidationBlock'
+import RelatedProductsShowcase from './RelatedProductsShowcase'
 
 // Category icons for Learn Menu
 const CATEGORY_ICONS: Record<string, React.ReactNode> = {
@@ -49,9 +50,10 @@ const SEOPageHeader: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
-  // Pre-fill Resources menu with random content when it opens
+  // Pre-fill Resources menu with random content when it opens; reset when it closes
   useEffect(() => {
-    if (activeMenu === 'resources' && !activeCategory) {
+    if (activeMenu === 'resources') {
+      // Always pick a fresh random category each time the menu opens
       const categoryKeys = Object.keys(LEARN_PAGES)
       const randomCategoryKey = categoryKeys[Math.floor(Math.random() * categoryKeys.length)]
       setActiveCategory(randomCategoryKey)
@@ -59,12 +61,11 @@ const SEOPageHeader: React.FC = () => {
       if (category && category.pages.length > 0) {
         const randomPage = category.pages[Math.floor(Math.random() * category.pages.length)]
         setHoveredPage(randomPage)
+      } else {
+        setHoveredPage(null)
       }
-    }
-  }, [activeMenu])
-
-  useEffect(() => {
-    if (activeMenu !== 'resources') {
+    } else {
+      // Reset when menu closes so next open is always fresh
       setActiveCategory(null)
       setHoveredPage(null)
     }
@@ -826,6 +827,7 @@ interface SEOPageLayoutProps {
 
   // Material type override
   materialType?: 'compostable' | 'pcr' | 'biope' | 'recyclable' | 'unknown'
+  relatedProductIds?: string[]
 }
 
 const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
@@ -859,7 +861,8 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   heroBgColor,
   aboveTitle,
   breadcrumbs,
-  materialType
+  materialType,
+  relatedProductIds
 }) => {
   const safeKeywords = Array.isArray(keywords) 
     ? keywords 
@@ -1593,6 +1596,11 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
             )}
             <WorkCarousel theme="pouch" />
             <KnowHowCarousel theme="pouch" />
+            {relatedProductIds && relatedProductIds.length > 0 && (
+              <div className="max-w-7xl mx-auto px-4 pb-12">
+                <RelatedProductsShowcase productIds={relatedProductIds} />
+              </div>
+            )}
           </div>
         </PouchLayout>
       </>
@@ -2062,6 +2070,11 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
 {/* Footer */}
         <WorkCarousel theme="achieve" />
         <KnowHowCarousel theme="achieve" />
+        {relatedProductIds && relatedProductIds.length > 0 && (
+          <div className="max-w-7xl mx-auto px-4 pb-12">
+            <RelatedProductsShowcase productIds={relatedProductIds} />
+          </div>
+        )}
         <StickyFreeSampleCTA />
         <Footer />
 
