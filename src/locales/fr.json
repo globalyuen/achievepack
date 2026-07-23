@@ -37179,6 +37179,58 @@
           ]
         }
       },
+      "compostableBarPackaging": {
+        "title": "Emballage de Barre Compostable Industriel (3 Couches Papier Kraft + PLA Métallisé + Mélange PLA & PBAT) | Achieve Pack",
+        "description": "Emballage compostable industriel de qualité supérieure pour barres chocolatées, énergétiques et protéinées. Découvrez la structure barrière laminée à 3 couches (Kraft, PLA métallisé, PLA/PBAT) et les filières de compostage certifiées.",
+        "keywords": "emballage de barre compostable, emballage de barre de chocolat, emballage de barre énergétique, emballage compostable industriel, papier Kraft PLA métallisé, mélange PLA PBAT",
+        "heroTitle": "Emballage de Barre Certifié Compostable Industriel",
+        "heroSubtitle": "Protection Supérieure à 3 Couches pour Barres Énergétiques, Protéinées et Chocolatées",
+        "heroDescription": "Une lamination haute performance de papier Kraft, de PLA métallisé et d'un mélange de scellage PLA/PBAT pour garder vos barres fraîches tout en respectant les normes strictes de compostage industriel.",
+        "heroBadge": "Guide Spécifique des Matériaux",
+        "heroReadTime": "6 min de lecture",
+        "introSummary": "Notre emballage de barre compostable à 3 couches résout le dilemme ultime de la durabilité : fournir une excellente protection barrière contre l'oxygène et l'humidité pour éviter les taches d'huile et la détérioration tout en restant 100 % compostable industriellement.",
+        "ctaTitle": "Demander des Échantillons d'Emballages de Barres Compostables Personnalisés",
+        "ctaDescription": "Testez nos emballages laminés en papier Kraft à haute barrière sur vos lignes d'emballage de scellage vertical automatique à grande vitesse (VFFS).",
+        "ctaButtonText": "Obtenir des Échantillons Gratuits",
+        "sections": {
+          "detail1": {
+            "title": "Conception d'un Emballage Compostable Haute Barrière à 3 Couches",
+            "desc": "Les emballages de barres traditionnels reposent sur des laminations plastique/aluminium non recyclables. Notre solution technique utilise trois couches compostables : 1) Une couche externe en papier Kraft brut pour la résistance et l'imprimabilité, 2) Une couche intermédiaire en PLA métallisé qui fournit une barrière élevée contre l'humidité et l'oxygène, et 3) Une couche interne en mélange PLA et PBAT pour un scellage flexible et durable."
+          },
+          "specifications": {
+            "title": "Performances Techniques et Spécifications Barrière",
+            "desc": "Cet emballage est strictement compostable industriellement, certifié conforme aux normes EN 13432 et ASTM D6400. Il nécessite les conditions d'une installation commerciale (55-60°C) pour se biodégrader complètement en 90 à 180 jours. Il atteint un faible taux de transmission de la vapeur d'eau (MVTR) inférieur à 0,1 g/m²/jour et un taux de transmission de l'oxygène (OTR) inférieur à 0,1 cc/m²/jour, garantissant le maintien de la durée de conservation standard des barres de collation."
+          },
+          "qa": {
+            "title": "Aperçu Technique Expert",
+            "desc": "Dans nos tests d'ingénierie, nous avons observé que l'ajout d'une couche de PLA métallisé maintient la durée de conservation requise des barres à haute teneur en matières grasses sans sacrifier la compostabilité. Le mélange de scellant interne PLA/PBAT a été calibré pour fonctionner en douceur sur les machines d'emballage VFFS à des températures de scellage comprises entre 140°C et 160°C."
+          }
+        },
+        "faqs": {
+          "q1": "Où cet emballage de barre peut-il être composté ?",
+          "a1": "Il doit être jeté dans les bacs de collecte des déchets organiques municipaux destinés aux installations de compostage industriel. Il est certifié EN 13432 et ASTM D6400, mais ne se décomposera pas dans les composteurs domestiques en raison des exigences de température plus élevées (55-60°C).",
+          "q2": "Les huiles ou graisses des barres chocolatées et énergétiques vont-elles traverser le papier Kraft ?",
+          "a2": "Non. La couche intermédiaire de PLA métallisé et la couche interne de mélange PLA/PBAT agissent comme une barrière solide qui empêche les graisses et les huiles de tacher ou de traverser la surface du papier.",
+          "q3": "Ces emballages peuvent-ils être utilisés sur des machines d'emballage standard ?",
+          "a3": "Oui. Nos films compostables en bobines sont calibrés avec un coefficient de frottement dynamique (COF) de 0,2 à 0,3, garantissant la compatibilité avec les machines d'emballage de scellage vertical et horizontal (VFFS/HFFS) à grande vitesse."
+        },
+        "table": {
+          "title": "Matrice de Comparaison des Propriétés des Matériaux d'Emballage de Barre",
+          "headers": [
+            "Propriété",
+            "Emballage Compostable à 3 Couches",
+            "Plastique Standard (PET/PE)",
+            "Papier Compostable Domestique"
+          ],
+          "rows": [
+            ["Structure de lamination", "Kraft / Met-PLA / PLA-PBAT", "OPP / VMPET / PE", "Papier / Enduction d'amidon"],
+            ["Barrière (MVTR et OTR)", "Élevée (Inférieure à 0,1)", "Excellente (Inférieure à 0,05)", "Faible (Supérieure à 2,0)"],
+            ["Résistance aux huiles et graisses", "Excellente", "Excellente", "Faible (Se tache facilement)"],
+            ["Élimination en fin de vie", "Compost Industriel (90-180 jours)", "Décharge (Non recyclable)", "Compost Domestique / Industriel"],
+            ["Température de scellage machine", "140°C - 160°C", "120°C - 140°C", "160°C - 180°C"]
+          ]
+        }
+      },
       "plaCompostable": {
         "title": "How does 100% PLA Compostable Film & Pouches Biodegrade?",
         "description": "Yes, Polylactic Acid (PLA) made from renewable cornstarch biodegrades within 90-180 days under industrial composting conditions (55-60°C). Achieve Pack supplies TUV OK Compost and EN 13432 certified PLA films and stand-up pouches with high transparency, food safety compliance, and digital print MOQs from 500 units.",

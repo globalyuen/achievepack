@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { ShoppingCart, User, Globe, Menu, X, Gift, Search, ChevronDown, ChevronRight, Zap, Coffee } from 'lucide-react'
+import { ShoppingCart, User, Globe, Menu, X, Gift, Search, ChevronDown, ChevronRight, Zap, Coffee, Box } from 'lucide-react'
 import { LEARN_PAGES } from './LearnNavigation'
 import { useStore } from '../store/StoreContext'
 import MegaMenu, { RightNavMenu } from './MegaMenu'
@@ -213,8 +213,13 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-100' : 'bg-white border-b border-neutral-100'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Top Row: Icons only on right */}
-          <div className="hidden lg:flex items-center justify-end h-10 pt-2">
+          {/* Top Row: Product Hunt Follow Badge on left, Icons on right */}
+          <div className="hidden lg:flex items-center justify-between h-10 pt-2">
+            <div>
+              <a href="https://www.producthunt.com/products/achieve-pack-free-3d-studio?utm_source=badge-follow&utm_medium=badge&utm_source=badge-achieve-pack-free-3d-studio" target="_blank" rel="noopener noreferrer" className="block">
+                <img src="https://api.producthunt.com/widgets/embed-image/v1/follow.svg?product_id=1271214&theme=light" alt="Achieve Pack Free 3D Studio - Design & visualize 3D pouches instantly in your browser. | Product Hunt" style={{ width: '185px', height: '40px' }} width="185" height="40" />
+              </a>
+            </div>
             <div className="flex items-center space-x-2">
               <button
                 onClick={() => setIsSearchOpen(true)}
@@ -296,6 +301,13 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
               >
                 <Search className="h-5 w-5 text-white" />
               </button>
+              <Link
+                to="/studio"
+                className="w-11 h-11 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors active:scale-95"
+                title="3D Studio"
+              >
+                <Box className="h-5 w-5 text-white" />
+              </Link>
               <Link
                 to="/store"
                 className="w-11 h-11 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors active:scale-95"

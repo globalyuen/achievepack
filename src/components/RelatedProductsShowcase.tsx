@@ -30,7 +30,7 @@ export default function RelatedProductsShowcase({ productIds }: RelatedProductsS
     return (
       <div className="my-12 border-t-4 border-black pt-10 text-left">
         <h3 className="font-black text-2xl md:text-3xl uppercase tracking-tight mb-6 text-black">
-          {t('seo.relatedProducts.title', 'Related Store Products')}
+          {t('seo.relatedProducts.title', 'See Our Products')}
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {productsToShow.map((product: StoreProduct) => {
@@ -108,7 +108,7 @@ export default function RelatedProductsShowcase({ productIds }: RelatedProductsS
   return (
     <div className="my-16 border-t border-neutral-200 pt-12 text-left">
       <h3 className="font-bold text-2xl text-neutral-900 tracking-tight mb-8">
-        {t('seo.relatedProducts.title', 'Related Store Products')}
+        {t('seo.relatedProducts.title', 'See Our Products')}
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {productsToShow.map((product: StoreProduct) => {

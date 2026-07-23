@@ -8,7 +8,7 @@ import imageSeoMapRaw from '../../data/image-seo-map.json';
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
 
-const imageSeoMap = imageSeoMapRaw as Record<string, Array<{title: string, url: string}>>;
+const imageSeoMap = imageSeoMapRaw as unknown as Record<string, string | Array<{title: string, url: string}>>;
 
 interface GalleryImage {
   id: string;
@@ -116,9 +116,15 @@ export default function ImageGalleryPage() {
         ) : (
           <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
             {filteredImages.slice(0, displayLimit).map((img, idx) => {
-                const isMapped = imageSeoMap[img.src] && imageSeoMap[img.src].length > 0;
+                const entry = imageSeoMap[img.src];
+                const isMapped = entry && (typeof entry === 'string' || (Array.isArray(entry) && entry.length > 0));
+                const targetUrl = typeof entry === 'string'
+                  ? entry
+                  : (Array.isArray(entry) && entry.length > 0)
+                    ? entry[0].url
+                    : '#';
                 const Wrapper = isMapped ? Link : 'div';
-                const wrapperProps: any = isMapped ? { to: imageSeoMap[img.src][0].url } : { onClick: () => setSelectedImage(img) };
+                const wrapperProps: any = isMapped ? { to: targetUrl } : { onClick: () => setSelectedImage(img) };
                 
                 return (
                   <Wrapper 
@@ -195,22 +201,30 @@ export default function ImageGalleryPage() {
               </div>
               
               <div className="flex flex-col gap-2 min-w-[200px]">
-                {imageSeoMap[selectedImage.src] && imageSeoMap[selectedImage.src].length > 0 ? (
-                  <>
-                    <span className="text-neutral-400 text-xs font-bold uppercase tracking-wider mb-1">Related Pages:</span>
-                    {imageSeoMap[selectedImage.src].map((page, idx) => (
-                      <Link 
-                        key={idx}
-                        to={page.url}
-                        className="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-lg font-bold hover:bg-[#D4FF00] transition"
-                      >
-                        <LinkIcon className="h-4 w-4" /> {page.title}
-                      </Link>
-                    ))}
-                  </>
-                ) : (
-                  <span className="text-neutral-500 text-sm italic border border-neutral-700 px-4 py-2 rounded-lg">No related pages found</span>
-                )}
+                {(() => {
+                  const entry = imageSeoMap[selectedImage.src];
+                  const pages = Array.isArray(entry) 
+                    ? entry 
+                    : typeof entry === 'string' 
+                      ? [{ title: entry, url: entry }] 
+                      : [];
+                  return pages.length > 0 ? (
+                    <>
+                      <span className="text-neutral-400 text-xs font-bold uppercase tracking-wider mb-1">Related Pages:</span>
+                      {pages.map((page, idx) => (
+                        <Link 
+                          key={idx}
+                          to={page.url}
+                          className="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-lg font-bold hover:bg-[#D4FF00] transition"
+                        >
+                          <LinkIcon className="h-4 w-4" /> {page.title}
+                        </Link>
+                      ))}
+                    </>
+                  ) : (
+                    <span className="text-neutral-500 text-sm italic border border-neutral-700 px-4 py-2 rounded-lg">No related pages found</span>
+                  );
+                })()}
               </div>
             </div>
           </div>

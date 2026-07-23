@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { TransformControls } from 'three/examples/jsm/controls/TransformControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js';
@@ -35,7 +36,7 @@ export default function PackageEditorPage() {
   const editorCanvasRef = useRef<HTMLCanvasElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const canRef = useRef<THREE.Group | null>(null);
-  const [showReferenceCan, setShowReferenceCan] = useState<boolean>(true);
+  const [showReferenceCan, setShowReferenceCan] = useState<boolean>(false);
 
   // Helper to construct a white 355ml cola can (radius 33mm, height 122mm) dynamically
   const createColaCanModel = () => {
@@ -280,8 +281,14 @@ export default function PackageEditorPage() {
   const [createdCustomUrl, setCreatedCustomUrl] = useState<string>('');
   const [copiedCustomLink, setCopiedCustomLink] = useState<boolean>(false);
 
-  // Mobile tab state: '3d' | '2d' | 'settings'
-  const [mobileTab, setMobileTab] = useState<'3d' | '2d' | 'settings'>('3d');
+  const [isRecording, setIsRecording] = useState<boolean>(false);
+  const [recordingProgress, setRecordingProgress] = useState<number>(0);
+
+  // Turntable and rotation settings
+  const [isLiveTurntable, setIsLiveTurntable] = useState<boolean>(false);
+  const [turntableDuration, setTurntableDuration] = useState<number>(5);
+  const [turntableRotations, setTurntableRotations] = useState<number>(1);
+  const [turntableDirection, setTurntableDirection] = useState<'cw' | 'ccw'>('cw');
 
   // Three.js and Canvas Refs
   const sceneRef = useRef<THREE.Scene | null>(null);
@@ -294,12 +301,17 @@ export default function PackageEditorPage() {
   const originalTexturesRef = useRef<Map<string, THREE.Texture>>(new Map());
 
   // Lights and floor refs
+  const ambientLightRef = useRef<THREE.AmbientLight | null>(null);
   const dirLight1Ref = useRef<THREE.DirectionalLight | null>(null);
   const dirLight2Ref = useRef<THREE.DirectionalLight | null>(null);
   const rimLightRef = useRef<THREE.DirectionalLight | null>(null);
   const floorRef = useRef<THREE.Mesh | null>(null);
   const gridRef = useRef<THREE.GridHelper | null>(null);
   const exportingRef = useRef<boolean>(false);
+
+  // Turntable refs to bypass closures in animation loop
+  const isLiveTurntableRef = useRef<boolean>(false);
+  const turntableDirectionRef = useRef<'cw' | 'ccw'>('cw');
 
   // Offscreen canvas for rendering clean textures
   const offscreenCanvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -640,6 +652,14 @@ export default function PackageEditorPage() {
     updateModelScale();
   }, [width, height, depth, unit, showReferenceCan]);
 
+  useEffect(() => {
+    isLiveTurntableRef.current = isLiveTurntable;
+  }, [isLiveTurntable]);
+
+  useEffect(() => {
+    turntableDirectionRef.current = turntableDirection;
+  }, [turntableDirection]);
+
   // Initialize ThreeJS on mount
   useEffect(() => {
     if (!containerRef.current || sceneRef.current) return;
@@ -678,6 +698,7 @@ export default function PackageEditorPage() {
     // 5. Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
     scene.add(ambientLight);
+    ambientLightRef.current = ambientLight;
 
     const dirLight1 = new THREE.DirectionalLight(0xffffff, 1.5);
     dirLight1.castShadow = true;
@@ -697,7 +718,7 @@ export default function PackageEditorPage() {
 
     // Floor and Grid
     const floorGeo = new THREE.PlaneGeometry(1, 1);
-    const floorMat = new THREE.ShadowMaterial({ opacity: 0.4 });
+    const floorMat = new THREE.ShadowMaterial({ opacity: 0.45 });
     const floor = new THREE.Mesh(floorGeo, floorMat);
     floor.rotation.x = -Math.PI / 2;
     floor.position.y = 0;
@@ -1011,6 +1032,13 @@ export default function PackageEditorPage() {
       } else {
         clockRef.current.getDelta(); // keep clock ticking
       }
+
+      // Auto-rotate model for live turntable preview
+      if (isLiveTurntableRef.current && modelRef.current) {
+        const speed = 0.005 * (turntableDirectionRef.current === 'ccw' ? -1 : 1);
+        modelRef.current.rotation.y += speed;
+      }
+
       renderer.render(scene, camera);
     };
     animate();
@@ -1027,12 +1055,17 @@ export default function PackageEditorPage() {
 
     // Window Resize Handler
     const handleResize = () => {
-      if (!containerRef.current || !cameraRef.current || !rendererRef.current) return;
-      const w = containerRef.current.clientWidth;
-      const h = containerRef.current.clientHeight;
-      cameraRef.current.aspect = w / h;
-      cameraRef.current.updateProjectionMatrix();
-      rendererRef.current.setSize(w, h);
+      if (!cameraRef.current || !rendererRef.current) return;
+      const targetContainer = containerRef.current;
+
+      if (!targetContainer) return;
+      const w = targetContainer.clientWidth;
+      const h = targetContainer.clientHeight;
+      if (w > 0 && h > 0) {
+        cameraRef.current.aspect = w / h;
+        cameraRef.current.updateProjectionMatrix();
+        rendererRef.current.setSize(w, h);
+      }
     };
     window.addEventListener('resize', handleResize);
 
@@ -1050,41 +1083,47 @@ export default function PackageEditorPage() {
     };
   }, [viewMode]);
 
-  // Re-parent / resize Three.js renderer when switching between mobile tabs or breakpoints
+  // Resize and observe Three.js renderer dynamically based on container size
   useEffect(() => {
-    if (!rendererRef.current || !cameraRef.current) return;
+    if (!rendererRef.current || !cameraRef.current || viewMode !== 'editor') return;
     const renderer = rendererRef.current;
     const camera = cameraRef.current;
+    const targetContainer = containerRef.current;
 
-    // Determine which container should host the renderer canvas
-    const isMobileViewport = window.innerWidth < 1024; // lg breakpoint
-    let targetContainer: HTMLElement | null = null;
-
-    if (isMobileViewport && mobileTab === '3d') {
-      targetContainer = document.getElementById('mobile-3d-container');
-    } else if (!isMobileViewport) {
-      targetContainer = containerRef.current;
-    }
-
-    if (targetContainer && !targetContainer.contains(renderer.domElement)) {
-      // Move the canvas to the correct container
-      if (renderer.domElement.parentElement) {
-        renderer.domElement.parentElement.removeChild(renderer.domElement);
-      }
-      targetContainer.appendChild(renderer.domElement);
-    }
-
-    // Resize renderer to match the new container
     if (targetContainer) {
-      const w = targetContainer.clientWidth || window.innerWidth;
-      const h = targetContainer.clientHeight || window.innerHeight * 0.5;
+      if (!targetContainer.contains(renderer.domElement)) {
+        if (renderer.domElement.parentElement) {
+          renderer.domElement.parentElement.removeChild(renderer.domElement);
+        }
+        targetContainer.appendChild(renderer.domElement);
+      }
+
+      // Initial size setup
+      const w = targetContainer.clientWidth || 800;
+      const h = targetContainer.clientHeight || 600;
       if (w > 0 && h > 0) {
         camera.aspect = w / h;
         camera.updateProjectionMatrix();
         renderer.setSize(w, h);
       }
+
+      // Continuous observing of container size
+      const resizeObserver = new ResizeObserver((entries) => {
+        if (!entries || entries.length === 0) return;
+        const entry = entries[0];
+        const observedW = entry.contentRect.width || targetContainer!.clientWidth;
+        const observedH = entry.contentRect.height || targetContainer!.clientHeight;
+        if (observedW > 0 && observedH > 0 && cameraRef.current && rendererRef.current) {
+          cameraRef.current.aspect = observedW / observedH;
+          cameraRef.current.updateProjectionMatrix();
+          rendererRef.current.setSize(observedW, observedH);
+        }
+      });
+
+      resizeObserver.observe(targetContainer);
+      return () => resizeObserver.disconnect();
     }
-  }, [mobileTab, viewMode]);
+  }, [viewMode]);
 
   // Shared function to load a packaging shape into the 3D studio scene
   const loadShape = (shape: Shape | undefined, presetWidth?: number, presetHeight?: number, presetLayers?: any[], presetUnit?: string) => {
@@ -1482,6 +1521,8 @@ export default function PackageEditorPage() {
               setSelectedShapeId(shape.id);
               setViewMode('editor');
               loadShape(shape, d.width, d.height, d.layers, d.unit);
+              if (d.backdrop) setBackdrop(d.backdrop);
+              if (d.customProps) setCustomProps(d.customProps);
               // Switch active category
               const cat = (shape.category || 'Other').toLowerCase();
               const knownCategories = ['pouch', 'spouted pouch', 'box', 'bottle', 'tray', 'cup', 'bag', 't-shirt', 'label'];
@@ -1495,6 +1536,8 @@ export default function PackageEditorPage() {
               setSelectedShapeId('');
               setViewMode('editor');
               loadShape(undefined, d.width, d.height, d.layers, d.unit);
+              if (d.backdrop) setBackdrop(d.backdrop);
+              if (d.customProps) setCustomProps(d.customProps);
             }
             return;
           }
@@ -1558,7 +1601,7 @@ export default function PackageEditorPage() {
         setTimeout(() => {
           loadShape(shape);
           const checkInterval = setInterval(() => {
-            const threeCanvas = containerRef.current?.querySelector('canvas') || document.getElementById('mobile-3d-container')?.querySelector('canvas');
+            const threeCanvas = containerRef.current?.querySelector('canvas');
             if (threeCanvas && modelRef.current) {
               clearInterval(checkInterval);
               resolve();
@@ -1582,7 +1625,7 @@ export default function PackageEditorPage() {
         // Force render
         rendererRef.current.render(sceneRef.current, cameraRef.current);
         
-        const canvas = containerRef.current?.querySelector('canvas') || document.getElementById('mobile-3d-container')?.querySelector('canvas');
+        const canvas = containerRef.current?.querySelector('canvas');
         if (canvas) {
           return canvas.toDataURL('image/png');
         }
@@ -1879,7 +1922,9 @@ export default function PackageEditorPage() {
           height,
           depth,
           unit,
-          layers: serializedLayers
+          layers: serializedLayers,
+          backdrop,
+          customProps,
         })
       });
 
@@ -2066,6 +2111,381 @@ export default function PackageEditorPage() {
       setHeight(h => Math.round(h * 25.4));
       setDepth(d => parseFloat((d * 25.4).toFixed(1)));
     }
+  };
+
+
+
+  // Export 3D GLB model (opens modal)
+  const exportGLTF = () => {
+    setIsEmailModalOpen(true);
+  };
+
+  // Export 3D model as a spinning turntable video (WebM)
+  const exportTurntableVideo = async () => {
+    if (!rendererRef.current || !sceneRef.current || !cameraRef.current || !modelRef.current) {
+      alert('3D model is not loaded yet.');
+      return;
+    }
+
+    const canvas = rendererRef.current.domElement;
+    
+    // Check browser support
+    let stream: MediaStream;
+    try {
+      stream = (canvas as any).captureStream ? (canvas as any).captureStream(30) : (canvas as any).mozCaptureStream(30);
+    } catch (e) {
+      alert('Your browser does not support video recording from Canvas. Please use Chrome, Firefox, or Edge.');
+      return;
+    }
+
+    setIsRecording(true);
+    setRecordingProgress(0);
+
+    const originalRotationY = modelRef.current.rotation.y;
+    const originalControlsEnabled = controlsRef.current ? controlsRef.current.enabled : true;
+
+    if (controlsRef.current) {
+      controlsRef.current.enabled = false; // Disable controls during spin
+    }
+
+    const chunks: Blob[] = [];
+    let recorder: MediaRecorder;
+    
+    try {
+      const types = [
+        'video/webm;codecs=vp9',
+        'video/webm;codecs=vp8',
+        'video/webm',
+        'video/mp4'
+      ];
+      let selectedType = '';
+      for (const t of types) {
+        if (MediaRecorder.isTypeSupported(t)) {
+          selectedType = t;
+          break;
+        }
+      }
+      
+      recorder = new MediaRecorder(stream, { mimeType: selectedType });
+    } catch (err) {
+      console.error('Failed to initialize MediaRecorder:', err);
+      alert('MediaRecorder initialization failed.');
+      setIsRecording(false);
+      if (controlsRef.current) controlsRef.current.enabled = originalControlsEnabled;
+      return;
+    }
+
+    recorder.ondataavailable = (e) => {
+      if (e.data && e.data.size > 0) {
+        chunks.push(e.data);
+      }
+    };
+
+    recorder.onstop = () => {
+      const extension = recorder.mimeType.includes('mp4') ? 'mp4' : 'webm';
+      const blob = new Blob(chunks, { type: recorder.mimeType });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      const activeShape = shapes.find(s => String(s.id) === String(selectedShapeId));
+      link.download = activeShape ? `${activeShape.id}-turntable.${extension}` : `3d-model-turntable.${extension}`;
+      link.click();
+      URL.revokeObjectURL(url);
+      
+      // Restore original rotation and controls
+      if (modelRef.current) {
+        modelRef.current.rotation.y = originalRotationY;
+      }
+      if (controlsRef.current) {
+        controlsRef.current.enabled = originalControlsEnabled;
+      }
+      setIsRecording(false);
+    };
+
+    const duration = turntableDuration * 1000;
+    const fps = 30;
+    const intervalMs = 1000 / fps;
+    const totalFrames = (duration / 1000) * fps;
+    const directionMultiplier = turntableDirection === 'ccw' ? -1 : 1;
+    const rotationsMultiplier = turntableRotations;
+    let currentFrame = 0;
+
+    recorder.start();
+
+    const recordTimer = setInterval(() => {
+      currentFrame++;
+      const progress = Math.min(Math.round((currentFrame / totalFrames) * 100), 100);
+      setRecordingProgress(progress);
+
+      if (modelRef.current) {
+        modelRef.current.rotation.y += (directionMultiplier * rotationsMultiplier * 2 * Math.PI) / totalFrames;
+      }
+
+      if (rendererRef.current && sceneRef.current && cameraRef.current) {
+        rendererRef.current.render(sceneRef.current, cameraRef.current);
+      }
+
+      if (currentFrame >= totalFrames) {
+        clearInterval(recordTimer);
+        recorder.stop();
+      }
+    }, intervalMs);
+  };
+
+  // Export dieline template as an editable vector SVG file
+  const exportDielineSVG = () => {
+    const activeShape = shapes.find(s => String(s.id) === String(selectedShapeId));
+    const shapeCategory = activeShape ? detectCategory(activeShape) : { isPouch: true, isBox: false, isLabel: false };
+
+    // Convert dimensions to millimeters
+    const w = unit === 'inch' ? width * 25.4 : width;
+    const h = unit === 'inch' ? height * 25.4 : height;
+    const d = unit === 'inch' ? depth * 25.4 : depth;
+
+    const format = (num: number) => parseFloat(num.toFixed(1));
+
+    let svgContent = '';
+    let svgWidth = 800;
+    let svgHeight = 600;
+
+    if (shapeCategory.isPouch || shapeCategory.isSpoutedPouch) {
+      const sealSide = 10;
+      const sealTop = 25;
+      const gussetHeight = d * 2;
+
+      const sheetW = w;
+      const sheetH = h * 2 + gussetHeight;
+
+      const padding = 50;
+      svgWidth = sheetW + padding * 2;
+      svgHeight = sheetH + padding * 2;
+
+      const c = {
+        xMin: padding,
+        xMax: padding + sheetW,
+        xMid: padding + sheetW / 2,
+        yTop1: padding,
+        yZip1: padding + sealTop,
+        yBot1: padding + h,
+        yGussetMid: padding + h + gussetHeight / 2,
+        yBot2: padding + h + gussetHeight,
+        yZip2: padding + h + gussetHeight + (h - sealTop),
+        yTop2: padding + h + gussetHeight + h
+      };
+
+      svgContent = `
+        <!-- Background Dark Layer (Hidable in Illustrator) -->
+        <g id="BACKGROUND" opacity="0.15">
+          <rect width="${svgWidth}" height="${svgHeight}" fill="#08090c" />
+        </g>
+
+        <!-- Structural Layer - Cut Line (Red, Solid) -->
+        <g id="CUT_LINE" stroke="#ff0000" stroke-width="1.5" fill="none">
+          <rect x="${c.xMin}" y="${c.yTop1}" width="${sheetW}" height="${sheetH}" rx="8" />
+        </g>
+
+        <!-- Structural Layer - Fold Line (Blue, Dashed) -->
+        <g id="FOLD_LINE" stroke="#0000ff" stroke-width="1" stroke-dasharray="5,5" fill="none">
+          <line x1="${c.xMin}" y1="${c.yZip1}" x2="${c.xMax}" y2="${c.yZip1}" />
+          <line x1="${c.xMin}" y1="${c.yBot1}" x2="${c.xMax}" y2="${c.yBot1}" />
+          <line x1="${c.xMin}" y1="${c.yGussetMid}" x2="${c.xMax}" y2="${c.yGussetMid}" />
+          <line x1="${c.xMin}" y1="${c.yBot2}" x2="${c.xMax}" y2="${c.yBot2}" />
+          <line x1="${c.xMin}" y1="${c.yZip2}" x2="${c.xMax}" y2="${c.yZip2}" />
+        </g>
+
+        <!-- Structural Layer - Seal Area (Green, Dashed) -->
+        <g id="SEAL_AREA" stroke="#00ff00" stroke-width="0.8" stroke-dasharray="3,3" fill="none">
+          <line x1="${c.xMin + sealSide}" y1="${c.yTop1}" x2="${c.xMin + sealSide}" y2="${c.yTop2}" />
+          <line x1="${c.xMax - sealSide}" y1="${c.yTop1}" x2="${c.xMax - sealSide}" y2="${c.yTop2}" />
+        </g>
+
+        <!-- Structural Layer - Safe Zone (Cyan, Dashed) -->
+        <g id="SAFE_ZONE" stroke="#00ffff" stroke-width="0.8" stroke-dasharray="2,2" fill="none">
+          <rect x="${c.xMin + sealSide + 3}" y="${c.yTop1 + sealTop + 3}" width="${sheetW - (sealSide + 3) * 2}" height="${h - sealTop - 6}" rx="4" />
+          <rect x="${c.xMin + sealSide + 3}" y="${c.yBot2 + 3}" width="${sheetW - (sealSide + 3) * 2}" height="${h - sealTop - 6}" rx="4" />
+        </g>
+
+        <!-- Annotations & Text Labels (White/Cyan) -->
+        <g id="ANNOTATIONS" fill="#ffffff" font-family="Outfit, Inter, sans-serif">
+          <text x="${c.xMid}" y="25" font-size="14" font-weight="bold" text-anchor="middle">
+            AchievePack 3D Studio - Stand-up Pouch Dieline
+          </text>
+          <text x="${c.xMid}" y="42" font-size="10" fill="#9ca3af" text-anchor="middle">
+            Dimensions: ${format(w)}mm x ${format(h)}mm x ${format(d)}mm (${format(width)} x ${format(height)} x ${format(depth)} ${unit})
+          </text>
+
+          <rect x="${c.xMid - 60}" y="${(c.yTop1 + c.yBot1)/2 - 12}" width="120" height="24" rx="4" fill="#10141c" stroke="rgba(255,255,255,0.1)" />
+          <text x="${c.xMid}" y="${(c.yTop1 + c.yBot1)/2 + 5}" font-size="10" font-weight="bold" fill="#64ffda" text-anchor="middle">FRONT PANEL</text>
+          
+          <rect x="${c.xMid - 60}" y="${c.yGussetMid - 12}" width="120" height="24" rx="4" fill="#10141c" stroke="rgba(255,255,255,0.1)" />
+          <text x="${c.xMid}" y="${c.yGussetMid + 5}" font-size="10" font-weight="bold" fill="#64ffda" text-anchor="middle">BOTTOM GUSSET</text>
+
+          <rect x="${c.xMid - 60}" y="${(c.yBot2 + c.yTop2)/2 - 12}" width="120" height="24" rx="4" fill="#10141c" stroke="rgba(255,255,255,0.1)" />
+          <text x="${c.xMid}" y="${(c.yBot2 + c.yTop2)/2 + 5}" font-size="10" font-weight="bold" fill="#64ffda" text-anchor="middle">BACK PANEL</text>
+
+          <g stroke="#888888" stroke-width="0.8" fill="none">
+            <line x1="${c.xMin - 15}" y1="${c.yTop1}" x2="${c.xMin - 15}" y2="${c.yBot1}" />
+            <path d="M ${c.xMin - 18} ${c.yTop1 + 5} L ${c.xMin - 15} ${c.yTop1} L ${c.xMin - 12} ${c.yTop1 + 5} M ${c.xMin - 18} ${c.yBot1 - 5} L ${c.xMin - 15} ${c.yBot1} L ${c.xMin - 12} ${c.yBot1 - 5}" />
+            <line x1="${c.xMin}" y1="${c.yTop1 - 15}" x2="${c.xMax}" y2="${c.yTop1 - 15}" />
+            <path d="M ${c.xMin + 5} ${c.yTop1 - 18} L ${c.xMin} ${c.yTop1 - 15} L ${c.xMin + 5} ${c.yTop1 - 12} M ${c.xMax - 5} ${c.yTop1 - 18} L ${c.xMax} ${c.yTop1 - 15} L ${c.xMax - 5} ${c.yTop1 - 12}" />
+            <line x1="${c.xMin - 15}" y1="${c.yBot1}" x2="${c.xMin - 15}" y2="${c.yBot2}" />
+            <path d="M ${c.xMin - 18} ${c.yBot1 + 3} L ${c.xMin - 15} ${c.yBot1} L ${c.xMin - 12} ${c.yBot1 + 3} M ${c.xMin - 18} ${c.yBot2 - 3} L ${c.xMin - 15} ${c.yBot2} L ${c.xMin - 12} ${c.yBot2 - 3}" />
+          </g>
+
+          <text x="${c.xMin - 22}" y="${(c.yTop1 + c.yBot1)/2}" font-size="9" fill="#9ca3af" text-anchor="middle" transform="rotate(-90, ${c.xMin - 22}, ${(c.yTop1 + c.yBot1)/2})">H: ${format(h)}mm</text>
+          <text x="${c.xMid}" y="${c.yTop1 - 22}" font-size="9" fill="#9ca3af" text-anchor="middle">W: ${format(w)}mm</text>
+          <text x="${c.xMin - 22}" y="${c.yGussetMid}" font-size="9" fill="#9ca3af" text-anchor="middle" transform="rotate(-90, ${c.xMin - 22}, ${c.yGussetMid})">Gusset: ${format(gussetHeight)}mm</text>
+
+          <g stroke="rgba(255,255,255,0.1)">
+            <rect x="${c.xMin}" y="${c.yTop2 + 15}" width="20" height="10" fill="#00FFFF" />
+            <rect x="${c.xMin + 25}" y="${c.yTop2 + 15}" width="20" height="10" fill="#FF00FF" />
+            <rect x="${c.xMin + 50}" y="${c.yTop2 + 15}" width="20" height="10" fill="#FFFF00" />
+            <rect x="${c.xMin + 75}" y="${c.yTop2 + 15}" width="20" height="10" fill="#000000" />
+          </g>
+          <text x="${c.xMin + 105}" y="${c.yTop2 + 23}" font-size="8" fill="#9ca3af">Color Calibration Strips (CMYK)</text>
+        </g>
+      `;
+    } else if (shapeCategory.isBox) {
+      const sideW = d;
+      const frontW = w;
+      const glueW = 15;
+      const tuckH = 20;
+
+      const sheetW = sideW * 2 + frontW * 2 + glueW;
+      const sheetH = h + tuckH * 2;
+
+      const padding = 50;
+      svgWidth = sheetW + padding * 2;
+      svgHeight = sheetH + padding * 2;
+
+      const x = {
+        x0: padding,
+        x1: padding + glueW,
+        x2: padding + glueW + sideW,
+        x3: padding + glueW + sideW + frontW,
+        x4: padding + glueW + sideW * 2 + frontW,
+        x5: padding + glueW + sideW * 2 + frontW * 2
+      };
+
+      const y = {
+        y0: padding,
+        y1: padding + tuckH,
+        y2: padding + tuckH + h,
+        y3: padding + tuckH + h + tuckH
+      };
+
+      svgContent = `
+        <!-- Background Dark Layer (Hidable in Illustrator) -->
+        <g id="BACKGROUND" opacity="0.15">
+          <rect width="${svgWidth}" height="${svgHeight}" fill="#08090c" />
+        </g>
+
+        <!-- Structural Layer - Cut Line (Red, Solid) -->
+        <g id="CUT_LINE" stroke="#ff0000" stroke-width="1.5" fill="none">
+          <path d="
+            M ${x.x1} ${y.y1} 
+            L ${x.x2} ${y.y1} 
+            L ${x.x2} ${y.y0} 
+            Q ${x.x2 + frontW/2} ${y.y0 - 5} ${x.x3} ${y.y0}
+            L ${x.x3} ${y.y1}
+            L ${x.x5} ${y.y1}
+            L ${x.x5} ${y.y2}
+            L ${x.x4} ${y.y2}
+            L ${x.x4} ${y.y3}
+            Q ${x.x4 - frontW/2} ${y.y3 + 5} ${x.x3} ${y.y3}
+            L ${x.x3} ${y.y2}
+            L ${x.x1} ${y.y2}
+            L ${x.x0} ${y.y2 - 10}
+            L ${x.x0} ${y.y1 + 10}
+            Z
+          " />
+        </g>
+
+        <!-- Structural Layer - Fold Line (Blue, Dashed) -->
+        <g id="FOLD_LINE" stroke="#0000ff" stroke-width="1" stroke-dasharray="5,5" fill="none">
+          <line x1="${x.x1}" y1="${y.y1}" x2="${x.x1}" y2="${y.y2}" />
+          <line x1="${x.x2}" y1="${y.y1}" x2="${x.x2}" y2="${y.y2}" />
+          <line x1="${x.x3}" y1="${y.y1}" x2="${x.x3}" y2="${y.y2}" />
+          <line x1="${x.x4}" y1="${y.y1}" x2="${x.x4}" y2="${y.y2}" />
+          <line x1="${x.x1}" y1="${y.y1}" x2="${x.x5}" y2="${y.y1}" />
+          <line x1="${x.x1}" y1="${y.y2}" x2="${x.x5}" y2="${y.y2}" />
+        </g>
+
+        <!-- Annotations & Text Labels (White/Cyan) -->
+        <g id="ANNOTATIONS" fill="#ffffff" font-family="Outfit, Inter, sans-serif">
+          <text x="${(x.x0 + x.x5)/2}" y="25" font-size="14" font-weight="bold" text-anchor="middle">
+            AchievePack 3D Studio - Reverse Tuck Folding Box Dieline
+          </text>
+          <text x="${(x.x0 + x.x5)/2}" y="42" font-size="10" fill="#9ca3af" text-anchor="middle">
+            Dimensions: ${format(w)}mm x ${format(h)}mm x ${format(d)}mm (${format(width)} x ${format(height)} x ${format(depth)} ${unit})
+          </text>
+
+          <text x="${(x.x0 + x.x1)/2}" y="${(y.y1 + y.y2)/2}" font-size="8" fill="#9ca3af" text-anchor="middle" transform="rotate(-90, ${(x.x0 + x.x1)/2}, ${(y.y1 + y.y2)/2})">GLUE FLAP</text>
+          <text x="${(x.x1 + x.x2)/2}" y="${(y.y1 + y.y2)/2}" font-size="9" font-weight="bold" fill="#64ffda" text-anchor="middle">SIDE 1 (D)</text>
+          <text x="${(x.x2 + x.x3)/2}" y="${(y.y1 + y.y2)/2}" font-size="9" font-weight="bold" fill="#64ffda" text-anchor="middle">FRONT (W)</text>
+          <text x="${(x.x3 + x.x4)/2}" y="${(y.y1 + y.y2)/2}" font-size="9" font-weight="bold" fill="#64ffda" text-anchor="middle">SIDE 2 (D)</text>
+          <text x="${(x.x4 + x.x5)/2}" y="${(y.y1 + y.y2)/2}" font-size="9" font-weight="bold" fill="#64ffda" text-anchor="middle">BACK (W)</text>
+          <text x="${(x.x2 + x.x3)/2}" y="${y.y1 - 10}" font-size="8" fill="#9ca3af" text-anchor="middle">TOP TUCK FLAP</text>
+          <text x="${(x.x3 + x.x4)/2}" y="${y.y2 + 15}" font-size="8" fill="#9ca3af" text-anchor="middle">BOTTOM TUCK FLAP</text>
+        </g>
+      `;
+    } else {
+      const bleed = 3;
+      const sheetW = w;
+      const sheetH = h;
+
+      const padding = 50;
+      svgWidth = sheetW + padding * 2;
+      svgHeight = sheetH + padding * 2;
+
+      svgContent = `
+        <!-- Background Dark Layer (Hidable in Illustrator) -->
+        <g id="BACKGROUND" opacity="0.15">
+          <rect width="${svgWidth}" height="${svgHeight}" fill="#08090c" />
+        </g>
+
+        <!-- Structural Layer - Bleed Line (Green, Dashed) -->
+        <g id="BLEED_LINE" stroke="#00ff00" stroke-width="0.8" stroke-dasharray="3,3" fill="none">
+          <rect x="${padding - bleed}" y="${padding - bleed}" width="${sheetW + bleed * 2}" height="${sheetH + bleed * 2}" rx="11" />
+        </g>
+
+        <!-- Structural Layer - Cut Line (Red, Solid) -->
+        <g id="CUT_LINE" stroke="#ff0000" stroke-width="1.5" fill="none">
+          <rect x="${padding}" y="${padding}" width="${sheetW}" height="${sheetH}" rx="8" />
+        </g>
+
+        <!-- Structural Layer - Safe Zone (Blue, Dashed) -->
+        <g id="SAFE_ZONE" stroke="#0000ff" stroke-width="0.8" stroke-dasharray="2,2" fill="none">
+          <rect x="${padding + bleed}" y="${padding + bleed}" width="${sheetW - bleed * 2}" height="${sheetH - bleed * 2}" rx="5" />
+        </g>
+
+        <!-- Annotations & Text Labels (White/Cyan) -->
+        <g id="ANNOTATIONS" fill="#ffffff" font-family="Outfit, Inter, sans-serif">
+          <text x="${padding + sheetW/2}" y="25" font-size="14" font-weight="bold" text-anchor="middle">
+            AchievePack 3D Studio - Rectangular Cut Dieline / Label
+          </text>
+          <text x="${padding + sheetW/2}" y="42" font-size="10" fill="#9ca3af" text-anchor="middle">
+            Dimensions: ${format(w)}mm x ${format(h)}mm (${format(width)} x ${format(height)} ${unit})
+          </text>
+
+          <text x="${padding + sheetW/2}" y="${padding + sheetH/2}" font-size="11" font-weight="bold" fill="#64ffda" text-anchor="middle">ARTWORK SAFE ZONE</text>
+          <text x="${padding + sheetW/2}" y="${padding + sheetH/2 + 18}" font-size="9" fill="#9ca3af" text-anchor="middle">Keep important elements inside safety blue line</text>
+        </g>
+      `;
+    }
+
+    const fullSVG = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="${svgWidth}mm" height="${svgHeight}mm" viewBox="0 0 ${svgWidth} ${svgHeight}" xmlns="http://www.w3.org/2000/svg">
+  ${svgContent}
+</svg>`;
+
+    const blob = new Blob([fullSVG], { type: 'image/svg+xml' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = activeShape ? `${activeShape.id}-dieline.svg` : `custom-dieline.svg`;
+    link.click();
+    URL.revokeObjectURL(url);
   };
 
   const exportScreenshot = () => {
@@ -2433,16 +2853,11 @@ export default function PackageEditorPage() {
         </div>
       )}
 
-      {/* ================================================================ */}
-      {/* Main Workspace — 3-column on desktop, tab-switched on mobile      */}
-      {/* ================================================================ */}
-      <div className="flex flex-col flex-grow overflow-hidden">
-
-        {/* DESKTOP: 3-column side-by-side layout (lg+) */}
-        <div className="hidden lg:flex flex-row flex-grow overflow-hidden">
+      {/* Unified Responsive 3D Studio Layout */}
+      <div className="flex flex-col lg:flex-row flex-grow w-full lg:h-[calc(100vh-64px)] overflow-y-auto lg:overflow-hidden bg-[#08090c]">
         
-        {/* 1. Left Sidebar: Control Panel */}
-        <div className="w-[340px] flex-shrink-0 bg-[rgba(16,20,28,0.4)] border-r border-[rgba(255,255,255,0.08)] p-6 flex flex-col gap-6 overflow-y-auto custom-scrollbar">
+        {/* 1. Left Sidebar: Control Panel (3D Studio Configure) */}
+        <div className="w-full lg:w-[340px] flex-shrink-0 bg-[rgba(16,20,28,0.4)] border-b lg:border-b-0 lg:border-r border-[rgba(255,255,255,0.08)] p-6 flex flex-col gap-6 overflow-y-auto custom-scrollbar h-auto lg:h-full order-3 lg:order-1">
           
           <button 
             onClick={() => {
@@ -2633,45 +3048,109 @@ export default function PackageEditorPage() {
             </div>
           </div>
 
-          {/* Actions */}
-          <div className="mt-auto flex flex-col gap-2">
-            <button 
-              onClick={saveDesign}
-              disabled={isSavingDesign}
-              className="w-full bg-[#64ffda] text-[#08090c] hover:bg-[#52ebd4] disabled:opacity-50 font-bold text-[13px] py-3 px-4 rounded-lg shadow-lg hover:shadow-[#64ffda]/25 flex items-center justify-center gap-1.5 transition-all duration-300 uppercase tracking-wider"
-            >
-              {isSavingDesign ? (
-                <>
-                  <div className="w-4 h-4 border-2 border-t-[#08090c] border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
-                  Saving Workspace...
-                </>
-              ) : (
-                <>
-                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                    <path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/>
-                  </svg>
-                  Save Design & Share
-                </>
-              )}
-            </button>
 
-            <button 
-              onClick={resetAllValues}
-              className="w-full border border-[rgba(255,255,255,0.15)] hover:border-[#f3f4f6] text-[#9ca3af] hover:text-[#f3f4f6] font-semibold text-[13px] py-2.5 px-4 rounded-lg transition-all duration-300"
-            >
-              Reset Canvas
-            </button>
+
+          {/* Export Studio Options */}
+          <div className="flex flex-col gap-4 border-b border-[rgba(255,255,255,0.08)] pb-5">
+            <div className="text-[13px] font-semibold text-[#64ffda] tracking-wide uppercase flex items-center gap-1.5">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Export Options
+            </div>
+            
+            <div className="flex flex-col gap-3">
+              {/* Turntable Auto-Spin Viewport Checkbox */}
+              <div className="flex items-center gap-2 px-1">
+                <input 
+                  type="checkbox" 
+                  id="live-turntable-spin" 
+                  checked={isLiveTurntable}
+                  onChange={(e) => setIsLiveTurntable(e.target.checked)}
+                  className="accent-[#64ffda] cursor-pointer"
+                />
+                <label htmlFor="live-turntable-spin" className="text-xs text-[#9ca3af] cursor-pointer select-none">
+                  Auto-Rotate 3D Preview (自動旋轉)
+                </label>
+              </div>
+
+              {/* Reference Can Checkbox */}
+              {is3dSupported && (
+                <div className="flex items-center gap-2 px-1">
+                  <input 
+                    type="checkbox" 
+                    id="show-can-model-sidebar" 
+                    checked={showReferenceCan}
+                    onChange={(e) => setShowReferenceCan(e.target.checked)}
+                    className="accent-[#64ffda] cursor-pointer"
+                  />
+                  <div className="flex flex-col gap-0.5">
+                    <label htmlFor="show-can-model-sidebar" className="text-xs text-[#9ca3af] cursor-pointer select-none">
+                      Show 355ml Reference Can (易開罐比例對比)
+                    </label>
+                    <span className="text-[10px] text-[#8e94a0]">
+                      Can ref: 2.6" x 4.8" (66mm x 122mm)
+                    </span>
+                  </div>
+                </div>
+              )}
+
+              <div className="grid grid-cols-2 gap-2 mt-1">
+                <button 
+                  onClick={exportGLTF}
+                  className="w-full bg-[#64ffda] text-[#08090c] hover:bg-[#52ebd4] font-bold text-xs py-2.5 rounded-lg transition-colors flex items-center justify-center gap-1.5"
+                >
+                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+                  Export 3D (.GLB)
+                </button>
+                <button 
+                  onClick={exportScreenshot}
+                  className="w-full border border-[rgba(255,255,255,0.15)] text-[#9ca3af] hover:text-[#f3f4f6] hover:border-[#f3f4f6] font-semibold text-xs py-2.5 rounded-lg transition-all flex items-center justify-center gap-1.5"
+                >
+                  Snapshot (PNG)
+                </button>
+              </div>
+
+              {/* Turntable Recording Export */}
+              <button 
+                onClick={exportTurntableVideo}
+                disabled={isRecording}
+                className="w-full mt-1 border border-emerald-500/30 bg-emerald-500/5 hover:bg-emerald-500/10 text-emerald-400 font-bold text-xs py-2.5 rounded-lg transition-colors flex items-center justify-center gap-1.5 disabled:opacity-40"
+              >
+                {isRecording ? (
+                  <>
+                    <div className="w-3.5 h-3.5 border-2 border-t-emerald-400 border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin" />
+                    <span>Recording ({recordingProgress}%)</span>
+                  </>
+                ) : (
+                  <>
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                    <span>Record Turntable (WebM)</span>
+                  </>
+                )}
+              </button>
+            </div>
           </div>
+
+          {/* Reset button */}
+          <button 
+            onClick={resetAllValues}
+            className="w-full border border-[rgba(255,255,255,0.15)] hover:border-[#f3f4f6] text-[#9ca3af] hover:text-[#f3f4f6] font-semibold text-[13px] py-2.5 px-4 rounded-lg transition-all duration-300"
+          >
+            Reset Canvas
+          </button>
         </div>
 
         {/* 2. Middle Column: 2D Dieline Editor */}
-        <div className="w-[520px] flex-shrink-0 flex flex-col bg-[rgba(8,9,12,0.6)] p-5 gap-4 overflow-hidden border-r border-[rgba(255,255,255,0.08)]">
+        <div className="w-full lg:w-[520px] flex-shrink-0 flex flex-col bg-[rgba(8,9,12,0.6)] p-5 gap-4 overflow-y-auto custom-scrollbar border-b lg:border-b-0 lg:border-r border-[rgba(255,255,255,0.08)] h-auto lg:h-full order-2">
           <div>
             <h2 className="text-base font-bold text-[#f3f4f6]">2D Dieline Editor</h2>
             <p className="text-xs text-[#9ca3af] mt-0.5">Drag to place artwork, adjust scaling or layer ordering.</p>
           </div>
 
-          <div className="flex-grow border border-[rgba(255,255,255,0.08)] bg-[rgba(0,0,0,0.5)] rounded-xl relative overflow-hidden flex items-center justify-center">
+          <div className="flex-grow border border-[rgba(255,255,255,0.08)] bg-[rgba(0,0,0,0.5)] rounded-xl relative overflow-hidden flex items-center justify-center min-h-[350px] lg:min-h-0">
             <canvas 
               ref={editorCanvasRef} 
               width={1000} 
@@ -2680,6 +3159,15 @@ export default function PackageEditorPage() {
               onMouseMove={handleCanvasMouseMove}
               onMouseUp={handleCanvasMouseUp}
               onMouseLeave={handleCanvasMouseUp}
+              onTouchStart={(e) => {
+                const touch = e.touches[0];
+                handleCanvasMouseDown({ clientX: touch.clientX, clientY: touch.clientY, currentTarget: e.currentTarget, preventDefault: () => e.preventDefault() } as any);
+              }}
+              onTouchMove={(e) => {
+                const touch = e.touches[0];
+                handleCanvasMouseMove({ clientX: touch.clientX, clientY: touch.clientY, currentTarget: e.currentTarget } as any);
+              }}
+              onTouchEnd={() => handleCanvasMouseUp()}
               className="max-w-full max-h-full cursor-move object-contain shadow-2xl"
             />
           </div>
@@ -2813,7 +3301,7 @@ export default function PackageEditorPage() {
         {/* 3. Right Area: 3D Studio Previewer */}
         <div 
           id="viewport-panel" 
-          className={`flex-grow relative flex flex-col overflow-hidden bg-gradient-to-b from-[#ffffff] to-[#cbd5e1] ${isViewportDragging ? 'ring-4 ring-inset ring-[#64ffda]' : ''}`}
+          className={`w-full h-[380px] sm:h-[450px] lg:h-full lg:flex-grow relative sticky top-[56px] lg:static z-20 flex flex-col overflow-hidden bg-gradient-to-b from-[#ffffff] to-[#cbd5e1] ${isViewportDragging ? 'ring-4 ring-inset ring-[#64ffda]' : ''} order-1 lg:order-3`}
           onDragOver={handleViewportDragOver}
           onDragLeave={handleViewportDragLeave}
           onDrop={handleViewportDrop}
@@ -2847,215 +3335,7 @@ export default function PackageEditorPage() {
             <span>Active: <strong className="text-[#64ffda]">{selectedLayer ? selectedLayer.name : 'None'}</strong></span>
           </div>
         </div>
-        {/* end 3. Right Area */}
-        </div>
-        {/* end DESKTOP 3-column */}
 
-        {/* MOBILE: single panel with tab switcher (< lg) */}
-        <div className="flex lg:hidden flex-col flex-grow overflow-hidden relative">
-
-          {/* MOBILE PANEL: 3D View - always mounted, shown/hidden via display */}
-          <div
-            className="flex-grow relative overflow-hidden bg-gradient-to-b from-[#ffffff] to-[#cbd5e1]"
-            style={{ display: mobileTab === '3d' ? 'flex' : 'none', flexDirection: 'column' }}
-          >
-            {/* Three.js mounts here on mobile - containerRef is always rendered in desktop, but on mobile-only viewport it needs to live here */}
-            <div className={`flex-grow w-full h-full relative ${is3dSupported ? '' : 'hidden'}`} id="mobile-3d-container" />
-            {!is3dSupported && (
-              <div className="flex-grow w-full h-full flex flex-col items-center justify-center bg-[#0d0e12] text-center p-8 border border-[rgba(255,255,255,0.05)]">
-                <div className="w-12 h-12 rounded-full bg-[#161b26] flex items-center justify-center border border-[rgba(100,255,218,0.15)] shadow-[0_0_20px_rgba(100,255,218,0.05)] mb-3">
-                  <Box className="w-6 h-6 text-[#64ffda]" />
-                </div>
-                <h3 className="text-[#f3f4f6] font-bold text-base mb-1.5">3D Preview Unloaded</h3>
-                <p className="text-[11px] text-[#9ca3af] max-w-xs leading-relaxed mb-4">
-                  This is a 2D dieline-only template box. Please use the 2D Editor to customize your artwork.
-                </p>
-              </div>
-            )}
-            {/* Status bar */}
-            <div className="absolute bottom-2 left-2 right-2 bg-[rgba(16,20,28,0.88)] border border-[rgba(255,255,255,0.08)] rounded-xl py-2 px-3 text-[11px] flex justify-between backdrop-blur-md">
-              <span>Shape: <strong className="text-[#64ffda]">{modelName}</strong></span>
-              <span className="text-[#9ca3af]">{is3dSupported ? 'Pinch to zoom · Drag to rotate' : 'Dieline Mode Active'}</span>
-            </div>
-          </div>
-
-          {/* MOBILE PANEL: 2D Dieline Editor */}
-          {mobileTab === '2d' && (
-            <div className="flex-grow flex flex-col bg-[rgba(8,9,12,0.95)] p-3 gap-3 overflow-y-auto">
-              <div>
-                <h2 className="text-sm font-bold text-[#f3f4f6]">2D Dieline Editor</h2>
-                <p className="text-[10px] text-[#9ca3af] mt-0.5">Tap to select layer · Drag to reposition</p>
-              </div>
-              <div className="border border-[rgba(255,255,255,0.08)] bg-[rgba(0,0,0,0.5)] rounded-xl overflow-hidden flex items-center justify-center">
-                <canvas
-                  ref={editorCanvasRef}
-                  width={1000}
-                  height={619}
-                  onMouseDown={handleCanvasMouseDown}
-                  onMouseMove={handleCanvasMouseMove}
-                  onMouseUp={handleCanvasMouseUp}
-                  onMouseLeave={handleCanvasMouseUp}
-                  onTouchStart={(e) => {
-                    const touch = e.touches[0];
-                    const rect = (e.target as HTMLCanvasElement).getBoundingClientRect();
-                    handleCanvasMouseDown({ clientX: touch.clientX, clientY: touch.clientY, currentTarget: e.currentTarget, preventDefault: () => e.preventDefault() } as any);
-                  }}
-                  onTouchMove={(e) => {
-                    const touch = e.touches[0];
-                    handleCanvasMouseMove({ clientX: touch.clientX, clientY: touch.clientY, currentTarget: e.currentTarget } as any);
-                  }}
-                  onTouchEnd={() => handleCanvasMouseUp()}
-                  className="max-w-full max-h-full object-contain w-full"
-                />
-              </div>
-              {/* Upload artwork */}
-              <div
-                onClick={() => fileInputRef.current?.click()}
-                className="border-2 border-dashed border-[rgba(100,255,218,0.25)] rounded-xl p-4 flex flex-col items-center justify-center gap-2 cursor-pointer hover:border-[#64ffda]/50 transition-all"
-              >
-                <svg className="w-6 h-6 text-[#64ffda] fill-current" viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>
-                <span className="text-xs text-[#9ca3af]">Tap to upload artwork / logo</span>
-                <input type="file" ref={fileInputRef} onChange={handleFileUpload} accept="image/*" className="hidden" />
-              </div>
-              {/* Layer controls */}
-              {selectedLayer && (
-                <div className="bg-[rgba(16,20,28,0.7)] border border-[rgba(255,255,255,0.08)] rounded-xl p-3 flex flex-col gap-3">
-                  <div className="text-[11px] font-semibold text-[#64ffda] uppercase">Selected: {selectedLayer.name}</div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="flex flex-col gap-1">
-                      <div className="flex justify-between text-[10px]"><span className="text-[#9ca3af]">Scale</span><span className="text-[#64ffda]">{selectedLayer.scale.toFixed(2)}</span></div>
-                      <input type="range" min="0.1" max="3" step="0.02" value={selectedLayer.scale} onChange={handleScaleInput} className="w-full accent-[#64ffda]" />
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      <div className="flex justify-between text-[10px]"><span className="text-[#9ca3af]">Rotation</span><span className="text-[#64ffda]">{selectedLayer.rotation}°</span></div>
-                      <input type="range" min="0" max="360" step="1" value={selectedLayer.rotation} onChange={handleRotationInput} className="w-full accent-[#64ffda]" />
-                    </div>
-                  </div>
-                  <button onClick={deleteSelectedLayer} className="text-xs border border-[#ef4444]/50 text-[#ef4444] rounded-lg px-3 py-1.5 hover:bg-[#ef4444]/10 transition-all">Delete Layer</button>
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* MOBILE PANEL: Settings */}
-          {mobileTab === 'settings' && (
-            <div className="flex-grow bg-[rgba(16,20,28,0.95)] p-4 flex flex-col gap-4 overflow-y-auto custom-scrollbar">
-              
-              <button 
-                onClick={() => {
-                  setViewMode('catalog');
-                  const url = new URL(window.location.href);
-                  url.searchParams.delete('shape');
-                  window.history.pushState({}, '', url.toString());
-                }}
-                className="w-full flex items-center justify-center gap-2 text-[13px] font-semibold text-[#f3f4f6] bg-[rgba(255,255,255,0.05)] hover:bg-[#64ffda] hover:text-[#0a192f] transition-all border border-[rgba(255,255,255,0.1)] rounded-lg py-2 shadow-sm"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                Back to Catalog
-              </button>
-
-              <h2 className="text-sm font-bold text-[#f3f4f6]">Dimensions & Settings</h2>
-
-              {/* Dimensions */}
-              <div className="flex flex-col gap-3 border-b border-[rgba(255,255,255,0.08)] pb-4">
-                <div className="text-[11px] font-semibold text-[#64ffda] tracking-wide uppercase">Dimensions</div>
-                <select value={unit} onChange={handleUnitChange} className="bg-[rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.08)] rounded-lg text-[#f3f4f6] px-3 py-2 text-sm outline-none">
-                  <option value="inch">Inches (in)</option>
-                  <option value="mm">Millimeters (mm)</option>
-                </select>
-                <div className="grid grid-cols-3 gap-2">
-                  {[{ label: 'Width', value: width, setter: (v: number) => { setWidth(v); updateModelScale(); } },
-                    { label: 'Height', value: height, setter: (v: number) => { setHeight(v); updateModelScale(); } },
-                    { label: 'Depth', value: depth, setter: (v: number) => setDepth(v) }].map(dim => (
-                    <div key={dim.label} className="flex flex-col gap-1">
-                      <label className="text-[10px] text-[#9ca3af]">{dim.label}</label>
-                      <input
-                        type="number"
-                        value={dim.value}
-                        onChange={e => dim.setter(parseFloat(e.target.value) || 0)}
-                        className="bg-[rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.08)] rounded-lg text-[#f3f4f6] px-2 py-1.5 text-sm outline-none text-center w-full"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Material */}
-              <div className="flex flex-col gap-3 border-b border-[rgba(255,255,255,0.08)] pb-4">
-                <div className="text-[11px] font-semibold text-[#64ffda] tracking-wide uppercase">Material</div>
-                <div className="flex flex-col gap-1.5">
-                  <div className="flex justify-between text-xs"><span className="text-[#9ca3af]">Roughness</span><span className="text-[#64ffda]">{roughness.toFixed(2)}</span></div>
-                  <input type="range" min="0" max="1" step="0.01" value={roughness} onChange={handleRoughnessInput} className="w-full accent-[#64ffda]" />
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <div className="flex justify-between text-xs"><span className="text-[#9ca3af]">Metalness</span><span className="text-[#64ffda]">{metalness.toFixed(2)}</span></div>
-                  <input type="range" min="0" max="1" step="0.01" value={metalness} onChange={handleMetalnessInput} className="w-full accent-[#64ffda]" />
-                </div>
-              </div>
-
-              {/* Viewport Reference Can */}
-              {is3dSupported && (
-                <div className="flex flex-col gap-3 border-b border-[rgba(255,255,255,0.08)] pb-4">
-                  <div className="text-[11px] font-semibold text-[#64ffda] tracking-wide uppercase">Viewport Reference</div>
-                  <div className="flex items-center gap-2">
-                    <input 
-                      type="checkbox" 
-                      id="mobile-show-reference-can" 
-                      checked={showReferenceCan}
-                      onChange={(e) => setShowReferenceCan(e.target.checked)}
-                      className="accent-[#64ffda] cursor-pointer"
-                    />
-                    <div className="flex flex-col gap-0.5">
-                      <label htmlFor="mobile-show-reference-can" className="text-xs text-[#9ca3af] cursor-pointer select-none">
-                        Show 355ml Reference Can (易開罐比例對比)
-                      </label>
-                      <span className="text-[10px] text-[#8e94a0]">
-                        Can ref: 2.6" x 4.8" (66mm x 122mm)
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Actions */}
-              <div className="flex flex-col gap-2 mt-auto">
-                <button
-                  onClick={saveDesign}
-                  disabled={isSavingDesign}
-                  className="w-full bg-[#64ffda] text-[#08090c] hover:bg-[#52ebd4] disabled:opacity-50 font-bold text-sm py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all"
-                >
-                  {isSavingDesign ? <><div className="w-4 h-4 border-2 border-t-[#08090c] border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"/><span>Saving...</span></> : <><svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/></svg><span>Save & Share Design</span></>}
-                </button>
-                <button onClick={resetAllValues} className="w-full border border-[rgba(255,255,255,0.15)] text-[#9ca3af] font-semibold text-sm py-2.5 rounded-xl transition-all">
-                  Reset Canvas
-                </button>
-              </div>
-            </div>
-          )}
-
-          {/* MOBILE Bottom Tab Bar */}
-          <nav className="flex-shrink-0 bg-[rgba(10,12,18,0.97)] border-t border-[rgba(255,255,255,0.1)] flex items-stretch h-14 safe-b">
-            {([
-              { id: '3d' as const, label: '3D View', icon: <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18L20 8.5v7L12 19.82 4 15.5v-7l8-4.32z"/></svg> },
-              { id: '2d' as const, label: '2D Editor', icon: <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 000-1.41l-2.34-2.34a1 1 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg> },
-              { id: 'settings' as const, label: 'Settings', icon: <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94s-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg> },
-            ] as { id: '3d' | '2d' | 'settings'; label: string; icon: React.ReactNode }[]).map(tab => (
-              <button
-                key={tab.id}
-                onClick={() => setMobileTab(tab.id)}
-                className={`flex-1 flex flex-col items-center justify-center gap-0.5 text-[10px] font-bold uppercase tracking-wider transition-all duration-200 ${
-                  mobileTab === tab.id
-                    ? 'text-[#64ffda] border-t-2 border-[#64ffda] bg-[rgba(100,255,218,0.05)]'
-                    : 'text-[#6b7280] border-t-2 border-transparent'
-                }`}
-              >
-                {tab.icon}
-                {tab.label}
-              </button>
-            ))}
-          </nav>
-        </div>
-        {/* end MOBILE */}
 
       {/* Email Modal for Watermark-Free Downloads */}
       {isEmailModalOpen && (

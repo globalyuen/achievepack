@@ -37179,6 +37179,58 @@
           ]
         }
       },
+      "compostableBarPackaging": {
+        "title": "Embalaje Industrial Compostable para Barras (3 Capas: Papel Kraft + PLA Metalizado + Mezcla de PLA y PBAT) | Achieve Pack",
+        "description": "Embalaje compostable industrial de primera calidad para barras de chocolate, energéticas y proteicas. Conozca la estructura de barrera laminada de 3 capas (Kraft, PLA metalizado, PLA/PBAT) y las rutas de eliminación certificadas.",
+        "keywords": "embalaje compostable para barras, envoltorio de barra de chocolate, embalaje de barra de energía, embalaje compostable industrial, papel Kraft PLA metalizado, mezcla PLA PBAT",
+        "heroTitle": "Embalaje de Barra Certificado Compostable Industrial",
+        "heroSubtitle": "Protección de 3 Capas de Primera Calidad para Barras Energéticas, Proteicas y de Chocolate",
+        "heroDescription": "Una laminación de alto rendimiento de papel Kraft, PLA metalizado y una mezcla selladora de PLA/PBAT para mantener frescas sus barras mientras cumple con los estrictos estándares de compostaje industrial.",
+        "heroBadge": "Guía de Especificaciones de Material",
+        "heroReadTime": "6 min de lectura",
+        "introSummary": "Nuestro embalaje compostable para barras de 3 capas resuelve el dilemme definitivo de la sostenibilidad: proporciona una excelente protección de barrera contra el oxígeno y la humedad para evitar las manchas de aceite y el deterioro, al tiempo que es 100% compostable industrialmente.",
+        "ctaTitle": "Solicitar Muestras de Embalajes Compostables para Barras",
+        "ctaDescription": "Pruebe nuestros envoltorios laminados de papel Kraft de alta barrera en sus líneas de envasado de sellado vertical automático a alta velocidad (VFFS).",
+        "ctaButtonText": "Obtenga Muestras Gratis",
+        "sections": {
+          "detail1": {
+            "title": "Ingeniería de un Envoltorio Compostable de Alta Barrera de 3 Capas",
+            "desc": "Los envoltorios tradicionales para barras dependen de laminaciones de plástico/aluminio no reciclables. Nuestra solución de ingeniería utiliza tres capas compostables: 1) Capa exterior de papel Kraft crudo para resistencia y capacidad de impresión, 2) Capa intermedia de PLA metalizado que proporciona una alta barrera contra la humedad y el oxígeno, y 3) Capa interior de mezcla de PLA y PBAT para un sellado flexible y duradero."
+          },
+          "specifications": {
+            "title": "Rendimiento Técnico y Especificaciones de Barrera",
+            "desc": "Este embalaje es estrictamente compostable industrialmente, certificado para cumplir con los estándares EN 13432 y ASTM D6400. Requiere condiciones de instalaciones comerciales (55-60°C) para biodegradarse por completo en 90-180 días. Logra una tasa baja de transmisión de vapor de humedad (MVTR) por debajo de 0.1 g/m²/día y una tasa de transmisión de oxígeno (OTR) por debajo de 0.1 cc/m²/día, lo que garantiza que se mantenga la vida útil estándar de las barras de refrigerio."
+          },
+          "qa": {
+            "title": "Perspectiva de un Ingeniero Experto",
+            "desc": "En nuestras pruebas de ingeniería, observamos que añadir una capa de PLA metalizado mantiene la vida útil requerida para las barras con alto contenido de grasa sin sacrificar la compostabilidad. La mezcla selladora interna de PLA/PBAT se ha calibrado para funcionar sin problemas en máquinas de envasado VFFS a temperaturas de sellado entre 140°C y 160°C."
+          }
+        },
+        "faqs": {
+          "q1": "¿Dónde se puede compostar este embalaje de barra?",
+          "a1": "Debe desecharse en los contenedores municipales de recogida de residuos orgánicos destinados a instalaciones de compostaje industrial. Está certificado según las normas EN 13432 y ASTM D6400, pero no se descompondrá en los contenedores de compostaje doméstico debido a los requisitos de temperatura más altos (55-60°C).",
+          "q2": "¿Se filtrarán los aceites o grasas de las barras de chocolate y energéticas a través del papel Kraft?",
+          "a2": "No. La capa intermedia de PLA metalizado y la mezcla interna de PLA/PBAT actúan como una fuerte barrera que evita que las grasas y los aceites manchen o se filtren a través de la superficie del papel.",
+          "q3": "¿Se pueden utilizar estos envoltorios en máquinas de envasado estándar?",
+          "a3": "Sí. Nuestras películas compostables en bobinas están calibradas con un coeficiente de fricción dinámico (COF) de 0.2 a 0.3, lo que garantiza la compatibilidad con las máquinas de envasado de sellado vertical y horizontal (VFFS/HFFS) de alta velocidad."
+        },
+        "table": {
+          "title": "Matriz de Comparación de Propiedades de Materiales de Embalaje de Barra",
+          "headers": [
+            "Propiedad",
+            "Envoltorio Compostable de 3 Capas",
+            "Plástico Estándar (PET/PE)",
+            "Papel Compostable Doméstico"
+          ],
+          "rows": [
+            ["Estructura de laminación", "Kraft / Met-PLA / PLA-PBAT", "OPP / VMPET / PE", "Papel / Recubrimiento de almidón"],
+            ["Barrera (MVTR y OTR)", "Alta (Menos de 0.1)", "Excelente (Menos de 0.05)", "Baja (Más de 2.0)"],
+            ["Resistencia a aceites y grasas", "Excelente", "Excelente", "Deficiente (Se mancha fácilmente)"],
+            ["Eliminación al final de la vida útil", "Compost Industrial (90-180 días)", "Vertedero (No reciclable)", "Compost Doméstico / Industrial"],
+            ["Temp. de sellado en máquina", "140°C - 160°C", "120°C - 140°C", "160°C - 180°C"]
+          ]
+        }
+      },
       "plaCompostable": {
         "title": "How does 100% PLA Compostable Film & Pouches Biodegrade?",
         "description": "Yes, Polylactic Acid (PLA) made from renewable cornstarch biodegrades within 90-180 days under industrial composting conditions (55-60°C). Achieve Pack supplies TUV OK Compost and EN 13432 certified PLA films and stand-up pouches with high transparency, food safety compliance, and digital print MOQs from 500 units.",

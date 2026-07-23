@@ -6,7 +6,6 @@ import { Leaf, Award, Compass, Scale, ShieldCheck, Box, HelpCircle, Layers } fro
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { ThreePouchViewer } from '../../components/ThreePouchViewer'
-import RelatedProductsShowcase from '../../components/RelatedProductsShowcase'
 
 const MOCKUP_IMAGES = {
   flatBottom: '/imgs/pouch-shape/flat-bottom-vs-gusset/flat-bottom.png',
@@ -468,11 +467,8 @@ export default function FlatBottomVsGussetPage() {
         schemaType="Article"
         ctaTitle="Ready to Upgrade Your Pouch Base?"
         ctaDescription="Book a free consultation with our packaging engineering team to test samples on your filling line."
+        relatedProductIds={['compostable-flat-bottom-coffee-bags', 'flat-bottom-custom-pouches']}
       />
-
-      <div className="max-w-7xl mx-auto px-4 pb-12">
-        <RelatedProductsShowcase productIds={['compostable-flat-bottom-coffee-bags', 'flat-bottom-custom-pouches']} />
-      </div>
     </>
   )
 }

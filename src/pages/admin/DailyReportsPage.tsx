@@ -1306,8 +1306,47 @@ export default function DailyReportsPage() {
           )}
         </div>
 
+        {/* Mobile Tab Selector */}
+        <div className="block md:hidden mb-6">
+          <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Select Panel Tab</label>
+          <select 
+            value={activeTab} 
+            onChange={(e) => setActiveTab(e.target.value as any)}
+            className="w-full rounded-xl border-2 border-gray-200 py-3 px-4 font-bold text-sm bg-white text-gray-700 shadow-sm focus:ring-2 focus:ring-blue-500 cursor-pointer"
+          >
+            <optgroup label="Customer Follow Up">
+              <option value="reports">Reports</option>
+              <option value="calendly">Email & Calendly Follow Up</option>
+              <option value="whatsapp">Unified Inbox (WhatsApp)</option>
+              <option value="calendar">Calendar</option>
+              <option value="logs">Audit Logs</option>
+            </optgroup>
+            <optgroup label="Cost Follow Up">
+              <option value="rfq">RFQ Maker</option>
+              <option value="quote">Quote Generator</option>
+              <option value="pricing">Pricing</option>
+            </optgroup>
+            <optgroup label="Shipping Follow Up">
+              <option value="packing">Packing List</option>
+            </optgroup>
+            <optgroup label="Document Follow Up">
+              <option value="spec">Spec Sheet Generator</option>
+              <option value="compliance">Compliance Letter Generator</option>
+              <option value="coa">COA Generator</option>
+            </optgroup>
+            <optgroup label="Website Follow Up">
+              <option value="seo">SEO/GEO Monitor</option>
+              <option value="self-media">Traffic Booster</option>
+            </optgroup>
+            <optgroup label="Other">
+              <option value="family">Family Account</option>
+              <option value="translate">Translator</option>
+            </optgroup>
+          </select>
+        </div>
+
         {/* Tab Switcher - Grouped Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 print:hidden">
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 print:hidden">
           
           {/* Customer Follow Up */}
           <div>

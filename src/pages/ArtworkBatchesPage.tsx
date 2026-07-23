@@ -67,6 +67,8 @@ const ArtworkBatchesPage: React.FC = () => {
   const [copiedLinkOnly, setCopiedLinkOnly] = useState(false)
   const [copiedSupplierLinkOnly, setCopiedSupplierLinkOnly] = useState(false)
   const [copiedSupplierPasswordOnly, setCopiedSupplierPasswordOnly] = useState(false)
+  const [copiedGalleryLink, setCopiedGalleryLink] = useState(false)
+  const [copiedGalleryLinkOnly, setCopiedGalleryLinkOnly] = useState(false)
   
   // JSON preview state
   const [showJsonModal, setShowJsonModal] = useState(false)
@@ -964,6 +966,23 @@ const ArtworkBatchesPage: React.FC = () => {
     navigator.clipboard.writeText(selectedBatch.supplier_password)
     setCopiedSupplierPasswordOnly(true)
     setTimeout(() => setCopiedSupplierPasswordOnly(false), 2000)
+  }
+
+  const handleCopyGalleryLink = () => {
+    if (!selectedBatch) return
+    const link = `${window.location.origin}/artwork-gallery/${selectedBatch.id}`
+    const textToCopy = `Artwork Showcase Gallery Link: ${link}\nPassword: ${selectedBatch.password}`
+    navigator.clipboard.writeText(textToCopy)
+    setCopiedGalleryLink(true)
+    setTimeout(() => setCopiedGalleryLink(false), 2000)
+  }
+
+  const handleCopyGalleryLinkOnly = () => {
+    if (!selectedBatch) return
+    const link = `${window.location.origin}/artwork-gallery/${selectedBatch.id}`
+    navigator.clipboard.writeText(link)
+    setCopiedGalleryLinkOnly(true)
+    setTimeout(() => setCopiedGalleryLinkOnly(false), 2000)
   }
 
   // Save source link for artwork item
@@ -3187,55 +3206,48 @@ const ArtworkBatchesPage: React.FC = () => {
                         <span className="hidden sm:inline text-sm">Clone</span>
                       </button>
                       <button
-                        onClick={handleCopyLink}
-                        className="flex items-center gap-2 px-3 py-2 border border-gray-200 rounded-lg hover:bg-gray-50 transition"
-                        title="Copy Customer Link and Password (English)"
-                      >
-                        {copiedLink ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
-                        <span className="text-sm">{copiedLink ? 'Copied EN!' : 'Copy Link (EN)'}</span>
-                      </button>
-                      <button
-                        onClick={handleCopySupplierLink}
-                        className="flex items-center gap-2 px-3 py-2 border border-amber-200 bg-amber-50/20 text-amber-700 rounded-lg hover:bg-amber-50 transition"
-                        title="Copy Supplier Link and Password (Simplified Chinese)"
-                      >
-                        {copiedSupplierLink ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4 text-amber-500" />}
-                        <span className="text-sm">{copiedSupplierLink ? '已复制CN!' : 'Copy Link (CN)'}</span>
-                      </button>
-                      <a
-                        href={`/artwork-review/${selectedBatch.id}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition"
-                      >
-                        <Eye className="h-4 w-4" />
-                        <span className="text-sm">Preview</span>
-                      </a>
-                      <button
                         onClick={() => handleDeleteBatch(selectedBatch.id)}
-                        className="flex items-center gap-2 px-4 py-2 border border-red-200 text-red-600 rounded-lg hover:bg-red-50 transition"
+                        className="flex items-center gap-2 px-4 py-2 border border-red-200 text-red-650 hover:bg-red-50 rounded-lg transition"
                         title="Delete System"
                       >
                         <Trash2 className="h-4 w-4" />
+                        <span className="hidden sm:inline text-sm">Delete</span>
                       </button>
                     </div>
                   </div>
                   
                   {/* Password & Link Info */}
-                  <div className="mt-4 p-4 bg-gray-50 rounded-lg">
+                  <div className="mt-4 bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                    <div className="px-4 py-3 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
+                      <h4 className="font-bold text-gray-900 text-sm flex items-center gap-2">
+                        <Lock className="h-4 w-4 text-primary-600" />
+                        <span>Access & Sharing Control Center</span>
+                      </h4>
+                      {!editingPasswords && (
+                        <button 
+                          onClick={() => {
+                            setEditCustomerPassword(selectedBatch.password)
+                            setEditSupplierPassword(selectedBatch.supplier_password || '')
+                            setEditingPasswords(true)
+                          }}
+                          className="text-xs text-primary-605 hover:text-primary-800 font-semibold flex items-center gap-1 transition"
+                        >
+                          <Pencil className="h-3 w-3" />
+                          <span>Edit Passwords</span>
+                        </button>
+                      )}
+                    </div>
+
                     {editingPasswords ? (
-                      <div className="space-y-4">
+                      <div className="p-4 space-y-4">
                         <div className="flex items-center justify-between">
-                          <h4 className="font-bold text-gray-900 text-sm flex items-center gap-2">
-                            <Lock className="h-4 w-4" />
-                            Edit Access Passwords
-                          </h4>
+                          <span className="text-xs font-semibold text-gray-500">Edit Passwords</span>
                           <div className="flex gap-2 text-sm">
-                            <button onClick={() => setEditingPasswords(false)} className="text-gray-500 hover:text-gray-700">Cancel</button>
+                            <button onClick={() => setEditingPasswords(false)} className="text-gray-500 hover:text-gray-700 font-medium">Cancel</button>
                             <button onClick={handleSavePasswords} className="text-primary-600 font-bold hover:text-primary-800">Save</button>
                           </div>
                         </div>
-                        <div className="space-y-3">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
                             <label className="block text-xs font-medium text-gray-700 mb-1">Customer Password</label>
                             <input 
@@ -3257,84 +3269,121 @@ const ArtworkBatchesPage: React.FC = () => {
                         </div>
                       </div>
                     ) : (
-                      <>
-                        <div className="flex items-center justify-between text-sm mb-3">
-                          <h4 className="font-bold text-gray-900 text-sm flex items-center gap-2">
-                            <Lock className="h-4 w-4" />
-                            Access Links
-                          </h4>
-                          <button 
-                            onClick={() => {
-                              setEditCustomerPassword(selectedBatch.password)
-                              setEditSupplierPassword(selectedBatch.supplier_password || '')
-                              setEditingPasswords(true)
-                            }}
-                            className="text-xs text-primary-600 hover:text-primary-800 font-medium"
-                          >
-                            Edit Passwords
-                          </button>
+                      <div className="divide-y divide-gray-150">
+                        {/* 1. Client Approval Link */}
+                        <div className="p-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                          <div className="space-y-1 flex-1 min-w-0">
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <span className="text-xs font-bold text-gray-800 bg-gray-100 px-2 py-0.5 rounded">
+                                Customer Review Link (EN)
+                              </span>
+                              <span className="text-xs text-gray-550">
+                                Passcode: <code className="font-bold text-gray-900 bg-gray-55 border px-1.5 py-0.5 rounded">{selectedBatch.password}</code>
+                              </span>
+                            </div>
+                            <div className="text-xs text-gray-450 truncate">
+                              {window.location.origin}/artwork-review/{selectedBatch.id}
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-center gap-2 flex-shrink-0">
+                            <button
+                              onClick={handleCopyLink}
+                              className="flex items-center gap-1.5 px-3 py-1.5 border border-gray-205 bg-white hover:bg-gray-50 text-gray-750 rounded-lg text-xs font-bold transition shadow-sm"
+                              title="Copy Link + Passcode"
+                            >
+                              {copiedLink ? <Check className="h-3.5 w-3.5 text-green-600 animate-scale-up" /> : <Copy className="h-3.5 w-3.5 text-gray-450" />}
+                              <span>{copiedLink ? 'Copied Share Info!' : 'Copy Share Info'}</span>
+                            </button>
+                            <a
+                              href={`/artwork-review/${selectedBatch.id}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-1.5 px-3 py-1.5 border border-primary-200 bg-primary-50 hover:bg-primary-100 text-primary-750 rounded-lg text-xs font-bold transition shadow-sm"
+                              title="Open Live Link"
+                            >
+                              <Eye className="h-3.5 w-3.5 text-primary-600" />
+                              <span>Preview</span>
+                            </a>
+                          </div>
                         </div>
-                        <div className="flex items-center justify-between text-sm">
-                      <div className="flex items-center gap-2">
-                        <Lock className="h-4 w-4 text-gray-500" />
-                        <span className="text-gray-600">Password:</span>
-                        <code className="px-2 py-0.5 bg-white rounded border text-gray-800">{selectedBatch.password}</code>
+
+                        {/* 2. Supplier Upload Link */}
+                        <div className="p-4 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-amber-50/10">
+                          <div className="space-y-1 flex-1 min-w-0">
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <span className="text-xs font-bold text-amber-800 bg-amber-100/50 px-2 py-0.5 rounded border border-amber-200/20">
+                                Supplier Portal Link (CN)
+                              </span>
+                              <span className="text-xs text-gray-550">
+                                Passcode: <code className="font-bold text-amber-900 bg-amber-50/50 border border-amber-200/40 px-1.5 py-0.5 rounded">{selectedBatch.supplier_password || 'Not Set'}</code>
+                              </span>
+                            </div>
+                            <div className="text-xs text-gray-450 truncate">
+                              {window.location.origin}/artwork-review/{selectedBatch.id}?role=supplier
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-center gap-2 flex-shrink-0">
+                            <button
+                              onClick={handleCopySupplierLink}
+                              className="flex items-center gap-1.5 px-3 py-1.5 border border-amber-200 bg-white hover:bg-gray-50 text-amber-800 rounded-lg text-xs font-bold transition shadow-sm"
+                              title="Copy Link + Passcode"
+                            >
+                              {copiedSupplierLink ? <Check className="h-3.5 w-3.5 text-green-600 animate-scale-up" /> : <Copy className="h-3.5 w-3.5 text-amber-500" />}
+                              <span>{copiedSupplierLink ? '已复制分享信息!' : 'Copy Share Info'}</span>
+                            </button>
+                            <a
+                              href={`/artwork-review/${selectedBatch.id}?role=supplier`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-1.5 px-3 py-1.5 border border-amber-250 bg-amber-50 hover:bg-amber-100 text-amber-900 rounded-lg text-xs font-bold transition shadow-sm"
+                              title="Open Live Link"
+                            >
+                              <Eye className="h-3.5 w-3.5 text-amber-600" />
+                              <span>Preview</span>
+                            </a>
+                          </div>
+                        </div>
+
+                        {/* 3. Image Gallery Link */}
+                        <div className="p-4 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-purple-50/10">
+                          <div className="space-y-1 flex-1 min-w-0">
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <span className="text-xs font-bold text-purple-800 bg-purple-100/50 px-2 py-0.5 rounded border border-purple-200/20">
+                                Showcase Gallery Link (Bilingual)
+                              </span>
+                              <span className="text-xs text-gray-550">
+                                Passcode: <code className="font-bold text-purple-900 bg-purple-50/50 border border-purple-200/40 px-1.5 py-0.5 rounded">{selectedBatch.password}</code>
+                              </span>
+                            </div>
+                            <div className="text-xs text-gray-450 truncate">
+                              {window.location.origin}/artwork-gallery/{selectedBatch.id}
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-center gap-2 flex-shrink-0">
+                            <button
+                              onClick={handleCopyGalleryLink}
+                              className="flex items-center gap-1.5 px-3 py-1.5 bg-purple-650 hover:bg-purple-750 text-white rounded-lg text-xs font-bold transition shadow-sm"
+                              title="Copy Gallery Link & Passcode"
+                            >
+                              {copiedGalleryLink ? <Check className="h-3.5 w-3.5 text-green-200 animate-scale-up" /> : <Copy className="h-3.5 w-3.5 text-purple-100" />}
+                              <span>{copiedGalleryLink ? 'Copied Gallery!' : 'Copy Share Info'}</span>
+                            </button>
+                            <a
+                              href={`/artwork-gallery/${selectedBatch.id}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-1.5 px-3 py-1.5 border border-purple-250 bg-purple-50 hover:bg-purple-100 text-purple-900 rounded-lg text-xs font-bold transition shadow-sm"
+                              title="Open Live Gallery"
+                            >
+                              <ImageIcon className="h-3.5 w-3.5 text-purple-600" />
+                              <span>Preview</span>
+                            </a>
+                          </div>
+                        </div>
                       </div>
-                      <button
-                        onClick={handleCopyPasswordOnly}
-                        className="p-1 text-gray-400 hover:text-gray-700 hover:bg-gray-200 rounded transition"
-                        title="Copy Password"
-                      >
-                        {copiedPasswordOnly ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
-                      </button>
-                    </div>
-                    <div className="flex items-center justify-between text-sm mt-3 pt-3 border-t border-gray-200">
-                      <div className="flex items-center gap-2 overflow-hidden pr-2">
-                        <ExternalLink className="h-4 w-4 text-gray-500 flex-shrink-0" />
-                        <span className="text-gray-600 flex-shrink-0">Review Link:</span>
-                        <code className="px-2 py-0.5 bg-white rounded border text-gray-800 text-xs truncate max-w-md">
-                          {window.location.origin}/artwork-review/{selectedBatch.id}
-                        </code>
-                      </div>
-                      <button
-                        onClick={handleCopyLinkOnly}
-                        className="p-1 text-gray-400 hover:text-gray-700 hover:bg-gray-200 rounded transition flex-shrink-0"
-                        title="Copy Link"
-                      >
-                        {copiedLinkOnly ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
-                      </button>
-                    </div>
-                    <div className="flex items-center justify-between text-sm mt-3 pt-3 border-t border-gray-200 bg-amber-50/50 -mx-4 px-4 py-2">
-                      <div className="flex items-center gap-2">
-                        <Lock className="h-4 w-4 text-amber-500" />
-                        <span className="text-gray-600">Supplier Password:</span>
-                        <code className="px-2 py-0.5 bg-white rounded border border-amber-200 text-amber-900">{selectedBatch.supplier_password || 'Not Set'}</code>
-                      </div>
-                      <button
-                        onClick={handleCopySupplierPasswordOnly}
-                        className="p-1 text-amber-400 hover:text-amber-700 hover:bg-amber-100 rounded transition"
-                        title="Copy Supplier Password"
-                      >
-                        {copiedSupplierPasswordOnly ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
-                      </button>
-                    </div>
-                    <div className="flex items-center justify-between text-sm mt-0 pt-3 border-t border-amber-100 bg-amber-50/50 -mx-4 px-4 pb-2">
-                      <div className="flex items-center gap-2 overflow-hidden pr-2">
-                        <ExternalLink className="h-4 w-4 text-amber-500 flex-shrink-0" />
-                        <span className="text-gray-600 flex-shrink-0">Supplier Upload Link:</span>
-                        <code className="px-2 py-0.5 bg-amber-50 rounded border border-amber-100 text-amber-900 text-xs truncate max-w-md">
-                          {window.location.origin}/artwork-review/{selectedBatch.id}?role=supplier
-                        </code>
-                      </div>
-                      <button
-                        onClick={handleCopySupplierLinkOnly}
-                        className="p-1 text-amber-400 hover:text-amber-700 hover:bg-amber-100 rounded transition flex-shrink-0"
-                        title="Copy Supplier Link"
-                      >
-                        {copiedSupplierLinkOnly ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
-                      </button>
-                    </div>
-                      </>
                     )}
                   </div>
                 </div>
@@ -3740,10 +3789,12 @@ const ArtworkBatchesPage: React.FC = () => {
                               renderRawTable(sectionItems)
                             ) : (
                               <div 
-                                className="grid gap-4"
+                                className="grid gap-4 grid-cols-[repeat(var(--grid-cols-mobile,1),minmax(0,1fr))] sm:grid-cols-[repeat(var(--grid-cols-tablet,2),minmax(0,1fr))] lg:grid-cols-[repeat(var(--grid-cols),minmax(0,1fr))]"
                                 style={{ 
-                                  gridTemplateColumns: `repeat(${gridCols}, minmax(0, 1fr))` 
-                                }}
+                                  '--grid-cols': String(gridCols),
+                                  '--grid-cols-tablet': String(Math.min(gridCols, 2)),
+                                  '--grid-cols-mobile': '1'
+                                } as React.CSSProperties}
                               >
                                 {sectionItems.map(item => renderItemCard(item))}
                               </div>

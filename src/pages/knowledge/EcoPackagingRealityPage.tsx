@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next'
 import { Leaf, Trash2, RefreshCw, Coffee, ShieldCheck, Scale, Compass } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
-import RelatedProductsShowcase from '../../components/RelatedProductsShowcase'
 
 const localTranslations: Record<string, any> = {
   en: {
@@ -295,11 +294,8 @@ export default function EcoPackagingRealityPage() {
         schemaType="Article"
         ctaTitle="Achieve Sustainable Packaging Circularity"
         ctaDescription="Book a quick 30-minute consultation with our packaging specialists to review material compliance and order free samples."
+        relatedProductIds={['compostable-stand-up-pouches', 'clear-matte-zipper-stand-up-pouch']}
       />
-
-      <div className="max-w-7xl mx-auto px-4 pb-12">
-        <RelatedProductsShowcase productIds={['compostable-stand-up-pouches', 'clear-matte-zipper-stand-up-pouch']} />
-      </div>
     </>
   )
 }

@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next'
 import { Leaf, Award, Compass, Scale, ShieldCheck, Box, HelpCircle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
-import RelatedProductsShowcase from '../../components/RelatedProductsShowcase'
 
 const KSEAL_IMAGES = {
   hero: '/imgs/pouch-shape/k-seal/hero.webp',
@@ -384,11 +383,8 @@ export default function KSealStandUpPouchesPage() {
         ctaTitle={t(`${p}.readyToUpgradeToKSeal`)}
         ctaDescription={t(`${p}.ourPackagingSpecialistsCanHelp`)}
         ctaButtonText={t(`${p}.orderSamples`)}
+        relatedProductIds={['compostable-stand-up-pouches', 'clear-matte-zipper-stand-up-pouch']}
       />
-
-      <div className="max-w-7xl mx-auto px-4 pb-12">
-        <RelatedProductsShowcase productIds={['compostable-stand-up-pouches', 'clear-matte-zipper-stand-up-pouch']} />
-      </div>
     </>
   )
 }

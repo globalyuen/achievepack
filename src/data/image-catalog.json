@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-18",
-  "total_images": 5528,
-  "total_categories": 288,
+  "generated": "2026-07-23",
+  "total_images": 5549,
+  "total_categories": 291,
   "extensions": {
     ".webp": 1355,
     ".png": 3160,
-    ".jpg": 1009,
+    ".jpg": 1030,
     ".svg": 4
   },
   "categories": {
@@ -169,6 +169,29 @@
           "path": "/imgs/artifacts/baby_food_hero.jpg",
           "extension": ".jpg",
           "modified": "2026-05-10T05:44:18.968Z"
+        }
+      ]
+    },
+    "backdrops": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "marble-counter.jpg",
+          "path": "/imgs/backdrops/marble-counter.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-20T07:56:44.198Z"
+        },
+        {
+          "filename": "retail-shelf.jpg",
+          "path": "/imgs/backdrops/retail-shelf.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-20T07:56:44.196Z"
+        },
+        {
+          "filename": "wood-table.jpg",
+          "path": "/imgs/backdrops/wood-table.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-20T07:56:44.194Z"
         }
       ]
     },
@@ -5714,6 +5737,41 @@
           "path": "/imgs/company/bpi/bpipouch.webp",
           "extension": ".webp",
           "modified": "2026-01-16T06:28:20.000Z"
+        }
+      ]
+    },
+    "composting/bar": {
+      "count": 5,
+      "images": [
+        {
+          "filename": "compostable-bar-sealing-product.jpg",
+          "path": "/imgs/composting/bar/compostable-bar-sealing-product.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-23T00:42:42.165Z"
+        },
+        {
+          "filename": "compostable-energy-bar-product.jpg",
+          "path": "/imgs/composting/bar/compostable-energy-bar-product.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-23T00:42:42.154Z"
+        },
+        {
+          "filename": "industrial-composting-facility-guide.jpg",
+          "path": "/imgs/composting/bar/industrial-composting-facility-guide.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-23T00:42:42.142Z"
+        },
+        {
+          "filename": "kraft-paper-pla-layers-diagram.jpg",
+          "path": "/imgs/composting/bar/kraft-paper-pla-layers-diagram.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-23T00:42:42.139Z"
+        },
+        {
+          "filename": "compostable-bar-packaging-hero.jpg",
+          "path": "/imgs/composting/bar/compostable-bar-packaging-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-23T00:42:42.134Z"
         }
       ]
     },
@@ -12753,8 +12811,20 @@
       ]
     },
     "knowledge": {
-      "count": 339,
+      "count": 341,
       "images": [
+        {
+          "filename": "compostable-bar-packaging-layers.jpg",
+          "path": "/imgs/knowledge/compostable-bar-packaging-layers.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-23T00:50:36.977Z"
+        },
+        {
+          "filename": "compostable-bar-packaging-hero.jpg",
+          "path": "/imgs/knowledge/compostable-bar-packaging-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-23T00:50:36.975Z"
+        },
         {
           "filename": "explorer_sizing_infographic.jpg",
           "path": "/imgs/knowledge/explorer_sizing_infographic.jpg",
@@ -33351,6 +33421,77 @@
           "path": "/imgs/topics/kraft-paper-shopping-bag/hero.jpg",
           "extension": ".jpg",
           "modified": "2026-07-14T04:36:55.213Z"
+        }
+      ]
+    },
+    "topics/label-materials": {
+      "count": 11,
+      "images": [
+        {
+          "filename": "Image.jpg",
+          "path": "/imgs/topics/label-materials/Image.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-18T12:23:08.405Z"
+        },
+        {
+          "filename": "Image-10.jpg",
+          "path": "/imgs/topics/label-materials/Image-10.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-18T12:23:08.403Z"
+        },
+        {
+          "filename": "Image-9.jpg",
+          "path": "/imgs/topics/label-materials/Image-9.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-18T12:23:08.401Z"
+        },
+        {
+          "filename": "Image-8.jpg",
+          "path": "/imgs/topics/label-materials/Image-8.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-18T12:23:08.398Z"
+        },
+        {
+          "filename": "Image-7.jpg",
+          "path": "/imgs/topics/label-materials/Image-7.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-18T12:23:08.394Z"
+        },
+        {
+          "filename": "Image-6.jpg",
+          "path": "/imgs/topics/label-materials/Image-6.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-18T12:23:08.389Z"
+        },
+        {
+          "filename": "Image-5.jpg",
+          "path": "/imgs/topics/label-materials/Image-5.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-18T12:23:08.387Z"
+        },
+        {
+          "filename": "Image-4.jpg",
+          "path": "/imgs/topics/label-materials/Image-4.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-18T12:23:08.384Z"
+        },
+        {
+          "filename": "Image-3.jpg",
+          "path": "/imgs/topics/label-materials/Image-3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-18T12:23:08.380Z"
+        },
+        {
+          "filename": "Image-2.jpg",
+          "path": "/imgs/topics/label-materials/Image-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-18T12:23:08.376Z"
+        },
+        {
+          "filename": "Image-1.jpg",
+          "path": "/imgs/topics/label-materials/Image-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-07-18T12:23:08.372Z"
         }
       ]
     },

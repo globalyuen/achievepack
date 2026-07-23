@@ -35,6 +35,7 @@ const LEARN_PAGES = {
     icon: <Leaf className="h-4 w-4" />,
     pages: [
       { name: 'Compostable Overview', link: '/materials/compostable', image: '/imgs/illustrated/a_compostable_v3_9254998.webp' },
+      { name: 'Compostable Bar Packaging', link: '/materials/compostable-bar-packaging', image: '/imgs/knowledge/compostable-bar-packaging-hero.jpg' },
       { name: 'Home Compostable', link: '/materials/home-compostable', image: '/imgs/illustrated/a_home_compostable_card_v1_2166648.webp' },
       { name: 'Industrial Compostable', link: '/materials/industrial-compostable', image: '/imgs/illustrated/a_industrial_compostable_card_v1_5916306.webp' },
       { name: 'Recyclable Mono PE', link: '/materials/recyclable-mono-pe', image: '/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp' },

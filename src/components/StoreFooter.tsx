@@ -47,13 +47,20 @@ export default function StoreFooter() {
                 <img src="/ap-logo-white.webp" alt="Achieve Pack" className="h-7 w-auto" loading="lazy" decoding="async" width="106" height="32" />
               </Link>
               <p className="text-neutral-400 text-xs mb-3">Premium custom printed packaging and stock pouch solutions with advanced barrier materials.</p>
-              <div className="flex items-center gap-2 mb-3">
-                <Link to="/company/b-corp" className="opacity-80 hover:opacity-100 transition-opacity">
-                  <img src="/bcorp.svg" alt="Certified B Corp" className="h-10 w-auto" loading="lazy" />
-                </Link>
-                <Link to="/company/bpi-certified" className="opacity-80 hover:opacity-100 transition-opacity">
-                  <img src="/imgs/bpi.svg" alt="BPI Certified" className="h-10 w-auto" loading="lazy" />
-                </Link>
+              <div className="flex flex-col gap-3 mb-3">
+                <div className="flex items-center gap-2">
+                  <Link to="/company/b-corp" className="opacity-80 hover:opacity-100 transition-opacity">
+                    <img src="/bcorp.svg" alt="Certified B Corp" className="h-10 w-auto" loading="lazy" />
+                  </Link>
+                  <Link to="/company/bpi-certified" className="opacity-80 hover:opacity-100 transition-opacity">
+                    <img src="/imgs/bpi.svg" alt="BPI Certified" className="h-10 w-auto" loading="lazy" />
+                  </Link>
+                </div>
+                <div className="pt-1">
+                  <a href="https://www.producthunt.com/products/achieve-pack-free-3d-studio?utm_source=badge-follow&utm_medium=badge&utm_source=badge-achieve-pack-free-3d-studio" target="_blank" rel="noopener noreferrer" className="block">
+                    <img src="https://api.producthunt.com/widgets/embed-image/v1/follow.svg?product_id=1271214&theme=dark" alt="Achieve Pack Free 3D Studio - Design & visualize 3D pouches instantly in your browser. | Product Hunt" style={{ width: '250px', height: '54px' }} width="250" height="54" />
+                  </a>
+                </div>
               </div>
             </div>
             <div className="text-[11px] text-neutral-500 space-y-1">
@@ -90,6 +97,7 @@ export default function StoreFooter() {
             <h4 className="font-semibold text-sm mb-3 text-neutral-200">Materials & Specs</h4>
             <ul className="space-y-1.5 text-xs text-neutral-400">
               <li><Link to="/materials/compostable" className="hover:text-primary-400">Compostable Materials</Link></li>
+              <li><Link to="/materials/compostable-bar-packaging" className="hover:text-primary-400">Compostable Bar Wraps <span className="text-[10px] bg-primary-600 text-white px-1.5 py-0.5 rounded-full font-bold ml-1">New</span></Link></li>
               <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-400">Recyclable Mono-PE</Link></li>
               <li><Link to="/materials/bio-pe" className="hover:text-primary-400">Bio-PE / PCR Series</Link></li>
               <li><Link to="/materials/home-compostable" className="hover:text-primary-400">Home Compostable</Link></li>

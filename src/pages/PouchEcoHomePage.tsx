@@ -263,17 +263,26 @@ export default function PouchEcoHomePage() {
             </Link>
           </div>
 
-          <button 
-            onClick={() => setIsCartOpen(true)}
-            className="border-2 border-black p-2 hover:bg-[#10b981] hover:text-white transition-colors relative"
-          >
-            <ShoppingCart className="w-6 h-6" />
-            {cartCount > 0 && (
-              <div className="absolute -top-3 -right-3 bg-black text-[#D4FF00] w-6 h-6 flex items-center justify-center font-['JetBrains_Mono'] font-bold text-xs border-2 border-[#D4FF00]">
-                {cartCount}
-              </div>
-            )}
-          </button>
+          <div className="flex items-center gap-2">
+            <Link
+              to="/studio"
+              className="border-2 border-black p-2 hover:bg-[#10b981] hover:text-white transition-colors flex items-center justify-center text-black"
+              title="3D Packaging Studio"
+            >
+              <Box className="w-6 h-6" />
+            </Link>
+            <button 
+              onClick={() => setIsCartOpen(true)}
+              className="border-2 border-black p-2 hover:bg-[#10b981] hover:text-white transition-colors relative text-black"
+            >
+              <ShoppingCart className="w-6 h-6" />
+              {cartCount > 0 && (
+                <div className="absolute -top-3 -right-3 bg-black text-[#D4FF00] w-6 h-6 flex items-center justify-center font-['JetBrains_Mono'] font-bold text-xs border-2 border-[#D4FF00]">
+                  {cartCount}
+                </div>
+              )}
+            </button>
+          </div>
         </div>
       </nav>
       <ProductCatalogBanner />

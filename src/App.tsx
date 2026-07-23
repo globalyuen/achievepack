@@ -1108,6 +1108,13 @@ function App() {
             {/* Mobile Menu Button with Store Icon */}
             <div className="lg:hidden flex items-center gap-2">
               <Link
+                to="/studio"
+                className="w-11 h-11 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors active:scale-95"
+                title="3D Studio"
+              >
+                <Box className="h-5 w-5 text-white" />
+              </Link>
+              <Link
                 to="/store"
                 className="w-11 h-11 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors active:scale-95"
               >

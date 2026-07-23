@@ -37312,6 +37312,58 @@
           ]
         }
       },
+      "compostableBarPackaging": {
+        "title": "Industrial Compostable Bar Packaging (3-Layer Kraft Paper + Metalized PLA + PLA & PBAT Blend) | Achieve Pack",
+        "description": "Premium industrial compostable packaging for chocolate, energy, and protein bars. Learn about the 3-layer laminated barrier structure (Kraft, Metalized PLA, PLA/PBAT) and certified disposal routes.",
+        "keywords": "compostable bar packaging, chocolate bar wrapper, energy bar packaging, industrial compostable packaging, Kraft paper metalized PLA, PLA PBAT blend",
+        "heroTitle": "Certified Industrial Compostable Bar Packaging",
+        "heroSubtitle": "Premium 3-Layer Protection for Energy, Protein & Chocolate Bars",
+        "heroDescription": "A high-performance lamination of Kraft Paper, Metalized PLA, and a PLA/PBAT sealing blend to keep your bars fresh while meeting strict industrial composting standards.",
+        "heroBadge": "Material Specification Guide",
+        "heroReadTime": "6 min read",
+        "introSummary": "Our 3-layer compostable bar packaging solves the ultimate sustainability dilemma: providing excellent oxygen and moisture barrier protection to prevent oil staining and spoilage while remaining 100% industrially compostable.",
+        "ctaTitle": "Request Custom Compostable Bar Packaging Samples",
+        "ctaDescription": "Test our high-barrier Kraft paper laminated wrappers on your high-speed vertical flow-fill-seal (VFFS) packing lines.",
+        "ctaButtonText": "Get Free Samples",
+        "sections": {
+          "detail1": {
+            "title": "Engineering a High-Barrier 3-Layer Compostable Wrap",
+            "desc": "Traditional bar wrappers rely on non-recyclable plastic/foil laminations. Our engineered solution uses three compostable layers: 1) Raw Kraft Paper outer layer for strength and printability, 2) Metalized PLA middle layer that provides a high moisture and oxygen barrier, and 3) PLA and PBAT blend inner layer for flexible, durable sealing."
+          },
+          "specifications": {
+            "title": "Technical Performance & Barrier Specifications",
+            "desc": "This packaging is strictly industrial compostable, certified to meet EN 13432 and ASTM D6400 standards. It requires commercial facility conditions (55-60°C) to biodegrade completely in 90-180 days. It achieves a low Moisture Vapor Transmission Rate (MVTR) under 0.1 g/m²/day and Oxygen Transmission Rate (OTR) under 0.1 cc/m²/day, ensuring standard snack bar shelf-life is maintained."
+          },
+          "qa": {
+            "title": "Expert Engineering Insight",
+            "desc": "In our engineering tests, we observed that adding a metalized PLA layer maintains the required shelf life of high-fat content bars without sacrificing compostability. The inner PLA/PBAT sealant blend has been calibrated to run smoothly on VFFS wrapping machines at sealing temperatures between 140°C and 160°C."
+          }
+        },
+        "faqs": {
+          "q1": "Where can this bar packaging be composted?",
+          "a1": "It must be disposed of in municipal organic waste collection bins destined for industrial composting facilities. It is certified under EN 13432 and ASTM D6400, but will not break down in backyard/home compost bins due to the higher temperature requirements (55-60°C).",
+          "q2": "Will oils or fats from chocolate and nut bars leak through the Kraft paper?",
+          "a2": "No. The middle layer of metalized PLA and the inner PLA/PBAT blend act as a strong barrier that prevents grease, oils, and fats from staining or leaking through the paper surface.",
+          "q3": "Can these wraps be run on standard packaging machines?",
+          "a3": "Yes. Our compostable rollstock films are calibrated with a dynamic Coefficient of Friction (COF) of 0.2 to 0.3, ensuring high-speed vertical and horizontal form-fill-seal (VFFS/HFFS) machine compatibility."
+        },
+        "table": {
+          "title": "Bar Packaging Material Property Comparison",
+          "headers": [
+            "Property",
+            "3-Layer Compostable Wrap",
+            "Standard Plastic (PET/PE)",
+            "Home Compostable Paper"
+          ],
+          "rows": [
+            ["Lamination Structure", "Kraft / Met-PLA / PLA-PBAT", "OPP / VMPET / PE", "Paper / Starch Coating"],
+            ["Barrier (MVTR & OTR)", "High (Under 0.1)", "Excellent (Under 0.05)", "Low (Above 2.0)"],
+            ["Oil & Grease Resistance", "Excellent", "Excellent", "Poor (Stains easily)"],
+            ["End-of-Life Disposal", "Industrial Compost (90-180 days)", "Landfill (Non-recyclable)", "Home/Industrial Compost"],
+            ["Machinery Sealing Temp", "140°C - 160°C", "120°C - 140°C", "160°C - 180°C"]
+          ]
+        }
+      },
       "plaCompostable": {
         "title": "How does 100% PLA Compostable Film & Pouches Biodegrade?",
         "description": "Yes, Polylactic Acid (PLA) made from renewable cornstarch biodegrades within 90-180 days under industrial composting conditions (55-60°C). Achieve Pack supplies TUV OK Compost and EN 13432 certified PLA films and stand-up pouches with high transparency, food safety compliance, and digital print MOQs from 500 units.",
