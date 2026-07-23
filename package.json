@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "description": "Achieve Pack & Pouch.eco dual-domain website with product carousel",
+  "packageManager": "pnpm@9.15.4",
   "scripts": {
     "dev": "pnpm install --prefer-offline && node scripts/update-image-catalog.cjs && vite",
     "build": "vite build",
