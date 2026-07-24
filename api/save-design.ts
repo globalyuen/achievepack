@@ -26,7 +26,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     if (!SUPABASE_URL || !SUPABASE_KEY) return res.status(500).json({ error: 'Server configuration error' });
 
     const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-    const { shapeId, width, height, depth, unit, layers } = req.body || {};
+    const { shapeId, width, height, depth, unit, layers, backdrop, customProps } = req.body || {};
 
     // Generate unique 8-character code
     let code = generateCode();
@@ -57,6 +57,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       depth: depth || 36.4,
       unit: unit || 'mm',
       layers: layers || [],
+      backdrop: backdrop || 'studio',
+      customProps: customProps || [],
       createdAt: new Date().toISOString()
     };
 
