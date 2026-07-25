@@ -56501,5 +56501,81 @@
         "title": "Strategic Guidelines for Artwork & Placement"
       }
     }
+  },
+  "specPages": {
+    "materials": {
+      "bioCelloTriplexHighest": "Bio-Cello Triplex Highest Barrier (NK / NKME / Bio-PE)",
+      "bioCelloTriplexMetalised": "Bio-Cello Triplex Metalised",
+      "bioKraftPbatLow": "Bio Kraft / PBAT Low Barrier (Compostable)",
+      "bioKraftVmCello": "Bio Kraft / VmCello Compostable",
+      "bioPeKraftDuplexLow": "Bio-PE Kraft Duplex Low Barrier",
+      "bioPeKraftVmpet": "Bio-PE Kraft VMPET Triplex",
+      "bioPePetDuplexClear": "Bio-PE PET Duplex Clear",
+      "bioPePetDuplexNoWindow": "Bio-PE PET Duplex No Window",
+      "bioPePetKraftQuadlexAluminum": "Bio-PE PET Kraft Quadlex Aluminum",
+      "bioPePetKraftTriplexClear": "Bio-PE PET Kraft Triplex Clear",
+      "bioPePetTriplexAluminum": "Bio-PE PET Triplex Aluminum",
+      "bioPePetTriplexMetalised": "Bio-PE PET Triplex Metalised",
+      "bioPePpDuplexClear": "Bio-PE PP Duplex Clear",
+      "bioPePpDuplexNoWindow": "Bio-PE PP Duplex No Window",
+      "bioPePpKraftQuadlexAluminum": "Bio-PE PP Kraft Quadlex Aluminum",
+      "bioPePpKraftTriplexClear": "Bio-PE PP Kraft Triplex Clear",
+      "bioPePpTriplexAluminum": "Bio-PE PP Triplex Aluminum",
+      "bioPePpTriplexMetalised": "Bio-PE PP Triplex Metalised",
+      "compostableMaterialStructure": "Home & Industrial Compostable",
+      "compostablePouchGeo": "Compostable Pouch GEO Spec",
+      "monoPeDuplexClear": "Mono-PE Duplex Clear Recyclable (RIC #4)",
+      "monoPeDuplexNoWindow": "Mono-PE Duplex No Window (RIC #4)",
+      "monoPpDuplexClear": "Mono-PP Duplex Clear Recyclable (RIC #5)",
+      "monoPpDuplexNoWindow": "Mono-PP Duplex No Window (RIC #5)",
+      "pcrKraftDuplexLow": "PCR Kraft Duplex Low (30% PCR)",
+      "pcrKraftVmpet": "PCR Kraft VMPET Triplex (30% PCR)",
+      "pcrPetDuplexClear": "PCR PET Duplex Clear (KPET12 / 30% PCR-PE)",
+      "pcrPetDuplexNoWindow": "PCR PET Duplex No Window (30% PCR)",
+      "pcrPetKraftQuadlexAluminum": "PCR PET Kraft Quadlex Aluminum (30% PCR)",
+      "pcrPetKraftTriplexClear": "PCR PET Kraft Triplex Clear (30% PCR)",
+      "pcrPetTriplexAluminum": "PCR PET Triplex Aluminum (30% PCR)",
+      "pcrPetTriplexMetalised": "PCR PET Triplex Metalised (30% PCR)",
+      "pcrPpDuplexClear": "PCR PP Duplex Clear (30% PCR)",
+      "pcrPpDuplexNoWindow": "PCR PP Duplex No Window (30% PCR)",
+      "pcrPpKraftQuadlexAluminum": "PCR PP Kraft Quadlex Aluminum (30% PCR)",
+      "pcrPpKraftTriplexClear": "PCR PP Kraft Triplex Clear (30% PCR)",
+      "pcrPpTriplexAluminum": "PCR PP Triplex Aluminum (30% PCR)",
+      "pcrPpTriplexMetalised": "PCR PP Triplex Metalised (30% PCR)"
+    },
+    "shapes": {
+      "standUp": "Stand-Up Pouch / Doypack",
+      "flatBottom": "Flat Bottom Bag / Box Pouch",
+      "sideGusset": "Side Gusset Bag / Quad Seal",
+      "retort": "Retort Pouch (Autoclave Sterilization)",
+      "spout": "Spout Pouch / Liquid Fitment Bag",
+      "rollstock": "Rollstock Film Reel (VFFS)"
+    },
+    "units": {
+      "inch": "Inches (in)",
+      "mm": "Millimeters (mm)"
+    },
+    "closures": {
+      "pressToClose": "Press-to-Close Zipper",
+      "pocketZipper": "Pocket Zipper (Front Pull Tab)",
+      "tearNotch": "Tear Notch",
+      "degassingValve": "One-Way Degassing Coffee Valve",
+      "spoutCap": "Spout & Safety Cap",
+      "childResistant": "Child-Resistant Zipper (CR)",
+      "tinTie": "Tin Tie / Re-sealable Bar"
+    },
+    "compliance": {
+      "iso22000": "ISO 22000 Food Safety System Certified",
+      "fda177": "US FDA 21 CFR 177.1520 Direct Food Contact Compliant",
+      "fda175": "US FDA 21 CFR 175.300 Coating Compliance",
+      "eu102011": "EU Directive 10/2011 Plastic Materials Compliant",
+      "brcgs": "BRCGS Packaging Materials Grade AA"
+    },
+    "buttons": {
+      "fullSpec": "Download Full Spec Doc (PDF)",
+      "coa": "Generate COA Report (PDF)",
+      "coc": "Generate COC Certificate (PDF)",
+      "emailClient": "Email Document to Client"
+    }
   }
 }

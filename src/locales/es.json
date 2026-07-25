@@ -57694,5 +57694,81 @@
       "q1": "¿Cómo impacta la vida útil?",
       "q2": "¿Tienen bajos mínimos de compra?"
     }
+  },
+  "specPages": {
+    "materials": {
+      "bioCelloTriplexHighest": "Bio-Cello Triplex Alta Barrera (NK / NKME / Bio-PE)",
+      "bioCelloTriplexMetalised": "Bio-Cello Triplex Metalizado",
+      "bioKraftPbatLow": "Bio Kraft / PBAT Baixa Barrera (Compostable)",
+      "bioKraftVmCello": "Bio Kraft / VmCello Compostable",
+      "bioPeKraftDuplexLow": "Bio-PE Kraft Dúplex Baixa Barrera",
+      "bioPeKraftVmpet": "Bio-PE Kraft VMPET Triplex",
+      "bioPePetDuplexClear": "Bio-PE PET Dúplex Transparente",
+      "bioPePetDuplexNoWindow": "Bio-PE PET Dúplex Sin Ventana",
+      "bioPePetKraftQuadlexAluminum": "Bio-PE PET Kraft Cuádruplex Aluminio",
+      "bioPePetKraftTriplexClear": "Bio-PE PET Kraft Triplex Transparente",
+      "bioPePetTriplexAluminum": "Bio-PE PET Triplex Aluminio",
+      "bioPePetTriplexMetalised": "Bio-PE PET Triplex Metalizado",
+      "bioPePpDuplexClear": "Bio-PE PP Dúplex Transparente",
+      "bioPePpDuplexNoWindow": "Bio-PE PP Dúplex Sin Ventana",
+      "bioPePpKraftQuadlexAluminum": "Bio-PE PP Kraft Cuádruplex Aluminio",
+      "bioPePpKraftTriplexClear": "Bio-PE PP Kraft Triplex Transparente",
+      "bioPePpTriplexAluminum": "Bio-PE PP Triplex Aluminio",
+      "bioPePpTriplexMetalised": "Bio-PE PP Triplex Metalizado",
+      "compostableMaterialStructure": "Estructura de Material Compostable en el Hogar / Industrial",
+      "compostablePouchGeo": "Bolsa Compostable Geo Especificación Técnico-Geográfica",
+      "monoPeDuplexClear": "Mono-PE Dúplex Reciclable Transparente (RIC #4)",
+      "monoPeDuplexNoWindow": "Mono-PE Dúplex Reciclable Sin Ventana (RIC #4)",
+      "monoPpDuplexClear": "Mono-PP Dúplex Reciclable Transparente (RIC #5)",
+      "monoPpDuplexNoWindow": "Mono-PP Dúplex Reciclable Sin Ventana (RIC #5)",
+      "pcrKraftDuplexLow": "PCR Kraft Dúplex Baixa Barrera (30% Reciclado Post-Consumo)",
+      "pcrKraftVmpet": "PCR Kraft VMPET Triplex (30% PCR)",
+      "pcrPetDuplexClear": "PCR PET Dúplex Transparente (KPET12 / 30% PCR-PE)",
+      "pcrPetDuplexNoWindow": "PCR PET Dúplex Sin Ventana (30% PCR)",
+      "pcrPetKraftQuadlexAluminum": "PCR PET Kraft Cuádruplex Aluminio (30% PCR)",
+      "pcrPetKraftTriplexClear": "PCR PET Kraft Triplex Transparente (30% PCR)",
+      "pcrPetTriplexAluminum": "PCR PET Triplex Aluminio (30% PCR)",
+      "pcrPetTriplexMetalised": "PCR PET Triplex Metalizado (30% PCR)",
+      "pcrPpDuplexClear": "PCR PP Dúplex Transparente (30% PCR)",
+      "pcrPpDuplexNoWindow": "PCR PP Dúplex Sin Ventana (30% PCR)",
+      "pcrPpKraftQuadlexAluminum": "PCR PP Kraft Cuádruplex Aluminio (30% PCR)",
+      "pcrPpKraftTriplexClear": "PCR PP Kraft Triplex Transparente (30% PCR)",
+      "pcrPpTriplexAluminum": "PCR PP Triplex Aluminio (30% PCR)",
+      "pcrPpTriplexMetalised": "PCR PP Triplex Metalizado (30% PCR)"
+    },
+    "shapes": {
+      "standUp": "Bolsa Stand-Up / Bolsa Vertical",
+      "flatBottom": "Bolsa de Fondo Plano",
+      "sideGusset": "Bolsa con Fuelle Lateral",
+      "retort": "Bolsa Retort (Alta Temperatura)",
+      "spout": "Bolsa con Boquilla (Spout)",
+      "rollstock": "Bobina de Film / Rollstock"
+    },
+    "units": {
+      "inch": "Pulgadas (in)",
+      "mm": "Milímetros (mm)"
+    },
+    "closures": {
+      "pressToClose": "Cierre Zíper por Presión",
+      "pocketZipper": "Zíper de Pocket / Cierre Frontal",
+      "tearNotch": "Muesca de Fácil Apertura",
+      "degassingValve": "Válvula Desgasificadora Unidireccional",
+      "spoutCap": "Boquilla y Tapón de Seguridad",
+      "childResistant": "Zíper a Prueba de Niños (CR)",
+      "tinTie": "Tira Metálica de Cierre (Tin Tie)"
+    },
+    "compliance": {
+      "iso22000": "Sistema Certificado de Gestión de Seguridad Alimentaria ISO 22000",
+      "fda177": "Cumple con la Normativa FDA 21 CFR 177.1520 para Contacto con Alimentos",
+      "fda175": "Cumplimiento de Recubrimientos Resinosos y Poliméricos FDA 21 CFR 175.300",
+      "eu102011": "Cumple con el Reglamento de la Unión Europea EU 10/2011 sobre Materiales Plásticos",
+      "brcgs": "Estándar Global de Materiales de Embalaje BRCGS Grado AA"
+    },
+    "buttons": {
+      "fullSpec": "Descargar Ficha Técnica Completa (PDF)",
+      "coa": "Generar Informe COA (Certificado de Análisis PDF)",
+      "coc": "Generar Certificado COC (Certificado de Conformidad PDF)",
+      "emailClient": "Enviar Documento por Correo al Cliente"
+    }
   }
 }

@@ -57679,5 +57679,81 @@
       "q1": "這如何影響保質期？",
       "q2": "有最低訂購量嗎？"
     }
+  },
+  "specPages": {
+    "materials": {
+      "bioCelloTriplexHighest": "生物纖維素三層超高阻隔結構 (NK / NKME / Bio-PE)",
+      "bioCelloTriplexMetalised": "生物纖維素三層鍍膜高阻隔結構",
+      "bioKraftPbatLow": "生物牛皮紙 / PBAT 低阻隔堆肥結構",
+      "bioKraftVmCello": "生物牛皮紙 / VmCello 鍍膜堆肥結構",
+      "bioPeKraftDuplexLow": "Bio-PE 生物基牛皮紙雙層低阻隔結構",
+      "bioPeKraftVmpet": "Bio-PE 生物基牛皮紙 VMPET 鍍鋁三層結構",
+      "bioPePetDuplexClear": "Bio-PE 生物基 PET 雙層透明高阻隔結構",
+      "bioPePetDuplexNoWindow": "Bio-PE 生物基 PET 雙層無窗口不透明結構",
+      "bioPePetKraftQuadlexAluminum": "Bio-PE 生物基 PET 牛皮紙四層純鋁阻隔結構",
+      "bioPePetKraftTriplexClear": "Bio-PE 生物基 PET 牛皮紙三層透明高阻隔結構",
+      "bioPePetTriplexAluminum": "Bio-PE 生物基 PET 三層純鋁箔超高阻隔結構",
+      "bioPePetTriplexMetalised": "Bio-PE 生物基 PET 三層鍍鋁金屬化高阻隔結構",
+      "bioPePpDuplexClear": "Bio-PE 生物基 PP 雙層透明高阻隔結構",
+      "bioPePpDuplexNoWindow": "Bio-PE 生物基 PP 雙層無窗口不透明結構",
+      "bioPePpKraftQuadlexAluminum": "Bio-PE 生物基 PP 牛皮紙四層純鋁阻隔結構",
+      "bioPePpKraftTriplexClear": "Bio-PE 生物基 PP 牛皮紙三層透明高阻隔結構",
+      "bioPePpTriplexAluminum": "Bio-PE 生物基 PP 三層純鋁箔超高阻隔結構",
+      "bioPePpTriplexMetalised": "Bio-PE 生物基 PP 三層鍍鋁金屬化高阻隔結構",
+      "compostableMaterialStructure": "家庭/工業全可堆肥永續材質結構",
+      "compostablePouchGeo": "可堆肥袋全方位 GEO 區域技術規格",
+      "monoPeDuplexClear": "單一 PE 材質雙層可回收透明高阻隔結構 (RIC #4)",
+      "monoPeDuplexNoWindow": "單一 PE 材質雙層可回收無窗口結構 (RIC #4)",
+      "monoPpDuplexClear": "單一 PP 材質雙層可回收透明高阻隔結構 (RIC #5)",
+      "monoPpDuplexNoWindow": "單一 PP 材質雙層可回收無窗口結構 (RIC #5)",
+      "pcrKraftDuplexLow": "PCR 牛皮紙雙層低阻隔結構 (含 30% 消費後回收塑料)",
+      "pcrKraftVmpet": "PCR 牛皮紙 VMPET 鍍鋁三層高阻隔結構 (含 30% PCR)",
+      "pcrPetDuplexClear": "PCR PET 雙層透明高阻隔結構 (KPET12 / 30% PCR-PE)",
+      "pcrPetDuplexNoWindow": "PCR PET 雙層無窗口結構 (含 30% PCR)",
+      "pcrPetKraftQuadlexAluminum": "PCR PET 牛皮紙四層純鋁箔超高阻隔結構 (含 30% PCR)",
+      "pcrPetKraftTriplexClear": "PCR PET 牛皮紙三層透明高阻隔結構 (含 30% PCR)",
+      "pcrPetTriplexAluminum": "PCR PET 三層純鋁箔超高阻隔結構 (含 30% PCR)",
+      "pcrPetTriplexMetalised": "PCR PET 三層鍍鋁金屬化高阻隔結構 (含 30% PCR)",
+      "pcrPpDuplexClear": "PCR PP 雙層透明高阻隔結構 (含 30% PCR)",
+      "pcrPpDuplexNoWindow": "PCR PP 雙層無窗口結構 (含 30% PCR)",
+      "pcrPpKraftQuadlexAluminum": "PCR PP 牛皮紙四層純鋁箔超高阻隔結構 (含 30% PCR)",
+      "pcrPpKraftTriplexClear": "PCR PP 牛皮紙三層透明高阻隔結構 (含 30% PCR)",
+      "pcrPpTriplexAluminum": "PCR PP 三層純鋁箔超高阻隔結構 (含 30% PCR)",
+      "pcrPpTriplexMetalised": "PCR PP 三層鍍鋁金屬化高阻隔結構 (含 30% PCR)"
+    },
+    "shapes": {
+      "standUp": "自立袋 / 站立袋 (Stand-Up Pouch)",
+      "flatBottom": "平底袋 / 五面封平底袋 (Box Pouch)",
+      "sideGusset": "側邊器官袋 / 折邊袋 (Side Gusset)",
+      "retort": "高溫殺菌蒸煮袋 (Retort Pouch)",
+      "spout": "吸嘴袋 / 吸嘴自立袋 (Spout Pouch)",
+      "rollstock": "卷膜 / 自動包裝卷膜 (Rollstock)"
+    },
+    "units": {
+      "inch": "英吋 (in)",
+      "mm": "毫米 (mm)"
+    },
+    "closures": {
+      "pressToClose": "按壓式封口夾鏈",
+      "pocketZipper": "拉鏈式袋口夾鏈 (Pocket Zipper)",
+      "tearNotch": "易撕口 / 易撕缺口",
+      "degassingValve": "單向排氣閥 (Coffee Degassing Valve)",
+      "spoutCap": "吸嘴與安全蓋",
+      "childResistant": "防兒童開啟安全夾鏈 (CR Zipper)",
+      "tinTie": "壓條 / 鐵絲壓條 (Tin Tie)"
+    },
+    "compliance": {
+      "iso22000": "ISO 22000 食品安全管理系統認證",
+      "fda177": "符合美國 FDA 21 CFR 177.1520 食品接觸級標準",
+      "fda175": "符合美國 FDA 21 CFR 175.300 樹脂與聚合物塗層標準",
+      "eu102011": "符合歐盟 EU 10/2011 食品接觸塑料材料法規",
+      "brcgs": "BRCGS 全球包裝材料標準 AA 級認證"
+    },
+    "buttons": {
+      "fullSpec": "下載完整規格技術文件 (PDF)",
+      "coa": "產生 COA 分析證明書 (PDF)",
+      "coc": "產生 COC 合格證明書 (PDF)",
+      "emailClient": "以電子郵件傳送文件給客戶"
+    }
   }
 }
