@@ -24,6 +24,7 @@ import {
 import TestimonialManagement from '../components/admin/TestimonialManagement'
 import SeoMigrationDashboard from '../components/admin/SeoMigrationDashboard'
 import SearchAnalyticsDashboard from '../components/admin/SearchAnalyticsDashboard'
+import AllInOneSpecTab from '../components/admin/AllInOneSpecTab'
 
 // Industry detection keywords
 const INDUSTRY_KEYWORDS: Record<string, string[]> = {
@@ -68,7 +69,7 @@ function detectIndustry(text: string): string {
   return 'Other'
 }
 
-type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'quote-management' | 'artwork' | 'artwork-proof' | 'image-catalog' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'email-followup' | 'website' | 'website-demos' | 'settings' | 'automation' | 'recycle-bin' | 'seo-ranking' | 'link-building' | 'testimonials' | 'seo-migration' | 'search-analytics'
+type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'quote-management' | 'artwork' | 'artwork-proof' | 'image-catalog' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'email-followup' | 'website' | 'website-demos' | 'settings' | 'automation' | 'recycle-bin' | 'seo-ranking' | 'link-building' | 'testimonials' | 'seo-migration' | 'search-analytics' | 'all-in-one-spec'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
@@ -94,6 +95,7 @@ const AdminPage: React.FC = () => {
     {
       group: 'CRM',
       items: [
+        { id: 'all-in-one-spec', label: 'All In One Spec Engine', icon: Sparkles },
         { id: 'artwork-batches', label: 'Artwork & Document System', icon: Folder, externalLink: '/ctrl-x9k7m/artwork-batches' },
         { id: 'document-templates', label: 'Doc Templates', icon: FileText, externalLink: '/ctrl-x9k7m/document-templates' },
         { id: 'quote-analytics', label: 'Quote Analytics', icon: BarChart3, externalLink: '/ctrl-x9k7m/quote-analytics' },
@@ -1944,6 +1946,10 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
 
 
         <main className="flex-1 overflow-y-auto p-4 md:p-6">
+          {activeTab === 'all-in-one-spec' && (
+            <AllInOneSpecTab />
+          )}
+
           {/* Dashboard Tab */}
           {activeTab === 'testimonials' && (
             <TestimonialManagement preselectId={searchParams.get('id')} />
