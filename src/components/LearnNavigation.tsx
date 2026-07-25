@@ -9,6 +9,7 @@ const LEARN_PAGES = {
     title: 'Company',
     icon: <Award className="h-4 w-4" />,
     pages: [
+      { name: '📦 Packaging Directory', link: '/directory', image: '/imgs/seo-photos/a_all_options_catalog_showcase_9383936.webp' },
       { name: 'About Us', link: '/company/about', image: '/imgs/illustrated/a_corporate_sustainability_variation_1_1739210.webp' },
       { name: 'Our Impact (B Corp)', link: '/company/b-corp', image: '/imgs/company/b-corp/a_packaging_transformation_sustainable_8931589.webp' },
       { name: 'BPI Certified', link: '/company/bpi-certified', image: '/imgs/company/bpi/hero.png' },

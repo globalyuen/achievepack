@@ -841,6 +841,25 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
       defaultZipper: 'No',
       defaultShippingMethod: 'Air Freight',
     },
+    surfaceTreatments: [
+      { id: 'matte', name: 'Matte Finish Lamination', desc: 'Smooth, non-reflective velvety texture for elegant luxury branding', image: '/imgs/surface/ads/a_matte_pouch_correct_6361818.webp' },
+      { id: 'gloss', name: 'High-Gloss Lamination', desc: 'Vibrant reflective sheen maximizing color pop and shelf visibility', image: '/imgs/surface/ads/a_gloss_pouch_correct_5078762.webp' },
+      { id: 'softtouch', name: 'Soft-Touch Velvet Finish', desc: 'Tactile sensory feel providing high-end luxury touch', image: '/imgs/surface/ads/a_softtouch_pouch_correct_7961783.webp' },
+      { id: 'metallic-gold', name: 'Metallic Gold Accent', desc: 'Luxurious reflective gold foil finish', image: '/imgs/surface/ads/a_metallic_gold_closeup_5151764.webp' },
+      { id: 'embossed', name: '3D Embossed Texture', desc: 'Raised tactile embossing for tactile brand engagement', image: '/imgs/surface/ads/a_embossed_navy_9933981.webp' },
+      { id: 'foil-stamping', name: 'Hot Foil Stamping', desc: 'Precision metallic gold/silver foil stamping', image: '/imgs/surface/ads/a_foil_green_charcoal_7632386.webp' }
+    ],
+    reclosureTypes: [
+      { id: 'zipper', name: 'Press-to-Close Zipper', desc: 'Resealable zipper for multi-use freshness', image: '/imgs/reclose/ads/a_presstoclose_closure_detail_5742103.webp' },
+      { id: 'degassing-valve', name: 'One-Way Degassing Valve', desc: 'Exhausts CO2 gases for fresh roasted coffee', image: '/imgs/store/additional/valve.webp' },
+      { id: 'spout-cap', name: 'Screw Cap Spout Fitment', desc: 'Leakproof pouring spout for liquids', image: '/imgs/reclose/ads/a_spout_closure_closeup_detail_2705813.webp' },
+      { id: 'tin-tie', name: 'Tin Tie Closure', desc: 'Classic fold-down tin tie for coffee and bakery', image: '/imgs/reclose/ads/a_tintie_coffee_pouch_correct_4114906.webp' }
+    ],
+    barrierOptions: [
+      { id: 'high-evoh', name: 'High Barrier EVOH (< 0.5 cc/m²/24hr OTR)', desc: 'Maximum protection for coffee, tea, and sensitive powders' },
+      { id: 'mid-clear', name: 'Medium Clear Barrier', desc: 'Good oxygen barrier with optional product viewing window' },
+      { id: 'max-nkme', name: 'Max Metallized Cellulose Barrier', desc: 'Aluminum-free high barrier passing EN 13432 compostability' }
+    ],
     videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
 

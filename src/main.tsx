@@ -1335,6 +1335,8 @@ const BCorpPage = lazyWithRetry(() => import('./pages/company/BCorpPage'))
 const BPICertifiedPage = lazyWithRetry(() => import('./pages/company/BPICertifiedPage'))
 
 // Knowledge Pages - Lazy loaded
+const DirectoryPage = lazyWithRetry(() => import('./pages/directory/DirectoryPage'))
+const DirectorySubpage = lazyWithRetry(() => import('./pages/directory/DirectorySubpage'))
 const AllOptionsPage = lazyWithRetry(() => import('./pages/knowledge/AllOptionsPage'))
 const SizeGuidePage = lazyWithRetry(() => import('./pages/knowledge/SizeGuidePage'))
 const PouchSizingPage = lazyWithRetry(() => import('./pages/knowledge/PouchSizingPage'))
@@ -2193,6 +2195,8 @@ if (getDomain() === 'pouch') {
                   <Route path="/usa/snacks-packaging" element={<PouchUSASnacksPage />} />
 
                   {/* Knowledge Pages */}
+                  <Route path="/directory" element={<DirectoryPage />} />
+                  <Route path="/directory/:slug" element={<DirectorySubpage />} />
                   <Route path="/knowledge/all-options" element={<PouchAllOptionsPage />} />
                   <Route path="/knowledge/size-guide" element={<PouchKnowledgeSizeGuidePage />} />
                   <Route path="/knowledge/pouch-sizing" element={<PouchPouchSizingPage />} />
@@ -2761,8 +2765,10 @@ if (getDomain() === 'pouch') {
                         <Route path="/knowledge/compostable-packaging-inkjet-coding" element={<CompostablePackagingCodingPage />} />
                         <Route path="/knowledge/molded-pulp-packaging-benefits" element={<MoldedPulpPackagingBenefits />} />
                         <Route path="/knowledge/molded-pulp-guide" element={<MoldedPulpGuide />} />
-                        <Route path="/knowledge/automating-pulp-packaging-lines" element={<AutomatingPulpLines />} />
-                        <Route path="/knowledge/all-options" element={<AllOptionsPage />} />
+                         <Route path="/knowledge/automating-pulp-packaging-lines" element={<AutomatingPulpLines />} />
+                         <Route path="/directory" element={<DirectoryPage />} />
+                         <Route path="/directory/:slug" element={<DirectorySubpage />} />
+                         <Route path="/knowledge/all-options" element={<AllOptionsPage />} />
 
                         {/* Printing & Features */}
                         <Route path="/printing/digital-printing" element={<DigitalPrintingPage />} />
