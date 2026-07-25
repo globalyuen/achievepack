@@ -345,7 +345,7 @@ export default function AllInOneSpecTab({ globalCustomer }: AllInOneSpecTabProps
     <div className="space-y-6">
       {/* Notifications Toast */}
       {successMsg && (
-        <div className="bg-emerald-600 text-white p-3 rounded-xl shadow-lg font-bold text-xs flex items-center justify-between animate-in fade-in slide-in-from-top-2">
+        <div className="bg-emerald-600 text-white p-3 rounded-xl shadow-lg font-bold text-xs flex items-center justify-between animate-in fade-in slide-in-from-top-2 print:hidden">
           <span className="flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4" />
             {successMsg}
@@ -354,8 +354,8 @@ export default function AllInOneSpecTab({ globalCustomer }: AllInOneSpecTabProps
         </div>
       )}
 
-      {/* Top Banner Header */}
-      <div className="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 text-white p-6 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-xl border border-blue-900/50">
+      {/* Top Banner Header (Hidden on Print) */}
+      <div className="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 text-white p-6 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-xl border border-blue-900/50 print:hidden">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 mb-2">
             <Sparkles className="w-3.5 h-3.5" />
@@ -389,8 +389,8 @@ export default function AllInOneSpecTab({ globalCustomer }: AllInOneSpecTabProps
         </div>
       </div>
 
-      {/* Main Grid: Form Inputs (5 cols) + Printable Preview (7 cols) */}
-      <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
+      {/* Main Grid: Form Inputs (5 cols) + Printable Preview (7 cols) (Hidden on Print) */}
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 print:hidden">
         
         {/* LEFT COLUMN: Controls & Form Inputs */}
         <div className="xl:col-span-5 flex flex-col gap-6">
@@ -760,8 +760,8 @@ export default function AllInOneSpecTab({ globalCustomer }: AllInOneSpecTabProps
           </div>
         </div>
 
-        {/* RIGHT COLUMN: Real-Time A4 Portrait Printable Letterhead Preview (7 cols) */}
-        <div className="xl:col-span-7 flex flex-col gap-4">
+        {/* RIGHT COLUMN: Interactive Screen Preview (7 cols) (Hidden on Print) */}
+        <div className="xl:col-span-7 flex flex-col gap-4 print:hidden">
           <div className="flex items-center justify-between">
             <span className="font-extrabold text-xs text-gray-600 uppercase tracking-wider flex items-center gap-2">
               <FileCheck className="w-4 h-4 text-emerald-600" />
@@ -967,7 +967,7 @@ export default function AllInOneSpecTab({ globalCustomer }: AllInOneSpecTabProps
                   This product specification is manufactured under certified cleanroom systems adhering to ISO 22000, US FDA 21 CFR 177.1520 / 175.300, and EU 10/2011 regulations with zero intentionally added BPA, Phthalates, or PFAS.
                 </div>
                 {data.selectedLogos && data.selectedLogos.length > 0 && (
-                  <div className="flex flex-wrap items-center gap-4 pt-2 border-t border-slate-200">
+                  <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-slate-200">
                     {data.selectedLogos.map(logoKey => (
                       <div key={logoKey} className="flex items-center gap-2 bg-white border border-gray-200 rounded px-2.5 py-1.5 shadow-xs">
                         <img src={LOGO_SPECS[logoKey]?.src} alt={LOGO_SPECS[logoKey]?.label} className="h-7 w-auto object-contain" />
@@ -997,7 +997,7 @@ export default function AllInOneSpecTab({ globalCustomer }: AllInOneSpecTabProps
                   <p><strong>Authorized Name:</strong> {data.approvedCustomer}</p>
                   <p><strong>Position:</strong> {data.approvedCustomerPos}</p>
                   <p><strong>Date:</strong> {data.approvedCustomerDate}</p>
-                  <div className="mt-3 italic font-serif font-bold text-amber-200 pt-1">{data.approvedCustomer}</div>
+                  <div className="mt-3 italic font-serif font-bold text-amber-950 text-xs border-t border-amber-200 pt-1">{data.approvedCustomer}</div>
                 </div>
               </div>
             </div>
@@ -1007,9 +1007,213 @@ export default function AllInOneSpecTab({ globalCustomer }: AllInOneSpecTabProps
 
       </div>
 
+      {/* DEDICATED PRINT ENGINE (Visible ONLY when printing via window.print() / Download PDF) */}
+      <div className="hidden print:block bg-white text-black min-h-screen text-xs leading-normal">
+        <style>{`
+          @page {
+            size: A4 portrait;
+            margin: 0;
+          }
+          @media print {
+            body {
+              -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
+              background-color: white !important;
+              color: black !important;
+              font-family: Arial, sans-serif !important;
+              margin: 0 !important;
+              padding: 0 !important;
+            }
+            .print-page-v2 {
+              width: 210mm;
+              height: 282mm;
+              padding: 10mm 12mm 10mm 12mm;
+              position: relative;
+              page-break-after: always !important;
+              page-break-inside: avoid !important;
+              box-sizing: border-box;
+              background: white !important;
+            }
+            .print-page-v2:last-child {
+              page-break-after: avoid !important;
+            }
+            table {
+              border-collapse: collapse !important;
+              width: 100% !important;
+            }
+            th, td {
+              border: 1px solid #94a3b8 !important;
+              padding: 4px 6px !important;
+              font-size: 9px !important;
+              line-height: 1.3 !important;
+            }
+          }
+        `}</style>
+
+        {/* PRINT PAGE 1 */}
+        <div className="print-page-v2">
+          <div className="absolute bottom-[8mm] left-[12mm] right-[12mm] flex justify-between text-[9px] text-gray-400 font-medium border-t border-gray-200 pt-1">
+            <span>Issue date: {data.issueDate}</span>
+            <span>page 1 / 2</span>
+          </div>
+
+          <div className="flex justify-between items-start border-b-[3px] border-blue-900 pb-3 mb-4">
+            <div className="flex flex-col">
+              <div className="flex items-center gap-2">
+                <img src="/logo.png" alt="AchievePack" className="h-10 w-auto object-contain" />
+                <span className="text-lg font-extrabold tracking-widest text-blue-950">achievepack</span>
+              </div>
+              <span className="text-[8px] font-bold text-gray-400 uppercase tracking-wider mt-0.5">High Performance Sustainable Packaging Engine</span>
+            </div>
+            <div className="text-right text-[8px] leading-tight text-gray-500 max-w-[260px]">
+              <strong className="text-[10px] text-gray-800 font-bold block">AchievePack Limited</strong>
+              HK BRN: 41007097-000-07-14-4<br/>
+              1 Floor, No.41 Wo Liu Hang Tsuen, Fotan, Hong Kong<br/>
+              Technical Hotline: +852 6970 4411 | engineering@achievepack.com
+            </div>
+          </div>
+
+          <div className="bg-blue-900 text-white text-center font-bold text-xs uppercase py-2 tracking-widest rounded mb-4">
+            Product Specification & Technical Datasheet v2.0
+          </div>
+
+          <div className="flex justify-between items-start mb-4 bg-gray-50 border border-gray-300 p-3 rounded">
+            <div className="space-y-1">
+              <div className="flex gap-2"><span className="font-bold text-gray-700 w-24">Target Client:</span><span className="font-bold text-gray-900">{data.customerName}</span></div>
+              <div className="flex gap-2"><span className="font-bold text-gray-700 w-24">Project Title:</span><span className="font-semibold text-gray-800">{data.projectTitle}</span></div>
+              <div className="flex gap-2"><span className="font-bold text-gray-700 w-24">PO / Batch Code:</span><span className="font-mono text-gray-800">{data.poBatchNo}</span></div>
+            </div>
+            <div className="bg-white border border-gray-300 rounded px-3 py-1.5 text-center min-w-[120px]">
+              <span className="text-[8px] font-bold text-gray-400 block uppercase tracking-wider">Item Ref Code</span>
+              <span className="text-xs font-extrabold text-blue-950 font-mono">{data.itemNo}</span>
+              <span className="text-[8px] text-emerald-700 font-bold block">{data.revision}</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-3">
+              <h4 className="font-extrabold text-blue-900 text-[10px] border-b border-gray-300 pb-1 uppercase tracking-wider">A. Pouch Geometry & Scale</h4>
+              <table className="w-full text-left">
+                <tbody>
+                  <tr><td className="bg-gray-50 font-bold w-[120px]">Pouch Shape:</td><td className="font-bold">{data.pouchShape}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Dimensions (in):</td><td className="font-mono font-bold text-blue-900">{data.customWidthInch}" W x {data.customHeightInch}" H + {data.customGussetInch}" G</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Dimensions (mm):</td><td className="font-mono">{data.customWidthMm}mm W x {data.customHeightMm}mm H + {data.customGussetMm}mm G</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">355ml Can Ref:</td><td className="font-mono">2.6" x 4.8" (66mm x 122mm)</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Thickness:</td><td className="font-mono font-bold">{data.thicknessMil} ({data.thicknessMicron})</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Capacity:</td><td>{data.presetCapacity}</td></tr>
+                </tbody>
+              </table>
+
+              <h4 className="font-extrabold text-blue-900 text-[10px] border-b border-gray-300 pb-1 uppercase tracking-wider">B. Material & Barrier Ratings</h4>
+              <table className="w-full text-left">
+                <tbody>
+                  <tr><td className="bg-gray-50 font-bold w-[120px]">Material Code:</td><td className="font-mono font-bold">{selectedMaterialObj.code}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Structure:</td><td className="font-bold text-emerald-900">{selectedMaterialObj.name}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">OTR Barrier:</td><td className="font-mono font-bold text-blue-900">{selectedMaterialObj.otr} cc/m²/24h</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">WVTR Barrier:</td><td className="font-mono font-bold text-blue-900">{selectedMaterialObj.wvtr} g/m²/24h</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Primary Closure:</td><td>{data.closureAddon}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Valve:</td><td className="font-bold text-blue-900">{data.valveAddon ? 'Yes (One-Way Coffee Valve)' : 'No Valve'}</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div>
+              <h4 className="font-extrabold text-blue-900 text-[10px] border-b border-gray-300 pb-1 uppercase tracking-wider mb-2">C. Technical Artwork Proof</h4>
+              <div className="border border-gray-300 rounded p-3 bg-gray-50 min-h-[310px] flex flex-col items-center justify-center text-center">
+                {(() => {
+                  const imagesList = data.artworkImages && data.artworkImages.length > 0 ? data.artworkImages : (data.artworkImage ? [data.artworkImage] : []);
+                  if (imagesList.length > 0) {
+                    return (
+                      <div className="w-full flex flex-col items-center justify-center">
+                        {imagesList.length === 1 ? (
+                          <img src={imagesList[0]} alt="Proof" className="max-h-[240px] w-auto object-contain border border-gray-300 shadow-sm bg-white" />
+                        ) : (
+                          <div className="grid grid-cols-2 gap-2 w-full">
+                            {imagesList.map((imgSrc, idx) => (
+                              <div key={idx} className="bg-white border border-gray-200 p-1 flex flex-col items-center">
+                                <img src={imgSrc} alt={`Proof ${idx + 1}`} className="max-h-[60px] w-auto object-contain" />
+                                <span className="text-[8px] font-bold text-gray-500">Design {idx + 1}</span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                        <div className="mt-2 text-[8px] font-extrabold text-blue-900 uppercase">APPROVED TECHNICAL PROOF</div>
+                      </div>
+                    );
+                  } else {
+                    return (
+                      <div className="text-gray-400">
+                        <FileCode className="w-10 h-10 text-gray-300 mx-auto mb-1" />
+                        <span className="text-[9px] font-extrabold text-gray-500 uppercase block">TECHNICAL BLUEPRINT PROOF</span>
+                        <span className="text-[8px] text-gray-400">No artwork proof uploaded</span>
+                      </div>
+                    );
+                  }
+                })()}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* PRINT PAGE 2 */}
+        <div className="print-page-v2">
+          <div className="absolute bottom-[8mm] left-[12mm] right-[12mm] flex justify-between text-[9px] text-gray-400 font-medium border-t border-gray-200 pt-1">
+            <span>Issue date: {data.issueDate}</span>
+            <span>page 2 / 2</span>
+          </div>
+
+          <h4 className="font-extrabold text-blue-900 text-[10px] border-b border-gray-300 pb-1 uppercase tracking-wider mb-2">D. Technical Tolerances & Quality Standards</h4>
+          <table className="w-full text-left mb-4">
+            <tbody>
+              <tr><td className="bg-gray-50 font-bold w-[140px]">Bond Strength:</td><td className="font-bold">{data.bondStrength}</td><td className="bg-gray-50 font-bold w-[140px]">Heat Seal Strength:</td><td className="font-bold text-emerald-800">{data.heatSealStrength}</td></tr>
+              <tr><td className="bg-gray-50 font-bold">Solvent Retain:</td><td className="font-mono">{data.totalRetainSolvent}</td><td className="bg-gray-50 font-bold">Colour Variation:</td><td className="font-mono">{data.solidColourVariation}</td></tr>
+              <tr><td className="bg-gray-50 font-bold">COF External:</td><td className="font-mono">{data.cofExternal}</td><td className="bg-gray-50 font-bold">COF Internal:</td><td className="font-mono">{data.cofInternal}</td></tr>
+              <tr><td className="bg-gray-50 font-bold">Odour Evaluation:</td><td colSpan={3}>{data.odour}</td></tr>
+              <tr><td className="bg-gray-50 font-bold">Quality Standard:</td><td colSpan={3}>{data.generalQuality}</td></tr>
+            </tbody>
+          </table>
+
+          <h4 className="font-extrabold text-blue-900 text-[10px] border-b border-gray-300 pb-1 uppercase tracking-wider mb-2">E. Authorized Certification Logos & Food Safety</h4>
+          <div className="bg-gray-50 border border-gray-300 p-3 rounded mb-4">
+            <div className="text-[9px] text-gray-700 mb-2">
+              Manufactured under certified cleanroom systems adhering to ISO 22000, US FDA 21 CFR 177.1520 / 175.300, and EU 10/2011 regulations with zero intentionally added BPA, Phthalates, or PFAS.
+            </div>
+            {data.selectedLogos && data.selectedLogos.length > 0 && (
+              <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-gray-200">
+                {data.selectedLogos.map(logoKey => (
+                  <div key={logoKey} className="flex items-center gap-1.5 bg-white border border-gray-300 rounded px-2 py-1">
+                    <img src={LOGO_SPECS[logoKey]?.src} alt={LOGO_SPECS[logoKey]?.label} className="h-6 w-auto object-contain" />
+                    <span className="font-bold text-gray-800 text-[8px]">{LOGO_SPECS[logoKey]?.label}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <h4 className="font-extrabold text-blue-900 text-[10px] border-b border-gray-300 pb-1 uppercase tracking-wider mb-2">F. Dual Engineering & Authorization Sign-Off</h4>
+          <div className="grid grid-cols-2 gap-4 mt-2">
+            <div className="border border-blue-200 bg-blue-50/30 p-2.5 rounded text-[9px]">
+              <span className="font-extrabold text-blue-900 uppercase block mb-1">AchievePack Engineering Quality Approval</span>
+              <p><strong>Approved By:</strong> {data.approvedAchieve}</p>
+              <p><strong>Position:</strong> {data.approvedAchievePos}</p>
+              <p><strong>Date:</strong> {data.approvedAchieveDate}</p>
+              <div className="mt-2 italic font-serif font-bold text-blue-950 text-xs border-t border-blue-200 pt-1">{data.approvedAchieve}</div>
+            </div>
+
+            <div className="border border-amber-200 bg-amber-50/30 p-2.5 rounded text-[9px]">
+              <span className="font-extrabold text-amber-900 uppercase block mb-1">Customer Authorization Sign-Off</span>
+              <p><strong>Authorized Client Name:</strong> {data.approvedCustomer}</p>
+              <p><strong>Position:</strong> {data.approvedCustomerPos}</p>
+              <p><strong>Date:</strong> {data.approvedCustomerDate}</p>
+              <div className="mt-2 italic font-serif font-bold text-amber-950 text-xs border-t border-amber-200 pt-1">{data.approvedCustomer}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* EMAIL CLIENT MODAL */}
       {showEmailModal && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 print:hidden">
           <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4 text-xs animate-in zoom-in-95 duration-200">
             <div className="flex items-center justify-between border-b pb-3">
               <h3 className="font-black text-slate-900 text-sm flex items-center gap-2">
