@@ -8,8 +8,7 @@ import {
 } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import PouchLayout from '../../components/pouch/PouchLayout'
-import { getDomain } from '../../utils/domain'
-import { SortableOptionsTable } from '../../components/SortableOptionsTable'
+import { SortableOptionsTable, SURFACE_OPTIONS, CLOSURE_OPTIONS, BARRIER_OPTIONS } from '../../components/SortableOptionsTable'
 import ProductSpecModal from '../../components/ProductSpecModal'
 
 // Directory Shapes & Boxes Data
@@ -272,7 +271,26 @@ export const DirectoryPage: React.FC = () => {
             </button>
           </div>
 
-          <SortableOptionsTable />
+          <div className="space-y-8">
+            <SortableOptionsTable
+              options={SURFACE_OPTIONS}
+              title="Surface Treatments & Finishes"
+              categoryColor="green"
+              type="surface"
+            />
+            <SortableOptionsTable
+              options={CLOSURE_OPTIONS}
+              title="Resealable Zipper & Fitment Closures"
+              categoryColor="blue"
+              type="closure"
+            />
+            <SortableOptionsTable
+              options={BARRIER_OPTIONS}
+              title="Oxygen & Moisture Barrier Film Layers"
+              categoryColor="purple"
+              type="barrier"
+            />
+          </div>
         </div>
 
       </section>

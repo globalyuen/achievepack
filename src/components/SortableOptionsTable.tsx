@@ -371,25 +371,23 @@ interface SortableOptionsTableProps<T> {
 type OptionType = ClosureOption | SurfaceOption | AdditionalFeature | BarrierOption
 
 export function SortableOptionsTable<T extends OptionType>({
-  options,
-  title,
-  categoryColor,
+  options = [],
+  title = 'Packaging Options Catalog',
+  categoryColor = 'green',
   productLink = '/store/product/eco-standup',
-  type
-}: SortableOptionsTableProps<T>) {
+  type = 'surface'
+}: Partial<SortableOptionsTableProps<T>> & { options?: T[] }) {
   const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid')
   const [sortBy, setSortBy] = useState<string>('name')
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc')
   
-  
-
   const colorClasses = {
     blue: { bg: 'bg-blue-50', border: 'border-blue-200', text: 'text-blue-700', badge: 'bg-blue-100 text-blue-800' },
     green: { bg: 'bg-emerald-50', border: 'border-emerald-200', text: 'text-emerald-700', badge: 'bg-emerald-100 text-emerald-800' },
     purple: { bg: 'bg-purple-50', border: 'border-purple-200', text: 'text-purple-700', badge: 'bg-purple-100 text-purple-800' },
     amber: { bg: 'bg-amber-50', border: 'border-amber-200', text: 'text-amber-700', badge: 'bg-amber-100 text-amber-800' },
     red: { bg: 'bg-red-50', border: 'border-red-200', text: 'text-red-700', badge: 'bg-red-100 text-red-800' }
-  }[categoryColor]
+  }[categoryColor || 'green']
 
   const handleSort = useCallback((field: string) => {
     if (sortBy === field) {
@@ -401,7 +399,8 @@ export function SortableOptionsTable<T extends OptionType>({
   }, [sortBy])
 
   const sortedOptions = useMemo(() => {
-    return [...options].sort((a, b) => {
+    const safeList = Array.isArray(options) ? options : []
+    return [...safeList].sort((a, b) => {
       let aVal: string | number | boolean = ''
       let bVal: string | number | boolean = ''
 
