@@ -8,6 +8,7 @@ import {
 } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import PouchLayout from '../../components/pouch/PouchLayout'
+import { getDomain } from '../../utils/domain'
 import { SortableOptionsTable, SURFACE_OPTIONS, CLOSURE_OPTIONS, BARRIER_OPTIONS } from '../../components/SortableOptionsTable'
 import ProductSpecModal from '../../components/ProductSpecModal'
 
