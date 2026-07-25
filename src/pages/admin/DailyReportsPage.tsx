@@ -13,6 +13,7 @@ import PackingListTab from '../../components/admin/PackingListTab';
 import SpecSheetTab from '../../components/admin/SpecSheetTab';
 import ComplianceLetterTab from '../../components/admin/ComplianceLetterTab';
 import CoaTab from '../../components/admin/CoaTab';
+import AllInOneSpecTab from '../../components/admin/AllInOneSpecTab';
 import SeoMigrationDashboard from '../../components/admin/SeoMigrationDashboard';
 import SeoRankingDashboard from '../../components/admin/SeoRankingDashboard';
 import SearchDirectoryModal from '../../components/admin/SearchDirectoryModal';
@@ -111,7 +112,7 @@ export default function DailyReportsPage() {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   
-  const [activeTab, setActiveTab] = useState<'calendly'|'whatsapp'|'reports'|'calendar'|'logs'|'rfq'|'quote'|'packing'|'spec'|'seo'|'self-media'|'compliance'|'coa'|'family'|'pricing'|'translate'>('reports');
+  const [activeTab, setActiveTab] = useState<'calendly'|'whatsapp'|'reports'|'calendar'|'logs'|'rfq'|'quote'|'packing'|'spec'|'all-in-one-spec'|'seo'|'self-media'|'compliance'|'coa'|'family'|'pricing'|'translate'>('reports');
   const [seoSubTab, setSeoSubTab] = useState<'migration' | 'ranking'>('migration');
 
   const [reports, setReports] = useState<DailyReport[]>([]);
@@ -1331,6 +1332,7 @@ export default function DailyReportsPage() {
             </optgroup>
             <optgroup label="Document Follow Up">
               <option value="spec">Spec Sheet Generator</option>
+              <option value="all-in-one-spec">📄 All In One Spec Technical Datasheet</option>
               <option value="compliance">Compliance Letter Generator</option>
               <option value="coa">COA Generator</option>
             </optgroup>
@@ -1418,6 +1420,11 @@ export default function DailyReportsPage() {
                 <FileCheck className="w-4 h-4"/>
                 <span className="hidden xs:inline">{t(`${p}.specMaker`)}</span>
                 <span className="xs:hidden">{t(`${p}.spec`)}</span>
+              </button>
+              <button onClick={() => setActiveTab('all-in-one-spec')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'all-in-one-spec' ? 'bg-cyan-600 text-white shadow-md shadow-cyan-600/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
+                <FileText className="w-4 h-4"/>
+                <span className="hidden xs:inline">📄 Full Spec Doc</span>
+                <span className="xs:hidden">Full Spec</span>
               </button>
               <button onClick={() => setActiveTab('compliance')} className={`py-1.5 px-2 sm:px-3 rounded-xl font-bold flex gap-1 sm:gap-1.5 items-center text-[10px] sm:text-xs transition-all duration-200 whitespace-nowrap ${activeTab === 'compliance' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/20' : 'text-gray-600 hover:text-gray-900 hover:bg-white shadow-sm'}`}>
                 <ShieldCheck className="w-4 h-4"/>
@@ -1507,6 +1514,11 @@ export default function DailyReportsPage() {
         {/* Tab Content: Spec Sheet Generator */}
         {activeTab === 'spec' && (
           <SpecSheetTab />
+        )}
+
+        {/* Tab Content: Full Spec Doc (All-in-One Datasheet) */}
+        {activeTab === 'all-in-one-spec' && (
+          <AllInOneSpecTab globalCustomer={selectedCustomer} />
         )}
 
         {/* Tab Content: Compliance Letter Generator */}

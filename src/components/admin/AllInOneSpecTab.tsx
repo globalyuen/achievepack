@@ -72,11 +72,15 @@ const MATERIAL_CATALOG = [
   { category: '🍃 Compostable (Home/Industrial)', name: 'Compostable Pouch GEO Optimization Structure', code: 'BIO-GEO', ecoBadge: 'seedling', otr: 'N/A', wvtr: 'N/A' }
 ];
 
-export default function AllInOneSpecTab() {
+interface AllInOneSpecTabProps {
+  globalCustomer?: string;
+}
+
+export default function AllInOneSpecTab({ globalCustomer }: AllInOneSpecTabProps) {
   const [data, setData] = useState<AllInOneSpecData>({
-    customerName: 'Acme Specialty Roasters',
-    projectTitle: '12oz Custom Eco Stand-Up Coffee Pouch',
-    poBatchNo: 'AP-SPEC-2026-9901',
+    customerName: globalCustomer || 'BioPack Global Ltd.',
+    projectTitle: 'Sustainable Coffee Stand-Up Pouch Technical Specification',
+    poBatchNo: `AP-SPEC-${new Date().getFullYear()}-0892`,
     issueDate: new Date().toISOString().split('T')[0],
     pouchShape: 'Stand-Up Pouch / Doypack',
     materialStructure: MATERIAL_CATALOG[0].name,
@@ -95,6 +99,12 @@ export default function AllInOneSpecTab() {
     orderQuantity: '5,000 pcs',
     notes: 'Food-grade cleanroom manufacture. Pre-production video proofing required.'
   });
+
+  useEffect(() => {
+    if (globalCustomer) {
+      setData(prev => ({ ...prev, customerName: globalCustomer }));
+    }
+  }, [globalCustomer]);
 
   const selectedMaterialObj = MATERIAL_CATALOG.find(m => m.name === data.materialStructure) || MATERIAL_CATALOG[0];
 
