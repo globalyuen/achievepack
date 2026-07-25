@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Leaf, Mail, Phone, Calendar, FileText, ShieldCheck, Zap, Box } from 'lucide-react'
+import { Leaf, Mail, Phone, Calendar, FileText, ShieldCheck, Zap, Box, Sparkles } from 'lucide-react'
 import { SizingFinderIcon, MaterialSpecFinderIcon } from './AppIcons'
 import { useEffect, useState, useMemo } from 'react'
 import { isAchievePack } from '../utils/domain'
@@ -392,8 +392,10 @@ export default function Footer() {
               <ul className="space-y-1 text-xs text-neutral-400">
                 <li><Link to="/company/about" className="hover:text-primary-400">{t('pouchEcoFooter.aboutUs', 'About Us')}</Link></li>
                 <li><Link to="/team/ryan-wong" className="hover:text-primary-400">{t('pouchEcoFooter.ryanWong', 'Meet Ryan Wong')}</Link></li>
+                <li><Link to="/directory" className="hover:text-emerald-400 font-semibold text-emerald-400">Technical Spec Directory</Link></li>
                 <li><Link to="/support/faqs" className="hover:text-primary-400">{t('pouchEcoFooter.faqs', 'FAQs')}</Link></li>
                 <li><Link to="/certifications" className="hover:text-primary-400">{t('pouchEcoFooter.certifications', 'Certifications')}</Link></li>
+                <li><Link to="/tech-specs" className="hover:text-primary-400">{t('pouchEcoFooter.techSpecs', 'Tech Specs & Materials')}</Link></li>
                 <li><a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="hover:text-primary-400">{t('pouchEcoFooter.bookMeeting', 'Book a Consultation')}</a></li>
               </ul>
             </div>
@@ -403,6 +405,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-sm mb-3 text-neutral-200">{lf('popularPages', 'Popular Pages')}</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
+              <li><Link to="/directory" className="hover:text-primary-400 font-bold text-emerald-400">Eco Packaging Directory & Spec Finder</Link></li>
               <li><Link to="/knowledge/size-guide" className="hover:text-primary-400">{lf('sizeGuide', 'Pouch Size Guide')}</Link></li>
               <li><Link to="/knowledge/pouch-sizing" className="hover:text-primary-400 font-semibold text-primary-400">{lf('sizingFinderApp', 'Sizing Finder App')}</Link></li>
               <li><Link to="/products/low-moq-packaging" className="hover:text-primary-400">{lf('lowMoq', 'Low-MOQ Packaging')}</Link></li>
@@ -493,6 +496,12 @@ export default function Footer() {
               <div>
                 <h4 className="font-semibold text-xs mb-3 text-primary-400 uppercase tracking-wider">{t('pouchEcoFooter.packagingApps', 'Packaging Apps & Tools')}</h4>
                 <ul className="space-y-1 text-xs text-neutral-400">
+                  <li>
+                    <Link to="/directory" className="hover:text-primary-400 font-semibold text-emerald-400 flex items-center gap-1 group">
+                      <Sparkles className="h-3.5 w-3.5 text-emerald-400 group-hover:scale-110 transition-transform" />
+                      <span>Eco Packaging Directory & Spec Finder</span>
+                    </Link>
+                  </li>
                   <li>
                     <Link to="/knowledge/pouch-sizing" className="hover:text-primary-400 font-semibold text-white flex items-center gap-1 group">
                       <SizingFinderIcon className="h-3.5 w-3.5 text-primary-400 group-hover:scale-110 transition-transform" />

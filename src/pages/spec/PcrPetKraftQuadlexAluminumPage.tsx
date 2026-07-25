@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next'
 
 const PcrPetKraftQuadlexAluminumPage: React.FC = () => {
   const { t } = useTranslation()
-  const p = 'spec.pcrPetKraftQuadlexAluminum'
+  const p = 'seoPages.pages.pcrPetKraftQuadlexAluminum'
   
   const structureName = t(`${p}.structureName`)
   const thickness = t(`${p}.thickness`)

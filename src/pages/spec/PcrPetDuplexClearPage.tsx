@@ -31,7 +31,7 @@ const PcrPetDuplexClearPage: React.FC = () => {
             />
             <h3 className="text-xl font-bold text-green-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
-              
+              <Recycle className="h-5 w-5 text-green-500" />
               <span className="text-sm text-green-600">{t(`${p}.sections.structureOverview.badge`)}</span>
             </div>
             <div className="grid sm:grid-cols-2 gap-4 mt-4">
@@ -180,118 +180,11 @@ const PcrPetDuplexClearPage: React.FC = () => {
       content: (
         <div className="space-y-4 text-neutral-700">
           <p className="text-sm text-neutral-600 mb-4">{t(`${p}.sections.compareStructures.intro`)}</p>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm border-collapse">
-              <thead>
-                <tr className="bg-blue-100">
-                  <th className="p-2 text-left border">Structure</th>
-                  <th className="p-2 text-center border">OTR</th>
-                  <th className="p-2 text-center border">WVTR</th>
-                  <th className="p-2 text-left border">Best For</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="bg-blue-50 font-semibold">
-                  <td className="p-2 border"><Link to="/spec/pcr-pet-duplex-clear" className="text-primary-600 hover:underline">PET Duplex Clear</Link></td>
-                  <td className="p-2 text-center border">&lt;8</td>
-                  <td className="p-2 text-center border">&lt;12</td>
-                  <td className="p-2 border">Window bags, visibility</td>
-                </tr>
-                <tr>
-                  <td className="p-2 border"><Link to="/spec/pcr-pp-duplex-clear" className="text-primary-600 hover:underline">PP Duplex Clear</Link></td>
-                  <td className="p-2 text-center border">&lt;1500</td>
-                  <td className="p-2 text-center border">&lt;5</td>
-                  <td className="p-2 border">Best moisture barrier</td>
-                </tr>
-                <tr>
-                  <td className="p-2 border"><Link to="/spec/pcr-pet-kraft-triplex-clear" className="text-primary-600 hover:underline">PET Kraft Triplex</Link></td>
-                  <td className="p-2 text-center border">&lt;8</td>
-                  <td className="p-2 text-center border">&lt;10</td>
-                  <td className="p-2 border">Natural look + window</td>
-                </tr>
-                <tr>
-                  <td className="p-2 border"><Link to="/spec/pcr-pp-kraft-triplex-clear" className="text-primary-600 hover:underline">PP Kraft Triplex</Link></td>
-                  <td className="p-2 text-center border">&lt;1500</td>
-                  <td className="p-2 text-center border">&lt;4</td>
-                  <td className="p-2 border">Kraft + moisture barrier</td>
-                </tr>
-                <tr>
-                  <td className="p-2 border"><Link to="/spec/pcr-pet-duplex-nowindow" className="text-primary-600 hover:underline">PET Duplex No Window</Link></td>
-                  <td className="p-2 text-center border">&lt;8</td>
-                  <td className="p-2 text-center border">&lt;12</td>
-                  <td className="p-2 border">Light-sensitive products</td>
-                </tr>
-                <tr>
-                  <td className="p-2 border"><Link to="/spec/pcr-pp-duplex-nowindow" className="text-primary-600 hover:underline">PP Duplex No Window</Link></td>
-                  <td className="p-2 text-center border">&lt;1500</td>
-                  <td className="p-2 text-center border">&lt;5</td>
-                  <td className="p-2 border">Moisture + light barrier</td>
-                </tr>
-                <tr>
-                  <td className="p-2 border"><Link to="/spec/pcr-pet-triplex-metalised" className="text-primary-600 hover:underline">PET Triplex Metalised</Link></td>
-                  <td className="p-2 text-center border">&lt;1</td>
-                  <td className="p-2 text-center border">&lt;1</td>
-                  <td className="p-2 border">High barrier, coffee</td>
-                </tr>
-                <tr>
-                  <td className="p-2 border"><Link to="/spec/pcr-pp-triplex-metalised" className="text-primary-600 hover:underline">PP Triplex Metalised</Link></td>
-                  <td className="p-2 text-center border">&lt;1</td>
-                  <td className="p-2 text-center border">&lt;0.5</td>
-                  <td className="p-2 border">Best moisture high barrier</td>
-                </tr>
-                <tr>
-                  <td className="p-2 border"><Link to="/spec/pcr-kraft-vmpet" className="text-primary-600 hover:underline">Kraft VMPET</Link></td>
-                  <td className="p-2 text-center border">&lt;1</td>
-                  <td className="p-2 text-center border">&lt;1</td>
-                  <td className="p-2 border">Premium natural look</td>
-                </tr>
-                <tr>
-                  <td className="p-2 border"><Link to="/spec/pcr-pet-triplex-aluminum" className="text-primary-600 hover:underline">PET Triplex Aluminum</Link></td>
-                  <td className="p-2 text-center border">&lt;0.5</td>
-                  <td className="p-2 text-center border">&lt;0.5</td>
-                  <td className="p-2 border">Ultimate barrier</td>
-                </tr>
-                <tr>
-                  <td className="p-2 border"><Link to="/spec/pcr-pp-triplex-aluminum" className="text-primary-600 hover:underline">PP Triplex Aluminum</Link></td>
-                  <td className="p-2 text-center border">&lt;0.5</td>
-                  <td className="p-2 text-center border">&lt;0.3</td>
-                  <td className="p-2 border">Ultimate + best WVTR</td>
-                </tr>
-                <tr>
-                  <td className="p-2 border"><Link to="/spec/pcr-pet-kraft-quadlex-aluminum" className="text-primary-600 hover:underline">PET Kraft Quadlex ALU</Link></td>
-                  <td className="p-2 text-center border">&lt;0.5</td>
-                  <td className="p-2 text-center border">&lt;0.5</td>
-                  <td className="p-2 border">Premium natural + max barrier</td>
-                </tr>
-                <tr>
-                  <td className="p-2 border"><Link to="/spec/pcr-pp-kraft-quadlex-aluminum" className="text-primary-600 hover:underline">PP Kraft Quadlex ALU</Link></td>
-                  <td className="p-2 text-center border">&lt;0.5</td>
-                  <td className="p-2 text-center border">&lt;0.3</td>
-                  <td className="p-2 border">Ultimate kraft + moisture</td>
-                </tr>
-                <tr>
-                  <td className="p-2 border"><Link to="/spec/pcr-kraft-duplex-low" className="text-primary-600 hover:underline">Kraft Duplex Low</Link></td>
-                  <td className="p-2 text-center border">&lt;2000</td>
-                  <td className="p-2 text-center border">&lt;15</td>
-                  <td className="p-2 border">Dry goods, short shelf</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div className="grid sm:grid-cols-3 gap-4 mt-6">
-            <div className="bg-blue-50 p-4 rounded-lg text-center">
-              <p className="text-xs text-neutral-500 mb-1">30% PCR Content</p>
-              <p className="font-semibold text-blue-700">Reduces Plastic Waste</p>
-            </div>
-            <div className="bg-amber-50 p-4 rounded-lg text-center">
-              <p className="text-xs text-neutral-500 mb-1">Max Barrier?</p>
-              <p className="font-semibold text-amber-700">Aluminum Triplex/Quadlex</p>
-            </div>
-            <div className="bg-green-50 p-4 rounded-lg text-center">
-              <p className="text-xs text-neutral-500 mb-1">Best Moisture?</p>
-              <p className="font-semibold text-green-700">PP-based structures</p>
-            </div>
-          </div>
+          <SortableMaterialStructuresTable
+            structures={PCR_STRUCTURES}
+            title="All PCR Structures – Compare & Filter"
+            categoryColor="green"
+          />
         </div>
       )
     }

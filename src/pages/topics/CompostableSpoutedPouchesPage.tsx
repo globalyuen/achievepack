@@ -12,6 +12,9 @@ const localTranslations = {
     description: "Discover technical solutions for compostable spouted pouches. We engineer high-barrier, leak-proof sustainable packaging that meets stringent compliance and operational efficiency.",
     heroTitle: "Engineering Flawless Compostable Spouted Pouches",
     empathyHook: "Transitioning to compostable packaging shouldn't mean compromising on barrier properties or enduring high defect rates. We solve the technical challenges of biopolymer sealing, ensuring your spouted pouches perform perfectly from the filling line to the consumer's hands.",
+    techGuideTag: "Technical Engineering Guide",
+    painPointsTitle: "5 Manufacturing Pain Points & Engineering Solutions",
+    solutionLabel: "Solution",
     point1Title: "Biopolymer Heat Seal Integrity",
     point1Desc: "Compostable films have narrower sealing temperature windows compared to traditional plastics, often leading to weak seals or melted spouts during high-speed production.",
     point1Sol: "We utilize multi-layer laminated PLA/PBAT structures with calibrated heat-seal layers, ensuring perfect spout adhesion at lower temperatures without sacrificing production speeds.",
@@ -29,18 +32,38 @@ const localTranslations = {
     point5Sol: "Every material layer, adhesive, and spout we use is pre-certified. We provide full traceability and technical documentation, ensuring your packaging meets global industrial composting standards.",
     compTitle: "Why Engineering Matters in Compostable Packaging",
     compDesc: "A comparison between standard compostable approaches and our engineered, zero-failure packaging methodology.",
+    tableParam: "Parameter",
+    tableStd: "Standard Approach",
+    tableAchieve: "Achieve Pack Engineered",
+    param1: "Material Integrity",
+    param1Std: "High failure rate under stress",
+    param1Achieve: "Zero-failure structural mapping",
+    param2: "Compliance",
+    param2Std: "Often misses localized FDA/EU requirements",
+    param2Achieve: "100% Guaranteed Certification",
+    param3: "Unit Cost Impact",
+    param3Std: "High waste yields expensive per-unit cost",
+    param3Achieve: "Optimized layout reduces material waste by 14%",
+    faqTitle: "Technical FAQ",
     faq1Q: "Can compostable spouted pouches handle hot-fill processes?",
     faq1A: "Yes. While standard PLA has low heat resistance, we engineer our high-temperature compostable pouches using crystallized biopolymers (CPLA) and specialized adhesives, capable of withstanding hot-fill temperatures up to 85°C (185°F) without deformation or seal failure.",
     faq2Q: "What is the typical shelf life for liquid products in your compostable pouches?",
     faq2A: "Shelf life depends on the product's sensitivity to oxygen and moisture. With our high-barrier AlOx-coated compostable films, we consistently achieve 9 to 12 months of shelf life for standard liquid and paste products, matching many conventional plastic structures.",
     faq3Q: "Are the spout and cap also fully compostable?",
-    faq3A: "Absolutely. A pouch cannot be certified compostable if the fitment isn't. We use injection-molded biopolymers for both the spout and the cap that comply with industrial composting standards (ASTM D6400 / EN 13432), ensuring the entire package breaks down completely."
+    faq3A: "Absolutely. A pouch cannot be certified compostable if the fitment isn't. We use injection-molded biopolymers for both the spout and the cap that comply with industrial composting standards (ASTM D6400 / EN 13432), ensuring the entire package breaks down completely.",
+    authorTitle: "Co-Founder & Chief Packaging Engineer",
+    authorExp: "14+ Years Experience | GRS & FSC Auditing Expert",
+    authorDesc: "Specializing in polymer structures, sustainable material transitions, and high-speed VFFS line optimizations. Helping 500+ global brands scale from prototype to industrial production with zero defect tolerances.",
+    ctaSchedule: "Schedule a Packaging Audit"
   },
   es: {
     title: "Bolsas con Boquilla Compostables | Ingeniería en Empaques Sostenibles Premium",
     description: "Descubra soluciones técnicas para bolsas con boquilla compostables. Diseñamos empaques sostenibles de alta barrera y a prueba de fugas que cumplen con el cumplimiento normativo y la eficiencia operativa.",
     heroTitle: "Ingeniería de Bolsas con Boquilla Compostables Impecables",
     empathyHook: "La transición a empaques compostables no debería significar comprometer las propiedades de barrera o soportar altas tasas de defectos. Resolvemos los desafíos técnicos del sellado de biopolímeros, garantizando que sus bolsas funcionen perfectamente desde la línea de llenado hasta las manos del consumidor.",
+    techGuideTag: "Guía Técnica de Ingeniería",
+    painPointsTitle: "5 Puntos de Dolor en la Fabricación y Soluciones de Ingeniería",
+    solutionLabel: "Solución",
     point1Title: "Integridad del Sellado Térmico de Biopolímeros",
     point1Desc: "Las películas compostables tienen ventanas de temperatura de sellado más estrechas en comparación con los plásticos tradicionales, lo que a menudo resulta en sellos débiles o boquillas derretidas durante la producción a alta velocidad.",
     point1Sol: "Utilizamos estructuras laminadas multicapa de PLA/PBAT con capas de sellado térmico calibradas, asegurando una adhesión perfecta de la boquilla a temperaturas más bajas sin sacrificar la velocidad de producción.",
@@ -58,18 +81,38 @@ const localTranslations = {
     point5Sol: "Cada capa de material, adhesivo y boquilla que utilizamos está precertificado. Proporcionamos trazabilidad completa y documentación técnica, asegurando que su empaque cumpla con los estándares mundiales.",
     compTitle: "Por Qué Importa la Ingeniería en Empaques Compostables",
     compDesc: "Una comparación entre los enfoques compostables estándar y nuestra metodología de empaque de ingeniería, con cero fallas.",
+    tableParam: "Parámetro",
+    tableStd: "Enfoque Estándar",
+    tableAchieve: "Diseñado por Achieve Pack",
+    param1: "Integridad del Material",
+    param1Std: "Alta tasa de fallas bajo esfuerzo",
+    param1Achieve: "Mapeo estructural con cero fallas",
+    param2: "Cumplimiento Normativo",
+    param2Std: "A menudo no cumple con los requisitos locales de FDA/UE",
+    param2Achieve: "Certificación 100% Garantizada",
+    param3: "Impacto en Costo Unitario",
+    param3Std: "Alto desperdicio genera un costo unitario elevado",
+    param3Achieve: "Diseño optimizado reduce el desperdicio de material en un 14%",
+    faqTitle: "Preguntas Frecuentes Técnicas",
     faq1Q: "¿Pueden las bolsas con boquilla compostables soportar procesos de llenado en caliente?",
     faq1A: "Sí. Mientras que el PLA estándar tiene baja resistencia al calor, diseñamos nuestras bolsas utilizando biopolímeros cristalizados (CPLA) capaces de soportar temperaturas de llenado en caliente de hasta 85°C (185°F) sin deformación ni falla del sello.",
     faq2Q: "¿Cuál es la vida útil típica de los productos líquidos en sus bolsas compostables?",
     faq2A: "La vida útil depende de la sensibilidad del producto al oxígeno y la humedad. Con nuestras películas de alta barrera con recubrimiento de AlOx, logramos consistentemente de 9 a 12 meses de vida útil para productos líquidos, igualando muchas estructuras de plástico convencionales.",
     faq3Q: "¿La boquilla y la tapa también son totalmente compostables?",
-    faq3A: "Absolutamente. Una bolsa no puede ser certificada como compostable si el accesorio no lo es. Utilizamos biopolímeros moldeados por inyección para la boquilla y la tapa que cumplen con los estándares de compostaje industrial (ASTM D6400 / EN 13432)."
+    faq3A: "Absolutamente. Una bolsa no puede ser certificada como compostable si el accesorio no lo es. Utilizamos biopolímeros moldeados por inyección para la boquilla y la tapa que cumplen con los estándares de compostaje industrial (ASTM D6400 / EN 13432).",
+    authorTitle: "Cofundador e Ingeniero Jefe de Empaques",
+    authorExp: "Más de 14 años de experiencia | Experto en Auditorías GRS y FSC",
+    authorDesc: "Especializado en estructuras de polímeros, transición a materiales sostenibles y optimización de líneas VFFS de alta velocidad. Ayudando a más de 500 marcas globales a escalar del prototipo a la producción industrial sin tolerancias de defectos.",
+    ctaSchedule: "Programar una Auditoría de Empaque"
   },
   fr: {
     title: "Gourdes à Bec Compostables | Ingénierie d'Emballages Durables Premium",
     description: "Découvrez des solutions techniques pour les gourdes à bec compostables. Nous concevons des emballages durables à haute barrière et étanches qui répondent à la conformité et à l'efficacité opérationnelle.",
     heroTitle: "L'Ingénierie des Gourdes à Bec Compostables Sans Défaut",
     empathyHook: "Passer aux emballages compostables ne devrait pas signifier compromettre les propriétés de barrière ou subir des taux de défauts élevés. Nous résolvons les défis techniques du scellage des biopolymères, garantissant une performance parfaite de la ligne de remplissage aux mains du consommateur.",
+    techGuideTag: "Guide d'Ingénierie Technique",
+    painPointsTitle: "5 Problèmes de Fabrication & Solutions d'Ingénierie",
+    solutionLabel: "Solution",
     point1Title: "Intégrité du Thermoscellage des Biopolymères",
     point1Desc: "Les films compostables ont des fenêtres de température de scellage plus étroites que les plastiques traditionnels, entraînant souvent des scellages faibles ou des becs fondus.",
     point1Sol: "Nous utilisons des structures multicouches PLA/PBAT avec des couches de thermoscellage calibrées, assurant une adhésion parfaite du bec à des températures plus basses sans sacrifier les vitesses de production.",
@@ -87,18 +130,38 @@ const localTranslations = {
     point5Sol: "Chaque couche de matériau, adhésif et bec que nous utilisons est pré-certifiée. Nous fournissons une traçabilité complète et la documentation technique nécessaire.",
     compTitle: "Pourquoi l'Ingénierie est Cruciale pour les Emballages Compostables",
     compDesc: "Une comparaison entre les approches compostables standard et notre méthodologie d'emballage d'ingénierie sans défaut.",
+    tableParam: "Paramètre",
+    tableStd: "Approche Standard",
+    tableAchieve: "Conçu par Achieve Pack",
+    param1: "Intégrité du Matériau",
+    param1Std: "Taux de défaillance élevé sous contrainte",
+    param1Achieve: "Cartographie structurelle zéro défaillance",
+    param2: "Conformité",
+    param2Std: "Manque souvent les exigences FDA/UE locales",
+    param2Achieve: "Certification 100 % Garantie",
+    param3: "Impact sur le Coût Unitaire",
+    param3Std: "Le gaspillage élevé entraîne un coût unitaire élevé",
+    param3Achieve: "Mise en page optimisée réduisant le gaspillage de 14 %",
+    faqTitle: "FAQ Technique",
     faq1Q: "Les gourdes à bec compostables peuvent-elles supporter les processus de remplissage à chaud ?",
     faq1A: "Oui. Bien que le PLA standard ait une faible résistance à la chaleur, nous concevons nos gourdes à l'aide de biopolymères cristallisés (CPLA) capables de supporter des températures de remplissage à chaud jusqu'à 85°C sans déformation.",
     faq2Q: "Quelle est la durée de conservation typique des produits liquides dans vos gourdes compostables ?",
     faq2A: "La durée de conservation dépend de la sensibilité du produit. Avec nos films haute barrière revêtus d'AlOx, nous obtenons constamment 9 à 12 mois de durée de conservation pour les liquides, égalant de nombreuses structures plastiques.",
     faq3Q: "Le bec et le bouchon sont-ils également entièrement compostables ?",
-    faq3A: "Absolument. Une gourde ne peut être certifiée compostable si l'accessoire ne l'est pas. Nous utilisons des biopolymères moulés par injection pour le bec et le bouchon qui respectent les normes de compostage industriel (ASTM D6400 / EN 13432)."
+    faq3A: "Absolument. Une gourde ne peut être certifiée compostable si l'accessoire ne l'est pas. Nous utilisons des biopolymères moulés par injection pour le bec et le bouchon qui respectent les normes de compostage industriel (ASTM D6400 / EN 13432).",
+    authorTitle: "Cofondateur & Ingénieur en Chef de l'Emballage",
+    authorExp: "14+ Ans d'Expérience | Expert en Audit GRS & FSC",
+    authorDesc: "Spécialisé dans les structures polymères, la transition vers des matériaux durables et l'optimisation des lignes VFFS à grande vitesse. Accompagnement de plus de 500 marques mondiales du prototype à la production industrielle.",
+    ctaSchedule: "Planifier un Audit d'Emballage"
   },
   "zh-tw": {
     title: "可堆肥吸嘴袋 | 頂級環保包裝工程",
     description: "探索可堆肥吸嘴袋的專業技術解決方案。我們設計的高阻隔、防漏環保包裝，完全符合嚴格的法規並兼顧生產效率。",
     heroTitle: "打造零缺陷的可堆肥吸嘴袋",
     empathyHook: "轉向可堆肥包裝不應意味著妥協於阻隔性能或忍受高瑕疵率。我們解決了生物聚合物封口的技術難題，確保您的吸嘴袋從充填線到消費者手中都能完美表現。",
+    techGuideTag: "技術工程指南",
+    painPointsTitle: "5 大製造痛點與工程解決方案",
+    solutionLabel: "解決方案",
     point1Title: "生物聚合物熱封完整性",
     point1Desc: "與傳統塑膠相比，可堆肥薄膜的封口溫度範圍較窄，在高速生產過程中容易導致封口不牢或吸嘴熔化。",
     point1Sol: "我們採用多層層壓 PLA/PBAT 結構及精確校準的熱封層，確保在較低溫度下實現完美的吸嘴貼合，且不影響生產速度。",
@@ -116,12 +179,29 @@ const localTranslations = {
     point5Sol: "我們使用的每一層材料、黏合劑和吸嘴均已預先認證。我們提供完整的可追溯性和技術文件，確保包裝符合全球工業堆肥標準。",
     compTitle: "為什麼工程設計對可堆肥包裝至關重要",
     compDesc: "比較標準可堆肥方案與我們零缺陷包裝工程方法的差異。",
+    tableParam: "評估參數",
+    tableStd: "傳統標準做法",
+    tableAchieve: "Achieve Pack 精密工程",
+    param1: "材料完整性",
+    param1Std: "應力下不良率高",
+    param1Achieve: "零缺陷結構對映",
+    param2: "法規合規性",
+    param2Std: "經常忽略區域性 FDA/歐盟法規要求",
+    param2Achieve: "100% 保證通過認證",
+    param3: "單件成本影響",
+    param3Std: "高損耗率造成高昂的單件成本",
+    param3Achieve: "最佳化排版版面減少 14% 材料浪費",
+    faqTitle: "技術常見問題 (FAQ)",
     faq1Q: "可堆肥吸嘴袋能夠承受熱充填製程嗎？",
     faq1A: "可以。雖然標準 PLA 的耐熱性較低，但我們使用結晶生物聚合物 (CPLA) 和專用黏合劑設計的耐高溫可堆肥袋，可承受高達 85°C (185°F) 的熱充填溫度，不會變形或封口失效。",
     faq2Q: "您們的可堆肥袋對於液體產品的一般保存期限是多久？",
     faq2A: "保存期限取決於產品對氧氣和濕氣的敏感度。採用我們的高阻隔 AlOx 塗層可堆肥薄膜，標準液體和糊狀產品通常可達到 9 到 12 個月的保存期限，媲美許多傳統塑膠結構。",
     faq3Q: "吸嘴和瓶蓋也都是完全可堆肥的嗎？",
-    faq3A: "絕對是的。如果配件不可堆肥，包裝袋就無法獲得可堆肥認證。我們的吸嘴和瓶蓋均採用符合工業堆肥標準 (ASTM D6400 / EN 13432) 的射出成型生物聚合物製造，確保整個包裝都能完全分解。"
+    faq3A: "絕對是的。如果配件不可堆肥，包裝袋就無法獲得可堆肥認證。我們的吸嘴和瓶蓋均採用符合工業堆肥標準 (ASTM D6400 / EN 13432) 的射出成型生物聚合物製造，確保整個包裝都能完全分解。",
+    authorTitle: "共同創辦人兼首席包裝工程師",
+    authorExp: "14 年以上經驗 | GRS 與 FSC 稽核專家",
+    authorDesc: "專精於聚合物結構、永續材料轉型以及高速 VFFS 包裝線最佳化。已協助 500 多個全球品牌實現從原型開發到零缺陷容忍的工業化量產。",
+    ctaSchedule: "預約包裝技術諮詢"
   }
 };
 
@@ -129,9 +209,9 @@ const PAGE_NAME = "CompostableSpoutedPouchesPage";
 
 export default function CompostableSpoutedPouchesPage() {
   const { i18n } = useTranslation();
-  const currentLang = i18n.language || 'en';
-  const tLocalRaw = localTranslations[currentLang as keyof typeof localTranslations];
-  const tLocal: any = (tLocalRaw && Object.keys(tLocalRaw).length > 0) ? tLocalRaw : localTranslations.en;
+  const rawLang = (i18n.language || 'en').toLowerCase();
+  const currentLang = (rawLang === 'zh-tw' || rawLang === 'zh-hant' || rawLang === 'zh' || rawLang === 'zh_tw') ? 'zh-tw' : (rawLang === 'fr' ? 'fr' : (rawLang === 'es' ? 'es' : 'en'));
+  const tLocal = localTranslations[currentLang] || localTranslations.en;
   const isPouchDomain = getDomain() === 'pouch';
 
   return (
@@ -148,7 +228,7 @@ export default function CompostableSpoutedPouchesPage() {
           <div className="flex items-center gap-4 mb-6">
             <span className="px-3 py-1 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium border border-primary-500/30 flex items-center gap-2">
               <ShieldCheck className="w-4 h-4" />
-              Technical Engineering Guide
+              {tLocal.techGuideTag}
             </span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -164,7 +244,7 @@ export default function CompostableSpoutedPouchesPage() {
         
         {/* Pain Points Section */}
         <div className="mb-20">
-          <h2 className="text-3xl font-bold text-neutral-900 mb-8">5 Manufacturing Pain Points & Engineering Solutions</h2>
+          <h2 className="text-3xl font-bold text-neutral-900 mb-8">{tLocal.painPointsTitle}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { title: tLocal.point1Title, desc: tLocal.point1Desc, sol: tLocal.point1Sol, icon: Factory },
@@ -181,7 +261,7 @@ export default function CompostableSpoutedPouchesPage() {
                 <p className="text-neutral-600 text-sm mb-4">{point.desc}</p>
                 <div className={`p-3 rounded-lg ${isPouchDomain ? 'bg-[#D4FF00]/10 border border-[#D4FF00]/20' : 'bg-primary-50 border border-primary-100'}`}>
                   <p className={`text-sm font-medium ${isPouchDomain ? 'text-neutral-900' : 'text-primary-900'}`}>
-                    <span className="block text-xs uppercase tracking-wider opacity-70 mb-1">Solution</span>
+                    <span className="block text-xs uppercase tracking-wider opacity-70 mb-1">{tLocal.solutionLabel}</span>
                     {point.sol}
                   </p>
                 </div>
@@ -198,26 +278,26 @@ export default function CompostableSpoutedPouchesPage() {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-neutral-900 text-white">
-                  <th className="p-4 rounded-tl-lg font-semibold">Parameter</th>
-                  <th className="p-4 font-semibold border-l border-neutral-700">Standard Approach</th>
-                  <th className="p-4 rounded-tr-lg font-semibold border-l border-neutral-700">Achieve Pack Engineered</th>
+                  <th className="p-4 rounded-tl-lg font-semibold">{tLocal.tableParam}</th>
+                  <th className="p-4 font-semibold border-l border-neutral-700">{tLocal.tableStd}</th>
+                  <th className="p-4 rounded-tr-lg font-semibold border-l border-neutral-700">{tLocal.tableAchieve}</th>
                 </tr>
               </thead>
               <tbody className="bg-white">
                 <tr className="border-b border-neutral-200">
-                  <td className="p-4 font-medium text-neutral-900">Material Integrity</td>
-                  <td className="p-4 text-neutral-600 border-l border-neutral-200">High failure rate under stress</td>
-                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">Zero-failure structural mapping</td>
+                  <td className="p-4 font-medium text-neutral-900">{tLocal.param1}</td>
+                  <td className="p-4 text-neutral-600 border-l border-neutral-200">{tLocal.param1Std}</td>
+                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">{tLocal.param1Achieve}</td>
                 </tr>
                 <tr className="border-b border-neutral-200">
-                  <td className="p-4 font-medium text-neutral-900">Compliance</td>
-                  <td className="p-4 text-neutral-600 border-l border-neutral-200">Often misses localized FDA/EU requirements</td>
-                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">100% Guaranteed Certification</td>
+                  <td className="p-4 font-medium text-neutral-900">{tLocal.param2}</td>
+                  <td className="p-4 text-neutral-600 border-l border-neutral-200">{tLocal.param2Std}</td>
+                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">{tLocal.param2Achieve}</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-medium text-neutral-900">Unit Cost Impact</td>
-                  <td className="p-4 text-neutral-600 border-l border-neutral-200">High waste yields expensive per-unit cost</td>
-                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">Optimized layout reduces material waste by 14%</td>
+                  <td className="p-4 font-medium text-neutral-900">{tLocal.param3}</td>
+                  <td className="p-4 text-neutral-600 border-l border-neutral-200">{tLocal.param3Std}</td>
+                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">{tLocal.param3Achieve}</td>
                 </tr>
               </tbody>
             </table>
@@ -226,7 +306,7 @@ export default function CompostableSpoutedPouchesPage() {
 
         {/* FAQs */}
         <div className="max-w-3xl mb-20">
-          <h2 className="text-3xl font-bold text-neutral-900 mb-8">Technical FAQ</h2>
+          <h2 className="text-3xl font-bold text-neutral-900 mb-8">{tLocal.faqTitle}</h2>
           <div className="space-y-4">
             {[
               { q: tLocal.faq1Q, a: tLocal.faq1A },
@@ -254,15 +334,15 @@ export default function CompostableSpoutedPouchesPage() {
             </div>
             <div>
               <h3 className="text-2xl font-bold mb-2">Ryan Wong</h3>
-              <p className="text-primary-400 font-medium mb-4">Co-Founder & Chief Packaging Engineer</p>
+              <p className="text-primary-400 font-medium mb-4">{tLocal.authorTitle}</p>
               <div className="inline-block bg-white/10 rounded px-3 py-1 text-sm font-mono mb-4 border border-white/20">
-                14+ Years Experience | GRS & FSC Auditing Expert
+                {tLocal.authorExp}
               </div>
               <p className="text-neutral-400 text-sm leading-relaxed mb-6">
-                Specializing in polymer structures, sustainable material transitions, and high-speed VFFS line optimizations. Helping 500+ global brands scale from prototype to industrial production with zero defect tolerances.
+                {tLocal.authorDesc}
               </p>
               <a href="https://calendly.com/achievepack" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-500 text-white font-bold py-3 px-6 rounded-lg transition-colors">
-                Schedule a Packaging Audit
+                {tLocal.ctaSchedule}
               </a>
             </div>
           </div>

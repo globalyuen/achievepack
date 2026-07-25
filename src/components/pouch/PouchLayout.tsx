@@ -794,6 +794,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
             <div>
               <h4 className="font-black uppercase mb-3 text-base border-b-2 border-black pb-1">{t('pouchLayoutFooter.categories.materials')}</h4>
               <ul className="space-y-1.5 font-['JetBrains_Mono'] text-xs font-bold">
+                <li><Link to="/directory" className="hover:underline text-emerald-600 font-extrabold flex items-center gap-1">✨ Eco Packaging Directory & Spec Finder</Link></li>
                 <li><Link to="/materials/compostable" className="hover:underline">{t('pouchLayoutFooter.links.compostable')}</Link></li>
                 <li><Link to="/materials/recyclable" className="hover:underline">{t('pouchLayoutFooter.links.recyclable')}</Link></li>
                 <li><Link to="/materials/plastic-free-kraft" className="hover:underline text-emerald-800">{t('pouchLayoutFooter.links.plasticFreeKraft')}</Link></li>

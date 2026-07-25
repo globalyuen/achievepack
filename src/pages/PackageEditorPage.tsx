@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { TransformControls } from 'three/examples/jsm/controls/TransformControls.js';
@@ -289,6 +289,14 @@ export default function PackageEditorPage() {
   const [turntableDuration, setTurntableDuration] = useState<number>(5);
   const [turntableRotations, setTurntableRotations] = useState<number>(1);
   const [turntableDirection, setTurntableDirection] = useState<'cw' | 'ccw'>('cw');
+
+  // 3D Studio Environment & Background states
+  const [backgroundPreset, setBackgroundPreset] = useState<'none' | 'white' | 'dark_luxury' | 'eco_wood' | 'concrete' | 'pastel'>('white');
+  const [showPodium, setShowPodium] = useState<boolean>(true);
+  const [podiumColor, setPodiumColor] = useState<string>('#ffffff');
+  const [backdropColor, setBackdropColor] = useState<string>('#f1f5f9');
+  const [shadowOpacity, setShadowOpacity] = useState<number>(0.45);
+  const studioBgGroupRef = useRef<THREE.Group | null>(null);
 
   // Three.js and Canvas Refs
   const sceneRef = useRef<THREE.Scene | null>(null);
@@ -659,6 +667,118 @@ export default function PackageEditorPage() {
   useEffect(() => {
     turntableDirectionRef.current = turntableDirection;
   }, [turntableDirection]);
+
+  // Helper to build/update 3D Studio Background & Podium
+  const updateStudioBackground = useCallback((
+    preset: 'none' | 'white' | 'dark_luxury' | 'eco_wood' | 'concrete' | 'pastel',
+    enabledPodium: boolean,
+    customPodiumColor?: string,
+    customBackdropColor?: string,
+    customShadowOpacity?: number
+  ) => {
+    if (!sceneRef.current) return;
+    const scene = sceneRef.current;
+
+    // Clean up previous studio background group
+    const oldBgGroup = scene.getObjectByName('studio-background-group') as THREE.Group;
+    if (oldBgGroup) {
+      oldBgGroup.traverse((child) => {
+        if (child instanceof THREE.Mesh) {
+          if (child.geometry) child.geometry.dispose();
+          if (Array.isArray(child.material)) {
+            child.material.forEach((m) => m.dispose());
+          } else if (child.material) {
+            child.material.dispose();
+          }
+        }
+      });
+      scene.remove(oldBgGroup);
+    }
+
+    // Default color maps for presets
+    const presetConfigs = {
+      none: { podium: '#ffffff', backdrop: '#f4f4f5', shadow: 0.45 },
+      white: { podium: '#ffffff', backdrop: '#f1f5f9', shadow: 0.35 },
+      dark_luxury: { podium: '#1e293b', backdrop: '#0f172a', shadow: 0.65 },
+      eco_wood: { podium: '#d97706', backdrop: '#fef3c7', shadow: 0.4 },
+      concrete: { podium: '#64748b', backdrop: '#cbd5e1', shadow: 0.5 },
+      pastel: { podium: '#f472b6', backdrop: '#fce7f3', shadow: 0.3 },
+    };
+
+    const config = presetConfigs[preset] || presetConfigs.white;
+    const pColor = customPodiumColor || config.podium;
+    const bColor = customBackdropColor || config.backdrop;
+    const opacity = customShadowOpacity !== undefined ? customShadowOpacity : config.shadow;
+
+    // Set scene background
+    scene.background = new THREE.Color(bColor);
+
+    // Update floor shadow material opacity if present
+    if (floorRef.current && floorRef.current.material instanceof THREE.ShadowMaterial) {
+      floorRef.current.material.opacity = opacity;
+    }
+
+    if (preset === 'none' && !enabledPodium) {
+      studioBgGroupRef.current = null;
+      return;
+    }
+
+    const bgGroup = new THREE.Group();
+    bgGroup.name = 'studio-background-group';
+
+    // 1. 3D Cylindrical Podium Pedestal
+    if (enabledPodium) {
+      const podiumRadius = 3.5;
+      const podiumHeight = 0.25;
+      const podiumGeo = new THREE.CylinderGeometry(podiumRadius, podiumRadius + 0.2, podiumHeight, 64);
+      const podiumMat = new THREE.MeshStandardMaterial({
+        color: new THREE.Color(pColor),
+        roughness: preset === 'dark_luxury' ? 0.2 : 0.6,
+        metalness: preset === 'dark_luxury' ? 0.3 : 0.05,
+      });
+      const podiumMesh = new THREE.Mesh(podiumGeo, podiumMat);
+      podiumMesh.position.set(0, -podiumHeight / 2, 0);
+      podiumMesh.receiveShadow = true;
+      podiumMesh.castShadow = true;
+      bgGroup.add(podiumMesh);
+
+      // Gold Torus Accent Rim for Dark Luxury
+      if (preset === 'dark_luxury') {
+        const rimGeo = new THREE.TorusGeometry(podiumRadius, 0.025, 16, 64);
+        const rimMat = new THREE.MeshStandardMaterial({
+          color: new THREE.Color('#f59e0b'),
+          roughness: 0.1,
+          metalness: 0.9,
+        });
+        const rimMesh = new THREE.Mesh(rimGeo, rimMat);
+        rimMesh.rotation.x = Math.PI / 2;
+        rimMesh.position.set(0, 0, 0);
+        bgGroup.add(rimMesh);
+      }
+    }
+
+    // 2. Curved Studio Backdrop Wall
+    const backdropGeo = new THREE.CylinderGeometry(10, 10, 14, 64, 1, true, Math.PI * 0.75, Math.PI * 0.5);
+    const backdropMat = new THREE.MeshStandardMaterial({
+      color: new THREE.Color(bColor),
+      roughness: 0.95,
+      metalness: 0.0,
+      side: THREE.BackSide,
+    });
+    const backdropMesh = new THREE.Mesh(backdropGeo, backdropMat);
+    backdropMesh.position.set(0, 5, 0);
+    backdropMesh.receiveShadow = true;
+    bgGroup.add(backdropMesh);
+
+    scene.add(bgGroup);
+    studioBgGroupRef.current = bgGroup;
+  }, []);
+
+  useEffect(() => {
+    if (sceneRef.current) {
+      updateStudioBackground(backgroundPreset, showPodium, podiumColor, backdropColor, shadowOpacity);
+    }
+  }, [backgroundPreset, showPodium, podiumColor, backdropColor, shadowOpacity, updateStudioBackground]);
 
   // Initialize ThreeJS on mount
   useEffect(() => {
@@ -1350,7 +1470,7 @@ export default function PackageEditorPage() {
           // Double check and remove any other old model groups to prevent overlap
           const toRemove: THREE.Object3D[] = [];
           sceneRef.current.traverse((child) => {
-            if (child !== model && child !== sceneRef.current && child instanceof THREE.Group && child.name !== 'lights-group' && child.name !== 'cola-can-reference') {
+            if (child !== model && child !== sceneRef.current && child instanceof THREE.Group && child.name !== 'lights-group' && child.name !== 'cola-can-reference' && child.name !== 'studio-background-group') {
               toRemove.push(child);
             }
           });
@@ -2998,7 +3118,94 @@ export default function PackageEditorPage() {
             </div>
           )}
 
-          {/* Material Specs */}
+          {/* Environment & 3D Studio Background */}
+          <div className="flex flex-col gap-4 border-b border-[rgba(255,255,255,0.08)] pb-5">
+            <div className="flex items-center justify-between">
+              <div className="text-[13px] font-semibold text-[#64ffda] tracking-wide uppercase">Studio Background & 3D Podium</div>
+              <label className="relative inline-flex items-center cursor-pointer">
+                <input 
+                  type="checkbox" 
+                  checked={showPodium} 
+                  onChange={(e) => setShowPodium(e.target.checked)}
+                  className="sr-only peer"
+                />
+                <div className="w-8 h-4 bg-[rgba(255,255,255,0.1)] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-[#64ffda]"></div>
+              </label>
+            </div>
+
+            {/* Presets Grid */}
+            <div className="grid grid-cols-3 gap-2">
+              {[
+                { id: 'white', label: 'Studio White', color: '#ffffff', bg: '#f1f5f9' },
+                { id: 'dark_luxury', label: 'Dark Luxury', color: '#1e293b', bg: '#0f172a' },
+                { id: 'eco_wood', label: 'Eco Wood', color: '#d97706', bg: '#fef3c7' },
+                { id: 'concrete', label: 'Concrete', color: '#64748b', bg: '#cbd5e1' },
+                { id: 'pastel', label: 'Pastel Retail', color: '#f472b6', bg: '#fce7f3' },
+                { id: 'none', label: 'Classic Grid', color: '#334155', bg: '#0f172a' }
+              ].map((preset) => (
+                <button
+                  key={preset.id}
+                  onClick={() => {
+                    setBackgroundPreset(preset.id as any);
+                    setPodiumColor(preset.color);
+                    setBackdropColor(preset.bg);
+                  }}
+                  className={`flex flex-col items-center gap-1.5 p-2 rounded-lg border text-center transition-all ${
+                    backgroundPreset === preset.id 
+                      ? 'border-[#64ffda] bg-[rgba(100,255,218,0.08)]' 
+                      : 'border-[rgba(255,255,255,0.08)] bg-[rgba(0,0,0,0.3)] hover:border-[rgba(255,255,255,0.2)]'
+                  }`}
+                >
+                  <div 
+                    className="w-full h-6 rounded flex items-center justify-center border border-[rgba(255,255,255,0.1)] shadow-inner"
+                    style={{ background: `linear-gradient(135deg, ${preset.color} 50%, ${preset.bg} 50%)` }}
+                  />
+                  <span className="text-[10px] font-medium text-[#e5e7eb] truncate w-full">{preset.label}</span>
+                </button>
+              ))}
+            </div>
+
+            {/* Color Customizer */}
+            {backgroundPreset !== 'none' && (
+              <div className="flex flex-col gap-3 pt-2">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-[#9ca3af]">Podium Color</span>
+                  <input 
+                    type="color" 
+                    value={podiumColor} 
+                    onChange={(e) => setPodiumColor(e.target.value)}
+                    className="w-6 h-6 rounded cursor-pointer border border-[rgba(255,255,255,0.15)] bg-transparent"
+                  />
+                </div>
+
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-[#9ca3af]">Backdrop Color</span>
+                  <input 
+                    type="color" 
+                    value={backdropColor} 
+                    onChange={(e) => setBackdropColor(e.target.value)}
+                    className="w-6 h-6 rounded cursor-pointer border border-[rgba(255,255,255,0.15)] bg-transparent"
+                  />
+                </div>
+
+                <div className="flex flex-col gap-1">
+                  <div className="flex justify-between text-xs">
+                    <span className="text-[#9ca3af]">Shadow Softness</span>
+                    <span className="text-[#64ffda] font-medium">{(shadowOpacity * 100).toFixed(0)}%</span>
+                  </div>
+                  <input 
+                    type="range" 
+                    min="0" 
+                    max="1" 
+                    step="0.05" 
+                    value={shadowOpacity}
+                    onChange={(e) => setShadowOpacity(parseFloat(e.target.value))}
+                    className="w-full accent-[#64ffda] cursor-pointer" 
+                  />
+                </div>
+              </div>
+            )}
+          </div>
           <div className="flex flex-col gap-4 border-b border-[rgba(255,255,255,0.08)] pb-5">
             <div className="text-[13px] font-semibold text-[#64ffda] tracking-wide uppercase">Material Settings</div>
             

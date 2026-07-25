@@ -1,7 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import SEOPageLayout from '../../components/SEOPageLayout';
-import ClickableImage from '../../components/ClickableImage';
 import { useTranslation } from 'react-i18next';
 import { getDomain } from '../../utils/domain';
 import { Building2, ShieldCheck, Factory, Leaf } from 'lucide-react';
@@ -12,6 +11,9 @@ const localTranslations = {
     description: "Discover advanced engineering solutions for compostable zipper durability. Overcome manufacturing pain points with high-performance, eco-friendly resealable packaging.",
     heroTitle: "Engineering Flawless Compostable Zipper Durability",
     empathyHook: "Transitioning to sustainable packaging shouldn't mean compromising on performance. We understand the frustration of compostable zippers failing on the production line or in the consumer's hands. Our structural engineering approach eliminates these pain points.",
+    badge: "Technical Engineering Guide",
+    painPointsHeader: "5 Manufacturing Pain Points & Engineering Solutions",
+    solutionLabel: "Solution",
     point1Title: "Brittle Zipper Flanges During Ultrasonic Welding",
     point1Desc: "Compostable resins like PLA and PBAT often become brittle when subjected to high-heat ultrasonic welding, leading to micro-fractures and loss of hermetic seals.",
     point1Sol: "We utilize advanced co-extruded bio-polymer blends with optimized heat-seal windows, allowing for lower sealing temperatures that preserve flange integrity and seal strength.",
@@ -29,18 +31,39 @@ const localTranslations = {
     point5Sol: "Our engineered zippers feature an enhanced acoustic profile and alignment guides, providing a satisfying tactile feedback and reliable re-closure for up to 50 uses.",
     compTitle: "Standard vs. Engineered Compostable Zippers",
     compDesc: "See how our advanced bio-polymer engineering compares to off-the-shelf compostable zipper solutions in critical performance metrics.",
+    paramCol: "Parameter",
+    stdCol: "Standard Approach",
+    achieveCol: "Achieve Pack Engineered",
+    row1Param: "Material Integrity",
+    row1Std: "High failure rate under stress",
+    row1Achieve: "Zero-failure structural mapping",
+    row2Param: "Compliance",
+    row2Std: "Often misses localized FDA/EU requirements",
+    row2Achieve: "100% Guaranteed Certification",
+    row3Param: "Unit Cost Impact",
+    row3Std: "High waste yields expensive per-unit cost",
+    row3Achieve: "Optimized layout reduces material waste by 14%",
+    faqHeader: "Technical FAQ",
     faq1Q: "How does the durability of your compostable zippers compare to traditional PE zippers?",
     faq1A: "Through advanced bio-polymer blending and structural track design, our compostable zippers match the mechanical strength and burst pressure ratings of traditional PE zippers, while maintaining full EN 13432 and ASTM D6400 compliance.",
     faq2Q: "Do I need to modify my current filling line equipment?",
     faq2A: "Our compostable zippers are designed as drop-in replacements. We provide specific heat-seal temperature and dwell time profiles to ensure seamless integration with your existing VFFS or HFFS equipment without major retrofitting.",
     faq3Q: "Are these zippers certified for home compostability or just industrial?",
-    faq3A: "We offer formulations certified for both industrial (EN 13432) and home composting (TÜV AUSTRIA OK compost HOME), depending on the specific barrier requirements and structural needs of your product."
+    faq3A: "We offer formulations certified for both industrial (EN 13432) and home composting (TÜV AUSTRIA OK compost HOME), depending on the specific barrier requirements and structural needs of your product.",
+    authorName: "Ryan Wong",
+    authorRole: "Co-Founder & Chief Packaging Engineer",
+    authorBadge: "14+ Years Experience | GRS & FSC Auditing Expert",
+    authorBio: "Specializing in polymer structures, sustainable material transitions, and high-speed VFFS line optimizations. Helping 500+ global brands scale from prototype to industrial production with zero defect tolerances.",
+    authorCta: "Schedule a Packaging Audit"
   },
   es: {
     title: "Durabilidad de Cierres Compostables: Soluciones de Ingeniería para Empaques Sostenibles",
     description: "Descubra soluciones de ingeniería avanzadas para la durabilidad de cierres compostables. Supere los problemas de fabricación con empaques resellables de alto rendimiento y ecológicos.",
     heroTitle: "Ingeniería para una Durabilidad Impecable en Cierres Compostables",
     empathyHook: "La transición a empaques sostenibles no debería significar comprometer el rendimiento. Entendemos la frustración de que los cierres compostables fallen en la línea de producción o en las manos del consumidor. Nuestro enfoque de ingeniería estructural elimina estos problemas.",
+    badge: "Guía de Ingeniería Técnica",
+    painPointsHeader: "5 Problemas de Fabricación y Soluciones de Ingeniería",
+    solutionLabel: "Solución",
     point1Title: "Bridas de Cierre Quebradizas Durante la Soldadura Ultrasónica",
     point1Desc: "Las resinas compostables como PLA y PBAT a menudo se vuelven quebradizas cuando se someten a soldadura ultrasónica de alto calor, lo que provoca microfracturas y la pérdida del sellado hermético.",
     point1Sol: "Utilizamos mezclas avanzadas de biopolímeros coextrudidos con ventanas de termosellado optimizadas, permitiendo temperaturas de sellado más bajas que preservan la integridad de la brida y la resistencia del sello.",
@@ -58,18 +81,39 @@ const localTranslations = {
     point5Sol: "Nuestros cierres de ingeniería cuentan con un perfil acústico mejorado y guías de alineación, proporcionando una retroalimentación táctil satisfactoria y un resellado confiable por hasta 50 usos.",
     compTitle: "Cierres Compostables Estándar vs. Diseñados por Ingeniería",
     compDesc: "Vea cómo nuestra avanzada ingeniería de biopolímeros se compara con las soluciones de cierres compostables estándar en métricas de rendimiento críticas.",
+    paramCol: "Parámetro",
+    stdCol: "Enfoque Estándar",
+    achieveCol: "Diseño Achieve Pack",
+    row1Param: "Integridad del Material",
+    row1Std: "Alta tasa de fallos bajo estrés",
+    row1Achieve: "Mapeo estructural de cero fallos",
+    row2Param: "Cumplimiento Normativo",
+    row2Std: "A menudo no cumple con los requisitos locales de la FDA/UE",
+    row2Achieve: "Certificación 100% Garantizada",
+    row3Param: "Impacto en el Coste Unitario",
+    row3Std: "El alto desperdicio genera un alto coste por unidad",
+    row3Achieve: "El diseño optimizado reduce el desperdicio en un 14%",
+    faqHeader: "Preguntas Frecuentes Técnicas",
     faq1Q: "¿Cómo se compara la durabilidad de sus cierres compostables con la de los cierres de PE tradicionales?",
     faq1A: "A través de la mezcla avanzada de biopolímeros y el diseño estructural del riel, nuestros cierres compostables igualan la resistencia mecánica y las clasificaciones de presión de estallido de los cierres de PE tradicionales, manteniendo al mismo tiempo el pleno cumplimiento con EN 13432 y ASTM D6400.",
     faq2Q: "¿Necesito modificar mi equipo de la línea de llenado actual?",
     faq2A: "Nuestros cierres compostables están diseñados como reemplazos directos. Proporcionamos perfiles específicos de temperatura de termosellado y tiempo de permanencia para asegurar una integración perfecta con su equipo VFFS o HFFS existente sin necesidad de reacondicionamientos importantes.",
     faq3Q: "¿Están estos cierres certificados para compostaje doméstico o solo industrial?",
-    faq3A: "Ofrecemos formulaciones certificadas tanto para compostaje industrial (EN 13432) como doméstico (TÜV AUSTRIA OK compost HOME), dependiendo de los requisitos específicos de barrera y las necesidades estructurales de su producto."
+    faq3A: "Ofrecemos formulaciones certificadas tanto para compostaje industrial (EN 13432) como doméstico (TÜV AUSTRIA OK compost HOME), dependiendo de los requisitos específicos de barrera y las necesidades estructurales de su producto.",
+    authorName: "Ryan Wong",
+    authorRole: "Cofundador e Ingeniero Jefe de Empaques",
+    authorBadge: "Más de 14 Años de Experiencia | Experto en Auditoría GRS y FSC",
+    authorBio: "Especializado en estructuras de polímeros, transición a materiales sostenibles y optimización de líneas VFFS de alta velocidad. Ayudando a más de 500 marcas globales a escalar desde el prototipo hasta la producción industrial sin defectos.",
+    authorCta: "Programar una Auditoría de Empaque"
   },
   fr: {
     title: "Durabilité des Zips Compostables : Solutions d'Ingénierie pour Emballages Durables",
     description: "Découvrez des solutions d'ingénierie avancées pour la durabilité des zips compostables. Surmontez les problèmes de fabrication avec des emballages refermables écologiques et performants.",
     heroTitle: "Ingénierie pour une Durabilité Infaillible des Zips Compostables",
     empathyHook: "La transition vers des emballages durables ne devrait pas signifier faire des compromis sur les performances. Nous comprenons la frustration des zips compostables qui échouent sur la chaîne de production ou entre les mains du consommateur. Notre approche d'ingénierie structurelle élimine ces problèmes.",
+    badge: "Guide d'Ingénierie Technique",
+    painPointsHeader: "5 Problèmes de Fabrication & Solutions d'Ingénierie",
+    solutionLabel: "Solution",
     point1Title: "Brides de Zip Cassantes Lors du Soudage par Ultrasons",
     point1Desc: "Les résines compostables comme le PLA et le PBAT deviennent souvent cassantes lorsqu'elles sont soumises à un soudage par ultrasons à haute température, entraînant des micro-fractures et une perte de joints hermétiques.",
     point1Sol: "Nous utilisons des mélanges de biopolymères coextrudés avancés avec des fenêtres de thermoscellage optimisées, permettant des températures de scellage plus basses qui préservent l'intégrité de la bride et la résistance du joint.",
@@ -87,18 +131,39 @@ const localTranslations = {
     point5Sol: "Nos zips techniques présentent un profil acoustique amélioré et des guides d'alignement, offrant un retour tactile satisfaisant et une refermeture fiable jusqu'à 50 utilisations.",
     compTitle: "Zips Compostables Standards vs Techniques",
     compDesc: "Découvrez comment notre ingénierie avancée des biopolymères se compare aux solutions de zips compostables standards sur les critères de performance critiques.",
+    paramCol: "Paramètre",
+    stdCol: "Approche Standard",
+    achieveCol: "Conception Achieve Pack",
+    row1Param: "Intégrité du Matériau",
+    row1Std: "Taux d'échec élevé sous contrainte",
+    row1Achieve: "Cartographie structurelle zéro défaut",
+    row2Param: "Conformité Réglementaire",
+    row2Std: "Manque souvent les exigences FDA/UE locales",
+    row2Achieve: "Certification 100% Garantie",
+    row3Param: "Impact sur le Coût Unitaire",
+    row3Std: "Le gaspillage élevé augmente le coût unitaire",
+    row3Achieve: "La disposition optimisée réduit le gaspillage de 14%",
+    faqHeader: "FAQ Technique",
     faq1Q: "Comment la durabilité de vos zips compostables se compare-t-elle à celle des zips en PE traditionnels ?",
     faq1A: "Grâce à un mélange avancé de biopolymères et à une conception structurelle des glissières, nos zips compostables égalent la résistance mécanique et les indices de pression d'éclatement des zips en PE traditionnels, tout en maintenant une conformité totale avec les normes EN 13432 et ASTM D6400.",
     faq2Q: "Dois-je modifier mon équipement de ligne de remplissage actuel ?",
     faq2A: "Nos zips compostables sont conçus comme des remplacements directs. Nous fournissons des profils spécifiques de température de thermoscellage et de temps de maintien pour assurer une intégration transparente avec votre équipement VFFS ou HFFS existant sans modifications majeures.",
     faq3Q: "Ces zips sont-ils certifiés pour le compostage domestique ou seulement industriel ?",
-    faq3A: "Nous proposons des formulations certifiées pour le compostage industriel (EN 13432) et domestique (TÜV AUSTRIA OK compost HOME), en fonction des exigences de barrière spécifiques et des besoins structurels de votre produit."
+    faq3A: "Nous proposons des formulations certifiées pour le compostage industriel (EN 13432) et domestique (TÜV AUSTRIA OK compost HOME), en fonction des exigences de barrière spécifiques et des besoins structurels de votre produit.",
+    authorName: "Ryan Wong",
+    authorRole: "Cofondateur & Ingénieur en Chef de l'Emballage",
+    authorBadge: "14+ Ans d'Expérience | Expert Audit GRS & FSC",
+    authorBio: "Spécialisé dans les structures polymères, la transition vers des matériaux durables et l'optimisation des lignes VFFS à haute vitesse. Accompagne plus de 500 marques mondiales du prototype à la production industrielle sans défaut.",
+    authorCta: "Planifier un Audit d'Emballage"
   },
   "zh-tw": {
     title: "可堆肥夾鏈耐用性：永續包裝的工程解決方案",
     description: "探索針對可堆肥夾鏈耐用性的先進工程解決方案。透過高性能、環保的可重複密封包裝，克服製造過程中的痛點。",
     heroTitle: "打造完美無瑕的可堆肥夾鏈耐用性",
     empathyHook: "轉向永續包裝不應意味著在性能上妥協。我們了解可堆肥夾鏈在生產線上或消費者手中失效時帶來的挫折。我們的結構工程方法能徹底消除這些痛點。",
+    badge: "技術工程指南",
+    painPointsHeader: "5 大製造痛點與工程解決方案",
+    solutionLabel: "解決方案",
     point1Title: "超音波焊接期間夾鏈邊緣脆化",
     point1Desc: "像 PLA 和 PBAT 等可堆肥樹脂在經受高溫超音波焊接時往往會變脆，導致微裂紋和氣密密封的喪失。",
     point1Sol: "我們採用具有最佳化熱封區間的先進共擠生物聚合物混合物，允許在較低的密封溫度下作業，從而保持夾鏈邊緣的完整性和密封強度。",
@@ -116,22 +181,38 @@ const localTranslations = {
     point5Sol: "我們經過工程設計的夾鏈具有增強的聲學輪廓和對齊導引，提供令人滿意的觸覺回饋以及高達 50 次的可靠重複密封。",
     compTitle: "標準 vs. 工程可堆肥夾鏈",
     compDesc: "了解我們先進的生物聚合物工程在關鍵性能指標上如何與現成的可堆肥夾鏈解決方案進行比較。",
+    paramCol: "性能參數",
+    stdCol: "標準作法",
+    achieveCol: "Achieve Pack 工程優化",
+    row1Param: "材料完整性",
+    row1Std: "高壓下故障率高",
+    row1Achieve: "零故障結構映射與設計",
+    row2Param: "合規認證",
+    row2Std: "常遺漏區域性 FDA/EU 規範",
+    row2Achieve: "100% 保證通過國際認證",
+    row3Param: "單件成本影響",
+    row3Std: "高廢品率拉高單位成本",
+    row3Achieve: "最佳化版面減少 14% 材料浪費",
+    faqHeader: "技術常見問題 (FAQ)",
     faq1Q: "您們的可堆肥夾鏈的耐用性與傳統 PE 夾鏈相比如何？",
     faq1A: "透過先進的生物聚合物混合和結構軌道設計，我們的可堆肥夾鏈可達到與傳統 PE 夾鏈相同的機械強度和破裂壓力等級，同時保持完全符合 EN 13432 和 ASTM D6400 標準。",
     faq2Q: "我需要修改目前的填充線設備嗎？",
     faq2A: "我們的可堆肥夾鏈被設計為直接替換的零件。我們提供特定的熱封溫度和停留時間配置，以確保與您現有的 VFFS 或 HFFS 設備無縫整合，而無需進行重大改裝。",
     faq3Q: "這些夾鏈是經過家庭堆肥認證還是僅限於工業堆肥認證？",
-    faq3A: "我們提供經過工業堆肥 (EN 13432) 和家庭堆肥 (TÜV AUSTRIA OK compost HOME) 認證的配方，具體取決於您產品的特定阻隔要求和結構需求。"
+    faq3A: "我們提供經過工業堆肥 (EN 13432) 和家庭堆肥 (TÜV AUSTRIA OK compost HOME) 認證的配方，具體取決於您產品的特定阻隔要求和結構需求。",
+    authorName: "Ryan Wong",
+    authorRole: "聯合創辦人兼首席包裝工程師",
+    authorBadge: "14 年以上經驗 | GRS 與 FSC 稽核專家",
+    authorBio: "專精於高分子聚合物結構、永續材料轉型及高速 VFFS 生產線最佳化。已協助 500 多家全球品牌從原型順利擴展至零瑕疵工業量產。",
+    authorCta: "預約包裝評估諮詢"
   }
 };
 
-const PAGE_NAME = "CompostableZipperDurabilityPage";
-
 export default function CompostableZipperDurabilityPage() {
   const { i18n } = useTranslation();
-  const currentLang = i18n.language || 'en';
-  const tLocalRaw = localTranslations[currentLang as keyof typeof localTranslations];
-  const tLocal: any = (tLocalRaw && Object.keys(tLocalRaw).length > 0) ? tLocalRaw : localTranslations.en;
+  const rawLang = (i18n.language || 'en').toLowerCase();
+  const currentLang = (rawLang === 'zh-tw' || rawLang === 'zh-hant' || rawLang === 'zh' || rawLang === 'zh_tw') ? 'zh-tw' : (rawLang === 'fr' ? 'fr' : (rawLang === 'es' ? 'es' : 'en'));
+  const tLocal = localTranslations[currentLang] || localTranslations.en;
   const isPouchDomain = getDomain() === 'pouch';
 
   return (
@@ -148,7 +229,7 @@ export default function CompostableZipperDurabilityPage() {
           <div className="flex items-center gap-4 mb-6">
             <span className="px-3 py-1 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium border border-primary-500/30 flex items-center gap-2">
               <ShieldCheck className="w-4 h-4" />
-              Technical Engineering Guide
+              {tLocal.badge}
             </span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -164,7 +245,7 @@ export default function CompostableZipperDurabilityPage() {
         
         {/* Pain Points Section */}
         <div className="mb-20">
-          <h2 className="text-3xl font-bold text-neutral-900 mb-8">5 Manufacturing Pain Points & Engineering Solutions</h2>
+          <h2 className="text-3xl font-bold text-neutral-900 mb-8">{tLocal.painPointsHeader}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { title: tLocal.point1Title, desc: tLocal.point1Desc, sol: tLocal.point1Sol, icon: Factory },
@@ -181,7 +262,7 @@ export default function CompostableZipperDurabilityPage() {
                 <p className="text-neutral-600 text-sm mb-4">{point.desc}</p>
                 <div className={`p-3 rounded-lg ${isPouchDomain ? 'bg-[#D4FF00]/10 border border-[#D4FF00]/20' : 'bg-primary-50 border border-primary-100'}`}>
                   <p className={`text-sm font-medium ${isPouchDomain ? 'text-neutral-900' : 'text-primary-900'}`}>
-                    <span className="block text-xs uppercase tracking-wider opacity-70 mb-1">Solution</span>
+                    <span className="block text-xs uppercase tracking-wider opacity-70 mb-1">{tLocal.solutionLabel}</span>
                     {point.sol}
                   </p>
                 </div>
@@ -198,26 +279,26 @@ export default function CompostableZipperDurabilityPage() {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-neutral-900 text-white">
-                  <th className="p-4 rounded-tl-lg font-semibold">Parameter</th>
-                  <th className="p-4 font-semibold border-l border-neutral-700">Standard Approach</th>
-                  <th className="p-4 rounded-tr-lg font-semibold border-l border-neutral-700">Achieve Pack Engineered</th>
+                  <th className="p-4 rounded-tl-lg font-semibold">{tLocal.paramCol}</th>
+                  <th className="p-4 font-semibold border-l border-neutral-700">{tLocal.stdCol}</th>
+                  <th className="p-4 rounded-tr-lg font-semibold border-l border-neutral-700">{tLocal.achieveCol}</th>
                 </tr>
               </thead>
               <tbody className="bg-white">
                 <tr className="border-b border-neutral-200">
-                  <td className="p-4 font-medium text-neutral-900">Material Integrity</td>
-                  <td className="p-4 text-neutral-600 border-l border-neutral-200">High failure rate under stress</td>
-                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">Zero-failure structural mapping</td>
+                  <td className="p-4 font-medium text-neutral-900">{tLocal.row1Param}</td>
+                  <td className="p-4 text-neutral-600 border-l border-neutral-200">{tLocal.row1Std}</td>
+                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">{tLocal.row1Achieve}</td>
                 </tr>
                 <tr className="border-b border-neutral-200">
-                  <td className="p-4 font-medium text-neutral-900">Compliance</td>
-                  <td className="p-4 text-neutral-600 border-l border-neutral-200">Often misses localized FDA/EU requirements</td>
-                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">100% Guaranteed Certification</td>
+                  <td className="p-4 font-medium text-neutral-900">{tLocal.row2Param}</td>
+                  <td className="p-4 text-neutral-600 border-l border-neutral-200">{tLocal.row2Std}</td>
+                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">{tLocal.row2Achieve}</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-medium text-neutral-900">Unit Cost Impact</td>
-                  <td className="p-4 text-neutral-600 border-l border-neutral-200">High waste yields expensive per-unit cost</td>
-                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">Optimized layout reduces material waste by 14%</td>
+                  <td className="p-4 font-medium text-neutral-900">{tLocal.row3Param}</td>
+                  <td className="p-4 text-neutral-600 border-l border-neutral-200">{tLocal.row3Std}</td>
+                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">{tLocal.row3Achieve}</td>
                 </tr>
               </tbody>
             </table>
@@ -226,7 +307,7 @@ export default function CompostableZipperDurabilityPage() {
 
         {/* FAQs */}
         <div className="max-w-3xl mb-20">
-          <h2 className="text-3xl font-bold text-neutral-900 mb-8">Technical FAQ</h2>
+          <h2 className="text-3xl font-bold text-neutral-900 mb-8">{tLocal.faqHeader}</h2>
           <div className="space-y-4">
             {[
               { q: tLocal.faq1Q, a: tLocal.faq1A },
@@ -250,19 +331,19 @@ export default function CompostableZipperDurabilityPage() {
         <div className="bg-neutral-900 rounded-2xl p-8 md:p-10 text-white max-w-4xl">
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <div className="w-32 h-32 rounded-full bg-neutral-800 border-4 border-primary-500/30 overflow-hidden shrink-0">
-              <img src="/imgs/about/ryan-wong.webp" alt="Ryan Wong" className="w-full h-full object-cover" />
+              <img src="/imgs/about/ryan-wong.webp" alt={tLocal.authorName} className="w-full h-full object-cover" />
             </div>
             <div>
-              <h3 className="text-2xl font-bold mb-2">Ryan Wong</h3>
-              <p className="text-primary-400 font-medium mb-4">Co-Founder & Chief Packaging Engineer</p>
+              <h3 className="text-2xl font-bold mb-2">{tLocal.authorName}</h3>
+              <p className="text-primary-400 font-medium mb-4">{tLocal.authorRole}</p>
               <div className="inline-block bg-white/10 rounded px-3 py-1 text-sm font-mono mb-4 border border-white/20">
-                14+ Years Experience | GRS & FSC Auditing Expert
+                {tLocal.authorBadge}
               </div>
               <p className="text-neutral-400 text-sm leading-relaxed mb-6">
-                Specializing in polymer structures, sustainable material transitions, and high-speed VFFS line optimizations. Helping 500+ global brands scale from prototype to industrial production with zero defect tolerances.
+                {tLocal.authorBio}
               </p>
               <a href="https://calendly.com/achievepack" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-500 text-white font-bold py-3 px-6 rounded-lg transition-colors">
-                Schedule a Packaging Audit
+                {tLocal.authorCta}
               </a>
             </div>
           </div>

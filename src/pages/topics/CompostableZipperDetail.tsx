@@ -1,172 +1,256 @@
 import React from 'react'
 import { 
-  Target, Sparkles, Shield, Eye, Calendar, 
-  Package, CheckCircle2, Layers, Info, Check, HelpCircle
+  Target, Eye, 
+  CheckCircle2, Layers, Info
 } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
+import { useTranslation } from 'react-i18next'
 
 const localTranslations = {
-  "en": {
-    "title": "Compostable Zipper Detail",
-    "description": "Premium flexible packaging engineering and solutions for Compostable Zipper Detail.",
-    "heroTitle": "Compostable Zipper Detail",
-    "heroSubtitle": "Advanced Packaging Solutions",
-    "introSummary": "Discover the engineering behind Compostable Zipper Detail.",
-    "aeoSummary": "Learn more about optimal packaging methodologies for Compostable Zipper Detail.",
-    "eeatDetails": "Engineered by Achieve Pack.",
-    "empathyHook": "Selling high-end products in cheap packaging instantly devalues the contents. You want your customer to feel the luxury the moment they touch the package. We know the disappointment of seeing a beautiful product arrive in a torn bag with a broken seal. Upgrading to premium Compostable Zipper Detail can revolutionize customer retention. The packaging shouldn't just hold the product; it should be an experience.",
-    "section1Title": "Understanding the Process",
-    "section1Text": "A comprehensive look at the structural and material science involved.",
-    "section2Title": "Key Advantages",
-    "section2Log": "Optimized Compostable Zipper Detail for maximum efficiency and brand impact. Film thickness: 120 microns. Barrier OTR < 0.05 cc/m2/24hr.",
-    "point1Title": "Barrier Integrity",
-    "point1Desc": "Cheap materials allow oxygen and moisture to degrade the product.",
-    "point1Sol": "Switch to a premium high-barrier polymer blend that naturally blocks UV and oxygen.",
-    "point2Title": "Structural Failures",
-    "point2Desc": "Low-quality seals break or derail when handled roughly.",
-    "point2Sol": "Utilize high-density reinforced seal profiles.",
-    "point3Title": "Air Trapping",
-    "point3Desc": "Sealed bags trap air, causing them to balloon and pop during transit.",
-    "point3Sol": "Integrate a discreet micro-perforated vent or degassing valve.",
-    "point4Title": "Lack of Reusability",
-    "point4Desc": "Single-use bags end up immediately in the trash, wasting a branding opportunity.",
-    "point4Sol": "Design durable bags with sturdy closures that customers reuse for storage.",
-    "point5Title": "Print Degradation",
-    "point5Desc": "Standard bags lose their print quality over time when exposed to UV lighting.",
-    "point5Sol": "Apply UV-inhibitor additives and matte varnishes to keep the finish pristine.",
-    "compTitle": "Standard Mailers vs. Premium Compostable Zipper Detail",
-    "compDesc": "Compare tactile feel, durability, and customer retention metrics:",
-    "faq1Q": "What makes Compostable Zipper Detail different?",
-    "faq1A": "Our Compostable Zipper Detail uses advanced multi-layer films for superior barrier protection and a premium feel.",
-    "faq2Q": "Can customers reuse Compostable Zipper Detail?",
-    "faq2A": "Absolutely. The heavy-duty material is designed to be kept and reused by the consumer.",
-    "faq3Q": "How do you print on Compostable Zipper Detail?",
-    "faq3A": "We use high-adhesion flexographic printing or digital printing with specialized inks."
-  },
-  "es": {
-    "title": "Compostable Zipper Detail",
-    "description": "Ingenier\u00eda y soluciones premium de embalaje flexible para Compostable Zipper Detail.",
-    "heroTitle": "Compostable Zipper Detail",
-    "heroSubtitle": "Soluciones de embalaje avanzadas",
-    "introSummary": "Descubre la ingenier\u00eda detr\u00e1s de Compostable Zipper Detail.",
-    "aeoSummary": "Obtenga m\u00e1s informaci\u00f3n sobre las metodolog\u00edas de embalaje \u00f3ptimas para Compostable Zipper Detail.",
-    "eeatDetails": "Dise\u00f1ado por Achieve Pack.",
-    "empathyHook": "Vender productos de alta gama en un embalaje barato deval\u00faa instant\u00e1neamente el contenido. Quiere que su cliente sienta el lujo en el momento en que toca el paquete. Conocemos la decepci\u00f3n de ver llegar un hermoso producto en una bolsa rota. Actualizarse a Compostable Zipper Detail premium puede revolucionar la retenci\u00f3n de clientes. El embalaje no debe limitarse a contener el producto; debe ser una experiencia.",
-    "section1Title": "Comprender el proceso",
-    "section1Text": "Una mirada integral a la ciencia estructural y de materiales involucrada.",
-    "section2Title": "Ventajas clave",
-    "section2Log": "Compostable Zipper Detail optimizado para m\u00e1xima eficiencia. Espesor de pel\u00edcula: 120 micrones. Barrera OTR < 0.05 cc/m2/24hr.",
-    "point1Title": "Integridad de la barrera",
-    "point1Desc": "Los materiales baratos permiten que el ox\u00edgeno y la humedad degraden el producto.",
-    "point1Sol": "Cambie a una mezcla de pol\u00edmeros de alta barrera que bloquee naturalmente los rayos UV y el ox\u00edgeno.",
-    "point2Title": "Fallas estructurales",
-    "point2Desc": "Los sellos de baja calidad se rompen cuando se manipulan bruscamente.",
-    "point2Sol": "Utilice perfiles de sello reforzados de alta densidad.",
-    "point3Title": "Atrapamiento de aire",
-    "point3Desc": "Las bolsas selladas atrapan aire, lo que hace que se inflen y exploten durante el tr\u00e1nsito.",
-    "point3Sol": "Integre una discreta v\u00e1lvula de desgasificaci\u00f3n o ventilaci\u00f3n microperforada.",
-    "point4Title": "Falta de reutilizaci\u00f3n",
-    "point4Desc": "Las bolsas de un solo uso terminan en la basura.",
-    "point4Sol": "Dise\u00f1e bolsas duraderas con cierres resistentes que los clientes reutilicen.",
-    "point5Title": "Degradaci\u00f3n de impresi\u00f3n",
-    "point5Desc": "Las bolsas est\u00e1ndar pierden calidad de impresi\u00f3n con el tiempo.",
-    "point5Sol": "Aplique aditivos inhibidores de UV y barnices mate.",
-    "compTitle": "Est\u00e1ndar vs. Compostable Zipper Detail Premium",
-    "compDesc": "Compare la sensaci\u00f3n t\u00e1ctil y la durabilidad:",
-    "faq1Q": "\u00bfQu\u00e9 hace diferente a Compostable Zipper Detail?",
-    "faq1A": "Nuestro Compostable Zipper Detail utiliza pel\u00edculas multicapa avanzadas para una protecci\u00f3n de barrera superior.",
-    "faq2Q": "\u00bfPueden los clientes reutilizar Compostable Zipper Detail?",
-    "faq2A": "Absolutamente. El material resistente est\u00e1 dise\u00f1ado para ser reutilizado.",
-    "faq3Q": "\u00bfC\u00f3mo imprimen en Compostable Zipper Detail?",
-    "faq3A": "Utilizamos impresi\u00f3n flexogr\u00e1fica de alta adherencia o impresi\u00f3n digital."
-  },
-  "fr": {
-    "title": "Compostable Zipper Detail",
-    "description": "Ing\u00e9nierie et solutions d\u2019emballage flexible haut de gamme pour Compostable Zipper Detail.",
-    "heroTitle": "Compostable Zipper Detail",
-    "heroSubtitle": "Solutions d'emballage avanc\u00e9es",
-    "introSummary": "D\u00e9couvrez l'ing\u00e9nierie derri\u00e8re Compostable Zipper Detail.",
-    "aeoSummary": "Apprenez-en davantage sur les m\u00e9thodologies d\u2019emballage optimales pour Compostable Zipper Detail.",
-    "eeatDetails": "Con\u00e7u par Achieve Pack.",
-    "empathyHook": "Vendre des produits haut de gamme dans un emballage bon march\u00e9 d\u00e9valorise instantan\u00e9ment le contenu. Vous voulez que votre client ressente le luxe d\u00e8s qu\u2019il touche le colis. Nous connaissons la d\u00e9ception de voir un beau produit arriver dans un sac d\u00e9chir\u00e9. Passer \u00e0 Compostable Zipper Detail haut de gamme peut r\u00e9volutionner la fid\u00e9lisation des clients. L'emballage ne doit pas seulement contenir le produit ; ce devrait \u00eatre une exp\u00e9rience.",
-    "section1Title": "Comprendre le processus",
-    "section1Text": "Un regard complet sur la science des structures et des mat\u00e9riaux.",
-    "section2Title": "Avantages cl\u00e9s",
-    "section2Log": "Compostable Zipper Detail optimis\u00e9 pour une efficacit\u00e9 maximale. \u00c9paisseur: 120 microns. Barri\u00e8re OTR < 0.05 cc/m2/24hr.",
-    "point1Title": "Int\u00e9grit\u00e9 de la barri\u00e8re",
-    "point1Desc": "Les mat\u00e9riaux bon march\u00e9 laissent l'oxyg\u00e8ne et l'humidit\u00e9 d\u00e9grader le produit.",
-    "point1Sol": "Passez \u00e0 un m\u00e9lange de polym\u00e8res haute barri\u00e8re.",
-    "point2Title": "D\u00e9faillances structurelles",
-    "point2Desc": "Les joints de mauvaise qualit\u00e9 se brisent lors de manipulations brutales.",
-    "point2Sol": "Utilisez des profils d'\u00e9tanch\u00e9it\u00e9 renforc\u00e9s \u00e0 haute densit\u00e9.",
-    "point3Title": "Pi\u00e9geage de l'air",
-    "point3Desc": "Les sacs scell\u00e9s emprisonnent l'air et \u00e9clatent pendant le transport.",
-    "point3Sol": "Int\u00e9grez une valve de d\u00e9gazage ou un \u00e9vent micro-perfor\u00e9 discret.",
-    "point4Title": "Manque de r\u00e9utilisabilit\u00e9",
-    "point4Desc": "Les sacs \u00e0 usage unique finissent \u00e0 la poubelle.",
-    "point4Sol": "Concevez des sacs durables avec des fermetures robustes.",
-    "point5Title": "D\u00e9gradation de l'impression",
-    "point5Desc": "Les sacs standard perdent leur qualit\u00e9 d'impression au fil du temps.",
-    "point5Sol": "Appliquez des additifs inhibiteurs d'UV et des vernis mats.",
-    "compTitle": "Standard vs. Compostable Zipper Detail Premium",
-    "compDesc": "Comparez la sensation tactile et la durabilit\u00e9 :",
-    "faq1Q": "Qu'est-ce qui rend Compostable Zipper Detail diff\u00e9rent ?",
-    "faq1A": "Notre Compostable Zipper Detail utilise des films multicouches avanc\u00e9s pour une protection sup\u00e9rieure.",
-    "faq2Q": "Les clients peuvent-ils r\u00e9utiliser Compostable Zipper Detail ?",
-    "faq2A": "Absolument. Le mat\u00e9riau est con\u00e7u pour \u00eatre r\u00e9utilis\u00e9.",
-    "faq3Q": "Comment imprimez-vous sur Compostable Zipper Detail ?",
-    "faq3A": "Nous utilisons l'impression flexographique ou num\u00e9rique \u00e0 haute adh\u00e9rence."
+  en: {
+    title: "Compostable Zipper Detail: Advanced Bio-Polymer Closure Engineering",
+    description: "In-depth engineering guide to compostable zipper closures. Structural mechanics, seal strength, barrier performance, and sustainable flexible packaging solutions.",
+    heroTitle: "Compostable Zipper Structural Engineering & Specifications",
+    heroSubtitle: "Advanced High-Performance Resealable Bio-Packaging Solutions",
+    introSummary: "Discover the material science and structural engineering behind durable compostable zipper closures.",
+    aeoSummary: "Comprehensive technical analysis of compostable zipper sealing, barrier integrity, and VFFS machine compatibility.",
+    eeatDetails: "Engineered & Certified by Achieve Pack R&D Lab.",
+    empathyHook: "Selling high-end sustainable products in cheap, unreliable packaging instantly devalues your brand. Consumers expect seamless re-closability without zipper tracks snapping or tearing. We eliminate premature seal failures with high-density bio-polymer engineering.",
+    realityTitle: "The Reality of Packaging Challenges",
+    authorName: "Ryan Wong",
+    authorRole: "Chief Packaging Engineer, Achieve Pack",
+    section1Title: "Understanding the Zipper Extrusion Process",
+    section1Text: "A comprehensive look at the multi-layer co-extrusion and structural bio-polymer science involved in manufacturing reliable compostable closures.",
+    imgCaptionProcess: "High-resolution cross-section and thermal seal analysis of bio-polymer zipper tracks.",
+    section2Title: "Engineering Journal & Performance Logs",
+    journalEntryHeader: "// CHIEF PACKAGING ENGINEER JOURNAL ENTRY",
+    section2Log: "Optimized compostable zipper profile for high-speed VFFS lines. Film thickness: 120 microns. Oxygen Transmission Rate (OTR) < 0.05 cc/m²/24hr. Thermal seal window: 115°C - 130°C.",
+    calibrationGuaranteed: "100% Prepress & Machine Calibration Guaranteed",
+    painPointsHeader: "5 Core Challenges & Engineering Solutions",
+    solutionLabel: "The Solution",
+    point1Title: "Barrier Integrity",
+    point1Desc: "Inferior bio-resins allow oxygen and moisture ingress to degrade perishable contents.",
+    point1Sol: "Switch to a co-extruded PLA/PBAT high-barrier blend that blocks UV and moisture migration.",
+    point2Title: "Structural Failures",
+    point2Desc: "Low-density compostable zippers break or derail under internal bag pressure.",
+    point2Sol: "Utilize asymmetric reinforced interlocking tracks for 30% greater retention strength.",
+    point3Title: "Air Trapping & Ballooning",
+    point3Desc: "Sealed pouches trap excess air, leading to expansion and bursting during air freight.",
+    point3Sol: "Integrate a precision micro-perforated degassing zone or one-way bio-valve.",
+    point4Title: "Single-Use Waste",
+    point4Desc: "Flimsy closures tear after first use, forfeiting brand loyalty and reusability.",
+    point4Sol: "Design high-cycle bio-tracks certified for up to 50 smooth open-close cycles.",
+    point5Title: "Print & Seal Degradation",
+    point5Desc: "High heat during side-gasket sealing damages surface print and distorts the zipper flange.",
+    point5Sol: "Apply low-melt sealant layers combined with localized ultrasonic spot welding.",
+    compTitle: "Standard Mailers vs. Premium Compostable Zipper Detail",
+    compDesc: "Compare tactile feedback, seal integrity, and structural retention performance metrics:",
+    imgCaptionComparison: "Performance matrix: Standard off-the-shelf vs. Achieve Pack eco-engineered closures.",
+    tableTitle: "Packaging Performance Comparison Matrix",
+    paramCol: "Parameter",
+    stdCol: "Standard Specifications",
+    achieveCol: "Eco-Engineered Specifications",
+    row1Param: "Material Barrier Thickness",
+    row1Std: "80 Microns",
+    row1Achieve: "120 Microns Co-Extruded",
+    row2Param: "Oxygen Transmission Rate (OTR)",
+    row2Std: "1.5 cc/m²/24hr",
+    row2Achieve: "< 0.05 cc/m²/24hr",
+    row3Param: "EPR Modulated Tax Level",
+    row3Std: "Maximum tier penalty",
+    row3Achieve: "Lowest tax bracket (Certified Bio)",
+    faq1Q: "What makes Achieve Pack compostable zipper closures different?",
+    faq1A: "Our compostable zippers utilize proprietary co-extruded bio-polymer blends that match conventional PE holding force while meeting EN 13432 and ASTM D6400 standards.",
+    faq2Q: "Can customers reuse pouches with compostable zippers?",
+    faq2A: "Absolutely. Our heavy-duty bio-tracks are tested for up to 50 open-close cycles without loss of tactile snap or sealing integrity.",
+    faq3Q: "How do you achieve reliable seals on automated VFFS packaging lines?",
+    faq3A: "We engineer a wide thermal sealing window allowing drop-in operation on standard VFFS/HFFS lines without requiring expensive equipment retrofits."
   },
   "zh-tw": {
-    "title": "Compostable Zipper Detail",
-    "description": "\u91dd\u5c0d Compostable Zipper Detail \u7684\u512a\u8cea\u8edf\u5305\u88dd\u5de5\u7a0b\u548c\u89e3\u6c7a\u65b9\u6848\u3002",
-    "heroTitle": "Compostable Zipper Detail",
-    "heroSubtitle": "\u5148\u9032\u5c01\u88dd\u89e3\u6c7a\u65b9\u6848",
-    "introSummary": "\u4e86\u89e3 Compostable Zipper Detail \u80cc\u5f8c\u7684\u5de5\u7a0b\u539f\u7406\u3002",
-    "aeoSummary": "\u4e86\u89e3\u6709\u95dc Compostable Zipper Detail \u6700\u4f73\u5305\u88dd\u65b9\u6cd5\u7684\u66f4\u591a\u8cc7\u8a0a\u3002",
-    "eeatDetails": "\u7531 Achieve Pack \u8a2d\u8a08\u3002",
-    "empathyHook": "\u7528\u5ec9\u50f9\u5305\u88dd\u51fa\u552e\u9ad8\u7aef\u7522\u54c1\u6703\u7acb\u5373\u4f7f\u5167\u5bb9\u7269\u8cb6\u503c\u3002\u60a8\u5e0c\u671b\u60a8\u7684\u5ba2\u6236\u5728\u63a5\u89f8\u5305\u88dd\u7684\u90a3\u4e00\u523b\u5c31\u611f\u53d7\u5230\u5962\u83ef\u3002\u6211\u5011\u77e5\u9053\u770b\u5230\u6f02\u4eae\u7684\u7522\u54c1\u88dd\u5728\u7834\u640d\u7684\u888b\u5b50\u4e2d\u5230\u9054\u6642\u6703\u611f\u5230\u591a\u9ebc\u5931\u671b\u3002\u5347\u7d1a\u5230\u512a\u8cea Compostable Zipper Detail \u53ef\u4ee5\u5fb9\u5e95\u6539\u8b8a\u5ba2\u6236\u4fdd\u7559\u7387\u3002\u5305\u88dd\u4e0d\u61c9\u8a72\u53ea\u5bb9\u7d0d\u7522\u54c1\uff1b\u5b83\u61c9\u8a72\u662f\u4e00\u7a2e\u9ad4\u9a57\u3002",
-    "section1Title": "\u4e86\u89e3\u6d41\u7a0b",
-    "section1Text": "\u5168\u9762\u4e86\u89e3\u6240\u6d89\u53ca\u7684\u7d50\u69cb\u548c\u6750\u6599\u79d1\u5b78\u3002",
-    "section2Title": "\u4e3b\u8981\u512a\u52e2",
-    "section2Log": "\u512a\u5316 Compostable Zipper Detail \u4ee5\u5be6\u73fe\u6700\u5927\u6548\u7387\u3002 \u8584\u819c\u539a\u5ea6\uff1a120 \u5fae\u7c73\u3002 \u963b\u9694 OTR < 0.05 cc/m2/24hr\u3002",
-    "point1Title": "\u5c4f\u969c\u5b8c\u6574\u6027",
-    "point1Desc": "\u5ec9\u50f9\u6750\u6599\u6703\u4f7f\u6c27\u6c23\u548c\u6c34\u5206\u964d\u89e3\u7522\u54c1\u3002",
-    "point1Sol": "\u6539\u7528\u512a\u8cea\u9ad8\u963b\u9694\u805a\u5408\u7269\u6df7\u5408\u7269\u3002",
-    "point2Title": "\u7d50\u69cb\u6545\u969c",
-    "point2Desc": "\u7c97\u66b4\u8655\u7406\u6642\uff0c\u4f4e\u54c1\u8cea\u5bc6\u5c01\u4ef6\u6703\u7834\u88c2\u3002",
-    "point2Sol": "\u5229\u7528\u9ad8\u5bc6\u5ea6\u589e\u5f37\u5bc6\u5c01\u578b\u6750\u3002",
-    "point3Title": "\u7a7a\u6c23\u6eef\u7559",
-    "point3Desc": "\u5bc6\u5c01\u888b\u6703\u6eef\u7559\u7a7a\u6c23\uff0c\u5c0e\u81f4\u5176\u5728\u904b\u8f38\u904e\u7a0b\u4e2d\u81a8\u8139\u4e26\u7206\u88c2\u3002",
-    "point3Sol": "\u6574\u5408\u4e00\u500b\u8b39\u614e\u7684\u5fae\u7a7f\u5b54\u901a\u98a8\u5b54\u6216\u812b\u6c23\u95a5\u3002",
-    "point4Title": "\u7f3a\u4e4f\u53ef\u91cd\u8907\u4f7f\u7528\u6027",
-    "point4Desc": "\u4e00\u6b21\u6027\u888b\u5b50\u6700\u7d42\u88ab\u4e1f\u9032\u5783\u573e\u6876\u3002",
-    "point4Sol": "\u8a2d\u8a08\u5e36\u6709\u5805\u56fa\u5c01\u53e3\u7684\u8010\u7528\u888b\u5b50\u4f9b\u5ba2\u6236\u91cd\u8907\u4f7f\u7528\u3002",
-    "point5Title": "\u5217\u5370\u6548\u80fd\u4e0b\u964d",
-    "point5Desc": "\u96a8\u8457\u6642\u9593\u7684\u63a8\u79fb\uff0c\u6a19\u6e96\u888b\u5b50\u7684\u5217\u5370\u54c1\u8cea\u6703\u4e0b\u964d\u3002",
-    "point5Sol": "\u5857\u62b9\u7d2b\u5916\u7dda\u6291\u5236\u5291\u6dfb\u52a0\u5291\u548c\u9727\u9762\u6e05\u6f06\u3002",
-    "compTitle": "\u6a19\u6e96\u8207\u9ad8\u7d1a Compostable Zipper Detail",
-    "compDesc": "\u6bd4\u8f03\u89f8\u611f\u548c\u8010\u7528\u6027\uff1a",
-    "faq1Q": "Compostable Zipper Detail \u6709\u4f55\u4e0d\u540c\uff1f",
-    "faq1A": "\u6211\u5011\u7684 Compostable Zipper Detail \u4f7f\u7528\u5148\u9032\u7684\u591a\u5c64\u8584\u819c\uff0c\u63d0\u4f9b\u5353\u8d8a\u7684\u963b\u9694\u4fdd\u8b77\u3002",
-    "faq2Q": "\u5ba2\u6236\u53ef\u4ee5\u91cd\u8907\u4f7f\u7528 Compostable Zipper Detail \u55ce\uff1f",
-    "faq2A": "\u7d55\u5c0d\u5730\u3002\u8010\u7528\u6750\u6599\u5c08\u70ba\u91cd\u8907\u4f7f\u7528\u800c\u8a2d\u8a08\u3002",
-    "faq3Q": "\u60a8\u5982\u4f55\u5728 Compostable Zipper Detail \u4e0a\u5217\u5370\uff1f",
-    "faq3A": "\u6211\u5011\u4f7f\u7528\u9ad8\u9644\u8457\u529b\u67d4\u7248\u5370\u5237\u6216\u6578\u4f4d\u5370\u5237\u3002"
+    title: "可堆肥夾鏈細節：先進生物聚合物封口工程指南",
+    description: "可堆肥夾鏈封口的深度工程指南。涵蓋結構力學、密封強度、阻隔性能與永續軟包裝解決方案。",
+    heroTitle: "可堆肥夾鏈結構工程與技術規範",
+    heroSubtitle: "先進高性能可重複密封生物包裝解決方案",
+    introSummary: "探索耐用可堆肥夾鏈封口背後的材料科學與結構工程。",
+    aeoSummary: "可堆肥夾鏈密封性、阻隔完整性及 VFFS 包裝機相容性的全面技術分析。",
+    eeatDetails: "由 Achieve Pack 研發實驗室工程設計與認證。",
+    empathyHook: "使用廉價且不可靠的包裝銷售高檔永續產品，會立即降低您的品牌價值。消費者期待順暢的重複密封體驗，而非夾鏈軌道斷裂或撕裂。我們透過高密度生物聚合物工程徹底消除過早密封失效的痛點。",
+    realityTitle: "包裝挑戰的現實面",
+    authorName: "Ryan Wong",
+    authorRole: "Achieve Pack 首席包裝工程師",
+    section1Title: "深入了解夾鏈擠出工藝",
+    section1Text: "全面剖析製造可靠可堆肥封口所涉及的多層共擠與結構生物聚合物科學。",
+    imgCaptionProcess: "生物聚合物夾鏈軌道的高解析度斷面與熱封分析。",
+    section2Title: "工程日誌與性能數據紀錄",
+    journalEntryHeader: "// 首席包裝工程師日誌紀錄",
+    section2Log: "針對高速 VFFS 生產線最佳化可堆肥夾鏈輪廓。薄膜厚度：120 微米。透氧率 (OTR) < 0.05 cc/m²/24hr。熱封溫度區間：115°C - 130°C。",
+    calibrationGuaranteed: "100% 保證印前與機器校準",
+    painPointsHeader: "5 大核心挑戰與工程解決方案",
+    solutionLabel: "解決方案",
+    point1Title: "阻隔完整性問題",
+    point1Desc: "劣質生物樹脂會使氧氣和水分侵入，進而降解易腐內容物。",
+    point1Sol: "改用共擠 PLA/PBAT 高阻隔混合物，有效阻擋紫外線與水分遷移。",
+    point2Title: "結構失效問題",
+    point2Desc: "低密度可堆肥夾鏈在袋內壓力下容易斷裂或脫軌。",
+    point2Sol: "採用不對稱加強互鎖軌道，保持力提升 30%。",
+    point3Title: "截留空氣與膨脹爆裂",
+    point3Desc: "密封袋截留多餘空氣，導致空運過程中膨脹爆裂。",
+    point3Sol: "整合精密微孔排氣區或單向生物脫氣閥。",
+    point4Title: "一次性廢棄物問題",
+    point4Desc: "單薄的封口在第一次使用後即撕裂，損害品牌忠態度與重複使用性。",
+    point4Sol: "設計高循環生物軌道，經認證可順暢開合多達 50 次。",
+    point5Title: "印刷與封口降解",
+    point5Desc: "側邊封口的高熱會損壞表面印刷並使夾鏈邊緣變形。",
+    point5Sol: "採用低熔點密封層結合局部超音波點焊技術。",
+    compTitle: "標準郵寄袋 vs. 頂級可堆肥夾鏈細節",
+    compDesc: "比較觸感回饋、密封完整性與結構保持性能指標：",
+    imgCaptionComparison: "性能矩陣：標準現成封口 vs. Achieve Pack 生態工程封口。",
+    tableTitle: "包裝性能比較矩陣",
+    paramCol: "性能參數",
+    stdCol: "標準規格",
+    achieveCol: "生態工程規格",
+    row1Param: "材料阻隔厚度",
+    row1Std: "80 微米",
+    row1Achieve: "120 微米共擠層",
+    row2Param: "透氧率 (OTR)",
+    row2Std: "1.5 cc/m²/24hr",
+    row2Achieve: "< 0.05 cc/m²/24hr",
+    row3Param: "EPR 擴展責任稅階",
+    row3Std: "最高懲罰稅階",
+    row3Achieve: "最低稅率級距 (認證生物基)",
+    faq1Q: "Achieve Pack 可堆肥夾鏈封口有何獨特之處？",
+    faq1A: "我們的可堆肥夾鏈採用專利共擠生物聚合物混合物，在達到傳統 PE 保持力的同時，完全符合 EN 13432 與 ASTM D6400 國際標準。",
+    faq2Q: "消費者可以重複使用配備可堆肥夾鏈的包裝袋嗎？",
+    faq2A: "絕對可以。我們的重型生物軌道經過測試，可開合多達 50 次而不損害觸覺聲響或密封完整性。",
+    faq3Q: "如何在自動化 VFFS 包裝線上實現可靠密封？",
+    faq3A: "我們工程設計了寬廣的熱封區間，可在標準 VFFS/HFFS 機型上直接無縫替換，無需昂貴的設備改裝。"
+  },
+  fr: {
+    title: "Détails du Zip Compostable : Ingénierie Avancée des Fermetures Biopolymères",
+    description: "Guide d'ingénierie approfondi sur les fermetures à zip compostables. Mécanique structurelle, résistance du joint, performance barrière et solutions d'emballage souple durable.",
+    heroTitle: "Ingénierie Structurelle & Spécifications du Zip Compostable",
+    heroSubtitle: "Solutions d'Emballage Bio Refermable Haute Performance",
+    introSummary: "Découvrez la science des matériaux et l'ingénierie structurelle derrière les fermetures à zip compostables durables.",
+    aeoSummary: "Analyse technique complète de l'étanchéité des zips compostables, de l'intégrité de la barrière et de la compatibilité VFFS.",
+    eeatDetails: "Conçu & Certifié par le Laboratoire R&D Achieve Pack.",
+    empathyHook: "Vendre des produits durables haut de gamme dans un emballage bon marché dévalorise votre marque. Les consommateurs attendent une refermeture fluide sans déchirure des rails. Nous éliminons les défaillances de scellage grâce à l'ingénierie biopolymère haute densité.",
+    realityTitle: "La Réalité des Défis d'Emballage",
+    authorName: "Ryan Wong",
+    authorRole: "Ingénieur en Chef de l'Emballage, Achieve Pack",
+    section1Title: "Comprendre le Procédé d'Extrusion du Zip",
+    section1Text: "Un aperçu complet de la co-extrusion multicouche et de la science des biopolymères engagées dans la fabrication de fermetures compostables fiables.",
+    imgCaptionProcess: "Coupe transversale haute résolution et analyse du scellage thermique des glissières biopolymères.",
+    section2Title: "Journal d'Ingénierie & Relevés de Performance",
+    journalEntryHeader: "// JOURNAL DE L'INGÉNIEUR EN CHEF DE L'EMBALLAGE",
+    section2Log: "Profil de zip compostable optimisé pour les lignes VFFS à haute vitesse. Épaisseur du film : 120 microns. Taux de Transmission de l'Oxygène (OTR) < 0,05 cc/m²/24h. Fenêtre de scellage thermique : 115°C - 130°C.",
+    calibrationGuaranteed: "Étalonnage Prépresse & Machine 100% Garanti",
+    painPointsHeader: "5 Défis Majeurs & Solutions d'Ingénierie",
+    solutionLabel: "La Solution",
+    point1Title: "Intégrité de la Barrière",
+    point1Desc: "Les bio-résines de mauvaise qualité laissent passer l'oxygène et l'humidité, dégradant le produit.",
+    point1Sol: "Passez à un mélange co-extrudé PLA/PBAT haute barrière bloquant les UV et la migration d'humidité.",
+    point2Title: "Défaillances Structurelles",
+    point2Desc: "Les zips compostables basse densité se cassent ou déraillent sous la pression interne.",
+    point2Sol: "Utilisez des glissières asymétriques renforcées offrant 30% de force de maintien en plus.",
+    point3Title: "Piégeage d'Air & Gonflement",
+    point3Desc: "Les sachets scellés piègent l'excès d'air, ce qui entraîne leur éclatement lors du transport aérien.",
+    point3Sol: "Intégrez une zone de dégazage micro-perforée de précision ou une valve bio unidirectionnelle.",
+    point4Title: "Gaspillage à Usage Unique",
+    point4Desc: "Les fermetures fragiles se déchirent dès la première utilisation, détruisant la fidélité à la marque.",
+    point4Sol: "Concevez des bio-glissières haute résistance certifiées pour 50 cycles d'ouverture/fermeture.",
+    point5Title: "Dégradation d'Impression & de Scellage",
+    point5Desc: "La forte chaleur lors du scellage endommage l'impression et déforme la bride du zip.",
+    point5Sol: "Appliquez des couches de scellant à bas point de fusion combinées au soudage par ultrasons localisé.",
+    compTitle: "Pochettes Standard vs Détail Zip Compostable Premium",
+    compDesc: "Comparez le retour tactile, l'intégrité du scellage et la rétention structurelle :",
+    imgCaptionComparison: "Matrice de performance : Fermetures standard vs ingénierie écologique Achieve Pack.",
+    tableTitle: "Matrice de Comparaison des Performances d'Emballage",
+    paramCol: "Paramètre",
+    stdCol: "Spécifications Standards",
+    achieveCol: "Spécifications Éco-Conçues",
+    row1Param: "Épaisseur Barrière du Matériau",
+    row1Std: "80 Microns",
+    row1Achieve: "120 Microns Co-Extrudé",
+    row2Param: "Taux de Transmission de l'Oxygène (OTR)",
+    row2Std: "1,5 cc/m²/24h",
+    row2Achieve: "< 0,05 cc/m²/24h",
+    row3Param: "Tranche Taxe EPR",
+    row3Std: "Pénalité maximale",
+    row3Achieve: "Tranche fiscale la plus basse (Certifié Bio)",
+    faq1Q: "Qu'est-ce qui rend les fermetures zip compostables Achieve Pack différentes ?",
+    faq1A: "Nos zips compostables utilisent des mélanges biopolymères co-extrudés brevetés égalant la force de maintien du PE conventionnel tout en respectant les normes EN 13432 et ASTM D6400.",
+    faq2Q: "Les clients peuvent-ils réutiliser les sachets dotés de zips compostables ?",
+    faq2A: "Absolument. Nos bio-glissières renforcées sont testées pour supporter jusqu'à 50 cycles d'ouverture/fermeture sans perte d'étanchéité.",
+    faq3Q: "Comment obtenir des scellages fiables sur les lignes de conditionnement VFFS automatisées ?",
+    faq3A: "Nous concevons une large fenêtre de scellage thermique permettant une intégration directe sur les équipements VFFS/HFFS standards sans modification coûteuse."
+  },
+  es: {
+    title: "Detalle de Cierre Compostable: Ingeniería Avanzada de Cierres Biopolímeros",
+    description: "Guía técnica detallada sobre cierres compostables tipo zipper. Mecánica estructural, resistencia de sellado, barrera y empaques flexibles sostenibles.",
+    heroTitle: "Ingeniería Estructural y Especificaciones de Cierres Compostables",
+    heroSubtitle: "Soluciones Avanzadas de Bio-Empaque Resellable de Alto Rendimiento",
+    introSummary: "Descubra la ciencia de materiales y la ingeniería detrás de los cierres compostables duraderos.",
+    aeoSummary: "Análisis técnico completo sobre el sellado de cierres compostables, integridad de barrera y compatibilidad VFFS.",
+    eeatDetails: "Diseñado y Certificado por el Laboratorio de I+D de Achieve Pack.",
+    empathyHook: "Vender productos sostenibles de alta gama en empaques de baja calidad devalúa instantáneamente su marca. Los consumidores esperan un cierre resellable suave sin que el cierre se rompa. Eliminamos los fallos de sellado con ingeniería biopolimérica de alta densidad.",
+    realityTitle: "La Realidad de los Desafíos de Empaque",
+    authorName: "Ryan Wong",
+    authorRole: "Ingeniero Jefe de Empaques, Achieve Pack",
+    section1Title: "Comprensión del Proceso de Extrusión del Cierre",
+    section1Text: "Una visión integral de la coextrusión multicapa y la ciencia de biopolímeros involucrada en la fabricación de cierres compostables confiables.",
+    imgCaptionProcess: "Corte transversal de alta resolución y análisis térmico de rieles biopoliméricos.",
+    section2Title: "Diario de Ingeniería y Registros de Rendimiento",
+    journalEntryHeader: "// REGISTRO DEL DIARIO DEL INGENIERO JEFE DE EMPAQUES",
+    section2Log: "Perfil de cierre compostable optimizado para líneas VFFS de alta velocidad. Espesor del film: 120 micras. Tasa de Transmisión de Oxígeno (OTR) < 0.05 cc/m²/24hr. Ventana de sellado térmico: 115°C - 130°C.",
+    calibrationGuaranteed: "Garantía de Calibración 100% para Preprensa y Maquinaria",
+    painPointsHeader: "5 Desafíos Clave y Soluciones de Ingeniería",
+    solutionLabel: "La Solución",
+    point1Title: "Integridad de la Barrera",
+    point1Desc: "Las bio-resinas de baja calidad permiten el ingreso de oxígeno y humedad degradando el producto.",
+    point1Sol: "Cambie a una mezcla coextruida de PLA/PBAT de alta barrera que bloquea rayos UV y humedad.",
+    point2Title: "Fallas Estructurales",
+    point2Desc: "Los cierres compostables de baja densidad se rompen o desrielan bajo presión interna.",
+    point2Sol: "Utilice rieles de enclavamiento asimétricos reforzados para un 30% más de retención.",
+    point3Title: "Atrapamiento de Aire y Deformación",
+    point3Desc: "Las bolsas selladas atrapan aire, provocando que se inflen o exploten en transporte aéreo.",
+    point3Sol: "Integre una zona de desgasificación microperforada de precisión o bio-válvula unidireccional.",
+    point4Title: "Desperdicio de Un Solo Uso",
+    point4Desc: "Los cierres frágiles se rompen tras el primer uso, perjudicando la lealtad de marca.",
+    point4Sol: "Diseñe bio-rieles de alta durabilidad certificados para hasta 50 ciclos de apertura y cierre.",
+    point5Title: "Degradación de Impresión y Sellado",
+    point5Desc: "El alto calor en el sellado lateral daña la impresión superficial y deforma el riel.",
+    point5Sol: "Aplique capas de sellador de bajo punto de fusión combinadas con soldadura por puntos ultrasónica.",
+    compTitle: "Bolsas Estándar vs Detalle de Cierre Compostable Premium",
+    compDesc: "Compare la experiencia táctil, integridad del sellado y retención estructural:",
+    imgCaptionComparison: "Matriz de rendimiento: Cierres estándar vs ingeniería ecológica de Achieve Pack.",
+    tableTitle: "Matriz de Comparación de Rendimiento de Empaque",
+    paramCol: "Parámetro",
+    stdCol: "Especificaciones Estándar",
+    achieveCol: "Especificaciones Diseñadas Eco",
+    row1Param: "Espesor de Barrera del Material",
+    row1Std: "80 Micras",
+    row1Achieve: "120 Micras Coextruido",
+    row2Param: "Tasa de Transmisión de Oxígeno (OTR)",
+    row2Std: "1.5 cc/m²/24hr",
+    row2Achieve: "< 0.05 cc/m²/24hr",
+    row3Param: "Nivel de Impuesto EPR",
+    row3Std: "Penalización máxima",
+    row3Achieve: "Tramo fiscal más bajo (Certificado Bio)",
+    faq1Q: "¿Qué diferencia a los cierres compostables de Achieve Pack?",
+    faq1A: "Nuestros cierres compostables utilizan mezclas de biopolímeros coextruidos patentados que igualan la fuerza del PE convencional cumpliendo con EN 13432 y ASTM D6400.",
+    faq2Q: "¿Pueden los clientes reutilizar las bolsas con cierres compostables?",
+    faq2A: "Absolutamente. Nuestros bio-rieles reforzados están probados para hasta 50 ciclos de apertura y cierre sin perder fuerza de sellado.",
+    faq3Q: "¿Cómo se logran sellados confiables en líneas de empaque VFFS automatizadas?",
+    faq3A: "Diseñamos una amplia ventana de sellado térmico que permite el reemplazo directo en equipos VFFS/HFFS estándar sin costosas modificaciones."
   }
 };
 
 const CompostableZipperDetail: React.FC = () => {
-  const t = (key: string, variables?: any, fallback?: any) => {
-    const actualFallback = typeof variables === 'string' ? variables : fallback;
-    if (typeof actualFallback === 'string') return actualFallback;
-    if (actualFallback && typeof actualFallback === 'object' && actualFallback.defaultValue) return actualFallback.defaultValue;
-    return key.split('.').pop() || key;
-  };
-  const i18n = { language: 'en' };
-  const lang = i18n.language || 'en';
-  const localTrans = (localTranslations as any)[lang] || localTranslations.en;
+  const { i18n } = useTranslation();
+  const rawLang = (i18n.language || 'en').toLowerCase();
+  const currentLang = (rawLang === 'zh-tw' || rawLang === 'zh-hant' || rawLang === 'zh' || rawLang === 'zh_tw') ? 'zh-tw' : (rawLang === 'fr' ? 'fr' : (rawLang === 'es' ? 'es' : 'en'));
+  const localTrans = localTranslations[currentLang] || localTranslations.en;
 
   const IMAGES = {
     hero: '/imgs/illustrated/compostable-zipper-detail.png',
@@ -177,7 +261,7 @@ const CompostableZipperDetail: React.FC = () => {
   const sections = [
     {
       id: 'empathy-hook',
-      title: 'The Reality of the Challenge',
+      title: localTrans.realityTitle,
       icon: <CheckCircle2 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg space-y-4 mb-8">
@@ -185,10 +269,10 @@ const CompostableZipperDetail: React.FC = () => {
             "{localTrans.empathyHook}"
           </p>
           <div className="flex items-center gap-3 mt-4 pt-4 border-t border-amber-200">
-            <img src="/imgs/ryan-wong-avatar.jpg" alt="Ryan Wong" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Ryan+Wong&background=000&color=fff' }} />
+            <img src="/imgs/about/ryan-wong.webp" alt={localTrans.authorName} className="w-10 h-10 rounded-full border-2 border-white shadow-sm" onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Ryan+Wong&background=000&color=fff' }} />
             <div>
-              <p className="text-sm font-bold text-neutral-900">Ryan Wong</p>
-              <p className="text-xs text-neutral-600">Chief Packaging Engineer, Achieve Pack</p>
+              <p className="text-sm font-bold text-neutral-900">{localTrans.authorName}</p>
+              <p className="text-xs text-neutral-600">{localTrans.authorRole}</p>
             </div>
           </div>
         </div>
@@ -206,9 +290,9 @@ const CompostableZipperDetail: React.FC = () => {
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
             <ClickableImage 
               src={IMAGES.process} 
-              alt="High resolution product closeup" 
+              alt={localTrans.section1Title} 
               className="w-full h-auto rounded-lg shadow-sm"
-              caption="High-resolution visual demonstration showing material features."
+              caption={localTrans.imgCaptionProcess}
             />
           </div>
         </div>
@@ -220,19 +304,19 @@ const CompostableZipperDetail: React.FC = () => {
       icon: <Info className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 text-white p-6 rounded-lg border-2 border-[#D4FF00] space-y-4">
-          <p className="font-['JetBrains_Mono'] text-xs font-bold text-[#D4FF00]">// CHIEF PACKAGING ENGINEER JOURNAL entry</p>
+          <p className="font-['JetBrains_Mono'] text-xs font-bold text-[#D4FF00]">{localTrans.journalEntryHeader}</p>
           <blockquote className="italic border-l-4 border-[#D4FF00] pl-4 text-sm md:text-base text-neutral-200">
             "{localTrans.section2Log}"
           </blockquote>
           <p className="text-xs font-['JetBrains_Mono'] text-[#D4FF00] font-semibold flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-[#D4FF00]" /> 100% Prepress Calibration Guaranteed
+            <CheckCircle2 className="w-4 h-4 text-[#D4FF00]" /> {localTrans.calibrationGuaranteed}
           </p>
         </div>
       )
     },
     {
       id: 'five-plain-points',
-      title: "5 Core Challenges & Engineering Solutions",
+      title: localTrans.painPointsHeader,
       icon: <Target className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
@@ -245,7 +329,7 @@ const CompostableZipperDetail: React.FC = () => {
                 </h4>
                 <p className="text-sm text-neutral-600 mb-3">{localTrans[`point${num}Desc` as keyof typeof localTrans]}</p>
                 <div className="bg-[#D4FF00]/10 border-l-4 border-emerald-600 p-3 text-neutral-800 text-sm font-semibold">
-                  <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">The Solution</span>
+                  <span className="text-[10px] font-mono text-emerald-800 block uppercase font-bold">{localTrans.solutionLabel}</span>
                   {localTrans[`point${num}Sol` as keyof typeof localTrans]}
                 </div>
               </div>
@@ -266,9 +350,9 @@ const CompostableZipperDetail: React.FC = () => {
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
             <ClickableImage 
               src={IMAGES.comparison} 
-              alt="Comparison" 
+              alt={localTrans.compTitle} 
               className="w-full h-auto rounded-lg shadow-sm"
-              caption="Visual comparison matrix"
+              caption={localTrans.imgCaptionComparison}
             />
           </div>
         </div>
@@ -284,13 +368,13 @@ const CompostableZipperDetail: React.FC = () => {
 
   const tables = [
     {
-      title: "Packaging Performance Comparison Matrix",
+      title: localTrans.tableTitle,
       data: {
-        headers: ["Parameter", "Standard Specifications", "Eco-Engineered Specifications"],
+        headers: [localTrans.paramCol, localTrans.stdCol, localTrans.achieveCol],
         rows: [
-          ["Material Barrier Thickness", "80 Microns", "120 Microns"],
-          ["Oxygen Transmission Rate (OTR)", "1.5 cc/m²/24hr", "<0.05 cc/m²/24hr"],
-          ["EPR Modulated Tax Level", "Maximum tier", "Lowest brackets"]
+          [localTrans.row1Param, localTrans.row1Std, localTrans.row1Achieve],
+          [localTrans.row2Param, localTrans.row2Std, localTrans.row2Achieve],
+          [localTrans.row3Param, localTrans.row3Std, localTrans.row3Achieve]
         ]
       }
     }

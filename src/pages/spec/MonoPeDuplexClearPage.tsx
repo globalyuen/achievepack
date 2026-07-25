@@ -1,5 +1,5 @@
 import React from 'react'
-import { Layers, Shield, Leaf, CheckCircle, MessageCircle, Package, Recycle, Eye } from 'lucide-react'
+import { Layers, Shield, Leaf, CheckCircle, MessageCircle, Package, Eye } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import ClickableImage from '../../components/ClickableImage'
@@ -187,58 +187,11 @@ const MonoPeDuplexClearPage: React.FC = () => {
       content: (
         <div className="space-y-4 text-neutral-700">
           <p className="text-sm text-neutral-600 mb-4">{t(`${p}.sections.compareStructures.intro`)}</p>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm border-collapse">
-              <thead>
-                <tr className="bg-blue-100">
-                  <th className="p-2 text-left border">Structure</th>
-                  <th className="p-2 text-center border">OTR</th>
-                  <th className="p-2 text-center border">WVTR</th>
-                  <th className="p-2 text-left border">Best For</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="bg-blue-50 font-semibold">
-                  <td className="p-2 border"><Link to="/spec/mono-pe-duplex-clear" className="text-primary-600 hover:underline">PE Duplex Clear</Link></td>
-                  <td className="p-2 text-center border">&lt;2000</td>
-                  <td className="p-2 text-center border">&lt;8</td>
-                  <td className="p-2 border">Frozen, produce, e-commerce</td>
-                </tr>
-                <tr>
-                  <td className="p-2 border"><Link to="/spec/mono-pp-duplex-clear" className="text-primary-600 hover:underline">PP Duplex Clear</Link></td>
-                  <td className="p-2 text-center border">&lt;1800</td>
-                  <td className="p-2 text-center border">&lt;4</td>
-                  <td className="p-2 border">Best moisture, snacks</td>
-                </tr>
-                <tr>
-                  <td className="p-2 border"><Link to="/spec/mono-pe-duplex-nowindow" className="text-primary-600 hover:underline">PE Duplex No Window</Link></td>
-                  <td className="p-2 text-center border">&lt;2000</td>
-                  <td className="p-2 text-center border">&lt;8</td>
-                  <td className="p-2 border">Full print, light barrier</td>
-                </tr>
-                <tr>
-                  <td className="p-2 border"><Link to="/spec/mono-pp-duplex-nowindow" className="text-primary-600 hover:underline">PP Duplex No Window</Link></td>
-                  <td className="p-2 text-center border">&lt;1800</td>
-                  <td className="p-2 text-center border">&lt;4</td>
-                  <td className="p-2 border">Light + moisture barrier</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div className="grid sm:grid-cols-3 gap-4 mt-6">
-            <div className="bg-blue-50 p-4 rounded-lg text-center">
-              <p className="text-xs text-neutral-500 mb-1">100% Recyclable</p>
-              <p className="font-semibold text-blue-700">Store Drop-off Ready</p>
-            </div>
-            <div className="bg-amber-50 p-4 rounded-lg text-center">
-              <p className="text-xs text-neutral-500 mb-1">Best Moisture?</p>
-              <p className="font-semibold text-amber-700">PP Structures (WVTR &lt;4)</p>
-            </div>
-            <div className="bg-green-50 p-4 rounded-lg text-center">
-              <p className="text-xs text-neutral-500 mb-1">Freezer Safe?</p>
-              <p className="font-semibold text-green-700">All PE/PP Mono</p>
-            </div>
-          </div>
+          <SortableMaterialStructuresTable
+            structures={MONO_PE_PP_STRUCTURES}
+            title="All Mono PE/PP Structures – Compare & Filter"
+            categoryColor="blue"
+          />
         </div>
       )
     }

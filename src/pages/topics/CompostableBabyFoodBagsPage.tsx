@@ -12,6 +12,9 @@ const localTranslations = {
     description: "High-barrier compostable baby food bags engineered for extreme safety, zero leakage, and automated filling efficiency. FDA/EU compliant sustainable packaging.",
     heroTitle: "Engineering the Future of Safe, Compostable Baby Food Packaging",
     empathyHook: "We understand that transitioning to compostable materials in the baby food sector carries immense risk. You need zero-compromise barrier properties, rigorous sterilization tolerance, and absolute leak-proof guarantees.",
+    techGuideTag: "Technical Engineering Guide",
+    painPointsTitle: "5 Manufacturing Pain Points & Engineering Solutions",
+    solutionLabel: "Solution",
     point1Title: "Barrier Degradation & Shelf Life",
     point1Desc: "Standard compostable films often fail to maintain oxygen and moisture barriers over time, leading to rapid product spoilage and safety recalls.",
     point1Sol: "We utilize advanced multi-layer metallized compostable laminates (NK/PBS) that achieve OTR/WVTR levels comparable to traditional foil, ensuring extended shelf life without compromising compostability.",
@@ -29,18 +32,38 @@ const localTranslations = {
     point5Sol: "Every batch is rigorously tested and certified to meet both stringent food contact regulations (FDA/EU) and global industrial/home compostability standards.",
     compTitle: "Why Engineering Matters in Compostable Packaging",
     compDesc: "Transitioning to sustainable materials isn't a simple material swap. It requires a fundamental re-engineering of the packaging structure to guarantee safety and performance.",
+    tableParam: "Parameter",
+    tableStd: "Standard Approach",
+    tableAchieve: "Achieve Pack Engineered",
+    param1: "Material Integrity",
+    param1Std: "High failure rate under stress",
+    param1Achieve: "Zero-failure structural mapping",
+    param2: "Compliance",
+    param2Std: "Often misses localized FDA/EU requirements",
+    param2Achieve: "100% Guaranteed Certification",
+    param3: "Unit Cost Impact",
+    param3Std: "High waste yields expensive per-unit cost",
+    param3Achieve: "Optimized layout reduces material waste by 14%",
+    faqTitle: "Technical FAQ",
     faq1Q: "Are your compostable baby food bags suitable for retort processing?",
     faq1A: "Yes. We engineer specific high-barrier compostable laminates capable of withstanding retort sterilization temperatures (up to 121°C) without compromising seal strength, barrier properties, or the compostability certification.",
     faq2Q: "How do the oxygen and moisture barriers compare to standard aluminum foil pouches?",
     faq2A: "By incorporating proprietary metallized compostable layers and advanced barrier coatings, we achieve Oxygen Transmission Rates (OTR) and Water Vapor Transmission Rates (WVTR) that rival traditional aluminum structures, securing a safe and prolonged shelf life.",
     faq3Q: "Can your compostable bags run on our existing filling equipment?",
-    faq3A: "Absolutely. We engineer the film's stiffness, tensile strength, and coefficient of friction (COF) to match conventional plastics, allowing for smooth, high-speed processing on your existing automated filling lines with minimal parameter adjustments."
+    faq3A: "Absolutely. We engineer the film's stiffness, tensile strength, and coefficient of friction (COF) to match conventional plastics, allowing for smooth, high-speed processing on your existing automated filling lines with minimal parameter adjustments.",
+    authorTitle: "Co-Founder & Chief Packaging Engineer",
+    authorExp: "14+ Years Experience | GRS & FSC Auditing Expert",
+    authorDesc: "Specializing in polymer structures, sustainable material transitions, and high-speed VFFS line optimizations. Helping 500+ global brands scale from prototype to industrial production with zero defect tolerances.",
+    ctaSchedule: "Schedule a Packaging Audit"
   },
   es: {
     title: "Bolsas Compostables Premium para Alimentos Infantiles | Empaques Sostenibles",
     description: "Bolsas compostables de alta barrera para alimentos de bebés, diseñadas para máxima seguridad, cero fugas y eficiencia de llenado. Cumplimiento FDA/UE.",
     heroTitle: "Ingeniería del Futuro en Empaques Compostables y Seguros para Bebés",
     empathyHook: "Entendemos que la transición a materiales compostables en el sector de alimentos infantiles conlleva grandes riesgos. Usted necesita propiedades de barrera sin concesiones, tolerancia rigurosa a la esterilización y garantías absolutas contra fugas.",
+    techGuideTag: "Guía Técnica de Ingeniería",
+    painPointsTitle: "5 Puntos de Dolor en la Fabricación y Soluciones de Ingeniería",
+    solutionLabel: "Solución",
     point1Title: "Degradación de la Barrera y Vida Útil",
     point1Desc: "Los films compostables estándar suelen perder su barrera contra oxígeno y humedad, provocando un rápido deterioro del producto y retiros del mercado.",
     point1Sol: "Utilizamos laminados compostables metalizados multicapa avanzados (NK/PBS) que logran niveles de OTR/WVTR comparables al aluminio tradicional, asegurando una vida útil prolongada.",
@@ -58,18 +81,38 @@ const localTranslations = {
     point5Sol: "Cada lote es rigurosamente probado y certificado para cumplir tanto con las estrictas regulaciones de contacto con alimentos (FDA/UE) como con los estándares globales de compostabilidad industrial/doméstica.",
     compTitle: "Por Qué la Ingeniería es Crucial en los Empaques Compostables",
     compDesc: "La transición a materiales sostenibles no es un simple cambio de material. Requiere una reingeniería fundamental de la estructura para garantizar seguridad y rendimiento.",
+    tableParam: "Parámetro",
+    tableStd: "Enfoque Estándar",
+    tableAchieve: "Diseñado por Achieve Pack",
+    param1: "Integridad del Material",
+    param1Std: "Alta tasa de fallas bajo esfuerzo",
+    param1Achieve: "Mapeo estructural con cero fallas",
+    param2: "Cumplimiento Normativo",
+    param2Std: "A menudo no cumple con los requisitos locales de FDA/UE",
+    param2Achieve: "Certificación 100% Garantizada",
+    param3: "Impacto en Costo Unitario",
+    param3Std: "Alto desperdicio genera un costo unitario elevado",
+    param3Achieve: "Diseño optimizado reduce el desperdicio de material en un 14%",
+    faqTitle: "Preguntas Frecuentes Técnicas",
     faq1Q: "¿Son sus bolsas compostables adecuadas para el procesamiento en retorta?",
     faq1A: "Sí. Diseñamos laminados compostables de alta barrera capaces de soportar temperaturas de esterilización en retorta (hasta 121°C) sin comprometer la fuerza del sello, las propiedades de barrera o la certificación.",
     faq2Q: "¿Cómo se comparan las barreras contra oxígeno y humedad con las bolsas estándar de papel de aluminio?",
     faq2A: "Al incorporar capas compostables metalizadas patentadas y recubrimientos de barrera avanzados, logramos tasas de transmisión (OTR y WVTR) que rivalizan con las estructuras de aluminio tradicionales, asegurando una vida útil segura.",
     faq3Q: "¿Se pueden usar sus bolsas compostables en nuestros equipos de llenado actuales?",
-    faq3A: "Absolutamente. Diseñamos la rigidez, la resistencia a la tracción y el coeficiente de fricción (COF) del film para que coincidan con los plásticos convencionales, permitiendo un procesamiento suave y a alta velocidad en sus líneas existentes con mínimos ajustes."
+    faq3A: "Absolutamente. Diseñamos la rigidez, la resistencia a la tracción y el coeficiente de fricción (COF) del film para que coincidan con los plásticos convencionales, permitiendo un procesamiento suave y a alta velocidad en sus líneas existentes con mínimos ajustes.",
+    authorTitle: "Cofundador e Ingeniero Jefe de Empaques",
+    authorExp: "Más de 14 años de experiencia | Experto en Auditorías GRS y FSC",
+    authorDesc: "Especializado en estructuras de polímeros, transición a materiales sostenibles y optimización de líneas VFFS de alta velocidad. Ayudando a más de 500 marcas globales a escalar del prototipo a la producción industrial sin tolerancias de defectos.",
+    ctaSchedule: "Programar una Auditoría de Empaque"
   },
   fr: {
     title: "Sachets Compostables Premium pour Bébés | Emballages Durables",
     description: "Sachets compostables haute barrière pour aliments pour bébés, conçus pour une sécurité extrême, zéro fuite et une efficacité de remplissage. Conformité FDA/UE.",
     heroTitle: "L'Ingénierie de l'Avenir des Emballages Compostables et Sûrs pour Bébés",
     empathyHook: "Nous comprenons que la transition vers des matériaux compostables dans le secteur de l'alimentation infantile comporte d'immenses risques. Vous avez besoin de propriétés barrières sans compromis, d'une tolérance rigoureuse à la stérilisation et de garanties d'étanchéité absolues.",
+    techGuideTag: "Guide d'Ingénierie Technique",
+    painPointsTitle: "5 Problèmes de Fabrication & Solutions d'Ingénierie",
+    solutionLabel: "Solution",
     point1Title: "Dégradation de la Barrière et Durée de Conservation",
     point1Desc: "Les films compostables standards ne parviennent souvent pas à maintenir les barrières à l'oxygène et à l'humidité, ce qui entraîne une altération rapide des produits.",
     point1Sol: "Nous utilisons des complexes compostables métallisés multicouches avancés (NK/PBS) qui atteignent des niveaux OTR/WVTR comparables à l'aluminium traditionnel, garantissant une durée de conservation prolongée.",
@@ -87,18 +130,38 @@ const localTranslations = {
     point5Sol: "Chaque lot est rigoureusement testé et certifié pour répondre aux réglementations strictes sur le contact alimentaire (FDA/UE) ainsi qu'aux normes mondiales de compostabilité industrielle et domestique.",
     compTitle: "Pourquoi l'Ingénierie est Cruciale pour les Emballages Compostables",
     compDesc: "La transition vers des matériaux durables n'est pas un simple changement de matière. Cela nécessite une réingénierie fondamentale de la structure pour garantir la sécurité et les performances.",
+    tableParam: "Paramètre",
+    tableStd: "Approche Standard",
+    tableAchieve: "Conçu par Achieve Pack",
+    param1: "Intégrité du Matériau",
+    param1Std: "Taux de défaillance élevé sous contrainte",
+    param1Achieve: "Cartographie structurelle zéro défaillance",
+    param2: "Conformité",
+    param2Std: "Manque souvent les exigences FDA/UE locales",
+    param2Achieve: "Certification 100 % Garantie",
+    param3: "Impact sur le Coût Unitaire",
+    param3Std: "Le gaspillage élevé entraîne un coût unitaire élevé",
+    param3Achieve: "Mise en page optimisée réduisant le gaspillage de 14 %",
+    faqTitle: "FAQ Technique",
     faq1Q: "Vos sachets compostables sont-ils adaptés au traitement en autoclave ?",
     faq1A: "Oui. Nous concevons des complexes compostables haute barrière capables de résister aux températures de stérilisation en autoclave (jusqu'à 121°C) sans compromettre la force de scellage, les propriétés barrières ou la certification de compostabilité.",
     faq2Q: "Comment les barrières à l'oxygène et à l'humidité se comparent-elles aux sachets standard en aluminium ?",
     faq2A: "En intégrant des couches compostables métallisées exclusives et des revêtements barrières avancés, nous atteignons des taux de transmission (OTR et WVTR) qui rivalisent avec les structures traditionnelles en aluminium, assurant une longue durée de vie en toute sécurité.",
     faq3Q: "Vos sachets compostables peuvent-ils fonctionner sur nos équipements de remplissage existants ?",
-    faq3A: "Absolument. Nous concevons la rigidité, la résistance à la traction et le coefficient de frottement (COF) du film pour qu'ils correspondent aux plastiques conventionnels, permettant un traitement fluide à grande vitesse sur vos lignes existantes avec des ajustements minimes des paramètres."
+    faq3A: "Absolument. Nous concevons la rigidité, la résistance à la traction et le coefficient de frottement (COF) du film pour qu'ils correspondent aux plastiques conventionnels, permettant un traitement fluide à grande vitesse sur vos lignes existantes avec des ajustements minimes des paramètres.",
+    authorTitle: "Cofondateur & Ingénieur en Chef de l'Emballage",
+    authorExp: "14+ Ans d'Expérience | Expert en Audit GRS & FSC",
+    authorDesc: "Spécialisé dans les structures polymères, la transition vers des matériaux durables et l'optimisation des lignes VFFS à grande vitesse. Accompagnement de plus de 500 marques mondiales du prototype à la production industrielle.",
+    ctaSchedule: "Planifier un Audit d'Emballage"
   },
   "zh-tw": {
     title: "頂級可堆肥嬰兒食品袋 | 專利工程設計環保包裝",
     description: "專為極致安全、零洩漏與自動化充填效率而設計的高阻隔可堆肥嬰兒食品袋。符合 FDA 與歐盟規範，提供最佳永續包裝解決方案。",
     heroTitle: "引領未來的安全可堆肥嬰兒食品包裝工程",
     empathyHook: "我們深知，在嬰兒食品領域轉向可堆肥材料伴隨著巨大的風險。您需要的是毫不妥協的阻隔性能、嚴格的殺菌耐受力，以及絕對的防漏保證。",
+    techGuideTag: "技術工程指南",
+    painPointsTitle: "5 大製造痛點與工程解決方案",
+    solutionLabel: "解決方案",
     point1Title: "阻隔性衰退與保存期限",
     point1Desc: "標準可堆肥薄膜通常無法長效維持氧氣和水分阻隔，導致產品快速變質與安全召回風險。",
     point1Sol: "我們採用先進的多層金屬化可堆肥複合材料 (NK/PBS)，使其氧氣與水氣穿透率 (OTR/WVTR) 達到傳統鋁箔的水準，在不影響可堆肥性的前提下延長產品保存期限。",
@@ -116,12 +179,29 @@ const localTranslations = {
     point5Sol: "每一批次皆經過嚴格測試與認證，確保同時符合嚴苛的食品接觸法規 (FDA/EU) 以及全球工業與家庭可堆肥標準。",
     compTitle: "為什麼工程設計對可堆肥包裝至關重要？",
     compDesc: "轉向永續材料絕非單純的材質替換。這需要對包裝結構進行根本性的重新設計，才能確保產品的安全性與卓越性能。",
+    tableParam: "評估參數",
+    tableStd: "傳統標準做法",
+    tableAchieve: "Achieve Pack 精密工程",
+    param1: "材料完整性",
+    param1Std: "應力下不良率高",
+    param1Achieve: "零缺陷結構對映",
+    param2: "法規合規性",
+    param2Std: "經常忽略區域性 FDA/歐盟法規要求",
+    param2Achieve: "100% 保證通過認證",
+    param3: "單件成本影響",
+    param3Std: "高損耗率造成高昂的單件成本",
+    param3Achieve: "最佳化排版版面減少 14% 材料浪費",
+    faqTitle: "技術常見問題 (FAQ)",
     faq1Q: "你們的可堆肥嬰兒食品袋適用於高溫高壓殺菌 (Retort) 嗎？",
     faq1A: "是的。我們設計了特定的高阻隔可堆肥複合薄膜，能夠承受高達 121°C 的殺菌溫度，且不會損害封口強度、阻隔性能或其可堆肥認證。",
     faq2Q: "其氧氣與水分阻隔性與標準鋁箔袋相比如何？",
     faq2A: "透過結合專利的金屬化可堆肥層與先進的阻隔塗層，我們實現了可媲美傳統鋁箔結構的氧氣傳輸率 (OTR) 和水氣傳輸率 (WVTR)，確保安全且長效的保存期限。",
     faq3Q: "你們的可堆肥袋可以在我們現有的充填設備上運行嗎？",
-    faq3A: "絕對可以。我們對薄膜的剛性、抗拉強度和摩擦係數 (COF) 進行了精準的工程設計，使其與傳統塑膠特性相符，讓您只需進行最少的參數調整，即可在現有的自動化充填線上順暢地高速運行。"
+    faq3A: "絕對可以。我們對薄膜的剛性、抗拉強度和摩擦係數 (COF) 進行了精準的工程設計，使其與傳統塑膠特性相符，讓您只需進行最少的參數調整，即可在現有的自動化充填線上順暢地高速運行。",
+    authorTitle: "共同創辦人兼首席包裝工程師",
+    authorExp: "14 年以上經驗 | GRS 與 FSC 稽核專家",
+    authorDesc: "專精於聚合物結構、永續材料轉型以及高速 VFFS 包裝線最佳化。已協助 500 多個全球品牌實現從原型開發到零缺陷容忍的工業化量產。",
+    ctaSchedule: "預約包裝技術諮詢"
   }
 };
 
@@ -129,9 +209,9 @@ const PAGE_NAME = "CompostableBabyFoodBagsPage";
 
 export default function CompostableBabyFoodBagsPage() {
   const { i18n } = useTranslation();
-  const currentLang = i18n.language || 'en';
-  const tLocalRaw = localTranslations[currentLang as keyof typeof localTranslations];
-  const tLocal: any = (tLocalRaw && Object.keys(tLocalRaw).length > 0) ? tLocalRaw : localTranslations.en;
+  const rawLang = (i18n.language || 'en').toLowerCase();
+  const currentLang = (rawLang === 'zh-tw' || rawLang === 'zh-hant' || rawLang === 'zh' || rawLang === 'zh_tw') ? 'zh-tw' : (rawLang === 'fr' ? 'fr' : (rawLang === 'es' ? 'es' : 'en'));
+  const tLocal = localTranslations[currentLang] || localTranslations.en;
   const isPouchDomain = getDomain() === 'pouch';
 
   return (
@@ -148,7 +228,7 @@ export default function CompostableBabyFoodBagsPage() {
           <div className="flex items-center gap-4 mb-6">
             <span className="px-3 py-1 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium border border-primary-500/30 flex items-center gap-2">
               <ShieldCheck className="w-4 h-4" />
-              Technical Engineering Guide
+              {tLocal.techGuideTag}
             </span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -164,7 +244,7 @@ export default function CompostableBabyFoodBagsPage() {
         
         {/* Pain Points Section */}
         <div className="mb-20">
-          <h2 className="text-3xl font-bold text-neutral-900 mb-8">5 Manufacturing Pain Points & Engineering Solutions</h2>
+          <h2 className="text-3xl font-bold text-neutral-900 mb-8">{tLocal.painPointsTitle}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { title: tLocal.point1Title, desc: tLocal.point1Desc, sol: tLocal.point1Sol, icon: Factory },
@@ -181,7 +261,7 @@ export default function CompostableBabyFoodBagsPage() {
                 <p className="text-neutral-600 text-sm mb-4">{point.desc}</p>
                 <div className={`p-3 rounded-lg ${isPouchDomain ? 'bg-[#D4FF00]/10 border border-[#D4FF00]/20' : 'bg-primary-50 border border-primary-100'}`}>
                   <p className={`text-sm font-medium ${isPouchDomain ? 'text-neutral-900' : 'text-primary-900'}`}>
-                    <span className="block text-xs uppercase tracking-wider opacity-70 mb-1">Solution</span>
+                    <span className="block text-xs uppercase tracking-wider opacity-70 mb-1">{tLocal.solutionLabel}</span>
                     {point.sol}
                   </p>
                 </div>
@@ -198,26 +278,26 @@ export default function CompostableBabyFoodBagsPage() {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-neutral-900 text-white">
-                  <th className="p-4 rounded-tl-lg font-semibold">Parameter</th>
-                  <th className="p-4 font-semibold border-l border-neutral-700">Standard Approach</th>
-                  <th className="p-4 rounded-tr-lg font-semibold border-l border-neutral-700">Achieve Pack Engineered</th>
+                  <th className="p-4 rounded-tl-lg font-semibold">{tLocal.tableParam}</th>
+                  <th className="p-4 font-semibold border-l border-neutral-700">{tLocal.tableStd}</th>
+                  <th className="p-4 rounded-tr-lg font-semibold border-l border-neutral-700">{tLocal.tableAchieve}</th>
                 </tr>
               </thead>
               <tbody className="bg-white">
                 <tr className="border-b border-neutral-200">
-                  <td className="p-4 font-medium text-neutral-900">Material Integrity</td>
-                  <td className="p-4 text-neutral-600 border-l border-neutral-200">High failure rate under stress</td>
-                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">Zero-failure structural mapping</td>
+                  <td className="p-4 font-medium text-neutral-900">{tLocal.param1}</td>
+                  <td className="p-4 text-neutral-600 border-l border-neutral-200">{tLocal.param1Std}</td>
+                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">{tLocal.param1Achieve}</td>
                 </tr>
                 <tr className="border-b border-neutral-200">
-                  <td className="p-4 font-medium text-neutral-900">Compliance</td>
-                  <td className="p-4 text-neutral-600 border-l border-neutral-200">Often misses localized FDA/EU requirements</td>
-                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">100% Guaranteed Certification</td>
+                  <td className="p-4 font-medium text-neutral-900">{tLocal.param2}</td>
+                  <td className="p-4 text-neutral-600 border-l border-neutral-200">{tLocal.param2Std}</td>
+                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">{tLocal.param2Achieve}</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-medium text-neutral-900">Unit Cost Impact</td>
-                  <td className="p-4 text-neutral-600 border-l border-neutral-200">High waste yields expensive per-unit cost</td>
-                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">Optimized layout reduces material waste by 14%</td>
+                  <td className="p-4 font-medium text-neutral-900">{tLocal.param3}</td>
+                  <td className="p-4 text-neutral-600 border-l border-neutral-200">{tLocal.param3Std}</td>
+                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">{tLocal.param3Achieve}</td>
                 </tr>
               </tbody>
             </table>
@@ -226,7 +306,7 @@ export default function CompostableBabyFoodBagsPage() {
 
         {/* FAQs */}
         <div className="max-w-3xl mb-20">
-          <h2 className="text-3xl font-bold text-neutral-900 mb-8">Technical FAQ</h2>
+          <h2 className="text-3xl font-bold text-neutral-900 mb-8">{tLocal.faqTitle}</h2>
           <div className="space-y-4">
             {[
               { q: tLocal.faq1Q, a: tLocal.faq1A },
@@ -254,15 +334,15 @@ export default function CompostableBabyFoodBagsPage() {
             </div>
             <div>
               <h3 className="text-2xl font-bold mb-2">Ryan Wong</h3>
-              <p className="text-primary-400 font-medium mb-4">Co-Founder & Chief Packaging Engineer</p>
+              <p className="text-primary-400 font-medium mb-4">{tLocal.authorTitle}</p>
               <div className="inline-block bg-white/10 rounded px-3 py-1 text-sm font-mono mb-4 border border-white/20">
-                14+ Years Experience | GRS & FSC Auditing Expert
+                {tLocal.authorExp}
               </div>
               <p className="text-neutral-400 text-sm leading-relaxed mb-6">
-                Specializing in polymer structures, sustainable material transitions, and high-speed VFFS line optimizations. Helping 500+ global brands scale from prototype to industrial production with zero defect tolerances.
+                {tLocal.authorDesc}
               </p>
               <a href="https://calendly.com/achievepack" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-500 text-white font-bold py-3 px-6 rounded-lg transition-colors">
-                Schedule a Packaging Audit
+                {tLocal.ctaSchedule}
               </a>
             </div>
           </div>

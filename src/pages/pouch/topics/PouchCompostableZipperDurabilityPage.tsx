@@ -1,57 +1,67 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { Recycle, CheckCircle, AlertTriangle, ArrowRight, Shield, Zap, Leaf, Thermometer, Sparkles } from 'lucide-react'
+import { CheckCircle, AlertTriangle, ArrowRight } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
-import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
+import { NeoButton, NeoCard } from '../../../components/pouch/PouchUI'
 import { useTranslation, Trans } from 'react-i18next'
 
 const localTranslations = {
   en: {
     sectionTitle: "5 Common Compostable Zipper Problems (And Solutions)",
+    solutionPrefix: "Solution: ",
+    imgAlt: "Compostable Zipper Pain Points",
     painPoints: [
-      { q: "Brittle Zippers (Breakage)", a: "Solution: Blending PBAT for flexibility." },
-      { q: "Poor Sealing Strength (Separation)", a: "Solution: Co-extrusion with PLA and PHA." },
-      { q: "Moisture Degradation (Loss of track grip)", a: "Solution: Enhanced moisture barriers like ALOX coating." },
-      { q: "Heat Sensitivity (Warping during sealing)", a: "Solution: Precise thermal calibration and low-melt-point polymers." },
-      { q: "Limited Reclosability (Wear and tear)", a: "Solution: Reinforced interlocking tracks and thicker profile designs." }
+      { q: "Brittle Zippers (Breakage)", a: "Blending PBAT with bio-polymers for optimal flexibility." },
+      { q: "Poor Sealing Strength (Separation)", a: "Multi-layer co-extrusion with PLA and PHA resins." },
+      { q: "Moisture Degradation (Loss of track grip)", a: "Enhanced moisture barrier coatings like bio-ALOX." },
+      { q: "Heat Sensitivity (Warping during sealing)", a: "Precise thermal calibration and lower melt-point sealing layers." },
+      { q: "Limited Reclosability (Wear and tear)", a: "Reinforced asymmetric interlocking tracks for up to 50 uses." }
     ]
   },
-  es: {
-    sectionTitle: "5 problemas comunes de cremalleras compostables (y soluciones)",
+  "zh-tw": {
+    sectionTitle: "5 個常見的可堆肥拉鍊問題（及解決方案）",
+    solutionPrefix: "解決方案：",
+    imgAlt: "可堆肥拉鍊製造痛點",
     painPoints: [
-      { q: "Cremalleras quebradizas (Rotura)", a: "Solución: Mezcla de PBAT para mayor flexibilidad." },
-      { q: "Poca fuerza de sellado (Separación)", a: "Solución: Coextrusión con PLA y PHA." },
-      { q: "Degradación por humedad (Pérdida de agarre)", a: "Solución: Barreras mejoradas contra la humedad como el recubrimiento ALOX." },
-      { q: "Sensibilidad al calor (Deformación)", a: "Solución: Calibración térmica precisa y polímeros de bajo punto de fusión." },
-      { q: "Re-sellado limitado (Desgaste)", a: "Solución: Pistas entrelazadas reforzadas y diseños de perfiles más gruesos." }
+      { q: "拉鍊脆化 (斷裂)", a: "混合 PBAT 與生物聚合物以提高最佳柔韌性。" },
+      { q: "密封強度差 (軌道分離)", a: "採用 PLA 與 PHA 樹脂進行多層共擠。" },
+      { q: "濕氣降解 (軌道失去抓地力)", a: "增強防潮塗層，例如生物 ALOX 阻隔層。" },
+      { q: "熱敏性過高 (密封時翹曲變形)", a: "精確的熱校準與低熔點密封層。" },
+      { q: "重複密封性受限 (磨損)", a: "加強型不對稱互鎖軌道，可耐受高達 50 次重複使用。" }
     ]
   },
   fr: {
-    sectionTitle: "5 problèmes courants liés aux fermetures compostables (et solutions)",
+    sectionTitle: "5 Problèmes Courants des Fermetures Compostables (Et Solutions)",
+    solutionPrefix: "Solution : ",
+    imgAlt: "Problèmes des Zips Compostables",
     painPoints: [
-      { q: "Fermetures fragiles (Casse)", a: "Solution : Mélange de PBAT pour la flexibilité." },
-      { q: "Faible résistance d'étanchéité (Séparation)", a: "Solution : Co-extrusion avec PLA et PHA." },
-      { q: "Dégradation par l'humidité (Perte d'adhérence)", a: "Solution : Barrières d'humidité améliorées comme le revêtement ALOX." },
-      { q: "Sensibilité à la chaleur (Déformation)", a: "Solution : Étalonnage thermique précis et polymères à bas point de fusion." },
-      { q: "Refermabilité limitée (Usure)", a: "Solution : Pistes à emboîtement renforcées et conceptions de profils plus épais." }
+      { q: "Fermetures Fragiles (Casse)", a: "Mélange de PBAT avec des biopolymères pour une flexibilité optimale." },
+      { q: "Faible Résistance d'Étanchéité (Séparation)", a: "Co-extrusion multicouche avec des résines PLA et PHA." },
+      { q: "Dégradation par l'Humidité (Perte d'adhérence)", a: "Revêtements barrières à l'humidité améliorés comme le bio-ALOX." },
+      { q: "Sensibilité à la Chaleur (Déformation au scellage)", a: "Étalonnage thermique précis et couches de scellage à bas point de fusion." },
+      { q: "Refermabilité Limitée (Usure)", a: "Pistes à emboîtement asymétriques renforcées jusqu'à 50 utilisations." }
     ]
   },
-  'zh-TW': {
-    sectionTitle: "5 個常見的可堆肥拉鍊問題（及解決方案）",
+  es: {
+    sectionTitle: "5 Problemas Comunes de Cremalleras Compostables (Y Soluciones)",
+    solutionPrefix: "Solución: ",
+    imgAlt: "Problemas de Cremalleras Compostables",
     painPoints: [
-      { q: "拉鍊脆化 (斷裂)", a: "解決方案：混合 PBAT 以提高柔韌性。" },
-      { q: "密封強度差 (分離)", a: "解決方案：與 PLA 和 PHA 共擠出。" },
-      { q: "濕氣降解 (軌道失去抓地力)", a: "解決方案：增強防潮層，例如 ALOX 塗層。" },
-      { q: "熱敏感性 (密封時翹曲)", a: "解決方案：精確的熱校準和低熔點聚合物。" },
-      { q: "可重複密封性有限 (磨損)", a: "解決方案：加固的互鎖軌道和更厚的輪廓設計。" }
+      { q: "Cremalleras Quebradizas (Rotura)", a: "Mezcla de PBAT con biopolímeros para una flexibilidad óptima." },
+      { q: "Poca Fuerza de Sellado (Separación)", a: "Coextrusión multicapa con resinas PLA y PHA." },
+      { q: "Degradación por Humedad (Pérdida de agarre)", a: "Recubrimientos mejorados de barrera contra la humedad como bio-ALOX." },
+      { q: "Sensibilidad al Calor (Deformación en sellado)", a: "Calibración térmica precisa y capas de sellado de bajo punto de fusión." },
+      { q: "Resellado Limitado (Desgaste)", a: "Rieles de enclavamiento asimétricos reforzados para hasta 50 usos." }
     ]
   }
 };
+
 export default function PouchCompostableZipperDurabilityPage() {
   const { t, i18n } = useTranslation();
-  const lang = i18n.language || 'en';
-  const localT = localTranslations[lang as keyof typeof localTranslations] || localTranslations.en;
+  const rawLang = (i18n.language || 'en').toLowerCase();
+  const currentLang = (rawLang === 'zh-tw' || rawLang === 'zh-hant' || rawLang === 'zh' || rawLang === 'zh_tw') ? 'zh-tw' : (rawLang === 'fr' ? 'fr' : (rawLang === 'es' ? 'es' : 'en'));
+  const tLocal = localTranslations[currentLang] || localTranslations.en;
   const p = 'seoPages.pages.pouchCompostableZipperDurability';
 
   const floatAnim = {
@@ -152,17 +162,17 @@ export default function PouchCompostableZipperDurabilityPage() {
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center text-black">
-            {localT.sectionTitle}
+            {tLocal.sectionTitle}
           </h2>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <img 
               src="/imgs/knowledge/compostable-zipper-pain-points.jpg" 
-              alt="Compostable Zipper Pain Points"
+              alt={tLocal.imgAlt}
               className="w-full h-auto border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rotate-1 hover:rotate-0 transition-transform duration-300"
             />
             <div className="space-y-6">
-              {localT.painPoints.map((pt, idx) => (
+              {tLocal.painPoints.map((pt, idx) => (
                 <div key={idx} className="flex gap-4">
                   <div className="mt-1 flex-shrink-0">
                     <AlertTriangle className="w-6 h-6 text-[#059669]" />
@@ -173,7 +183,7 @@ export default function PouchCompostableZipperDurabilityPage() {
                     </h3>
                     <p className="font-['JetBrains_Mono'] text-sm text-gray-700">
                       <CheckCircle className="inline w-4 h-4 mr-2 text-[#D4FF00] bg-black rounded-full" />
-                      <span className="font-bold">{pt.a}</span>
+                      <span className="font-bold">{tLocal.solutionPrefix}{pt.a}</span>
                     </p>
                   </div>
                 </div>

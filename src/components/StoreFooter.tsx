@@ -139,6 +139,7 @@ export default function StoreFooter() {
           <div>
             <h4 className="font-semibold text-sm mb-3 text-neutral-200">Support & Policies</h4>
             <ul className="space-y-1.5 text-xs text-neutral-400">
+              <li><Link to="/directory" className="hover:text-emerald-400 font-semibold text-emerald-400">Technical Spec Directory</Link></li>
               <li><Link to="/support/faqs" className="hover:text-primary-400">FAQs</Link></li>
               <li><Link to="/support/color-accuracy-digital-printing" className="hover:text-primary-400">Color Accuracy Guide</Link></li>
               <li><Link to="/knowledge/workflow" className="hover:text-primary-400">How It Works</Link></li>

@@ -174,14 +174,30 @@ function generate() {
     }
   }
 
+  // Dynamic pSEO 487 directory matrix injection
+  const pseoMatrixPath = path.join(__dirname, '../src/data/pseo_matrix_487.json');
+  let directoryMatrixRoutes: string[] = ['/directory'];
+  if (fs.existsSync(pseoMatrixPath)) {
+    try {
+      const pseoItems = JSON.parse(fs.readFileSync(pseoMatrixPath, 'utf-8'));
+      if (Array.isArray(pseoItems)) {
+        const detailRoutes = pseoItems.map((item: any) => `/directory/${item.slug}`);
+        directoryMatrixRoutes = ['/directory', ...detailRoutes];
+        console.log(`📁 Loaded ${directoryMatrixRoutes.length} dynamic directory routes from pseo_matrix_487.json.`);
+      }
+    } catch (e: any) {
+      console.warn('⚠️ Could not load directory matrix from pseo_matrix_487.json:', e.message);
+    }
+  }
+
   // Merge lists and include core shop route
   const basePouchRoutes = mapping.pouch || [];
   if (!basePouchRoutes.includes('/shop')) {
     basePouchRoutes.push('/shop');
   }
 
-  const pouchRoutes = [...basePouchRoutes, ...dynamicBlogRoutes, ...productB2CRoutes, ...shapeRoutes];
-  const achieveRoutes = [...(mapping.achieve || []), ...dynamicBlogRoutes, ...productB2BRoutes, ...shapeRoutes];
+  const pouchRoutes = [...basePouchRoutes, ...dynamicBlogRoutes, ...productB2CRoutes, ...shapeRoutes, ...directoryMatrixRoutes];
+  const achieveRoutes = [...(mapping.achieve || []), ...dynamicBlogRoutes, ...productB2BRoutes, ...shapeRoutes, ...directoryMatrixRoutes];
 
   console.log(`📊 Loaded ${pouchRoutes.length} B2C (pouch.eco) and ${achieveRoutes.length} B2B (achievepack) routes.`);
 

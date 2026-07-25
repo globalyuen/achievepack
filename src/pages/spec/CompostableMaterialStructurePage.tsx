@@ -204,64 +204,11 @@ const CompostableMaterialStructurePage: React.FC = () => {
       content: (
         <div className="space-y-4 text-neutral-700">
           <p className="text-sm text-neutral-600 mb-4">{t(`${p}.sections.compareStructures.intro`)}</p>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm border-collapse">
-              <thead>
-                <tr className="bg-green-100">
-                  <th className="p-2 text-left border">{t(`${p}.sections.compareStructures.headers.structure`)}</th>
-                  <th className="p-2 text-center border">{t(`${p}.sections.compareStructures.headers.otr`)}</th>
-                  <th className="p-2 text-center border">{t(`${p}.sections.compareStructures.headers.wvtr`)}</th>
-                  <th className="p-2 text-left border">{t(`${p}.sections.compareStructures.headers.bestFor`)}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="bg-green-50 font-semibold">
-                  <td className="p-2 border"><Link to="/spec/compostable-material-structure" className="text-primary-600 hover:underline">{t(`${p}.sections.compareStructures.rows.row1.title`)}</Link></td>
-                  <td className="p-2 text-center border">&lt;5</td>
-                  <td className="p-2 text-center border">&lt;10</td>
-                  <td className="p-2 border">{t(`${p}.sections.compareStructures.rows.row1.desc`)}</td>
-                </tr>
-                <tr>
-                  <td className="p-2 border"><Link to="/spec/bio-cello-triplex-highest" className="text-primary-600 hover:underline">{t(`${p}.sections.compareStructures.rows.row2.title`)}</Link></td>
-                  <td className="p-2 text-center border">&lt;1</td>
-                  <td className="p-2 text-center border">&lt;3</td>
-                  <td className="p-2 border">{t(`${p}.sections.compareStructures.rows.row2.desc`)}</td>
-                </tr>
-                <tr>
-                  <td className="p-2 border"><Link to="/spec/bio-cello-triplex-metalised" className="text-primary-600 hover:underline">{t(`${p}.sections.compareStructures.rows.row3.title`)}</Link></td>
-                  <td className="p-2 text-center border">&lt;1</td>
-                  <td className="p-2 text-center border">&lt;1</td>
-                  <td className="p-2 border">{t(`${p}.sections.compareStructures.rows.row3.desc`)}</td>
-                </tr>
-                <tr>
-                  <td className="p-2 border"><Link to="/spec/bio-kraft-vm-cello" className="text-primary-600 hover:underline">{t(`${p}.sections.compareStructures.rows.row4.title`)}</Link></td>
-                  <td className="p-2 text-center border">&lt;1</td>
-                  <td className="p-2 text-center border">&lt;1</td>
-                  <td className="p-2 border">{t(`${p}.sections.compareStructures.rows.row4.desc`)}</td>
-                </tr>
-                <tr>
-                  <td className="p-2 border"><Link to="/spec/bio-kraft-pbat-low" className="text-primary-600 hover:underline">{t(`${p}.sections.compareStructures.rows.row5.title`)}</Link></td>
-                  <td className="p-2 text-center border">&lt;2000</td>
-                  <td className="p-2 text-center border">&lt;15</td>
-                  <td className="p-2 border">{t(`${p}.sections.compareStructures.rows.row5.desc`)}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div className="grid sm:grid-cols-3 gap-4 mt-6">
-            <div className="bg-green-50 p-4 rounded-lg text-center">
-              <p className="text-xs text-neutral-500 mb-1">{t(`${p}.sections.compareStructures.footer.card1Title`)}</p>
-              <p className="font-semibold text-green-700">{t(`${p}.sections.compareStructures.footer.card1Value`)}</p>
-            </div>
-            <div className="bg-amber-50 p-4 rounded-lg text-center">
-              <p className="text-xs text-neutral-500 mb-1">{t(`${p}.sections.compareStructures.footer.card2Title`)}</p>
-              <p className="font-semibold text-amber-700">{t(`${p}.sections.compareStructures.footer.card2Value`)}</p>
-            </div>
-            <div className="bg-blue-50 p-4 rounded-lg text-center">
-              <p className="text-xs text-neutral-500 mb-1">{t(`${p}.sections.compareStructures.footer.card3Title`)}</p>
-              <p className="font-semibold text-blue-700">{t(`${p}.sections.compareStructures.footer.card3Value`)}</p>
-            </div>
-          </div>
+          <SortableMaterialStructuresTable
+            structures={COMPOSTABLE_STRUCTURES}
+            title="All Compostable Structures – Compare & Filter"
+            categoryColor="amber"
+          />
         </div>
       )
     }

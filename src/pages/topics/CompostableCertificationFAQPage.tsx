@@ -12,6 +12,9 @@ const localTranslations = {
     description: "Expert answers to your compostable packaging certification questions. Learn about industrial and home compostable standards, material engineering, and compliance.",
     heroTitle: "Compostable Certification: The Engineering FAQ",
     empathyHook: "Navigating the labyrinth of compostable certifications (BPI, TUV, OK Compost) shouldn't bottleneck your product launch. We engineer compliance directly into your film structures, saving you months of testing and unexpected rejections.",
+    techGuideTag: "Technical Engineering Guide",
+    painPointsTitle: "5 Manufacturing Pain Points & Engineering Solutions",
+    solutionLabel: "Solution",
     point1Title: "Barrier Degradation vs. Shelf Life",
     point1Desc: "Compostable films often struggle to maintain adequate oxygen and moisture barriers over time, leading to premature product spoilage before the packaging even reaches end-of-life.",
     point1Sol: "We utilize multi-layer extruded metallized cellulose and high-barrier biopolymers (e.g., PVOH coatings) that strictly adhere to ASTM D6400 while extending shelf life by up to 18 months.",
@@ -29,18 +32,38 @@ const localTranslations = {
     point5Sol: "We specify specialized, moisture-resistant, compostable solventless laminating adhesives designed to withstand aggressive product profiles while maintaining certified disintegration rates.",
     compTitle: "Why Engineered Compostable Packaging Outperforms",
     compDesc: "Compare traditional approaches to our precision-engineered compostable solutions.",
+    tableParam: "Parameter",
+    tableStd: "Standard Approach",
+    tableAchieve: "Achieve Pack Engineered",
+    param1: "Material Integrity",
+    param1Std: "High failure rate under stress",
+    param1Achieve: "Zero-failure structural mapping",
+    param2: "Compliance",
+    param2Std: "Often misses localized FDA/EU requirements",
+    param2Achieve: "100% Guaranteed Certification",
+    param3: "Unit Cost Impact",
+    param3Std: "High waste yields expensive per-unit cost",
+    param3Achieve: "Optimized layout reduces material waste by 14%",
+    faqTitle: "Technical FAQ",
     faq1Q: "What is the difference between Industrial and Home Compostable certifications?",
     faq1A: "Industrial compostable materials (like PLA) require specific high temperatures (around 60°C) and microbial conditions found only in municipal facilities, typically meeting ASTM D6400 or EN 13432. Home compostable materials (like some cellulose/PBAT blends) can break down at lower, ambient temperatures in a backyard bin. We engineer structures tailored to your specific certification goal.",
     faq2Q: "Will transitioning to compostable packaging require me to buy new packaging machinery?",
     faq2A: "In most cases, no. However, compostable films often require lower sealing temperatures and have different slip properties. Our engineering team customizes the film's structural design—adjusting the slip additives and sealant layers—so it runs efficiently on your existing VFFS or HFFS lines with only minor temperature or tension adjustments.",
     faq3Q: "How long does the certification process take, and how can Achieve Pack accelerate it?",
-    faq3A: "Testing a completely new material structure can take 6-12 months. However, because Achieve Pack utilizes a library of pre-tested, pre-certified resin blends and adhesives, we can often bypass the primary disintegration and ecotoxicity testing phases, reducing your time-to-market by up to 50% while guaranteeing compliance."
+    faq3A: "Testing a completely new material structure can take 6-12 months. However, because Achieve Pack utilizes a library of pre-tested, pre-certified resin blends and adhesives, we can often bypass the primary disintegration and ecotoxicity testing phases, reducing your time-to-market by up to 50% while guaranteeing compliance.",
+    authorTitle: "Co-Founder & Chief Packaging Engineer",
+    authorExp: "14+ Years Experience | GRS & FSC Auditing Expert",
+    authorDesc: "Specializing in polymer structures, sustainable material transitions, and high-speed VFFS line optimizations. Helping 500+ global brands scale from prototype to industrial production with zero defect tolerances.",
+    ctaSchedule: "Schedule a Packaging Audit"
   },
   es: {
     title: "Preguntas Frecuentes sobre Certificación Compostable | Achieve Pack",
     description: "Respuestas de expertos a sus preguntas sobre certificación de envases compostables. Aprenda sobre estándares de compostaje industrial y doméstico, ingeniería de materiales y cumplimiento.",
     heroTitle: "Certificación Compostable: Preguntas Frecuentes de Ingeniería",
     empathyHook: "Navegar por el laberinto de las certificaciones compostables (BPI, TUV, OK Compost) no debería retrasar el lanzamiento de su producto. Diseñamos el cumplimiento directamente en las estructuras de su película, ahorrándole meses de pruebas y rechazos inesperados.",
+    techGuideTag: "Guía Técnica de Ingeniería",
+    painPointsTitle: "5 Puntos de Dolor en la Fabricación y Soluciones de Ingeniería",
+    solutionLabel: "Solución",
     point1Title: "Degradación de Barrera vs. Vida Útil",
     point1Desc: "Las películas compostables a menudo tienen dificultades para mantener barreras adecuadas de oxígeno y humedad con el tiempo, lo que lleva al deterioro prematuro del producto antes de que el envase llegue al final de su vida útil.",
     point1Sol: "Utilizamos celulosa metalizada extruida multicapa y biopolímeros de alta barrera (p. ej., recubrimientos de PVOH) que cumplen estrictamente con la norma ASTM D6400 mientras extienden la vida útil hasta 18 meses.",
@@ -58,18 +81,38 @@ const localTranslations = {
     point5Sol: "Especificamos adhesivos de laminación sin solventes, especializados, resistentes a la humedad y compostables, diseñados para soportar perfiles de productos agresivos mientras mantienen las tasas de desintegración certificadas.",
     compTitle: "Por Qué los Envases Compostables Diseñados Tienen un Mejor Rendimiento",
     compDesc: "Compare los enfoques tradicionales con nuestras soluciones compostables de ingeniería de precisión.",
+    tableParam: "Parámetro",
+    tableStd: "Enfoque Estándar",
+    tableAchieve: "Diseñado por Achieve Pack",
+    param1: "Integridad del Material",
+    param1Std: "Alta tasa de fallas bajo esfuerzo",
+    param1Achieve: "Mapeo estructural con cero fallas",
+    param2: "Cumplimiento Normativo",
+    param2Std: "A menudo no cumple con los requisitos locales de FDA/UE",
+    param2Achieve: "Certificación 100% Garantizada",
+    param3: "Impacto en Costo Unitario",
+    param3Std: "Alto desperdicio genera un costo unitario elevado",
+    param3Achieve: "Diseño optimizado reduce el desperdicio de material en un 14%",
+    faqTitle: "Preguntas Frecuentes Técnicas",
     faq1Q: "¿Cuál es la diferencia entre las certificaciones de Compostabilidad Industrial y Doméstica?",
     faq1A: "Los materiales compostables industriales (como el PLA) requieren altas temperaturas específicas (alrededor de 60°C) y condiciones microbianas que solo se encuentran en instalaciones municipales, cumpliendo típicamente con ASTM D6400 o EN 13432. Los materiales compostables domésticos (como algunas mezclas de celulosa/PBAT) pueden descomponerse a temperaturas ambiente más bajas en un contenedor de patio trasero. Diseñamos estructuras adaptadas a su objetivo de certificación específico.",
     faq2Q: "¿La transición a envases compostables requerirá que compre nueva maquinaria de envasado?",
     faq2A: "En la mayoría de los casos, no. Sin embargo, las películas compostables a menudo requieren temperaturas de sellado más bajas y tienen propiedades de deslizamiento diferentes. Nuestro equipo de ingeniería personaliza el diseño estructural de la película—ajustando los aditivos de deslizamiento y las capas de sellado—para que funcione eficientemente en sus líneas VFFS o HFFS existentes con solo ajustes menores de temperatura o tensión.",
     faq3Q: "¿Cuánto tiempo dura el proceso de certificación y cómo puede acelerarlo Achieve Pack?",
-    faq3A: "Probar una estructura de material completamente nueva puede llevar de 6 a 12 meses. Sin embargo, debido a que Achieve Pack utiliza una biblioteca de mezclas de resinas y adhesivos preprobados y precertificados, a menudo podemos omitir las fases de prueba primarias de desintegración y ecotoxicidad, reduciendo su tiempo de comercialización hasta en un 50% mientras garantizamos el cumplimiento."
+    faq3A: "Probar una estructura de material completamente nueva puede llevar de 6 a 12 meses. Sin embargo, debido a que Achieve Pack utiliza una biblioteca de mezclas de resinas y adhesivos preprobados y precertificados, a menudo podemos omitir las fases de prueba primarias de desintegración y ecotoxicidad, reduciendo su tiempo de comercialización hasta en un 50% mientras garantizamos el cumplimiento.",
+    authorTitle: "Cofundador e Ingeniero Jefe de Empaques",
+    authorExp: "Más de 14 años de experiencia | Experto en Auditorías GRS y FSC",
+    authorDesc: "Especializado en estructuras de polímeros, transición a materiales sostenibles y optimización de líneas VFFS de alta velocidad. Ayudando a más de 500 marcas globales a escalar del prototipo a la producción industrial sin tolerancias de defectos.",
+    ctaSchedule: "Programar una Auditoría de Empaque"
   },
   fr: {
     title: "FAQ sur la Certification Compostable | Achieve Pack",
     description: "Réponses d'experts à vos questions sur la certification des emballages compostables. Découvrez les normes de compostage industriel et domestique, l'ingénierie des matériaux et la conformité.",
     heroTitle: "Certification Compostable : La FAQ d'Ingénierie",
     empathyHook: "Naviguer dans le labyrinthe des certifications compostables (BPI, TUV, OK Compost) ne devrait pas ralentir le lancement de votre produit. Nous intégrons la conformité directement dans les structures de vos films, vous évitant des mois de tests et de rejets inattendus.",
+    techGuideTag: "Guide d'Ingénierie Technique",
+    painPointsTitle: "5 Problèmes de Fabrication & Solutions d'Ingénierie",
+    solutionLabel: "Solution",
     point1Title: "Dégradation de la Barrière vs Durée de Conservation",
     point1Desc: "Les films compostables ont souvent du mal à maintenir des barrières adéquates contre l'oxygène et l'humidité au fil du temps, entraînant une détérioration prématurée du produit avant même que l'emballage n'atteigne sa fin de vie.",
     point1Sol: "Nous utilisons de la cellulose métallisée extrudée multicouche et des biopolymères à haute barrière (ex. revêtements PVOH) qui respectent strictement la norme ASTM D6400 tout en prolongeant la durée de conservation jusqu'à 18 mois.",
@@ -87,18 +130,38 @@ const localTranslations = {
     point5Sol: "Nous spécifions des adhésifs de stratification sans solvant, spécialisés, résistants à l'humidité et compostables, conçus pour résister à des profils de produits agressifs tout en maintenant des taux de désintégration certifiés.",
     compTitle: "Pourquoi les Emballages Compostables Conçus sur Mesure sont Plus Performants",
     compDesc: "Comparez les approches traditionnelles à nos solutions compostables d'ingénierie de précision.",
+    tableParam: "Paramètre",
+    tableStd: "Approche Standard",
+    tableAchieve: "Conçu par Achieve Pack",
+    param1: "Intégrité du Matériau",
+    param1Std: "Taux de défaillance élevé sous contrainte",
+    param1Achieve: "Cartographie structurelle zéro défaillance",
+    param2: "Conformité",
+    param2Std: "Manque souvent les exigences FDA/UE locales",
+    param2Achieve: "Certification 100 % Garantie",
+    param3: "Impact sur le Coût Unitaire",
+    param3Std: "Le gaspillage élevé entraîne un coût unitaire élevé",
+    param3Achieve: "Mise en page optimisée réduisant le gaspillage de 14 %",
+    faqTitle: "FAQ Technique",
     faq1Q: "Quelle est la différence entre les certifications Compostable Industriel et Domestique ?",
     faq1A: "Les matériaux compostables industriels (comme le PLA) nécessitent des températures élevées spécifiques (environ 60°C) et des conditions microbiennes que l'on ne trouve que dans les installations municipales, répondant généralement aux normes ASTM D6400 ou EN 13432. Les matériaux compostables domestiques (comme certains mélanges cellulose/PBAT) peuvent se décomposer à des températures ambiantes plus basses dans un bac de jardin. Nous concevons des structures adaptées à votre objectif de certification spécifique.",
     faq2Q: "La transition vers des emballages compostables m'obligera-t-elle à acheter de nouvelles machines d'emballage ?",
     faq2A: "Dans la plupart des cas, non. Cependant, les films compostables nécessitent souvent des températures de scellage plus basses et présentent des propriétés de glissement différentes. Notre équipe d'ingénierie personnalise la conception structurelle du film—en ajustant les additifs de glissement et les couches de scellement—afin qu'il fonctionne efficacement sur vos lignes VFFS ou HFFS existantes avec seulement des ajustements mineurs de température ou de tension.",
     faq3Q: "Combien de temps dure le processus de certification, et comment Achieve Pack peut-il l'accélérer ?",
-    faq3A: "Tester une structure de matériau entièrement nouvelle peut prendre 6 à 12 mois. Cependant, parce qu'Achieve Pack utilise une bibliothèque de mélanges de résines et d'adhésifs pré-testés et pré-certifiés, nous pouvons souvent contourner les phases primaires de test de désintégration et d'écotoxicité, réduisant ainsi votre délai de mise sur le marché jusqu'à 50 % tout en garantissant la conformité."
+    faq3A: "Tester une structure de matériau entièrement nouvelle peut prendre 6 à 12 mois. Cependant, parce qu'Achieve Pack utilise une bibliothèque de mélanges de résines et d'adhésifs pré-testés et pré-certifiés, nous pouvons souvent contourner les phases primaires de test de désintégration et d'écotoxicité, réduisant ainsi votre délai de mise sur le marché jusqu'à 50 % tout en garantissant la conformité.",
+    authorTitle: "Cofondateur & Ingénieur en Chef de l'Emballage",
+    authorExp: "14+ Ans d'Expérience | Expert en Audit GRS & FSC",
+    authorDesc: "Spécialisé dans les structures polymères, la transition vers des matériaux durables et l'optimisation des lignes VFFS à grande vitesse. Accompagnement de plus de 500 marques mondiales du prototype à la production industrielle.",
+    ctaSchedule: "Planifier un Audit d'Emballage"
   },
   "zh-tw": {
     title: "可堆肥認證常見問題 | Achieve Pack",
     description: "專家解答您的可堆肥包裝認證問題。了解工業與家庭可堆肥標準、材料工程及合規性要求。",
     heroTitle: "可堆肥認證：專業工程常見問題",
     empathyHook: "在可堆肥認證（BPI、TUV、OK Compost）的迷宮中摸索，不應成為您產品上市的瓶頸。我們將合規性直接融入您的薄膜結構設計中，為您節省數月的測試時間，並避免意外的退回。",
+    techGuideTag: "技術工程指南",
+    painPointsTitle: "5 大製造痛點與工程解決方案",
+    solutionLabel: "解決方案",
     point1Title: "阻隔性降解與保質期的權衡",
     point1Desc: "可堆肥薄膜通常難以長期維持足夠的氧氣和濕氣阻隔性，導致產品在包裝達到使用壽命終點前就過早變質。",
     point1Sol: "我們採用多層共擠金屬化纖維素和高阻隔生物聚合物（如 PVOH 塗層），嚴格遵守 ASTM D6400 標準，同時可將保質期延長至 18 個月。",
@@ -116,12 +179,29 @@ const localTranslations = {
     point5Sol: "我們指定使用專門的抗濕性、可堆肥無溶劑複合粘合劑，旨在承受侵蝕性強的產品特性，同時保持認證的降解率。",
     compTitle: "為什麼專業工程設計的可堆肥包裝性能更卓越",
     compDesc: "將傳統解決方案與我們精確設計的可堆肥解決方案進行比較。",
+    tableParam: "評估參數",
+    tableStd: "傳統標準做法",
+    tableAchieve: "Achieve Pack 精密工程",
+    param1: "材料完整性",
+    param1Std: "應力下不良率高",
+    param1Achieve: "零缺陷結構對映",
+    param2: "法規合規性",
+    param2Std: "經常忽略區域性 FDA/歐盟法規要求",
+    param2Achieve: "100% 保證通過認證",
+    param3: "單件成本影響",
+    param3Std: "高損耗率造成高昂的單件成本",
+    param3Achieve: "最佳化排版版面減少 14% 材料浪費",
+    faqTitle: "技術常見問題 (FAQ)",
     faq1Q: "工業可堆肥和家庭可堆肥認證有什麼區別？",
     faq1A: "工業可堆肥材料（如 PLA）需要特定的高溫（約 60°C）和僅在市政設施中才具備的微生物環境，通常符合 ASTM D6400 或 EN 13432 標準。家庭可堆肥材料（如某些纖維素/PBAT 混合物）則可以在後院堆肥桶的較低環境溫度下分解。我們會根據您的特定認證目標定制合適的材料結構。",
     faq2Q: "過渡到可堆肥包裝需要我購買新的包裝機械嗎？",
     faq2A: "在大多數情況下不需要。不過，可堆肥薄膜通常需要較低的密封溫度，並具有不同的滑動特性。我們的工程團隊會定制薄膜的結構設計——調整滑動添加劑和密封層——使其能夠在您現有的 VFFS 或 HFFS 生產線上高效運行，只需對溫度或張力進行微調即可。",
     faq3Q: "認證過程需要多長時間，Achieve Pack 如何加速這一過程？",
-    faq3A: "測試一種全新的材料結構可能需要 6 到 12 個月。然而，由於 Achieve Pack 利用了已經過預先測試和認證的樹脂混合物與粘合劑資料庫，我們通常可以跳過初步的崩解和生態毒性測試階段，從而將您的上市時間縮短高達 50%，同時保證合規性。"
+    faq3A: "測試一種全新的材料結構可能需要 6 到 12 個月。然而，由於 Achieve Pack 利用了已經過預先測試和認證的樹脂混合物與粘合劑資料庫，我們通常可以跳過初步的崩解和生態毒性測試階段，從而將您的上市時間縮短高達 50%，同時保證合規性。",
+    authorTitle: "共同創辦人兼首席包裝工程師",
+    authorExp: "14 年以上經驗 | GRS 與 FSC 稽核專家",
+    authorDesc: "專精於聚合物結構、永續材料轉型以及高速 VFFS 包裝線最佳化。已協助 500 多個全球品牌實現從原型開發到零缺陷容忍的工業化量產。",
+    ctaSchedule: "預約包裝技術諮詢"
   }
 };
 
@@ -129,9 +209,9 @@ const PAGE_NAME = "CompostableCertificationFaqPage";
 
 export default function CompostableCertificationFaqPage() {
   const { i18n } = useTranslation();
-  const currentLang = i18n.language || 'en';
-  const tLocalRaw = localTranslations[currentLang as keyof typeof localTranslations];
-  const tLocal: any = (tLocalRaw && Object.keys(tLocalRaw).length > 0) ? tLocalRaw : localTranslations.en;
+  const rawLang = (i18n.language || 'en').toLowerCase();
+  const currentLang = (rawLang === 'zh-tw' || rawLang === 'zh-hant' || rawLang === 'zh' || rawLang === 'zh_tw') ? 'zh-tw' : (rawLang === 'fr' ? 'fr' : (rawLang === 'es' ? 'es' : 'en'));
+  const tLocal = localTranslations[currentLang] || localTranslations.en;
   const isPouchDomain = getDomain() === 'pouch';
 
   return (
@@ -148,7 +228,7 @@ export default function CompostableCertificationFaqPage() {
           <div className="flex items-center gap-4 mb-6">
             <span className="px-3 py-1 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium border border-primary-500/30 flex items-center gap-2">
               <ShieldCheck className="w-4 h-4" />
-              Technical Engineering Guide
+              {tLocal.techGuideTag}
             </span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -164,7 +244,7 @@ export default function CompostableCertificationFaqPage() {
         
         {/* Pain Points Section */}
         <div className="mb-20">
-          <h2 className="text-3xl font-bold text-neutral-900 mb-8">5 Manufacturing Pain Points & Engineering Solutions</h2>
+          <h2 className="text-3xl font-bold text-neutral-900 mb-8">{tLocal.painPointsTitle}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { title: tLocal.point1Title, desc: tLocal.point1Desc, sol: tLocal.point1Sol, icon: Factory },
@@ -181,7 +261,7 @@ export default function CompostableCertificationFaqPage() {
                 <p className="text-neutral-600 text-sm mb-4">{point.desc}</p>
                 <div className={`p-3 rounded-lg ${isPouchDomain ? 'bg-[#D4FF00]/10 border border-[#D4FF00]/20' : 'bg-primary-50 border border-primary-100'}`}>
                   <p className={`text-sm font-medium ${isPouchDomain ? 'text-neutral-900' : 'text-primary-900'}`}>
-                    <span className="block text-xs uppercase tracking-wider opacity-70 mb-1">Solution</span>
+                    <span className="block text-xs uppercase tracking-wider opacity-70 mb-1">{tLocal.solutionLabel}</span>
                     {point.sol}
                   </p>
                 </div>
@@ -198,26 +278,26 @@ export default function CompostableCertificationFaqPage() {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-neutral-900 text-white">
-                  <th className="p-4 rounded-tl-lg font-semibold">Parameter</th>
-                  <th className="p-4 font-semibold border-l border-neutral-700">Standard Approach</th>
-                  <th className="p-4 rounded-tr-lg font-semibold border-l border-neutral-700">Achieve Pack Engineered</th>
+                  <th className="p-4 rounded-tl-lg font-semibold">{tLocal.tableParam}</th>
+                  <th className="p-4 font-semibold border-l border-neutral-700">{tLocal.tableStd}</th>
+                  <th className="p-4 rounded-tr-lg font-semibold border-l border-neutral-700">{tLocal.tableAchieve}</th>
                 </tr>
               </thead>
               <tbody className="bg-white">
                 <tr className="border-b border-neutral-200">
-                  <td className="p-4 font-medium text-neutral-900">Material Integrity</td>
-                  <td className="p-4 text-neutral-600 border-l border-neutral-200">High failure rate under stress</td>
-                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">Zero-failure structural mapping</td>
+                  <td className="p-4 font-medium text-neutral-900">{tLocal.param1}</td>
+                  <td className="p-4 text-neutral-600 border-l border-neutral-200">{tLocal.param1Std}</td>
+                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">{tLocal.param1Achieve}</td>
                 </tr>
                 <tr className="border-b border-neutral-200">
-                  <td className="p-4 font-medium text-neutral-900">Compliance</td>
-                  <td className="p-4 text-neutral-600 border-l border-neutral-200">Often misses localized FDA/EU requirements</td>
-                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">100% Guaranteed Certification</td>
+                  <td className="p-4 font-medium text-neutral-900">{tLocal.param2}</td>
+                  <td className="p-4 text-neutral-600 border-l border-neutral-200">{tLocal.param2Std}</td>
+                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">{tLocal.param2Achieve}</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-medium text-neutral-900">Unit Cost Impact</td>
-                  <td className="p-4 text-neutral-600 border-l border-neutral-200">High waste yields expensive per-unit cost</td>
-                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">Optimized layout reduces material waste by 14%</td>
+                  <td className="p-4 font-medium text-neutral-900">{tLocal.param3}</td>
+                  <td className="p-4 text-neutral-600 border-l border-neutral-200">{tLocal.param3Std}</td>
+                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">{tLocal.param3Achieve}</td>
                 </tr>
               </tbody>
             </table>
@@ -226,7 +306,7 @@ export default function CompostableCertificationFaqPage() {
 
         {/* FAQs */}
         <div className="max-w-3xl mb-20">
-          <h2 className="text-3xl font-bold text-neutral-900 mb-8">Technical FAQ</h2>
+          <h2 className="text-3xl font-bold text-neutral-900 mb-8">{tLocal.faqTitle}</h2>
           <div className="space-y-4">
             {[
               { q: tLocal.faq1Q, a: tLocal.faq1A },
@@ -254,15 +334,15 @@ export default function CompostableCertificationFaqPage() {
             </div>
             <div>
               <h3 className="text-2xl font-bold mb-2">Ryan Wong</h3>
-              <p className="text-primary-400 font-medium mb-4">Co-Founder & Chief Packaging Engineer</p>
+              <p className="text-primary-400 font-medium mb-4">{tLocal.authorTitle}</p>
               <div className="inline-block bg-white/10 rounded px-3 py-1 text-sm font-mono mb-4 border border-white/20">
-                14+ Years Experience | GRS & FSC Auditing Expert
+                {tLocal.authorExp}
               </div>
               <p className="text-neutral-400 text-sm leading-relaxed mb-6">
-                Specializing in polymer structures, sustainable material transitions, and high-speed VFFS line optimizations. Helping 500+ global brands scale from prototype to industrial production with zero defect tolerances.
+                {tLocal.authorDesc}
               </p>
               <a href="https://calendly.com/achievepack" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-500 text-white font-bold py-3 px-6 rounded-lg transition-colors">
-                Schedule a Packaging Audit
+                {tLocal.ctaSchedule}
               </a>
             </div>
           </div>

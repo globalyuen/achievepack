@@ -12,6 +12,9 @@ const localTranslations = {
     description: "Discover advanced compostable humidity control packaging engineered for industrial applications. Protect sensitive products with sustainable, high-barrier bio-materials designed to maintain optimal moisture levels.",
     heroTitle: "Engineering Sustainable Moisture Management",
     empathyHook: "When migrating to compostable packaging, manufacturers often face a critical dilemma: achieving sustainability without compromising the strict moisture barrier required for product stability. Condensation, desiccation, and premature degradation can jeopardize your entire supply chain.",
+    techGuideTag: "Technical Engineering Guide",
+    painPointsTitle: "5 Manufacturing Pain Points & Engineering Solutions",
+    solutionLabel: "Solution",
     point1Title: "High-Barrier Bio-Polymer Structures",
     point1Desc: "Traditional compostable films often fail at maintaining moisture vapor transmission rates (MVTR). When ambient humidity fluctuates, poorly engineered bio-films allow rapid moisture ingress, leading to product clumping or spoilage.",
     point1Sol: "We utilize multi-layer metallized cellulosic films and advanced bio-polymers that deliver industry-leading MVTR and OTR profiles, ensuring your product remains perfectly conditioned while retaining EN 13432 compostability certification.",
@@ -29,18 +32,38 @@ const localTranslations = {
     point5Sol: "Every layer of our humidity-control packaging, including barrier adhesives and inks, is rigorously tested and certified to ASTM D6400 and EN 13432 standards. You receive uncompromising performance with guaranteed environmental compliance.",
     compTitle: "Uncompromising Moisture Defense vs. Conventional Bio-Plastics",
     compDesc: "While standard compostable bags struggle with moisture vapor transmission, our engineered structures provide a barrier performance that rivals traditional aluminum foil, protecting your sensitive formulas and your brand reputation.",
+    tableParam: "Parameter",
+    tableStd: "Standard Approach",
+    tableAchieve: "Achieve Pack Engineered",
+    param1: "Material Integrity",
+    param1Std: "High failure rate under stress",
+    param1Achieve: "Zero-failure structural mapping",
+    param2: "Compliance",
+    param2Std: "Often misses localized FDA/EU requirements",
+    param2Achieve: "100% Guaranteed Certification",
+    param3: "Unit Cost Impact",
+    param3Std: "High waste yields expensive per-unit cost",
+    param3Achieve: "Optimized layout reduces material waste by 14%",
+    faqTitle: "Technical FAQ",
     faq1Q: "Can compostable packaging match the MVTR of conventional metallized PET or Aluminum?",
     faq1A: "Yes. By utilizing vacuum-deposited aluminum on certified compostable cellulosic substrates, we achieve extremely low Moisture Vapor Transmission Rates that closely rival conventional high-barrier structures, ensuring long shelf life for hygroscopic goods.",
     faq2Q: "Do high-humidity environments trigger premature degradation of the packaging?",
     faq2A: "No. Our compostable films are designed to require the specific conditions of a compost environment (high heat, specific microbes, and sustained moisture) to initiate breakdown. Normal ambient humidity, even in tropical climates, will not compromise the packaging's structural integrity.",
     faq3Q: "How does this affect the operational efficiency on my form-fill-seal (FFS) machines?",
-    faq3A: "Our films are engineered with specific slip properties and stable heat-seal profiles to run seamlessly on existing FFS equipment. You can achieve high-speed throughput without the dragging, sticking, or seal failures common to inferior bio-resins."
+    faq3A: "Our films are engineered with specific slip properties and stable heat-seal profiles to run seamlessly on existing FFS equipment. You can achieve high-speed throughput without the dragging, sticking, or seal failures common to inferior bio-resins.",
+    authorTitle: "Co-Founder & Chief Packaging Engineer",
+    authorExp: "14+ Years Experience | GRS & FSC Auditing Expert",
+    authorDesc: "Specializing in polymer structures, sustainable material transitions, and high-speed VFFS line optimizations. Helping 500+ global brands scale from prototype to industrial production with zero defect tolerances.",
+    ctaSchedule: "Schedule a Packaging Audit"
   },
   es: {
     title: "Control de Humedad en Empaques Compostables | Soluciones B2B",
     description: "Descubra empaques compostables de control de humedad de ingeniería avanzada para aplicaciones industriales. Proteja productos sensibles con biomateriales sostenibles de alta barrera.",
     heroTitle: "Ingeniería Sostenible para el Control de Humedad",
     empathyHook: "Al migrar a empaques compostables, los fabricantes a menudo enfrentan un dilema crítico: lograr la sostenibilidad sin comprometer la estricta barrera de humedad necesaria para la estabilidad del producto. La condensación y degradación prematura pueden poner en riesgo toda su cadena de suministro.",
+    techGuideTag: "Guía Técnica de Ingeniería",
+    painPointsTitle: "5 Puntos de Dolor en la Fabricación y Soluciones de Ingeniería",
+    solutionLabel: "Solución",
     point1Title: "Estructuras de Biopolímeros de Alta Barrera",
     point1Desc: "Las películas compostables tradicionales suelen fallar en mantener las tasas de transmisión de vapor de humedad (MVTR). Cuando la humedad ambiental fluctúa, las biopelículas mal diseñadas permiten el ingreso rápido de humedad, arruinando el producto.",
     point1Sol: "Utilizamos películas celulósicas metalizadas de múltiples capas y biopolímeros avanzados que ofrecen perfiles líderes en la industria de MVTR y OTR, asegurando que su producto se mantenga perfectamente acondicionado mientras conserva la certificación de compostabilidad.",
@@ -58,18 +81,38 @@ const localTranslations = {
     point5Sol: "Cada capa de nuestro empaque con control de humedad, incluidos los adhesivos de barrera y las tintas, está rigurosamente probada y certificada según las normas ASTM D6400 y EN 13432. Usted recibe un rendimiento sin concesiones con cumplimiento ambiental garantizado.",
     compTitle: "Defensa Absoluta Contra la Humedad vs. Bioplásticos Convencionales",
     compDesc: "Mientras que las bolsas compostables estándar luchan con la transmisión de vapor de humedad, nuestras estructuras diseñadas proporcionan un rendimiento de barrera que rivaliza con el papel de aluminio tradicional, protegiendo sus fórmulas sensibles.",
+    tableParam: "Parámetro",
+    tableStd: "Enfoque Estándar",
+    tableAchieve: "Diseñado por Achieve Pack",
+    param1: "Integridad del Material",
+    param1Std: "Alta tasa de fallas bajo esfuerzo",
+    param1Achieve: "Mapeo estructural con cero fallas",
+    param2: "Cumplimiento Normativo",
+    param2Std: "A menudo no cumple con los requisitos locales de FDA/UE",
+    param2Achieve: "Certificación 100% Garantizada",
+    param3: "Impacto en Costo Unitario",
+    param3Std: "Alto desperdicio genera un costo unitario elevado",
+    param3Achieve: "Diseño optimizado reduce el desperdicio de material en un 14%",
+    faqTitle: "Preguntas Frecuentes Técnicas",
     faq1Q: "¿Puede el empaque compostable igualar el MVTR del PET metalizado o el aluminio?",
     faq1A: "Sí. Al utilizar aluminio depositado al vacío sobre sustratos celulósicos compostables certificados, logramos tasas de transmisión de vapor de humedad extremadamente bajas que rivalizan con las estructuras convencionales de alta barrera.",
     faq2Q: "¿Los ambientes de alta humedad provocan la degradación prematura del empaque?",
     faq2A: "No. Nuestras películas compostables están diseñadas para requerir las condiciones específicas de un entorno de compostaje (alto calor, microbios específicos y humedad sostenida) para iniciar la descomposición. La humedad ambiental normal no comprometerá su integridad estructural.",
     faq3Q: "¿Cómo afecta esto la eficiencia operativa en mis máquinas de formado, llenado y sellado (FFS)?",
-    faq3A: "Nuestras películas están diseñadas con propiedades de deslizamiento específicas y perfiles de sellado térmico estables para funcionar sin problemas en equipos FFS existentes, logrando un alto rendimiento sin atascos ni fallas de sellado."
+    faq3A: "Nuestras películas están diseñadas con propiedades de deslizamiento específicas y perfiles de sellado térmico estables para funcionar sin problemas en equipos FFS existentes, logrando un alto rendimiento sin atascos ni fallas de sellado.",
+    authorTitle: "Cofundador e Ingeniero Jefe de Empaques",
+    authorExp: "Más de 14 años de experiencia | Experto en Auditorías GRS y FSC",
+    authorDesc: "Especializado en estructuras de polímeros, transición a materiales sostenibles y optimización de líneas VFFS de alta velocidad. Ayudando a más de 500 marcas globales a escalar del prototipo a la producción industrial sin tolerancias de defectos.",
+    ctaSchedule: "Programar una Auditoría de Empaque"
   },
   fr: {
     title: "Emballage Compostable avec Contrôle d'Humidité | Solutions B2B",
     description: "Découvrez nos emballages compostables à contrôle d'humidité conçus pour les applications industrielles. Protégez vos produits sensibles avec des biomatériaux durables à haute barrière.",
     heroTitle: "Ingénierie Durable pour la Gestion de l'Humidité",
     empathyHook: "Lors de la transition vers des emballages compostables, les fabricants sont souvent confrontés à un dilemme : atteindre la durabilité sans compromettre la barrière contre l'humidité requise pour la stabilité du produit. La condensation et la dégradation prématurée peuvent menacer toute votre chaîne d'approvisionnement.",
+    techGuideTag: "Guide d'Ingénierie Technique",
+    painPointsTitle: "5 Problèmes de Fabrication & Solutions d'Ingénierie",
+    solutionLabel: "Solution",
     point1Title: "Structures Biopolymères à Haute Barrière",
     point1Desc: "Les films compostables traditionnels échouent souvent à maintenir des taux de transmission de la vapeur d'eau (MVTR) adéquats. Lorsque l'humidité ambiante fluctue, les biofilms mal conçus permettent une pénétration rapide de l'humidité.",
     point1Sol: "Nous utilisons des films cellulosiques métallisés multicouches et des biopolymères avancés offrant des profils MVTR et OTR de pointe, garantissant le conditionnement parfait de votre produit tout en conservant la certification de compostabilité EN 13432.",
@@ -87,18 +130,38 @@ const localTranslations = {
     point5Sol: "Chaque couche de notre emballage, y compris les adhésifs barrières et les encres, est rigoureusement testée et certifiée selon les normes ASTM D6400 et EN 13432. Vous obtenez des performances sans compromis avec une conformité garantie.",
     compTitle: "Défense Inflexible Contre l'Humidité vs Bioplastiques Conventionnels",
     compDesc: "Alors que les sacs compostables standards luttent contre la transmission de la vapeur d'eau, nos structures offrent une performance de barrière rivalisant avec la feuille d'aluminium traditionnelle, protégeant ainsi vos formules sensibles.",
+    tableParam: "Paramètre",
+    tableStd: "Approche Standard",
+    tableAchieve: "Conçu par Achieve Pack",
+    param1: "Intégrité du Matériau",
+    param1Std: "Taux de défaillance élevé sous contrainte",
+    param1Achieve: "Cartographie structurelle zéro défaillance",
+    param2: "Conformité",
+    param2Std: "Manque souvent les exigences FDA/UE locales",
+    param2Achieve: "Certification 100 % Garantie",
+    param3: "Impact sur le Coût Unitaire",
+    param3Std: "Le gaspillage élevé entraîne un coût unitaire élevé",
+    param3Achieve: "Mise en page optimisée réduisant le gaspillage de 14 %",
+    faqTitle: "FAQ Technique",
     faq1Q: "Les emballages compostables peuvent-ils égaler le MVTR du PET métallisé ou de l'aluminium ?",
     faq1A: "Oui. En utilisant de l'aluminium déposé sous vide sur des substrats cellulosiques compostables certifiés, nous obtenons des taux de transmission de la vapeur d'eau extrêmement faibles, assurant une longue durée de conservation.",
     faq2Q: "Les environnements très humides déclenchent-ils une dégradation prématurée ?",
     faq2A: "Non. Nos films compostables nécessitent les conditions spécifiques d'un environnement de compostage (forte chaleur, microbes spécifiques et humidité prolongée) pour commencer à se décomposer. L'humidité ambiante normale ne compromettra pas le sachet.",
     faq3Q: "Comment cela affecte-t-il l'efficacité de mes machines de formage-remplissage-scellage (FFS) ?",
-    faq3A: "Nos films sont conçus avec des propriétés de glissement spécifiques et des profils de thermoscellage stables pour fonctionner parfaitement sur les équipements FFS existants. Vous pouvez atteindre un débit élevé sans les problèmes courants des bio-résines inférieures."
+    faq3A: "Nos films sont conçus avec des propriétés de glissement spécifiques et des profils de thermoscellage stables pour fonctionner parfaitement sur les équipements FFS existants. Vous pouvez atteindre un débit élevé sans les problèmes courants des bio-résines inférieures.",
+    authorTitle: "Cofondateur & Ingénieur en Chef de l'Emballage",
+    authorExp: "14+ Ans d'Expérience | Expert en Audit GRS & FSC",
+    authorDesc: "Spécialisé dans les structures polymères, la transition vers des matériaux durables et l'optimisation des lignes VFFS à grande vitesse. Accompagnement de plus de 500 marques mondiales du prototype à la production industrielle.",
+    ctaSchedule: "Planifier un Audit d'Emballage"
   },
   "zh-tw": {
     title: "頂級可堆肥防潮包裝 | B2B 工業解決方案",
     description: "探索專為工業應用設計的先進可堆肥防潮包裝。採用可持續的高阻隔生物材料，完美保護對濕度敏感的產品。",
     heroTitle: "致力於永續發展的先進防潮工程",
     empathyHook: "在轉向可堆肥包裝時，製造商經常面臨一個關鍵的兩難：如何在不影響產品穩定性所需的嚴格防潮阻隔的情況下實現永續性。結露、乾燥和過早降解都可能危及您的整個供應鏈。",
+    techGuideTag: "技術工程指南",
+    painPointsTitle: "5 大製造痛點與工程解決方案",
+    solutionLabel: "解決方案",
     point1Title: "高阻隔生物聚合物結構",
     point1Desc: "傳統的可堆肥薄膜通常無法維持理想的水氣穿透率 (MVTR)。當環境濕度波動時，設計不良的生物薄膜會讓水分迅速滲入，導致產品結塊或變質。",
     point1Sol: "我們採用多層金屬化纖維素薄膜和先進的生物聚合物，提供業界領先的 MVTR 和 OTR (氧氣穿透率) 配置，確保您的產品保持完美狀態，同時保留 EN 13432 可堆肥認證。",
@@ -116,12 +179,29 @@ const localTranslations = {
     point5Sol: "我們防潮包裝的每一層（包括阻隔黏合劑和油墨）都經過嚴格測試，並通過 ASTM D6400 和 EN 13432 標準認證。您將獲得毫不妥協的防護性能與保證的環境合規性。",
     compTitle: "無與倫比的防潮表現 vs. 傳統生物塑膠",
     compDesc: "標準可堆肥袋在對抗水氣穿透方面表現掙扎，而我們精心設計的結構則提供了足以媲美傳統鋁箔的阻隔性能，保護您的敏感配方與品牌聲譽。",
+    tableParam: "評估參數",
+    tableStd: "傳統標準做法",
+    tableAchieve: "Achieve Pack 精密工程",
+    param1: "材料完整性",
+    param1Std: "應力下不良率高",
+    param1Achieve: "零缺陷結構對映",
+    param2: "法規合規性",
+    param2Std: "經常忽略區域性 FDA/歐盟法規要求",
+    param2Achieve: "100% 保證通過認證",
+    param3: "單件成本影響",
+    param3Std: "高損耗率造成高昂的單件成本",
+    param3Achieve: "最佳化排版版面減少 14% 材料浪費",
+    faqTitle: "技術常見問題 (FAQ)",
     faq1Q: "可堆肥包裝能達到傳統金屬化 PET 或鋁箔的 MVTR (水氣穿透率) 嗎？",
     faq1A: "可以。透過在經過認證的可堆肥纖維素基材上進行真空鍍鋁，我們實現了極低的水氣穿透率，足以媲美傳統的高阻隔結構，確保吸濕產品獲得較長的保存期限。",
     faq2Q: "高濕度環境會導致包裝過早降解嗎？",
     faq2A: "不會。我們的可堆肥薄膜經過特殊設計，需要堆肥環境的特定條件（高溫、特定微生物和持續的濕氣）才能開始分解。即使在熱帶氣候中，正常的環境濕度也不會破壞其結構完整性。",
     faq3Q: "這會影響我的自動成型充填封口 (FFS) 機器的運作效率嗎？",
-    faq3A: "我們的薄膜具有特定的滑動特性和穩定的熱封分佈，可在現有的 FFS 設備上順暢運行。您可以實現高速生產，而不會出現劣質生物樹脂常見的拖曳、黏附或密封失敗的問題。"
+    faq3A: "我們的薄膜具有特定的滑動特性和穩定的熱封分佈，可在現有的 FFS 設備上順暢運行。您可以實現高速生產，而不會出現劣質生物樹脂常見的拖曳、黏附或密封失敗的問題。",
+    authorTitle: "共同創辦人兼首席包裝工程師",
+    authorExp: "14 年以上經驗 | GRS 與 FSC 稽核專家",
+    authorDesc: "專精於聚合物結構、永續材料轉型以及高速 VFFS 包裝線最佳化。已協助 500 多個全球品牌實現從原型開發到零缺陷容忍的工業化量產。",
+    ctaSchedule: "預約包裝技術諮詢"
   }
 };
 
@@ -129,9 +209,9 @@ const PAGE_NAME = "CompostableHumidityControlPage";
 
 export default function CompostableHumidityControlPage() {
   const { i18n } = useTranslation();
-  const currentLang = i18n.language || 'en';
-  const tLocalRaw = localTranslations[currentLang as keyof typeof localTranslations];
-  const tLocal: any = (tLocalRaw && Object.keys(tLocalRaw).length > 0) ? tLocalRaw : localTranslations.en;
+  const rawLang = (i18n.language || 'en').toLowerCase();
+  const currentLang = (rawLang === 'zh-tw' || rawLang === 'zh-hant' || rawLang === 'zh' || rawLang === 'zh_tw') ? 'zh-tw' : (rawLang === 'fr' ? 'fr' : (rawLang === 'es' ? 'es' : 'en'));
+  const tLocal = localTranslations[currentLang] || localTranslations.en;
   const isPouchDomain = getDomain() === 'pouch';
 
   return (
@@ -148,7 +228,7 @@ export default function CompostableHumidityControlPage() {
           <div className="flex items-center gap-4 mb-6">
             <span className="px-3 py-1 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium border border-primary-500/30 flex items-center gap-2">
               <ShieldCheck className="w-4 h-4" />
-              Technical Engineering Guide
+              {tLocal.techGuideTag}
             </span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -164,7 +244,7 @@ export default function CompostableHumidityControlPage() {
         
         {/* Pain Points Section */}
         <div className="mb-20">
-          <h2 className="text-3xl font-bold text-neutral-900 mb-8">5 Manufacturing Pain Points & Engineering Solutions</h2>
+          <h2 className="text-3xl font-bold text-neutral-900 mb-8">{tLocal.painPointsTitle}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { title: tLocal.point1Title, desc: tLocal.point1Desc, sol: tLocal.point1Sol, icon: Factory },
@@ -181,7 +261,7 @@ export default function CompostableHumidityControlPage() {
                 <p className="text-neutral-600 text-sm mb-4">{point.desc}</p>
                 <div className={`p-3 rounded-lg ${isPouchDomain ? 'bg-[#D4FF00]/10 border border-[#D4FF00]/20' : 'bg-primary-50 border border-primary-100'}`}>
                   <p className={`text-sm font-medium ${isPouchDomain ? 'text-neutral-900' : 'text-primary-900'}`}>
-                    <span className="block text-xs uppercase tracking-wider opacity-70 mb-1">Solution</span>
+                    <span className="block text-xs uppercase tracking-wider opacity-70 mb-1">{tLocal.solutionLabel}</span>
                     {point.sol}
                   </p>
                 </div>
@@ -198,26 +278,26 @@ export default function CompostableHumidityControlPage() {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-neutral-900 text-white">
-                  <th className="p-4 rounded-tl-lg font-semibold">Parameter</th>
-                  <th className="p-4 font-semibold border-l border-neutral-700">Standard Approach</th>
-                  <th className="p-4 rounded-tr-lg font-semibold border-l border-neutral-700">Achieve Pack Engineered</th>
+                  <th className="p-4 rounded-tl-lg font-semibold">{tLocal.tableParam}</th>
+                  <th className="p-4 font-semibold border-l border-neutral-700">{tLocal.tableStd}</th>
+                  <th className="p-4 rounded-tr-lg font-semibold border-l border-neutral-700">{tLocal.tableAchieve}</th>
                 </tr>
               </thead>
               <tbody className="bg-white">
                 <tr className="border-b border-neutral-200">
-                  <td className="p-4 font-medium text-neutral-900">Material Integrity</td>
-                  <td className="p-4 text-neutral-600 border-l border-neutral-200">High failure rate under stress</td>
-                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">Zero-failure structural mapping</td>
+                  <td className="p-4 font-medium text-neutral-900">{tLocal.param1}</td>
+                  <td className="p-4 text-neutral-600 border-l border-neutral-200">{tLocal.param1Std}</td>
+                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">{tLocal.param1Achieve}</td>
                 </tr>
                 <tr className="border-b border-neutral-200">
-                  <td className="p-4 font-medium text-neutral-900">Compliance</td>
-                  <td className="p-4 text-neutral-600 border-l border-neutral-200">Often misses localized FDA/EU requirements</td>
-                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">100% Guaranteed Certification</td>
+                  <td className="p-4 font-medium text-neutral-900">{tLocal.param2}</td>
+                  <td className="p-4 text-neutral-600 border-l border-neutral-200">{tLocal.param2Std}</td>
+                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">{tLocal.param2Achieve}</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-medium text-neutral-900">Unit Cost Impact</td>
-                  <td className="p-4 text-neutral-600 border-l border-neutral-200">High waste yields expensive per-unit cost</td>
-                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">Optimized layout reduces material waste by 14%</td>
+                  <td className="p-4 font-medium text-neutral-900">{tLocal.param3}</td>
+                  <td className="p-4 text-neutral-600 border-l border-neutral-200">{tLocal.param3Std}</td>
+                  <td className="p-4 text-green-700 font-medium border-l border-neutral-200 bg-green-50/50">{tLocal.param3Achieve}</td>
                 </tr>
               </tbody>
             </table>
@@ -226,7 +306,7 @@ export default function CompostableHumidityControlPage() {
 
         {/* FAQs */}
         <div className="max-w-3xl mb-20">
-          <h2 className="text-3xl font-bold text-neutral-900 mb-8">Technical FAQ</h2>
+          <h2 className="text-3xl font-bold text-neutral-900 mb-8">{tLocal.faqTitle}</h2>
           <div className="space-y-4">
             {[
               { q: tLocal.faq1Q, a: tLocal.faq1A },
@@ -254,15 +334,15 @@ export default function CompostableHumidityControlPage() {
             </div>
             <div>
               <h3 className="text-2xl font-bold mb-2">Ryan Wong</h3>
-              <p className="text-primary-400 font-medium mb-4">Co-Founder & Chief Packaging Engineer</p>
+              <p className="text-primary-400 font-medium mb-4">{tLocal.authorTitle}</p>
               <div className="inline-block bg-white/10 rounded px-3 py-1 text-sm font-mono mb-4 border border-white/20">
-                14+ Years Experience | GRS & FSC Auditing Expert
+                {tLocal.authorExp}
               </div>
               <p className="text-neutral-400 text-sm leading-relaxed mb-6">
-                Specializing in polymer structures, sustainable material transitions, and high-speed VFFS line optimizations. Helping 500+ global brands scale from prototype to industrial production with zero defect tolerances.
+                {tLocal.authorDesc}
               </p>
               <a href="https://calendly.com/achievepack" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-500 text-white font-bold py-3 px-6 rounded-lg transition-colors">
-                Schedule a Packaging Audit
+                {tLocal.ctaSchedule}
               </a>
             </div>
           </div>

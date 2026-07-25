@@ -30,7 +30,7 @@ const PcrPpDuplexClearPage: React.FC = () => {
             />
             <h3 className="text-xl font-bold text-green-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
-              
+              <Recycle className="h-5 w-5 text-green-500" />
               <span className="text-sm text-green-600">{t(`${p}.sections.structureOverview.badge`)}</span>
             </div>
             <div className="grid sm:grid-cols-2 gap-4 mt-4">
