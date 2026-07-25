@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { 
   CheckCircle, Shield, Award, Sparkles, FileText, Download, 
   ArrowRight, RefreshCw, Leaf, Package, Zap, HelpCircle, ExternalLink
@@ -14,9 +15,77 @@ export interface DirectorySubpageProps {
   slugOverride?: string
 }
 
+// Multilingual Subpage Dictionary
+const localSubDict: Record<string, Record<string, string>> = {
+  en: {
+    directoryLink: 'Directory',
+    techSpecTag: '2026 Technical Spec Guide',
+    pdfBtn: 'Generate Full Spec Report PDF',
+    switchBtn: 'Switch to Recyclable PE Alternative →',
+    hookTitle: 'Understanding Your Packaging Constraints',
+    hookText: 'We know how frustrating it is when a batch of fresh product loses shelf life because seal integrity failed under humidity or color fidelity shifted during matte varnish printing. Choosing the right structural substrate and closure is about protecting your brand equity.',
+    painTitle: '5 Packaging Pain Points & Engineering Solutions',
+    notebookTitle: '🔬 From Ryan Wong\'s Engineering Notebook',
+    notebookText: 'In testing over 500 packaging production batches, optimizing seal temperature (145°C for 1.2s) with 355ml reference scale specs (2.6" x 4.8" / 66mm x 122mm) reduced burst rates under 0.01%.',
+    proofsTitle: 'Technical Structure & Visual Proofs',
+    relatedTitle: 'Related Store Products',
+    quoteBtn: 'Configure & Quote →',
+    viewBoxBtn: 'View Box Specs →'
+  },
+  'zh-tw': {
+    directoryLink: '全選項目錄',
+    techSpecTag: '2026 技術規格指南',
+    pdfBtn: '一鍵生成 Full Spec PDF 報告',
+    switchBtn: '切換至可回收 PE 同款袋型 →',
+    hookTitle: '深知您的包裝與生產痛點',
+    hookText: '我們明白當新批次產品因濕度影響封口而縮短保質期，或啞光打印出現色差時是多麼令人沮喪。選擇適當的材質結構與封口，是保護品牌聲譽的關鍵。',
+    painTitle: '5 大包裝痛點與工程解決方案',
+    notebookTitle: '🔬 Ryan Wong 包裝工程師筆記',
+    notebookText: '在超過 500 個生產批次測試中，優化封口溫度 (145°C / 1.2秒) 並結合 355ml 參考罐規格 (2.6" x 4.8" / 66mm x 122mm)，將破袋率降至 0.01% 以下。',
+    proofsTitle: '技術結構與實物視覺對照',
+    relatedTitle: '相關 Store 產品推薦',
+    quoteBtn: '選配與即時報價 →',
+    viewBoxBtn: '查看盒型規格 →'
+  },
+  es: {
+    directoryLink: 'Directorio',
+    techSpecTag: 'Guía de Especificaciones Técnicas 2026',
+    pdfBtn: 'Generar Reporte Full Spec PDF',
+    switchBtn: 'Cambiar a Alternativa PE Reciclable →',
+    hookTitle: 'Comprendiendo sus Desafíos de Empaque',
+    hookText: 'Entendemos lo frustrante que es cuando un lote pierde vida útil por fallas en el sellado bajo humedad. Elegir el sustrato y cierre correcto protege el valor de su marca.',
+    painTitle: '5 Problemas de Empaque y Soluciones de Ingeniería',
+    notebookTitle: '🔬 Cuaderno de Ingeniería de Ryan Wong',
+    notebookText: 'En pruebas de más de 500 lotes, optimizar la temperatura de sellado (145°C por 1.2s) con escala de lata de 355ml redujo la tasa de rotura al 0.01%.',
+    proofsTitle: 'Estructura Técnica y Pruebas Visuales',
+    relatedTitle: 'Productos Relacionados en Tienda',
+    quoteBtn: 'Configurar y Cotizar →',
+    viewBoxBtn: 'Ver Especificaciones de Cajas →'
+  },
+  fr: {
+    directoryLink: 'Répertoire',
+    techSpecTag: 'Guide de Spécifications Techniques 2026',
+    pdfBtn: 'Générer Rapport Full Spec PDF',
+    switchBtn: 'Passer à l\'Alternative PE Recyclable →',
+    hookTitle: 'Comprendre vos Contraintes d\'Emballage',
+    hookText: 'Nous savons à quel point il est frustrant lorsqu\'un lot perd sa durée de conservation à cause d\'un problème de scellage. Choisir le bon matériau et la bonne fermeture protège votre marque.',
+    painTitle: '5 Problèmes d\'Emballage et Solutions d\'Ingénierie',
+    notebookTitle: '🔬 Carnet d\'Ingénierie de Ryan Wong',
+    notebookText: 'Sur plus de 500 lots testés, l\'optimisation de la température de scellage (145°C pendant 1.2s) avec canette de 355ml a réduit le taux de rupture sous 0,01%.',
+    proofsTitle: 'Structure Technique et Preuves Visuelles',
+    relatedTitle: 'Produits Connexes dans la Boutique',
+    quoteBtn: 'Configurer & Devis →',
+    viewBoxBtn: 'Voir Spécifications Boîtes →'
+  }
+}
+
 export const DirectorySubpage: React.FC<DirectorySubpageProps> = ({ slugOverride }) => {
   const { slug: paramsSlug } = useParams<{ slug: string }>()
   const slug = slugOverride || paramsSlug || 'compostable-standup-coffee-pouch'
+  const { i18n } = useTranslation()
+  const lang = (i18n.language || 'en').toLowerCase()
+  const sd = localSubDict[lang] || localSubDict.en
+
   const isPouch = getDomain() === 'pouch'
   const [isSpecModalOpen, setIsSpecModalOpen] = useState(false)
 
@@ -29,12 +98,10 @@ export const DirectorySubpage: React.FC<DirectorySubpageProps> = ({ slugOverride
     desc: 'Comprehensive engineering specification and procurement guide.'
   }
 
-  const title = `${subpage.title} (2026 Technical Spec Guide)`
-
   const content = (
     <div className="min-h-screen bg-neutral-950 text-white font-sans">
       
-      {/* Helmet / Meta Head simulation */}
+      {/* Article Schema */}
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
@@ -52,10 +119,10 @@ export const DirectorySubpage: React.FC<DirectorySubpageProps> = ({ slugOverride
       </script>
 
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 overflow-hidden border-b border-neutral-800 bg-gradient-to-b from-neutral-900 via-neutral-950 to-neutral-950">
+      <section className="relative pt-24 pb-14 overflow-hidden border-b border-neutral-800 bg-gradient-to-b from-neutral-900 via-neutral-950 to-neutral-950">
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="flex items-center gap-2 text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-4">
-            <Link to="/directory" className="hover:underline">Directory</Link>
+            <Link to="/directory" className="hover:underline">{sd.directoryLink}</Link>
             <span>/</span>
             <span className="text-neutral-400">{subpage.category}</span>
           </div>
@@ -78,38 +145,38 @@ export const DirectorySubpage: React.FC<DirectorySubpageProps> = ({ slugOverride
           <div className="flex flex-wrap items-center gap-4">
             <button
               onClick={() => setIsSpecModalOpen(true)}
-              className="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-neutral-950 font-bold rounded-xl shadow-lg shadow-emerald-500/20 transition-all flex items-center gap-2 text-sm"
+              className="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-neutral-950 font-bold rounded-xl shadow-lg shadow-emerald-500/20 transition-all flex items-center gap-2 text-xs"
             >
               <Download className="w-4 h-4" />
-              <span>Generate Full Spec Report PDF</span>
+              <span>{sd.pdfBtn}</span>
             </button>
             <Link
               to="/store/product/eco-standup"
-              className="px-6 py-3 bg-neutral-800 hover:bg-neutral-700 text-white font-semibold rounded-xl border border-neutral-700 transition-all text-sm flex items-center gap-2"
+              className="px-6 py-3 bg-neutral-800 hover:bg-neutral-700 text-white font-semibold rounded-xl border border-neutral-700 transition-all text-xs flex items-center gap-2"
             >
               <RefreshCw className="w-4 h-4 text-emerald-400" />
-              <span>Switch to Recyclable PE Alternative →</span>
+              <span>{sd.switchBtn}</span>
             </Link>
           </div>
         </div>
       </section>
 
       {/* Human-Centric Empathy Hook */}
-      <section className="max-w-4xl mx-auto px-4 py-12">
+      <section className="max-w-4xl mx-auto px-4 py-10">
         <div className="bg-neutral-900/80 border-l-4 border-emerald-500 p-6 rounded-r-2xl shadow-xl">
-          <h2 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-emerald-400" />
-            <span>Understanding Your Packaging Constraints</span>
+          <h2 className="text-base font-bold text-white mb-2 flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-emerald-400" />
+            <span>{sd.hookTitle}</span>
           </h2>
-          <p className="text-sm text-neutral-300 leading-relaxed italic">
-            "We know how frustrating it is when a batch of fresh product loses shelf life because seal integrity failed under humidity or color fidelity shifted during matte varnish printing. Choosing the right structural substrate, surface coating, and valve fitment isn't just about aesthetics — it's about protecting your brand equity and customer satisfaction."
+          <p className="text-xs text-neutral-300 leading-relaxed italic">
+            "{sd.hookText}"
           </p>
         </div>
       </section>
 
       {/* 5 Pain Points & Engineering Solutions */}
       <section className="max-w-7xl mx-auto px-4 py-8">
-        <h2 className="text-2xl font-bold text-white mb-6">5 Packaging Pain Points & Engineering Solutions</h2>
+        <h2 className="text-xl font-bold text-white mb-6">{sd.painTitle}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
             { num: '01', problem: 'Oxygen Ingress & Stale Product', solution: 'High-barrier EVOH / Max Metallized layers keeping OTR < 0.5 cc/m²/24hr.' },
@@ -118,9 +185,9 @@ export const DirectorySubpage: React.FC<DirectorySubpageProps> = ({ slugOverride
             { num: '04', problem: 'VFFS Machine Jamming', solution: 'Calibrated film slip coefficient (COF < 0.2) for high-speed automatic filling.' },
             { num: '05', problem: 'High MOQ Barriers for New Launches', solution: 'Digital print runs starting from 100 pcs with multi-SKU printing.' },
           ].map(item => (
-            <div key={item.num} className="bg-neutral-900 border border-neutral-800 p-6 rounded-xl">
-              <div className="text-emerald-400 font-mono font-bold text-lg mb-2">{item.num}</div>
-              <h3 className="font-bold text-white text-sm mb-2">{item.problem}</h3>
+            <div key={item.num} className="bg-neutral-900 border border-neutral-800 p-5 rounded-xl">
+              <div className="text-emerald-400 font-mono font-bold text-base mb-1.5">{item.num}</div>
+              <h3 className="font-bold text-white text-xs mb-1.5">{item.problem}</h3>
               <p className="text-xs text-neutral-300 leading-relaxed">
                 <strong className="text-emerald-400">✅ Solution:</strong> {item.solution}
               </p>
@@ -132,40 +199,40 @@ export const DirectorySubpage: React.FC<DirectorySubpageProps> = ({ slugOverride
       {/* From Ryan Wong's Engineering Notebook */}
       <section className="max-w-4xl mx-auto px-4 py-8">
         <div className="bg-amber-500/10 border border-amber-500/30 p-6 rounded-2xl">
-          <h3 className="text-base font-bold text-amber-400 mb-2 flex items-center gap-2">
-            <FileText className="w-5 h-5" />
-            <span>🔬 From Ryan Wong's Engineering Notebook</span>
+          <h3 className="text-sm font-bold text-amber-400 mb-2 flex items-center gap-2">
+            <FileText className="w-4 h-4" />
+            <span>{sd.notebookTitle}</span>
           </h3>
           <p className="text-xs text-neutral-300 leading-relaxed font-mono">
-            "In testing over 500 packaging production batches, we found that optimizing seal temperature dwell time (145°C for 1.2s) combined with 355ml reference scale specs (2.6" x 4.8" / 66mm x 122mm) reduced bag burst rates to under 0.01% on high-speed VFFS packaging lines."
+            "{sd.notebookText}"
           </p>
-          <div className="mt-3 text-[11px] text-amber-400/80 font-bold">— Ryan Wong, Co-Founder & Packaging Engineer (14+ Years)</div>
+          <div className="mt-3 text-[11px] text-amber-400/80 font-bold">— Ryan Wong, Co-Founder &amp; Packaging Engineer (14+ Years)</div>
         </div>
       </section>
 
-      {/* Rich Media Showcase */}
+      {/* Technical Visual Proofs */}
       <section className="max-w-7xl mx-auto px-4 py-8">
-        <h2 className="text-2xl font-bold text-white mb-6">Technical Structure & Visual Proofs</h2>
+        <h2 className="text-xl font-bold text-white mb-6">{sd.proofsTitle}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden">
             <img src="/imgs/surface/ads/a_matte_pouch_correct_6361818.webp" alt="Matte Finish Lamination" className="w-full aspect-video object-cover" />
             <div className="p-4">
-              <h4 className="font-bold text-sm text-white mb-1">Matte Finish Surface Treatment</h4>
-              <p className="text-xs text-neutral-400">Non-reflective tactile surface with enhanced anti-scratch coating.</p>
+              <h4 className="font-bold text-xs text-white mb-1">Matte Finish Surface Treatment</h4>
+              <p className="text-[11px] text-neutral-400">Non-reflective tactile surface with enhanced anti-scratch coating.</p>
             </div>
           </div>
           <div className="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden">
             <img src="/imgs/reclose/ads/a_presstoclose_closure_detail_5742103.webp" alt="Press-to-Close Zipper" className="w-full aspect-video object-cover" />
             <div className="p-4">
-              <h4 className="font-bold text-sm text-white mb-1">Resealable Press-to-Close Zipper</h4>
-              <p className="text-xs text-neutral-400">Hermetic seal closure locking in fresh aromas after opening.</p>
+              <h4 className="font-bold text-xs text-white mb-1">Resealable Press-to-Close Zipper</h4>
+              <p className="text-[11px] text-neutral-400">Hermetic seal closure locking in fresh aromas after opening.</p>
             </div>
           </div>
           <div className="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden">
             <img src="/imgs/barrier/ads/a_barrier_levels_7395220.webp" alt="Barrier Levels" className="w-full aspect-video object-cover" />
             <div className="p-4">
-              <h4 className="font-bold text-sm text-white mb-1">38 Canonical Barrier Layers</h4>
-              <p className="text-xs text-neutral-400">Multi-layer barrier preventing moisture and oxygen ingress.</p>
+              <h4 className="font-bold text-xs text-white mb-1">38 Canonical Barrier Layers</h4>
+              <p className="text-[11px] text-neutral-400">Multi-layer barrier preventing moisture and oxygen ingress.</p>
             </div>
           </div>
         </div>
@@ -173,39 +240,39 @@ export const DirectorySubpage: React.FC<DirectorySubpageProps> = ({ slugOverride
 
       {/* Related Store Products */}
       <section className="max-w-7xl mx-auto px-4 py-12 border-t border-neutral-800">
-        <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+        <h2 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
           <Package className="w-5 h-5 text-emerald-400" />
-          <span>Related Store Products</span>
+          <span>{sd.relatedTitle}</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-neutral-900 border border-neutral-800 p-5 rounded-xl flex flex-col justify-between">
             <div>
               <img src="/imgs/store/products/eco-standup-premium.png" alt="Eco Stand-Up Pouch" className="w-full aspect-video object-cover rounded-lg mb-4" />
-              <h3 className="font-bold text-white text-sm mb-1">Eco Digital – Stand Up Pouch</h3>
-              <p className="text-xs text-neutral-400 mb-4">From US$120 for 1,000 pcs (Digital print with custom size).</p>
+              <h3 className="font-bold text-white text-xs mb-1">Eco Digital – Stand Up Pouch</h3>
+              <p className="text-[11px] text-neutral-400 mb-4">From US$120 for 1,000 pcs (Digital print with custom size).</p>
             </div>
             <Link to="/store/product/eco-standup" className="w-full py-2 bg-emerald-500 text-neutral-950 font-bold text-xs rounded-lg text-center hover:bg-emerald-600 transition-colors">
-              Configure & Quote →
+              {sd.quoteBtn}
             </Link>
           </div>
           <div className="bg-neutral-900 border border-neutral-800 p-5 rounded-xl flex flex-col justify-between">
             <div>
               <img src="/imgs/store/products/eco-boxbottom-premium.png" alt="Eco Box Bottom Pouch" className="w-full aspect-video object-cover rounded-lg mb-4" />
-              <h3 className="font-bold text-white text-sm mb-1">Eco Digital – Box Bottom Pouch</h3>
-              <p className="text-xs text-neutral-400 mb-4">From US$170 for 1,000 pcs (5-panel box stability).</p>
+              <h3 className="font-bold text-white text-xs mb-1">Eco Digital – Box Bottom Pouch</h3>
+              <p className="text-[11px] text-neutral-400 mb-4">From US$170 for 1,000 pcs (5-panel box stability).</p>
             </div>
             <Link to="/store/product/eco-boxbottom" className="w-full py-2 bg-emerald-500 text-neutral-950 font-bold text-xs rounded-lg text-center hover:bg-emerald-600 transition-colors">
-              Configure & Quote →
+              {sd.quoteBtn}
             </Link>
           </div>
           <div className="bg-neutral-900 border border-neutral-800 p-5 rounded-xl flex flex-col justify-between">
             <div>
               <img src="/imgs/illustrated/a_achievepack_custom_boxes_6574270.webp" alt="Custom Rigid Box" className="w-full aspect-video object-cover rounded-lg mb-4" />
-              <h3 className="font-bold text-white text-sm mb-1">Custom Rigid Magnetic Gift Box</h3>
-              <p className="text-xs text-neutral-400 mb-4">Luxury rigid gift box with concealed magnetic closure.</p>
+              <h3 className="font-bold text-white text-xs mb-1">Custom Rigid Magnetic Gift Box</h3>
+              <p className="text-[11px] text-neutral-400 mb-4">Luxury rigid gift box with concealed magnetic closure.</p>
             </div>
             <Link to="/directory/custom-rigid-magnetic-boxes" className="w-full py-2 bg-neutral-800 hover:bg-neutral-700 text-white font-bold text-xs rounded-lg text-center transition-colors">
-              View Box Specs →
+              {sd.viewBoxBtn}
             </Link>
           </div>
         </div>
