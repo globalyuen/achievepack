@@ -10,7 +10,7 @@ const AGlossPouchCorrect5078762: React.FC = () => {
       description="Discover high-quality A Gloss Pouch Correct 5078762 packaging for your brand."
     >
       <div className="container mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold mb-6">A Gloss Pouch Correct 5078762 Solutions</h1>
+        <h2 className="text-4xl font-bold mb-6">A Gloss Pouch Correct 5078762 Solutions</h2>
         
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">Pain Points</h2>

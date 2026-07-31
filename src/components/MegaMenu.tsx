@@ -1,5 +1,5 @@
 import { useState, useRef, useMemo, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { ChevronDown, ChevronRight, Layers, Palette, Package, BookOpen, Calendar, FileText, Sparkles, Search, Leaf, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Menu, X, Sprout, Recycle, Gift, Coffee, Layout, DollarSign, Box } from 'lucide-react'
 import { useCustomQuote } from '../contexts/CustomQuoteContext'
 import { LEARN_PAGES } from './LearnNavigation'
@@ -356,12 +356,143 @@ export default function MegaMenu({ hideLearnBlog = false }: MegaMenuProps) {
 
   return (
     <div className="hidden lg:flex items-center w-full justify-between">
-      {/* Left Navigation: SHAPE | CUSTOM | STOCK */}
+      {/* Left Navigation: DIRECTORY | SOLUTIONS | SHAPE | CUSTOM | STOCK */}
       <nav className="flex items-center">
+        {/* SOLUTIONS DIRECTORY MEGA MENU */}
+        <div className="relative" onMouseEnter={() => handleMouseEnter('solutions')} onMouseLeave={handleMouseLeave}>
+          <button className={`flex items-center gap-1 px-2.5 lg:px-3 py-1.5 text-xs lg:text-sm font-bold transition-colors ${activeMenu === 'solutions' ? 'text-emerald-600' : 'text-neutral-700 hover:text-emerald-600'}`}>
+            <Sparkles className="h-3.5 w-3.5 text-emerald-500" />
+            SOLUTIONS
+            <span className="bg-emerald-500/10 text-emerald-600 text-[10px] px-1 py-0.2 rounded font-mono font-bold">50</span>
+            <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'solutions' ? 'rotate-180' : ''}`} />
+          </button>
+          {activeMenu === 'solutions' && (
+            <div className="fixed left-1/2 -translate-x-1/2 top-[88px] pt-2 z-50" onMouseEnter={() => handleMouseEnter('solutions')} onMouseLeave={handleMouseLeave}>
+              <div className="w-[95vw] max-w-[1200px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
+                {(() => {
+                  const langPrefix = typeof window !== 'undefined' && ['fr', 'es', 'zh-tw'].includes(window.location.pathname.split('/')[1])
+                    ? `/${window.location.pathname.split('/')[1]}`
+                    : '';
+                  return (
+                    <div className="grid grid-cols-12">
+                      {/* Left: Solution Categories & Directory Link */}
+                      <div className="col-span-4 lg:col-span-3 bg-neutral-50 p-4 lg:p-5 border-r border-neutral-100 space-y-4">
+                        <div>
+                          <h3 className="text-xs font-bold text-emerald-600 uppercase tracking-wider mb-2 flex items-center gap-1">
+                            <Sparkles className="w-3.5 h-3.5 text-emerald-500" />
+                            <span>Packaging Solutions</span>
+                          </h3>
+                          <Link 
+                            to={`${langPrefix}/solutions`} 
+                            className="inline-flex items-center gap-1 text-xs font-bold text-emerald-700 bg-emerald-100 hover:bg-emerald-200 px-3 py-1.5 rounded-lg w-full justify-between transition-colors mb-3"
+                          >
+                            <span>View All 50 Solution Cases</span>
+                            <ChevronRight className="w-3.5 h-3.5" />
+                          </Link>
+                        </div>
+
+                        <div>
+                          <h4 className="text-[10px] font-bold text-neutral-500 uppercase mb-2">Featured Industry Cases</h4>
+                          <ul className="space-y-1 text-xs font-medium">
+                            <li>
+                              <Link to={`${langPrefix}/solutions/coffee-solid-retail`} className="flex items-center justify-between py-1.5 px-2 rounded-lg text-neutral-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors">
+                                <span>Specialty Coffee Packaging</span>
+                                <span className="text-[10px] text-emerald-600 font-mono">Coffee</span>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to={`${langPrefix}/solutions/pet-food-solid-bulk`} className="flex items-center justify-between py-1.5 px-2 rounded-lg text-neutral-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors">
+                                <span>Bulk Pet Food & Treats</span>
+                                <span className="text-[10px] text-emerald-600 font-mono">Pet Food</span>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to={`${langPrefix}/solutions/beauty-liquid-paste-retail`} className="flex items-center justify-between py-1.5 px-2 rounded-lg text-neutral-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors">
+                                <span>Liquid & Cosmetics Refill</span>
+                                <span className="text-[10px] text-emerald-600 font-mono">Beauty</span>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to={`${langPrefix}/solutions/sports-powder-bulk`} className="flex items-center justify-between py-1.5 px-2 rounded-lg text-neutral-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors">
+                                <span>Whey Protein & Supplements</span>
+                                <span className="text-[10px] text-emerald-600 font-mono">Sports</span>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to={`${langPrefix}/solutions/snacks-solid-retail`} className="flex items-center justify-between py-1.5 px-2 rounded-lg text-neutral-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors">
+                                <span>Retail Snack & Confectionery</span>
+                                <span className="text-[10px] text-emerald-600 font-mono">Snacks</span>
+                              </Link>
+                            </li>
+                          </ul>
+                        </div>
+
+                        <div className="pt-2 border-t border-neutral-200">
+                          <Link
+                            to={`${langPrefix}/solutions-directory`}
+                            className="flex items-center justify-center gap-2 w-full py-2 px-3 bg-neutral-100 text-neutral-700 rounded-lg text-xs font-semibold hover:bg-emerald-50 hover:text-emerald-700 transition-colors mb-2"
+                          >
+                            <Box className="h-4 w-4" />
+                            Explore Tech Directory
+                          </Link>
+                          <button
+                            onClick={openQuoteLightbox}
+                            className="flex items-center justify-center gap-2 w-full py-2 px-3 bg-emerald-600 text-white rounded-lg text-xs font-semibold hover:bg-emerald-700 transition-colors"
+                          >
+                            <Sparkles className="h-4 w-4" />
+                            Custom Packaging Quote
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Right: Solution Showcase Thumbnails */}
+                      <div className="col-span-8 lg:col-span-9 p-4">
+                        <div className="flex items-center justify-between mb-3">
+                          <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider">Solution Visual Showcase</h3>
+                          <Link to={`${langPrefix}/solutions`} className="text-xs font-semibold text-emerald-600 hover:text-emerald-700 flex items-center gap-1">
+                            <span>Explore Full Directory →</span>
+                          </Link>
+                        </div>
+
+                        <div className="grid grid-cols-5 gap-3">
+                          {[
+                            { title: "Specialty Coffee", link: `${langPrefix}/solutions/coffee-solid-retail`, img: "/assets/formula-cases/case-1-hero.jpg", tag: "Coffee" },
+                            { title: "Bulk Pet Food", link: `${langPrefix}/solutions/pet-food-solid-bulk`, img: "/assets/formula-cases/case-2-hero.jpg", tag: "Pet" },
+                            { title: "Cosmetic Liquids", link: `${langPrefix}/solutions/beauty-liquid-paste-retail`, img: "/assets/formula-cases/case-3-hero.jpg", tag: "Beauty" },
+                            { title: "Sports Nutrition", link: `${langPrefix}/solutions/sports-powder-bulk`, img: "/assets/formula-cases/case-4-hero.jpg", tag: "Sports" },
+                            { title: "Retail Snacks", link: `${langPrefix}/solutions/snacks-solid-retail`, img: "/assets/formula-cases/case-5-hero.jpg", tag: "Snacks" },
+                            { title: "Coffee & Tea App", link: `${langPrefix}/solutions/coffee-powder-retail`, img: "/assets/formula-cases/case-1-app.jpg", tag: "Coffee" },
+                            { title: "Household Retail", link: `${langPrefix}/solutions/home-care-powder-retail`, img: "/assets/formula-cases/case-2-app.jpg", tag: "Household" },
+                            { title: "Beverage Liquids", link: `${langPrefix}/solutions/beverages-liquid-paste-retail`, img: "/assets/formula-cases/case-3-app.jpg", tag: "Beverage" },
+                            { title: "Sample Packaging", link: `${langPrefix}/solutions/coffee-powder-sample`, img: "/assets/formula-cases/case-4-app.jpg", tag: "Sample" },
+                            { title: "Health Supplements", link: `${langPrefix}/solutions/sports-solid-retail`, img: "/assets/formula-cases/case-5-app.jpg", tag: "Health" }
+                          ].map((item, idx) => (
+                            <Link key={`sol-nav-${idx}`} to={item.link} className="group block space-y-1.5">
+                              <div className="aspect-[4/3] rounded-lg overflow-hidden bg-neutral-100 border border-neutral-200 group-hover:border-emerald-500 transition-colors relative">
+                                <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                <span className="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-black/70 backdrop-blur-sm text-[9px] font-mono text-emerald-400">
+                                  {item.tag}
+                                </span>
+                              </div>
+                              <p className="text-[11px] font-bold text-neutral-800 group-hover:text-emerald-600 transition-colors truncate">
+                                {item.title}
+                              </p>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })()}
+              </div>
+            </div>
+          )}
+        </div>
+
         {/* SHAPE */}
         <div className="relative" onMouseEnter={() => handleMouseEnter('shape')} onMouseLeave={handleMouseLeave}>
-          <button className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${activeMenu === 'shape' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'}`}>
-            <Layers className="h-4 w-4" />
+          <button className={`flex items-center gap-1 px-2.5 lg:px-3 py-1.5 text-xs lg:text-sm font-bold transition-colors ${activeMenu === 'shape' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'}`}>
+            <Layers className="h-3.5 w-3.5" />
             SHAPE
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'shape' ? 'rotate-180' : ''}`} />
           </button>
@@ -447,8 +578,8 @@ export default function MegaMenu({ hideLearnBlog = false }: MegaMenuProps) {
 
         {/* CUSTOM */}
         <div className="relative" onMouseEnter={() => handleMouseEnter('custom')} onMouseLeave={handleMouseLeave}>
-          <button className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${activeMenu === 'custom' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'}`}>
-            <Palette className="h-4 w-4" />
+          <button className={`flex items-center gap-1 px-2.5 lg:px-3 py-1.5 text-xs lg:text-sm font-bold transition-colors ${activeMenu === 'custom' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'}`}>
+            <Palette className="h-3.5 w-3.5" />
             CUSTOM
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'custom' ? 'rotate-180' : ''}`} />
           </button>
@@ -525,8 +656,8 @@ export default function MegaMenu({ hideLearnBlog = false }: MegaMenuProps) {
 
         {/* STOCK */}
         <div className="relative" onMouseEnter={() => handleMouseEnter('stock')} onMouseLeave={handleMouseLeave}>
-          <button className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${activeMenu === 'stock' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'}`}>
-            <Package className="h-4 w-4" />
+          <button className={`flex items-center gap-1 px-2.5 lg:px-3 py-1.5 text-xs lg:text-sm font-bold transition-colors ${activeMenu === 'stock' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'}`}>
+            <Package className="h-3.5 w-3.5" />
             STOCK
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'stock' ? 'rotate-180' : ''}`} />
           </button>
@@ -605,26 +736,63 @@ export default function MegaMenu({ hideLearnBlog = false }: MegaMenuProps) {
   )
 }
 
+const CATEGORY_ROUTES: Record<string, string> = {
+  company: '/company',
+  packaging: '/packaging',
+  materials: '/materials',
+  industries: '/industry',
+  products: '/products',
+  knowledge: '/knowledge',
+  support: '/support',
+  composting: '/composting',
+  biope: '/biope',
+  pcr: '/pcr',
+  freeService: '/free-service',
+  options: '/options',
+  solutions: '/solutions',
+  topics: '/topics',
+  caseStudies: '/case-studies',
+  function: '/function',
+  lab: '/lab',
+  usa: '/usa',
+  spec: '/spec',
+  recyclable: '/recyclable',
+}
+
 // Separate RightNavMenu component for LEARN | BLOG | FREE
 export function RightNavMenu() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null)
   const [activeCategory, setActiveCategory] = useState<string | null>(null)
   const [hoveredPage, setHoveredPage] = useState<{ name: string; link: string; image: string } | null>(null)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const location = useLocation()
   
-  // Pre-fill Learn menu with random content when it opens
+  // Smart pre-select category based on current URL path or default to materials when opening menu
   useEffect(() => {
-    if (activeMenu === 'resources' && !activeCategory) {
-      const categoryKeys = Object.keys(LEARN_PAGES)
-      const randomCategoryKey = categoryKeys[Math.floor(Math.random() * categoryKeys.length)]
-      setActiveCategory(randomCategoryKey)
-      const category = LEARN_PAGES[randomCategoryKey as keyof typeof LEARN_PAGES]
-      if (category && category.pages.length > 0) {
-        const randomPage = category.pages[Math.floor(Math.random() * category.pages.length)]
-        setHoveredPage(randomPage)
-      }
+    if (activeMenu === 'resources') {
+      setActiveCategory((prevCategory) => {
+        if (prevCategory) return prevCategory; // Keep current activeCategory if already set by user
+        
+        const currentPath = location.pathname
+        let matchedKey: string | null = null
+
+        for (const [key, category] of Object.entries(LEARN_PAGES)) {
+          if (currentPath.includes(key) || category.pages.some(p => p.link === currentPath)) {
+            matchedKey = key
+            break
+          }
+        }
+
+        const categoryKey = matchedKey || 'materials'
+        const category = LEARN_PAGES[categoryKey as keyof typeof LEARN_PAGES]
+        if (category && category.pages.length > 0) {
+          const foundPage = category.pages.find(p => p.link === currentPath) || category.pages[0]
+          setHoveredPage(foundPage)
+        }
+        return categoryKey
+      })
     }
-  }, [activeMenu])
+  }, [activeMenu, location.pathname])
   
   useEffect(() => {
     if (activeMenu !== 'resources') {
@@ -632,6 +800,16 @@ export function RightNavMenu() {
       setHoveredPage(null)
     }
   }, [activeMenu])
+
+  const selectCategory = (key: string) => {
+    setActiveCategory(key)
+    const category = LEARN_PAGES[key as keyof typeof LEARN_PAGES]
+    if (category && category.pages && category.pages.length > 0) {
+      setHoveredPage(category.pages[0])
+    } else {
+      setHoveredPage(null)
+    }
+  }
 
   const handleMouseEnter = (menuId: string) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current)
@@ -644,6 +822,19 @@ export function RightNavMenu() {
 
   return (
     <nav className="flex items-center">
+        {/* DIRECTORY */}
+        <div>
+          <Link 
+            to="/directory" 
+            className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors whitespace-nowrap ${
+              location.pathname === '/directory' ? 'text-primary-600 font-bold' : 'text-neutral-700 hover:text-primary-600'
+            }`}
+          >
+            <Layers className="h-4 w-4 text-emerald-600 flex-shrink-0" size={16} />
+            DIRECTORY
+          </Link>
+        </div>
+
         {/* 3D STUDIO */}
         <div onMouseEnter={() => handleMouseEnter('3d-studio')} onMouseLeave={handleMouseLeave}>
           <Link 
@@ -747,22 +938,27 @@ export function RightNavMenu() {
                       <BookOpen className="h-4 w-4" />
                       Learn Center
                     </h3>
+                    <div className="mb-2 pb-2 border-b border-neutral-100">
+                      <Link
+                        to="/directory"
+                        onClick={() => setActiveMenu(null)}
+                        className="w-full flex items-center justify-between py-1.5 px-2 rounded-lg text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 transition-all text-left border border-emerald-200/70"
+                      >
+                        <span className="flex items-center gap-1.5">
+                          <Layers className="h-3.5 w-3.5 text-emerald-600" />
+                          Tech Directory & Specs
+                        </span>
+                        <span className="text-[9px] bg-emerald-600 text-white px-1.5 py-0.5 rounded font-bold uppercase">480+ Specs</span>
+                      </Link>
+                    </div>
                     <ul className="space-y-0.5">
                       {Object.entries(LEARN_PAGES).map(([key, category]) => (
                         <li key={key}>
                           <button
-                            onMouseEnter={() => { 
-                              setActiveCategory(key); 
-                              const pages = category.pages;
-                              if (pages.length > 0) {
-                                const randomPage = pages[Math.floor(Math.random() * pages.length)];
-                                setHoveredPage(randomPage);
-                              } else {
-                                setHoveredPage(null);
-                              }
-                            }}
-                            className={`w-full flex items-center justify-between py-1.5 px-2 rounded-lg text-xs font-medium transition-all ${
-                              activeCategory === key ? 'bg-primary-100 text-primary-700' : 'text-neutral-700 hover:bg-neutral-100'
+                            type="button"
+                            onClick={() => selectCategory(key)}
+                            className={`w-full flex items-center justify-between py-1.5 px-2 rounded-lg text-xs font-medium transition-all text-left ${
+                              activeCategory === key ? 'bg-primary-100 text-primary-700 font-bold shadow-sm' : 'text-neutral-700 hover:bg-neutral-100'
                             }`}
                           >
                             <span className="flex items-center gap-1.5">
@@ -776,21 +972,32 @@ export function RightNavMenu() {
                     </ul>
                   </div>
 
-                  {/* Middle-Left: Pages of selected category (col-span-3) */}
+                  {/* Middle-Left: Pages of selected category (col-span-3) - HOT TOPICS ONLY */}
                   <div className="col-span-3 p-3 border-r border-neutral-100 max-h-[70vh] overflow-y-auto">
                     {activeCategory && LEARN_PAGES[activeCategory as keyof typeof LEARN_PAGES] ? (
                       <>
-                        <h4 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">
-                          {LEARN_PAGES[activeCategory as keyof typeof LEARN_PAGES].title}
-                        </h4>
-                        <ul className="space-y-0.5">
-                          {LEARN_PAGES[activeCategory as keyof typeof LEARN_PAGES].pages.map((page) => (
+                        <div className="flex items-center justify-between mb-2">
+                          <h4 className="text-xs font-bold text-neutral-500 uppercase tracking-wider flex items-center gap-1">
+                            <Sparkles className="h-3 w-3 text-amber-500" />
+                            Hot Topics ({Math.min(5, LEARN_PAGES[activeCategory as keyof typeof LEARN_PAGES].pages.length)})
+                          </h4>
+                          <Link
+                            to={CATEGORY_ROUTES[activeCategory] || `/learn?category=${activeCategory}`}
+                            onClick={() => setActiveMenu(null)}
+                            className="text-[10px] font-semibold text-primary-600 hover:underline flex items-center gap-0.5"
+                          >
+                            Overview →
+                          </Link>
+                        </div>
+                        <ul className="space-y-0.5 mb-3">
+                          {LEARN_PAGES[activeCategory as keyof typeof LEARN_PAGES].pages.slice(0, 5).map((page) => (
                             <li key={page.link}>
                               <Link
                                 to={page.link}
                                 onMouseEnter={() => setHoveredPage(page)}
+                                onClick={() => setActiveMenu(null)}
                                 className={`block py-1.5 px-2 rounded-lg text-xs transition-all ${
-                                  hoveredPage?.link === page.link ? 'bg-primary-50 text-primary-700' : 'text-neutral-600 hover:bg-neutral-50'
+                                  hoveredPage?.link === page.link ? 'bg-primary-50 text-primary-700 font-medium' : 'text-neutral-600 hover:bg-neutral-50'
                                 }`}
                               >
                                 {page.name}
@@ -798,11 +1005,20 @@ export function RightNavMenu() {
                             </li>
                           ))}
                         </ul>
+                        <div className="pt-2 border-t border-neutral-100">
+                          <Link
+                            to={CATEGORY_ROUTES[activeCategory] || `/learn?category=${activeCategory}`}
+                            onClick={() => setActiveMenu(null)}
+                            className="inline-flex items-center justify-center w-full py-1.5 px-2 bg-neutral-100 hover:bg-primary-50 hover:text-primary-700 text-neutral-700 rounded-lg text-[11px] font-semibold transition-all text-center"
+                          >
+                            Explore All {LEARN_PAGES[activeCategory as keyof typeof LEARN_PAGES].pages.length} Topics in Learn Center →
+                          </Link>
+                        </div>
                       </>
                     ) : (
                       <div className="text-center py-8 text-neutral-400 text-sm">
                         <BookOpen className="h-8 w-8 mx-auto mb-2 opacity-50" />
-                        Hover a category to see pages
+                        Select a category to see hot topics
                       </div>
                     )}
                   </div>
@@ -815,25 +1031,25 @@ export function RightNavMenu() {
                     </h3>
                     <ul className="space-y-0.5 mb-4">
                       <li>
-                        <Link to="/blog" className="flex items-center gap-2 py-1 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
+                        <Link to="/blog" onClick={() => setActiveMenu(null)} className="flex items-center gap-2 py-1 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
                           <ChevronRight className="h-3 w-3 text-neutral-400" />
                           All Articles
                         </Link>
                       </li>
                       <li>
-                        <Link to="/blog?category=Newsletter" className="flex items-center gap-2 py-1 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
+                        <Link to="/blog?category=Newsletter" onClick={() => setActiveMenu(null)} className="flex items-center gap-2 py-1 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
                           <ChevronRight className="h-3 w-3 text-neutral-400" />
                           Newsletter
                         </Link>
                       </li>
                       <li>
-                        <Link to="/blog?category=Packaging" className="flex items-center gap-2 py-1 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
+                        <Link to="/blog?category=Packaging" onClick={() => setActiveMenu(null)} className="flex items-center gap-2 py-1 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
                           <ChevronRight className="h-3 w-3 text-neutral-400" />
                           Packaging Tips
                         </Link>
                       </li>
                       <li>
-                        <Link to="/blog?category=Sustainability" className="flex items-center gap-2 py-1 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
+                        <Link to="/blog?category=Sustainability" onClick={() => setActiveMenu(null)} className="flex items-center gap-2 py-1 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
                           <ChevronRight className="h-3 w-3 text-neutral-400" />
                           Sustainability
                         </Link>
@@ -843,7 +1059,7 @@ export function RightNavMenu() {
                     <ul className="space-y-1.5">
                       {[...blogPosts].sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()).slice(0, 3).map((post) => (
                         <li key={post.id}>
-                          <Link to={`/blog/${post.slug}`} className="block hover:text-primary-600 transition-colors group">
+                          <Link to={`/blog/${post.slug}`} onClick={() => setActiveMenu(null)} className="block hover:text-primary-600 transition-colors group">
                             <span className="text-[10px] text-primary-600 font-medium block">{post.category}</span>
                             <span className="text-xs font-medium text-neutral-800 line-clamp-1 group-hover:text-primary-600 transition-colors">{post.title}</span>
                           </Link>
@@ -868,17 +1084,15 @@ export function RightNavMenu() {
                         </p>
                         <Link
                           to={hoveredPage.link}
-                          className="text-xs text-primary-600 hover:text-primary-700 font-bold flex items-center gap-1"
+                          onClick={() => setActiveMenu(null)}
+                          className="inline-flex items-center gap-1 text-xs font-semibold text-primary-600 hover:text-primary-700 transition-colors"
                         >
                           Read Article →
                         </Link>
                       </div>
                     ) : (
-                      <div className="h-full flex items-center justify-center text-neutral-400 text-sm">
-                        <div className="text-center">
-                          <Search className="h-8 w-8 mx-auto mb-2 opacity-50" />
-                          Hover a page to preview
-                        </div>
+                      <div className="text-center py-8 text-neutral-400 text-xs">
+                        Hover a page to see preview
                       </div>
                     )}
                   </div>
@@ -908,30 +1122,30 @@ export function RightNavMenu() {
           )}
         </div>
 
-        {/* FREE - Glowing Button with Mega Menu */}
-        <div className="ml-2" onMouseEnter={() => handleMouseEnter('free')} onMouseLeave={handleMouseLeave}>
+        {/* APPS - Premium Utilities Button with Mega Menu */}
+        <div className="ml-1" onMouseEnter={() => handleMouseEnter('free')} onMouseLeave={handleMouseLeave}>
           <Link 
             to="/free-service"
-            className={`flex items-center gap-1.5 px-4 py-2 text-sm font-bold rounded-lg transition-all whitespace-nowrap ${
+            className={`flex items-center gap-1 px-3 py-1.5 text-xs lg:text-sm font-extrabold rounded-lg transition-all whitespace-nowrap ${
               activeMenu === 'free' 
-                ? 'bg-green-500 text-white shadow-lg shadow-green-500/50' 
-                : 'bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-lg shadow-green-500/30 hover:shadow-green-500/50 animate-pulse hover:animate-none'
+                ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/50' 
+                : 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md hover:shadow-lg hover:from-emerald-500 hover:to-teal-500'
             }`}
           >
-            <Gift className="h-4 w-4" />
-            FREE
+            <Zap className="h-3.5 w-3.5 text-emerald-200 fill-current" />
+            APPs
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'free' ? 'rotate-180' : ''}`} />
           </Link>
           {activeMenu === 'free' && (
             <div className="fixed left-1/2 -translate-x-1/2 top-[88px] pt-2 z-50 animate-fade-in" onMouseEnter={() => handleMouseEnter('free')} onMouseLeave={handleMouseLeave}>
               <div className="w-[80vw] max-w-[1200px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden font-sans">
                 {/* Header */}
-                <div className="bg-gradient-to-r from-green-500 to-emerald-500 px-6 py-4 text-white">
+                <div className="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 px-6 py-4 text-white">
                   <div className="flex items-center gap-2 mb-1">
-                    <Gift className="h-5 w-5" />
-                    <h3 className="text-lg font-bold">Free B2B Services & Apps</h3>
+                    <Zap className="h-5 w-5 fill-current" />
+                    <h3 className="text-lg font-bold">Interactive Packaging APPs & Utilities</h3>
                   </div>
-                  <p className="text-sm text-white/90">Premium interactive utilities & accelerator tools at absolutely no cost</p>
+                  <p className="text-sm text-white/90">Explore high-performance 3D studio, sizing calculators, & design accelerators</p>
                 </div>
                 
                 {/* Two-column layout */}

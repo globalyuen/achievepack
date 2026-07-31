@@ -251,7 +251,7 @@ const CocktailSpout = () => {
     "@type": "Article",
     "headline": t.heroTitle,
     "description": t.metaDesc,
-    "image": "https://achievepack.com/imgs/topics/cocktail-spout/hero.jpg",
+    "image": "https://achievepack.com/imgs/solutions/solution_cocktail_spout.jpg",
     "author": {
       "@type": "Person",
       "name": "Ryan Wong",
@@ -273,7 +273,7 @@ const CocktailSpout = () => {
         <link rel="canonical" href="https://achievepack.com/topics/cocktail-spout" />
         <meta property="og:title" content={t.metaTitle} />
         <meta property="og:description" content={t.metaDesc} />
-        <meta property="og:image" content="https://achievepack.com/imgs/topics/cocktail-spout/hero.jpg" />
+        <meta property="og:image" content="https://achievepack.com/imgs/solutions/solution_cocktail_spout.jpg" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
       </Helmet>
@@ -286,9 +286,9 @@ const CocktailSpout = () => {
             <Droplet className="w-4 h-4" />
             <span>Precision Liquid Dispensing & Refill Packaging</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-6 leading-tight">
             {t.heroTitle}
-          </h1>
+          </h2>
           <p className="text-lg sm:text-xl text-neutral-300 mb-8 leading-relaxed max-w-3xl">
             {t.heroSubtitle}
           </p>

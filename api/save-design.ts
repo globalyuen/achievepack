@@ -76,6 +76,87 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(500).json({ error: 'Failed to save design.', details: insertErr.message });
     }
 
+    // Send email notification to ryan@achievepack.com
+    const BREVO_API_KEY = process.env.BREVO_API_KEY;
+    if (BREVO_API_KEY) {
+      try {
+        const domainName = (req.headers.host && req.headers.host.includes('pouch.eco')) ? 'pouch.eco' : 'achievepack.com';
+        const shareUrl = `https://${domainName}/studio?code=${code}`;
+        const widthMm = unit === 'inch' ? (width || 6.7) * 25.4 : (width || 170);
+        const heightMm = unit === 'inch' ? (height || 8.25) * 25.4 : (height || 210);
+        const depthMm = unit === 'inch' ? (depth || 1.43) * 25.4 : (depth || 36.4);
+
+        await fetch('https://api.brevo.com/v3/smtp/email', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'api-key': BREVO_API_KEY
+          },
+          body: JSON.stringify({
+            sender: { name: 'AchievePack 3D Studio', email: 'noreply@achievepack.com' },
+            to: [
+              { email: 'ryan@achievepack.com', name: 'Ryan' },
+              { email: 'info@achievepack.com', name: 'AchievePack Admin' }
+            ],
+            subject: `📦 3D Studio Link Generated: Code [${code}]`,
+            htmlContent: `
+              <!DOCTYPE html>
+              <html>
+              <head>
+                <style>
+                  body { font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif; line-height: 1.6; color: #111827; background: #f3f4f6; padding: 20px; }
+                  .card { max-width: 580px; margin: 0 auto; background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+                  .btn { display: inline-block; background: #2563eb; color: #ffffff !important; font-weight: 600; padding: 12px 24px; text-decoration: none; border-radius: 8px; margin-top: 14px; }
+                  .field { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; margin-bottom: 10px; }
+                  .label { font-size: 11px; text-transform: uppercase; color: #64748b; font-weight: 700; }
+                  .val { font-size: 15px; font-weight: 600; color: #0f172a; }
+                  .img-preview { width: 100%; max-width: 500px; border-radius: 8px; border: 1px solid #cbd5e1; margin-top: 10px; }
+                </style>
+              </head>
+              <body>
+                <div class="card">
+                  <h2 style="margin-top:0; color:#0f172a;">📦 New 3D Studio Link Generated</h2>
+                  <p style="color:#475569;">A customer or user generated a shareable 3D design link.</p>
+                  
+                  <div style="text-align: center; margin: 20px 0;">
+                    <div style="font-size: 20px; font-weight: 800; letter-spacing: 2px; color: #2563eb;">CODE: ${code}</div>
+                    <a href="${shareUrl}" class="btn" target="_blank">🚀 View 3D Studio Design</a>
+                    <div style="font-size: 12px; color: #94a3b8; margin-top: 6px;">${shareUrl}</div>
+                  </div>
+
+                  ${req.body?.screenshot ? `<div style="text-align:center;"><img src="${req.body.screenshot}" class="img-preview" alt="3D Screenshot"/></div>` : ''}
+
+                  <div class="field">
+                    <div class="label">Shape Model</div>
+                    <div class="val">${shapeId || 'Standard Pouch'}</div>
+                  </div>
+
+                  <div class="field">
+                    <div class="label">Dimensions</div>
+                    <div class="val">${(widthMm/25.4).toFixed(2)}" x ${(heightMm/25.4).toFixed(2)}" x ${(depthMm/25.4).toFixed(2)}" (${Math.round(widthMm)}mm x ${Math.round(heightMm)}mm x ${Math.round(depthMm)}mm)</div>
+                  </div>
+
+                  <div class="field">
+                    <div class="label">Artwork Layers Count</div>
+                    <div class="val">${Array.isArray(layers) ? layers.length : 1} layer(s)</div>
+                  </div>
+
+                  <div class="field">
+                    <div class="label">Domain & Time</div>
+                    <div class="val">${domainName} • ${new Date().toLocaleString()}</div>
+                  </div>
+                </div>
+              </body>
+              </html>
+            `
+          })
+        });
+      } catch (emailErr: any) {
+        console.error('Failed to trigger Brevo email notification:', emailErr?.message);
+      }
+    }
+
     return res.status(200).json({ success: true, code });
 
   } catch (err: any) {

@@ -154,6 +154,17 @@ export const SURFACE_OPTIONS: SurfaceOption[] = [
     description: 'Reflective metallic appearance for premium positioning'
   },
   {
+    id: 'uv-transfer-metallic',
+    name: '3D UV Transfer Metallic Sticker',
+    img: '/imgs/store/products/custom-uv-transfer-logo-stickers-thumbnail-1.jpg',
+    finish: 'metallic',
+    premium: true,
+    printQuality: 'premium',
+    tactile: true,
+    bestFor: ['Glass jars', 'Metal tins', 'Wood lids', 'Boutique bottles'],
+    description: '3D raised metallic gold & chrome decal with zero background film'
+  },
+  {
     id: 'soft-touch',
     name: 'Soft Touch Finish',
     img: '/imgs/store/surface/soft-touch.webp',

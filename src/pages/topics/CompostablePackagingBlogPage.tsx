@@ -233,9 +233,9 @@ export default function CompostablePackagingBlogPage() {
               {tLocal.heroTag}
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             {tLocal.heroTitle}
-          </h1>
+          </h2>
           <p className="text-xl text-neutral-300 max-w-3xl leading-relaxed">
             {tLocal.empathyHook}
           </p>

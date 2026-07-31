@@ -41,9 +41,9 @@ class ChunkErrorBoundary extends Component<{ children: ReactNode }, { hasError: 
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     // Check if it's a chunk loading error
-    if (error.message.includes('Failed to fetch dynamically imported module') ||
-        error.message.includes('Loading chunk') ||
-        error.message.includes('Loading CSS chunk')) {
+    if (error?.message?.includes('Failed to fetch dynamically imported module') ||
+        error?.message?.includes('Loading chunk') ||
+        error?.message?.includes('Loading CSS chunk')) {
       // Clear cache and reload
       console.log('Chunk loading error detected, reloading page...')
       window.location.reload()
@@ -65,8 +65,8 @@ const lazyWithRetry = (componentImport: () => Promise<any>) =>
       return await componentImport()
     } catch (error: any) {
       // If chunk fails to load, reload the page
-      if (error.message.includes('Failed to fetch dynamically imported module') ||
-          error.message.includes('Loading chunk')) {
+      if (error?.message?.includes('Failed to fetch dynamically imported module') ||
+          error?.message?.includes('Loading chunk')) {
         window.location.reload()
       }
       throw error

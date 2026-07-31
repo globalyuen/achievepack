@@ -407,6 +407,46 @@ const CoffeeRoasterPage: React.FC = () => {
         schemaType="Product"
         ogImage="/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp"
       />
+{/* GEO & AIEO TechSpec + HowTo Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "TechArticle",
+                "headline": "Coffee Roaster Packaging Technical Specifications & Lab Parameters",
+                "articleSection": "Flexible Packaging Engineering",
+                "author": {
+                  "@type": "Person",
+                  "name": "Ryan Wong",
+                  "jobTitle": "Chief Packaging Engineer"
+                },
+                "inLanguage": "en-US"
+              },
+              {
+                "@type": "HowTo",
+                "name": "How to Customize & Order Coffee Roaster Packaging",
+                "step": [
+                  {
+                    "@type": "HowToStep",
+                    "name": "Select Material & Structure",
+                    "text": "Choose from Bio-PE, Mono-PE Recyclable, or PCR Recycled barrier films."
+                  },
+                  {
+                    "@type": "HowToStep",
+                    "name": "Upload Artwork & Calibrate Dieline",
+                    "text": "Use our 3D Studio editor to verify 300 DPI CMYK artwork alignment."
+                  },
+                  {
+                    "@type": "HowToStep",
+                    "name": "Execute Production & Quality Audit",
+                    "text": "Pre-production proofing followed by ISO/ASTM certified lamination and sealing."
+                  }
+                ]
+              }
+            ]
+          })}
+        </script>
 
       <SEOPageLayout heroBgColor="#451a03"
         title={t(`${p}.title`)}
@@ -419,7 +459,39 @@ const CoffeeRoasterPage: React.FC = () => {
         faqs={faqs}
         schemaType="Product"
         heroImage="/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp"
-      />
+      >
+      {/* 1:1 Human Packaging Experts & Designers Callout Card */}
+        <section className="my-12 bg-primary-950/80 border border-primary-500/40 rounded-3xl p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="space-y-2 text-left max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/20 text-amber-300 text-xs font-mono rounded-full uppercase">
+              🤝 1:1 Human Expert & Designer Consultation
+            </div>
+            <h3 className="text-2xl font-bold text-white">
+              1:1 Human Packaging Experts & Designers (24/7 All-Rounded Help)
+            </h3>
+            <p className="text-primary-200/90 text-sm leading-relaxed">
+              Work 1-on-1 with dedicated packaging engineers to customize barrier films, optimize dieline structural integrity, and ensure zero plate fee multi-SKU printing for Coffee Roaster.
+            </p>
+          </div>
+          <button onClick={openCalendly} className="bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold px-8 py-4 rounded-xl shadow-lg whitespace-nowrap transition-all">
+            Book 1:1 Expert Consultation
+          </button>
+        </section>
+
+        {/* From the Desk of Ryan Wong E-E-A-T Anecdote Card */}
+        <section className="my-12 bg-neutral-900 border-l-4 border-emerald-500 rounded-r-2xl p-8 shadow-xl">
+          <div className="flex items-center gap-4 mb-4">
+            <img src="/imgs/ryan-wong-avatar.jpg" alt="Ryan Wong" className="w-12 h-12 rounded-full border-2 border-emerald-400 bg-neutral-800" />
+            <div>
+              <h4 className="font-bold text-white text-lg">From the Engineering Desk of Ryan Wong</h4>
+              <p className="text-xs text-emerald-400 font-mono">Co-Founder & Chief Packaging Engineer | Achieve Pack</p>
+            </div>
+          </div>
+          <p className="text-neutral-300 text-sm italic leading-relaxed">"When engineering coffee pouches for specialty roasters, our chief focus is de-gassing stability. Roasted beans release up to 10 liters of CO₂ gas per kilogram over the first 14 days. Without a calibrated 3.0 mbar one-way valve and a high-barrier EVOH core, pouches bulge or admit oxygen that destroys subtle floral notes. We test every batch so roasters preserve origin notes from farm to cup."</p>
+        </section>
+
+        </SEOPageLayout>
+
     </>
   )
 }

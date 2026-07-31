@@ -137,7 +137,7 @@ const QuotationViewPage: React.FC = () => {
           <div className="flex items-start justify-between mb-8">
             <div>
               <img src="/ap-logo-black.svg" alt="Achieve Pack" className="h-10 mb-4" />
-              <h1 className="text-3xl font-bold">{t(`${p}.quotationTitle`)}</h1>
+              <h2 className="text-3xl font-bold">{t(`${p}.quotationTitle`)}</h2>
               <p className="text-gray-500 text-lg">{batch.quote_number}</p>
             </div>
             <div className="text-right">

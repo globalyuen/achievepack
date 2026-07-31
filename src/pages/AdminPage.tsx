@@ -1966,7 +1966,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
           {activeTab === 'dashboard' && (
             <div className="space-y-4 md:space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                <h1 className="text-xl md:text-2xl font-bold text-gray-900">Dashboard</h1>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">Dashboard</h2>
                 <button
                   onClick={fetchData}
                   className="flex items-center justify-center gap-2 px-4 py-2 bg-white border rounded-lg hover:bg-gray-50 text-sm w-full sm:w-auto"
@@ -2210,7 +2210,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
           {/* Customers Tab */}
           {activeTab === 'customers' && (
             <div className="space-y-4 md:space-y-6">
-              <h1 className="text-xl md:text-2xl font-bold text-gray-900">Customers</h1>
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900">Customers</h2>
               
               <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
                 {/* Mobile Cards View */}
@@ -2310,7 +2310,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
           {/* Orders Tab */}
           {activeTab === 'orders' && (
             <div className="space-y-4 md:space-y-6">
-              <h1 className="text-xl md:text-2xl font-bold text-gray-900">Orders</h1>
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900">Orders</h2>
               
               <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
                 {/* Mobile Cards View */}
@@ -2434,7 +2434,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
           {activeTab === 'documents' && (
             <div className="space-y-4 md:space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                <h1 className="text-xl md:text-2xl font-bold text-gray-900">Documents Management</h1>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">Documents Management</h2>
                 <button
                   onClick={() => setShowUploadModal(true)}
                   className="flex items-center justify-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition text-sm w-full sm:w-auto"
@@ -2556,7 +2556,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
           {activeTab === 'quotes' && (
             <div className="space-y-4 md:space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                <h1 className="text-xl md:text-2xl font-bold text-gray-900">Quotes & RFQ Requests</h1>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">Quotes & RFQ Requests</h2>
                 <button
                   onClick={fetchData}
                   className="flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-lg transition"
@@ -2671,7 +2671,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
           {activeTab === 'quote-management' && (
             <div className="space-y-4 md:space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                <h1 className="text-xl md:text-2xl font-bold text-gray-900">Quote Management</h1>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">Quote Management</h2>
                 <div className="flex items-center gap-2">
                   <Link
                     to="/ctrl-x9k7m/management?tab=quotes"
@@ -2784,7 +2784,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
           {activeTab === 'artwork' && (
             <div className="space-y-4 md:space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                <h1 className="text-xl md:text-2xl font-bold text-gray-900">Artwork Files</h1>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">Artwork Files</h2>
                 <div className="flex items-center gap-2">
                   <Link
                     to="/ctrl-x9k7m/management?tab=artwork"
@@ -2916,7 +2916,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
           {/* Artwork Proof Approval Tab */}
           {activeTab === 'artwork-proof' && (
             <div className="space-y-4 md:space-y-6">
-              <h1 className="text-xl md:text-2xl font-bold text-gray-900">Proof Approval</h1>
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900">Proof Approval</h2>
               <div className="bg-white rounded-xl shadow-sm border p-6">
                 <div className="text-center py-12">
                   <Palette className="h-12 w-12 text-gray-300 mx-auto mb-4" />
@@ -2935,7 +2935,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
           {/* Recycle Bin Tab */}
           {activeTab === 'recycle-bin' && (
             <div className="space-y-4 md:space-y-6">
-              <h1 className="text-xl md:text-2xl font-bold text-gray-900">Recycle Bin</h1>
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900">Recycle Bin</h2>
               <div className="bg-white rounded-xl shadow-sm border p-6">
                 <div className="text-center py-12">
                   <Trash2 className="h-12 w-12 text-gray-300 mx-auto mb-4" />
@@ -2950,7 +2950,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
           {activeTab === 'crm' && (
             <div className="space-y-4 md:space-y-6">
               <div className="flex items-center justify-between">
-                <h1 className="text-xl md:text-2xl font-bold text-gray-900">CRM / Inquiries</h1>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">CRM / Inquiries</h2>
               </div>
               <CRMPanelAdvanced onRefresh={fetchData} />
             </div>
@@ -2974,7 +2974,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
           {/* Settings Tab */}
           {activeTab === 'settings' && (
             <div className="space-y-4 md:space-y-6">
-              <h1 className="text-xl md:text-2xl font-bold text-gray-900">Settings</h1>
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900">Settings</h2>
               <div className="bg-white rounded-xl shadow-sm border p-4 md:p-6">
                 <h2 className="text-base md:text-lg font-semibold mb-4">Admin Information</h2>
                 <div className="space-y-3 md:space-y-4">
@@ -2996,7 +2996,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
             <div className="space-y-4 md:space-y-6">
               <div className="flex items-center gap-3">
                 <Bot className="h-6 w-6 md:h-8 md:w-8 text-primary-600" />
-                <h1 className="text-xl md:text-2xl font-bold text-gray-900">Clawdbot Automation</h1>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">Clawdbot Automation</h2>
               </div>
               
               {/* Status Card */}
@@ -3154,7 +3154,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
           {activeTab === 'newsletter' && (
             <div className="space-y-4 md:space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                <h1 className="text-xl md:text-2xl font-bold text-gray-900">Newsletter Subscribers</h1>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">Newsletter Subscribers</h2>
                 <div className="flex items-center gap-4">
                   <div className="text-xs md:text-sm text-gray-500">
                     <span className="font-semibold text-green-600">{activeSubscribers}</span> active / 
@@ -3282,7 +3282,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
           {activeTab === 'email-marketing' && (
             <div className="space-y-4 md:space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                <h1 className="text-xl md:text-2xl font-bold text-gray-900">Email Marketing</h1>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">Email Marketing</h2>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
                   <button
                     onClick={() => setShowEmailHistory(!showEmailHistory)}

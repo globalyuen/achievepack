@@ -185,9 +185,9 @@ const ForgotPasswordPage: React.FC = () => {
         </Link>
 
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-neutral-900 mb-2">
+          <h2 className="text-3xl font-bold text-neutral-900 mb-2">
             {t(`${p}.title`)}
-          </h1>
+          </h2>
           <p className="text-neutral-600">
             {t(`${p}.subtitle`)}
           </p>

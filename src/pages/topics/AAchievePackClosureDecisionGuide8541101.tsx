@@ -265,7 +265,7 @@ export default function AAchievePackClosureDecisionGuide8541101() {
         </script>
       </Helmet>
       <div className="max-w-4xl mx-auto py-12 px-4">
-        <h1 className="text-4xl font-bold mb-6">{t.title}</h1>
+        <h2 className="text-4xl font-bold mb-6">{t.title}</h2>
         <img src="/imgs/surface/ads/a_achieve_pack_closure_decision_guide_8541101.webp" alt={t.title} className="w-full max-w-lg mx-auto mb-8 rounded-xl shadow-lg" />
         <p className="text-lg mb-8">{t.hook}</p>
         

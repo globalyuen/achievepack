@@ -10,6 +10,12 @@ import KraftPaperFlatBottomBagPage from './pages/topics/KraftPaperFlatBottomBagP
 import CustomStandUpPouchPetFoodPage from './pages/topics/CustomStandUpPouchPetFoodPage'
 import DirectoryPage from './pages/DirectoryPage'
 import ProductSpecDetailPage from './pages/ProductSpecDetailPage'
+import SolutionsPage from './pages/SolutionsPage'
+import { IndustryShowcasePage } from './pages/IndustryShowcasePage'
+import { SolutionsDirectory } from './pages/SolutionsDirectory'
+import { SolutionDetailPage } from './pages/SolutionDetailPage'
+import SolutionsShowcasePage from './pages/SolutionsShowcasePage'
+import CategoryOverviewPage from './pages/CategoryOverviewPage'
 import React, { StrictMode, Suspense, lazy, ComponentType, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom'
@@ -213,6 +219,7 @@ const PremiumPackagingFinishesGuidePage = lazyWithRetry(() => import('./pages/to
 const RecyclablePackagingDesignGuidePage = lazyWithRetry(() => import('./pages/topics/RecyclablePackagingDesignGuidePage'))
 const BpiCertifiedCompostablePouchesPage = lazyWithRetry(() => import('./pages/topics/BpiCertifiedCompostablePouchesPage'))
 const SustainablePackagingCertificationsFaqPage = lazyWithRetry(() => import('./pages/topics/SustainablePackagingCertificationsFaqPage'))
+const CustomUVTransferStickersPage = lazyWithRetry(() => import('./pages/labels/CustomUVTransferStickersPage'));
 const CustomPackagingDesignPatternsPage = lazyWithRetry(() => import('./pages/topics/CustomPackagingDesignPatternsPage'))
 const Ababyfoodherov21781490 = lazyWithRetry(() => import('./pages/topics/ABabyFoodHeroV21781490'));
 const Ababyfoodherov34065437 = lazyWithRetry(() => import('./pages/topics/ABabyFoodHeroV34065437'));
@@ -354,12 +361,37 @@ const Topic7D2800Dc97Da4386B3Eabca29C3A9E05 = lazyWithRetry(() => import('./page
 const Topic99Eeb01Cfafb40E69Ac739051266Ab5A = lazyWithRetry(() => import('./pages/topics/Topic99eeb01cFafb40e69ac739051266ab5a'));
 const Transparentspoutpouchpage = lazyWithRetry(() => import('./pages/topics/TransparentSpoutPouchPage'));
 const Wovenpolypropylenesackpage = lazyWithRetry(() => import('./pages/topics/WovenPolypropyleneSackPage'));
+const FormulaDirectoryPage = lazyWithRetry(() => import('./pages/FormulaDirectoryPage').then(m => ({ default: m.FormulaDirectoryPage })));
+const FormulaShowcasePage = lazyWithRetry(() => import('./pages/FormulaShowcasePage').then(m => ({ default: m.FormulaShowcasePage })));
 
 export const MultilingualRoutes = ({ children }: { children: React.ReactNode }) => {
   const languages = ['fr', 'es', 'zh-tw'];
 
   return (
     <Routes>
+          {/* Tech/Formula Directory Routes (English + Multilingual) */}
+          <Route path="/directory" element={<FormulaDirectoryPage />} />
+          <Route path="/directory/:slug" element={<FormulaShowcasePage />} />
+          <Route path="/fr/directory" element={<FormulaDirectoryPage />} />
+          <Route path="/fr/directory/:slug" element={<FormulaShowcasePage />} />
+          <Route path="/es/directory" element={<FormulaDirectoryPage />} />
+          <Route path="/es/directory/:slug" element={<FormulaShowcasePage />} />
+          <Route path="/zh-tw/directory" element={<FormulaDirectoryPage />} />
+          <Route path="/zh-tw/directory/:slug" element={<FormulaShowcasePage />} />
+
+          {/* Solutions Directory & Case Showcase Routes (English + Multilingual fr/es/zh-tw) */}
+          <Route path="/solutions" element={<SolutionsPage />} />
+          <Route path="/solutions/:slug" element={<IndustryShowcasePage />} />
+          <Route path="/solutions-directory" element={<SolutionsDirectory />} />
+          <Route path="/solutions-directory/:id" element={<SolutionsShowcasePage />} />
+          
+          <Route path="/fr/solutions" element={<SolutionsPage />} />
+          <Route path="/fr/solutions/:slug" element={<IndustryShowcasePage />} />
+          <Route path="/es/solutions" element={<SolutionsPage />} />
+          <Route path="/es/solutions/:slug" element={<IndustryShowcasePage />} />
+          <Route path="/zh-tw/solutions" element={<SolutionsPage />} />
+          <Route path="/zh-tw/solutions/:slug" element={<IndustryShowcasePage />} />
+
           <Route path="/topics/sustainable-flexible-packaging-for-powders" element={<SustainableFlexiblePackagingForPowdersPage />} />
           <Route path="/topics/custom-printed-kraft-paper-sachets-for-herbs" element={<CustomPrintedKraftPaperSachetsForHerbsPage />} />
           <Route path="/topics/freezer-safe-vacuum-packaging" element={<FreezerSafeVacuumPackagingPage />} />
@@ -550,6 +582,26 @@ export const MultilingualRoutes = ({ children }: { children: React.ReactNode }) 
           })}
         </Route>
       ))}
+                  <Route path="/materials" element={<CategoryOverviewPage categoryKey="materials" />} />
+                  <Route path="/packaging" element={<CategoryOverviewPage categoryKey="packaging" />} />
+                  <Route path="/industry" element={<CategoryOverviewPage categoryKey="industries" />} />
+                  <Route path="/solutions-archive" element={<CategoryOverviewPage categoryKey="solutions" />} />
+                  <Route path="/topics" element={<CategoryOverviewPage categoryKey="topics" />} />
+                  <Route path="/composting" element={<CategoryOverviewPage categoryKey="composting" />} />
+                  <Route path="/biope" element={<CategoryOverviewPage categoryKey="biope" />} />
+                  <Route path="/pcr" element={<CategoryOverviewPage categoryKey="pcr" />} />
+                  <Route path="/case-studies" element={<CategoryOverviewPage categoryKey="caseStudies" />} />
+                  <Route path="/function" element={<CategoryOverviewPage categoryKey="function" />} />
+                  <Route path="/free-service" element={<CategoryOverviewPage categoryKey="freeService" />} />
+                  <Route path="/options" element={<CategoryOverviewPage categoryKey="options" />} />
+                  <Route path="/spec" element={<CategoryOverviewPage categoryKey="spec" />} />
+                  <Route path="/recyclable" element={<CategoryOverviewPage categoryKey="recyclable" />} />
+                  <Route path="/support" element={<CategoryOverviewPage categoryKey="support" />} />
+                  <Route path="/knowledge" element={<CategoryOverviewPage categoryKey="knowledge" />} />
+                  <Route path="/usa" element={<CategoryOverviewPage categoryKey="usa" />} />
+                  <Route path="/company" element={<CategoryOverviewPage categoryKey="company" />} />
+                  <Route path="/lab" element={<CategoryOverviewPage categoryKey="lab" />} />
+                  <Route path="/products" element={<CategoryOverviewPage categoryKey="products" />} />
                   <Route path="/topics/pouch-3d-studio-promo" element={<Pouch3dStudioPromo />} />
               <Route path="/topics/feature-pouch-shapes" element={<FeaturePouchShapes />} />
               <Route path="/topics/pouch-fb-hero" element={<PouchFbHero />} />
@@ -1029,8 +1081,10 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/products/custom-compostable-labels': () => import('./pages/products/CustomCompostableLabelsPage'),
   '/products/compostable-side-gusset-bags': () => import('./pages/products/CompostableSideGussetPage'),
   '/solutions/citrus-oil-packaging': () => import('./pages/solutions/CitrusOilPackagingPage'),
+  '/solutions/essential-oil-paper-tube-packaging-guide': () => import('./pages/solutions/EssentialOilPaperTubeGuidePage'),
   '/solutions/catalog': () => import('./pages/solutions/CatalogPage'),
   '/solutions/custom-boxes-catalog': () => import('./pages/solutions/CustomBoxesCatalogPage'),
+  '/packaging/reverse-tuck-end-paper-boxes': () => import('./pages/solutions/ReverseTuckEndBoxPage'),
   '/solutions/flexible-pouches-catalog': () => import('./pages/solutions/FlexiblePouchesCatalogPage'),
   '/solutions/cosmetics-bottles-catalog': () => import('./pages/solutions/CosmeticsBottlesCatalogPage'),
   '/solutions/shapes/:id': () => import('./pages/solutions/ShapeDetailPage'),
@@ -1335,7 +1389,6 @@ const BCorpPage = lazyWithRetry(() => import('./pages/company/BCorpPage'))
 const BPICertifiedPage = lazyWithRetry(() => import('./pages/company/BPICertifiedPage'))
 
 // Knowledge Pages - Lazy loaded
-const DirectoryPage = lazyWithRetry(() => import('./pages/directory/DirectoryPage'))
 const DirectorySubpage = lazyWithRetry(() => import('./pages/directory/DirectorySubpage'))
 const AllOptionsPage = lazyWithRetry(() => import('./pages/knowledge/AllOptionsPage'))
 const SizeGuidePage = lazyWithRetry(() => import('./pages/knowledge/SizeGuidePage'))
@@ -1533,11 +1586,13 @@ const PremiumEcoPackagingComparisonPage = lazyWithRetry(() => import('./pages/pr
 const CustomCorrugatedBoxesPage = lazyWithRetry(() => import('./pages/products/CustomCorrugatedBoxesPage'))
 const CustomTuckBoxesPage = lazyWithRetry(() => import('./pages/products/CustomTuckBoxesPage'))
 const CottonPaperFoilPouchPage = lazyWithRetry(() => import('./pages/products/CottonPaperFoilPouchPage'))
+const EcoKraftPaperTubeGiftBoxPage = lazyWithRetry(() => import('./pages/products/EcoKraftPaperTubeGiftBoxPage'))
 
 // Solutions Pages - Persona Based SEO - Lazy loaded
 const FoodCodingComplianceSolutionsPage = lazyWithRetry(() => import('./pages/solutions/FoodCodingCompliancePage'))
 const PackagingLineAutomationSolutionsPage = lazyWithRetry(() => import('./pages/solutions/PackagingLineAutomationPage'))
 const EcoPackagingCodingPage = lazyWithRetry(() => import('./pages/solutions/EcoPackagingCodingPage'))
+const BioPECoffeeFlatBottomPouchPage = lazyWithRetry(() => import('./pages/solutions/BioPECoffeeFlatBottomPouchPage'))
 const StartupFounderPage = lazyWithRetry(() => import('./pages/solutions/StartupFounderPage'))
 const EcommerceBrandPage = lazyWithRetry(() => import('./pages/solutions/EcommerceBrandPage'))
 const CorporateSustainabilityPage = lazyWithRetry(() => import('./pages/solutions/CorporateSustainabilityPage'))
@@ -1547,11 +1602,44 @@ const CoffeeRoasterPage = lazyWithRetry(() => import('./pages/solutions/CoffeeRo
 const ArtisanProducerPage = lazyWithRetry(() => import('./pages/solutions/ArtisanProducerPage'))
 const SnackBrandManagerPage = lazyWithRetry(() => import('./pages/solutions/SnackBrandManagerPage'))
 const CitrusOilPackagingPage = lazyWithRetry(() => import('./pages/solutions/CitrusOilPackagingPage'))
+const EssentialOilPaperTubeGuidePage = lazyWithRetry(() => import('./pages/solutions/EssentialOilPaperTubeGuidePage'))
 const CatalogPage = lazyWithRetry(() => import('./pages/solutions/CatalogPage'))
 const CustomBoxesCatalogPage = lazyWithRetry(() => import('./pages/solutions/CustomBoxesCatalogPage'))
+const ReverseTuckEndBoxPage = lazyWithRetry(() => import('./pages/solutions/ReverseTuckEndBoxPage'))
 const FlexiblePouchesCatalogPage = lazyWithRetry(() => import('./pages/solutions/FlexiblePouchesCatalogPage'))
 const CosmeticsBottlesCatalogPage = lazyWithRetry(() => import('./pages/solutions/CosmeticsBottlesCatalogPage'))
 const ShapeDetailPage = lazyWithRetry(() => import('./pages/solutions/ShapeDetailPage'))
+const BioPEBathSaltsStandUpPouchPage = lazyWithRetry(() => import('./pages/solutions/BioPEBathSaltsStandUpPouchPage'))
+const BioPEBeefJerkyPillowPouchPage = lazyWithRetry(() => import('./pages/solutions/BioPEBeefJerkyPillowPouchPage'))
+const BioPEColdBrewCoffeeBagPage = lazyWithRetry(() => import('./pages/solutions/BioPEColdBrewCoffeeBagPage'))
+const BioPEGranolaStandUpPouchPage = lazyWithRetry(() => import('./pages/solutions/BioPEGranolaStandUpPouchPage'))
+const BioPEMatchaGreenTeaSachetPage = lazyWithRetry(() => import('./pages/solutions/BioPEMatchaGreenTeaSachetPage'))
+const BioPERoastedNutsQuadSealPage = lazyWithRetry(() => import('./pages/solutions/BioPERoastedNutsQuadSealPage'))
+const CompostableCBDGummyChildResistantPage = lazyWithRetry(() => import('./pages/solutions/CompostableCBDGummyChildResistantPage'))
+const CompostableCosmeticSerumSpoutPage = lazyWithRetry(() => import('./pages/solutions/CompostableCosmeticSerumSpoutPage'))
+const CompostableKraftCoffeeDoypackPage = lazyWithRetry(() => import('./pages/solutions/CompostableKraftCoffeeDoypackPage'))
+const CompostableLiquidSpoutPouchPage = lazyWithRetry(() => import('./pages/solutions/CompostableLiquidSpoutPouchPage'))
+const CompostableLooseLeafTeaDoypackPage = lazyWithRetry(() => import('./pages/solutions/CompostableLooseLeafTeaDoypackPage'))
+const CompostableMicrogreensProducePouchPage = lazyWithRetry(() => import('./pages/solutions/CompostableMicrogreensProducePouchPage'))
+const CompostableProteinBarFlowWrapPage = lazyWithRetry(() => import('./pages/solutions/CompostableProteinBarFlowWrapPage'))
+const CompostableSuperfoodFlatBottomPage = lazyWithRetry(() => import('./pages/solutions/CompostableSuperfoodFlatBottomPage'))
+const CompostableWheyProteinFlatBottomPage = lazyWithRetry(() => import('./pages/solutions/CompostableWheyProteinFlatBottomPage'))
+const MonoPEElectrolytePowderSachetPage = lazyWithRetry(() => import('./pages/solutions/MonoPEElectrolytePowderSachetPage'))
+const MonoPELaundryDetergentPouchPage = lazyWithRetry(() => import('./pages/solutions/MonoPELaundryDetergentPouchPage'))
+const MonoPELiquidSoapSpoutPouchPage = lazyWithRetry(() => import('./pages/solutions/MonoPELiquidSoapSpoutPouchPage'))
+const MonoPESnackChipsPillowPage = lazyWithRetry(() => import('./pages/solutions/MonoPESnackChipsPillowPage'))
+const MonoPPDriedFruitStandUpPage = lazyWithRetry(() => import('./pages/solutions/MonoPPDriedFruitStandUpPage'))
+const PCRRecycledCatFoodGussetPage = lazyWithRetry(() => import('./pages/solutions/PCRRecycledCatFoodGussetPage'))
+const PCRRecycledCoffeeSideGussetPage = lazyWithRetry(() => import('./pages/solutions/PCRRecycledCoffeeSideGussetPage'))
+const PCRRecycledCollagenFlatBottomPage = lazyWithRetry(() => import('./pages/solutions/PCRRecycledCollagenFlatBottomPage'))
+const PCRRecycledPetFoodQuadSealPage = lazyWithRetry(() => import('./pages/solutions/PCRRecycledPetFoodQuadSealPage'))
+const RecyclableMonoPEBabyFoodSpoutPage = lazyWithRetry(() => import('./pages/solutions/RecyclableMonoPEBabyFoodSpoutPage'))
+const RecyclableMonoPEPetTreatGussetPage = lazyWithRetry(() => import('./pages/solutions/RecyclableMonoPEPetTreatGussetPage'))
+const PCRRecycledDriedMushroomFlatBottomPage = lazyWithRetry(() => import('./pages/solutions/PCRRecycledDriedMushroomFlatBottomPage'))
+const BioPESpicePowderSachetPage = lazyWithRetry(() => import('./pages/solutions/BioPESpicePowderSachetPage'))
+const CompostableArtisanChocolateWrapPage = lazyWithRetry(() => import('./pages/solutions/CompostableArtisanChocolateWrapPage'))
+const MonoPEFrozenFruitDoypackPage = lazyWithRetry(() => import('./pages/solutions/MonoPEFrozenFruitDoypackPage'))
+const PCRRecycledSeaSaltFlatBottomPage = lazyWithRetry(() => import('./pages/solutions/PCRRecycledSeaSaltFlatBottomPage'))
 const PackageEditorPage = lazyWithRetry(() => import('./pages/PackageEditorPage'))
 
 // Topics Pages - AI Search Volume SEO - Lazy loaded
@@ -2251,6 +2339,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/directory" element={<DirectoryPage />} />
                   <Route path="/directory/:slug" element={<ProductSpecDetailPage />} />
                   <Route path="/solutions/citrus-oil-packaging" element={<PouchCitrusOilPackagingPage />} />
+                  <Route path="/solutions/essential-oil-paper-tube-packaging-guide" element={<EssentialOilPaperTubeGuidePage />} />
                   <Route path="/seo-guide" element={<PouchSEOPage />} />
                   
                   {/* New SEO Pages */}
@@ -2374,6 +2463,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/products/custom-printed-corrugated-boxes" element={<CustomCorrugatedBoxesPage />} />
                   <Route path="/products/custom-printed-tuck-boxes" element={<CustomTuckBoxesPage />} />
                   <Route path="/products/premium-cotton-paper-foil-pouch" element={<CottonPaperFoilPouchPage />} />
+                  <Route path="/products/eco-kraft-paper-tube-gift-box" element={<EcoKraftPaperTubeGiftBoxPage />} />
                   
                   {/* Legacy pouch.eco routes recovery */}
                   <Route path="/100-compostable-3-side-sealed-pouch-for-drink-liquid-alcohol-etc" element={<DrinkLiquidPouchPage />} />
@@ -2448,6 +2538,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/solutions/food-coding-compliance" element={<FoodCodingComplianceSolutionsPage />} />
                   <Route path="/solutions/packaging-line-automation" element={<PackagingLineAutomationSolutionsPage />} />
                   <Route path="/solutions/eco-packaging-coding" element={<EcoPackagingCodingPage />} />
+                  <Route path="/solutions/bio-pe-coffee-flat-bottom-pouch" element={<BioPECoffeeFlatBottomPouchPage />} />
                   <Route path="/solutions/startup-founder" element={<StartupFounderPage />} />
                   <Route path="/solutions/ecommerce-brand" element={<EcommerceBrandPage />} />
                   <Route path="/solutions/corporate-sustainability" element={<CorporateSustainabilityPage />} />
@@ -2458,9 +2549,41 @@ if (getDomain() === 'pouch') {
                   <Route path="/solutions/snack-brand-manager" element={<SnackBrandManagerPage />} />
                   <Route path="/solutions/catalog" element={<CatalogPage />} />
                   <Route path="/solutions/custom-boxes-catalog" element={<CustomBoxesCatalogPage />} />
+                  <Route path="/packaging/reverse-tuck-end-paper-boxes" element={<ReverseTuckEndBoxPage />} />
                   <Route path="/solutions/flexible-pouches-catalog" element={<FlexiblePouchesCatalogPage />} />
                   <Route path="/solutions/cosmetics-bottles-catalog" element={<CosmeticsBottlesCatalogPage />} />
                   <Route path="/solutions/shapes/:id" element={<ShapeDetailPage />} />
+                  <Route path="/solutions/bio-pe-bath-salts-stand-up-pouch" element={<BioPEBathSaltsStandUpPouchPage />} />
+                  <Route path="/solutions/bio-pe-beef-jerky-pillow-pouch" element={<BioPEBeefJerkyPillowPouchPage />} />
+                  <Route path="/solutions/bio-pe-cold-brew-coffee-bag" element={<BioPEColdBrewCoffeeBagPage />} />
+                  <Route path="/solutions/bio-pe-granola-stand-up-pouch" element={<BioPEGranolaStandUpPouchPage />} />
+                  <Route path="/solutions/bio-pe-matcha-green-tea-sachet" element={<BioPEMatchaGreenTeaSachetPage />} />
+                  <Route path="/solutions/bio-pe-roasted-nuts-quad-seal" element={<BioPERoastedNutsQuadSealPage />} />
+                  <Route path="/solutions/compostable-cbd-gummy-child-resistant" element={<CompostableCBDGummyChildResistantPage />} />
+                  <Route path="/solutions/compostable-cosmetic-serum-spout" element={<CompostableCosmeticSerumSpoutPage />} />
+                  <Route path="/solutions/compostable-kraft-coffee-doypack" element={<CompostableKraftCoffeeDoypackPage />} />
+                  <Route path="/solutions/compostable-liquid-spout-pouch" element={<CompostableLiquidSpoutPouchPage />} />
+                  <Route path="/solutions/compostable-loose-leaf-tea-doypack" element={<CompostableLooseLeafTeaDoypackPage />} />
+                  <Route path="/solutions/compostable-microgreens-produce-pouch" element={<CompostableMicrogreensProducePouchPage />} />
+                  <Route path="/solutions/compostable-protein-bar-flow-wrap" element={<CompostableProteinBarFlowWrapPage />} />
+                  <Route path="/solutions/compostable-superfood-flat-bottom" element={<CompostableSuperfoodFlatBottomPage />} />
+                  <Route path="/solutions/compostable-whey-protein-flat-bottom" element={<CompostableWheyProteinFlatBottomPage />} />
+                  <Route path="/solutions/mono-pe-electrolyte-powder-sachet" element={<MonoPEElectrolytePowderSachetPage />} />
+                  <Route path="/solutions/mono-pe-laundry-detergent-pouch" element={<MonoPELaundryDetergentPouchPage />} />
+                  <Route path="/solutions/mono-pe-liquid-soap-spout-pouch" element={<MonoPELiquidSoapSpoutPouchPage />} />
+                  <Route path="/solutions/mono-pe-snack-chips-pillow" element={<MonoPESnackChipsPillowPage />} />
+                  <Route path="/solutions/mono-pp-dried-fruit-stand-up" element={<MonoPPDriedFruitStandUpPage />} />
+                  <Route path="/solutions/pcr-recycled-cat-food-gusset" element={<PCRRecycledCatFoodGussetPage />} />
+                  <Route path="/solutions/pcr-recycled-coffee-side-gusset" element={<PCRRecycledCoffeeSideGussetPage />} />
+                  <Route path="/solutions/pcr-recycled-collagen-flat-bottom" element={<PCRRecycledCollagenFlatBottomPage />} />
+                  <Route path="/solutions/pcr-recycled-pet-food-quad-seal" element={<PCRRecycledPetFoodQuadSealPage />} />
+                  <Route path="/solutions/recyclable-mono-pe-baby-food-spout" element={<RecyclableMonoPEBabyFoodSpoutPage />} />
+                  <Route path="/solutions/recyclable-mono-pe-pet-treat-gusset" element={<RecyclableMonoPEPetTreatGussetPage />} />
+                  <Route path="/solutions/pcr-recycled-dried-mushroom-flat-bottom" element={<PCRRecycledDriedMushroomFlatBottomPage />} />
+                  <Route path="/solutions/bio-pe-spice-powder-sachet" element={<BioPESpicePowderSachetPage />} />
+                  <Route path="/solutions/compostable-artisan-chocolate-wrap" element={<CompostableArtisanChocolateWrapPage />} />
+                  <Route path="/solutions/mono-pe-frozen-fruit-doypack" element={<MonoPEFrozenFruitDoypackPage />} />
+                  <Route path="/solutions/pcr-recycled-sea-salt-flat-bottom" element={<PCRRecycledSeaSaltFlatBottomPage />} />
                   <Route path="/app" element={<Navigate to="/studio" replace />} />
                   <Route path="/studio" element={<PackageEditorPage />} />
                   <Route path="/case-studies/coffee-roastery" element={<CoffeeRoasteryCaseStudy />} />
@@ -2864,6 +2987,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/products/custom-printed-corrugated-boxes" element={<CustomCorrugatedBoxesPage />} />
                         <Route path="/products/custom-printed-tuck-boxes" element={<CustomTuckBoxesPage />} />
                         <Route path="/products/premium-cotton-paper-foil-pouch" element={<CottonPaperFoilPouchPage />} />
+                        <Route path="/products/eco-kraft-paper-tube-gift-box" element={<EcoKraftPaperTubeGiftBoxPage />} />
 
                         {/* Solutions Pages */}
                         <Route path="/solutions" element={<PouchSolutionsPage />} />
@@ -2877,13 +3001,40 @@ if (getDomain() === 'pouch') {
                         <Route path="/solutions/product-developer" element={<ProductDeveloperPage />} />
                         <Route path="/solutions/catalog" element={<CatalogPage />} />
                         <Route path="/solutions/citrus-oil-packaging" element={<PouchCitrusOilPackagingPage />} />
+                        <Route path="/solutions/essential-oil-paper-tube-packaging-guide" element={<EssentialOilPaperTubeGuidePage />} />
                         <Route path="/solutions/shapes/:id" element={<ShapeDetailPage />} />
                         <Route path="/solutions/food-coding-compliance" element={<FoodCodingComplianceSolutionsPage />} />
                         <Route path="/solutions/packaging-line-automation" element={<PackagingLineAutomationSolutionsPage />} />
                         <Route path="/solutions/eco-packaging-coding" element={<EcoPackagingCodingPage />} />
+                        <Route path="/solutions/bio-pe-coffee-flat-bottom-pouch" element={<BioPECoffeeFlatBottomPouchPage />} />
                         <Route path="/solutions/custom-boxes-catalog" element={<CustomBoxesCatalogPage />} />
+                        <Route path="/packaging/reverse-tuck-end-paper-boxes" element={<ReverseTuckEndBoxPage />} />
                         <Route path="/solutions/flexible-pouches-catalog" element={<FlexiblePouchesCatalogPage />} />
                         <Route path="/solutions/cosmetics-bottles-catalog" element={<CosmeticsBottlesCatalogPage />} />
+                        <Route path="/solutions/bio-pe-bath-salts-stand-up-pouch" element={<BioPEBathSaltsStandUpPouchPage />} />
+                        <Route path="/solutions/bio-pe-beef-jerky-pillow-pouch" element={<BioPEBeefJerkyPillowPouchPage />} />
+                        <Route path="/solutions/bio-pe-granola-stand-up-pouch" element={<BioPEGranolaStandUpPouchPage />} />
+                        <Route path="/solutions/bio-pe-matcha-green-tea-sachet" element={<BioPEMatchaGreenTeaSachetPage />} />
+                        <Route path="/solutions/bio-pe-roasted-nuts-quad-seal" element={<BioPERoastedNutsQuadSealPage />} />
+                        <Route path="/solutions/compostable-cosmetic-serum-spout" element={<CompostableCosmeticSerumSpoutPage />} />
+                        <Route path="/solutions/compostable-kraft-coffee-doypack" element={<CompostableKraftCoffeeDoypackPage />} />
+                        <Route path="/solutions/compostable-liquid-spout-pouch" element={<CompostableLiquidSpoutPouchPage />} />
+                        <Route path="/solutions/compostable-loose-leaf-tea-doypack" element={<CompostableLooseLeafTeaDoypackPage />} />
+                        <Route path="/solutions/compostable-microgreens-produce-pouch" element={<CompostableMicrogreensProducePouchPage />} />
+                        <Route path="/solutions/compostable-protein-bar-flow-wrap" element={<CompostableProteinBarFlowWrapPage />} />
+                        <Route path="/solutions/compostable-superfood-flat-bottom" element={<CompostableSuperfoodFlatBottomPage />} />
+                        <Route path="/solutions/compostable-whey-protein-flat-bottom" element={<CompostableWheyProteinFlatBottomPage />} />
+                        <Route path="/solutions/mono-pe-electrolyte-powder-sachet" element={<MonoPEElectrolytePowderSachetPage />} />
+                        <Route path="/solutions/mono-pe-laundry-detergent-pouch" element={<MonoPELaundryDetergentPouchPage />} />
+                        <Route path="/solutions/mono-pe-liquid-soap-spout-pouch" element={<MonoPELiquidSoapSpoutPouchPage />} />
+                        <Route path="/solutions/mono-pe-snack-chips-pillow" element={<MonoPESnackChipsPillowPage />} />
+                        <Route path="/solutions/mono-pp-dried-fruit-stand-up" element={<MonoPPDriedFruitStandUpPage />} />
+                        <Route path="/solutions/pcr-recycled-cat-food-gusset" element={<PCRRecycledCatFoodGussetPage />} />
+                        <Route path="/solutions/pcr-recycled-coffee-side-gusset" element={<PCRRecycledCoffeeSideGussetPage />} />
+                        <Route path="/solutions/pcr-recycled-collagen-flat-bottom" element={<PCRRecycledCollagenFlatBottomPage />} />
+                        <Route path="/solutions/pcr-recycled-pet-food-quad-seal" element={<PCRRecycledPetFoodQuadSealPage />} />
+                        <Route path="/solutions/recyclable-mono-pe-baby-food-spout" element={<RecyclableMonoPEBabyFoodSpoutPage />} />
+                        <Route path="/solutions/recyclable-mono-pe-pet-treat-gusset" element={<RecyclableMonoPEPetTreatGussetPage />} />
 
                         {/* Free Services */}
                         <Route path="/free-service" element={<FreeServicesPage />} />
@@ -3120,6 +3271,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/products/custom-printed-corrugated-boxes" element={<CustomCorrugatedBoxesPage />} />
                         <Route path="/products/custom-printed-tuck-boxes" element={<CustomTuckBoxesPage />} />
                         <Route path="/products/premium-cotton-paper-foil-pouch" element={<CottonPaperFoilPouchPage />} />
+                        <Route path="/products/eco-kraft-paper-tube-gift-box" element={<EcoKraftPaperTubeGiftBoxPage />} />
                         
                         {/* Legacy pouch.eco routes recovery */}
                         <Route path="/100-compostable-3-side-sealed-pouch-for-drink-liquid-alcohol-etc" element={<DrinkLiquidPouchPage />} />
@@ -3408,6 +3560,8 @@ if (getDomain() === 'pouch') {
               <Route path="/composting/home-vs-industrial-compostable" element={<HomeCompostablePage />} />
               <Route path="/composting/natural-cellulose-fiber" element={<CompostablePage />} />
               <Route path="/composting/organic-compliance-support" element={<OrganicComplianceSupportGuide />} />
+              <Route path="/custom-uv-transfer-logo-stickers" element={<CustomUVTransferStickersPage />} />
+              <Route path="/labels/custom-uv-transfer-logo-stickers" element={<CustomUVTransferStickersPage />} />
 
               <Route path="*" element={<App />} />
                       </MultilingualRoutes>

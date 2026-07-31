@@ -10,7 +10,7 @@ const BiopeKraftDuplexLow: React.FC = () => {
       description="Discover high-quality Biope Kraft Duplex Low packaging for your brand."
     >
       <div className="container mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold mb-6">Biope Kraft Duplex Low Solutions</h1>
+        <h2 className="text-4xl font-bold mb-6">Biope Kraft Duplex Low Solutions</h2>
         
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">Pain Points</h2>

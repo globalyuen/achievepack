@@ -328,6 +328,46 @@ const EcoPackagingCodingPage: React.FC = () => {
         schemaType="Article"
         ogImage="/imgs/store/products/eco-packaging-coding-guide.jpg"
       />
+{/* GEO & AIEO TechSpec + HowTo Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "TechArticle",
+                "headline": "Eco Packaging Coding Packaging Technical Specifications & Lab Parameters",
+                "articleSection": "Flexible Packaging Engineering",
+                "author": {
+                  "@type": "Person",
+                  "name": "Ryan Wong",
+                  "jobTitle": "Chief Packaging Engineer"
+                },
+                "inLanguage": "en-US"
+              },
+              {
+                "@type": "HowTo",
+                "name": "How to Customize & Order Eco Packaging Coding Packaging",
+                "step": [
+                  {
+                    "@type": "HowToStep",
+                    "name": "Select Material & Structure",
+                    "text": "Choose from Bio-PE, Mono-PE Recyclable, or PCR Recycled barrier films."
+                  },
+                  {
+                    "@type": "HowToStep",
+                    "name": "Upload Artwork & Calibrate Dieline",
+                    "text": "Use our 3D Studio editor to verify 300 DPI CMYK artwork alignment."
+                  },
+                  {
+                    "@type": "HowToStep",
+                    "name": "Execute Production & Quality Audit",
+                    "text": "Pre-production proofing followed by ISO/ASTM certified lamination and sealing."
+                  }
+                ]
+              }
+            ]
+          })}
+        </script>
 
       <SEOPageLayout
         heroBgColor="#14532d"
@@ -357,7 +397,25 @@ const EcoPackagingCodingPage: React.FC = () => {
           <h2>Eco Packaging Coding for Compostable and Recyclable Flexible Pouches</h2>
           <p>Topics: EN 13432 compostable ink, APR recyclable ink, RecyClass, TTO resin ribbon, water-based inkjet, UV-curable inkjet, laser etching, EU Green Claims Directive 2024, QR code traceability. Relevant to: compostable kraft bags, mono-PE recyclable pouches, PLA film pouches, BioPE packaging.</p>
         </section>
-      </div>
+      {/* 1:1 Human Packaging Experts & Designers Callout Card */}
+        <section className="my-12 bg-primary-950/80 border border-primary-500/40 rounded-3xl p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="space-y-2 text-left max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/20 text-amber-300 text-xs font-mono rounded-full uppercase">
+              🤝 1:1 Human Expert & Designer Consultation
+            </div>
+            <h3 className="text-2xl font-bold text-white">
+              1:1 Human Packaging Experts & Designers (24/7 All-Rounded Help)
+            </h3>
+            <p className="text-primary-200/90 text-sm leading-relaxed">
+              Work 1-on-1 with dedicated packaging engineers to customize barrier films, optimize dieline structural integrity, and ensure zero plate fee multi-SKU printing for Eco Packaging Coding.
+            </p>
+          </div>
+          <button onClick={openCalendly} className="bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold px-8 py-4 rounded-xl shadow-lg whitespace-nowrap transition-all">
+            Book 1:1 Expert Consultation
+          </button>
+        </section>
+
+        </div>
     </>
   )
 }

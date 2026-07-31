@@ -279,9 +279,9 @@ export default function ShipmentTrackingPage() {
         <div className="bg-white rounded-2xl shadow-sm border p-6 mb-6">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900 mb-1">
+              <h2 className="text-2xl font-bold text-gray-900 mb-1">
                 {t(`${p}.titleCard.shipment`, "Shipment")} {batch.batch_number}
-              </h1>
+              </h2>
               <p className="text-gray-500">
                 {batch.customer_name} • {t(`${p}.titleCard.po`, "PO:")} {batch.customer_po}
               </p>

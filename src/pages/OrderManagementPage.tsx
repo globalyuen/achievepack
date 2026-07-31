@@ -1618,7 +1618,7 @@ const OrderManagementPage: React.FC = () => {
               <div className="flex flex-col gap-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h1 className="text-2xl font-bold text-gray-900">{t(`${p}.websiteOrders`)}</h1>
+                    <h2 className="text-2xl font-bold text-gray-900">{t(`${p}.websiteOrders`)}</h2>
                     <p className="text-sm text-gray-500 mt-1">{t(`${p}.manageRfqStoreOrdersFromWebsit`)}</p>
                   </div>
                   <button
@@ -1931,7 +1931,7 @@ const OrderManagementPage: React.FC = () => {
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
-                    <h1 className="text-xl sm:text-2xl font-bold text-gray-900">{t(`${p}.artworkFiles`)}</h1>
+                    <h2 className="text-xl sm:text-2xl font-bold text-gray-900">{t(`${p}.artworkFiles`)}</h2>
                     <p className="text-sm text-gray-500 mt-1">{t(`${p}.reviewAndManageCustomerArtwork`)}</p>
                   </div>
                   <div className="flex items-center gap-2">
@@ -2373,7 +2373,7 @@ const OrderManagementPage: React.FC = () => {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">{t(`${p}.projects`)}</h1>
+                  <h2 className="text-2xl font-bold text-gray-900">{t(`${p}.projects`)}</h2>
                   <p className="text-sm text-gray-500 mt-1">{t(`${p}.unifiedOrderTrackingAcrossAllC`)}</p>
                 </div>
                 <div className="flex items-center gap-2">
@@ -2556,7 +2556,7 @@ const OrderManagementPage: React.FC = () => {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">{t(`${p}.customers`)}</h1>
+                  <h2 className="text-2xl font-bold text-gray-900">{t(`${p}.customers`)}</h2>
                   <p className="text-sm text-gray-500 mt-1">{t(`${p}.manageAllRegisteredCustomerAcc`)}</p>
                 </div>
                 <button
@@ -2650,7 +2650,7 @@ const OrderManagementPage: React.FC = () => {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">{t(`${p}.productionJobs`)}</h1>
+                  <h2 className="text-2xl font-bold text-gray-900">{t(`${p}.productionJobs`)}</h2>
                   <p className="text-sm text-gray-500 mt-1">{t(`${p}.trackManufacturingProgressAndM`)}</p>
                 </div>
                 <div className="flex items-center gap-2">
@@ -2787,7 +2787,7 @@ const OrderManagementPage: React.FC = () => {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">{t(`${p}.shippingRecords`)}</h1>
+                  <h2 className="text-2xl font-bold text-gray-900">{t(`${p}.shippingRecords`)}</h2>
                   <p className="text-sm text-gray-500 mt-1">{t(`${p}.trackShipmentsAndManageDeliver`)}</p>
                 </div>
                 <div className="flex items-center gap-2">
@@ -2932,7 +2932,7 @@ const OrderManagementPage: React.FC = () => {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">{t(`${p}.bin`)}</h1>
+                  <h2 className="text-2xl font-bold text-gray-900">{t(`${p}.bin`)}</h2>
                   <p className="text-sm text-gray-500 mt-1">{t(`${p}.recoverAccidentallyDeletedItem`)}</p>
                 </div>
                 <button

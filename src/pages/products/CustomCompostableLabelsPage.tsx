@@ -35,14 +35,21 @@ const CustomCompostableLabelsPage: React.FC = () => {
 
   const navigateGallery = (direction: 'prev' | 'next') => {
     if (!galleryEnlarged) return
-    let newIndex = direction === 'prev' ? galleryEnlarged.index - 1 : galleryEnlarged.index + 1
+    const currentIndex = galleryEnlarged.index < 0 ? 0 : galleryEnlarged.index
+    let newIndex = direction === 'prev' ? currentIndex - 1 : currentIndex + 1
     if (newIndex < 0) newIndex = fullGallery.length - 1
     if (newIndex >= fullGallery.length) newIndex = 0
-    setGalleryEnlarged({ src: fullGallery[newIndex].src, index: newIndex })
+    const item = fullGallery[newIndex]
+    if (item) {
+      setGalleryEnlarged({ src: item.src, index: newIndex })
+    }
   }
 
-  const pouchKeywords = t('seoPages.pages.customCompostableLabels.pouch.seo.keywords', { returnObjects: true }) as string[]
-  const achieveKeywords = t('seoPages.pages.customCompostableLabels.achievePack.seo.keywords', { returnObjects: true }) as string[]
+  const pouchKeywordsRaw = t('seoPages.pages.customCompostableLabels.pouch.seo.keywords', { returnObjects: true })
+  const pouchKeywords: string[] = Array.isArray(pouchKeywordsRaw) ? (pouchKeywordsRaw as string[]) : []
+
+  const achieveKeywordsRaw = t('seoPages.pages.customCompostableLabels.achievePack.seo.keywords', { returnObjects: true })
+  const achieveKeywords: string[] = Array.isArray(achieveKeywordsRaw) ? (achieveKeywordsRaw as string[]) : []
 
   // ----------------------------------------------------
   // DUAL DOMAIN RENDERING BRANCH (1): pouch.eco
@@ -904,9 +911,11 @@ const CustomCompostableLabelsPage: React.FC = () => {
             onClick={(e) => e.stopPropagation()}
           />
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white text-center max-w-xl px-4">
-            <p className="font-bold text-lg">{fullGallery[galleryEnlarged.index]?.title}</p>
-            <p className="text-sm text-white/80 mt-1 leading-relaxed">{fullGallery[galleryEnlarged.index]?.desc}</p>
-            <p className="text-xs text-white/50 mt-2 font-mono">{galleryEnlarged.index + 1} / {fullGallery.length}</p>
+            <p className="font-bold text-lg">{fullGallery[galleryEnlarged.index]?.title || ''}</p>
+            <p className="text-sm text-white/80 mt-1 leading-relaxed">{fullGallery[galleryEnlarged.index]?.desc || ''}</p>
+            {galleryEnlarged.index >= 0 && (
+              <p className="text-xs text-white/50 mt-2 font-mono">{galleryEnlarged.index + 1} / {fullGallery.length}</p>
+            )}
           </div>
         </div>
       )}

@@ -2045,7 +2045,7 @@ const ArtworkBatchesPage: React.FC = () => {
                 e.stopPropagation()
                 handleTogglePinItem(item)
               }}
-              className={`absolute top-1.5 left-1.5 z-25 p-1 rounded bg-white/90 border border-gray-100 shadow-sm transition-all ${
+              className={`absolute top-1.5 left-1.5 z-30 p-1 rounded bg-white/90 border border-gray-100 shadow-sm transition-all ${
                 isPinned 
                   ? 'text-amber-500 opacity-100' 
                   : 'text-gray-400 opacity-0 group-hover:opacity-100 hover:text-amber-500'

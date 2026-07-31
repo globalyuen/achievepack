@@ -149,9 +149,9 @@ export default function FlexibleSachetSourcingForPowdersPage() {
       <section className="bg-neutral-900 text-white py-16 md:py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)', backgroundSize: '24px 24px' }} />
         <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             {tLocal.heroTitle}
-          </h1>
+          </h2>
           <p className="text-xl text-neutral-300 max-w-3xl leading-relaxed">
             {tLocal.empathyHook}
           </p>

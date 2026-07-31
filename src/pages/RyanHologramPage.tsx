@@ -311,8 +311,8 @@ const RyanHologramPage = () => {
             <div className="space-y-4">
               {/* Big Bold Headline */}
               <div className="relative inline-block">
-                <h1 className="text-6xl md:text-8xl font-black tracking-tight text-[#2d2a24] leading-[0.9] font-['Outfit']">
-                  {t(`${p}.ryan`)}<br />{t(`${p}.wong`)}</h1>
+                <h2 className="text-6xl md:text-8xl font-black tracking-tight text-[#2d2a24] leading-[0.9] font-['Outfit']">
+                  {t(`${p}.ryan`)}<br />{t(`${p}.wong`)}</h2>
 
                 {/* Iconic -5deg Tilted Orange Sticker Banner */}
                 <div className="absolute -bottom-4 right-[-40px] md:right-[-60px] transform rotate-[-5deg] bg-[#ff8400] text-white px-4 py-1.5 text-xs font-black uppercase tracking-widest shadow-md rounded border border-white">

@@ -662,12 +662,12 @@ export default function PouchCertificationsPage() {
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20 mb-6">
                   <Shield className="w-3.5 h-3.5" /> {t('pouchCertificationsPage.hero.badge', 'VERIFIED_COMPLIANCE')}
                 </span>
-                <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight leading-tight">
+                <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight leading-tight">
                   {t('pouchCertificationsPage.hero.titleLine1', 'Verified Packaging')}<br/>
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-300">
                     {t('pouchCertificationsPage.hero.titleLine3', 'Certifications & Compliance')}
                   </span>
-                </h1>
+                </h2>
                 <p className="text-lg md:text-xl text-neutral-400 mb-8 max-w-2xl leading-relaxed">
                   {t('pouchCertificationsPage.hero.subtitle', 'Third-party verified certifications for composting, food safety, and circular recycling. We provide all official receipts with your order.')}
                 </p>

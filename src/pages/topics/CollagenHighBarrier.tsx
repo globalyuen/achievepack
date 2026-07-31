@@ -101,9 +101,9 @@ export default function CollagenHighBarrier() {
             <Sparkles className="w-4 h-4" />
             <span>Nutraceutical High-Barrier Packaging</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-6 leading-tight">
             {t.heroTitle}
-          </h1>
+          </h2>
           <p className="text-lg sm:text-xl text-neutral-300 mb-8 leading-relaxed">
             {t.heroSubtitle}
           </p>

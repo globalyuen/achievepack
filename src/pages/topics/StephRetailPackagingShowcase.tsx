@@ -111,7 +111,7 @@ export default function StephRetailPackagingShowcase({ language = 'en' }: { lang
       </div>
 
       <div className="max-w-4xl mx-auto py-12 px-4">
-        <h1 className="text-4xl font-bold mb-6">{t.title}</h1>
+        <h2 className="text-4xl font-bold mb-6">{t.title}</h2>
         <ClickableImage src="/imgs/testimonials/owner/Steph.png" alt={t.title} className="w-full rounded-xl mb-8" />
         
         <p className="text-lg text-gray-700 mb-8">{t.hook}</p>

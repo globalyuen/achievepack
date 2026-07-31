@@ -179,7 +179,7 @@ const RFQGeneratorPage: React.FC = () => {
             <div className="bg-black text-white p-1">
               <Sparkles className="h-6 w-6" />
             </div>
-            <h1 className="text-4xl font-black italic uppercase tracking-tighter">{t(`${p}.aiRfqGenerator`)}</h1>
+            <h2 className="text-4xl font-black italic uppercase tracking-tighter">{t(`${p}.aiRfqGenerator`)}</h2>
           </div>
           <p className="text-neutral-500 font-medium">{t(`${p}.pasteRawTextToGenerateASupplie`)}</p>
         </header>

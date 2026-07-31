@@ -273,19 +273,23 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
           </div>
           
           {/* Bottom Row: Left menus + LOGO center + Right menus */}
-          <div className="hidden lg:flex items-center justify-between h-14">
-            {/* Left Navigation: SHAPE | CUSTOM | STOCK */}
-            <MegaMenu hideLearnBlog={hideLearnBlog} />
+          <div className="hidden lg:flex items-center justify-between gap-2 h-14 relative">
+            {/* Left Navigation: SOLUTIONS | SHAPE | CUSTOM | STOCK */}
+            <div className="flex-1 flex items-center justify-start min-w-0">
+              <MegaMenu hideLearnBlog={hideLearnBlog} />
+            </div>
             
-            {/* Center Logo - Bigger */}
-            <div className="absolute left-1/2 -translate-x-1/2">
+            {/* Center Logo - Flex-shrink-0 */}
+            <div className="flex-shrink-0 px-2 lg:px-4">
               <Link to="/" className="flex items-center">
-                <img src="/ap-logo.svg" alt="Achieve Pack Logo" className="h-12 w-auto" loading="eager" decoding="async" width="160" height="48" />
+                <img src="/ap-logo.svg" alt="Achieve Pack Logo" className="h-10 lg:h-11 w-auto" loading="eager" decoding="async" width="140" height="44" />
               </Link>
             </div>
             
-            {/* Right Navigation: LEARN | BLOG | FREE */}
-            {!hideLearnBlog && <RightNavMenu />}
+            {/* Right Navigation: LEARN | BLOG | APPS */}
+            <div className="flex-1 flex items-center justify-end min-w-0">
+              {!hideLearnBlog && <RightNavMenu />}
+            </div>
           </div>
           
           {/* Mobile Layout */}
@@ -314,14 +318,13 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
               >
                 <ShoppingCart className="h-5 w-5 text-white" />
               </Link>
-              {/* Glowing FREE Button - Links to /free page */}
+              {/* APPs Button - Links to /free-service page */}
               <Link
-                to="/free"
-                className="relative w-11 h-11 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center hover:from-green-600 hover:to-emerald-600 transition-all shadow-lg animate-pulse active:scale-95"
-                style={{ boxShadow: '0 0 15px rgba(16, 185, 129, 0.6)' }}
+                to="/free-service"
+                className="relative w-11 h-11 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 flex items-center justify-center hover:from-emerald-500 hover:to-teal-500 transition-all shadow-md active:scale-95"
+                title="Packaging APPs & Studio"
               >
-                <Gift className="h-5 w-5 text-white" />
-                <span className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 text-[8px] font-bold text-yellow-900 rounded-full flex items-center justify-center animate-bounce">!</span>
+                <Zap className="h-5 w-5 text-white fill-current" />
               </Link>
               {/* Hamburger Menu Button - 44px touch target */}
               <button
@@ -349,6 +352,11 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
       <div className={`lg:hidden fixed top-16 right-0 bottom-0 z-50 w-full max-w-sm bg-white shadow-2xl transform transition-transform duration-300 ease-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="h-full flex flex-col">
           <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 pb-24">
+            {/* Directory Link */}
+            <Link to="/directory" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 w-full text-left text-base font-bold text-emerald-800 py-3 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 active:bg-emerald-200 border border-emerald-200 shadow-sm">
+              📂 Technical Spec & Solutions Directory
+            </Link>
+
             {/* Shop Section */}
             <Link to="/store" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 w-full text-left text-base font-semibold text-neutral-900 py-3 px-2 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
               🛒 Shop All Products
@@ -397,11 +405,11 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
               </div>
             )}
 
-            {/* FREE Services Section - Larger touch targets */}
+            {/* Packaging APPs Section */}
             {!hideLearnBlog && (
               <div className="border-t border-neutral-100 pt-3">
-                <p className="text-xs font-bold text-green-600 uppercase mb-2 px-2 flex items-center gap-1">
-                  <Gift className="h-3 w-3" /> FREE Services & Apps
+                <p className="text-xs font-bold text-emerald-600 uppercase mb-2 px-2 flex items-center gap-1">
+                  <Zap className="h-3 w-3 fill-current text-emerald-500" /> Packaging APPs & Utilities
                 </p>
                 <div className="grid grid-cols-2 gap-1">
                   <Link to="/size-guide" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">

@@ -862,9 +862,9 @@ export default function PouchTechSpecsPage() {
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-6">
                 <FlaskConical className="w-3.5 h-3.5" /> Technical Data Sheets v2.0
               </span>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight leading-tight">
+              <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight leading-tight">
                 Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">Specification Hub</span>
-              </h1>
+              </h2>
               <p className="text-lg md:text-xl text-neutral-400 mb-8 max-w-2xl leading-relaxed">
                 A comprehensive engineering directory of our sustainable material structures, barrier performance metrics, and regulatory certifications. Designed for rigorous compliance and circular economy standards.
               </p>

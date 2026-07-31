@@ -10,7 +10,7 @@ const EcoPackagingRegulationsSeoInfographic: React.FC = () => {
       description="Discover high-quality Eco Packaging Regulations Seo Infographic packaging for your brand."
     >
       <div className="container mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold mb-6">Eco Packaging Regulations Seo Infographic Solutions</h1>
+        <h2 className="text-4xl font-bold mb-6">Eco Packaging Regulations Seo Infographic Solutions</h2>
         
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">Pain Points</h2>

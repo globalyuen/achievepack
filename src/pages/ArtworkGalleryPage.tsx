@@ -273,7 +273,7 @@ const ArtworkGalleryPage: React.FC = () => {
             <div className="w-16 h-16 bg-purple-500/10 border border-purple-500/25 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-purple-500/5">
               <Lock className="h-8 w-8 text-purple-400 animate-pulse" />
             </div>
-            <h1 className="text-2xl font-bold text-slate-100 tracking-tight">Protected Artwork Gallery</h1>
+            <h2 className="text-2xl font-bold text-slate-100 tracking-tight">Protected Artwork Gallery</h2>
             <p className="text-slate-400 text-sm mt-2">Enter the access passcode to view the collection:</p>
             <p className="text-purple-400 text-xs font-semibold mt-1 bg-purple-500/5 border border-purple-500/10 rounded-full px-3 py-1 inline-block">
               {batch.batch_name}
@@ -332,12 +332,12 @@ const ArtworkGalleryPage: React.FC = () => {
             <img src="/ap-logo.svg" alt="AchievePack" className="h-8 w-auto filter brightness-200" />
             <div className="h-6 w-px bg-slate-800 hidden sm:block"></div>
             <div>
-              <h1 className="font-bold text-slate-100 tracking-tight flex items-center gap-2">
+              <h2 className="font-bold text-slate-100 tracking-tight flex items-center gap-2">
                 <span>{batch.batch_name}</span>
                 <span className="text-xs px-2 py-0.5 bg-purple-500/10 border border-purple-500/20 text-purple-400 rounded-full font-semibold">
                   Gallery Showcase
                 </span>
-              </h1>
+              </h2>
               <p className="text-xs text-slate-400 hidden sm:block">
                 View & download production ready files • {items.length} files total
               </p>
@@ -370,7 +370,7 @@ const ArtworkGalleryPage: React.FC = () => {
           <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="max-w-2xl">
               <span className="text-xs font-bold text-purple-400 uppercase tracking-widest bg-purple-500/10 px-2.5 py-1 rounded-md">Shared Portfolio</span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100 mt-3 tracking-tight">Artwork & Die-line Presentation</h2>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100 mt-3 tracking-tight">Artwork & Die-line & Document Viewer</h2>
               <p className="text-slate-400 text-sm mt-2 leading-relaxed">
                 Welcome to your visual presentation portal. You can view, search, zoom into details, and download the absolute highest resolution source files for review below.
               </p>
@@ -484,6 +484,7 @@ const ArtworkGalleryPage: React.FC = () => {
             {filteredItems.map((item, index) => {
               const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url) || /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.name)
               const isVideo = /\.(mp4|mov|webm|ogg|m4v)$/i.test(item.file_url) || /\.(mp4|mov|webm|ogg|m4v)$/i.test(item.name)
+              const isPdf = /\.(pdf)$/i.test(item.file_url) || /\.(pdf)$/i.test(item.name)
               const section = item.ai_analysis?.section_name || 'Uncategorized'
               
               return (
@@ -509,6 +510,16 @@ const ArtworkGalleryPage: React.FC = () => {
                           playsInline
                           className="w-full h-full object-contain bg-black group-hover:scale-105 transition-transform duration-505 pointer-events-none"
                         />
+                      ) : isPdf ? (
+                        <div className="w-full h-full bg-white relative group-hover:scale-105 transition-transform duration-505 flex items-center justify-center overflow-hidden">
+                          {/* Transparent overlay to block interaction but allow rendering */}
+                          <div className="absolute inset-0 z-10" />
+                          <iframe
+                            src={`${item.file_url}#toolbar=0&navpanes=0&scrollbar=0`}
+                            title={item.name}
+                            className="w-full h-full border-0"
+                          />
+                        </div>
                       ) : (
                         <div className="flex flex-col items-center justify-center p-6 text-center">
                           <FileText className="h-14 w-14 text-slate-700 mb-3" />
@@ -604,6 +615,7 @@ const ArtworkGalleryPage: React.FC = () => {
               const section = item.ai_analysis?.section_name || 'Uncategorized'
               const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url) || /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.name)
               const isVideo = /\.(mp4|mov|webm|ogg|m4v)$/i.test(item.file_url) || /\.(mp4|mov|webm|ogg|m4v)$/i.test(item.name)
+              const isPdf = /\.(pdf)$/i.test(item.file_url) || /\.(pdf)$/i.test(item.name)
               
               return (
                 <div 
@@ -620,6 +632,15 @@ const ArtworkGalleryPage: React.FC = () => {
                           <img src={item.file_url} alt={item.name} className="w-full h-full object-contain" />
                         ) : isVideo ? (
                           <video src={item.file_url} preload="metadata" muted playsInline className="w-full h-full object-contain bg-black" />
+                        ) : isPdf ? (
+                          <div className="w-full h-full bg-white flex items-center justify-center overflow-hidden pointer-events-none">
+                            <iframe 
+                              src={`${item.file_url}#toolbar=0&navpanes=0&scrollbar=0`}
+                              title={item.name}
+                              className="w-[150%] h-[150%] border-0 pointer-events-none origin-top-left transform scale-[0.67]" 
+                              sandbox="allow-same-origin allow-scripts"
+                            />
+                          </div>
                         ) : (
                           <FileText className="h-5 w-5 text-slate-500" />
                         )
@@ -750,6 +771,12 @@ const ArtworkGalleryPage: React.FC = () => {
                     controls
                     autoPlay
                     className="max-h-full max-w-full object-contain bg-black rounded-xl"
+                  />
+                ) : /\.(pdf)$/i.test(selectedLightboxItem.file_url) || /\.(pdf)$/i.test(selectedLightboxItem.name) ? (
+                  <iframe 
+                    src={`${selectedLightboxItem.file_url}#toolbar=0&navpanes=0`} 
+                    className="w-full h-full max-w-5xl rounded-xl bg-white shadow-2xl"
+                    title={selectedLightboxItem.name}
                   />
                 ) : (
                   <div className="bg-slate-900 border border-slate-800 rounded-3xl p-12 text-center max-w-md shadow-2xl animate-scale-up">

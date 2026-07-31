@@ -188,7 +188,7 @@ const SupplierHubPage: React.FC = () => {
       <div className="min-h-screen bg-[#fcfcfc] text-black flex items-center justify-center p-4 font-sans">
         <div className="max-w-md w-full border-4 border-black p-8 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
           <CheckCircle className="h-16 w-16 text-green-600 mb-6 mx-auto" />
-          <h1 className="text-3xl font-black mb-4 text-center italic uppercase">{t(`${p}.submitSuccess`)}</h1>
+          <h2 className="text-3xl font-black mb-4 text-center italic uppercase">{t(`${p}.submitSuccess`)}</h2>
           <p className="text-neutral-600 mb-8 text-center font-medium">{t(`${p}.submitSuccessDesc`)}</p>
           <button 
             onClick={() => window.location.reload()}
@@ -207,7 +207,7 @@ const SupplierHubPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="bg-black text-white font-black p-1 text-xs">ACHIEVE</div>
-            <h1 className="text-xl font-black italic uppercase tracking-tighter hidden sm:block">{t(`${p}.supplierQuotePortal`)}</h1>
+            <h2 className="text-xl font-black italic uppercase tracking-tighter hidden sm:block">{t(`${p}.supplierQuotePortal`)}</h2>
           </div>
           <div className="flex items-center gap-4">
             <span className="text-[10px] font-black uppercase text-neutral-400">{t(`${p}.currentSupplier`)}</span>

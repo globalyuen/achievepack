@@ -539,9 +539,8 @@ const ProductPage: React.FC = () => {
       '/imgs/store/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp',
       '/imgs/store/eco-digital/vxuLNp13OWRZXhe-qkwn3UgHCWirk5TzBLhB7q8JJ30=.webp',
       '/imgs/store/eco-digital/wXqLssPqdR9J0iDhIyQ-NGTDDFm-3DgFKlyQD4ipsEw=.webp',
-      '/imgs/store/eco-digital/zwwZAmSiOHouQPEkkT_Wwz5rhX13CtgkT8LqvNnoJ5w=.webp'
     ]
-  }, [product])
+  }, [(product as any)?.shape])
 
   const isSheetProduct = !!(
     (product?.name.toLowerCase().includes('paper') && 
@@ -1863,7 +1862,7 @@ const ProductPage: React.FC = () => {
             {/* Right Column - Product Options */}
             <div className="space-y-6 lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-120px)] lg:overflow-y-auto pr-1">
               {product.badge && <span className="inline-block bg-primary-100 text-primary-700 text-xs sm:text-sm px-3 sm:px-4 py-1 rounded-full font-medium">{product.badge}</span>}
-              <h1 className="text-2xl sm:text-3xl font-bold text-neutral-900">{product.name}</h1>
+              <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900">{product.name}</h2>
               
               <div className="flex items-center gap-2">
                 <div className="flex">
@@ -2439,7 +2438,7 @@ const ProductPage: React.FC = () => {
             {/* Right Column - Product Options */}
             <div className="space-y-6 lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-120px)] lg:overflow-y-auto pr-1">
               {product.badge && <span className="inline-block bg-green-100 text-green-700 text-sm px-4 py-1 rounded-full font-medium">{product.badge}</span>}
-              <h1 className="text-3xl font-bold text-neutral-900">{product.name}</h1>
+              <h2 className="text-3xl font-bold text-neutral-900">{product.name}</h2>
               
               <div className="flex items-center gap-2">
                 <div className="flex">
@@ -4182,7 +4181,7 @@ const ProductPage: React.FC = () => {
             )}
             
             {product.badge && <span className="inline-block bg-primary-100 text-primary-700 text-sm px-4 py-1 rounded-full font-medium">{product.badge}</span>}
-            <h1 className="text-2xl sm:text-3xl font-bold text-neutral-900">{product.name}</h1>
+            <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900">{product.name}</h2>
             
             <div className="flex items-center gap-2">
               <div className="flex">

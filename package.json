@@ -17,6 +17,9 @@
     "update:sitemap": "node scripts/sync-route-mapping.js && npx tsx scripts/generate-sitemaps.ts && node scripts/update-sitemap.cjs",
     "update:feed": "npx tsx scripts/generate-product-feed.ts",
     "monitor:gsc": "node scripts/monitor-gsc.cjs",
+    "audit-pages": "node scripts/audit-site-integrity.cjs",
+    "seo:total-solution": "node scripts/total-seo-solution.cjs",
+    "deploy:smart": "node scripts/smart-vercel-deploy.cjs",
     "seo:audit": "npm run update:sitemap && npm run update:feed && npm run monitor:gsc"
   },
   "dependencies": {

@@ -389,9 +389,9 @@ const CheckoutPage: React.FC = () => {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-2">
+        <h2 className="text-3xl font-bold mb-2">
           {isRfqMode ? t(`${p}.pageTitleRfq`) : t(`${p}.pageTitleCheckout`)}
-        </h1>
+        </h2>
         {isRfqMode && (
           <p className="text-neutral-600 mb-8">
             {t(`${p}.rfqDesc`)}

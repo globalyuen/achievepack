@@ -9,7 +9,7 @@ const MatchaSachet: React.FC = () => {
   const { t } = useTranslation()
 
   const IMAGES = {
-    hero: '/imgs/topics/matcha-sachet/hero.jpg',
+    hero: '/imgs/solutions/solution_matcha_sachet.jpg',
     process: '/imgs/topics/matcha-sachet/process.jpg',
     comparison: '/imgs/topics/matcha-sachet/comparison.jpg'
   }

@@ -19,6 +19,9 @@ import WorkCarousel from './WorkCarousel'
 import KnowHowCarousel from './KnowHowCarousel'
 import FactoryQCValidationBlock from './FactoryQCValidationBlock'
 import RelatedProductsShowcase from './RelatedProductsShowcase'
+import B2BSpecPillBar from './seo/B2BSpecPillBar'
+import PainPointSolutionGrid from './seo/PainPointSolutionGrid'
+import BeforeAfterComparison from './seo/BeforeAfterComparison'
 
 // Category icons for Learn Menu
 const CATEGORY_ICONS: Record<string, React.ReactNode> = {
@@ -279,22 +282,35 @@ const SEOPageHeader: React.FC = () => {
                   <BookOpen className="h-4 w-4" />
                   Learn Center
                 </h3>
+                <div className="mb-2 pb-2 border-b border-neutral-200">
+                  <Link
+                    to="/directory"
+                    onClick={() => setActiveMenu(null)}
+                    className="w-full flex items-center justify-between py-1.5 px-2 rounded-lg text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 transition-all text-left border border-emerald-200/80"
+                  >
+                    <span className="flex items-center gap-1.5">
+                      <Layers className="h-3.5 w-3.5 text-emerald-600" />
+                      Tech Directory & Specs
+                    </span>
+                    <span className="text-[9px] bg-emerald-600 text-white px-1.5 py-0.5 rounded font-bold uppercase">480+ Specs</span>
+                  </Link>
+                </div>
                 <ul className="space-y-0.5">
                   {Object.entries(LEARN_PAGES).map(([key, category]) => (
                     <li key={key}>
                       <button
-                        onMouseEnter={() => { 
+                        type="button"
+                        onClick={() => { 
                           setActiveCategory(key); 
                           const pages = category.pages;
                           if (pages.length > 0) {
-                            const randomPage = pages[Math.floor(Math.random() * pages.length)];
-                            setHoveredPage(randomPage);
+                            setHoveredPage(pages[0]);
                           } else {
                             setHoveredPage(null);
                           }
                         }}
-                        className={`w-full flex items-center justify-between py-1.5 px-2 rounded-lg text-xs font-medium transition-all ${
-                          activeCategory === key ? 'bg-primary-100 text-primary-700 font-semibold' : 'text-neutral-700 hover:bg-neutral-100'
+                        className={`w-full flex items-center justify-between py-1.5 px-2 rounded-lg text-xs font-medium transition-all text-left ${
+                          activeCategory === key ? 'bg-primary-100 text-primary-700 font-bold shadow-sm' : 'text-neutral-700 hover:bg-neutral-100'
                         }`}
                       >
                         <span className="flex items-center gap-1.5">
@@ -308,15 +324,16 @@ const SEOPageHeader: React.FC = () => {
                 </ul>
               </div>
 
-              {/* Middle-Left: Pages of selected category (col-span-3) */}
+              {/* Middle-Left: Pages of selected category (col-span-3) - HOT TOPICS ONLY */}
               <div className="col-span-3 p-3 border-r border-neutral-100 max-h-[70vh] overflow-y-auto">
                 {activeCategory && LEARN_PAGES[activeCategory as keyof typeof LEARN_PAGES] ? (
                   <>
-                    <h4 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">
-                      {LEARN_PAGES[activeCategory as keyof typeof LEARN_PAGES].title}
+                    <h4 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2 flex items-center gap-1">
+                      <Zap className="h-3 w-3 text-amber-500" />
+                      Hot Topics ({Math.min(5, LEARN_PAGES[activeCategory as keyof typeof LEARN_PAGES].pages.length)})
                     </h4>
-                    <ul className="space-y-0.5">
-                      {LEARN_PAGES[activeCategory as keyof typeof LEARN_PAGES].pages.map((page) => (
+                    <ul className="space-y-0.5 mb-3">
+                      {LEARN_PAGES[activeCategory as keyof typeof LEARN_PAGES].pages.slice(0, 5).map((page) => (
                         <li key={page.link}>
                           <a
                             href={page.link}
@@ -331,11 +348,20 @@ const SEOPageHeader: React.FC = () => {
                         </li>
                       ))}
                     </ul>
+                    <div className="pt-2 border-t border-neutral-100">
+                      <Link
+                        to={`/learn?category=${activeCategory}`}
+                        onClick={() => setActiveMenu(null)}
+                        className="inline-flex items-center justify-center w-full py-1.5 px-2 bg-neutral-100 hover:bg-primary-50 hover:text-primary-700 text-neutral-700 rounded-lg text-[11px] font-semibold transition-all text-center"
+                      >
+                        Explore All {LEARN_PAGES[activeCategory as keyof typeof LEARN_PAGES].pages.length} Topics in Learn Center →
+                      </Link>
+                    </div>
                   </>
                 ) : (
                   <div className="text-center py-8 text-neutral-400 text-sm">
                     <BookOpen className="h-8 w-8 mx-auto mb-2 opacity-50" />
-                    Hover a category to see pages
+                    Select a category to see hot topics
                   </div>
                 )}
               </div>
@@ -533,14 +559,56 @@ const getVideoData = (t: any) => ({
   }
 });
 
-interface MaterialVideoBlockProps {
-  material: 'compostable' | 'pcr' | 'biope' | 'recyclable' | 'unknown'
-  isPouch: boolean
-}
+const MATERIAL_URLS: Record<string, string> = {
+  compostable: '/materials/compostable',
+  pcr: '/materials/pcr',
+  biope: '/materials/bio-pe',
+  recyclable: '/materials/recyclable-mono-pe'
+};
 
 const MaterialVideoBlock: React.FC<MaterialVideoBlockProps> = ({ material, isPouch }) => {
   const { t } = useTranslation()
   const VIDEO_DATA = getVideoData(t);
+
+  const renderMaterialNav = () => (
+    <div className={isPouch 
+      ? "mt-6 pt-6 border-t-4 border-black flex flex-wrap items-center justify-between gap-4 text-xs font-mono font-bold"
+      : "mt-6 pt-6 border-t border-neutral-200 flex flex-wrap items-center justify-between gap-4 text-xs font-semibold text-neutral-600 font-sans"
+    }>
+      <div className="flex flex-wrap gap-3 items-center">
+        <Link 
+          to="/materials" 
+          className={isPouch 
+            ? "inline-flex items-center gap-1.5 bg-[#D4FF00] text-black px-3 py-1.5 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-[#D4FF00] transition-colors"
+            : "inline-flex items-center gap-1.5 text-primary-700 bg-primary-50 px-3.5 py-1.5 rounded-lg border border-primary-200 hover:bg-primary-100 transition"
+          }
+        >
+          <span>🌱 Explore All Materials</span>
+          <ArrowRight className="w-3.5 h-3.5" />
+        </Link>
+        <Link 
+          to="/directory" 
+          className={isPouch 
+            ? "inline-flex items-center gap-1.5 bg-[#00FFFF] text-black px-3 py-1.5 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-[#00FFFF] transition-colors"
+            : "inline-flex items-center gap-1.5 text-neutral-800 bg-neutral-100 px-3.5 py-1.5 rounded-lg border border-neutral-200 hover:bg-neutral-200 transition"
+          }
+        >
+          <span>📂 Packaging Directory</span>
+          <ArrowRight className="w-3.5 h-3.5" />
+        </Link>
+        <Link 
+          to="/support/packaging-advisor" 
+          className={isPouch 
+            ? "inline-flex items-center gap-1.5 bg-black text-white px-3 py-1.5 border-2 border-black shadow-[2px_2px_0px_0px_rgba(212,255,0,1)] hover:bg-[#D4FF00] hover:text-black transition-colors"
+            : "inline-flex items-center gap-1.5 text-emerald-800 bg-emerald-50 px-3.5 py-1.5 rounded-lg border border-emerald-200 hover:bg-emerald-100 transition"
+          }
+        >
+          <span>🔥 Grill Me: Packaging Advisor</span>
+          <ArrowRight className="w-3.5 h-3.5" />
+        </Link>
+      </div>
+    </div>
+  );
 
   if (material === 'unknown') {
     // Render 4-video showcase grid
@@ -582,7 +650,7 @@ const MaterialVideoBlock: React.FC<MaterialVideoBlockProps> = ({ material, isPou
                       {data.desc.slice(0, 120)}...
                     </p>
                   </div>
-                  <div className="mt-4 border-t-2 border-black pt-3">
+                  <div className="mt-4 border-t-2 border-black pt-3 flex flex-col gap-2">
                     <ul className="space-y-1">
                       {data.bullets.slice(0, 2).map((b, i) => (
                         <li key={i} className="text-[10px] font-bold font-mono text-black flex items-start gap-1">
@@ -591,10 +659,18 @@ const MaterialVideoBlock: React.FC<MaterialVideoBlockProps> = ({ material, isPou
                         </li>
                       ))}
                     </ul>
+                    <Link
+                      to={MATERIAL_URLS[key] || '/materials'}
+                      className="inline-flex items-center gap-1 text-[11px] font-black font-mono text-black underline hover:text-[#10b981] pt-1"
+                    >
+                      <span>Explore Material Specs</span>
+                      <ArrowRight className="w-3 h-3" />
+                    </Link>
                   </div>
                 </div>
               ))}
             </div>
+            {renderMaterialNav()}
           </div>
         ) : (
           <div className="bg-white border border-neutral-200 rounded-2xl p-6 md:p-8 shadow-sm">
@@ -634,7 +710,7 @@ const MaterialVideoBlock: React.FC<MaterialVideoBlockProps> = ({ material, isPou
                       {data.desc.slice(0, 100)}...
                     </p>
                   </div>
-                  <div className="mt-4 border-t border-neutral-200 pt-3">
+                  <div className="mt-4 border-t border-neutral-200 pt-3 flex flex-col gap-2">
                     <ul className="space-y-1">
                       {data.bullets.slice(0, 2).map((b, i) => (
                         <li key={i} className="text-[10px] font-semibold text-neutral-700 flex items-start gap-1">
@@ -643,10 +719,18 @@ const MaterialVideoBlock: React.FC<MaterialVideoBlockProps> = ({ material, isPou
                         </li>
                       ))}
                     </ul>
+                    <Link
+                      to={MATERIAL_URLS[key] || '/materials'}
+                      className="inline-flex items-center gap-1 text-[11px] font-bold text-primary-700 hover:underline pt-1"
+                    >
+                      <span>View Material Details</span>
+                      <ArrowRight className="w-3 h-3" />
+                    </Link>
                   </div>
                 </div>
               ))}
             </div>
+            {renderMaterialNav()}
           </div>
         )}
       </section>
@@ -686,7 +770,7 @@ const MaterialVideoBlock: React.FC<MaterialVideoBlockProps> = ({ material, isPou
               <p className="font-['Space_Grotesk'] text-base font-bold text-neutral-800 leading-relaxed">
                 {data.desc}
               </p>
-              <div className="border-t-2 border-black pt-4">
+              <div className="border-t-2 border-black pt-4 space-y-3">
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {data.bullets.map((b, i) => (
                     <li key={i} className="text-xs font-bold font-mono text-black flex items-center gap-1.5">
@@ -695,9 +779,19 @@ const MaterialVideoBlock: React.FC<MaterialVideoBlockProps> = ({ material, isPou
                     </li>
                   ))}
                 </ul>
+                <div className="pt-2">
+                  <Link
+                    to={MATERIAL_URLS[material] || '/materials'}
+                    className="inline-flex items-center gap-2 bg-[#D4FF00] text-black px-4 py-2 border-2 border-black font-mono text-xs font-black uppercase shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-[#D4FF00] transition-colors"
+                  >
+                    <span>View {data.badge} Structure & Specs</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
+          {renderMaterialNav()}
         </div>
       ) : (
         <div className="bg-white border border-neutral-200 rounded-2xl p-6 md:p-8 shadow-sm">
@@ -727,7 +821,7 @@ const MaterialVideoBlock: React.FC<MaterialVideoBlockProps> = ({ material, isPou
               <p className="text-neutral-600 text-base leading-relaxed">
                 {data.desc}
               </p>
-              <div className="border-t border-neutral-200 pt-4">
+              <div className="border-t border-neutral-200 pt-4 space-y-3">
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {data.bullets.map((b, i) => (
                     <li key={i} className="text-xs font-semibold text-neutral-700 flex items-center gap-2">
@@ -736,14 +830,24 @@ const MaterialVideoBlock: React.FC<MaterialVideoBlockProps> = ({ material, isPou
                     </li>
                   ))}
                 </ul>
+                <div className="pt-2">
+                  <Link
+                    to={MATERIAL_URLS[material] || '/materials'}
+                    className="inline-flex items-center gap-2 bg-primary-700 text-white px-4 py-2 rounded-lg font-semibold text-xs hover:bg-primary-800 transition shadow-sm"
+                  >
+                    <span>View {data.badge} Structure & Specs</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
+          {renderMaterialNav()}
         </div>
       )}
     </section>
   );
-};
+};;
 
 interface FAQ {
   question: string
@@ -875,6 +979,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   const slug = location.pathname.split('/').pop() || '';
   const pathKey = slug.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
   const concernsNamespace = `seoPages.buyerConcerns.${pathKey}`;
+  const effectiveIntroSummary = introSummary || description || heroSubtitle || '';
   
   const [isPending, startTransition] = useTransition()
 
@@ -1121,18 +1226,18 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
           faq={Array.isArray(faqs) ? faqs : undefined}
         />
         <PouchLayout>
-          <div className="min-h-screen bg-[#F0F0F0] text-black font-['Space_Grotesk'] pb-16">
+          <div className="min-h-screen bg-[#F9FAFB] text-neutral-900 font-sans pb-16">
             {/* Breadcrumbs */}
             {breadcrumbs && breadcrumbs.length > 0 && (
               <div className="max-w-7xl mx-auto px-4 md:px-6 pt-6">
-                <div className="flex flex-wrap items-center gap-2 font-['JetBrains_Mono'] text-xs md:text-sm uppercase tracking-wider text-black">
+                <div className="flex flex-wrap items-center gap-2 font-mono text-xs md:text-sm text-neutral-500">
                   {breadcrumbs.map((crumb, idx) => (
                     <React.Fragment key={idx}>
-                      {idx > 0 && <span className="text-black font-black">❯</span>}
+                      {idx > 0 && <span className="text-neutral-400">❯</span>}
                       {idx === breadcrumbs.length - 1 ? (
-                        <span className="bg-white px-2 py-0.5 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-bold">{crumb.label}</span>
+                        <span className="bg-white px-2.5 py-1 border border-neutral-200 rounded-lg font-semibold text-neutral-900 shadow-sm">{crumb.label}</span>
                       ) : (
-                        <Link to={crumb.url} className="hover:bg-black hover:text-white font-bold bg-[#D4FF00] px-2 py-0.5 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-colors">
+                        <Link to={crumb.url} className="hover:bg-neutral-100 text-neutral-700 font-medium bg-white px-2.5 py-1 border border-neutral-200 rounded-lg transition-colors">
                           {crumb.label}
                         </Link>
                       )}
@@ -1144,11 +1249,11 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
 
             {/* Hero Section */}
             <section className="max-w-7xl mx-auto px-4 md:px-6 pt-8 pb-12">
-              <div className="border-4 border-black bg-white p-6 md:p-10 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row gap-8 items-center">
+              <div className="border border-neutral-200 bg-white p-6 md:p-10 rounded-3xl shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row gap-8 items-center">
                 {/* Hero Left Content */}
                 <div className="flex-1 space-y-6">
                   {aboveTitle && (
-                    <div className="inline-block bg-[#00FFFF] text-black border-2 border-black px-3 py-1 text-xs font-black uppercase tracking-wider shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    <div className="inline-block bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1 text-xs font-semibold rounded-full uppercase tracking-wider">
                       {aboveTitle}
                     </div>
                   )}
@@ -1216,66 +1321,65 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
             </section>
 
             {/* Quick Summary Section */}
-            <section className="max-w-7xl mx-auto px-4 md:px-6 pb-12">
-              <NeoCard color="bg-[#D4FF00]" className="border-4 border-black p-6 md:p-8">
-                <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
-                  <div className="flex-1 space-y-4">
-                    <h2 className="font-['JetBrains_Mono'] text-xs font-black uppercase tracking-wider text-black bg-white border-2 border-black px-2 py-0.5 inline-block shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                      Quick Summary
-                    </h2>
-                    <p className="text-xl font-bold leading-relaxed text-black">{introSummary}</p>
-                    
-                    {aeoSummary && (
-                      <div className="mt-4 p-4 bg-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                        <h4 className="font-black font-mono uppercase tracking-tight text-black mb-2">QUICK_ANSWER // AEO</h4>
-                        <p className="text-sm font-bold text-black">{aeoSummary}</p>
-                      </div>
-                    )}
-                    {eeatDetails && (
-                      <div className="mt-4 p-4 bg-black border-2 border-black text-white shadow-[2px_2px_0px_0px_rgba(212,255,0,1)]">
-                        <h4 className="font-black font-mono uppercase tracking-tight text-[#D4FF00] mb-2">EXPERTISE_&_AUTHORITY // EEAT</h4>
-                        <p className="text-sm font-bold text-white">{eeatDetails}</p>
-                      </div>
-                    )}
+            {!location.pathname.startsWith('/directory') && (
+              <section className="max-w-7xl mx-auto px-4 md:px-6 pb-12">
+                <NeoCard color="bg-[#D4FF00]" className="border-4 border-black p-6 md:p-8">
+                  <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
+                    <div className="flex-1 space-y-4">
+                      <h2 className="font-['JetBrains_Mono'] text-xs font-black uppercase tracking-wider text-black bg-white border-2 border-black px-2 py-0.5 inline-block shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                        Quick Summary
+                      </h2>
+                      <p className="text-xl font-bold leading-relaxed text-black">{introSummary}</p>
+                      
+                      {aeoSummary && (
+                        <div className="mt-4 p-4 bg-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                          <h4 className="font-black font-mono uppercase tracking-tight text-black mb-2">QUICK_ANSWER // AEO</h4>
+                          <p className="text-sm font-bold text-black">{aeoSummary}</p>
+                        </div>
+                      )}
+                      {eeatDetails && (
+                        <div className="mt-4 p-4 bg-black border-2 border-black text-white shadow-[2px_2px_0px_0px_rgba(212,255,0,1)]">
+                          <h4 className="font-black font-mono uppercase tracking-tight text-[#D4FF00] mb-2">EXPERTISE_&_AUTHORITY // EEAT</h4>
+                          <p className="text-sm font-bold text-white">{eeatDetails}</p>
+                        </div>
+                      )}
 
-                    {/* E-E-A-T trust byline */}
-                    <div className="pt-4 border-t border-black/10 flex flex-wrap items-center gap-4 text-xs font-['JetBrains_Mono'] font-bold text-black/80">
-                      <div className="flex items-center gap-2">
-                        <img 
-                          src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
-                          alt="Ryan Wong" 
-                          className="w-6 h-6 rounded-full object-cover border-2 border-black" 
-                        />
-                        <span>BY RYAN WONG, ECO PACKAGING PROTOCOL</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <span className="w-2 h-2 bg-black rounded-full animate-pulse"></span>
-                        <span>VERIFIED BY POUCH.ECO SUSTAINABILITY LAB</span>
-                      </div>
-                      <div className="border-2 border-black bg-white px-2 py-0.5 text-xs uppercase font-black tracking-tighter">
-                        ASTM D6400 / EN 13432 CERTIFIED
+                      {/* E-E-A-T trust byline */}
+                      <div className="pt-4 border-t border-black/10 flex flex-wrap items-center gap-4 text-xs font-['JetBrains_Mono'] font-bold text-black/80">
+                        <div className="flex items-center gap-2">
+                          <img 
+                            src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
+                            alt="Ryan Wong" 
+                            className="w-6 h-6 rounded-full object-cover border-2 border-black" 
+                          />
+                          <span>BY RYAN WONG, ECO PACKAGING PROTOCOL</span>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2 h-2 bg-black rounded-full animate-pulse"></span>
+                          <span>VERIFIED BY POUCH.ECO SUSTAINABILITY LAB</span>
+                        </div>
+                        <div className="border-2 border-black bg-white px-2 py-0.5 text-xs uppercase font-black tracking-tighter">
+                          ASTM D6400 / EN 13432 CERTIFIED
+                        </div>
                       </div>
                     </div>
+                    <div className="flex-shrink-0 pt-1">
+                      <ShareButton
+                        url={effectiveCanonicalUrl}
+                        title={title}
+                        description={description}
+                        size="sm"
+                        icon="prefix"
+                      >
+                        Share
+                      </ShareButton>
+                    </div>
                   </div>
-                  <div className="flex-shrink-0 pt-1">
-                    <ShareButton
-                      url={effectiveCanonicalUrl}
-                      title={title}
-                      description={description}
-                      size="sm"
-                      icon="prefix"
-                    >
-                      Share
-                    </ShareButton>
-                  </div>
-                </div>
-              </NeoCard>
-            </section>
+                </NeoCard>
+              </section>
+            )}
 
-            {/* Video Showcase Block */}
-            <div className="max-w-7xl mx-auto px-4 md:px-6 pb-6">
-              <MaterialVideoBlock material={detectedType} isPouch={true} />
-            </div>
+
 
             {/* Main Content Layout */}
             <div className="max-w-7xl mx-auto px-4 md:px-6">
@@ -1565,6 +1669,13 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                       </Link>
                     </div>
                   </section>
+
+                  {/* Material Showcase Block - Placed at end of page content */}
+                  {!location.pathname.startsWith('/directory') && (
+                    <div className="mt-12">
+                      <MaterialVideoBlock material={detectedType} isPouch={true} />
+                    </div>
+                  )}
                 </main>
               </div>
             </div>
@@ -1654,7 +1765,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
               <div className="absolute inset-0 w-full h-full">
                 <img 
                   src={heroImage} 
-                  alt={heroImageAlt || heroTitle}
+                  alt={heroImageAlt || heroTitle || title}
                   className="w-full h-full object-cover object-center"
                   loading="eager"
                 />
@@ -1678,10 +1789,10 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   )}
                   {aboveTitle && <div className="mb-4">{aboveTitle}</div>}
                   <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight text-white drop-shadow-md">
-                    {heroTitle}
+                    {heroTitle || title}
                   </h1>
                   <p className="text-lg md:text-xl text-primary-50 mb-8 drop-shadow-md">
-                    {heroSubtitle}
+                    {heroSubtitle || description}
                   </p>
                   <div className="flex flex-wrap gap-4">
                     <a 
@@ -1726,10 +1837,10 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                     )}
                     {aboveTitle && <div className="mb-4">{aboveTitle}</div>}
                     <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                      {heroTitle}
+                      {heroTitle || title}
                     </h1>
                     <p className="text-lg md:text-xl text-primary-100 mb-8">
-                      {heroSubtitle}
+                      {heroSubtitle || description}
                     </p>
                     <div className="flex flex-wrap gap-4 mt-6">
                       <a 
@@ -1770,7 +1881,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   <div className="w-full pb-12 md:pb-0 md:py-16 flex justify-center items-center">
                     <img 
                       src={heroImage} 
-                      alt={heroImageAlt || heroTitle}
+                      alt={heroImageAlt || heroTitle || title}
                       className="w-full h-auto max-h-[600px] object-cover rounded-xl shadow-2xl"
                       loading="eager"
                     />
@@ -1782,65 +1893,64 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         )}
 
         {/* Quick Summary - Answer First Approach */}
-        <section className="py-8 bg-primary-50 border-b border-primary-100">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="bg-white rounded-xl p-6 shadow-sm border-l-4 border-primary-500">
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-                <div className="flex-1">
-                  <h2 className="text-sm font-semibold text-primary-600 uppercase tracking-wide mb-2">{t('seoPages.quickSummary')}</h2>
-                  <p className="text-lg text-neutral-700 leading-relaxed">{introSummary}</p>
-                  {aeoSummary && (
-                    <div className="mt-4 p-4 bg-green-50 rounded-lg border border-green-100">
-                      <h4 className="font-bold text-green-800 mb-2">Quick Answer (AEO)</h4>
-                      <p className="text-green-900">{aeoSummary}</p>
-                    </div>
-                  )}
-                  {eeatDetails && (
-                    <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-100">
-                      <h4 className="font-bold text-blue-800 mb-2">Expertise & Authority</h4>
-                      <p className="text-blue-900">{eeatDetails}</p>
-                    </div>
-                  )}
-                  
-                  {/* E-E-A-T Trust & Expertise Byline */}
-                  <div className="mt-4 pt-4 border-t border-neutral-100 flex flex-wrap items-center gap-4 text-xs text-neutral-500">
-                    <div className="flex items-center gap-2">
-                      <img 
-                        src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
-                        alt="Ryan Wong" 
-                        className="w-6 h-6 rounded-full object-cover border border-neutral-200" 
-                      />
-                      <span>Written by <Link to="/team/ryan-wong" className="font-semibold text-primary-700 hover:underline">Ryan Wong</Link>, Supply Chain Director</span>
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
-                      <span>Verified by <strong>Achieve Pack Sustainable Materials Lab</strong></span>
-                    </div>
-                    <div className="flex items-center gap-1 text-green-700 bg-green-50 px-2 py-0.5 rounded font-medium">
-                      <span>ASTM D6400 / EN 13432 Compliant Stack</span>
+        {!location.pathname.startsWith('/directory') && (
+          <section className="py-8 bg-primary-50 border-b border-primary-100">
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="bg-white rounded-xl p-6 shadow-sm border-l-4 border-primary-500">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                  <div className="flex-1">
+                    <h2 className="text-sm font-semibold text-primary-600 uppercase tracking-wide mb-2">{t('seoPages.quickSummary')}</h2>
+                    <p className="text-lg text-neutral-700 leading-relaxed">{effectiveIntroSummary}</p>
+                    {aeoSummary && (
+                      <div className="mt-4 p-4 bg-green-50 rounded-lg border border-green-100">
+                        <h4 className="font-bold text-green-800 mb-2">Quick Answer (AEO)</h4>
+                        <p className="text-green-900">{aeoSummary}</p>
+                      </div>
+                    )}
+                    {eeatDetails && (
+                      <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-100">
+                        <h4 className="font-bold text-blue-800 mb-2">Expertise & Authority</h4>
+                        <p className="text-blue-900">{eeatDetails}</p>
+                      </div>
+                    )}
+                    
+                    {/* E-E-A-T Trust & Expertise Byline */}
+                    <div className="mt-4 pt-4 border-t border-neutral-100 flex flex-wrap items-center gap-4 text-xs text-neutral-500">
+                      <div className="flex items-center gap-2">
+                        <img 
+                          src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
+                          alt="Ryan Wong" 
+                          className="w-6 h-6 rounded-full object-cover border border-neutral-200" 
+                        />
+                        <span>Written by <Link to="/team/ryan-wong" className="font-semibold text-primary-700 hover:underline">Ryan Wong</Link>, Supply Chain Director</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+                        <span>Verified by <strong>Achieve Pack Sustainable Materials Lab</strong></span>
+                      </div>
+                      <div className="flex items-center gap-1 text-green-700 bg-green-50 px-2 py-0.5 rounded font-medium">
+                        <span>ASTM D6400 / EN 13432 Compliant Stack</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="flex-shrink-0 pt-1">
-                  <ShareButton
-                    url={effectiveCanonicalUrl}
-                    title={title}
-                    description={description}
-                    size="sm"
-                    icon="prefix"
-                  >
-                    Share
-                  </ShareButton>
+                  <div className="flex-shrink-0 pt-1">
+                    <ShareButton
+                      url={effectiveCanonicalUrl}
+                      title={title}
+                      description={description}
+                      size="sm"
+                      icon="prefix"
+                    >
+                      Share
+                    </ShareButton>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
-        {/* Video Showcase Block */}
-        <div className="max-w-7xl mx-auto px-4 pt-8">
-          <MaterialVideoBlock material={detectedType} isPouch={false} />
-        </div>
+
 
         {/* Main Content */}
         <div className="max-w-7xl mx-auto px-4 py-12">
@@ -1872,44 +1982,40 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
 
             {/* Main Content Area */}
             <main className={`${((sections && sections.length > 0) || (faqs && faqs.length > 0)) ? 'lg:col-span-3' : 'lg:col-span-4'} space-y-8 overflow-hidden`}>
+              {/* B2B Specification Pill Bar replacing old Tag Clouds */}
+              <B2BSpecPillBar keywords={safeKeywords} primaryKeyword={title} />
+
+              {/* High-Converting Pain Point & Solution Cards replacing robotic text */}
+              <PainPointSolutionGrid pageTitle={title} />
+
               {children}
-              {/* Content Sections */}
-              {sections.map((section) => (
+
+              {/* Content Sections (Excluding legacy robotic ai-search blocks) */}
+              {sections.filter(section => section.id !== 'ai-search').map((section) => (
                 <section 
                   key={section.id} 
                   id={section.id}
-                  className={section.id === 'ai-search' 
-                    ? 'sr-only overflow-hidden' 
-                    : 'bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100'
-                  }
+                  className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100"
                 >
-                  {section.id === 'ai-search' ? (
-                    // Hidden AI search section - only for AI/SEO crawlers
-                    <div>
-                      <h2>{section.title}</h2>
-                      <div>{section.content}</div>
-                    </div>
-                  ) : (
-                    // Normal visible section
-                    <>
-                      <div className="flex items-center gap-3 mb-6">
-                        {section.icon && (
-                          <div className="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center">
-                            {section.icon}
-                          </div>
-                        )}
-                        <h2 className="text-2xl font-bold text-neutral-900">{section.title}</h2>
+                  <div className="flex items-center gap-3 mb-6">
+                    {section.icon && (
+                      <div className="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center">
+                        {section.icon}
                       </div>
-                      <div className="prose prose-neutral max-w-none">
-                        {section.content}
-                      </div>
-                    </>
-                  )}
+                    )}
+                    <h2 className="text-2xl font-bold text-neutral-900">{section.title}</h2>
+                  </div>
+                  <div className="prose prose-neutral max-w-none">
+                    {section.content}
+                  </div>
                 </section>
               ))}
 
               {/* Factory QC Lab Validation Block */}
               <FactoryQCValidationBlock pageTitle={title} pageDescription={description} />
+
+              {/* Before & After Packaging Solution Transformation */}
+              <BeforeAfterComparison pageTitle={title} />
 
               {/* Data Tables */}
               {Array.isArray(tables) && tables.map((table, idx) => (
@@ -2063,6 +2169,13 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   </Link>
                 </div>
               </section>
+
+              {/* Material Showcase Block - Placed at end of page content */}
+              {!location.pathname.startsWith('/directory') && (
+                <div className="mt-12">
+                  <MaterialVideoBlock material={detectedType} isPouch={false} />
+                </div>
+              )}
             </main>
           </div>
         </div>

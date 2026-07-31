@@ -322,7 +322,7 @@ const QuoteAnalyticsPage: React.FC = () => {
               <Activity className="w-5 h-5 text-blue-500" />
             </div>
             <div>
-              <h1 className="text-lg font-black tracking-tight">{t(`${p}.engagementIntel`)}</h1>
+              <h2 className="text-lg font-black tracking-tight">{t(`${p}.engagementIntel`)}</h2>
               <div className="flex items-center gap-2 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 {t(`${p}.realTimeQuoteTracking`)}</div>

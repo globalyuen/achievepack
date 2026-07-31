@@ -10,7 +10,7 @@ const Topic99eeb01cFafb40e69ac739051266ab5a: React.FC = () => {
       description="Discover high-quality 99eeb01c Fafb 40e6 9ac7 39051266ab5a packaging for your brand."
     >
       <div className="container mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold mb-6">99eeb01c Fafb 40e6 9ac7 39051266ab5a Solutions</h1>
+        <h2 className="text-4xl font-bold mb-6">99eeb01c Fafb 40e6 9ac7 39051266ab5a Solutions</h2>
         
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">Pain Points</h2>

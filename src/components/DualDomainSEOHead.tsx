@@ -142,15 +142,21 @@ export default function DualDomainSEOHead({
     
     return schema
   }, [title, description, canonicalUrl, schemaType, brand, baseUrl, additionalSchema])
-  
+
+  const safeKeywords = useMemo(() => {
+    if (Array.isArray(keywords)) return keywords
+    if (typeof keywords === 'string') return (keywords as string).split(',').map(s => s.trim()).filter(Boolean)
+    return []
+  }, [keywords])
+
   return (
     <Helmet>
       <html lang={currentLang === 'zh-tw' ? 'zh-TW' : currentLang} />
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      {keywords.length > 0 && (
-        <meta name="keywords" content={keywords.join(', ')} />
+      {safeKeywords.length > 0 && (
+        <meta name="keywords" content={safeKeywords.join(', ')} />
       )}
       
       {/* CRITICAL: Independent Canonical URL - NEVER cross-reference domains */}

@@ -9,6 +9,12 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
 # Disallow admin and authentication pages
 Disallow: /ctrl-x9k7m
 Disallow: /ctrl-x9k7m/*

@@ -197,9 +197,9 @@ export default function PouchProductDetailPage() {
                 <div className="inline-block bg-black text-[#D4FF00] font-['JetBrains_Mono'] font-bold text-xs uppercase px-2 py-1 mb-4">
                   {product.category.replace('-', ' ')}
                 </div>
-                <h1 className="text-4xl md:text-5xl font-black uppercase leading-none tracking-tight mb-4">
+                <h2 className="text-4xl md:text-5xl font-black uppercase leading-none tracking-tight mb-4">
                   {product.name}
-                </h1>
+                </h2>
                 <p className="text-xl font-['JetBrains_Mono'] text-gray-700 leading-relaxed border-l-4 border-[#10B981] pl-4">
                   {product.description || product.shortDesc}
                 </p>

@@ -28,7 +28,9 @@ const LEARN_PAGES = {
       { name: 'Spout Pouches', link: '/packaging/spout-pouches', image: '/imgs/illustrated/a_achievepack_spout_pouches_1062736.webp' },
       { name: 'Vacuum Pouches', link: '/packaging/vacuum-pouches', image: '/imgs/illustrated/a_achievepack_vacuum_pouches_8597303.webp' },
       { name: 'Shrink Sleeves', link: '/packaging/shrink-sleeves', image: '/imgs/store/products/shrink-sleeve-labels-shrink-sleeve-thumbnail-2.jpg' },
+      { name: 'Custom UV Transfer Metallic Stickers', link: '/custom-uv-transfer-logo-stickers', image: '/imgs/store/products/custom-uv-transfer-logo-stickers-thumbnail-1.jpg' },
       { name: 'Custom Boxes', link: '/packaging/custom-boxes', image: '/imgs/illustrated/a_achievepack_custom_boxes_6574270.webp' },
+      { name: 'Reverse Tuck End Boxes', link: '/packaging/reverse-tuck-end-paper-boxes', image: '/imgs/store/products/reverse-tuck-end-paper-box-hero.jpg' },
     ]
   },
   materials: {
@@ -96,7 +98,8 @@ const LEARN_PAGES = {
       { name: 'How to Select Eco-Friendly P', link: '/industry/meat-jerky-packaging', image: '/imgs/illustrated/a_snacks_food_hero_v1_9854447.webp' },
       { name: 'the Difference Between Brown', link: '/industry/brown-white-kraft', image: '/imgs/illustrated/a_home_compostable_card_v1_2166648.webp' },
       { name: 'Compostable Sugarcane Pulp Box', link: '/industry/compostable-sugarcane-pulp-box', image: '/imgs/store/products/compostable-sugarcane-pulp-box-thumbnail-1.jpg' },
-      { name: 'Citrus Oil Packaging', link: '/solutions/citrus-oil-packaging', image: '/imgs/materials/citrus_clear_spout_pouch.png' }
+      { name: 'Citrus Oil Packaging', link: '/solutions/citrus-oil-packaging', image: '/imgs/materials/citrus_clear_spout_pouch.png' },
+      { name: 'Essential Oil Paper Tube Packaging', link: '/solutions/essential-oil-paper-tube-packaging-guide', image: '/imgs/store/products/eco-kraft-paper-tube-gift-box-thumbnail-1.jpg' }
     ]
   },
   products: {
@@ -110,6 +113,7 @@ const LEARN_PAGES = {
       { name: 'Coffee Bags with Valve', link: '/products/coffee-bags-degassing-valve', image: '/imgs/illustrated/a_topic_03_coffee_materials_var_c_6491567.webp' },
       { name: 'Low MOQ Packaging', link: '/products/low-moq-packaging', image: '/imgs/illustrated/a_lowmoq_warm_3372406.webp' },
       { name: 'Custom Compostable Labels', link: '/products/custom-compostable-labels', image: '/taobao/compostable-label/compostable-label-cover.jpg' },
+      { name: 'Bio-PE Coffee Flat Bottom Pouch', link: '/solutions/bio-pe-coffee-flat-bottom-pouch', image: '/imgs/solutions/bio-pe-coffee-flat-bottom-pouch-hero.jpg' },
     ]
   },
   knowledge: {
@@ -237,6 +241,7 @@ const LEARN_PAGES = {
     title: 'Solutions',
     icon: <Users className="h-4 w-4" />,
     pages: [
+      { name: 'Packaging Solutions Directory (50 Cases)', link: '/solutions', image: '/imgs/illustrated/a_lowmoq_warm_3372406.webp' },
       { name: 'Startup Founder', link: '/solutions/startup-founder', image: '/imgs/illustrated/a_startup_founder_variation_3_2900816.webp' },
       { name: 'Ecommerce Brand', link: '/solutions/ecommerce-brand', image: '/imgs/illustrated/a_ecommerce_brand_variation_2_5348466.webp' },
       { name: 'Corporate Sustainability', link: '/solutions/corporate-sustainability', image: '/imgs/illustrated/a_corporate_sustainability_variation_1_1739210.webp' },
@@ -246,6 +251,14 @@ const LEARN_PAGES = {
       { name: 'Artisan Producer', link: '/solutions/artisan-producer', image: '/imgs/illustrated/a_artisan_producer_variation_1_5454378.webp' },
       { name: 'Snack Brand Manager', link: '/solutions/snack-brand-manager', image: '/imgs/illustrated/a_snack_brand_variation_1_5605894.webp' },
       { name: 'Citrus Oil Solutions', link: '/solutions/citrus-oil-packaging', image: '/imgs/materials/citrus_clear_spout_pouch.png' },
+      { name: 'Compostable Kraft Coffee Doypack', link: '/solutions/compostable-kraft-coffee-doypack', image: '/imgs/illustrated/a_coffee_roaster_variation_1_6758424.webp' },
+      { name: 'Bio-PE Granola Stand Up Pouch', link: '/solutions/bio-pe-granola-stand-up-pouch', image: '/imgs/illustrated/a_bio_pe_card_v3_4603248.webp' },
+      { name: 'PCR Recycled Pet Food Quad Seal', link: '/solutions/pcr-recycled-pet-food-quad-seal', image: '/imgs/illustrated/a_pcr_card_v1_0334493.webp' },
+      { name: 'Recyclable Mono-PE Baby Food Spout', link: '/solutions/recyclable-mono-pe-baby-food-spout', image: '/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp' },
+      { name: 'Mono-PE Laundry Detergent Pouch', link: '/solutions/mono-pe-laundry-detergent-pouch', image: '/imgs/illustrated/a_recyclable_mono_pe_card_v2_5619420.webp' },
+      { name: 'Compostable Protein Bar Flow Wrap', link: '/solutions/compostable-protein-bar-flow-wrap', image: '/imgs/illustrated/a_compostable_v3_9254998.webp' },
+      { name: 'Bio-PE Matcha Green Tea Sachet', link: '/solutions/bio-pe-matcha-green-tea-sachet', image: '/imgs/illustrated/a_bio_pe_card_v3_4603248.webp' },
+      { name: 'Mono-PP Dried Fruit Stand Up', link: '/solutions/mono-pp-dried-fruit-stand-up', image: '/imgs/illustrated/a_recyclable_mono_pp_card_v2_2805205.webp' },
     ]
   },
   topics: {

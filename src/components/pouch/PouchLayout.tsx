@@ -1,5 +1,5 @@
 import { ReactNode, useState } from 'react'
-import { Calendar, Menu, X, Building2, Instagram, Linkedin, ArrowRight, Zap, Coffee, Layout, Search, Box, Sparkles, Globe } from 'lucide-react'
+import { Calendar, Menu, X, Building2, Instagram, Linkedin, ArrowRight, Zap, Coffee, Layout, Search, Box, Sparkles, Globe, ChevronDown } from 'lucide-react'
 import { NeoButton, NeoBadge } from './PouchUI'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -43,44 +43,43 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
   };
 
   return (
-    <div className="min-h-screen bg-[#F0F0F0] text-black font-['Space_Grotesk'] selection:bg-black selection:text-[#D4FF00] overflow-x-hidden flex flex-col">
+    <div className="min-h-screen bg-[#F9FAFB] text-neutral-900 font-sans selection:bg-emerald-500 selection:text-white overflow-x-hidden flex flex-col">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
       `}</style>
 
       {/* Navigation */}
-      <nav className="border-b-4 border-black bg-white sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <img src="/logo.png" alt="Pouch.eco Logo" className="w-10 h-10 object-contain" />
-            <span className="font-black text-2xl tracking-tighter">
-              POUCH<span className="text-[#14532d]">.ECO</span>
+      <nav className="border-b border-neutral-200/80 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
+            <img src="/logo.png" alt="Pouch.eco Logo" className="w-9 h-9 object-contain" />
+            <span className="font-bold text-xl tracking-tight text-neutral-900">
+              pouch<span className="text-emerald-600">.eco</span>
             </span>
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-6 font-['JetBrains_Mono'] font-bold text-sm">
+          {/* Desktop Mobbin Menu */}
+          <div className="hidden md:flex items-center gap-6 font-sans text-xs font-medium text-neutral-700">
             {/* Products Dropdown */}
-            <div 
-              className="relative group"
-            >
+            <div className="relative group">
               <button 
-                className={`px-2 py-1 transition-colors flex items-center gap-1 hover:bg-black hover:text-white ${
-                  isActive('/products') || isActive('/materials') || isActive('/options/surface-and-reclosure') ? 'bg-black text-[#D4FF00]' : ''
+                className={`px-3 py-2 rounded-xl transition-all flex items-center gap-1 hover:text-neutral-900 hover:bg-neutral-100/80 ${
+                  isActive('/products') || isActive('/materials') || isActive('/options/surface-and-reclosure') ? 'bg-neutral-900 text-white font-semibold' : ''
                 }`}
               >
-                [{t('pouchLayout.products', 'PRODUCTS')} ▾]
+                <span>{t('pouchLayout.products', 'Products')}</span>
+                <ChevronDown className="w-3.5 h-3.5 opacity-60" />
               </button>
               
-              <div className="absolute left-0 mt-2 w-48 bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-50 p-2 font-['Space_Grotesk'] text-black hidden group-hover:block before:absolute before:-top-2 before:left-0 before:w-full before:h-2 before:content-['']">
-                <Link to="/products" className="block px-4 py-2 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all text-sm font-bold uppercase">
-                  {t('pouchLayout.allProducts', 'All Products')}
+              <div className="absolute left-0 mt-2 w-52 bg-white/95 backdrop-blur-xl border border-neutral-200/90 shadow-xl rounded-2xl z-50 p-2 text-neutral-800 hidden group-hover:block transition-all animate-in fade-in slide-in-from-top-2 duration-200">
+                <Link to="/products" className="block px-3.5 py-2 hover:bg-neutral-100 rounded-xl transition-all text-xs font-semibold text-neutral-900">
+                  {t('pouchLayout.allProducts', 'All Packaging Products')}
                 </Link>
-                <Link to="/materials" className="block px-4 py-2 hover:bg-[#00FFFF] border-2 border-transparent hover:border-black transition-all text-sm font-bold uppercase mt-1">
-                  {t('pouchLayout.materials', 'Materials')}
+                <Link to="/materials" className="block px-3.5 py-2 hover:bg-neutral-100 rounded-xl transition-all text-xs font-medium text-neutral-700 mt-1">
+                  {t('pouchLayout.materials', 'Eco Materials Library')}
                 </Link>
-                <Link to="/options/surface-and-reclosure" className="block px-4 py-2 hover:bg-[#FF00FF] hover:text-white border-2 border-transparent hover:border-black transition-all text-sm font-bold uppercase mt-1 group-hover/opt:text-white">
-                  {t('pouchLayout.options', 'Options')}
+                <Link to="/options/surface-and-reclosure" className="block px-3.5 py-2 hover:bg-neutral-100 rounded-xl transition-all text-xs font-medium text-neutral-700 mt-1">
+                  {t('pouchLayout.options', 'Finishes & Closures')}
                 </Link>
               </div>
             </div>
@@ -89,63 +88,52 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
             <div className="relative group">
               <Link
                 to="/shop"
-                className={`px-2 py-1 transition-colors flex items-center gap-1 ${
+                className={`px-3 py-2 rounded-xl transition-all flex items-center gap-1 ${
                   isActive('/shop') 
-                    ? 'bg-[#D4FF00] text-black border-2 border-black font-black' 
-                    : 'text-[#10B981] hover:bg-[#10B981] hover:text-white border-2 border-transparent hover:border-black'
+                    ? 'bg-neutral-900 text-white font-semibold' 
+                    : 'text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100/80'
                 }`}
               >
-                [{t('pouchLayout.shop', 'SHOP')} ▾]
+                <span>{t('pouchLayout.shop', 'Shop Catalog')}</span>
+                <ChevronDown className="w-3.5 h-3.5 opacity-60" />
               </Link>
-              <div className="absolute left-0 mt-2 w-56 bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-50 p-2 font-['Space_Grotesk'] text-black hidden group-hover:block before:absolute before:-top-2 before:left-0 before:w-full before:h-2 before:content-['']">
-                <Link to="/shop" className="block px-4 py-2 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all text-xs font-bold uppercase">
-                  {t('pouchLayout.allShop', 'All Products')}
+              <div className="absolute left-0 mt-2 w-60 bg-white/95 backdrop-blur-xl border border-neutral-200/90 shadow-xl rounded-2xl z-50 p-2 text-neutral-800 hidden group-hover:block transition-all">
+                <Link to="/shop" className="block px-3.5 py-2 hover:bg-neutral-100 rounded-xl transition-all text-xs font-semibold text-neutral-900">
+                  {t('pouchLayout.allShop', 'Browse All Items')}
                 </Link>
-                <Link to="/shop?category=sample" className="block px-4 py-2 hover:bg-[#00FFFF] border-2 border-transparent hover:border-black transition-all text-xs font-bold uppercase mt-1">
+                <Link to="/shop?category=sample" className="block px-3.5 py-2 hover:bg-neutral-100 rounded-xl transition-all text-xs font-medium text-neutral-700 mt-0.5">
                   {t('pouchLayout.samplePacks', 'Sample Packs')}
                 </Link>
-                <Link to="/shop?category=custom-pouches" className="block px-4 py-2 hover:bg-[#FF00FF] hover:text-white border-2 border-transparent hover:border-black transition-all text-xs font-bold uppercase mt-1">
+                <Link to="/shop?category=custom-pouches" className="block px-3.5 py-2 hover:bg-neutral-100 rounded-xl transition-all text-xs font-medium text-neutral-700 mt-0.5">
                   {t('pouchLayout.customPouches', 'Custom Pouches')}
                 </Link>
-                <Link to="/shop?category=eco-stock" className="block px-4 py-2 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all text-xs font-bold uppercase mt-1">
-                  {t('pouchLayout.ecoStock', 'Eco Stock')}
+                <Link to="/shop?category=eco-stock" className="block px-3.5 py-2 hover:bg-neutral-100 rounded-xl transition-all text-xs font-medium text-neutral-700 mt-0.5">
+                  {t('pouchLayout.ecoStock', 'Eco Stock Bags')}
                 </Link>
-                <Link to="/shop?category=eco-digital" className="block px-4 py-2 hover:bg-[#00FFFF] border-2 border-transparent hover:border-black transition-all text-xs font-bold uppercase mt-1">
-                  {t('pouchLayout.ecoDigital', 'Eco Digital')}
-                </Link>
-                <Link to="/shop?category=conventional-stock" className="block px-4 py-2 hover:bg-[#FF00FF] hover:text-white border-2 border-transparent hover:border-black transition-all text-xs font-bold uppercase mt-1">
-                  {t('pouchLayout.conventionalStock', 'Conventional Stock')}
-                </Link>
-                <Link to="/shop?category=conventional-digital" className="block px-4 py-2 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all text-xs font-bold uppercase mt-1">
-                  {t('pouchLayout.conventionalDigital', 'Conventional Digital')}
-                </Link>
-                <Link to="/shop?category=boxes" className="block px-4 py-2 hover:bg-[#00FFFF] border-2 border-transparent hover:border-black transition-all text-xs font-bold uppercase mt-1">
-                  {t('pouchLayout.customBoxes', 'Custom Boxes')}
-                </Link>
-                <Link to="/shop?category=3d-print" className="block px-4 py-2 hover:bg-[#FF00FF] hover:text-white border-2 border-transparent hover:border-black transition-all text-xs font-bold uppercase mt-1">
-                  {t('pouchLayout.threeDPrinting', '3D Printing')}
+                <Link to="/shop?category=eco-digital" className="block px-3.5 py-2 hover:bg-neutral-100 rounded-xl transition-all text-xs font-medium text-neutral-700 mt-0.5">
+                  {t('pouchLayout.ecoDigital', 'Eco Digital Runs')}
                 </Link>
               </div>
             </div>
 
             {[
-              { label: t('pouchLayout.studio', '3D STUDIO'), path: '/studio' },
-              { label: t('pouchLayout.cert', 'CERT'), path: '/certifications' },
-              { label: t('pouchLayout.testimonials', 'TESTIMONIALS'), path: '/testimonials' },
-              { label: t('pouchLayout.blog', 'BLOG'), path: '/blog' }
+              { label: t('pouchLayout.studio', '3D Studio'), path: '/studio' },
+              { label: t('pouchLayout.cert', 'Certifications'), path: '/certifications' },
+              { label: t('pouchLayout.testimonials', 'Reviews'), path: '/testimonials' },
+              { label: t('pouchLayout.blog', 'Blog'), path: '/blog' }
             ].map((item) => (
               <Link
                 key={item.path}
                 // @ts-ignore
                 to={item.path}
-                className={`px-2 py-1 transition-colors ${
+                className={`px-3 py-2 rounded-xl transition-all ${
                   // @ts-ignore
                   isActive(item.path) 
-                    ? 'bg-black text-white' 
-                    : 'hover:bg-black hover:text-white'
+                    ? 'bg-neutral-900 text-white font-semibold' 
+                    : 'hover:text-neutral-900 hover:bg-neutral-100/80'
                 }`}
               >
-                [{item.label}]
+                {item.label}
               </Link>
             ))}
 
@@ -169,11 +157,11 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute right-0 mt-2 w-[620px] bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-50 p-4 font-['Space_Grotesk'] text-black grid grid-cols-2 gap-4"
+                    className="absolute right-0 mt-2 w-[620px] bg-white/95 backdrop-blur-xl border border-neutral-200/90 shadow-2xl rounded-2xl z-50 p-4 font-sans text-neutral-800 grid grid-cols-2 gap-4"
                   >
                     {/* Left Column: Sizing & Specs Apps */}
                     <div className="space-y-2">
-                      <div className="bg-[#D4FF00] border-2 border-black p-1.5 font-['JetBrains_Mono'] font-bold text-xs uppercase text-center mb-1">
+                      <div className="bg-neutral-100 border border-neutral-200 p-2 rounded-xl font-sans font-bold text-xs uppercase text-neutral-900 text-center mb-1">
                         ⚡ {t('pouchLayout.sizingAndSpecs', 'Sizing & Specs Apps')}
                       </div>
                       
@@ -181,14 +169,14 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                       <Link
                         to="/size-guide"
                         onClick={() => setIsAppsDropdownOpen(false)}
-                        className="flex items-center gap-3 p-1.5 hover:bg-[#00FFFF] border-2 border-transparent hover:border-black transition-all group"
+                        className="flex items-center gap-3 p-2 rounded-xl hover:bg-neutral-100 transition-all group"
                       >
-                        <div className="w-10 h-10 border border-black bg-purple-100 flex items-center justify-center flex-shrink-0">
-                          <SizingFinderIcon className="w-6 h-6 text-black" strokeWidth={2.5} />
+                        <div className="w-9 h-9 rounded-lg border border-neutral-200 bg-purple-50 flex items-center justify-center flex-shrink-0">
+                          <SizingFinderIcon className="w-5 h-5 text-neutral-800" strokeWidth={2} />
                         </div>
                         <div className="text-left">
-                          <div className="font-bold text-xs uppercase tracking-tight">[{t('pouchLayout.sizingFinder', 'SIZING FINDER')}]</div>
-                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">{t('pouchLayout.sizingFinderDesc', 'Find exact size & capacity')}</div>
+                          <div className="font-bold text-xs text-neutral-900">{t('pouchLayout.sizingFinder', 'Sizing Finder')}</div>
+                          <div className="text-[10px] text-neutral-500 font-sans leading-tight mt-0.5">{t('pouchLayout.sizingFinderDesc', 'Find exact size & capacity')}</div>
                         </div>
                       </Link>
 
@@ -196,14 +184,14 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                       <Link
                         to="/tech-specs"
                         onClick={() => setIsAppsDropdownOpen(false)}
-                        className="flex items-center gap-3 p-1.5 hover:bg-[#FF00FF] hover:text-white border-2 border-transparent hover:border-black transition-all group"
+                        className="flex items-center gap-3 p-2 rounded-xl hover:bg-neutral-100 transition-all group"
                       >
-                        <div className="w-10 h-10 border border-black bg-blue-100 flex items-center justify-center flex-shrink-0">
-                          <MaterialSpecFinderIcon className="w-6 h-6 text-black" strokeWidth={2.5} />
+                        <div className="w-9 h-9 rounded-lg border border-neutral-200 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                          <MaterialSpecFinderIcon className="w-5 h-5 text-neutral-800" strokeWidth={2} />
                         </div>
                         <div className="text-left">
-                          <div className="font-bold text-xs uppercase tracking-tight group-hover:text-white">[{t('pouchLayout.specFinder', 'SPEC FINDER')}]</div>
-                          <div className="text-[9px] text-neutral-600 group-hover:text-neutral-100 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">{t('pouchLayout.specFinderDesc', 'Compare barrier OTR/WVTR')}</div>
+                          <div className="font-bold text-xs text-neutral-900">{t('pouchLayout.specFinder', 'Spec Finder')}</div>
+                          <div className="text-[10px] text-neutral-500 font-sans leading-tight mt-0.5">{t('pouchLayout.specFinderDesc', 'Compare barrier OTR/WVTR')}</div>
                         </div>
                       </Link>
 
@@ -211,21 +199,21 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                       <Link
                         to="/studio"
                         onClick={() => setIsAppsDropdownOpen(false)}
-                        className="flex items-center gap-3 p-1.5 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all group"
+                        className="flex items-center gap-3 p-2 rounded-xl hover:bg-neutral-100 transition-all group"
                       >
-                        <div className="w-10 h-10 border border-black bg-emerald-100 flex items-center justify-center flex-shrink-0">
-                          <Box className="w-6 h-6 text-black" strokeWidth={2.5} />
+                        <div className="w-9 h-9 rounded-lg border border-neutral-200 bg-emerald-50 flex items-center justify-center flex-shrink-0">
+                          <Box className="w-5 h-5 text-emerald-700" strokeWidth={2} />
                         </div>
                         <div className="text-left">
-                          <div className="font-bold text-xs uppercase tracking-tight">[{t('pouchLayout.pricingCalculator', '3D STUDIO')}]</div>
-                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">{t('pouchLayout.pricingCalculatorDesc', 'Create 3D models and dielines for free')}</div>
+                          <div className="font-bold text-xs text-neutral-900">{t('pouchLayout.pricingCalculator', '3D Studio')}</div>
+                          <div className="text-[10px] text-neutral-500 font-sans leading-tight mt-0.5">{t('pouchLayout.pricingCalculatorDesc', 'Create 3D models and dielines for free')}</div>
                         </div>
                       </Link>
                     </div>
 
                     {/* Right Column: 3D & Dieline Creator Apps */}
                     <div className="space-y-2">
-                      <div className="bg-[#00FFFF] border-2 border-black p-1.5 font-['JetBrains_Mono'] font-bold text-xs uppercase text-center mb-1">
+                      <div className="bg-neutral-100 border border-neutral-200 p-2 rounded-xl font-sans font-bold text-xs uppercase text-neutral-900 text-center mb-1">
                         🎨 {t('pouchLayout.threeDApps', '3D & Dieline Creator Apps')}
                       </div>
 
@@ -233,14 +221,14 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                       <Link
                         to="/3d-showcase"
                         onClick={() => setIsAppsDropdownOpen(false)}
-                        className="flex items-center gap-3 p-1.5 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all group"
+                        className="flex items-center gap-3 p-2 rounded-xl hover:bg-neutral-100 transition-all group"
                       >
-                        <div className="w-10 h-10 border border-black bg-amber-100 flex items-center justify-center flex-shrink-0">
-                          <Box className="w-6 h-6 text-black" strokeWidth={2.5} />
+                        <div className="w-9 h-9 rounded-lg border border-neutral-200 bg-amber-50 flex items-center justify-center flex-shrink-0">
+                          <Box className="w-5 h-5 text-amber-700" strokeWidth={2} />
                         </div>
                         <div className="text-left">
-                          <div className="font-bold text-xs uppercase tracking-tight">[{t('pouchLayout.threeDShowcase', '3D WEBGL SHOWCASE')}]</div>
-                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">{t('pouchLayout.threeDShowcaseDesc', 'Rotate & inspect eco pouch textures')}</div>
+                          <div className="font-bold text-xs text-neutral-900">{t('pouchLayout.threeDShowcase', '3D WebGL Showcase')}</div>
+                          <div className="text-[10px] text-neutral-500 font-sans leading-tight mt-0.5">{t('pouchLayout.threeDShowcaseDesc', 'Rotate & inspect eco pouch textures')}</div>
                         </div>
                       </Link>
 
@@ -248,7 +236,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                       <Link
                         to="/dieline-creator"
                         onClick={() => setIsAppsDropdownOpen(false)}
-                        className="flex items-center gap-3 p-1.5 hover:bg-[#00FFFF] border-2 border-transparent hover:border-black transition-all group"
+                        className="flex items-center gap-3 p-2 rounded-xl hover:bg-neutral-100 transition-all group"
                       >
                         <div className="w-10 h-10 border border-black bg-cyan-100 flex items-center justify-center flex-shrink-0">
                           <Sparkles className="w-6 h-6 text-black" strokeWidth={2.5} />
@@ -997,7 +985,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <Link 
                   key={i}
                   to={topic.path}
-                  className={`border-2 border-black px-2.5 py-1 font-['JetBrains_Mono'] font-extrabold text-[10px] uppercase hover:bg-black hover:text-[#D4FF00] hover:-translate-y-0.5 transition-all inline-flex items-center rounded-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] ${topic.color}`}
+                  className="border border-neutral-200 bg-white text-neutral-600 px-3 py-1 font-mono text-[11px] rounded-full hover:border-neutral-400 hover:text-neutral-900 transition-all inline-flex items-center shadow-sm"
                 >
                   #{topic.name}
                 </Link>
@@ -1005,14 +993,14 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
             </div>
           </div>
 
-          <div className="border-t-4 border-black pt-6 flex flex-col md:flex-row justify-between items-center font-['JetBrains_Mono'] text-[11px] font-bold gap-4">
+          <div className="border-t border-neutral-200 pt-6 flex flex-col md:flex-row justify-between items-center font-sans text-xs text-neutral-500 gap-4">
             <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left leading-tight">
               <Link to="/">
-                <img src="/ap-logo.svg" alt="Achieve Pack Logo" className="h-6 w-auto" loading="lazy" />
+                <img src="/ap-logo.svg" alt="Achieve Pack Logo" className="h-6 w-auto opacity-80" loading="lazy" />
               </Link>
               <div>
-                {t('pouchLayout.copyright', '© 2026 POUCH.ECO // ECO PACKAGING PROTOCOL')}<br/>
-                <span className="opacity-70">{t('pouchLayout.allMaterialsCertified', 'ALL MATERIALS CERTIFIED')}</span>
+                {t('pouchLayout.copyright', '© 2026 POUCH.ECO // Sustainable Packaging Sourcing Library')}<br/>
+                <span className="text-neutral-400">{t('pouchLayout.allMaterialsCertified', 'EN 13432 & BPI Certified Eco Materials')}</span>
               </div>
             </div>
             

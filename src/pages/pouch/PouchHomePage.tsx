@@ -6,6 +6,8 @@ import { Helmet } from 'react-helmet-async'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import VideoShowcase from '../../components/pouch/VideoShowcase'
 import { ThreePouchViewer } from '../../components/ThreePouchViewer'
+import MobbinHeroSearch from '../../components/pouch/MobbinHeroSearch'
+import MobbinPouchGallery from '../../components/pouch/MobbinPouchGallery'
 import { SizingFinderIcon, MaterialSpecFinderIcon } from '../../components/AppIcons'
 
 import { useTranslation } from 'react-i18next'
@@ -353,6 +355,8 @@ export default function PouchHomePage() {
 
 
 
+  const [selectedTag, setSelectedTag] = useState('All')
+  const [searchTerm, setSearchTerm] = useState('')
   const [activeHeroIndex, setActiveHeroIndex] = useState(0)
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
   const [isLaptop, setIsLaptop] = useState(window.innerWidth >= 1024)
@@ -682,16 +686,28 @@ export default function PouchHomePage() {
         <meta name="description" content={t('pouchHomePage.meta.description', 'Sustainable packaging made simple. Low MOQ compostable pouches for startups. Get started with 500 units.')} />
       </Helmet>
 
-      {/* Hero Section with Video Background */}
-      <section className="relative pt-12 pb-24 border-b-4 border-black overflow-hidden">
+      {/* Mobbin Signature Hero Search & Filter Matrix */}
+      <MobbinHeroSearch
+        selectedTag={selectedTag}
+        onTagSelect={(tag) => setSelectedTag(tag)}
+        onSearchChange={(term) => setSearchTerm(term)}
+      />
+
+      {/* Mobbin Clean Showcase Gallery */}
+      <MobbinPouchGallery
+        filterTag={selectedTag}
+        searchTerm={searchTerm}
+      />
+
+      {/* Hero Section with Video Background - Mobbin Light Mode */}
+      <section className="relative pt-10 pb-20 border-b border-neutral-200 bg-[#F9FAFB] overflow-hidden">
         {/* Video Background */}
         <div className="absolute inset-0 w-full h-full">
           <video muted={true}
             autoPlay
             loop
-            
             playsInline
-            className="w-full h-full object-cover opacity-50"
+            className="w-full h-full object-cover opacity-20"
             key="hero-video"
           >
             <source src="/video/pouch-eco-marketing-videos/problem.mp4" type="video/mp4" />
@@ -699,54 +715,52 @@ export default function PouchHomePage() {
             <source src="/video/pouch-eco-marketing-videos/Material.mp4" type="video/mp4" />
             <source src="/video/pouch-eco-marketing-videos/Performance.mp4" type="video/mp4" />
           </video>
-          {/* Liquid Glass Effect Overlay */}
-          <div className="absolute inset-0 backdrop-blur-[2px] bg-white/30" />
-          {/* Pattern Overlay */}
-          <div className="absolute inset-0 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px] opacity-80" />
+          {/* Subtle Ambient Glass Effect Overlay */}
+          <div className="absolute inset-0 backdrop-blur-[1px] bg-gradient-to-b from-[#F9FAFB]/90 via-[#F9FAFB]/70 to-[#F9FAFB]" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             
             {/* Left Content */}
-            <div className="space-y-8 z-10">
-              <div className="inline-block bg-[#D4FF00] border-4 border-black px-4 py-2 transform -rotate-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                <span className="font-['JetBrains_Mono'] font-bold text-sm">{t('pouchHomePage.hero.badge', 'ECO_SYSTEM v2026')}</span>
+            <div className="space-y-6 z-10">
+              <div className="inline-flex items-center gap-2 bg-neutral-100 border border-neutral-200/90 rounded-full px-3.5 py-1 text-xs font-semibold text-neutral-800 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>{t('pouchHomePage.hero.badge', 'ECO_SYSTEM v2026')}</span>
               </div>
               
-              <h1 className="font-black text-6xl md:text-8xl leading-[0.9] tracking-tighter uppercase">
-                {t('pouchHomePage.hero.h1Line1', 'Start.')}<br/>
-                {t('pouchHomePage.hero.h1Line2', 'Scale.')}<br/>
+              <h1 className="font-sans font-bold text-5xl md:text-7xl leading-[1.05] tracking-tight text-neutral-900">
+                {t('pouchHomePage.hero.h1Line1', 'Start.')} {t('pouchHomePage.hero.h1Line2', 'Scale.')}<br/>
                 <Typewriter words={t('pouchHomePage.hero.typewriterWords', { returnObjects: true, defaultValue: ['Sustain.', 'Eco.', 'Digital.'] }) as string[]} />
               </h1>
 
-              {/* Neo-brutalist Emotional Slogan Block */}
-              <div className="bg-[#D4FF00] border-4 border-black p-4 rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['Space_Grotesk'] text-lg font-bold uppercase text-black leading-snug max-w-md">
+              {/* Mobbin Slogan Block */}
+              <div className="bg-white border border-neutral-200/90 shadow-sm rounded-2xl p-5 font-sans text-base font-medium text-neutral-700 leading-relaxed max-w-lg">
                 "{slogan}"
               </div>
 
-              <div className="bg-white border-2 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] max-w-md">
-                <p className="font-['JetBrains_Mono'] font-bold text-lg md:text-xl">
+              <div className="bg-white border border-neutral-200/90 rounded-2xl p-5 shadow-sm max-w-lg">
+                <p className="font-mono font-medium text-sm md:text-base text-neutral-800 leading-relaxed">
                   {t('pouchHomePage.hero.terminalLine1', '> Eco packaging from 500 units.')}<br/>
                   {t('pouchHomePage.hero.terminalLine2', '> Compostable // Recyclable // Bio-based.')}<br/>
-                  {t('pouchHomePage.hero.terminalLine3', '> Fast turnaround. No BS.')}
+                  {t('pouchHomePage.hero.terminalLine3', '> Fast turnaround. Guaranteed quality.')}
                 </p>
                 {/* Eco Material Badges */}
-                <div className="flex gap-4 mt-4 border-t-2 border-black pt-4">
-                  <img src="/eco-logo/transparent-bkg/compost.png" alt={t("pouchHomePage.hero.alts.compostable", "Compostable")} className="h-12 md:h-16 w-auto hover:scale-110 transition-transform" />
-                  <img src="/eco-logo/transparent-bkg/recycle.png" alt={t("pouchHomePage.hero.alts.recyclable", "Recyclable")} className="h-12 md:h-16 w-auto hover:scale-110 transition-transform" />
-                  <img src="/eco-logo/transparent-bkg/biope.png" alt={t("pouchHomePage.hero.alts.biobased", "Bio-based")} className="h-12 md:h-16 w-auto hover:scale-110 transition-transform" />
-                  <img src="/eco-logo/transparent-bkg/pcr.png" alt={t("pouchHomePage.hero.alts.pcr", "PCR")} className="h-12 md:h-16 w-auto hover:scale-110 transition-transform" />
+                <div className="flex gap-4 mt-4 border-t border-neutral-100 pt-4 items-center">
+                  <img src="/eco-logo/transparent-bkg/compost.png" alt={t("pouchHomePage.hero.alts.compostable", "Compostable")} className="h-10 md:h-12 w-auto opacity-80 hover:opacity-100 hover:scale-105 transition-all" />
+                  <img src="/eco-logo/transparent-bkg/recycle.png" alt={t("pouchHomePage.hero.alts.recyclable", "Recyclable")} className="h-10 md:h-12 w-auto opacity-80 hover:opacity-100 hover:scale-105 transition-all" />
+                  <img src="/eco-logo/transparent-bkg/biope.png" alt={t("pouchHomePage.hero.alts.biobased", "Bio-based")} className="h-10 md:h-12 w-auto opacity-80 hover:opacity-100 hover:scale-105 transition-all" />
+                  <img src="/eco-logo/transparent-bkg/pcr.png" alt={t("pouchHomePage.hero.alts.pcr", "PCR")} className="h-10 md:h-12 w-auto opacity-80 hover:opacity-100 hover:scale-105 transition-all" />
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">{t('pouchHomePage.hero.ctaBook', 'Book Consultation')}</NeoButton>
-                <NeoButton to="/materials">{t('pouchHomePage.hero.ctaMaterials', 'View Materials')}</NeoButton>
+                <NeoButton to="/materials" variant="secondary">{t('pouchHomePage.hero.ctaMaterials', 'View Materials')}</NeoButton>
               </div>
             </div>
 
-            {/* Right Visual - Rotating Card Stack */}
+            {/* Right Visual - Mobbin Card Showcase */}
             <div className="relative w-full max-w-md lg:max-w-[540px] aspect-square mx-auto lg:ml-auto lg:mr-0 mb-10 md:mb-0">
               {/* Manual Nav Arrows */}
               <button 
@@ -754,23 +768,21 @@ export default function PouchHomePage() {
                   e.stopPropagation();
                   setActiveHeroIndex((prev) => (prev === 0 ? 4 : prev - 1));
                 }}
-                className="absolute left-[-24px] top-1/2 -translate-y-1/2 w-12 h-12 bg-white hover:bg-[#D4FF00] border-4 border-black flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:scale-95 transition-all z-[60] cursor-pointer"
+                className="absolute left-[-20px] top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 hover:bg-white border border-neutral-200/90 rounded-full flex items-center justify-center shadow-md active:scale-95 transition-all z-[60] cursor-pointer"
                 aria-label={t("pouchHomePage.hero.buttons.prev", "Previous video")}
               >
-                <ChevronLeft className="w-6 h-6 text-black" />
+                <ChevronLeft className="w-5 h-5 text-neutral-700" />
               </button>
               <button 
                 onClick={(e) => {
                   e.stopPropagation();
                   setActiveHeroIndex((prev) => (prev === 4 ? 0 : prev + 1));
                 }}
-                className="absolute right-[-24px] top-1/2 -translate-y-1/2 w-12 h-12 bg-white hover:bg-[#D4FF00] border-4 border-black flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:scale-95 transition-all z-[60] cursor-pointer"
+                className="absolute right-[-20px] top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 hover:bg-white border border-neutral-200/90 rounded-full flex items-center justify-center shadow-md active:scale-95 transition-all z-[60] cursor-pointer"
                 aria-label={t("pouchHomePage.hero.buttons.next", "Next video")}
               >
-                <ChevronRight className="w-6 h-6 text-black" />
+                <ChevronRight className="w-5 h-5 text-neutral-700" />
               </button>
-
-
 
               {/* Card 1: Bag Video */}
               <motion.div
@@ -778,11 +790,10 @@ export default function PouchHomePage() {
                 animate={activeHeroIndex === 0 ? "front" : (activeHeroIndex === 4 ? "middle" : "back")}
                 className="absolute inset-0 w-full h-full"
               >
-                <NeoCard className="bg-white w-full h-full !p-0 overflow-hidden group relative">
+                <div className="bg-white border border-neutral-200/90 rounded-3xl w-full h-full overflow-hidden group relative shadow-lg">
                   <video muted={true}
                     ref={videoRef1}
                     autoPlay
-                    
                     playsInline
                     poster="/video/hero/cover.jpg"
                     onEnded={() => setActiveHeroIndex(1)}
@@ -793,13 +804,10 @@ export default function PouchHomePage() {
                   </video>
                   
                   {/* Floating Tag */}
-                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
+                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white/90 backdrop-blur-md border border-neutral-200/90 px-3 py-1 font-mono text-xs font-semibold rounded-full shadow-sm z-20 text-neutral-800">
                     {t("pouchHomePage.hero.tags.compostable", "COMPOSTABLE_OK")}
                   </motion.div>
-                  
-                  {/* Overlay Texture */}
-                  <div className="absolute inset-0 bg-[url('https://achievepack.com/imgs/paper-texture.png')] opacity-10 mix-blend-overlay z-10 pointer-events-none" />
-                </NeoCard>
+                </div>
               </motion.div>
 
               {/* Card 2: Recycle Video */}
@@ -808,11 +816,10 @@ export default function PouchHomePage() {
                 animate={activeHeroIndex === 1 ? "front" : (activeHeroIndex === 0 ? "middle" : "back")}
                 className="absolute inset-0 w-full h-full"
               >
-                <NeoCard className="bg-white w-full h-full !p-0 overflow-hidden group relative">
+                <div className="bg-white border border-neutral-200/90 rounded-3xl w-full h-full overflow-hidden group relative shadow-lg">
                   <video muted={true}
                     ref={videoRef2}
                     autoPlay
-                    
                     playsInline
                     poster="/video/hero/recycle/recyclable cover.png"
                     onEnded={() => setActiveHeroIndex(2)}
@@ -821,14 +828,10 @@ export default function PouchHomePage() {
                     <source src="/video/hero/recycle/remake_this_image_to_square_.mp4" type="video/mp4" />
                   </video>
                   
-                  {/* Floating Tag */}
-                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
+                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white/90 backdrop-blur-md border border-neutral-200/90 px-3 py-1 font-mono text-xs font-semibold rounded-full shadow-sm z-20 text-neutral-800">
                     {t("pouchHomePage.hero.tags.recyclable", "RECYCLABLE_OK")}
                   </motion.div>
-                  
-                  {/* Overlay Texture */}
-                  <div className="absolute inset-0 bg-[url('https://achievepack.com/imgs/paper-texture.png')] opacity-10 mix-blend-overlay z-10 pointer-events-none" />
-                </NeoCard>
+                </div>
               </motion.div>
 
               {/* Card 3: Industrial Video */}
@@ -837,11 +840,10 @@ export default function PouchHomePage() {
                 animate={activeHeroIndex === 2 ? "front" : (activeHeroIndex === 1 ? "middle" : "back")}
                 className="absolute inset-0 w-full h-full"
               >
-                <NeoCard className="bg-white w-full h-full !p-0 overflow-hidden group relative">
+                <div className="bg-white border border-neutral-200/90 rounded-3xl w-full h-full overflow-hidden group relative shadow-lg">
                   <video muted={true}
                     ref={videoRef3}
                     autoPlay
-                    
                     playsInline
                     poster="/video/hero/industrial/industrial cover.png"
                     onEnded={() => setActiveHeroIndex(3)}
@@ -850,14 +852,10 @@ export default function PouchHomePage() {
                     <source src="/video/hero/industrial/industrial.mp4" type="video/mp4" />
                   </video>
                   
-                  {/* Floating Tag */}
-                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
+                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white/90 backdrop-blur-md border border-neutral-200/90 px-3 py-1 font-mono text-xs font-semibold rounded-full shadow-sm z-20 text-neutral-800">
                     {t("pouchHomePage.hero.tags.industrial", "INDUSTRIAL_OK")}
                   </motion.div>
-                  
-                  {/* Overlay Texture */}
-                  <div className="absolute inset-0 bg-[url('https://achievepack.com/imgs/paper-texture.png')] opacity-10 mix-blend-overlay z-10 pointer-events-none" />
-                </NeoCard>
+                </div>
               </motion.div>
 
               {/* Card 4: PCR Video */}
@@ -866,11 +864,10 @@ export default function PouchHomePage() {
                 animate={activeHeroIndex === 3 ? "front" : (activeHeroIndex === 2 ? "middle" : "back")}
                 className="absolute inset-0 w-full h-full"
               >
-                <NeoCard className="bg-white w-full h-full !p-0 overflow-hidden group relative">
+                <div className="bg-white border border-neutral-200/90 rounded-3xl w-full h-full overflow-hidden group relative shadow-lg">
                   <video muted={true}
                     ref={videoRef4}
                     autoPlay
-                    
                     playsInline
                     poster="/video/hero/PCR/prc cover.png"
                     onEnded={() => setActiveHeroIndex(4)}
@@ -879,14 +876,10 @@ export default function PouchHomePage() {
                     <source src="/video/hero/PCR/pcr.mp4" type="video/mp4" />
                   </video>
                   
-                  {/* Floating Tag */}
-                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
+                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white/90 backdrop-blur-md border border-neutral-200/90 px-3 py-1 font-mono text-xs font-semibold rounded-full shadow-sm z-20 text-neutral-800">
                     {t("pouchHomePage.hero.tags.pcr", "PCR_BARRIER_OK")}
                   </motion.div>
-                  
-                  {/* Overlay Texture */}
-                  <div className="absolute inset-0 bg-[url('https://achievepack.com/imgs/paper-texture.png')] opacity-10 mix-blend-overlay z-10 pointer-events-none" />
-                </NeoCard>
+                </div>
               </motion.div>
 
               {/* Card 5: BioPE Video */}
@@ -895,11 +888,10 @@ export default function PouchHomePage() {
                 animate={activeHeroIndex === 4 ? "front" : (activeHeroIndex === 3 ? "middle" : "back")}
                 className="absolute inset-0 w-full h-full"
               >
-                <NeoCard className="bg-white w-full h-full !p-0 overflow-hidden group relative">
+                <div className="bg-white border border-neutral-200/90 rounded-3xl w-full h-full overflow-hidden group relative shadow-lg">
                   <video muted={true}
                     ref={videoRef5}
                     autoPlay
-                    
                     playsInline
                     poster="/video/hero/biope/biope cover.png"
                     onEnded={() => setActiveHeroIndex(0)}
@@ -908,42 +900,38 @@ export default function PouchHomePage() {
                     <source src="/video/hero/biope/biope.mp4" type="video/mp4" />
                   </video>
                   
-                  {/* Floating Tag */}
-                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
+                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white/90 backdrop-blur-md border border-neutral-200/90 px-3 py-1 font-mono text-xs font-semibold rounded-full shadow-sm z-20 text-neutral-800">
                     {t("pouchHomePage.hero.tags.biobased", "BIO_BASED_OK")}
                   </motion.div>
-                  
-                  {/* Overlay Texture */}
-                  <div className="absolute inset-0 bg-[url('https://achievepack.com/imgs/paper-texture.png')] opacity-10 mix-blend-overlay z-10 pointer-events-none" />
-                </NeoCard>
+                </div>
               </motion.div>
 
-              {/* Decorative Foreground Badge */}
-              <div className="absolute -bottom-6 -left-6 w-24 h-24 md:w-32 md:h-32 bg-[#FF00FF] border-4 border-black flex items-center justify-center animate-bounce z-[70]">
-                <span className="font-black text-sm md:text-xl rotate-[-15deg]">{t("pouchHomePage.hero.badge", "500!")}</span>
+              {/* Decorative Pill Badge */}
+              <div className="absolute -bottom-4 -left-4 bg-neutral-900 text-white rounded-2xl px-5 py-3 shadow-xl z-[70]">
+                <span className="font-bold text-sm font-sans">{t("pouchHomePage.hero.badge", "500 MOQ")}</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Trusted Brands Logo Marquee - Neo-Brutalist Style */}
-      <section className="py-16 px-4 bg-white border-y-4 border-black overflow-hidden">
-        <div className="max-w-6xl mx-auto mb-12 text-center">
-          <div className="inline-block bg-[#D4FF00] border-4 border-black px-4 py-2 transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-6">
-            <span className="font-['JetBrains_Mono'] font-bold uppercase">{t('pouchHomePage.trustedBy.badge', 'TRUSTED_BY')}</span>
+      {/* Trusted Brands Logo Marquee - Mobbin Light Mode */}
+      <section className="py-16 px-4 bg-white border-y border-neutral-200/80 overflow-hidden">
+        <div className="max-w-6xl mx-auto mb-10 text-center">
+          <div className="inline-flex items-center gap-1.5 bg-neutral-100 border border-neutral-200/90 rounded-full px-3.5 py-1 text-xs font-medium text-neutral-800 mb-4">
+            <span>{t('pouchHomePage.trustedBy.badge', 'TRUSTED_BY')}</span>
           </div>
-          <h2 className="font-black text-4xl md:text-5xl uppercase mb-4">
-            {t('pouchHomePage.trustedBy.titlePrefix', 'Join ')}<span className="text-[#10b981]">{t('pouchHomePage.trustedBy.titleHighlight', '500+')}</span>{t('pouchHomePage.trustedBy.titleSuffix', ' Brands')}
+          <h2 className="font-sans font-bold text-3xl md:text-5xl text-neutral-900 tracking-tight mb-3">
+            {t('pouchHomePage.trustedBy.titlePrefix', 'Join ')}<span className="text-emerald-600">{t('pouchHomePage.trustedBy.titleHighlight', '500+')}</span>{t('pouchHomePage.trustedBy.titleSuffix', ' Brands')}
           </h2>
-          <p className="text-lg text-gray-700 font-['Space_Grotesk']">
+          <p className="text-base text-neutral-600 font-sans max-w-xl mx-auto">
             {t('pouchHomePage.trustedBy.subtitle', 'From startups to established names - they all started with 500 units')}
           </p>
         </div>
 
         {/* Logo Strip 1 - Scrolling Left */}
-        <div className="relative -rotate-1 mb-6">
-          <div className="bg-black border-4 border-black py-6 overflow-hidden">
+        <div className="relative mb-4">
+          <div className="bg-neutral-50/80 border border-neutral-200/80 py-5 rounded-2xl overflow-hidden">
             <div className="flex animate-scroll-left">
               {/* First set */}
               {[
@@ -965,12 +953,12 @@ export default function PouchHomePage() {
               ].map((logo, idx) => (
                 <div 
                   key={`logo-1-${idx}`} 
-                  className="flex-shrink-0 mx-8 h-16 w-32 flex items-center justify-center bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(212,255,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(212,255,0,1)] transition-all"
+                  className="flex-shrink-0 mx-6 h-14 w-28 flex items-center justify-center bg-white border border-neutral-200/80 rounded-xl shadow-xs hover:border-neutral-300 transition-all"
                 >
                   <img 
                     src={logo.image} 
                     alt={logo.name} 
-                    className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" 
+                    className="h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" 
                     loading="lazy"
                   />
                 </div>
@@ -995,80 +983,12 @@ export default function PouchHomePage() {
               ].map((logo, idx) => (
                 <div 
                   key={`logo-2-${idx}`} 
-                  className="flex-shrink-0 mx-8 h-16 w-32 flex items-center justify-center bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(212,255,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(212,255,0,1)] transition-all"
+                  className="flex-shrink-0 mx-6 h-14 w-28 flex items-center justify-center bg-white border border-neutral-200/80 rounded-xl shadow-xs hover:border-neutral-300 transition-all"
                 >
                   <img 
                     src={logo.image} 
                     alt={logo.name} 
-                    className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" 
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Logo Strip 2 - Scrolling Right */}
-        <div className="relative rotate-1">
-          <div className="bg-[#10b981] border-4 border-black py-6 overflow-hidden">
-            <div className="flex animate-scroll-right">
-              {/* First set */}
-              {[
-                { name: 'Morlife', image: '/imgs/clien-logos/morlife.png' },
-                { name: 'Sustenir Agriculture', image: '/imgs/clien-logos/sustenir.png' },
-                { name: 'Two Rivers', image: '/imgs/clien-logos/tworivers.png' },
-                { name: 'Humble Snacks', image: '/imgs/clien-logos/humble.png' },
-                { name: 'Mavella Superfoods', image: '/imgs/clien-logos/mavella.png' },
-                { name: 'Superfood Lab Asia', image: '/imgs/clien-logos/superfood.png' },
-                { name: 'Green Urban Foods', image: '/imgs/clien-logos/green-urban.png' },
-                { name: 'Knowrish Well', image: '/imgs/clien-logos/knowrish.png' },
-                { name: 'Fodilicious', image: '/imgs/clien-logos/fodilicious.png' },
-                { name: 'Hike Again Remedies', image: '/imgs/clien-logos/hike.png' },
-                { name: 'Nuditea', image: '/imgs/clien-logos/nuditea.png' },
-                { name: 'Winand Products', image: '/imgs/clien-logos/winand.png' },
-                { name: 'Freshfield', image: '/imgs/clien-logos/freshfield.png' },
-                { name: 'Honestea', image: '/imgs/clien-logos/honestea.png' },
-                { name: 'Moom Health', image: '/imgs/clien-logos/moom.png' }
-              ].slice().reverse().map((logo, idx) => (
-                <div 
-                  key={`logo-3-${idx}`} 
-                  className="flex-shrink-0 mx-8 h-16 w-32 flex items-center justify-center bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all"
-                >
-                  <img 
-                    src={logo.image} 
-                    alt={logo.name} 
-                    className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" 
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-              {/* Duplicate set for seamless loop */}
-              {[
-                { name: 'Morlife', image: '/imgs/clien-logos/morlife.png' },
-                { name: 'Sustenir Agriculture', image: '/imgs/clien-logos/sustenir.png' },
-                { name: 'Two Rivers', image: '/imgs/clien-logos/tworivers.png' },
-                { name: 'Humble Snacks', image: '/imgs/clien-logos/humble.png' },
-                { name: 'Mavella Superfoods', image: '/imgs/clien-logos/mavella.png' },
-                { name: 'Superfood Lab Asia', image: '/imgs/clien-logos/superfood.png' },
-                { name: 'Green Urban Foods', image: '/imgs/clien-logos/green-urban.png' },
-                { name: 'Knowrish Well', image: '/imgs/clien-logos/knowrish.png' },
-                { name: 'Fodilicious', image: '/imgs/clien-logos/fodilicious.png' },
-                { name: 'Hike Again Remedies', image: '/imgs/clien-logos/hike.png' },
-                { name: 'Nuditea', image: '/imgs/clien-logos/nuditea.png' },
-                { name: 'Winand Products', image: '/imgs/clien-logos/winand.png' },
-                { name: 'Freshfield', image: '/imgs/clien-logos/freshfield.png' },
-                { name: 'Honestea', image: '/imgs/clien-logos/honestea.png' },
-                { name: 'Moom Health', image: '/imgs/clien-logos/moom.png' }
-              ].slice().reverse().map((logo, idx) => (
-                <div 
-                  key={`logo-4-${idx}`} 
-                  className="flex-shrink-0 mx-8 h-16 w-32 flex items-center justify-center bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all"
-                >
-                  <img 
-                    src={logo.image} 
-                    alt={logo.name} 
-                    className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" 
+                    className="h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" 
                     loading="lazy"
                   />
                 </div>
@@ -1097,107 +1017,77 @@ export default function PouchHomePage() {
             }
           }
 
-          @keyframes scroll-left-fast {
-            0% {
-              transform: translateX(0);
-            }
-            100% {
-              transform: translateX(-50%);
-            }
-          }
-
-          @keyframes scroll-right-fast {
-            0% {
-              transform: translateX(-50%);
-            }
-            100% {
-              transform: translateX(0);
-            }
-          }
-
           .animate-scroll-left {
-            animation: scroll-left 13s linear infinite;
+            animation: scroll-left 25s linear infinite;
           }
 
           .animate-scroll-right {
-            animation: scroll-right 13s linear infinite;
+            animation: scroll-right 25s linear infinite;
           }
 
           .animate-scroll-left:hover,
           .animate-scroll-right:hover {
             animation-play-state: paused;
           }
-
-          /* Speed up on page scroll */
-          body.is-scrolling .animate-scroll-left {
-            animation: scroll-left-fast 4s linear infinite;
-          }
-
-          body.is-scrolling .animate-scroll-right {
-            animation: scroll-right-fast 4s linear infinite;
-          }
         `}</style>
       </section>
 
-      {/* Interactive 3D Eco Pouch Showcase */}
+      {/* Interactive 3D Eco Pouch Showcase - Mobbin Light Mode */}
       <section 
         ref={threeContainerRef}
         onMouseMove={handleThreeMouseMove}
         onMouseLeave={handleThreeMouseLeave}
-        className="py-24 bg-neutral-100 border-b-4 border-black overflow-hidden relative animate-fade-in"
+        className="py-20 bg-[#F9FAFB] border-b border-neutral-200 overflow-hidden relative"
       >
-        {/* Dot pattern overlay */}
-        <div className="absolute inset-0 z-0 bg-[radial-gradient(rgba(0,0,0,0.15)_1.5px,transparent_1.5px)] [background-size:24px_24px] pointer-events-none" />
-        
         <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <div className="inline-block bg-[#10b981] border-4 border-black px-4 py-2 transform -rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-white font-black text-xs uppercase tracking-wider mb-6">
-              {t("pouchHomePage.showcase.badge", "✨ Interactive 3D Showcase")}
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 rounded-full px-3.5 py-1 text-xs font-semibold text-emerald-700 mb-4">
+              <span>{t("pouchHomePage.showcase.badge", "✨ Interactive 3D Showcase")}</span>
             </div>
-            <h2 className="font-black text-5xl md:text-7xl uppercase leading-[0.9] tracking-tighter text-black">
+            <h2 className="font-sans font-bold text-4xl md:text-6xl text-neutral-900 tracking-tight">
               {t("pouchHomePage.showcase.title", "Eco Bags in 3D Space")}
             </h2>
-            <p className="font-['JetBrains_Mono'] text-lg mt-6 leading-relaxed max-w-2xl mx-auto text-neutral-800">
+            <p className="font-sans text-base mt-4 leading-relaxed text-neutral-600">
               {t("pouchHomePage.showcase.subtitle", "Rotate, tilt, and inspect the certified organic structural barriers of our green pouches. Move your mouse to tilt, scroll to spin, or toggle models below.")}
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
             {/* Left Controls & Marketing Copy (5 columns) */}
-            <div className="lg:col-span-5 space-y-8">
+            <div className="lg:col-span-5 space-y-6">
               {/* Card 1: Spouted Pouch */}
               <button
                 onClick={() => setActivePouchModel('spouted')}
-                className={`w-full text-left p-8 border-4 border-black transition-all duration-300 relative ${
+                className={`w-full text-left p-6 rounded-2xl border transition-all duration-200 relative ${
                   activePouchModel === 'spouted'
-                    ? 'bg-[#D4FF00] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] -translate-x-1 -translate-y-1'
-                    : 'bg-white hover:bg-neutral-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-0.5 hover:-translate-y-0.5'
+                    ? 'bg-white border-neutral-900 shadow-md'
+                    : 'bg-white border-neutral-200 hover:border-neutral-300 shadow-sm'
                 }`}
               >
                 <div className="flex justify-between items-start gap-4">
                   <div>
-                    <span className="inline-block px-3 py-1 text-xs font-black uppercase border-2 border-black bg-black text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-3">
+                    <span className="inline-block px-2.5 py-0.5 text-xs font-semibold rounded-full bg-neutral-100 text-neutral-800 mb-2">
                       {t("pouchHomePage.showcase.spouted.tag", "💧 Liquids & Purees")}
                     </span>
-                    <h3 className="font-black text-2xl uppercase text-black">
+                    <h3 className="font-sans font-bold text-xl text-neutral-900">
                       {t("pouchHomePage.showcase.spouted.title", "Industrial Compostable Spouted Pouch")}
                     </h3>
                   </div>
-                  <span className="text-3xl bg-white border-2 border-black p-2 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">🥤</span>
+                  <span className="text-2xl bg-neutral-50 border border-neutral-200 p-2 rounded-xl">🥤</span>
                 </div>
                 
-                <p className="font-['JetBrains_Mono'] text-sm mt-4 leading-relaxed text-neutral-800">
+                <p className="font-sans text-sm mt-3 leading-relaxed text-neutral-600">
                   {t("pouchHomePage.showcase.spouted.desc", "Certified industrial compostable flexible pouch featuring a fully plant-based rigid spout. Replaces conventional plastic spout barrier options with zero plastic footprint.")}
                 </p>
 
-                <div className="mt-6 pt-4 border-t-2 border-dashed border-black grid grid-cols-2 gap-4 font-['JetBrains_Mono'] text-xs text-black">
+                <div className="mt-4 pt-4 border-t border-neutral-100 grid grid-cols-2 gap-4 text-xs font-sans text-neutral-700">
                   <div>
-                    <span className="font-bold block uppercase tracking-wider text-black">{t("pouchHomePage.showcase.spouted.moqLabel", "MOQ:")}</span>
-                    <span className="font-black bg-white px-2 py-0.5 border border-black inline-block mt-1">{t("pouchHomePage.showcase.spouted.moqVal", "2,000 units")}</span>
+                    <span className="font-medium text-neutral-500 block uppercase text-[10px] tracking-wider">{t("pouchHomePage.showcase.spouted.moqLabel", "MOQ:")}</span>
+                    <span className="font-semibold text-neutral-900 mt-0.5 inline-block">{t("pouchHomePage.showcase.spouted.moqVal", "2,000 units")}</span>
                   </div>
                   <div>
-                    <span className="font-bold block uppercase tracking-wider text-black">{t("pouchHomePage.showcase.spouted.certLabel", "Certifications:")}</span>
-                    <span className="font-black text-[#10b981] bg-white px-2 py-0.5 border border-black inline-block mt-1">{t("pouchHomePage.showcase.spouted.certVal", "EN 13432, ASTM D6400")}</span>
+                    <span className="font-medium text-neutral-500 block uppercase text-[10px] tracking-wider">{t("pouchHomePage.showcase.spouted.certLabel", "Certifications:")}</span>
+                    <span className="font-semibold text-emerald-700 mt-0.5 inline-block">{t("pouchHomePage.showcase.spouted.certVal", "EN 13432, ASTM D6400")}</span>
                   </div>
                 </div>
               </button>
@@ -1205,43 +1095,43 @@ export default function PouchHomePage() {
               {/* Card 2: Flat Bottom Pouch */}
               <button
                 onClick={() => setActivePouchModel('flat-bottom')}
-                className={`w-full text-left p-8 border-4 border-black transition-all duration-300 relative ${
+                className={`w-full text-left p-6 rounded-2xl border transition-all duration-200 relative ${
                   activePouchModel === 'flat-bottom'
-                    ? 'bg-[#D4FF00] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] -translate-x-1 -translate-y-1'
-                    : 'bg-white hover:bg-neutral-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-0.5 hover:-translate-y-0.5'
+                    ? 'bg-white border-neutral-900 shadow-md'
+                    : 'bg-white border-neutral-200 hover:border-neutral-300 shadow-sm'
                 }`}
               >
                 <div className="flex justify-between items-start gap-4">
                   <div>
-                    <span className="inline-block px-3 py-1 text-xs font-black uppercase border-2 border-black bg-black text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-3">
+                    <span className="inline-block px-2.5 py-0.5 text-xs font-semibold rounded-full bg-neutral-100 text-neutral-800 mb-2">
                       {t("pouchHomePage.showcase.flatBottom.tag", "🌱 Dry Goods & Coffee")}
                     </span>
-                    <h3 className="font-black text-2xl uppercase text-black">
+                    <h3 className="font-sans font-bold text-xl text-neutral-900">
                       {t("pouchHomePage.showcase.flatBottom.title", "Home Compostable Flat Bottom Pouch")}
                     </h3>
                   </div>
-                  <span className="text-3xl bg-white border-2 border-black p-2 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">☕</span>
+                  <span className="text-2xl bg-neutral-50 border border-neutral-200 p-2 rounded-xl">☕</span>
                 </div>
                 
-                <p className="font-['JetBrains_Mono'] text-sm mt-4 leading-relaxed text-neutral-800">
+                <p className="font-sans text-sm mt-3 leading-relaxed text-neutral-600">
                   {t("pouchHomePage.showcase.flatBottom.desc", "Premium 100% home compostable box bottom structure that delivers outstanding shelf presence. Decomposes safely and naturally in home backyard compost bins.")}
                 </p>
 
-                <div className="mt-6 pt-4 border-t-2 border-dashed border-black grid grid-cols-2 gap-4 font-['JetBrains_Mono'] text-xs text-black">
+                <div className="mt-4 pt-4 border-t border-neutral-100 grid grid-cols-2 gap-4 text-xs font-sans text-neutral-700">
                   <div>
-                    <span className="font-bold block uppercase tracking-wider text-black">{t("pouchHomePage.showcase.flatBottom.moqLabel", "MOQ:")}</span>
-                    <span className="font-black bg-white px-2 py-0.5 border border-black inline-block mt-1">{t("pouchHomePage.showcase.flatBottom.moqVal", "1,000 units")}</span>
+                    <span className="font-medium text-neutral-500 block uppercase text-[10px] tracking-wider">{t("pouchHomePage.showcase.flatBottom.moqLabel", "MOQ:")}</span>
+                    <span className="font-semibold text-neutral-900 mt-0.5 inline-block">{t("pouchHomePage.showcase.flatBottom.moqVal", "1,000 units")}</span>
                   </div>
                   <div>
-                    <span className="font-bold block uppercase tracking-wider text-black">{t("pouchHomePage.showcase.flatBottom.certLabel", "Certifications:")}</span>
-                    <span className="font-black text-[#10b981] bg-white px-2 py-0.5 border border-black inline-block mt-1">{t("pouchHomePage.showcase.flatBottom.certVal", "OK Compost HOME")}</span>
+                    <span className="font-medium text-neutral-500 block uppercase text-[10px] tracking-wider">{t("pouchHomePage.showcase.flatBottom.certLabel", "Certifications:")}</span>
+                    <span className="font-semibold text-emerald-700 mt-0.5 inline-block">{t("pouchHomePage.showcase.flatBottom.certVal", "OK Compost HOME")}</span>
                   </div>
                 </div>
               </button>
             </div>
 
             {/* Right 3D Viewport (7 columns) */}
-            <div className="lg:col-span-7 h-[500px] md:h-[600px] bg-white border-4 border-black p-8 shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] relative flex items-center justify-center overflow-hidden">
+            <div className="lg:col-span-7 h-[480px] md:h-[540px] bg-white border border-neutral-200 rounded-3xl p-6 shadow-sm relative flex items-center justify-center overflow-hidden">
               <div className="w-full h-full relative z-10">
                 <ThreePouchViewer 
                   modelUrl={activePouchModel === 'spouted' ? '/3d/3d-pouch/spouted-pouch.glb' : '/3d/3d-pouch/coffee-pouch.glb'} 
@@ -1255,32 +1145,31 @@ export default function PouchHomePage() {
         </div>
       </section>
 
-      {/* 5 Common Problems Section */}
-      <section className="py-24 bg-neutral-50 border-b-4 border-black">
+      {/* 5 Common Problems Section - Mobbin Light Mode */}
+      <section className="py-20 bg-white border-b border-neutral-200">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="font-black text-4xl md:text-6xl uppercase italic">
+            <h2 className="font-sans font-bold text-3xl md:text-5xl text-neutral-900 tracking-tight">
               {pageT.sectionTitle}
             </h2>
           </div>
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
-              <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <img 
                 src="/imgs/knowledge/pouch-packaging-pain-points.jpg"
                 alt={pageT.sectionTitle}
-                className="relative z-10 border-4 border-black w-full shadow-2xl"
+                className="relative z-10 border border-neutral-200 rounded-3xl w-full shadow-md"
               />
             </div>
-            <div className="space-y-6">
+            <div className="space-y-4">
               {pageT.problems.map((prob, idx) => (
-                <div key={idx} className="bg-white border-4 border-black p-6 flex gap-4 items-start shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 transition-transform">
-                  <div className="bg-black text-[#D4FF00] p-2 flex-shrink-0 mt-1">
-                    <CheckCircle className="w-6 h-6" />
+                <div key={idx} className="bg-[#F9FAFB] border border-neutral-200/90 rounded-2xl p-5 flex gap-4 items-start shadow-xs hover:border-neutral-300 transition-all">
+                  <div className="bg-emerald-500/10 text-emerald-600 p-2 rounded-xl flex-shrink-0 mt-0.5">
+                    <CheckCircle className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-black uppercase text-xl mb-2">{prob.title}</h4>
-                    <p className="font-['JetBrains_Mono'] text-gray-700 leading-relaxed">{prob.desc}</p>
+                    <h4 className="font-sans font-bold text-lg text-neutral-900 mb-1">{prob.title}</h4>
+                    <p className="font-sans text-sm text-neutral-600 leading-relaxed">{prob.desc}</p>
                   </div>
                 </div>
               ))}
@@ -1391,37 +1280,37 @@ export default function PouchHomePage() {
         </div>
       </section>
 
-      {/* Neobrutalist Packaging Apps Section */}
-      <section className="py-24 px-4 md:px-6 bg-[#00FFFF] border-t-4 border-black border-b-4 relative overflow-hidden">
+      {/* Mobbin Packaging Apps Section */}
+      <section className="py-20 px-4 md:px-6 bg-[#F9FAFB] border-t border-b border-neutral-200 relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
-            <div className="max-w-3xl">
-              <div className="inline-block bg-black text-[#D4FF00] border-4 border-black px-4 py-2 transform -rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono'] font-bold text-xs uppercase mb-6">
-                {t("pouchHomePage.appSuite.badge", "⚡ INTERACTIVE_UTILITIES")}
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-1.5 bg-neutral-100 border border-neutral-200 rounded-full px-3.5 py-1 text-xs font-semibold text-neutral-800 mb-4">
+                <span>{t("pouchHomePage.appSuite.badge", "⚡ INTERACTIVE_UTILITIES")}</span>
               </div>
-              <h2 className="font-black text-5xl md:text-7xl uppercase leading-[0.9] tracking-tighter text-black">
+              <h2 className="font-sans font-bold text-4xl md:text-6xl text-neutral-900 tracking-tight">
                 {t("pouchHomePage.appSuite.title", "PACKAGING APP SUITE")}
               </h2>
-              <p className="font-['Space_Grotesk'] text-lg mt-6 leading-relaxed text-black font-semibold">
+              <p className="font-sans text-base mt-4 leading-relaxed text-neutral-600">
                 {t("pouchHomePage.appSuite.subtitle", "Engineer your pouch sizing and material specifications instantly. No guessing, no errors. Pure technical precision.")}
               </p>
             </div>
 
             {/* Scroll Navigation Controls */}
-            <div className="flex items-center gap-4 mt-6 md:mt-0">
+            <div className="flex items-center gap-3 mt-6 md:mt-0">
               <button 
                 onClick={scrollAppsLeft} 
-                className="w-14 h-14 rounded-full border-4 border-black bg-white hover:bg-neutral-100 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 active:shadow-[0px_0px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center justify-center"
+                className="w-10 h-10 rounded-full border border-neutral-200 bg-white hover:bg-neutral-50 shadow-xs active:scale-95 transition-all flex items-center justify-center cursor-pointer"
                 aria-label="Scroll left"
               >
-                <ChevronLeft className="w-6 h-6 text-black" strokeWidth={3} />
+                <ChevronLeft className="w-5 h-5 text-neutral-700" />
               </button>
               <button 
                 onClick={scrollAppsRight} 
-                className="w-14 h-14 rounded-full border-4 border-black bg-[#D4FF00] hover:bg-[#D4FF00]/80 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 active:shadow-[0px_0px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center justify-center"
+                className="w-10 h-10 rounded-full border border-neutral-200 bg-neutral-900 hover:bg-neutral-800 shadow-xs active:scale-95 transition-all flex items-center justify-center cursor-pointer"
                 aria-label="Scroll right"
               >
-                <ChevronRight className="w-6 h-6 text-black" strokeWidth={3} />
+                <ChevronRight className="w-5 h-5 text-white" />
               </button>
             </div>
           </div>
@@ -1429,45 +1318,47 @@ export default function PouchHomePage() {
           {/* Horizontal Scrollable Container */}
           <div 
             ref={appsScrollRef}
-            className="flex gap-8 overflow-x-auto no-scrollbar scroll-smooth pb-8"
+            className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth pb-6"
             style={{ scrollSnapType: 'x mandatory' }}
           >
             {PACKAGING_APPS.map((app) => (
               <div 
                 key={app.id}
-                className="flex-none w-[320px] sm:w-[370px] bg-white border-4 border-black p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col justify-between group"
+                className="flex-none w-[310px] sm:w-[350px] bg-white border border-neutral-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-neutral-300 transition-all flex flex-col justify-between group"
                 style={{ scrollSnapAlign: 'start' }}
               >
                 <div>
-                  <div className="flex justify-between items-start mb-6 pb-4 border-b-2 border-black">
-                    <div className={`w-16 h-16 border-4 border-black flex items-center justify-center group-hover:rotate-3 transition-transform ${app.iconBg}`}>
-                      {app.icon === 'sizing' && <SizingFinderIcon className="w-9 h-9 text-black" strokeWidth={2.5} />}
-                      {app.icon === 'spec' && <MaterialSpecFinderIcon className="w-9 h-9 text-white" strokeWidth={2.5} />}
-                      {app.icon === 'search' && <Search className="w-9 h-9 text-black" strokeWidth={2.5} />}
-                      {app.icon === 'pentool' && <PenTool className="w-9 h-9 text-black" strokeWidth={2.5} />}
-                      {app.icon === 'map-pin' && <MapPin className="w-9 h-9 text-black" strokeWidth={2.5} />}
-                      {app.icon === 'box' && <BoxIcon className="w-9 h-9 text-black" strokeWidth={2.5} />}
-                      {app.icon === 'calc' && <Calculator className="w-9 h-9 text-black" strokeWidth={2.5} />}
+                  <div className="flex justify-between items-start mb-5 pb-3 border-b border-neutral-100">
+                    <div className="w-12 h-12 rounded-xl border border-neutral-200 bg-neutral-50 flex items-center justify-center group-hover:scale-105 transition-transform">
+                      {app.icon === 'sizing' && <SizingFinderIcon className="w-6 h-6 text-neutral-800" strokeWidth={2} />}
+                      {app.icon === 'spec' && <MaterialSpecFinderIcon className="w-6 h-6 text-neutral-800" strokeWidth={2} />}
+                      {app.icon === 'search' && <Search className="w-6 h-6 text-neutral-800" strokeWidth={2} />}
+                      {app.icon === 'pentool' && <PenTool className="w-6 h-6 text-neutral-800" strokeWidth={2} />}
+                      {app.icon === 'map-pin' && <MapPin className="w-6 h-6 text-neutral-800" strokeWidth={2} />}
+                      {app.icon === 'box' && <BoxIcon className="w-6 h-6 text-neutral-800" strokeWidth={2} />}
+                      {app.icon === 'calc' && <Calculator className="w-6 h-6 text-neutral-800" strokeWidth={2} />}
                     </div>
-                    <NeoBadge color={app.badgeColor}>{app.label}</NeoBadge>
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-neutral-100 text-neutral-800 border border-neutral-200">
+                      {app.label}
+                    </span>
                   </div>
                   
-                  <h3 className="font-black text-2xl mb-4 uppercase">{app.title}</h3>
-                  <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6 text-neutral-800 min-h-[80px]">
+                  <h3 className="font-sans font-bold text-xl mb-2 text-neutral-900">{app.title}</h3>
+                  <p className="font-sans text-xs leading-relaxed mb-4 text-neutral-600 min-h-[64px]">
                     {app.desc}
                   </p>
 
-                  <ul className="space-y-3 mb-8 font-['JetBrains_Mono'] text-xs font-bold text-black uppercase min-h-[120px]">
+                  <ul className="space-y-2 mb-6 font-sans text-xs text-neutral-700 min-h-[90px]">
                     {app.bullets.map((bullet, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <span className={`w-2.5 h-2.5 border border-black mt-1 flex-shrink-0 ${app.iconBg}`}></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 flex-shrink-0"></span>
                         <span>{bullet}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <NeoButton to={app.link} variant="dark" className="w-full text-center py-4 text-base font-black uppercase">
+                <NeoButton to={app.link} className="w-full text-center py-3 text-xs font-semibold">
                   {app.btnText}
                 </NeoButton>
               </div>
@@ -1476,74 +1367,74 @@ export default function PouchHomePage() {
         </div>
       </section>
 
-      {/* Neobrutalist Website Free Creation & samples Section */}
-      <section className="py-24 px-4 md:px-6 bg-white border-b-4 border-black">
+      {/* Mobbin Website Free Creation & Samples Section */}
+      <section className="py-20 px-4 md:px-6 bg-white border-b border-neutral-200">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-block bg-black text-[#00FFFF] border-4 border-black px-4 py-2 transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono'] font-bold text-xs uppercase mb-6">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-1.5 bg-neutral-100 border border-neutral-200 rounded-full px-3.5 py-1 text-xs font-medium text-neutral-800 mb-4">
               🌐 FREE_WEB_DEVELOPMENT
             </div>
-            <h2 className="font-black text-4xl md:text-6xl uppercase leading-[0.9] tracking-tighter text-black">
+            <h2 className="font-sans font-bold text-3xl md:text-5xl text-neutral-900 tracking-tight">
               FREE STOREFRONT & LIVE BRAND DEMOS
             </h2>
-            <p className="font-['Space_Grotesk'] text-lg mt-6 leading-relaxed text-neutral-700 font-semibold">
+            <p className="font-sans text-base mt-4 leading-relaxed text-neutral-600">
               Get a premium high-converting web storefront for your business or try our live interactive samples.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-8">
             {/* Card 1: Free Website Design */}
-            <div className="bg-[#D4FF00] border-4 border-black p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between group">
+            <div className="bg-[#F9FAFB] border border-neutral-200 rounded-3xl p-8 shadow-sm flex flex-col justify-between group hover:shadow-md transition-all">
               <div>
-                <span className="bg-black text-[#FF00FF] font-['JetBrains_Mono'] font-bold text-xs uppercase px-3 py-1 border-2 border-black inline-block">Free Program</span>
-                <h3 className="font-black text-3xl mt-6 mb-4 uppercase">Free Storefront Upgrade</h3>
-                <p className="font-['Space_Grotesk'] text-sm leading-relaxed mb-6 text-black font-medium">
+                <span className="bg-neutral-900 text-white font-sans font-medium text-xs rounded-full px-3 py-1 inline-block">Free Program</span>
+                <h3 className="font-sans font-bold text-2xl mt-5 mb-3 text-neutral-900">Free Storefront Upgrade</h3>
+                <p className="font-sans text-sm leading-relaxed mb-6 text-neutral-600">
                   We design and develop a custom modern web storefront in React for brands ordering sustainable packaging from us. Fully responsive, ultra-fast, and search-optimized at zero cost.
                 </p>
-                <ul className="space-y-3.5 mb-8 font-['JetBrains_Mono'] text-xs font-bold text-black uppercase">
-                  <li className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-black flex-shrink-0" />
+                <ul className="space-y-3 mb-8 font-sans text-xs font-medium text-neutral-700">
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" />
                     <span>Free custom domain mapping & branding system</span>
                   </li>
-                  <li className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-black flex-shrink-0" />
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" />
                     <span>Integration of custom dielines and calculators</span>
                   </li>
-                  <li className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-black flex-shrink-0" />
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" />
                     <span>100% SEO-optimized with multi-language support</span>
                   </li>
                 </ul>
               </div>
-              <NeoButton to="/free-service/website-upgrade" variant="dark" className="w-full text-center py-4 text-base font-black uppercase">
+              <NeoButton to="/free-service/website-upgrade" className="w-full text-center py-3 text-xs font-semibold">
                 Explore Website Program →
               </NeoButton>
             </div>
 
             {/* Card 2: Interactive Demos */}
-            <div className="bg-[#FF00FF] border-4 border-black p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between group text-white">
+            <div className="bg-[#F9FAFB] border border-neutral-200 rounded-3xl p-8 shadow-sm flex flex-col justify-between group hover:shadow-md transition-all">
               <div>
-                <span className="bg-black text-[#D4FF00] font-['JetBrains_Mono'] font-bold text-xs uppercase px-3 py-1 border-2 border-black inline-block">Live Samples</span>
-                <h3 className="font-black text-3xl mt-6 mb-4 uppercase text-black">Interactive Brand Demos</h3>
-                <p className="font-['Space_Grotesk'] text-sm leading-relaxed mb-6 text-white font-medium">
+                <span className="bg-emerald-600 text-white font-sans font-medium text-xs rounded-full px-3 py-1 inline-block">Live Samples</span>
+                <h3 className="font-sans font-bold text-2xl mt-5 mb-3 text-neutral-900">Interactive Brand Demos</h3>
+                <p className="font-sans text-sm leading-relaxed mb-6 text-neutral-600">
                   Explore pre-built mockups to see the web capabilities we build for our B2B customers. Real-time product customization, fully responsive structures, and custom packaging calculators.
                 </p>
-                <ul className="space-y-3.5 mb-8 font-['JetBrains_Mono'] text-xs font-bold text-black uppercase">
-                  <li className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-[#D4FF00] flex-shrink-0" />
-                    <span className="text-white">MaxiFoods Storefront Showcase (Responsive shop)</span>
+                <ul className="space-y-3 mb-8 font-sans text-xs font-medium text-neutral-700">
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                    <span>MaxiFoods Storefront Showcase (Responsive shop)</span>
                   </li>
-                  <li className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-[#D4FF00] flex-shrink-0" />
-                    <span className="text-white">Achieve Chips 3D Stand-Up Pouch Experience</span>
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                    <span>Achieve Chips 3D Stand-Up Pouch Experience</span>
                   </li>
-                  <li className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-[#D4FF00] flex-shrink-0" />
-                    <span className="text-white">Pencil Interactive Mockup drawing boards</span>
+                  <li className="flex items-center gap-2.5">
+                    <CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                    <span>Pencil Interactive Mockup drawing boards</span>
                   </li>
                 </ul>
               </div>
-              <NeoButton to="/free-service/all" variant="dark" className="w-full text-center py-4 text-base font-black uppercase">
+              <NeoButton to="/free-service/all" variant="secondary" className="w-full text-center py-3 text-xs font-semibold">
                 Browse Brand Samples →
               </NeoButton>
             </div>
@@ -1551,206 +1442,197 @@ export default function PouchHomePage() {
         </div>
       </section>
 
-      {/* Product Grid */}
-      <section ref={productsRef} className="py-24 bg-black border-y-4 border-[#D4FF00]">
+      {/* Product Grid - Mobbin Light Mode */}
+      <section ref={productsRef} className="py-20 bg-neutral-900 border-y border-neutral-800">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="font-black text-5xl md:text-7xl uppercase text-white mb-16 text-center">
+          <h2 className="font-sans font-bold text-4xl md:text-6xl text-white mb-14 text-center tracking-tight">
             {t("pouchHomePage.choosePlan.title", "Choose Plan")}
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             {PRODUCTS.map((product) => (
-              <NeoCard key={product.id} className="h-full flex flex-col p-0 overflow-hidden">
-                <div className={`relative bg-white p-6 h-full flex flex-col`}>
-                  <div className="bg-gray-100 border-2 border-black aspect-square mb-6 flex items-center justify-center relative overflow-hidden">
-                    <div className={`absolute inset-0 ${product.color} opacity-20`} />
+              <div key={product.id} className="h-full flex flex-col bg-white border border-neutral-200 rounded-3xl p-6 shadow-sm hover:shadow-lg transition-all group">
+                <div className="flex flex-col h-full">
+                  <div className="bg-neutral-50 border border-neutral-200 rounded-2xl aspect-square mb-6 flex items-center justify-center relative overflow-hidden">
                     <img 
                       src={product.image} 
                       alt={t("pouchHomePage.choosePlan." + (product.id === "stand-up" ? "standUp" : product.id === "flat-bottom" ? "flatBottom" : "spouted") + ".name", product.name)}
-                      className="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-300"
                     />
-                    <div className="absolute top-2 left-2 bg-black text-white px-2 py-0.5 font-['JetBrains_Mono'] text-xs font-bold z-10">
+                    <div className="absolute top-3 left-3 bg-neutral-900 text-white px-2.5 py-0.5 rounded-full font-sans text-[10px] font-semibold tracking-wider z-10">
                       ID: {product.id.toUpperCase()}
                     </div>
                   </div>
 
-                  <h3 className="font-black text-3xl mb-2 uppercase">{t("pouchHomePage.choosePlan." + (product.id === "stand-up" ? "standUp" : product.id === "flat-bottom" ? "flatBottom" : "spouted") + ".name", product.name)}</h3>
-                  <p className="font-['JetBrains_Mono'] text-sm mb-6 flex-grow">{t("pouchHomePage.choosePlan." + (product.id === "stand-up" ? "standUp" : product.id === "flat-bottom" ? "flatBottom" : "spouted") + ".desc", product.description)}</p>
+                  <h3 className="font-sans font-bold text-2xl mb-2 text-neutral-900">{t("pouchHomePage.choosePlan." + (product.id === "stand-up" ? "standUp" : product.id === "flat-bottom" ? "flatBottom" : "spouted") + ".name", product.name)}</h3>
+                  <p className="font-sans text-xs text-neutral-600 mb-6 leading-relaxed flex-grow">{t("pouchHomePage.choosePlan." + (product.id === "stand-up" ? "standUp" : product.id === "flat-bottom" ? "flatBottom" : "spouted") + ".desc", product.description)}</p>
 
                   {/* Stats Grid */}
-                  <div className="grid grid-cols-3 gap-2 mb-6 font-['JetBrains_Mono'] text-xs border-y-2 border-black py-4 bg-gray-50">
+                  <div className="grid grid-cols-3 gap-2 mb-6 font-sans text-xs border-y border-neutral-100 py-3.5 bg-neutral-50 rounded-xl px-2">
                     <div className="text-center">
-                      <div className="font-bold">MOQ</div>
-                      <div>{t("pouchHomePage.choosePlan." + (product.id === "stand-up" ? "standUp" : product.id === "flat-bottom" ? "flatBottom" : "spouted") + ".moq", product.stats.moq)}</div>
+                      <div className="font-medium text-neutral-500 text-[10px] uppercase">MOQ</div>
+                      <div className="font-semibold text-neutral-900">{t("pouchHomePage.choosePlan." + (product.id === "stand-up" ? "standUp" : product.id === "flat-bottom" ? "flatBottom" : "spouted") + ".moq", product.stats.moq)}</div>
                     </div>
-                    <div className="text-center border-l-2 border-black">
-                      <div className="font-bold">MAT</div>
-                      <div>{t("pouchHomePage.choosePlan." + (product.id === "stand-up" ? "standUp" : product.id === "flat-bottom" ? "flatBottom" : "spouted") + ".mat", product.stats.material)}</div>
+                    <div className="text-center border-l border-neutral-200">
+                      <div className="font-medium text-neutral-500 text-[10px] uppercase">MAT</div>
+                      <div className="font-semibold text-neutral-900">{t("pouchHomePage.choosePlan." + (product.id === "stand-up" ? "standUp" : product.id === "flat-bottom" ? "flatBottom" : "spouted") + ".mat", product.stats.material)}</div>
                     </div>
-                    <div className="text-center border-l-2 border-black">
-                      <div className="font-bold">BAR</div>
-                      <div>{t("pouchHomePage.choosePlan." + (product.id === "stand-up" ? "standUp" : product.id === "flat-bottom" ? "flatBottom" : "spouted") + ".bar", product.stats.barrier)}</div>
+                    <div className="text-center border-l border-neutral-200">
+                      <div className="font-medium text-neutral-500 text-[10px] uppercase">BAR</div>
+                      <div className="font-semibold text-neutral-900">{t("pouchHomePage.choosePlan." + (product.id === "stand-up" ? "standUp" : product.id === "flat-bottom" ? "flatBottom" : "spouted") + ".bar", product.stats.barrier)}</div>
                     </div>
                   </div>
 
-                  <div className="text-center mb-4 font-black text-2xl">{product.price}</div>
+                  <div className="text-center mb-5 font-sans font-bold text-2xl text-neutral-900">{product.price}</div>
 
-                  <NeoButton className="w-full" href="https://calendly.com/30-min-free-packaging-consultancy">
+                  <NeoButton className="w-full text-center py-3 text-xs font-semibold" href="https://calendly.com/30-min-free-packaging-consultancy">
                     {t("pouchHomePage.choosePlan.bookCall", "BOOK CALL")}
                   </NeoButton>
                 </div>
-              </NeoCard>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Resource & Circular Economy Guides Library */}
-      <section className="py-24 bg-white border-b-4 border-black">
+      {/* Resource & Circular Economy Guides Library - Mobbin Light Mode */}
+      <section className="py-20 bg-white border-b border-neutral-200">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-block bg-[#FF00FF] text-white border-4 border-black px-4 py-2 transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono'] font-bold text-xs uppercase mb-6">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-1.5 bg-neutral-100 border border-neutral-200 rounded-full px-3.5 py-1 text-xs font-medium text-neutral-800 mb-4">
               {t("pouchHomePage.knowledge.badge", "📚 KNOWLEDGE_PORTAL")}
             </div>
-            <h2 className="font-black text-5xl md:text-7xl uppercase leading-[0.9] tracking-tighter text-black">
+            <h2 className="font-sans font-bold text-3xl md:text-5xl text-neutral-900 tracking-tight">
               {t("pouchHomePage.knowledge.title", "ECO RESOURCE & LIBRARY")}
             </h2>
-            <p className="font-['Space_Grotesk'] text-lg mt-6 leading-relaxed text-neutral-800 font-semibold">
+            <p className="font-sans text-base mt-4 leading-relaxed text-neutral-600">
               {t("pouchHomePage.knowledge.subtitle", "Deep-dive technical reports, global compliance playbooks, and circular economy research drafted by certified experts to keep your brand aligned.")}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 font-['Space_Grotesk'] text-black">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 font-sans text-neutral-900">
             {/* Guide 1: EU PPWR Compliance */}
-            <NeoCard color="bg-white" className="flex flex-col justify-between group">
+            <div className="bg-[#F9FAFB] border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between group hover:shadow-md transition-all">
               <div>
                 <div className="flex justify-between items-center mb-4">
-                  <span className="bg-[#D4FF00] border-2 border-black text-black px-2 py-0.5 text-[10px] font-black uppercase font-['JetBrains_Mono']">
+                  <span className="bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-0.5 rounded-full text-[10px] font-semibold">
                     {t("pouchHomePage.knowledge.guides.compliance.tag", "COMPLIANCE_2026")}
                   </span>
-                  <ShieldCheck className="w-5 h-5 text-green-600" />
+                  <ShieldCheck className="w-5 h-5 text-emerald-600" />
                 </div>
-                <h3 className="font-black text-xl mb-3 uppercase leading-tight group-hover:text-[#10b981] transition-colors">
+                <h3 className="font-sans font-bold text-lg mb-2 text-neutral-900 leading-snug group-hover:text-emerald-600 transition-colors">
                   {t("pouchHomePage.knowledge.guides.compliance.title", "EU PPWR Compliance Guide")}
                 </h3>
-                <p className="font-['JetBrains_Mono'] text-xs leading-relaxed mb-6 text-neutral-600">
+                <p className="font-sans text-xs leading-relaxed mb-6 text-neutral-600">
                   {t("pouchHomePage.knowledge.guides.compliance.desc", "Detailed analysis of void space ratios, harmonized recycling sorting labels, and eco-modulated modulation fees relief for EU-bound brand owners.")}
                 </p>
               </div>
-              <NeoButton to="/blog/eu-ppwr-compliance-guide" className="text-xs !py-2.5 !px-4 w-full text-center">
+              <NeoButton to="/blog/eu-ppwr-compliance-guide" className="text-xs py-2.5 w-full text-center font-semibold">
                 {t("pouchHomePage.knowledge.guides.compliance.btn", "Read Playbook →")}
               </NeoButton>
-            </NeoCard>
+            </div>
 
             {/* Guide 2: Stamp Foil Recyclability */}
-            <NeoCard color="bg-white" className="flex flex-col justify-between group">
+            <div className="bg-[#F9FAFB] border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between group hover:shadow-md transition-all">
               <div>
                 <div className="flex justify-between items-center mb-4">
-                  <span className="bg-[#00FFFF] border-2 border-black text-black px-2 py-0.5 text-[10px] font-black uppercase font-['JetBrains_Mono']">
+                  <span className="bg-blue-50 text-blue-700 border border-blue-200 px-2.5 py-0.5 rounded-full text-[10px] font-semibold">
                     {t("pouchHomePage.knowledge.guides.foil.tag", "RECYCLING_SPECS")}
                   </span>
                   <BookOpen className="w-5 h-5 text-blue-600" />
                 </div>
-                <h3 className="font-black text-xl mb-3 uppercase leading-tight group-hover:text-[#10b981] transition-colors">
+                <h3 className="font-sans font-bold text-lg mb-2 text-neutral-900 leading-snug group-hover:text-emerald-600 transition-colors">
                   {t("pouchHomePage.knowledge.guides.foil.title", "Stamp Foil Recyclability")}
                 </h3>
-                <p className="font-['JetBrains_Mono'] text-xs leading-relaxed mb-6 text-neutral-600">
+                <p className="font-sans text-xs leading-relaxed mb-6 text-neutral-600">
                   {t("pouchHomePage.knowledge.guides.foil.desc", "How hot stamp foils and metallic decorative embellishments affect sorting telemetry in municipal mono-material recycling streams.")}
                 </p>
               </div>
-              <NeoButton to="/blog/stamp-foil-recyclability" className="text-xs !py-2.5 !px-4 w-full text-center">
+              <NeoButton to="/blog/stamp-foil-recyclability" className="text-xs py-2.5 w-full text-center font-semibold">
                 {t("pouchHomePage.knowledge.guides.foil.btn", "Read Research →")}
               </NeoButton>
-            </NeoCard>
+            </div>
 
             {/* Guide 3: Compostable Zipper Study */}
-            <NeoCard color="bg-white" className="flex flex-col justify-between group">
+            <div className="bg-[#F9FAFB] border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between group hover:shadow-md transition-all">
               <div>
                 <div className="flex justify-between items-center mb-4">
-                  <span className="bg-[#FF00FF] text-white border-2 border-black px-2 py-0.5 text-[10px] font-black uppercase font-['JetBrains_Mono']">
+                  <span className="bg-purple-50 text-purple-700 border border-purple-200 px-2.5 py-0.5 rounded-full text-[10px] font-semibold">
                     {t("pouchHomePage.knowledge.guides.zipper.tag", "MATERIAL_SCIENCE")}
                   </span>
-                  <Zap className="w-5 h-5 text-pink-600" />
+                  <Zap className="w-5 h-5 text-purple-600" />
                 </div>
-                <h3 className="font-black text-xl mb-3 uppercase leading-tight group-hover:text-[#10b981] transition-colors">
+                <h3 className="font-sans font-bold text-lg mb-2 text-neutral-900 leading-snug group-hover:text-emerald-600 transition-colors">
                   {t("pouchHomePage.knowledge.guides.zipper.title", "Compostable Zipper Durability")}
                 </h3>
-                <p className="font-['JetBrains_Mono'] text-xs leading-relaxed mb-6 text-neutral-600">
+                <p className="font-sans text-xs leading-relaxed mb-6 text-neutral-600">
                   {t("pouchHomePage.knowledge.guides.zipper.desc", "Analyzing oxygen transmission rates and tensile grip durability of 100% plant-based reclosure zippers without removal requirements.")}
                 </p>
               </div>
-              <NeoButton to="/topics/compostable-zipper-durability" className="text-xs !py-2.5 !px-4 w-full text-center">
+              <NeoButton to="/topics/compostable-zipper-durability" className="text-xs py-2.5 w-full text-center font-semibold">
                 {t("pouchHomePage.knowledge.guides.zipper.btn", "Read Technical Study →")}
               </NeoButton>
-            </NeoCard>
+            </div>
 
             {/* Guide 4: Custom vs Standard */}
-            <NeoCard color="bg-[#D4FF00]" className="flex flex-col justify-between group">
+            <div className="bg-[#F9FAFB] border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between group hover:shadow-md transition-all">
               <div>
                 <div className="flex justify-between items-center mb-4">
-                  <span className="bg-black text-[#D4FF00] border-2 border-black px-2 py-0.5 text-[10px] font-black uppercase font-['JetBrains_Mono']">
+                  <span className="bg-amber-50 text-amber-700 border border-amber-200 px-2.5 py-0.5 rounded-full text-[10px] font-semibold">
                     {t("pouchHomePage.knowledge.guides.roi.tag", "PROCUREMENT_ROI")}
                   </span>
-                  <Leaf className="w-5 h-5 text-black" />
+                  <Leaf className="w-5 h-5 text-amber-600" />
                 </div>
-                <h3 className="font-black text-xl mb-3 uppercase leading-tight group-hover:text-white transition-colors">
+                <h3 className="font-sans font-bold text-lg mb-2 text-neutral-900 leading-snug group-hover:text-emerald-600 transition-colors">
                   {t("pouchHomePage.knowledge.guides.roi.title", "Standard Runs vs. Custom Specs")}
                 </h3>
-                <p className="font-['JetBrains_Mono'] text-xs leading-relaxed mb-6 text-neutral-850">
+                <p className="font-sans text-xs leading-relaxed mb-6 text-neutral-600">
                   {t("pouchHomePage.knowledge.guides.roi.desc", "Decision matrix comparing pre-made online packaging stock models with custom-engineered bulk B2B production specs to optimize unit pricing.")}
                 </p>
               </div>
-              <NeoButton to="/topics/custom-vs-standard-packaging" variant="secondary" className="text-xs !py-2.5 !px-4 w-full text-center">
+              <NeoButton to="/topics/custom-vs-standard-packaging" variant="secondary" className="text-xs py-2.5 w-full text-center font-semibold">
                 {t("pouchHomePage.knowledge.guides.roi.btn", "Compare Spec Sheets →")}
               </NeoButton>
-            </NeoCard>
+            </div>
           </div>
 
           {/* Quick links list for remaining guides */}
-          <div className="mt-12 bg-neutral-50 border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] grid md:grid-cols-2 lg:grid-cols-3 gap-4 font-['JetBrains_Mono'] text-sm font-bold uppercase">
-            <Link to="/topics/real-world-sustainability" className="flex items-center justify-between p-3 border-2 border-black bg-white hover:bg-[#D4FF00] transition-colors group">
+          <div className="mt-10 bg-[#F9FAFB] border border-neutral-200 rounded-2xl p-5 grid md:grid-cols-2 lg:grid-cols-3 gap-3 font-sans text-xs font-semibold">
+            <Link to="/topics/real-world-sustainability" className="flex items-center justify-between p-3 rounded-xl border border-neutral-200 bg-white hover:border-neutral-300 hover:shadow-xs transition-all text-neutral-800 group">
               <span>{t("pouchHomePage.knowledge.links.sustainability", "🌱 Real-World Circular Sustainability")}</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 text-neutral-400 group-hover:translate-x-0.5 group-hover:text-neutral-900 transition-all" />
             </Link>
-            <Link to="/topics/compostable-spouted-pouches" className="flex items-center justify-between p-3 border-2 border-black bg-white hover:bg-[#00FFFF] transition-colors group">
+            <Link to="/topics/compostable-spouted-pouches" className="flex items-center justify-between p-3 rounded-xl border border-neutral-200 bg-white hover:border-neutral-300 hover:shadow-xs transition-all text-neutral-800 group">
               <span>{t("pouchHomePage.knowledge.links.spoutedComposting", "💧 Spouted Biopolymer Composting")}</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 text-neutral-400 group-hover:translate-x-0.5 group-hover:text-neutral-900 transition-all" />
             </Link>
-            <Link to="/solutions/citrus-oil-packaging" className="flex items-center justify-between p-3 border-2 border-black bg-white hover:bg-[#FF00FF] hover:text-white transition-colors group">
-              <span className="group-hover:text-white">{t("pouchHomePage.knowledge.links.citrus", "🍊 Citrus Oil Protective Barriers")}</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform group-hover:text-white" />
+            <Link to="/solutions/citrus-oil-packaging" className="flex items-center justify-between p-3 rounded-xl border border-neutral-200 bg-white hover:border-neutral-300 hover:shadow-xs transition-all text-neutral-800 group">
+              <span>{t("pouchHomePage.knowledge.links.citrus", "🍊 Citrus Oil Protective Barriers")}</span>
+              <ArrowRight className="w-4 h-4 text-neutral-400 group-hover:translate-x-0.5 group-hover:text-neutral-900 transition-all" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Testimonial */}
-      <section className="py-24 px-4 md:px-6 max-w-5xl mx-auto">
-        <NeoCard color="bg-[#FF00FF]" className="text-center">
-          <div className="flex justify-center mb-6">
+      {/* Testimonial - Mobbin Light Mode */}
+      <section className="py-20 px-4 md:px-6 max-w-4xl mx-auto">
+        <div className="bg-[#F9FAFB] border border-neutral-200 rounded-3xl p-8 md:p-12 text-center shadow-xs">
+          <div className="flex justify-center gap-1 mb-5">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-8 h-8 text-white fill-white" />
+              <Star key={i} className="w-5 h-5 text-amber-400 fill-amber-400" />
             ))}
           </div>
-          <blockquote className="font-['JetBrains_Mono'] text-xl font-bold text-white mb-6 leading-relaxed">
+          <blockquote className="font-sans text-xl md:text-2xl font-bold text-neutral-900 mb-6 leading-relaxed">
             {t("pouchHomePage.testimonial.quote", "\"Started with 500 pouches from POUCH.ECO. Best decision ever. Now ordering 10K+ monthly.\"")}
           </blockquote>
-          <cite className="font-black text-lg text-white uppercase">
+          <cite className="font-sans text-sm font-semibold text-neutral-600 not-italic">
             {t("pouchHomePage.testimonial.author", "- Sarah M., Brand Founder")}
           </cite>
-        </NeoCard>
+        </div>
       </section>
 
       {/* Add animations */}
       <style>{`
-        @keyframes bounce {
-          0%, 100% {
-            transform: translateY(0) rotate(-15deg);
-          }
-          50% {
-            transform: translateY(-10px) rotate(-15deg);
-          }
-        }
         .mask-image-gradient {
           mask-image: linear-gradient(to left, black 50%, transparent 100%);
           -webkit-mask-image: linear-gradient(to left, black 50%, transparent 100%);

@@ -364,8 +364,8 @@ export default function PouchDielineFinderPage() {
                   <>
                     <div className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-indigo-500/20 text-indigo-300 border border-indigo-400/30 text-xs font-bold uppercase tracking-wider rounded-full">
                       <Sparkles className="w-3.5 h-3.5 text-indigo-400" /> {t(`${p}.premiumDesignResourceLibrary`)}</div>
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-neutral-100 to-indigo-200">
-                      {t(`${p}.prepressDielineCatalogDirector`)}</h1>
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-neutral-100 to-indigo-200">
+                      {t(`${p}.prepressDielineCatalogDirector`)}</h2>
                     <p className="text-base md:text-lg font-normal text-neutral-300 leading-relaxed bg-neutral-950/40 backdrop-blur-md border border-neutral-800 p-5 rounded-2xl">
                       {t(`${p}.equipYourCreativeAndPrepressEn`)}</p>
                   </>

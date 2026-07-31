@@ -250,7 +250,7 @@ export default function Vxulnp13owrzxheQkwn3ughcwirk5tzblhb7q8jj3012692() {
         </script>
       </Helmet>
       <div className="max-w-4xl mx-auto py-12 px-4">
-        <h1 className="text-4xl font-bold mb-6">{t.title}</h1>
+        <h2 className="text-4xl font-bold mb-6">{t.title}</h2>
         <img src="/imgs/menu/eco-digital/vxuLNp13OWRZXhe-qkwn3UgHCWirk5TzBLhB7q8JJ30=.webp" alt={t.title} className="w-full max-w-lg mx-auto mb-8 rounded-xl shadow-lg" />
         <p className="text-lg mb-8">{t.hook}</p>
         

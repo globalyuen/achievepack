@@ -78,9 +78,9 @@ const ResetPasswordPage: React.FC = () => {
     <div className="min-h-screen bg-white flex items-center justify-center p-8">
       <div className="max-w-md w-full">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-neutral-900 mb-2">
+          <h2 className="text-3xl font-bold text-neutral-900 mb-2">
             {t(`${p}.pageTitle`)}
-          </h1>
+          </h2>
           <p className="text-neutral-600">
             {t(`${p}.pageDesc`)}
           </p>

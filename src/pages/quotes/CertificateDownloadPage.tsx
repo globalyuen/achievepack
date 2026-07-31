@@ -154,7 +154,7 @@ const CertificateDownloadPage: React.FC = () => {
             <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-6">
               <i className="fas fa-file-certificate text-4xl text-green-600"></i>
             </div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">{t(`${p}.page.heading`, "Certificate Downloads")}</h1>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">{t(`${p}.page.heading`, "Certificate Downloads")}</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               {t(`${p}.page.description`, "Access our complete collection of quality, food safety, and environmental certifications. All certificates are available in PDF format for your records.")}
             </p>

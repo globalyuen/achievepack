@@ -573,10 +573,10 @@ const LabelMaterialsGuidePage: React.FC = () => {
               <div className="inline-block bg-black text-[#D4FF00] border-2 border-black px-3 py-1 text-xs font-black uppercase tracking-wider shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                 {localT.heroBadge}
               </div>
-              <h1 className="font-['Space_Grotesk'] font-black text-6xl md:text-8xl leading-none uppercase tracking-tight">
+              <h2 className="font-['Space_Grotesk'] font-black text-6xl md:text-8xl leading-none uppercase tracking-tight">
                 {localT.heroTitle1}<br/>
                 <span className="text-white bg-black px-4 py-1 border-4 border-black inline-block mt-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -rotate-1">LABELS</span>
-              </h1>
+              </h2>
               <p className="font-['JetBrains_Mono'] text-lg md:text-xl text-black font-semibold max-w-xl leading-relaxed">
                 {localT.heroDesc}
               </p>

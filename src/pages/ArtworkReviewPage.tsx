@@ -732,7 +732,7 @@ const ArtworkReviewPage: React.FC = () => {
             <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                <Lock className="h-8 w-8 text-primary-600" />
             </div>
-            <h1 className="text-2xl font-bold text-gray-900">{isSupplier ? '供应商图稿确认系统' : t(`${p}.auth.title`, 'Artwork & Document System')}</h1>
+            <h2 className="text-2xl font-bold text-gray-900">{isSupplier ? '供应商图稿确认系统' : t(`${p}.auth.title`, 'Artwork & Document System')}</h2>
             <p className="text-gray-500 mt-2">{isSupplier ? '项目系统' : t(`${p}.auth.system`, 'System')}: {batch?.batch_name || (isSupplier ? '加载中...' : t(`${p}.auth.loading`, 'Loading...'))}</p>
           </div>
           
@@ -783,7 +783,7 @@ const ArtworkReviewPage: React.FC = () => {
             <div className="flex items-start gap-4 flex-1 min-w-0">
               <img src="/ap-logo.svg" alt="AchievePack" className="h-8 w-auto flex-shrink-0 mt-1" />
               <div className="flex-1 min-w-0">
-                <h1 className="font-semibold text-gray-900 break-words">{isSupplier ? '图稿与印前文件确认系统（供应商端）' : t(`${p}.header.title`, 'Artwork & Document System')} {batch?.batch_name || '...'}</h1>
+                <h2 className="font-semibold text-gray-900 break-words">{isSupplier ? '图稿与印前文件确认系统（供应商端）' : t(`${p}.header.title`, 'Artwork & Document System')} {batch?.batch_name || '...'}</h2>
                 <p className="text-xs text-gray-500">{isSupplier ? `共计 ${items?.length || 0} 个文件 • ${stats.pending} 个待处理` : t('seoPages.pages.artworkReview.header.subtitleCustomer', { count: items?.length || 0, pending: stats.pending, defaultValue: '{{count}} items / files • {{pending}} pending review' })}</p>
               </div>
             </div>

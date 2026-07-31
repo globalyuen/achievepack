@@ -250,7 +250,7 @@ export default function Xnip20260102150348() {
         </script>
       </Helmet>
       <div className="max-w-4xl mx-auto py-12 px-4">
-        <h1 className="text-4xl font-bold mb-6">{t.title}</h1>
+        <h2 className="text-4xl font-bold mb-6">{t.title}</h2>
         <img src="/imgs/composting/vs/Xnip2026-01-02_15-03-48.webp" alt={t.title} className="w-full max-w-lg mx-auto mb-8 rounded-xl shadow-lg" />
         <p className="text-lg mb-8">{t.hook}</p>
         

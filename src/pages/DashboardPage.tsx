@@ -1906,7 +1906,7 @@ const DashboardPage: React.FC = () => {
             <div className="space-y-3 md:space-y-6">
               {/* Header - Mobile Responsive */}
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">My Orders</h1>
+                <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">My Orders</h2>
                 <div className="flex items-center gap-2 sm:gap-3">
                   {/* View Toggle */}
                   <div className="flex bg-gray-100 rounded-lg p-1">
@@ -2087,7 +2087,7 @@ const DashboardPage: React.FC = () => {
               {/* Header - Mobile Responsive */}
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                 <div>
-                  <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">Quotes & Requests</h1>
+                  <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">Quotes & Requests</h2>
                   <p className="text-xs sm:text-sm text-gray-500 mt-0.5 sm:mt-1">View quotes and submit requests</p>
                 </div>
                 <button
@@ -2397,7 +2397,7 @@ const DashboardPage: React.FC = () => {
           {/* Documents Tab */}
           {activeTab === 'documents' && (
             <div className="space-y-6">
-              <h1 className="text-2xl font-bold text-gray-900">{t('customerCenter.dashboard.sections.complianceDocs')}</h1>
+              <h2 className="text-2xl font-bold text-gray-900">{t('customerCenter.dashboard.sections.complianceDocs')}</h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {documents.map(doc => (
                   <a
@@ -2426,7 +2426,7 @@ const DashboardPage: React.FC = () => {
             <div className="space-y-3 md:space-y-6">
               {/* Header - Compact Top Bar */}
               <div className="flex flex-wrap items-center gap-3 md:gap-4">
-                <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">Artwork Files</h1>
+                <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">Artwork Files</h2>
                 
                 {/* Upload Comment Input */}
                 <input
@@ -2840,7 +2840,7 @@ const DashboardPage: React.FC = () => {
           {activeTab === 'saved' && (
             <div className="space-y-6">
               <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-bold text-gray-900">Saved Items</h1>
+                <h2 className="text-2xl font-bold text-gray-900">Saved Items</h2>
                 <Link
                   to="/store"
                   className="flex items-center gap-2 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition"
@@ -3019,7 +3019,7 @@ const DashboardPage: React.FC = () => {
           {/* Settings Tab */}
           {activeTab === 'settings' && (
             <div className="space-y-6">
-              <h1 className="text-2xl font-bold text-gray-900">Settings</h1>
+              <h2 className="text-2xl font-bold text-gray-900">Settings</h2>
               <div className="bg-white rounded-xl border border-gray-100 p-6">
                 <h2 className="font-semibold text-gray-900 mb-4">Account Information</h2>
                 <div className="space-y-4">
@@ -3043,7 +3043,7 @@ const DashboardPage: React.FC = () => {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">Bin</h1>
+                  <h2 className="text-2xl font-bold text-gray-900">Bin</h2>
                   <p className="text-sm text-gray-500 mt-1">Recover accidentally deleted items</p>
                 </div>
                 <button

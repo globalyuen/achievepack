@@ -103,7 +103,7 @@ export default function MetalCan() {
       </Helmet>
       
       <div className="max-w-4xl mx-auto px-6 py-12">
-        <h1 className="text-4xl font-bold text-white mb-6">{t.title}</h1>
+        <h2 className="text-4xl font-bold text-white mb-6">{t.title}</h2>
         <img src="/imgs/calculator/a_calculator_metal_can_8467151.webp" alt={t.title} className="w-full rounded-2xl shadow-xl mb-8" />
         
         <p className="text-lg text-neutral-300 mb-8">{t.hook}</p>

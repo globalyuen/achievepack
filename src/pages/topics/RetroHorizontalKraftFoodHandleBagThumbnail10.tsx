@@ -85,7 +85,7 @@ export default function RetroHorizontalKraftFoodHandleBagThumbnail10() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       
       <div className="max-w-4xl mx-auto px-4 py-12">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-900 dark:text-white">{t.heroTitle}</h1>
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-900 dark:text-white">{t.heroTitle}</h2>
         <p className="text-xl mb-12 text-neutral-600 dark:text-neutral-300 leading-relaxed">{t.hook}</p>
 
         <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700/50 p-6 rounded-2xl mb-16">

@@ -5,7 +5,7 @@ import { TransformControls } from 'three/examples/jsm/controls/TransformControls
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js';
-import { Layers, Box, Database, Tag, Grid, Droplet, Grid3X3, Coffee, ShoppingBag, Shirt, Zap, CheckCircle, Truck } from 'lucide-react';
+import { Layers, Box, Database, Tag, Grid, Droplet, Grid3X3, Coffee, ShoppingBag, Shirt, Zap, CheckCircle, Truck, AlertTriangle } from 'lucide-react';
 import Footer from '../components/Footer';
 import SiteHeader from '../components/SiteHeader';
 
@@ -280,6 +280,71 @@ export default function PackageEditorPage() {
   const [customLinkSuccess, setCustomLinkSuccess] = useState<boolean>(false);
   const [createdCustomUrl, setCreatedCustomUrl] = useState<string>('');
   const [copiedCustomLink, setCopiedCustomLink] = useState<boolean>(false);
+  const [isLeaveWarningModalOpen, setIsLeaveWarningModalOpen] = useState<boolean>(false);
+  const [pendingTargetShape, setPendingTargetShape] = useState<Shape | null>(null);
+  const [pendingTargetViewMode, setPendingTargetViewMode] = useState<'catalog' | 'editor' | null>(null);
+
+  // Clear Studio cache, canvas textures, and layers for fresh model load
+  const clearStudioCacheAndState = () => {
+    setLayers([]);
+    setSelectedLayer(null);
+    if (offscreenCanvasRef.current) {
+      const ctx = offscreenCanvasRef.current.getContext('2d');
+      if (ctx) {
+        ctx.clearRect(0, 0, offscreenCanvasRef.current.width, offscreenCanvasRef.current.height);
+      }
+    }
+  };
+
+  const switchShapeSafely = (targetShape: Shape) => {
+    if (layers.length > 0) {
+      setPendingTargetShape(targetShape);
+      setPendingTargetViewMode(null);
+      setIsLeaveWarningModalOpen(true);
+    } else {
+      executeShapeSwitch(targetShape);
+    }
+  };
+
+  const executeShapeSwitch = (targetShape: Shape) => {
+    clearStudioCacheAndState();
+    setSelectedShapeId(targetShape.id);
+    const url = new URL(window.location.href);
+    url.searchParams.set('shape', targetShape.id);
+    window.history.pushState({}, '', url.toString());
+    loadShape(targetShape);
+  };
+
+  const goToCatalogSafely = () => {
+    if (layers.length > 0) {
+      setPendingTargetViewMode('catalog');
+      setPendingTargetShape(null);
+      setIsLeaveWarningModalOpen(true);
+    } else {
+      executeGoToCatalog();
+    }
+  };
+
+  const executeGoToCatalog = () => {
+    clearStudioCacheAndState();
+    setViewMode('catalog');
+    const url = new URL(window.location.href);
+    url.searchParams.delete('shape');
+    window.history.pushState({}, '', url.toString());
+  };
+
+  // Warn user when trying to close browser tab or reload without saving custom link
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (viewMode === 'editor' && layers.length > 0) {
+        e.preventDefault();
+        e.returnValue = 'You have unsaved 3D pouch changes! Make sure to save a Custom Dedicated Link before leaving.';
+        return e.returnValue;
+      }
+    };
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  }, [viewMode, layers]);
 
   const [isRecording, setIsRecording] = useState<boolean>(false);
   const [recordingProgress, setRecordingProgress] = useState<number>(0);
@@ -398,7 +463,7 @@ export default function PackageEditorPage() {
 
   // Sync canvas dimensions
   const updateEditor = () => {
-    if (!dielineLoadedRef.current || !logoLoadedRef.current || !editorCanvasRef.current || !offscreenCanvasRef.current) return;
+    if (!editorCanvasRef.current || !offscreenCanvasRef.current) return;
 
     const canvas = editorCanvasRef.current;
     const offscreenCanvas = offscreenCanvasRef.current;
@@ -816,30 +881,36 @@ export default function PackageEditorPage() {
     controlsRef.current = controls;
 
     // 5. Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
-    scene.add(ambientLight);
+    const lightsGroup = new THREE.Group();
+    lightsGroup.name = 'lights-group';
+
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+    lightsGroup.add(ambientLight);
     ambientLightRef.current = ambientLight;
 
-    const dirLight1 = new THREE.DirectionalLight(0xffffff, 1.5);
+    const dirLight1 = new THREE.DirectionalLight(0xffffff, 2.0);
     dirLight1.castShadow = true;
     dirLight1.shadow.mapSize.width = 2048;
     dirLight1.shadow.mapSize.height = 2048;
     dirLight1.shadow.bias = -0.0005;
-    scene.add(dirLight1);
+    lightsGroup.add(dirLight1);
     dirLight1Ref.current = dirLight1;
 
-    const dirLight2 = new THREE.DirectionalLight(0x8bc7ff, 0.8);
-    scene.add(dirLight2);
+    const dirLight2 = new THREE.DirectionalLight(0x8bc7ff, 1.0);
+    lightsGroup.add(dirLight2);
     dirLight2Ref.current = dirLight2;
 
-    const rimLight = new THREE.DirectionalLight(0xfff5e6, 1.0);
-    scene.add(rimLight);
+    const rimLight = new THREE.DirectionalLight(0xfff5e6, 1.2);
+    lightsGroup.add(rimLight);
     rimLightRef.current = rimLight;
+
+    scene.add(lightsGroup);
 
     // Floor and Grid
     const floorGeo = new THREE.PlaneGeometry(1, 1);
     const floorMat = new THREE.ShadowMaterial({ opacity: 0.45 });
     const floor = new THREE.Mesh(floorGeo, floorMat);
+    floor.name = 'studio-floor';
     floor.rotation.x = -Math.PI / 2;
     floor.position.y = 0;
     floor.receiveShadow = true;
@@ -847,6 +918,7 @@ export default function PackageEditorPage() {
     floorRef.current = floor;
 
     const grid = new THREE.GridHelper(1, 1, 0x1f2937, 0x111827);
+    grid.name = 'studio-grid';
     grid.position.y = 0.001;
     scene.add(grid);
     gridRef.current = grid;
@@ -1013,47 +1085,24 @@ export default function PackageEditorPage() {
             if (node instanceof THREE.Mesh) {
               node.castShadow = true;
               node.receiveShadow = true;
-              if (node.material) {
-                let shouldMap = true;
-                if (hasArtworkNode) {
-                  let isArt = false;
-                  let current: THREE.Object3D | null = node;
-                  while (current) {
-                    const name = (current.name || '').toLowerCase();
-                    if (name.includes('贴图') || name.includes('tietu') || name.includes('artwork')) {
-                      isArt = true;
-                      break;
-                    }
-                    current = current.parent;
-                  }
-                  shouldMap = isArt;
-                }
 
-                if (shouldMap) {
-                  node.scale.multiplyScalar(1.0015);
-                  materialsRef.current.push(node);
-                  const mats = Array.isArray(node.material) ? node.material : [node.material];
-                  mats.forEach(mat => {
-                    mat.side = THREE.DoubleSide;
-                    mat.map = canvasTexture;
-                    if ('normalMap' in mat) mat.normalMap = null;
-                    if ('bumpMap' in mat) mat.bumpMap = null;
-                    if ('roughnessMap' in mat) mat.roughnessMap = null;
-                    if ('metalnessMap' in mat) mat.metalnessMap = null;
-                    if ('aoMap' in mat) mat.aoMap = null;
-                    if ('emissiveMap' in mat) mat.emissiveMap = null;
-                    if ('lightMap' in mat) mat.lightMap = null;
-                    mat.needsUpdate = true;
-                  });
-                } else {
-                  const mats = Array.isArray(node.material) ? node.material : [node.material];
-                  mats.forEach(mat => {
-                    mat.side = THREE.DoubleSide;
-                    if ('map' in mat) mat.map = null;
-                    mat.needsUpdate = true;
-                  });
-                }
+              // Dispose old GLTF material if present
+              if (node.material) {
+                const oldMats = Array.isArray(node.material) ? node.material : [node.material];
+                oldMats.forEach(m => m && m.dispose && m.dispose());
               }
+
+              // Create fresh bright white material with canvas dieline texture mapped
+              const freshMaterial = new THREE.MeshStandardMaterial({
+                color: 0xffffff,
+                roughness: 0.5,
+                metalness: 0.05,
+                side: THREE.DoubleSide,
+                map: canvasTexture,
+              });
+
+              node.material = freshMaterial;
+              materialsRef.current.push(node);
             }
           });
 
@@ -1252,24 +1301,72 @@ export default function PackageEditorPage() {
 
     const loadId = ++currentLoadIdRef.current;
     const shapeName = shape ? shape.name : '包裝模型 (Packaging Model)';
+    const cacheBuster = `?v=${Date.now()}`;
     const glbUrl = shape 
-      ? (shape.glb_file.startsWith('http') || shape.glb_file.startsWith('//') ? '/api/proxy?url=' + encodeURIComponent(shape.glb_file) : shape.glb_file)
-      : '/model.glb';
+      ? (shape.glb_file.startsWith('http') || shape.glb_file.startsWith('//') ? '/api/proxy?url=' + encodeURIComponent(shape.glb_file) : shape.glb_file + cacheBuster)
+      : '/model.glb' + cacheBuster;
     const dielineUrl = shape
-      ? (shape.dieline_image.startsWith('http') || shape.dieline_image.startsWith('//') ? '/api/proxy?url=' + encodeURIComponent(shape.dieline_image) : shape.dieline_image)
-      : '/dieline.png';
+      ? (shape.dieline_image.startsWith('http') || shape.dieline_image.startsWith('//') ? '/api/proxy?url=' + encodeURIComponent(shape.dieline_image) : shape.dieline_image + cacheBuster)
+      : '/dieline.png' + cacheBuster;
 
-    // Clear previous model from scene
-    if (sceneRef.current && modelRef.current) {
-      sceneRef.current.remove(modelRef.current);
-      modelRef.current.traverse((node) => {
-        if (node instanceof THREE.Mesh) {
-          node.geometry.dispose();
-          const mats = Array.isArray(node.material) ? node.material : [node.material];
-          mats.forEach(m => m && m.dispose());
-        }
+    // Clear previous model and non-system objects from scene
+    if (sceneRef.current) {
+      if (modelRef.current) {
+        sceneRef.current.remove(modelRef.current);
+        modelRef.current.traverse((node) => {
+          if (node instanceof THREE.Mesh) {
+            node.geometry.dispose();
+            const mats = Array.isArray(node.material) ? node.material : [node.material];
+            mats.forEach(m => m && m.dispose());
+          }
+        });
+        modelRef.current = null;
+      }
+
+      // Thorough cleanup of any leftover non-system objects
+      const systemNames = ['lights-group', 'cola-can-reference', 'studio-background-group', 'studio-floor', 'studio-grid'];
+      const toRemove = sceneRef.current.children.filter(child => !systemNames.includes(child.name));
+      toRemove.forEach(child => {
+        sceneRef.current?.remove(child);
+        child.traverse((node) => {
+          if (node instanceof THREE.Mesh) {
+            node.geometry.dispose();
+            const mats = Array.isArray(node.material) ? node.material : [node.material];
+            mats.forEach(m => m && m.dispose());
+          }
+        });
       });
-      modelRef.current = null;
+
+      // Guarantee scene lights-group is present
+      if (!sceneRef.current.getObjectByName('lights-group')) {
+        const lightsGroup = new THREE.Group();
+        lightsGroup.name = 'lights-group';
+
+        const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+        lightsGroup.add(ambientLight);
+        ambientLightRef.current = ambientLight;
+
+        const dirLight1 = new THREE.DirectionalLight(0xffffff, 2.0);
+        dirLight1.castShadow = true;
+        dirLight1.shadow.mapSize.width = 2048;
+        dirLight1.shadow.mapSize.height = 2048;
+        dirLight1.shadow.bias = -0.0005;
+        dirLight1.position.set(5, 10, 5);
+        lightsGroup.add(dirLight1);
+        dirLight1Ref.current = dirLight1;
+
+        const dirLight2 = new THREE.DirectionalLight(0x8bc7ff, 1.0);
+        dirLight2.position.set(-5, 5, -5);
+        lightsGroup.add(dirLight2);
+        dirLight2Ref.current = dirLight2;
+
+        const rimLight = new THREE.DirectionalLight(0xfff5e6, 1.2);
+        rimLight.position.set(0, 10, -10);
+        lightsGroup.add(rimLight);
+        rimLightRef.current = rimLight;
+
+        sceneRef.current.add(lightsGroup);
+      }
     }
     materialsRef.current.length = 0;
 
@@ -1422,59 +1519,41 @@ export default function PackageEditorPage() {
           if (node instanceof THREE.Mesh) {
             node.castShadow = true;
             node.receiveShadow = true;
-            if (node.material) {
-              let shouldMap = true;
-              if (hasArtworkNode) {
-                let isArt = false;
-                let current: THREE.Object3D | null = node;
-                while (current) {
-                  const name = (current.name || '').toLowerCase();
-                  if (name.includes('贴图') || name.includes('tietu') || name.includes('artwork')) {
-                    isArt = true;
-                    break;
-                  }
-                  current = current.parent;
-                }
-                shouldMap = isArt;
-              }
 
-              if (shouldMap) {
-                node.scale.multiplyScalar(1.0015);
-                materialsRef.current.push(node);
-                const mats = Array.isArray(node.material) ? node.material : [node.material];
-                mats.forEach(mat => {
-                  mat.side = THREE.DoubleSide;
-                  mat.map = canvasTextureRef.current;
-                  if ('normalMap' in mat) mat.normalMap = null;
-                  if ('bumpMap' in mat) mat.bumpMap = null;
-                  if ('roughnessMap' in mat) mat.roughnessMap = null;
-                  if ('metalnessMap' in mat) mat.metalnessMap = null;
-                  if ('aoMap' in mat) mat.aoMap = null;
-                  if ('emissiveMap' in mat) mat.emissiveMap = null;
-                  if ('lightMap' in mat) mat.lightMap = null;
-                  mat.needsUpdate = true;
-                });
-              } else {
-                const mats = Array.isArray(node.material) ? node.material : [node.material];
-                mats.forEach(mat => {
-                  mat.side = THREE.DoubleSide;
-                  if ('map' in mat) mat.map = null;
-                  mat.needsUpdate = true;
-                });
-              }
+            // Dispose old GLTF material if present
+            if (node.material) {
+              const oldMats = Array.isArray(node.material) ? node.material : [node.material];
+              oldMats.forEach(m => m && m.dispose && m.dispose());
             }
+
+            // Create fresh bright white material with canvas dieline texture mapped
+            const freshMaterial = new THREE.MeshStandardMaterial({
+              color: 0xffffff,
+              roughness: 0.5,
+              metalness: 0.05,
+              side: THREE.DoubleSide,
+              map: canvasTextureRef.current,
+            });
+
+            node.material = freshMaterial;
+            materialsRef.current.push(node);
           }
         });
 
         if (sceneRef.current) {
           // Double check and remove any other old model groups to prevent overlap
-          const toRemove: THREE.Object3D[] = [];
-          sceneRef.current.traverse((child) => {
-            if (child !== model && child !== sceneRef.current && child instanceof THREE.Group && child.name !== 'lights-group' && child.name !== 'cola-can-reference' && child.name !== 'studio-background-group') {
-              toRemove.push(child);
-            }
+          const systemNames = ['lights-group', 'cola-can-reference', 'studio-background-group'];
+          const toRemove = sceneRef.current.children.filter(child => child !== model && !systemNames.includes(child.name));
+          toRemove.forEach((child) => {
+            sceneRef.current?.remove(child);
+            child.traverse((node) => {
+              if (node instanceof THREE.Mesh) {
+                node.geometry.dispose();
+                const mats = Array.isArray(node.material) ? node.material : [node.material];
+                mats.forEach(m => m && m.dispose());
+              }
+            });
           });
-          toRemove.forEach((child) => sceneRef.current?.remove(child));
 
           sceneRef.current.add(model);
           
@@ -2019,6 +2098,14 @@ export default function PackageEditorPage() {
   const saveDesign = async () => {
     setIsSavingDesign(true);
     try {
+      let screenshotData: string | undefined;
+      try {
+        if (rendererRef.current && sceneRef.current && cameraRef.current) {
+          rendererRef.current.render(sceneRef.current, cameraRef.current);
+          screenshotData = rendererRef.current.domElement.toDataURL('image/jpeg', 0.6);
+        }
+      } catch (_) {}
+
       // Serialize layers (convert Image objects back to base64 or path string URLs)
       const serializedLayers = layers.map(layer => ({
         id: layer.id,
@@ -2045,6 +2132,7 @@ export default function PackageEditorPage() {
           layers: serializedLayers,
           backdrop,
           customProps,
+          screenshot: screenshotData,
         })
       });
 
@@ -2077,6 +2165,14 @@ export default function PackageEditorPage() {
     setCustomLinkError('');
     
     try {
+      let screenshotData: string | undefined;
+      try {
+        if (rendererRef.current && sceneRef.current && cameraRef.current) {
+          rendererRef.current.render(sceneRef.current, cameraRef.current);
+          screenshotData = rendererRef.current.domElement.toDataURL('image/jpeg', 0.6);
+        }
+      } catch (_) {}
+
       const serializedLayers = layers.map(layer => {
         // Safe check for URL format
         let rawSrc = layer.img.src;
@@ -2114,7 +2210,8 @@ export default function PackageEditorPage() {
         body: JSON.stringify({
           slug: customSlug.trim(),
           companyName: companyName.trim(),
-          designData: designPayload
+          designData: designPayload,
+          screenshot: screenshotData,
         })
       });
 
@@ -2980,12 +3077,7 @@ export default function PackageEditorPage() {
         <div className="w-full lg:w-[340px] flex-shrink-0 bg-[rgba(16,20,28,0.4)] border-b lg:border-b-0 lg:border-r border-[rgba(255,255,255,0.08)] p-6 flex flex-col gap-6 overflow-y-auto custom-scrollbar h-auto lg:h-full order-3 lg:order-1">
           
           <button 
-            onClick={() => {
-              setViewMode('catalog');
-              const url = new URL(window.location.href);
-              url.searchParams.delete('shape');
-              window.history.pushState({}, '', url.toString());
-            }}
+            onClick={goToCatalogSafely}
             className="flex items-center gap-2 text-xs font-semibold text-[#9ca3af] hover:text-[#64ffda] transition-colors self-start border border-[rgba(255,255,255,0.08)] bg-[rgba(0,0,0,0.4)] rounded-lg px-3 py-1.5"
           >
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
@@ -2993,8 +3085,86 @@ export default function PackageEditorPage() {
           </button>
 
           <div>
-            <h1 className="text-lg font-bold text-[#f3f4f6]">3D Studio</h1>
+            <h2 className="text-lg font-bold text-[#f3f4f6]">3D Studio</h2>
             <p className="text-xs text-[#9ca3af] mt-1">Configure physical pouch sizes and material specs.</p>
+          </div>
+
+          {/* Cache Notice & Custom Page Link Banner */}
+          <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-3 flex flex-col gap-2 text-xs text-amber-200">
+            <div className="flex items-start gap-2">
+              <Zap className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5 animate-pulse" />
+              <span>
+                <strong>💡 Quick Tip:</strong> If switching 3D pouch models shows cached graphics, clear browser cache. Use <strong>"Save Custom Page Link"</strong> below to create a permanent permalink for your custom design!
+              </span>
+            </div>
+            <button
+              onClick={() => setIsSaveModalOpen(true)}
+              className="w-full py-1.5 px-3 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-lg transition-colors text-center text-xs shadow-md mt-1"
+            >
+              🔗 Create Dedicated Custom Link
+            </button>
+          </div>
+
+          {/* Model Switcher Dropdown */}
+          <div className="flex flex-col gap-1.5 border-b border-[rgba(255,255,255,0.08)] pb-5">
+            <label className="text-xs font-semibold text-[#64ffda] tracking-wide uppercase">3D Packaging Model</label>
+            <select
+              id="model-selector-dropdown"
+              value={selectedShapeId}
+              onChange={(e) => {
+                const shapeId = e.target.value;
+                if (!shapeId) return;
+                const shape = shapes.find(s => String(s.id) === String(shapeId));
+                if (shape) {
+                  switchShapeSafely(shape);
+                }
+              }}
+              className="bg-[rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.08)] rounded-lg text-[#f3f4f6] px-3 py-2 text-[13px] outline-none cursor-pointer hover:border-[#64ffda] transition-colors"
+            >
+              <option value="">Select a Model...</option>
+              {shapes.map(s => (
+                <option key={s.id} value={s.id}>
+                  {s.name || `Shape ${s.id}`} ({s.category || 'Pouch'})
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Quick Visual Pouch Shape Picker Bar */}
+          <div className="flex flex-col gap-2 border-b border-[rgba(255,255,255,0.08)] pb-5">
+            <label className="text-xs font-semibold text-[#64ffda] tracking-wide uppercase">Quick Pouch Shapes</label>
+            <div className="grid grid-cols-4 gap-1.5">
+              {[
+                { name: 'Stand-Up', image: 'https://achievepack.com/imgs/store/pouch%20shape/stand-up.webp', shapeId: '348' },
+                { name: 'Side Seal', image: 'https://achievepack.com/imgs/store/pouch%20shape/side%20-seal.webp', shapeId: '2777' },
+                { name: '3-Side', image: 'https://achievepack.com/imgs/store/pouch%20shape/3-side.webp', shapeId: '355' },
+                { name: 'Center', image: 'https://achievepack.com/imgs/store/pouch%20shape/center.webp', shapeId: '2744' },
+                { name: 'Flat Bottom', image: 'https://achievepack.com/imgs/store/pouch%20shape/flat-bottom.webp', shapeId: '1093' },
+                { name: 'Quad Seal', image: 'https://achievepack.com/imgs/store/pouch%20shape/quad-seal.webp', shapeId: '1290' },
+                { name: 'Corner Spout', image: 'https://achievepack.com/imgs/store/pouch%20shape/spout.webp', shapeId: '4101' },
+                { name: 'Center Spout', image: 'https://achievepack.com/imgs/store/pouch%20shape/spout.webp', shapeId: '975' },
+              ].map((item, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    const shape = shapes.find(s => String(s.id) === String(item.shapeId));
+                    if (shape) {
+                      switchShapeSafely(shape);
+                    }
+                  }}
+                  className={`p-1.5 rounded-lg border text-center transition-all flex flex-col items-center justify-between ${
+                    String(selectedShapeId) === String(item.shapeId)
+                      ? 'bg-[rgba(100,255,218,0.15)] border-[#64ffda] text-[#64ffda]'
+                      : 'bg-[rgba(0,0,0,0.4)] border-[rgba(255,255,255,0.08)] text-[#9ca3af] hover:border-[#64ffda]/50'
+                  }`}
+                >
+                  <div className="w-8 h-8 flex items-center justify-center overflow-hidden mb-1">
+                    <img src={item.image} alt={item.name} className="max-w-full max-h-full object-contain" />
+                  </div>
+                  <span className="text-[9px] font-bold leading-none truncate w-full">{item.name}</span>
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Model Dimensions */}
@@ -3235,6 +3405,34 @@ export default function PackageEditorPage() {
                 onChange={handleRoughnessInput}
                 className="w-full accent-[#64ffda]" 
               />
+            </div>
+
+            {/* Material Finish Presets */}
+            <div className="flex flex-col gap-2 mb-2">
+              <span className="text-[#9ca3af] text-xs font-medium">Quick Finish Presets</span>
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  onClick={() => { updateRoughness(0.7); updateMetalness(0.05); }}
+                  className="px-2.5 py-1.5 rounded text-[11px] font-medium bg-[#1e293b] text-[#cbd5e1] hover:bg-[#334155] border border-white/10 transition-colors"
+                >
+                  Matte / Kraft
+                </button>
+                <button
+                  type="button"
+                  onClick={() => { updateRoughness(0.1); updateMetalness(0.15); }}
+                  className="px-2.5 py-1.5 rounded text-[11px] font-medium bg-[#1e293b] text-[#cbd5e1] hover:bg-[#334155] border border-white/10 transition-colors"
+                >
+                  Glossy Foil
+                </button>
+                <button
+                  type="button"
+                  onClick={() => { updateRoughness(0.05); updateMetalness(0.95); }}
+                  className="col-span-2 px-2.5 py-1.5 rounded text-[11px] font-bold bg-gradient-to-r from-emerald-500/20 to-teal-500/20 text-[#64ffda] border border-[#64ffda]/40 hover:bg-[#64ffda]/20 transition-all flex items-center justify-center gap-1.5"
+                >
+                  ✨ 3D UV Metallic Sticker (水晶標)
+                </button>
+              </div>
             </div>
 
             {/* Metalness */}
@@ -3803,6 +4001,53 @@ export default function PackageEditorPage() {
                   Close Window
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Unsaved Design & Leave Page Warning Modal */}
+      {isLeaveWarningModalOpen && (
+        <div className="fixed inset-0 bg-slate-950/85 backdrop-blur-md z-50 flex items-center justify-center p-4">
+          <div className="bg-[#0f172a] border border-amber-500/40 rounded-2xl max-w-md w-full p-6 text-white shadow-2xl relative">
+            <div className="w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center mb-4 mx-auto border border-amber-500/30">
+              <AlertTriangle className="w-6 h-6 animate-pulse" />
+            </div>
+            
+            <h3 className="text-xl font-bold text-center text-white mb-2">
+              Unsaved 3D Pouch Configuration!
+            </h3>
+            
+            <p className="text-xs text-slate-300 text-center mb-6 leading-relaxed">
+              Leaving or closing this 3D Studio page will reset your custom artwork, pouch dimensions, and material specs! Save a <strong>Dedicated Custom Link</strong> now to store this 3D pouch/box exclusively for you.
+            </p>
+
+            <div className="flex flex-col gap-3">
+              <button
+                onClick={() => {
+                  setIsLeaveWarningModalOpen(false);
+                  setIsSaveModalOpen(true);
+                }}
+                className="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold rounded-xl text-sm transition-all shadow-lg flex items-center justify-center gap-2"
+              >
+                <Zap className="w-4 h-4 fill-slate-950" /> Save & Create Dedicated Custom Link
+              </button>
+
+              <button
+                onClick={() => {
+                  setIsLeaveWarningModalOpen(false);
+                  if (pendingTargetShape) {
+                    executeShapeSwitch(pendingTargetShape);
+                    setPendingTargetShape(null);
+                  } else {
+                    executeGoToCatalog();
+                    setPendingTargetViewMode(null);
+                  }
+                }}
+                className="w-full py-2.5 px-4 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-semibold rounded-xl text-xs transition-colors text-center"
+              >
+                Proceed & Clear Cache (No Save)
+              </button>
             </div>
           </div>
         </div>

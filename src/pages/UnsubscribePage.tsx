@@ -63,7 +63,7 @@ const UnsubscribePage: React.FC = () => {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle className="h-8 w-8 text-green-600" />
               </div>
-              <h1 className="text-2xl font-bold text-gray-900 mb-3">{t(`${p}.successfullyUnsubscribed`)}</h1>
+              <h2 className="text-2xl font-bold text-gray-900 mb-3">{t(`${p}.successfullyUnsubscribed`)}</h2>
               <p className="text-gray-600 mb-2">
                 {email && (
                   <span className="block text-sm text-gray-500 mb-2">
@@ -79,7 +79,7 @@ const UnsubscribePage: React.FC = () => {
               <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <XCircle className="h-8 w-8 text-red-600" />
               </div>
-              <h1 className="text-2xl font-bold text-gray-900 mb-3">{t(`${p}.somethingWentWrong`)}</h1>
+              <h2 className="text-2xl font-bold text-gray-900 mb-3">{t(`${p}.somethingWentWrong`)}</h2>
               <p className="text-gray-600 mb-4">
                 {t(`${p}.weCouldnTProcessYourUnsubscrib`)}</p>
               <a 
@@ -94,7 +94,7 @@ const UnsubscribePage: React.FC = () => {
               <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Mail className="h-8 w-8 text-gray-600" />
               </div>
-              <h1 className="text-2xl font-bold text-gray-900 mb-3">{t(`${p}.unsubscribeFromEmails`)}</h1>
+              <h2 className="text-2xl font-bold text-gray-900 mb-3">{t(`${p}.unsubscribeFromEmails`)}</h2>
               <p className="text-gray-600 mb-6">
                 {t(`${p}.clickTheButtonBelowToUnsubscri`)}</p>
               <p className="text-sm text-gray-500 mb-6">

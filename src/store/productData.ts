@@ -105,6 +105,9 @@ export interface EcoDigitalProduct extends BaseStoreProduct {
     defaultZipper: string
     defaultShippingMethod: string
   }
+  surfaceTreatments?: { id: string; name: string; desc: string; image: string }[]
+  reclosureTypes?: { id: string; name: string; desc: string; image: string }[]
+  barrierOptions?: { id: string; name: string; desc: string }[]
 }
 
 export type StoreProduct = PouchProduct | SampleProduct | ConventionalProduct | EcoDigitalProduct | EcoStockProduct | BoxProduct
@@ -5523,6 +5526,46 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
       '/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-8.jpg',
       '/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-9.jpg',
       '/imgs/store/products/eco-friendly-soft-wood-gift-box-thumbnail-10.jpg'
+    ]
+  },
+  {
+    id: 'eco-kraft-paper-tube-gift-box',
+    name: 'Eco Kraft Paper Tube Gift Box for Essential Oil Bottles',
+    category: 'boxes',
+    subCategory: 'boxes',
+    shape: 'Paper Tube Box',
+    sustainability: 'compostable',
+    description: '100% Home Compostable natural kraft paper cylinder tube packaging designed specifically for essential oil bottles, lip balms, perfumes, and serum droppers. Features thick rolled edges, shockproof multi-layer tube walls, and plastic-free unbleached kraft paper.',
+    shortDesc: '100% Home Compostable natural kraft tube box for essential oil bottles.',
+    rating: 5.0,
+    reviews: 18,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 200,
+    minQuantity: 200,
+    basePrice: 168.00,
+    taobaoLinks: ['https://item.taobao.com/item.htm?id=728061906006'],
+    viewQuoteLink: '/products/eco-kraft-paper-tube-gift-box',
+    features: [
+      '100% Home Compostable Unbleached Kraft Paper',
+      'Precision Cylinder Fit for 5ml - 100ml Dropper Bottles',
+      'Thickened Tube Rim & High Crush Resistance',
+      'Plastic-Free Eco-Friendly Construction',
+      'Custom Foil Stamping & Soy Ink Printing Available'
+    ],
+    material: 'Natural Unbleached Kraft Paper, Biodegradable Inner Core',
+    additionalFeatures: ['100% Biodegradable', 'Crush Resistant Wall', 'Custom Logo Printing'],
+    images: [
+      '/imgs/store/products/eco-kraft-paper-tube-gift-box-thumbnail-1.jpg',
+      '/imgs/store/products/eco-kraft-paper-tube-gift-box-thumbnail-2.jpg',
+      '/imgs/store/products/eco-kraft-paper-tube-gift-box-thumbnail-3.jpg',
+      '/imgs/store/products/eco-kraft-paper-tube-gift-box-thumbnail-4.jpg',
+      '/imgs/store/products/eco-kraft-paper-tube-gift-box-thumbnail-5.jpg',
+      '/imgs/store/products/eco-kraft-paper-tube-gift-box-thumbnail-6.jpg',
+      '/imgs/store/products/eco-kraft-paper-tube-gift-box-thumbnail-7.jpg',
+      '/imgs/store/products/eco-kraft-paper-tube-gift-box-thumbnail-8.jpg',
+      '/imgs/store/products/eco-kraft-paper-tube-gift-box-thumbnail-9.jpg',
+      '/imgs/store/products/eco-kraft-paper-tube-gift-box-thumbnail-10.jpg'
     ]
   }
 ]
