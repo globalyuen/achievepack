@@ -1,0 +1,1115 @@
+[
+  {
+    "id": "coffee-powder-sample",
+    "industry": {
+      "id": "coffee",
+      "name": "Coffee & Tea"
+    },
+    "state": {
+      "id": "powder",
+      "name": "Powder / Fine Granules"
+    },
+    "capacity": {
+      "id": "sample",
+      "name": "Sample / Single-serve (< 50g)"
+    },
+    "recommended_tech_ids": [
+      "flat-bottom-pouch-metallized-foil-standard-zipper-spot-uv",
+      "flat-bottom-pouch-matte-bopp-degassing-valve-glossy",
+      "three-side-seal-pouch-white-kraft-tear-notch-soft-touch",
+      "spouted-pouch-pcr-tear-notch-matte"
+    ],
+    "ap_copy": {
+      "title": "Premium Coffee & Tea Packaging for Sample (Powder)",
+      "description": "Enterprise-grade packaging engineered specifically for the Coffee & Tea sector. Designed to perfectly contain and protect powder / fine granules products in sample / single-serve (< 50g) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Coffee & Tea Packaging | Sample Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Coffee & Tea. Optimized for powder / fine granules contents, this sample / single-serve (< 50g) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "coffee-powder-retail",
+    "industry": {
+      "id": "coffee",
+      "name": "Coffee & Tea"
+    },
+    "state": {
+      "id": "powder",
+      "name": "Powder / Fine Granules"
+    },
+    "capacity": {
+      "id": "retail",
+      "name": "Retail / Medium (100g - 1kg)"
+    },
+    "recommended_tech_ids": [
+      "spouted-pouch-compostable-pla-euro-hole-holographic",
+      "flat-bottom-pouch-metallized-foil-standard-zipper-spot-uv",
+      "three-side-seal-pouch-mono-material-pe-tear-notch-soft-touch"
+    ],
+    "ap_copy": {
+      "title": "Premium Coffee & Tea Packaging for Retail (Powder)",
+      "description": "Enterprise-grade packaging engineered specifically for the Coffee & Tea sector. Designed to perfectly contain and protect powder / fine granules products in retail / medium (100g - 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Coffee & Tea Packaging | Retail Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Coffee & Tea. Optimized for powder / fine granules contents, this retail / medium (100g - 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "coffee-powder-bulk",
+    "industry": {
+      "id": "coffee",
+      "name": "Coffee & Tea"
+    },
+    "state": {
+      "id": "powder",
+      "name": "Powder / Fine Granules"
+    },
+    "capacity": {
+      "id": "bulk",
+      "name": "Bulk / Large (> 1kg)"
+    },
+    "recommended_tech_ids": [
+      "spouted-pouch-clear-pet-spout-matte",
+      "shaped-pouch-mono-material-pe-spout-matte",
+      "three-side-seal-pouch-mono-material-pe-tear-notch-soft-touch"
+    ],
+    "ap_copy": {
+      "title": "Premium Coffee & Tea Packaging for Bulk (Powder)",
+      "description": "Enterprise-grade packaging engineered specifically for the Coffee & Tea sector. Designed to perfectly contain and protect powder / fine granules products in bulk / large (> 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Coffee & Tea Packaging | Bulk Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Coffee & Tea. Optimized for powder / fine granules contents, this bulk / large (> 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "coffee-solid-sample",
+    "industry": {
+      "id": "coffee",
+      "name": "Coffee & Tea"
+    },
+    "state": {
+      "id": "solid",
+      "name": "Solid / Beans / Chunks"
+    },
+    "capacity": {
+      "id": "sample",
+      "name": "Sample / Single-serve (< 50g)"
+    },
+    "recommended_tech_ids": [
+      "three-side-seal-pouch-pcr-tear-notch-spot-uv",
+      "three-side-seal-pouch-mono-material-pe-tear-notch-glossy",
+      "quad-seal-pouch-brown-kraft-tear-notch-matte",
+      "stand-up-pouch-brown-kraft-standard-zipper-natural-kraft"
+    ],
+    "ap_copy": {
+      "title": "Premium Coffee & Tea Packaging for Sample (Solid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Coffee & Tea sector. Designed to perfectly contain and protect solid / beans / chunks products in sample / single-serve (< 50g) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Coffee & Tea Packaging | Sample Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Coffee & Tea. Optimized for solid / beans / chunks contents, this sample / single-serve (< 50g) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "coffee-solid-retail",
+    "industry": {
+      "id": "coffee",
+      "name": "Coffee & Tea"
+    },
+    "state": {
+      "id": "solid",
+      "name": "Solid / Beans / Chunks"
+    },
+    "capacity": {
+      "id": "retail",
+      "name": "Retail / Medium (100g - 1kg)"
+    },
+    "recommended_tech_ids": [
+      "shaped-pouch-compostable-pla-euro-hole-glossy",
+      "shaped-pouch-clear-pet-degassing-valve-matte",
+      "three-side-seal-pouch-clear-pet-pocket-zipper-spot-uv",
+      "flat-bottom-pouch-white-kraft-tin-tie-soft-touch"
+    ],
+    "ap_copy": {
+      "title": "Premium Coffee & Tea Packaging for Retail (Solid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Coffee & Tea sector. Designed to perfectly contain and protect solid / beans / chunks products in retail / medium (100g - 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Coffee & Tea Packaging | Retail Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Coffee & Tea. Optimized for solid / beans / chunks contents, this retail / medium (100g - 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "coffee-solid-bulk",
+    "industry": {
+      "id": "coffee",
+      "name": "Coffee & Tea"
+    },
+    "state": {
+      "id": "solid",
+      "name": "Solid / Beans / Chunks"
+    },
+    "capacity": {
+      "id": "bulk",
+      "name": "Bulk / Large (> 1kg)"
+    },
+    "recommended_tech_ids": [
+      "quad-seal-pouch-brown-kraft-child-resistant-zipper-soft-touch",
+      "shaped-pouch-mono-material-pe-spout-matte",
+      "spouted-pouch-compostable-pla-euro-hole-holographic"
+    ],
+    "ap_copy": {
+      "title": "Premium Coffee & Tea Packaging for Bulk (Solid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Coffee & Tea sector. Designed to perfectly contain and protect solid / beans / chunks products in bulk / large (> 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Coffee & Tea Packaging | Bulk Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Coffee & Tea. Optimized for solid / beans / chunks contents, this bulk / large (> 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "pet-food-powder-sample",
+    "industry": {
+      "id": "pet-food",
+      "name": "Pet Food & Treats"
+    },
+    "state": {
+      "id": "powder",
+      "name": "Powder / Fine Granules"
+    },
+    "capacity": {
+      "id": "sample",
+      "name": "Sample / Single-serve (< 50g)"
+    },
+    "recommended_tech_ids": [
+      "shaped-pouch-white-kraft-tear-notch-spot-uv",
+      "spouted-pouch-compostable-pla-euro-hole-holographic",
+      "flat-bottom-pouch-clear-pet-pocket-zipper-spot-uv"
+    ],
+    "ap_copy": {
+      "title": "Premium Pet Food & Treats Packaging for Sample (Powder)",
+      "description": "Enterprise-grade packaging engineered specifically for the Pet Food & Treats sector. Designed to perfectly contain and protect powder / fine granules products in sample / single-serve (< 50g) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Pet Food & Treats Packaging | Sample Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Pet Food & Treats. Optimized for powder / fine granules contents, this sample / single-serve (< 50g) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "pet-food-powder-retail",
+    "industry": {
+      "id": "pet-food",
+      "name": "Pet Food & Treats"
+    },
+    "state": {
+      "id": "powder",
+      "name": "Powder / Fine Granules"
+    },
+    "capacity": {
+      "id": "retail",
+      "name": "Retail / Medium (100g - 1kg)"
+    },
+    "recommended_tech_ids": [
+      "stand-up-pouch-brown-kraft-standard-zipper-natural-kraft",
+      "shaped-pouch-pcr-euro-hole-holographic",
+      "shaped-pouch-compostable-pla-euro-hole-glossy",
+      "shaped-pouch-mono-material-pe-spout-matte"
+    ],
+    "ap_copy": {
+      "title": "Premium Pet Food & Treats Packaging for Retail (Powder)",
+      "description": "Enterprise-grade packaging engineered specifically for the Pet Food & Treats sector. Designed to perfectly contain and protect powder / fine granules products in retail / medium (100g - 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Pet Food & Treats Packaging | Retail Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Pet Food & Treats. Optimized for powder / fine granules contents, this retail / medium (100g - 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "pet-food-powder-bulk",
+    "industry": {
+      "id": "pet-food",
+      "name": "Pet Food & Treats"
+    },
+    "state": {
+      "id": "powder",
+      "name": "Powder / Fine Granules"
+    },
+    "capacity": {
+      "id": "bulk",
+      "name": "Bulk / Large (> 1kg)"
+    },
+    "recommended_tech_ids": [
+      "three-side-seal-pouch-pcr-tear-notch-spot-uv",
+      "spouted-pouch-metallized-foil-euro-hole-glossy",
+      "three-side-seal-pouch-matte-bopp-euro-hole-glossy",
+      "flat-bottom-pouch-matte-bopp-tin-tie-holographic"
+    ],
+    "ap_copy": {
+      "title": "Premium Pet Food & Treats Packaging for Bulk (Powder)",
+      "description": "Enterprise-grade packaging engineered specifically for the Pet Food & Treats sector. Designed to perfectly contain and protect powder / fine granules products in bulk / large (> 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Pet Food & Treats Packaging | Bulk Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Pet Food & Treats. Optimized for powder / fine granules contents, this bulk / large (> 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "pet-food-solid-sample",
+    "industry": {
+      "id": "pet-food",
+      "name": "Pet Food & Treats"
+    },
+    "state": {
+      "id": "solid",
+      "name": "Solid / Beans / Chunks"
+    },
+    "capacity": {
+      "id": "sample",
+      "name": "Sample / Single-serve (< 50g)"
+    },
+    "recommended_tech_ids": [
+      "spouted-pouch-brown-kraft-euro-hole-natural-kraft",
+      "quad-seal-pouch-compostable-pla-standard-zipper-spot-uv",
+      "stand-up-pouch-matte-bopp-pocket-zipper-glossy",
+      "quad-seal-pouch-compostable-pla-pocket-zipper-holographic"
+    ],
+    "ap_copy": {
+      "title": "Premium Pet Food & Treats Packaging for Sample (Solid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Pet Food & Treats sector. Designed to perfectly contain and protect solid / beans / chunks products in sample / single-serve (< 50g) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Pet Food & Treats Packaging | Sample Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Pet Food & Treats. Optimized for solid / beans / chunks contents, this sample / single-serve (< 50g) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "pet-food-solid-retail",
+    "industry": {
+      "id": "pet-food",
+      "name": "Pet Food & Treats"
+    },
+    "state": {
+      "id": "solid",
+      "name": "Solid / Beans / Chunks"
+    },
+    "capacity": {
+      "id": "retail",
+      "name": "Retail / Medium (100g - 1kg)"
+    },
+    "recommended_tech_ids": [
+      "three-side-seal-pouch-mono-material-pe-tear-notch-soft-touch",
+      "spouted-pouch-clear-pet-spout-glossy",
+      "three-side-seal-pouch-white-kraft-tear-notch-soft-touch"
+    ],
+    "ap_copy": {
+      "title": "Premium Pet Food & Treats Packaging for Retail (Solid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Pet Food & Treats sector. Designed to perfectly contain and protect solid / beans / chunks products in retail / medium (100g - 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Pet Food & Treats Packaging | Retail Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Pet Food & Treats. Optimized for solid / beans / chunks contents, this retail / medium (100g - 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "pet-food-solid-bulk",
+    "industry": {
+      "id": "pet-food",
+      "name": "Pet Food & Treats"
+    },
+    "state": {
+      "id": "solid",
+      "name": "Solid / Beans / Chunks"
+    },
+    "capacity": {
+      "id": "bulk",
+      "name": "Bulk / Large (> 1kg)"
+    },
+    "recommended_tech_ids": [
+      "three-side-seal-pouch-pcr-tear-notch-spot-uv",
+      "stand-up-pouch-matte-bopp-pocket-zipper-glossy",
+      "stand-up-pouch-pcr-child-resistant-zipper-spot-uv",
+      "flat-bottom-pouch-clear-pet-tin-tie-glossy"
+    ],
+    "ap_copy": {
+      "title": "Premium Pet Food & Treats Packaging for Bulk (Solid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Pet Food & Treats sector. Designed to perfectly contain and protect solid / beans / chunks products in bulk / large (> 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Pet Food & Treats Packaging | Bulk Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Pet Food & Treats. Optimized for solid / beans / chunks contents, this bulk / large (> 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "pet-food-liquid-paste-sample",
+    "industry": {
+      "id": "pet-food",
+      "name": "Pet Food & Treats"
+    },
+    "state": {
+      "id": "liquid-paste",
+      "name": "Liquid / Paste"
+    },
+    "capacity": {
+      "id": "sample",
+      "name": "Sample / Single-serve (< 50g)"
+    },
+    "recommended_tech_ids": [
+      "flat-bottom-pouch-white-kraft-tin-tie-soft-touch",
+      "shaped-pouch-clear-pet-tear-notch-glossy",
+      "spouted-pouch-clear-pet-degassing-valve-spot-uv",
+      "flat-bottom-pouch-matte-bopp-degassing-valve-glossy"
+    ],
+    "ap_copy": {
+      "title": "Premium Pet Food & Treats Packaging for Sample (Liquid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Pet Food & Treats sector. Designed to perfectly contain and protect liquid / paste products in sample / single-serve (< 50g) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Pet Food & Treats Packaging | Sample Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Pet Food & Treats. Optimized for liquid / paste contents, this sample / single-serve (< 50g) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "pet-food-liquid-paste-retail",
+    "industry": {
+      "id": "pet-food",
+      "name": "Pet Food & Treats"
+    },
+    "state": {
+      "id": "liquid-paste",
+      "name": "Liquid / Paste"
+    },
+    "capacity": {
+      "id": "retail",
+      "name": "Retail / Medium (100g - 1kg)"
+    },
+    "recommended_tech_ids": [
+      "three-side-seal-pouch-matte-bopp-euro-hole-glossy",
+      "flat-bottom-pouch-clear-pet-tin-tie-glossy",
+      "spouted-pouch-brown-kraft-tear-notch-soft-touch",
+      "stand-up-pouch-compostable-pla-standard-zipper-matte"
+    ],
+    "ap_copy": {
+      "title": "Premium Pet Food & Treats Packaging for Retail (Liquid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Pet Food & Treats sector. Designed to perfectly contain and protect liquid / paste products in retail / medium (100g - 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Pet Food & Treats Packaging | Retail Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Pet Food & Treats. Optimized for liquid / paste contents, this retail / medium (100g - 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "pet-food-liquid-paste-bulk",
+    "industry": {
+      "id": "pet-food",
+      "name": "Pet Food & Treats"
+    },
+    "state": {
+      "id": "liquid-paste",
+      "name": "Liquid / Paste"
+    },
+    "capacity": {
+      "id": "bulk",
+      "name": "Bulk / Large (> 1kg)"
+    },
+    "recommended_tech_ids": [
+      "spouted-pouch-pcr-tear-notch-matte",
+      "shaped-pouch-mono-material-pe-standard-zipper-soft-touch",
+      "shaped-pouch-mono-material-pe-spout-matte",
+      "stand-up-pouch-brown-kraft-tear-notch-natural-kraft"
+    ],
+    "ap_copy": {
+      "title": "Premium Pet Food & Treats Packaging for Bulk (Liquid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Pet Food & Treats sector. Designed to perfectly contain and protect liquid / paste products in bulk / large (> 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Pet Food & Treats Packaging | Bulk Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Pet Food & Treats. Optimized for liquid / paste contents, this bulk / large (> 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "supplements-powder-sample",
+    "industry": {
+      "id": "supplements",
+      "name": "Sports Nutrition & Supplements"
+    },
+    "state": {
+      "id": "powder",
+      "name": "Powder / Fine Granules"
+    },
+    "capacity": {
+      "id": "sample",
+      "name": "Sample / Single-serve (< 50g)"
+    },
+    "recommended_tech_ids": [
+      "flat-bottom-pouch-clear-pet-pocket-zipper-spot-uv",
+      "shaped-pouch-clear-pet-child-resistant-zipper-soft-touch",
+      "flat-bottom-pouch-matte-bopp-tin-tie-holographic"
+    ],
+    "ap_copy": {
+      "title": "Premium Sports Nutrition & Supplements Packaging for Sample (Powder)",
+      "description": "Enterprise-grade packaging engineered specifically for the Sports Nutrition & Supplements sector. Designed to perfectly contain and protect powder / fine granules products in sample / single-serve (< 50g) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Sports Nutrition & Supplements Packaging | Sample Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Sports Nutrition & Supplements. Optimized for powder / fine granules contents, this sample / single-serve (< 50g) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "supplements-powder-retail",
+    "industry": {
+      "id": "supplements",
+      "name": "Sports Nutrition & Supplements"
+    },
+    "state": {
+      "id": "powder",
+      "name": "Powder / Fine Granules"
+    },
+    "capacity": {
+      "id": "retail",
+      "name": "Retail / Medium (100g - 1kg)"
+    },
+    "recommended_tech_ids": [
+      "shaped-pouch-compostable-pla-euro-hole-glossy",
+      "spouted-pouch-metallized-foil-euro-hole-glossy",
+      "shaped-pouch-clear-pet-tear-notch-glossy"
+    ],
+    "ap_copy": {
+      "title": "Premium Sports Nutrition & Supplements Packaging for Retail (Powder)",
+      "description": "Enterprise-grade packaging engineered specifically for the Sports Nutrition & Supplements sector. Designed to perfectly contain and protect powder / fine granules products in retail / medium (100g - 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Sports Nutrition & Supplements Packaging | Retail Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Sports Nutrition & Supplements. Optimized for powder / fine granules contents, this retail / medium (100g - 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "supplements-powder-bulk",
+    "industry": {
+      "id": "supplements",
+      "name": "Sports Nutrition & Supplements"
+    },
+    "state": {
+      "id": "powder",
+      "name": "Powder / Fine Granules"
+    },
+    "capacity": {
+      "id": "bulk",
+      "name": "Bulk / Large (> 1kg)"
+    },
+    "recommended_tech_ids": [
+      "quad-seal-pouch-compostable-pla-standard-zipper-spot-uv",
+      "stand-up-pouch-metallized-foil-euro-hole-soft-touch",
+      "three-side-seal-pouch-pcr-child-resistant-zipper-matte"
+    ],
+    "ap_copy": {
+      "title": "Premium Sports Nutrition & Supplements Packaging for Bulk (Powder)",
+      "description": "Enterprise-grade packaging engineered specifically for the Sports Nutrition & Supplements sector. Designed to perfectly contain and protect powder / fine granules products in bulk / large (> 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Sports Nutrition & Supplements Packaging | Bulk Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Sports Nutrition & Supplements. Optimized for powder / fine granules contents, this bulk / large (> 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "supplements-solid-sample",
+    "industry": {
+      "id": "supplements",
+      "name": "Sports Nutrition & Supplements"
+    },
+    "state": {
+      "id": "solid",
+      "name": "Solid / Beans / Chunks"
+    },
+    "capacity": {
+      "id": "sample",
+      "name": "Sample / Single-serve (< 50g)"
+    },
+    "recommended_tech_ids": [
+      "shaped-pouch-mono-material-pe-standard-zipper-soft-touch",
+      "flat-bottom-pouch-pcr-standard-zipper-spot-uv",
+      "quad-seal-pouch-white-kraft-euro-hole-matte",
+      "shaped-pouch-brown-kraft-pocket-zipper-natural-kraft"
+    ],
+    "ap_copy": {
+      "title": "Premium Sports Nutrition & Supplements Packaging for Sample (Solid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Sports Nutrition & Supplements sector. Designed to perfectly contain and protect solid / beans / chunks products in sample / single-serve (< 50g) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Sports Nutrition & Supplements Packaging | Sample Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Sports Nutrition & Supplements. Optimized for solid / beans / chunks contents, this sample / single-serve (< 50g) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "supplements-solid-retail",
+    "industry": {
+      "id": "supplements",
+      "name": "Sports Nutrition & Supplements"
+    },
+    "state": {
+      "id": "solid",
+      "name": "Solid / Beans / Chunks"
+    },
+    "capacity": {
+      "id": "retail",
+      "name": "Retail / Medium (100g - 1kg)"
+    },
+    "recommended_tech_ids": [
+      "flat-bottom-pouch-pcr-pocket-zipper-soft-touch",
+      "stand-up-pouch-compostable-pla-standard-zipper-matte",
+      "flat-bottom-pouch-clear-pet-tin-tie-glossy",
+      "stand-up-pouch-metallized-foil-tear-notch-soft-touch"
+    ],
+    "ap_copy": {
+      "title": "Premium Sports Nutrition & Supplements Packaging for Retail (Solid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Sports Nutrition & Supplements sector. Designed to perfectly contain and protect solid / beans / chunks products in retail / medium (100g - 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Sports Nutrition & Supplements Packaging | Retail Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Sports Nutrition & Supplements. Optimized for solid / beans / chunks contents, this retail / medium (100g - 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "supplements-solid-bulk",
+    "industry": {
+      "id": "supplements",
+      "name": "Sports Nutrition & Supplements"
+    },
+    "state": {
+      "id": "solid",
+      "name": "Solid / Beans / Chunks"
+    },
+    "capacity": {
+      "id": "bulk",
+      "name": "Bulk / Large (> 1kg)"
+    },
+    "recommended_tech_ids": [
+      "flat-bottom-pouch-white-kraft-tin-tie-matte",
+      "stand-up-pouch-compostable-pla-standard-zipper-matte",
+      "flat-bottom-pouch-clear-pet-tin-tie-glossy"
+    ],
+    "ap_copy": {
+      "title": "Premium Sports Nutrition & Supplements Packaging for Bulk (Solid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Sports Nutrition & Supplements sector. Designed to perfectly contain and protect solid / beans / chunks products in bulk / large (> 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Sports Nutrition & Supplements Packaging | Bulk Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Sports Nutrition & Supplements. Optimized for solid / beans / chunks contents, this bulk / large (> 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "snacks-powder-sample",
+    "industry": {
+      "id": "snacks",
+      "name": "Snacks & Confectionery"
+    },
+    "state": {
+      "id": "powder",
+      "name": "Powder / Fine Granules"
+    },
+    "capacity": {
+      "id": "sample",
+      "name": "Sample / Single-serve (< 50g)"
+    },
+    "recommended_tech_ids": [
+      "flat-bottom-pouch-compostable-pla-degassing-valve-holographic",
+      "stand-up-pouch-brown-kraft-tear-notch-natural-kraft",
+      "three-side-seal-pouch-matte-bopp-degassing-valve-holographic",
+      "shaped-pouch-mono-material-pe-standard-zipper-soft-touch"
+    ],
+    "ap_copy": {
+      "title": "Premium Snacks & Confectionery Packaging for Sample (Powder)",
+      "description": "Enterprise-grade packaging engineered specifically for the Snacks & Confectionery sector. Designed to perfectly contain and protect powder / fine granules products in sample / single-serve (< 50g) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Snacks & Confectionery Packaging | Sample Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Snacks & Confectionery. Optimized for powder / fine granules contents, this sample / single-serve (< 50g) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "snacks-powder-retail",
+    "industry": {
+      "id": "snacks",
+      "name": "Snacks & Confectionery"
+    },
+    "state": {
+      "id": "powder",
+      "name": "Powder / Fine Granules"
+    },
+    "capacity": {
+      "id": "retail",
+      "name": "Retail / Medium (100g - 1kg)"
+    },
+    "recommended_tech_ids": [
+      "quad-seal-pouch-white-kraft-degassing-valve-natural-kraft",
+      "stand-up-pouch-metallized-foil-euro-hole-soft-touch",
+      "three-side-seal-pouch-mono-material-pe-tear-notch-glossy",
+      "stand-up-pouch-metallized-foil-tear-notch-soft-touch"
+    ],
+    "ap_copy": {
+      "title": "Premium Snacks & Confectionery Packaging for Retail (Powder)",
+      "description": "Enterprise-grade packaging engineered specifically for the Snacks & Confectionery sector. Designed to perfectly contain and protect powder / fine granules products in retail / medium (100g - 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Snacks & Confectionery Packaging | Retail Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Snacks & Confectionery. Optimized for powder / fine granules contents, this retail / medium (100g - 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "snacks-powder-bulk",
+    "industry": {
+      "id": "snacks",
+      "name": "Snacks & Confectionery"
+    },
+    "state": {
+      "id": "powder",
+      "name": "Powder / Fine Granules"
+    },
+    "capacity": {
+      "id": "bulk",
+      "name": "Bulk / Large (> 1kg)"
+    },
+    "recommended_tech_ids": [
+      "three-side-seal-pouch-pcr-child-resistant-zipper-matte",
+      "shaped-pouch-pcr-euro-hole-holographic",
+      "three-side-seal-pouch-compostable-pla-standard-zipper-holographic"
+    ],
+    "ap_copy": {
+      "title": "Premium Snacks & Confectionery Packaging for Bulk (Powder)",
+      "description": "Enterprise-grade packaging engineered specifically for the Snacks & Confectionery sector. Designed to perfectly contain and protect powder / fine granules products in bulk / large (> 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Snacks & Confectionery Packaging | Bulk Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Snacks & Confectionery. Optimized for powder / fine granules contents, this bulk / large (> 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "snacks-solid-sample",
+    "industry": {
+      "id": "snacks",
+      "name": "Snacks & Confectionery"
+    },
+    "state": {
+      "id": "solid",
+      "name": "Solid / Beans / Chunks"
+    },
+    "capacity": {
+      "id": "sample",
+      "name": "Sample / Single-serve (< 50g)"
+    },
+    "recommended_tech_ids": [
+      "flat-bottom-pouch-compostable-pla-degassing-valve-holographic",
+      "quad-seal-pouch-white-kraft-euro-hole-matte",
+      "stand-up-pouch-pcr-euro-hole-spot-uv"
+    ],
+    "ap_copy": {
+      "title": "Premium Snacks & Confectionery Packaging for Sample (Solid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Snacks & Confectionery sector. Designed to perfectly contain and protect solid / beans / chunks products in sample / single-serve (< 50g) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Snacks & Confectionery Packaging | Sample Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Snacks & Confectionery. Optimized for solid / beans / chunks contents, this sample / single-serve (< 50g) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "snacks-solid-retail",
+    "industry": {
+      "id": "snacks",
+      "name": "Snacks & Confectionery"
+    },
+    "state": {
+      "id": "solid",
+      "name": "Solid / Beans / Chunks"
+    },
+    "capacity": {
+      "id": "retail",
+      "name": "Retail / Medium (100g - 1kg)"
+    },
+    "recommended_tech_ids": [
+      "stand-up-pouch-pcr-standard-zipper-glossy",
+      "flat-bottom-pouch-matte-bopp-tin-tie-holographic",
+      "three-side-seal-pouch-matte-bopp-degassing-valve-holographic",
+      "quad-seal-pouch-brown-kraft-tear-notch-matte"
+    ],
+    "ap_copy": {
+      "title": "Premium Snacks & Confectionery Packaging for Retail (Solid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Snacks & Confectionery sector. Designed to perfectly contain and protect solid / beans / chunks products in retail / medium (100g - 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Snacks & Confectionery Packaging | Retail Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Snacks & Confectionery. Optimized for solid / beans / chunks contents, this retail / medium (100g - 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "snacks-solid-bulk",
+    "industry": {
+      "id": "snacks",
+      "name": "Snacks & Confectionery"
+    },
+    "state": {
+      "id": "solid",
+      "name": "Solid / Beans / Chunks"
+    },
+    "capacity": {
+      "id": "bulk",
+      "name": "Bulk / Large (> 1kg)"
+    },
+    "recommended_tech_ids": [
+      "shaped-pouch-clear-pet-degassing-valve-matte",
+      "flat-bottom-pouch-metallized-foil-euro-hole-soft-touch",
+      "spouted-pouch-compostable-pla-euro-hole-holographic",
+      "spouted-pouch-brown-kraft-tear-notch-soft-touch"
+    ],
+    "ap_copy": {
+      "title": "Premium Snacks & Confectionery Packaging for Bulk (Solid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Snacks & Confectionery sector. Designed to perfectly contain and protect solid / beans / chunks products in bulk / large (> 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Snacks & Confectionery Packaging | Bulk Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Snacks & Confectionery. Optimized for solid / beans / chunks contents, this bulk / large (> 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "beauty-powder-sample",
+    "industry": {
+      "id": "beauty",
+      "name": "Beauty & Cosmetics"
+    },
+    "state": {
+      "id": "powder",
+      "name": "Powder / Fine Granules"
+    },
+    "capacity": {
+      "id": "sample",
+      "name": "Sample / Single-serve (< 50g)"
+    },
+    "recommended_tech_ids": [
+      "spouted-pouch-brown-kraft-euro-hole-natural-kraft",
+      "three-side-seal-pouch-compostable-pla-standard-zipper-holographic",
+      "spouted-pouch-brown-kraft-tear-notch-soft-touch"
+    ],
+    "ap_copy": {
+      "title": "Premium Beauty & Cosmetics Packaging for Sample (Powder)",
+      "description": "Enterprise-grade packaging engineered specifically for the Beauty & Cosmetics sector. Designed to perfectly contain and protect powder / fine granules products in sample / single-serve (< 50g) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Beauty & Cosmetics Packaging | Sample Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Beauty & Cosmetics. Optimized for powder / fine granules contents, this sample / single-serve (< 50g) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "beauty-powder-retail",
+    "industry": {
+      "id": "beauty",
+      "name": "Beauty & Cosmetics"
+    },
+    "state": {
+      "id": "powder",
+      "name": "Powder / Fine Granules"
+    },
+    "capacity": {
+      "id": "retail",
+      "name": "Retail / Medium (100g - 1kg)"
+    },
+    "recommended_tech_ids": [
+      "quad-seal-pouch-compostable-pla-pocket-zipper-holographic",
+      "stand-up-pouch-pcr-standard-zipper-glossy",
+      "shaped-pouch-compostable-pla-euro-hole-glossy",
+      "quad-seal-pouch-white-kraft-euro-hole-matte"
+    ],
+    "ap_copy": {
+      "title": "Premium Beauty & Cosmetics Packaging for Retail (Powder)",
+      "description": "Enterprise-grade packaging engineered specifically for the Beauty & Cosmetics sector. Designed to perfectly contain and protect powder / fine granules products in retail / medium (100g - 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Beauty & Cosmetics Packaging | Retail Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Beauty & Cosmetics. Optimized for powder / fine granules contents, this retail / medium (100g - 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "beauty-powder-bulk",
+    "industry": {
+      "id": "beauty",
+      "name": "Beauty & Cosmetics"
+    },
+    "state": {
+      "id": "powder",
+      "name": "Powder / Fine Granules"
+    },
+    "capacity": {
+      "id": "bulk",
+      "name": "Bulk / Large (> 1kg)"
+    },
+    "recommended_tech_ids": [
+      "spouted-pouch-clear-pet-spout-glossy",
+      "quad-seal-pouch-white-kraft-degassing-valve-natural-kraft",
+      "quad-seal-pouch-brown-kraft-tear-notch-matte",
+      "quad-seal-pouch-compostable-pla-pocket-zipper-holographic"
+    ],
+    "ap_copy": {
+      "title": "Premium Beauty & Cosmetics Packaging for Bulk (Powder)",
+      "description": "Enterprise-grade packaging engineered specifically for the Beauty & Cosmetics sector. Designed to perfectly contain and protect powder / fine granules products in bulk / large (> 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Beauty & Cosmetics Packaging | Bulk Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Beauty & Cosmetics. Optimized for powder / fine granules contents, this bulk / large (> 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "beauty-solid-sample",
+    "industry": {
+      "id": "beauty",
+      "name": "Beauty & Cosmetics"
+    },
+    "state": {
+      "id": "solid",
+      "name": "Solid / Beans / Chunks"
+    },
+    "capacity": {
+      "id": "sample",
+      "name": "Sample / Single-serve (< 50g)"
+    },
+    "recommended_tech_ids": [
+      "flat-bottom-pouch-pcr-pocket-zipper-soft-touch",
+      "shaped-pouch-mono-material-pe-spout-matte",
+      "three-side-seal-pouch-pcr-pocket-zipper-glossy"
+    ],
+    "ap_copy": {
+      "title": "Premium Beauty & Cosmetics Packaging for Sample (Solid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Beauty & Cosmetics sector. Designed to perfectly contain and protect solid / beans / chunks products in sample / single-serve (< 50g) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Beauty & Cosmetics Packaging | Sample Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Beauty & Cosmetics. Optimized for solid / beans / chunks contents, this sample / single-serve (< 50g) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "beauty-solid-retail",
+    "industry": {
+      "id": "beauty",
+      "name": "Beauty & Cosmetics"
+    },
+    "state": {
+      "id": "solid",
+      "name": "Solid / Beans / Chunks"
+    },
+    "capacity": {
+      "id": "retail",
+      "name": "Retail / Medium (100g - 1kg)"
+    },
+    "recommended_tech_ids": [
+      "stand-up-pouch-metallized-foil-child-resistant-zipper-holographic",
+      "three-side-seal-pouch-matte-bopp-euro-hole-glossy",
+      "spouted-pouch-pcr-tear-notch-matte"
+    ],
+    "ap_copy": {
+      "title": "Premium Beauty & Cosmetics Packaging for Retail (Solid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Beauty & Cosmetics sector. Designed to perfectly contain and protect solid / beans / chunks products in retail / medium (100g - 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Beauty & Cosmetics Packaging | Retail Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Beauty & Cosmetics. Optimized for solid / beans / chunks contents, this retail / medium (100g - 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "beauty-solid-bulk",
+    "industry": {
+      "id": "beauty",
+      "name": "Beauty & Cosmetics"
+    },
+    "state": {
+      "id": "solid",
+      "name": "Solid / Beans / Chunks"
+    },
+    "capacity": {
+      "id": "bulk",
+      "name": "Bulk / Large (> 1kg)"
+    },
+    "recommended_tech_ids": [
+      "flat-bottom-pouch-pcr-standard-zipper-spot-uv",
+      "flat-bottom-pouch-compostable-pla-degassing-valve-holographic",
+      "stand-up-pouch-matte-bopp-pocket-zipper-glossy"
+    ],
+    "ap_copy": {
+      "title": "Premium Beauty & Cosmetics Packaging for Bulk (Solid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Beauty & Cosmetics sector. Designed to perfectly contain and protect solid / beans / chunks products in bulk / large (> 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Beauty & Cosmetics Packaging | Bulk Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Beauty & Cosmetics. Optimized for solid / beans / chunks contents, this bulk / large (> 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "beauty-liquid-paste-sample",
+    "industry": {
+      "id": "beauty",
+      "name": "Beauty & Cosmetics"
+    },
+    "state": {
+      "id": "liquid-paste",
+      "name": "Liquid / Paste"
+    },
+    "capacity": {
+      "id": "sample",
+      "name": "Sample / Single-serve (< 50g)"
+    },
+    "recommended_tech_ids": [
+      "three-side-seal-pouch-clear-pet-tear-notch-glossy",
+      "quad-seal-pouch-white-kraft-degassing-valve-natural-kraft",
+      "shaped-pouch-mono-material-pe-degassing-valve-spot-uv"
+    ],
+    "ap_copy": {
+      "title": "Premium Beauty & Cosmetics Packaging for Sample (Liquid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Beauty & Cosmetics sector. Designed to perfectly contain and protect liquid / paste products in sample / single-serve (< 50g) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Beauty & Cosmetics Packaging | Sample Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Beauty & Cosmetics. Optimized for liquid / paste contents, this sample / single-serve (< 50g) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "beauty-liquid-paste-retail",
+    "industry": {
+      "id": "beauty",
+      "name": "Beauty & Cosmetics"
+    },
+    "state": {
+      "id": "liquid-paste",
+      "name": "Liquid / Paste"
+    },
+    "capacity": {
+      "id": "retail",
+      "name": "Retail / Medium (100g - 1kg)"
+    },
+    "recommended_tech_ids": [
+      "three-side-seal-pouch-clear-pet-tear-notch-glossy",
+      "spouted-pouch-clear-pet-degassing-valve-spot-uv",
+      "stand-up-pouch-brown-kraft-standard-zipper-natural-kraft"
+    ],
+    "ap_copy": {
+      "title": "Premium Beauty & Cosmetics Packaging for Retail (Liquid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Beauty & Cosmetics sector. Designed to perfectly contain and protect liquid / paste products in retail / medium (100g - 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Beauty & Cosmetics Packaging | Retail Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Beauty & Cosmetics. Optimized for liquid / paste contents, this retail / medium (100g - 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "beauty-liquid-paste-bulk",
+    "industry": {
+      "id": "beauty",
+      "name": "Beauty & Cosmetics"
+    },
+    "state": {
+      "id": "liquid-paste",
+      "name": "Liquid / Paste"
+    },
+    "capacity": {
+      "id": "bulk",
+      "name": "Bulk / Large (> 1kg)"
+    },
+    "recommended_tech_ids": [
+      "three-side-seal-pouch-mono-material-pe-tear-notch-soft-touch",
+      "spouted-pouch-clear-pet-degassing-valve-spot-uv",
+      "three-side-seal-pouch-pcr-pocket-zipper-glossy",
+      "flat-bottom-pouch-pcr-pocket-zipper-soft-touch"
+    ],
+    "ap_copy": {
+      "title": "Premium Beauty & Cosmetics Packaging for Bulk (Liquid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Beauty & Cosmetics sector. Designed to perfectly contain and protect liquid / paste products in bulk / large (> 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Beauty & Cosmetics Packaging | Bulk Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Beauty & Cosmetics. Optimized for liquid / paste contents, this bulk / large (> 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "liquid-liquid-paste-sample",
+    "industry": {
+      "id": "liquid",
+      "name": "Liquid & Beverage"
+    },
+    "state": {
+      "id": "liquid-paste",
+      "name": "Liquid / Paste"
+    },
+    "capacity": {
+      "id": "sample",
+      "name": "Sample / Single-serve (< 50g)"
+    },
+    "recommended_tech_ids": [
+      "shaped-pouch-compostable-pla-euro-hole-glossy",
+      "stand-up-pouch-pcr-standard-zipper-glossy",
+      "quad-seal-pouch-compostable-pla-standard-zipper-spot-uv"
+    ],
+    "ap_copy": {
+      "title": "Premium Liquid & Beverage Packaging for Sample (Liquid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Liquid & Beverage sector. Designed to perfectly contain and protect liquid / paste products in sample / single-serve (< 50g) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Liquid & Beverage Packaging | Sample Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Liquid & Beverage. Optimized for liquid / paste contents, this sample / single-serve (< 50g) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "liquid-liquid-paste-retail",
+    "industry": {
+      "id": "liquid",
+      "name": "Liquid & Beverage"
+    },
+    "state": {
+      "id": "liquid-paste",
+      "name": "Liquid / Paste"
+    },
+    "capacity": {
+      "id": "retail",
+      "name": "Retail / Medium (100g - 1kg)"
+    },
+    "recommended_tech_ids": [
+      "stand-up-pouch-pcr-child-resistant-zipper-spot-uv",
+      "flat-bottom-pouch-clear-pet-tin-tie-glossy",
+      "quad-seal-pouch-brown-kraft-tear-notch-matte",
+      "quad-seal-pouch-brown-kraft-child-resistant-zipper-soft-touch"
+    ],
+    "ap_copy": {
+      "title": "Premium Liquid & Beverage Packaging for Retail (Liquid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Liquid & Beverage sector. Designed to perfectly contain and protect liquid / paste products in retail / medium (100g - 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Liquid & Beverage Packaging | Retail Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Liquid & Beverage. Optimized for liquid / paste contents, this retail / medium (100g - 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  },
+  {
+    "id": "liquid-liquid-paste-bulk",
+    "industry": {
+      "id": "liquid",
+      "name": "Liquid & Beverage"
+    },
+    "state": {
+      "id": "liquid-paste",
+      "name": "Liquid / Paste"
+    },
+    "capacity": {
+      "id": "bulk",
+      "name": "Bulk / Large (> 1kg)"
+    },
+    "recommended_tech_ids": [
+      "flat-bottom-pouch-compostable-pla-degassing-valve-holographic",
+      "shaped-pouch-mono-material-pe-standard-zipper-soft-touch",
+      "spouted-pouch-compostable-pla-euro-hole-holographic",
+      "quad-seal-pouch-brown-kraft-child-resistant-zipper-soft-touch"
+    ],
+    "ap_copy": {
+      "title": "Premium Liquid & Beverage Packaging for Bulk (Liquid)",
+      "description": "Enterprise-grade packaging engineered specifically for the Liquid & Beverage sector. Designed to perfectly contain and protect liquid / paste products in bulk / large (> 1kg) formats, ensuring maximum shelf presence and product integrity."
+    },
+    "ep_copy": {
+      "title": "Sustainable Liquid & Beverage Packaging | Bulk Size",
+      "description": "Eco-friendly, science-backed packaging solutions for Liquid & Beverage. Optimized for liquid / paste contents, this bulk / large (> 1kg) format reduces carbon footprint while maintaining crucial barrier properties."
+    }
+  }
+]

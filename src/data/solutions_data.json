@@ -1,0 +1,1622 @@
+[
+  {
+    "id": "flat-bottom-pouch-matte-bopp-degassing-valve-glossy",
+    "shape": {
+      "id": "flat-bottom-pouch",
+      "name": "Flat Bottom Pouch"
+    },
+    "material": {
+      "id": "matte-bopp",
+      "name": "Matte BOPP Film"
+    },
+    "parts": {
+      "id": "degassing-valve",
+      "name": "One-Way Degassing Valve"
+    },
+    "surface": {
+      "id": "glossy",
+      "name": "High-Gloss Finish"
+    },
+    "ap_copy": {
+      "title": "Premium Flat Bottom Pouch with One-Way Degassing Valve (Matte BOPP Film, High-Gloss Finish)",
+      "description": "Elevate your brand with our enterprise-grade Flat Bottom Pouch. Featuring a high-gloss finish and one-way degassing valve, crafted from matte bopp film for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Flat Bottom Pouch | Matte BOPP Film with One-Way Degassing Valve",
+      "description": "Science-backed sustainable packaging. Our Flat Bottom Pouch uses matte bopp film engineered to reduce environmental impact. Includes a one-way degassing valve and high-gloss finish for functional eco-design."
+    }
+  },
+  {
+    "id": "flat-bottom-pouch-white-kraft-tin-tie-matte",
+    "shape": {
+      "id": "flat-bottom-pouch",
+      "name": "Flat Bottom Pouch"
+    },
+    "material": {
+      "id": "white-kraft",
+      "name": "White Kraft Paper"
+    },
+    "parts": {
+      "id": "tin-tie",
+      "name": "Tin Tie Closure"
+    },
+    "surface": {
+      "id": "matte",
+      "name": "Standard Matte Finish"
+    },
+    "ap_copy": {
+      "title": "Premium Flat Bottom Pouch with Tin Tie Closure (White Kraft Paper, Standard Matte Finish)",
+      "description": "Elevate your brand with our enterprise-grade Flat Bottom Pouch. Featuring a standard matte finish and tin tie closure, crafted from white kraft paper for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Flat Bottom Pouch | White Kraft Paper with Tin Tie Closure",
+      "description": "Science-backed sustainable packaging. Our Flat Bottom Pouch uses white kraft paper engineered to reduce environmental impact. Includes a tin tie closure and standard matte finish for functional eco-design."
+    }
+  },
+  {
+    "id": "spouted-pouch-clear-pet-spout-matte",
+    "shape": {
+      "id": "spouted-pouch",
+      "name": "Spouted Pouch"
+    },
+    "material": {
+      "id": "clear-pet",
+      "name": "Clear High-Clarity Film"
+    },
+    "parts": {
+      "id": "spout",
+      "name": "Pouring Spout"
+    },
+    "surface": {
+      "id": "matte",
+      "name": "Standard Matte Finish"
+    },
+    "ap_copy": {
+      "title": "Premium Spouted Pouch with Pouring Spout (Clear High-Clarity Film, Standard Matte Finish)",
+      "description": "Elevate your brand with our enterprise-grade Spouted Pouch. Featuring a standard matte finish and pouring spout, crafted from clear high-clarity film for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Spouted Pouch | Clear High-Clarity Film with Pouring Spout",
+      "description": "Science-backed sustainable packaging. Our Spouted Pouch uses clear high-clarity film engineered to reduce environmental impact. Includes a pouring spout and standard matte finish for functional eco-design."
+    }
+  },
+  {
+    "id": "stand-up-pouch-metallized-foil-child-resistant-zipper-holographic",
+    "shape": {
+      "id": "stand-up-pouch",
+      "name": "Stand Up Pouch"
+    },
+    "material": {
+      "id": "metallized-foil",
+      "name": "Metallized Foil (High Barrier)"
+    },
+    "parts": {
+      "id": "child-resistant-zipper",
+      "name": "Child-Resistant Zipper"
+    },
+    "surface": {
+      "id": "holographic",
+      "name": "Holographic Effect"
+    },
+    "ap_copy": {
+      "title": "Premium Stand Up Pouch with Child-Resistant Zipper (Metallized Foil (High Barrier), Holographic Effect)",
+      "description": "Elevate your brand with our enterprise-grade Stand Up Pouch. Featuring a holographic effect and child-resistant zipper, crafted from metallized foil (high barrier) for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Stand Up Pouch | Metallized Foil (High Barrier) with Child-Resistant Zipper",
+      "description": "Science-backed sustainable packaging. Our Stand Up Pouch uses metallized foil (high barrier) engineered to reduce environmental impact. Includes a child-resistant zipper and holographic effect for functional eco-design."
+    }
+  },
+  {
+    "id": "flat-bottom-pouch-mono-material-pe-child-resistant-zipper-matte",
+    "shape": {
+      "id": "flat-bottom-pouch",
+      "name": "Flat Bottom Pouch"
+    },
+    "material": {
+      "id": "mono-material-pe",
+      "name": "100% Recyclable Mono-Material PE"
+    },
+    "parts": {
+      "id": "child-resistant-zipper",
+      "name": "Child-Resistant Zipper"
+    },
+    "surface": {
+      "id": "matte",
+      "name": "Standard Matte Finish"
+    },
+    "ap_copy": {
+      "title": "Premium Flat Bottom Pouch with Child-Resistant Zipper (100% Recyclable Mono-Material PE, Standard Matte Finish)",
+      "description": "Elevate your brand with our enterprise-grade Flat Bottom Pouch. Featuring a standard matte finish and child-resistant zipper, crafted from 100% recyclable mono-material pe for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Flat Bottom Pouch | 100% Recyclable Mono-Material PE with Child-Resistant Zipper",
+      "description": "Science-backed sustainable packaging. Our Flat Bottom Pouch uses 100% recyclable mono-material pe engineered to reduce environmental impact. Includes a child-resistant zipper and standard matte finish for functional eco-design."
+    }
+  },
+  {
+    "id": "stand-up-pouch-compostable-pla-standard-zipper-matte",
+    "shape": {
+      "id": "stand-up-pouch",
+      "name": "Stand Up Pouch"
+    },
+    "material": {
+      "id": "compostable-pla",
+      "name": "Compostable PLA"
+    },
+    "parts": {
+      "id": "standard-zipper",
+      "name": "Standard Resealable Zipper"
+    },
+    "surface": {
+      "id": "matte",
+      "name": "Standard Matte Finish"
+    },
+    "ap_copy": {
+      "title": "Premium Stand Up Pouch with Standard Resealable Zipper (Compostable PLA, Standard Matte Finish)",
+      "description": "Elevate your brand with our enterprise-grade Stand Up Pouch. Featuring a standard matte finish and standard resealable zipper, crafted from compostable pla for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Stand Up Pouch | Compostable PLA with Standard Resealable Zipper",
+      "description": "Science-backed sustainable packaging. Our Stand Up Pouch uses compostable pla engineered to reduce environmental impact. Includes a standard resealable zipper and standard matte finish for functional eco-design."
+    }
+  },
+  {
+    "id": "three-side-seal-pouch-mono-material-pe-tear-notch-soft-touch",
+    "shape": {
+      "id": "three-side-seal-pouch",
+      "name": "Three Side Seal Pouch"
+    },
+    "material": {
+      "id": "mono-material-pe",
+      "name": "100% Recyclable Mono-Material PE"
+    },
+    "parts": {
+      "id": "tear-notch",
+      "name": "Easy-Tear Notch"
+    },
+    "surface": {
+      "id": "soft-touch",
+      "name": "Premium Soft-Touch Matte"
+    },
+    "ap_copy": {
+      "title": "Premium Three Side Seal Pouch with Easy-Tear Notch (100% Recyclable Mono-Material PE, Premium Soft-Touch Matte)",
+      "description": "Elevate your brand with our enterprise-grade Three Side Seal Pouch. Featuring a premium soft-touch matte and easy-tear notch, crafted from 100% recyclable mono-material pe for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Three Side Seal Pouch | 100% Recyclable Mono-Material PE with Easy-Tear Notch",
+      "description": "Science-backed sustainable packaging. Our Three Side Seal Pouch uses 100% recyclable mono-material pe engineered to reduce environmental impact. Includes a easy-tear notch and premium soft-touch matte for functional eco-design."
+    }
+  },
+  {
+    "id": "three-side-seal-pouch-pcr-child-resistant-zipper-matte",
+    "shape": {
+      "id": "three-side-seal-pouch",
+      "name": "Three Side Seal Pouch"
+    },
+    "material": {
+      "id": "pcr",
+      "name": "PCR (Post-Consumer Recycled)"
+    },
+    "parts": {
+      "id": "child-resistant-zipper",
+      "name": "Child-Resistant Zipper"
+    },
+    "surface": {
+      "id": "matte",
+      "name": "Standard Matte Finish"
+    },
+    "ap_copy": {
+      "title": "Premium Three Side Seal Pouch with Child-Resistant Zipper (PCR (Post-Consumer Recycled), Standard Matte Finish)",
+      "description": "Elevate your brand with our enterprise-grade Three Side Seal Pouch. Featuring a standard matte finish and child-resistant zipper, crafted from pcr (post-consumer recycled) for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Three Side Seal Pouch | PCR (Post-Consumer Recycled) with Child-Resistant Zipper",
+      "description": "Science-backed sustainable packaging. Our Three Side Seal Pouch uses pcr (post-consumer recycled) engineered to reduce environmental impact. Includes a child-resistant zipper and standard matte finish for functional eco-design."
+    }
+  },
+  {
+    "id": "stand-up-pouch-matte-bopp-pocket-zipper-glossy",
+    "shape": {
+      "id": "stand-up-pouch",
+      "name": "Stand Up Pouch"
+    },
+    "material": {
+      "id": "matte-bopp",
+      "name": "Matte BOPP Film"
+    },
+    "parts": {
+      "id": "pocket-zipper",
+      "name": "Tear-off Pocket Zipper"
+    },
+    "surface": {
+      "id": "glossy",
+      "name": "High-Gloss Finish"
+    },
+    "ap_copy": {
+      "title": "Premium Stand Up Pouch with Tear-off Pocket Zipper (Matte BOPP Film, High-Gloss Finish)",
+      "description": "Elevate your brand with our enterprise-grade Stand Up Pouch. Featuring a high-gloss finish and tear-off pocket zipper, crafted from matte bopp film for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Stand Up Pouch | Matte BOPP Film with Tear-off Pocket Zipper",
+      "description": "Science-backed sustainable packaging. Our Stand Up Pouch uses matte bopp film engineered to reduce environmental impact. Includes a tear-off pocket zipper and high-gloss finish for functional eco-design."
+    }
+  },
+  {
+    "id": "stand-up-pouch-brown-kraft-standard-zipper-natural-kraft",
+    "shape": {
+      "id": "stand-up-pouch",
+      "name": "Stand Up Pouch"
+    },
+    "material": {
+      "id": "brown-kraft",
+      "name": "Brown Kraft Paper"
+    },
+    "parts": {
+      "id": "standard-zipper",
+      "name": "Standard Resealable Zipper"
+    },
+    "surface": {
+      "id": "natural-kraft",
+      "name": "Natural Uncoated Texture"
+    },
+    "ap_copy": {
+      "title": "Premium Stand Up Pouch with Standard Resealable Zipper (Brown Kraft Paper, Natural Uncoated Texture)",
+      "description": "Elevate your brand with our enterprise-grade Stand Up Pouch. Featuring a natural uncoated texture and standard resealable zipper, crafted from brown kraft paper for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Stand Up Pouch | Brown Kraft Paper with Standard Resealable Zipper",
+      "description": "Science-backed sustainable packaging. Our Stand Up Pouch uses brown kraft paper engineered to reduce environmental impact. Includes a standard resealable zipper and natural uncoated texture for functional eco-design."
+    }
+  },
+  {
+    "id": "spouted-pouch-clear-pet-spout-glossy",
+    "shape": {
+      "id": "spouted-pouch",
+      "name": "Spouted Pouch"
+    },
+    "material": {
+      "id": "clear-pet",
+      "name": "Clear High-Clarity Film"
+    },
+    "parts": {
+      "id": "spout",
+      "name": "Pouring Spout"
+    },
+    "surface": {
+      "id": "glossy",
+      "name": "High-Gloss Finish"
+    },
+    "ap_copy": {
+      "title": "Premium Spouted Pouch with Pouring Spout (Clear High-Clarity Film, High-Gloss Finish)",
+      "description": "Elevate your brand with our enterprise-grade Spouted Pouch. Featuring a high-gloss finish and pouring spout, crafted from clear high-clarity film for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Spouted Pouch | Clear High-Clarity Film with Pouring Spout",
+      "description": "Science-backed sustainable packaging. Our Spouted Pouch uses clear high-clarity film engineered to reduce environmental impact. Includes a pouring spout and high-gloss finish for functional eco-design."
+    }
+  },
+  {
+    "id": "spouted-pouch-brown-kraft-euro-hole-natural-kraft",
+    "shape": {
+      "id": "spouted-pouch",
+      "name": "Spouted Pouch"
+    },
+    "material": {
+      "id": "brown-kraft",
+      "name": "Brown Kraft Paper"
+    },
+    "parts": {
+      "id": "euro-hole",
+      "name": "Euro Hole Hang Tag"
+    },
+    "surface": {
+      "id": "natural-kraft",
+      "name": "Natural Uncoated Texture"
+    },
+    "ap_copy": {
+      "title": "Premium Spouted Pouch with Euro Hole Hang Tag (Brown Kraft Paper, Natural Uncoated Texture)",
+      "description": "Elevate your brand with our enterprise-grade Spouted Pouch. Featuring a natural uncoated texture and euro hole hang tag, crafted from brown kraft paper for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Spouted Pouch | Brown Kraft Paper with Euro Hole Hang Tag",
+      "description": "Science-backed sustainable packaging. Our Spouted Pouch uses brown kraft paper engineered to reduce environmental impact. Includes a euro hole hang tag and natural uncoated texture for functional eco-design."
+    }
+  },
+  {
+    "id": "shaped-pouch-clear-pet-tear-notch-glossy",
+    "shape": {
+      "id": "shaped-pouch",
+      "name": "Custom Shaped Pouch"
+    },
+    "material": {
+      "id": "clear-pet",
+      "name": "Clear High-Clarity Film"
+    },
+    "parts": {
+      "id": "tear-notch",
+      "name": "Easy-Tear Notch"
+    },
+    "surface": {
+      "id": "glossy",
+      "name": "High-Gloss Finish"
+    },
+    "ap_copy": {
+      "title": "Premium Custom Shaped Pouch with Easy-Tear Notch (Clear High-Clarity Film, High-Gloss Finish)",
+      "description": "Elevate your brand with our enterprise-grade Custom Shaped Pouch. Featuring a high-gloss finish and easy-tear notch, crafted from clear high-clarity film for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Custom Shaped Pouch | Clear High-Clarity Film with Easy-Tear Notch",
+      "description": "Science-backed sustainable packaging. Our Custom Shaped Pouch uses clear high-clarity film engineered to reduce environmental impact. Includes a easy-tear notch and high-gloss finish for functional eco-design."
+    }
+  },
+  {
+    "id": "shaped-pouch-clear-pet-child-resistant-zipper-soft-touch",
+    "shape": {
+      "id": "shaped-pouch",
+      "name": "Custom Shaped Pouch"
+    },
+    "material": {
+      "id": "clear-pet",
+      "name": "Clear High-Clarity Film"
+    },
+    "parts": {
+      "id": "child-resistant-zipper",
+      "name": "Child-Resistant Zipper"
+    },
+    "surface": {
+      "id": "soft-touch",
+      "name": "Premium Soft-Touch Matte"
+    },
+    "ap_copy": {
+      "title": "Premium Custom Shaped Pouch with Child-Resistant Zipper (Clear High-Clarity Film, Premium Soft-Touch Matte)",
+      "description": "Elevate your brand with our enterprise-grade Custom Shaped Pouch. Featuring a premium soft-touch matte and child-resistant zipper, crafted from clear high-clarity film for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Custom Shaped Pouch | Clear High-Clarity Film with Child-Resistant Zipper",
+      "description": "Science-backed sustainable packaging. Our Custom Shaped Pouch uses clear high-clarity film engineered to reduce environmental impact. Includes a child-resistant zipper and premium soft-touch matte for functional eco-design."
+    }
+  },
+  {
+    "id": "spouted-pouch-metallized-foil-euro-hole-glossy",
+    "shape": {
+      "id": "spouted-pouch",
+      "name": "Spouted Pouch"
+    },
+    "material": {
+      "id": "metallized-foil",
+      "name": "Metallized Foil (High Barrier)"
+    },
+    "parts": {
+      "id": "euro-hole",
+      "name": "Euro Hole Hang Tag"
+    },
+    "surface": {
+      "id": "glossy",
+      "name": "High-Gloss Finish"
+    },
+    "ap_copy": {
+      "title": "Premium Spouted Pouch with Euro Hole Hang Tag (Metallized Foil (High Barrier), High-Gloss Finish)",
+      "description": "Elevate your brand with our enterprise-grade Spouted Pouch. Featuring a high-gloss finish and euro hole hang tag, crafted from metallized foil (high barrier) for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Spouted Pouch | Metallized Foil (High Barrier) with Euro Hole Hang Tag",
+      "description": "Science-backed sustainable packaging. Our Spouted Pouch uses metallized foil (high barrier) engineered to reduce environmental impact. Includes a euro hole hang tag and high-gloss finish for functional eco-design."
+    }
+  },
+  {
+    "id": "flat-bottom-pouch-compostable-pla-degassing-valve-holographic",
+    "shape": {
+      "id": "flat-bottom-pouch",
+      "name": "Flat Bottom Pouch"
+    },
+    "material": {
+      "id": "compostable-pla",
+      "name": "Compostable PLA"
+    },
+    "parts": {
+      "id": "degassing-valve",
+      "name": "One-Way Degassing Valve"
+    },
+    "surface": {
+      "id": "holographic",
+      "name": "Holographic Effect"
+    },
+    "ap_copy": {
+      "title": "Premium Flat Bottom Pouch with One-Way Degassing Valve (Compostable PLA, Holographic Effect)",
+      "description": "Elevate your brand with our enterprise-grade Flat Bottom Pouch. Featuring a holographic effect and one-way degassing valve, crafted from compostable pla for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Flat Bottom Pouch | Compostable PLA with One-Way Degassing Valve",
+      "description": "Science-backed sustainable packaging. Our Flat Bottom Pouch uses compostable pla engineered to reduce environmental impact. Includes a one-way degassing valve and holographic effect for functional eco-design."
+    }
+  },
+  {
+    "id": "flat-bottom-pouch-matte-bopp-tin-tie-holographic",
+    "shape": {
+      "id": "flat-bottom-pouch",
+      "name": "Flat Bottom Pouch"
+    },
+    "material": {
+      "id": "matte-bopp",
+      "name": "Matte BOPP Film"
+    },
+    "parts": {
+      "id": "tin-tie",
+      "name": "Tin Tie Closure"
+    },
+    "surface": {
+      "id": "holographic",
+      "name": "Holographic Effect"
+    },
+    "ap_copy": {
+      "title": "Premium Flat Bottom Pouch with Tin Tie Closure (Matte BOPP Film, Holographic Effect)",
+      "description": "Elevate your brand with our enterprise-grade Flat Bottom Pouch. Featuring a holographic effect and tin tie closure, crafted from matte bopp film for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Flat Bottom Pouch | Matte BOPP Film with Tin Tie Closure",
+      "description": "Science-backed sustainable packaging. Our Flat Bottom Pouch uses matte bopp film engineered to reduce environmental impact. Includes a tin tie closure and holographic effect for functional eco-design."
+    }
+  },
+  {
+    "id": "quad-seal-pouch-white-kraft-euro-hole-matte",
+    "shape": {
+      "id": "quad-seal-pouch",
+      "name": "Quad Seal Pouch"
+    },
+    "material": {
+      "id": "white-kraft",
+      "name": "White Kraft Paper"
+    },
+    "parts": {
+      "id": "euro-hole",
+      "name": "Euro Hole Hang Tag"
+    },
+    "surface": {
+      "id": "matte",
+      "name": "Standard Matte Finish"
+    },
+    "ap_copy": {
+      "title": "Premium Quad Seal Pouch with Euro Hole Hang Tag (White Kraft Paper, Standard Matte Finish)",
+      "description": "Elevate your brand with our enterprise-grade Quad Seal Pouch. Featuring a standard matte finish and euro hole hang tag, crafted from white kraft paper for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Quad Seal Pouch | White Kraft Paper with Euro Hole Hang Tag",
+      "description": "Science-backed sustainable packaging. Our Quad Seal Pouch uses white kraft paper engineered to reduce environmental impact. Includes a euro hole hang tag and standard matte finish for functional eco-design."
+    }
+  },
+  {
+    "id": "shaped-pouch-clear-pet-degassing-valve-matte",
+    "shape": {
+      "id": "shaped-pouch",
+      "name": "Custom Shaped Pouch"
+    },
+    "material": {
+      "id": "clear-pet",
+      "name": "Clear High-Clarity Film"
+    },
+    "parts": {
+      "id": "degassing-valve",
+      "name": "One-Way Degassing Valve"
+    },
+    "surface": {
+      "id": "matte",
+      "name": "Standard Matte Finish"
+    },
+    "ap_copy": {
+      "title": "Premium Custom Shaped Pouch with One-Way Degassing Valve (Clear High-Clarity Film, Standard Matte Finish)",
+      "description": "Elevate your brand with our enterprise-grade Custom Shaped Pouch. Featuring a standard matte finish and one-way degassing valve, crafted from clear high-clarity film for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Custom Shaped Pouch | Clear High-Clarity Film with One-Way Degassing Valve",
+      "description": "Science-backed sustainable packaging. Our Custom Shaped Pouch uses clear high-clarity film engineered to reduce environmental impact. Includes a one-way degassing valve and standard matte finish for functional eco-design."
+    }
+  },
+  {
+    "id": "three-side-seal-pouch-clear-pet-pocket-zipper-spot-uv",
+    "shape": {
+      "id": "three-side-seal-pouch",
+      "name": "Three Side Seal Pouch"
+    },
+    "material": {
+      "id": "clear-pet",
+      "name": "Clear High-Clarity Film"
+    },
+    "parts": {
+      "id": "pocket-zipper",
+      "name": "Tear-off Pocket Zipper"
+    },
+    "surface": {
+      "id": "spot-uv",
+      "name": "Spot UV Highlighting"
+    },
+    "ap_copy": {
+      "title": "Premium Three Side Seal Pouch with Tear-off Pocket Zipper (Clear High-Clarity Film, Spot UV Highlighting)",
+      "description": "Elevate your brand with our enterprise-grade Three Side Seal Pouch. Featuring a spot uv highlighting and tear-off pocket zipper, crafted from clear high-clarity film for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Three Side Seal Pouch | Clear High-Clarity Film with Tear-off Pocket Zipper",
+      "description": "Science-backed sustainable packaging. Our Three Side Seal Pouch uses clear high-clarity film engineered to reduce environmental impact. Includes a tear-off pocket zipper and spot uv highlighting for functional eco-design."
+    }
+  },
+  {
+    "id": "flat-bottom-pouch-metallized-foil-euro-hole-soft-touch",
+    "shape": {
+      "id": "flat-bottom-pouch",
+      "name": "Flat Bottom Pouch"
+    },
+    "material": {
+      "id": "metallized-foil",
+      "name": "Metallized Foil (High Barrier)"
+    },
+    "parts": {
+      "id": "euro-hole",
+      "name": "Euro Hole Hang Tag"
+    },
+    "surface": {
+      "id": "soft-touch",
+      "name": "Premium Soft-Touch Matte"
+    },
+    "ap_copy": {
+      "title": "Premium Flat Bottom Pouch with Euro Hole Hang Tag (Metallized Foil (High Barrier), Premium Soft-Touch Matte)",
+      "description": "Elevate your brand with our enterprise-grade Flat Bottom Pouch. Featuring a premium soft-touch matte and euro hole hang tag, crafted from metallized foil (high barrier) for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Flat Bottom Pouch | Metallized Foil (High Barrier) with Euro Hole Hang Tag",
+      "description": "Science-backed sustainable packaging. Our Flat Bottom Pouch uses metallized foil (high barrier) engineered to reduce environmental impact. Includes a euro hole hang tag and premium soft-touch matte for functional eco-design."
+    }
+  },
+  {
+    "id": "stand-up-pouch-pcr-euro-hole-spot-uv",
+    "shape": {
+      "id": "stand-up-pouch",
+      "name": "Stand Up Pouch"
+    },
+    "material": {
+      "id": "pcr",
+      "name": "PCR (Post-Consumer Recycled)"
+    },
+    "parts": {
+      "id": "euro-hole",
+      "name": "Euro Hole Hang Tag"
+    },
+    "surface": {
+      "id": "spot-uv",
+      "name": "Spot UV Highlighting"
+    },
+    "ap_copy": {
+      "title": "Premium Stand Up Pouch with Euro Hole Hang Tag (PCR (Post-Consumer Recycled), Spot UV Highlighting)",
+      "description": "Elevate your brand with our enterprise-grade Stand Up Pouch. Featuring a spot uv highlighting and euro hole hang tag, crafted from pcr (post-consumer recycled) for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Stand Up Pouch | PCR (Post-Consumer Recycled) with Euro Hole Hang Tag",
+      "description": "Science-backed sustainable packaging. Our Stand Up Pouch uses pcr (post-consumer recycled) engineered to reduce environmental impact. Includes a euro hole hang tag and spot uv highlighting for functional eco-design."
+    }
+  },
+  {
+    "id": "shaped-pouch-brown-kraft-pocket-zipper-natural-kraft",
+    "shape": {
+      "id": "shaped-pouch",
+      "name": "Custom Shaped Pouch"
+    },
+    "material": {
+      "id": "brown-kraft",
+      "name": "Brown Kraft Paper"
+    },
+    "parts": {
+      "id": "pocket-zipper",
+      "name": "Tear-off Pocket Zipper"
+    },
+    "surface": {
+      "id": "natural-kraft",
+      "name": "Natural Uncoated Texture"
+    },
+    "ap_copy": {
+      "title": "Premium Custom Shaped Pouch with Tear-off Pocket Zipper (Brown Kraft Paper, Natural Uncoated Texture)",
+      "description": "Elevate your brand with our enterprise-grade Custom Shaped Pouch. Featuring a natural uncoated texture and tear-off pocket zipper, crafted from brown kraft paper for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Custom Shaped Pouch | Brown Kraft Paper with Tear-off Pocket Zipper",
+      "description": "Science-backed sustainable packaging. Our Custom Shaped Pouch uses brown kraft paper engineered to reduce environmental impact. Includes a tear-off pocket zipper and natural uncoated texture for functional eco-design."
+    }
+  },
+  {
+    "id": "spouted-pouch-compostable-pla-euro-hole-holographic",
+    "shape": {
+      "id": "spouted-pouch",
+      "name": "Spouted Pouch"
+    },
+    "material": {
+      "id": "compostable-pla",
+      "name": "Compostable PLA"
+    },
+    "parts": {
+      "id": "euro-hole",
+      "name": "Euro Hole Hang Tag"
+    },
+    "surface": {
+      "id": "holographic",
+      "name": "Holographic Effect"
+    },
+    "ap_copy": {
+      "title": "Premium Spouted Pouch with Euro Hole Hang Tag (Compostable PLA, Holographic Effect)",
+      "description": "Elevate your brand with our enterprise-grade Spouted Pouch. Featuring a holographic effect and euro hole hang tag, crafted from compostable pla for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Spouted Pouch | Compostable PLA with Euro Hole Hang Tag",
+      "description": "Science-backed sustainable packaging. Our Spouted Pouch uses compostable pla engineered to reduce environmental impact. Includes a euro hole hang tag and holographic effect for functional eco-design."
+    }
+  },
+  {
+    "id": "shaped-pouch-compostable-pla-euro-hole-glossy",
+    "shape": {
+      "id": "shaped-pouch",
+      "name": "Custom Shaped Pouch"
+    },
+    "material": {
+      "id": "compostable-pla",
+      "name": "Compostable PLA"
+    },
+    "parts": {
+      "id": "euro-hole",
+      "name": "Euro Hole Hang Tag"
+    },
+    "surface": {
+      "id": "glossy",
+      "name": "High-Gloss Finish"
+    },
+    "ap_copy": {
+      "title": "Premium Custom Shaped Pouch with Euro Hole Hang Tag (Compostable PLA, High-Gloss Finish)",
+      "description": "Elevate your brand with our enterprise-grade Custom Shaped Pouch. Featuring a high-gloss finish and euro hole hang tag, crafted from compostable pla for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Custom Shaped Pouch | Compostable PLA with Euro Hole Hang Tag",
+      "description": "Science-backed sustainable packaging. Our Custom Shaped Pouch uses compostable pla engineered to reduce environmental impact. Includes a euro hole hang tag and high-gloss finish for functional eco-design."
+    }
+  },
+  {
+    "id": "spouted-pouch-brown-kraft-tear-notch-soft-touch",
+    "shape": {
+      "id": "spouted-pouch",
+      "name": "Spouted Pouch"
+    },
+    "material": {
+      "id": "brown-kraft",
+      "name": "Brown Kraft Paper"
+    },
+    "parts": {
+      "id": "tear-notch",
+      "name": "Easy-Tear Notch"
+    },
+    "surface": {
+      "id": "soft-touch",
+      "name": "Premium Soft-Touch Matte"
+    },
+    "ap_copy": {
+      "title": "Premium Spouted Pouch with Easy-Tear Notch (Brown Kraft Paper, Premium Soft-Touch Matte)",
+      "description": "Elevate your brand with our enterprise-grade Spouted Pouch. Featuring a premium soft-touch matte and easy-tear notch, crafted from brown kraft paper for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Spouted Pouch | Brown Kraft Paper with Easy-Tear Notch",
+      "description": "Science-backed sustainable packaging. Our Spouted Pouch uses brown kraft paper engineered to reduce environmental impact. Includes a easy-tear notch and premium soft-touch matte for functional eco-design."
+    }
+  },
+  {
+    "id": "shaped-pouch-mono-material-pe-degassing-valve-spot-uv",
+    "shape": {
+      "id": "shaped-pouch",
+      "name": "Custom Shaped Pouch"
+    },
+    "material": {
+      "id": "mono-material-pe",
+      "name": "100% Recyclable Mono-Material PE"
+    },
+    "parts": {
+      "id": "degassing-valve",
+      "name": "One-Way Degassing Valve"
+    },
+    "surface": {
+      "id": "spot-uv",
+      "name": "Spot UV Highlighting"
+    },
+    "ap_copy": {
+      "title": "Premium Custom Shaped Pouch with One-Way Degassing Valve (100% Recyclable Mono-Material PE, Spot UV Highlighting)",
+      "description": "Elevate your brand with our enterprise-grade Custom Shaped Pouch. Featuring a spot uv highlighting and one-way degassing valve, crafted from 100% recyclable mono-material pe for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Custom Shaped Pouch | 100% Recyclable Mono-Material PE with One-Way Degassing Valve",
+      "description": "Science-backed sustainable packaging. Our Custom Shaped Pouch uses 100% recyclable mono-material pe engineered to reduce environmental impact. Includes a one-way degassing valve and spot uv highlighting for functional eco-design."
+    }
+  },
+  {
+    "id": "three-side-seal-pouch-pcr-pocket-zipper-glossy",
+    "shape": {
+      "id": "three-side-seal-pouch",
+      "name": "Three Side Seal Pouch"
+    },
+    "material": {
+      "id": "pcr",
+      "name": "PCR (Post-Consumer Recycled)"
+    },
+    "parts": {
+      "id": "pocket-zipper",
+      "name": "Tear-off Pocket Zipper"
+    },
+    "surface": {
+      "id": "glossy",
+      "name": "High-Gloss Finish"
+    },
+    "ap_copy": {
+      "title": "Premium Three Side Seal Pouch with Tear-off Pocket Zipper (PCR (Post-Consumer Recycled), High-Gloss Finish)",
+      "description": "Elevate your brand with our enterprise-grade Three Side Seal Pouch. Featuring a high-gloss finish and tear-off pocket zipper, crafted from pcr (post-consumer recycled) for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Three Side Seal Pouch | PCR (Post-Consumer Recycled) with Tear-off Pocket Zipper",
+      "description": "Science-backed sustainable packaging. Our Three Side Seal Pouch uses pcr (post-consumer recycled) engineered to reduce environmental impact. Includes a tear-off pocket zipper and high-gloss finish for functional eco-design."
+    }
+  },
+  {
+    "id": "quad-seal-pouch-brown-kraft-tear-notch-matte",
+    "shape": {
+      "id": "quad-seal-pouch",
+      "name": "Quad Seal Pouch"
+    },
+    "material": {
+      "id": "brown-kraft",
+      "name": "Brown Kraft Paper"
+    },
+    "parts": {
+      "id": "tear-notch",
+      "name": "Easy-Tear Notch"
+    },
+    "surface": {
+      "id": "matte",
+      "name": "Standard Matte Finish"
+    },
+    "ap_copy": {
+      "title": "Premium Quad Seal Pouch with Easy-Tear Notch (Brown Kraft Paper, Standard Matte Finish)",
+      "description": "Elevate your brand with our enterprise-grade Quad Seal Pouch. Featuring a standard matte finish and easy-tear notch, crafted from brown kraft paper for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Quad Seal Pouch | Brown Kraft Paper with Easy-Tear Notch",
+      "description": "Science-backed sustainable packaging. Our Quad Seal Pouch uses brown kraft paper engineered to reduce environmental impact. Includes a easy-tear notch and standard matte finish for functional eco-design."
+    }
+  },
+  {
+    "id": "flat-bottom-pouch-metallized-foil-standard-zipper-spot-uv",
+    "shape": {
+      "id": "flat-bottom-pouch",
+      "name": "Flat Bottom Pouch"
+    },
+    "material": {
+      "id": "metallized-foil",
+      "name": "Metallized Foil (High Barrier)"
+    },
+    "parts": {
+      "id": "standard-zipper",
+      "name": "Standard Resealable Zipper"
+    },
+    "surface": {
+      "id": "spot-uv",
+      "name": "Spot UV Highlighting"
+    },
+    "ap_copy": {
+      "title": "Premium Flat Bottom Pouch with Standard Resealable Zipper (Metallized Foil (High Barrier), Spot UV Highlighting)",
+      "description": "Elevate your brand with our enterprise-grade Flat Bottom Pouch. Featuring a spot uv highlighting and standard resealable zipper, crafted from metallized foil (high barrier) for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Flat Bottom Pouch | Metallized Foil (High Barrier) with Standard Resealable Zipper",
+      "description": "Science-backed sustainable packaging. Our Flat Bottom Pouch uses metallized foil (high barrier) engineered to reduce environmental impact. Includes a standard resealable zipper and spot uv highlighting for functional eco-design."
+    }
+  },
+  {
+    "id": "spouted-pouch-clear-pet-degassing-valve-spot-uv",
+    "shape": {
+      "id": "spouted-pouch",
+      "name": "Spouted Pouch"
+    },
+    "material": {
+      "id": "clear-pet",
+      "name": "Clear High-Clarity Film"
+    },
+    "parts": {
+      "id": "degassing-valve",
+      "name": "One-Way Degassing Valve"
+    },
+    "surface": {
+      "id": "spot-uv",
+      "name": "Spot UV Highlighting"
+    },
+    "ap_copy": {
+      "title": "Premium Spouted Pouch with One-Way Degassing Valve (Clear High-Clarity Film, Spot UV Highlighting)",
+      "description": "Elevate your brand with our enterprise-grade Spouted Pouch. Featuring a spot uv highlighting and one-way degassing valve, crafted from clear high-clarity film for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Spouted Pouch | Clear High-Clarity Film with One-Way Degassing Valve",
+      "description": "Science-backed sustainable packaging. Our Spouted Pouch uses clear high-clarity film engineered to reduce environmental impact. Includes a one-way degassing valve and spot uv highlighting for functional eco-design."
+    }
+  },
+  {
+    "id": "three-side-seal-pouch-pcr-tear-notch-spot-uv",
+    "shape": {
+      "id": "three-side-seal-pouch",
+      "name": "Three Side Seal Pouch"
+    },
+    "material": {
+      "id": "pcr",
+      "name": "PCR (Post-Consumer Recycled)"
+    },
+    "parts": {
+      "id": "tear-notch",
+      "name": "Easy-Tear Notch"
+    },
+    "surface": {
+      "id": "spot-uv",
+      "name": "Spot UV Highlighting"
+    },
+    "ap_copy": {
+      "title": "Premium Three Side Seal Pouch with Easy-Tear Notch (PCR (Post-Consumer Recycled), Spot UV Highlighting)",
+      "description": "Elevate your brand with our enterprise-grade Three Side Seal Pouch. Featuring a spot uv highlighting and easy-tear notch, crafted from pcr (post-consumer recycled) for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Three Side Seal Pouch | PCR (Post-Consumer Recycled) with Easy-Tear Notch",
+      "description": "Science-backed sustainable packaging. Our Three Side Seal Pouch uses pcr (post-consumer recycled) engineered to reduce environmental impact. Includes a easy-tear notch and spot uv highlighting for functional eco-design."
+    }
+  },
+  {
+    "id": "three-side-seal-pouch-compostable-pla-standard-zipper-holographic",
+    "shape": {
+      "id": "three-side-seal-pouch",
+      "name": "Three Side Seal Pouch"
+    },
+    "material": {
+      "id": "compostable-pla",
+      "name": "Compostable PLA"
+    },
+    "parts": {
+      "id": "standard-zipper",
+      "name": "Standard Resealable Zipper"
+    },
+    "surface": {
+      "id": "holographic",
+      "name": "Holographic Effect"
+    },
+    "ap_copy": {
+      "title": "Premium Three Side Seal Pouch with Standard Resealable Zipper (Compostable PLA, Holographic Effect)",
+      "description": "Elevate your brand with our enterprise-grade Three Side Seal Pouch. Featuring a holographic effect and standard resealable zipper, crafted from compostable pla for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Three Side Seal Pouch | Compostable PLA with Standard Resealable Zipper",
+      "description": "Science-backed sustainable packaging. Our Three Side Seal Pouch uses compostable pla engineered to reduce environmental impact. Includes a standard resealable zipper and holographic effect for functional eco-design."
+    }
+  },
+  {
+    "id": "three-side-seal-pouch-clear-pet-tear-notch-glossy",
+    "shape": {
+      "id": "three-side-seal-pouch",
+      "name": "Three Side Seal Pouch"
+    },
+    "material": {
+      "id": "clear-pet",
+      "name": "Clear High-Clarity Film"
+    },
+    "parts": {
+      "id": "tear-notch",
+      "name": "Easy-Tear Notch"
+    },
+    "surface": {
+      "id": "glossy",
+      "name": "High-Gloss Finish"
+    },
+    "ap_copy": {
+      "title": "Premium Three Side Seal Pouch with Easy-Tear Notch (Clear High-Clarity Film, High-Gloss Finish)",
+      "description": "Elevate your brand with our enterprise-grade Three Side Seal Pouch. Featuring a high-gloss finish and easy-tear notch, crafted from clear high-clarity film for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Three Side Seal Pouch | Clear High-Clarity Film with Easy-Tear Notch",
+      "description": "Science-backed sustainable packaging. Our Three Side Seal Pouch uses clear high-clarity film engineered to reduce environmental impact. Includes a easy-tear notch and high-gloss finish for functional eco-design."
+    }
+  },
+  {
+    "id": "stand-up-pouch-metallized-foil-tear-notch-soft-touch",
+    "shape": {
+      "id": "stand-up-pouch",
+      "name": "Stand Up Pouch"
+    },
+    "material": {
+      "id": "metallized-foil",
+      "name": "Metallized Foil (High Barrier)"
+    },
+    "parts": {
+      "id": "tear-notch",
+      "name": "Easy-Tear Notch"
+    },
+    "surface": {
+      "id": "soft-touch",
+      "name": "Premium Soft-Touch Matte"
+    },
+    "ap_copy": {
+      "title": "Premium Stand Up Pouch with Easy-Tear Notch (Metallized Foil (High Barrier), Premium Soft-Touch Matte)",
+      "description": "Elevate your brand with our enterprise-grade Stand Up Pouch. Featuring a premium soft-touch matte and easy-tear notch, crafted from metallized foil (high barrier) for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Stand Up Pouch | Metallized Foil (High Barrier) with Easy-Tear Notch",
+      "description": "Science-backed sustainable packaging. Our Stand Up Pouch uses metallized foil (high barrier) engineered to reduce environmental impact. Includes a easy-tear notch and premium soft-touch matte for functional eco-design."
+    }
+  },
+  {
+    "id": "flat-bottom-pouch-pcr-standard-zipper-spot-uv",
+    "shape": {
+      "id": "flat-bottom-pouch",
+      "name": "Flat Bottom Pouch"
+    },
+    "material": {
+      "id": "pcr",
+      "name": "PCR (Post-Consumer Recycled)"
+    },
+    "parts": {
+      "id": "standard-zipper",
+      "name": "Standard Resealable Zipper"
+    },
+    "surface": {
+      "id": "spot-uv",
+      "name": "Spot UV Highlighting"
+    },
+    "ap_copy": {
+      "title": "Premium Flat Bottom Pouch with Standard Resealable Zipper (PCR (Post-Consumer Recycled), Spot UV Highlighting)",
+      "description": "Elevate your brand with our enterprise-grade Flat Bottom Pouch. Featuring a spot uv highlighting and standard resealable zipper, crafted from pcr (post-consumer recycled) for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Flat Bottom Pouch | PCR (Post-Consumer Recycled) with Standard Resealable Zipper",
+      "description": "Science-backed sustainable packaging. Our Flat Bottom Pouch uses pcr (post-consumer recycled) engineered to reduce environmental impact. Includes a standard resealable zipper and spot uv highlighting for functional eco-design."
+    }
+  },
+  {
+    "id": "flat-bottom-pouch-clear-pet-degassing-valve-soft-touch",
+    "shape": {
+      "id": "flat-bottom-pouch",
+      "name": "Flat Bottom Pouch"
+    },
+    "material": {
+      "id": "clear-pet",
+      "name": "Clear High-Clarity Film"
+    },
+    "parts": {
+      "id": "degassing-valve",
+      "name": "One-Way Degassing Valve"
+    },
+    "surface": {
+      "id": "soft-touch",
+      "name": "Premium Soft-Touch Matte"
+    },
+    "ap_copy": {
+      "title": "Premium Flat Bottom Pouch with One-Way Degassing Valve (Clear High-Clarity Film, Premium Soft-Touch Matte)",
+      "description": "Elevate your brand with our enterprise-grade Flat Bottom Pouch. Featuring a premium soft-touch matte and one-way degassing valve, crafted from clear high-clarity film for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Flat Bottom Pouch | Clear High-Clarity Film with One-Way Degassing Valve",
+      "description": "Science-backed sustainable packaging. Our Flat Bottom Pouch uses clear high-clarity film engineered to reduce environmental impact. Includes a one-way degassing valve and premium soft-touch matte for functional eco-design."
+    }
+  },
+  {
+    "id": "stand-up-pouch-brown-kraft-tear-notch-natural-kraft",
+    "shape": {
+      "id": "stand-up-pouch",
+      "name": "Stand Up Pouch"
+    },
+    "material": {
+      "id": "brown-kraft",
+      "name": "Brown Kraft Paper"
+    },
+    "parts": {
+      "id": "tear-notch",
+      "name": "Easy-Tear Notch"
+    },
+    "surface": {
+      "id": "natural-kraft",
+      "name": "Natural Uncoated Texture"
+    },
+    "ap_copy": {
+      "title": "Premium Stand Up Pouch with Easy-Tear Notch (Brown Kraft Paper, Natural Uncoated Texture)",
+      "description": "Elevate your brand with our enterprise-grade Stand Up Pouch. Featuring a natural uncoated texture and easy-tear notch, crafted from brown kraft paper for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Stand Up Pouch | Brown Kraft Paper with Easy-Tear Notch",
+      "description": "Science-backed sustainable packaging. Our Stand Up Pouch uses brown kraft paper engineered to reduce environmental impact. Includes a easy-tear notch and natural uncoated texture for functional eco-design."
+    }
+  },
+  {
+    "id": "shaped-pouch-metallized-foil-child-resistant-zipper-soft-touch",
+    "shape": {
+      "id": "shaped-pouch",
+      "name": "Custom Shaped Pouch"
+    },
+    "material": {
+      "id": "metallized-foil",
+      "name": "Metallized Foil (High Barrier)"
+    },
+    "parts": {
+      "id": "child-resistant-zipper",
+      "name": "Child-Resistant Zipper"
+    },
+    "surface": {
+      "id": "soft-touch",
+      "name": "Premium Soft-Touch Matte"
+    },
+    "ap_copy": {
+      "title": "Premium Custom Shaped Pouch with Child-Resistant Zipper (Metallized Foil (High Barrier), Premium Soft-Touch Matte)",
+      "description": "Elevate your brand with our enterprise-grade Custom Shaped Pouch. Featuring a premium soft-touch matte and child-resistant zipper, crafted from metallized foil (high barrier) for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Custom Shaped Pouch | Metallized Foil (High Barrier) with Child-Resistant Zipper",
+      "description": "Science-backed sustainable packaging. Our Custom Shaped Pouch uses metallized foil (high barrier) engineered to reduce environmental impact. Includes a child-resistant zipper and premium soft-touch matte for functional eco-design."
+    }
+  },
+  {
+    "id": "three-side-seal-pouch-white-kraft-tear-notch-soft-touch",
+    "shape": {
+      "id": "three-side-seal-pouch",
+      "name": "Three Side Seal Pouch"
+    },
+    "material": {
+      "id": "white-kraft",
+      "name": "White Kraft Paper"
+    },
+    "parts": {
+      "id": "tear-notch",
+      "name": "Easy-Tear Notch"
+    },
+    "surface": {
+      "id": "soft-touch",
+      "name": "Premium Soft-Touch Matte"
+    },
+    "ap_copy": {
+      "title": "Premium Three Side Seal Pouch with Easy-Tear Notch (White Kraft Paper, Premium Soft-Touch Matte)",
+      "description": "Elevate your brand with our enterprise-grade Three Side Seal Pouch. Featuring a premium soft-touch matte and easy-tear notch, crafted from white kraft paper for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Three Side Seal Pouch | White Kraft Paper with Easy-Tear Notch",
+      "description": "Science-backed sustainable packaging. Our Three Side Seal Pouch uses white kraft paper engineered to reduce environmental impact. Includes a easy-tear notch and premium soft-touch matte for functional eco-design."
+    }
+  },
+  {
+    "id": "quad-seal-pouch-compostable-pla-pocket-zipper-holographic",
+    "shape": {
+      "id": "quad-seal-pouch",
+      "name": "Quad Seal Pouch"
+    },
+    "material": {
+      "id": "compostable-pla",
+      "name": "Compostable PLA"
+    },
+    "parts": {
+      "id": "pocket-zipper",
+      "name": "Tear-off Pocket Zipper"
+    },
+    "surface": {
+      "id": "holographic",
+      "name": "Holographic Effect"
+    },
+    "ap_copy": {
+      "title": "Premium Quad Seal Pouch with Tear-off Pocket Zipper (Compostable PLA, Holographic Effect)",
+      "description": "Elevate your brand with our enterprise-grade Quad Seal Pouch. Featuring a holographic effect and tear-off pocket zipper, crafted from compostable pla for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Quad Seal Pouch | Compostable PLA with Tear-off Pocket Zipper",
+      "description": "Science-backed sustainable packaging. Our Quad Seal Pouch uses compostable pla engineered to reduce environmental impact. Includes a tear-off pocket zipper and holographic effect for functional eco-design."
+    }
+  },
+  {
+    "id": "stand-up-pouch-pcr-standard-zipper-glossy",
+    "shape": {
+      "id": "stand-up-pouch",
+      "name": "Stand Up Pouch"
+    },
+    "material": {
+      "id": "pcr",
+      "name": "PCR (Post-Consumer Recycled)"
+    },
+    "parts": {
+      "id": "standard-zipper",
+      "name": "Standard Resealable Zipper"
+    },
+    "surface": {
+      "id": "glossy",
+      "name": "High-Gloss Finish"
+    },
+    "ap_copy": {
+      "title": "Premium Stand Up Pouch with Standard Resealable Zipper (PCR (Post-Consumer Recycled), High-Gloss Finish)",
+      "description": "Elevate your brand with our enterprise-grade Stand Up Pouch. Featuring a high-gloss finish and standard resealable zipper, crafted from pcr (post-consumer recycled) for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Stand Up Pouch | PCR (Post-Consumer Recycled) with Standard Resealable Zipper",
+      "description": "Science-backed sustainable packaging. Our Stand Up Pouch uses pcr (post-consumer recycled) engineered to reduce environmental impact. Includes a standard resealable zipper and high-gloss finish for functional eco-design."
+    }
+  },
+  {
+    "id": "shaped-pouch-pcr-euro-hole-holographic",
+    "shape": {
+      "id": "shaped-pouch",
+      "name": "Custom Shaped Pouch"
+    },
+    "material": {
+      "id": "pcr",
+      "name": "PCR (Post-Consumer Recycled)"
+    },
+    "parts": {
+      "id": "euro-hole",
+      "name": "Euro Hole Hang Tag"
+    },
+    "surface": {
+      "id": "holographic",
+      "name": "Holographic Effect"
+    },
+    "ap_copy": {
+      "title": "Premium Custom Shaped Pouch with Euro Hole Hang Tag (PCR (Post-Consumer Recycled), Holographic Effect)",
+      "description": "Elevate your brand with our enterprise-grade Custom Shaped Pouch. Featuring a holographic effect and euro hole hang tag, crafted from pcr (post-consumer recycled) for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Custom Shaped Pouch | PCR (Post-Consumer Recycled) with Euro Hole Hang Tag",
+      "description": "Science-backed sustainable packaging. Our Custom Shaped Pouch uses pcr (post-consumer recycled) engineered to reduce environmental impact. Includes a euro hole hang tag and holographic effect for functional eco-design."
+    }
+  },
+  {
+    "id": "stand-up-pouch-pcr-child-resistant-zipper-spot-uv",
+    "shape": {
+      "id": "stand-up-pouch",
+      "name": "Stand Up Pouch"
+    },
+    "material": {
+      "id": "pcr",
+      "name": "PCR (Post-Consumer Recycled)"
+    },
+    "parts": {
+      "id": "child-resistant-zipper",
+      "name": "Child-Resistant Zipper"
+    },
+    "surface": {
+      "id": "spot-uv",
+      "name": "Spot UV Highlighting"
+    },
+    "ap_copy": {
+      "title": "Premium Stand Up Pouch with Child-Resistant Zipper (PCR (Post-Consumer Recycled), Spot UV Highlighting)",
+      "description": "Elevate your brand with our enterprise-grade Stand Up Pouch. Featuring a spot uv highlighting and child-resistant zipper, crafted from pcr (post-consumer recycled) for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Stand Up Pouch | PCR (Post-Consumer Recycled) with Child-Resistant Zipper",
+      "description": "Science-backed sustainable packaging. Our Stand Up Pouch uses pcr (post-consumer recycled) engineered to reduce environmental impact. Includes a child-resistant zipper and spot uv highlighting for functional eco-design."
+    }
+  },
+  {
+    "id": "quad-seal-pouch-compostable-pla-standard-zipper-spot-uv",
+    "shape": {
+      "id": "quad-seal-pouch",
+      "name": "Quad Seal Pouch"
+    },
+    "material": {
+      "id": "compostable-pla",
+      "name": "Compostable PLA"
+    },
+    "parts": {
+      "id": "standard-zipper",
+      "name": "Standard Resealable Zipper"
+    },
+    "surface": {
+      "id": "spot-uv",
+      "name": "Spot UV Highlighting"
+    },
+    "ap_copy": {
+      "title": "Premium Quad Seal Pouch with Standard Resealable Zipper (Compostable PLA, Spot UV Highlighting)",
+      "description": "Elevate your brand with our enterprise-grade Quad Seal Pouch. Featuring a spot uv highlighting and standard resealable zipper, crafted from compostable pla for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Quad Seal Pouch | Compostable PLA with Standard Resealable Zipper",
+      "description": "Science-backed sustainable packaging. Our Quad Seal Pouch uses compostable pla engineered to reduce environmental impact. Includes a standard resealable zipper and spot uv highlighting for functional eco-design."
+    }
+  },
+  {
+    "id": "quad-seal-pouch-white-kraft-degassing-valve-natural-kraft",
+    "shape": {
+      "id": "quad-seal-pouch",
+      "name": "Quad Seal Pouch"
+    },
+    "material": {
+      "id": "white-kraft",
+      "name": "White Kraft Paper"
+    },
+    "parts": {
+      "id": "degassing-valve",
+      "name": "One-Way Degassing Valve"
+    },
+    "surface": {
+      "id": "natural-kraft",
+      "name": "Natural Uncoated Texture"
+    },
+    "ap_copy": {
+      "title": "Premium Quad Seal Pouch with One-Way Degassing Valve (White Kraft Paper, Natural Uncoated Texture)",
+      "description": "Elevate your brand with our enterprise-grade Quad Seal Pouch. Featuring a natural uncoated texture and one-way degassing valve, crafted from white kraft paper for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Quad Seal Pouch | White Kraft Paper with One-Way Degassing Valve",
+      "description": "Science-backed sustainable packaging. Our Quad Seal Pouch uses white kraft paper engineered to reduce environmental impact. Includes a one-way degassing valve and natural uncoated texture for functional eco-design."
+    }
+  },
+  {
+    "id": "three-side-seal-pouch-matte-bopp-euro-hole-glossy",
+    "shape": {
+      "id": "three-side-seal-pouch",
+      "name": "Three Side Seal Pouch"
+    },
+    "material": {
+      "id": "matte-bopp",
+      "name": "Matte BOPP Film"
+    },
+    "parts": {
+      "id": "euro-hole",
+      "name": "Euro Hole Hang Tag"
+    },
+    "surface": {
+      "id": "glossy",
+      "name": "High-Gloss Finish"
+    },
+    "ap_copy": {
+      "title": "Premium Three Side Seal Pouch with Euro Hole Hang Tag (Matte BOPP Film, High-Gloss Finish)",
+      "description": "Elevate your brand with our enterprise-grade Three Side Seal Pouch. Featuring a high-gloss finish and euro hole hang tag, crafted from matte bopp film for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Three Side Seal Pouch | Matte BOPP Film with Euro Hole Hang Tag",
+      "description": "Science-backed sustainable packaging. Our Three Side Seal Pouch uses matte bopp film engineered to reduce environmental impact. Includes a euro hole hang tag and high-gloss finish for functional eco-design."
+    }
+  },
+  {
+    "id": "flat-bottom-pouch-white-kraft-tin-tie-soft-touch",
+    "shape": {
+      "id": "flat-bottom-pouch",
+      "name": "Flat Bottom Pouch"
+    },
+    "material": {
+      "id": "white-kraft",
+      "name": "White Kraft Paper"
+    },
+    "parts": {
+      "id": "tin-tie",
+      "name": "Tin Tie Closure"
+    },
+    "surface": {
+      "id": "soft-touch",
+      "name": "Premium Soft-Touch Matte"
+    },
+    "ap_copy": {
+      "title": "Premium Flat Bottom Pouch with Tin Tie Closure (White Kraft Paper, Premium Soft-Touch Matte)",
+      "description": "Elevate your brand with our enterprise-grade Flat Bottom Pouch. Featuring a premium soft-touch matte and tin tie closure, crafted from white kraft paper for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Flat Bottom Pouch | White Kraft Paper with Tin Tie Closure",
+      "description": "Science-backed sustainable packaging. Our Flat Bottom Pouch uses white kraft paper engineered to reduce environmental impact. Includes a tin tie closure and premium soft-touch matte for functional eco-design."
+    }
+  },
+  {
+    "id": "stand-up-pouch-metallized-foil-euro-hole-soft-touch",
+    "shape": {
+      "id": "stand-up-pouch",
+      "name": "Stand Up Pouch"
+    },
+    "material": {
+      "id": "metallized-foil",
+      "name": "Metallized Foil (High Barrier)"
+    },
+    "parts": {
+      "id": "euro-hole",
+      "name": "Euro Hole Hang Tag"
+    },
+    "surface": {
+      "id": "soft-touch",
+      "name": "Premium Soft-Touch Matte"
+    },
+    "ap_copy": {
+      "title": "Premium Stand Up Pouch with Euro Hole Hang Tag (Metallized Foil (High Barrier), Premium Soft-Touch Matte)",
+      "description": "Elevate your brand with our enterprise-grade Stand Up Pouch. Featuring a premium soft-touch matte and euro hole hang tag, crafted from metallized foil (high barrier) for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Stand Up Pouch | Metallized Foil (High Barrier) with Euro Hole Hang Tag",
+      "description": "Science-backed sustainable packaging. Our Stand Up Pouch uses metallized foil (high barrier) engineered to reduce environmental impact. Includes a euro hole hang tag and premium soft-touch matte for functional eco-design."
+    }
+  },
+  {
+    "id": "shaped-pouch-white-kraft-tear-notch-spot-uv",
+    "shape": {
+      "id": "shaped-pouch",
+      "name": "Custom Shaped Pouch"
+    },
+    "material": {
+      "id": "white-kraft",
+      "name": "White Kraft Paper"
+    },
+    "parts": {
+      "id": "tear-notch",
+      "name": "Easy-Tear Notch"
+    },
+    "surface": {
+      "id": "spot-uv",
+      "name": "Spot UV Highlighting"
+    },
+    "ap_copy": {
+      "title": "Premium Custom Shaped Pouch with Easy-Tear Notch (White Kraft Paper, Spot UV Highlighting)",
+      "description": "Elevate your brand with our enterprise-grade Custom Shaped Pouch. Featuring a spot uv highlighting and easy-tear notch, crafted from white kraft paper for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Custom Shaped Pouch | White Kraft Paper with Easy-Tear Notch",
+      "description": "Science-backed sustainable packaging. Our Custom Shaped Pouch uses white kraft paper engineered to reduce environmental impact. Includes a easy-tear notch and spot uv highlighting for functional eco-design."
+    }
+  },
+  {
+    "id": "shaped-pouch-mono-material-pe-standard-zipper-soft-touch",
+    "shape": {
+      "id": "shaped-pouch",
+      "name": "Custom Shaped Pouch"
+    },
+    "material": {
+      "id": "mono-material-pe",
+      "name": "100% Recyclable Mono-Material PE"
+    },
+    "parts": {
+      "id": "standard-zipper",
+      "name": "Standard Resealable Zipper"
+    },
+    "surface": {
+      "id": "soft-touch",
+      "name": "Premium Soft-Touch Matte"
+    },
+    "ap_copy": {
+      "title": "Premium Custom Shaped Pouch with Standard Resealable Zipper (100% Recyclable Mono-Material PE, Premium Soft-Touch Matte)",
+      "description": "Elevate your brand with our enterprise-grade Custom Shaped Pouch. Featuring a premium soft-touch matte and standard resealable zipper, crafted from 100% recyclable mono-material pe for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Custom Shaped Pouch | 100% Recyclable Mono-Material PE with Standard Resealable Zipper",
+      "description": "Science-backed sustainable packaging. Our Custom Shaped Pouch uses 100% recyclable mono-material pe engineered to reduce environmental impact. Includes a standard resealable zipper and premium soft-touch matte for functional eco-design."
+    }
+  },
+  {
+    "id": "shaped-pouch-mono-material-pe-spout-matte",
+    "shape": {
+      "id": "shaped-pouch",
+      "name": "Custom Shaped Pouch"
+    },
+    "material": {
+      "id": "mono-material-pe",
+      "name": "100% Recyclable Mono-Material PE"
+    },
+    "parts": {
+      "id": "spout",
+      "name": "Pouring Spout"
+    },
+    "surface": {
+      "id": "matte",
+      "name": "Standard Matte Finish"
+    },
+    "ap_copy": {
+      "title": "Premium Custom Shaped Pouch with Pouring Spout (100% Recyclable Mono-Material PE, Standard Matte Finish)",
+      "description": "Elevate your brand with our enterprise-grade Custom Shaped Pouch. Featuring a standard matte finish and pouring spout, crafted from 100% recyclable mono-material pe for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Custom Shaped Pouch | 100% Recyclable Mono-Material PE with Pouring Spout",
+      "description": "Science-backed sustainable packaging. Our Custom Shaped Pouch uses 100% recyclable mono-material pe engineered to reduce environmental impact. Includes a pouring spout and standard matte finish for functional eco-design."
+    }
+  },
+  {
+    "id": "three-side-seal-pouch-matte-bopp-degassing-valve-holographic",
+    "shape": {
+      "id": "three-side-seal-pouch",
+      "name": "Three Side Seal Pouch"
+    },
+    "material": {
+      "id": "matte-bopp",
+      "name": "Matte BOPP Film"
+    },
+    "parts": {
+      "id": "degassing-valve",
+      "name": "One-Way Degassing Valve"
+    },
+    "surface": {
+      "id": "holographic",
+      "name": "Holographic Effect"
+    },
+    "ap_copy": {
+      "title": "Premium Three Side Seal Pouch with One-Way Degassing Valve (Matte BOPP Film, Holographic Effect)",
+      "description": "Elevate your brand with our enterprise-grade Three Side Seal Pouch. Featuring a holographic effect and one-way degassing valve, crafted from matte bopp film for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Three Side Seal Pouch | Matte BOPP Film with One-Way Degassing Valve",
+      "description": "Science-backed sustainable packaging. Our Three Side Seal Pouch uses matte bopp film engineered to reduce environmental impact. Includes a one-way degassing valve and holographic effect for functional eco-design."
+    }
+  },
+  {
+    "id": "flat-bottom-pouch-clear-pet-tin-tie-glossy",
+    "shape": {
+      "id": "flat-bottom-pouch",
+      "name": "Flat Bottom Pouch"
+    },
+    "material": {
+      "id": "clear-pet",
+      "name": "Clear High-Clarity Film"
+    },
+    "parts": {
+      "id": "tin-tie",
+      "name": "Tin Tie Closure"
+    },
+    "surface": {
+      "id": "glossy",
+      "name": "High-Gloss Finish"
+    },
+    "ap_copy": {
+      "title": "Premium Flat Bottom Pouch with Tin Tie Closure (Clear High-Clarity Film, High-Gloss Finish)",
+      "description": "Elevate your brand with our enterprise-grade Flat Bottom Pouch. Featuring a high-gloss finish and tin tie closure, crafted from clear high-clarity film for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Flat Bottom Pouch | Clear High-Clarity Film with Tin Tie Closure",
+      "description": "Science-backed sustainable packaging. Our Flat Bottom Pouch uses clear high-clarity film engineered to reduce environmental impact. Includes a tin tie closure and high-gloss finish for functional eco-design."
+    }
+  },
+  {
+    "id": "flat-bottom-pouch-clear-pet-pocket-zipper-spot-uv",
+    "shape": {
+      "id": "flat-bottom-pouch",
+      "name": "Flat Bottom Pouch"
+    },
+    "material": {
+      "id": "clear-pet",
+      "name": "Clear High-Clarity Film"
+    },
+    "parts": {
+      "id": "pocket-zipper",
+      "name": "Tear-off Pocket Zipper"
+    },
+    "surface": {
+      "id": "spot-uv",
+      "name": "Spot UV Highlighting"
+    },
+    "ap_copy": {
+      "title": "Premium Flat Bottom Pouch with Tear-off Pocket Zipper (Clear High-Clarity Film, Spot UV Highlighting)",
+      "description": "Elevate your brand with our enterprise-grade Flat Bottom Pouch. Featuring a spot uv highlighting and tear-off pocket zipper, crafted from clear high-clarity film for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Flat Bottom Pouch | Clear High-Clarity Film with Tear-off Pocket Zipper",
+      "description": "Science-backed sustainable packaging. Our Flat Bottom Pouch uses clear high-clarity film engineered to reduce environmental impact. Includes a tear-off pocket zipper and spot uv highlighting for functional eco-design."
+    }
+  },
+  {
+    "id": "three-side-seal-pouch-mono-material-pe-tear-notch-glossy",
+    "shape": {
+      "id": "three-side-seal-pouch",
+      "name": "Three Side Seal Pouch"
+    },
+    "material": {
+      "id": "mono-material-pe",
+      "name": "100% Recyclable Mono-Material PE"
+    },
+    "parts": {
+      "id": "tear-notch",
+      "name": "Easy-Tear Notch"
+    },
+    "surface": {
+      "id": "glossy",
+      "name": "High-Gloss Finish"
+    },
+    "ap_copy": {
+      "title": "Premium Three Side Seal Pouch with Easy-Tear Notch (100% Recyclable Mono-Material PE, High-Gloss Finish)",
+      "description": "Elevate your brand with our enterprise-grade Three Side Seal Pouch. Featuring a high-gloss finish and easy-tear notch, crafted from 100% recyclable mono-material pe for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Three Side Seal Pouch | 100% Recyclable Mono-Material PE with Easy-Tear Notch",
+      "description": "Science-backed sustainable packaging. Our Three Side Seal Pouch uses 100% recyclable mono-material pe engineered to reduce environmental impact. Includes a easy-tear notch and high-gloss finish for functional eco-design."
+    }
+  },
+  {
+    "id": "stand-up-pouch-clear-pet-tear-notch-spot-uv",
+    "shape": {
+      "id": "stand-up-pouch",
+      "name": "Stand Up Pouch"
+    },
+    "material": {
+      "id": "clear-pet",
+      "name": "Clear High-Clarity Film"
+    },
+    "parts": {
+      "id": "tear-notch",
+      "name": "Easy-Tear Notch"
+    },
+    "surface": {
+      "id": "spot-uv",
+      "name": "Spot UV Highlighting"
+    },
+    "ap_copy": {
+      "title": "Premium Stand Up Pouch with Easy-Tear Notch (Clear High-Clarity Film, Spot UV Highlighting)",
+      "description": "Elevate your brand with our enterprise-grade Stand Up Pouch. Featuring a spot uv highlighting and easy-tear notch, crafted from clear high-clarity film for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Stand Up Pouch | Clear High-Clarity Film with Easy-Tear Notch",
+      "description": "Science-backed sustainable packaging. Our Stand Up Pouch uses clear high-clarity film engineered to reduce environmental impact. Includes a easy-tear notch and spot uv highlighting for functional eco-design."
+    }
+  },
+  {
+    "id": "flat-bottom-pouch-pcr-pocket-zipper-soft-touch",
+    "shape": {
+      "id": "flat-bottom-pouch",
+      "name": "Flat Bottom Pouch"
+    },
+    "material": {
+      "id": "pcr",
+      "name": "PCR (Post-Consumer Recycled)"
+    },
+    "parts": {
+      "id": "pocket-zipper",
+      "name": "Tear-off Pocket Zipper"
+    },
+    "surface": {
+      "id": "soft-touch",
+      "name": "Premium Soft-Touch Matte"
+    },
+    "ap_copy": {
+      "title": "Premium Flat Bottom Pouch with Tear-off Pocket Zipper (PCR (Post-Consumer Recycled), Premium Soft-Touch Matte)",
+      "description": "Elevate your brand with our enterprise-grade Flat Bottom Pouch. Featuring a premium soft-touch matte and tear-off pocket zipper, crafted from pcr (post-consumer recycled) for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Flat Bottom Pouch | PCR (Post-Consumer Recycled) with Tear-off Pocket Zipper",
+      "description": "Science-backed sustainable packaging. Our Flat Bottom Pouch uses pcr (post-consumer recycled) engineered to reduce environmental impact. Includes a tear-off pocket zipper and premium soft-touch matte for functional eco-design."
+    }
+  },
+  {
+    "id": "quad-seal-pouch-brown-kraft-child-resistant-zipper-soft-touch",
+    "shape": {
+      "id": "quad-seal-pouch",
+      "name": "Quad Seal Pouch"
+    },
+    "material": {
+      "id": "brown-kraft",
+      "name": "Brown Kraft Paper"
+    },
+    "parts": {
+      "id": "child-resistant-zipper",
+      "name": "Child-Resistant Zipper"
+    },
+    "surface": {
+      "id": "soft-touch",
+      "name": "Premium Soft-Touch Matte"
+    },
+    "ap_copy": {
+      "title": "Premium Quad Seal Pouch with Child-Resistant Zipper (Brown Kraft Paper, Premium Soft-Touch Matte)",
+      "description": "Elevate your brand with our enterprise-grade Quad Seal Pouch. Featuring a premium soft-touch matte and child-resistant zipper, crafted from brown kraft paper for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Quad Seal Pouch | Brown Kraft Paper with Child-Resistant Zipper",
+      "description": "Science-backed sustainable packaging. Our Quad Seal Pouch uses brown kraft paper engineered to reduce environmental impact. Includes a child-resistant zipper and premium soft-touch matte for functional eco-design."
+    }
+  },
+  {
+    "id": "spouted-pouch-pcr-tear-notch-matte",
+    "shape": {
+      "id": "spouted-pouch",
+      "name": "Spouted Pouch"
+    },
+    "material": {
+      "id": "pcr",
+      "name": "PCR (Post-Consumer Recycled)"
+    },
+    "parts": {
+      "id": "tear-notch",
+      "name": "Easy-Tear Notch"
+    },
+    "surface": {
+      "id": "matte",
+      "name": "Standard Matte Finish"
+    },
+    "ap_copy": {
+      "title": "Premium Spouted Pouch with Easy-Tear Notch (PCR (Post-Consumer Recycled), Standard Matte Finish)",
+      "description": "Elevate your brand with our enterprise-grade Spouted Pouch. Featuring a standard matte finish and easy-tear notch, crafted from pcr (post-consumer recycled) for uncompromised luxury and performance."
+    },
+    "ep_copy": {
+      "title": "Sustainable Spouted Pouch | PCR (Post-Consumer Recycled) with Easy-Tear Notch",
+      "description": "Science-backed sustainable packaging. Our Spouted Pouch uses pcr (post-consumer recycled) engineered to reduce environmental impact. Includes a easy-tear notch and standard matte finish for functional eco-design."
+    }
+  }
+]
